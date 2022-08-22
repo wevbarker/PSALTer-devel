@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     57011,       1311]
-NotebookOptionsPosition[     52521,       1237]
-NotebookOutlinePosition[     53092,       1257]
-CellTagsIndexPosition[     53049,       1254]
+NotebookDataLength[     63096,       1445]
+NotebookOptionsPosition[     58414,       1369]
+NotebookOutlinePosition[     58985,       1389]
+CellTagsIndexPosition[     58942,       1386]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -405,11 +405,10 @@ Cell["Options.", "Text",
 Cell[BoxData[
  RowBox[{
   RowBox[{
-   RowBox[{"BuildSpinors", "::", "usage"}], "=", 
-   "\"\<Spinors is a boolean option for BuildPriam, which determines whether \
-spinorial FieldsX package objects (such as the frame bundle, spin structure \
-and spin connections), are built when the geometric setup is introduced. \
-Default is True.\>\""}], ";"}]], "Code",
+   RowBox[{"BuildLightcone", "::", "usage"}], "=", 
+   "\"\<BuildLightcone is a boolean option for BuildPriam, which determines \
+whether the lightcone coordinates are constructed using xCoba.\>\""}], 
+  ";"}]], "Code",
  CellChangeTimes->{{3.866655579049555*^9, 3.8666555961367397`*^9}, {
    3.86665565250416*^9, 3.8666557056247377`*^9}, {3.86665574469639*^9, 
    3.866655862832568*^9}, {3.8678234783587112`*^9, 3.867823478360281*^9}, {
@@ -418,8 +417,9 @@ Default is True.\>\""}], ";"}]], "Code",
    3.869925645916903*^9, 3.869925710306464*^9}, {3.8699257568574877`*^9, 
    3.869925780217216*^9}, {3.869925810665097*^9, 3.869925844000597*^9}, {
    3.8699274299511003`*^9, 3.869927446391567*^9}, 3.86993391344634*^9, 
-   3.869937743312509*^9, 
-   3.8700616751151648`*^9},ExpressionUUID->"6b9ac97c-72a5-49e6-baf1-\
+   3.869937743312509*^9, 3.8700616751151648`*^9, {3.870148878972501*^9, 
+   3.870148900700541*^9}, {3.8701489563646517`*^9, 
+   3.8701489713406563`*^9}},ExpressionUUID->"6b9ac97c-72a5-49e6-baf1-\
 35bdc26b8bc4"],
 
 Cell["Global variables.", "Text",
@@ -486,12 +486,18 @@ Cell[BoxData[{
 BuildHiGGS[].\>\""}], ";"}], "\n", 
  RowBox[{
   RowBox[{
+   RowBox[{"Options", "@", "BuildPriam"}], "=", 
+   RowBox[{"{", 
+    RowBox[{"BuildLightcone", "->", "True"}], "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
    RowBox[{"BuildPriam", "::", "built"}], "=", 
    "\"\<The Priam environment has already been built.\>\""}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{"BuildPriam", "[", "]"}], ":=", 
+   RowBox[{"BuildPriam", "[", 
+    RowBox[{"OptionsPattern", "[", "]"}], "]"}], ":=", 
    RowBox[{"Catch", "@", 
     RowBox[{"Module", "[", 
      RowBox[{
@@ -551,7 +557,17 @@ BuildHiGGS[].\>\""}], ";"}], "\n",
         RowBox[{"FileNameJoin", "@", 
          RowBox[{"{", 
           RowBox[{"$PriamInstallDirectory", ",", "\"\<Priam_sources.m\>\""}], 
-          "}"}]}], "]"}], ";", "\[IndentingNewLine]", 
+          "}"}]}], "]"}], ";", "\n", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"OptionValue", "@", "BuildLightcone"}], ",", "\n", 
+         RowBox[{
+          RowBox[{"Get", "[", 
+           RowBox[{"FileNameJoin", "@", 
+            RowBox[{"{", 
+             RowBox[{
+             "$PriamInstallDirectory", ",", "\"\<Priam_lightcone.m\>\""}], 
+             "}"}]}], "]"}], ";"}]}], "\n", "]"}], ";", "\[IndentingNewLine]", 
        RowBox[{"(*", 
         RowBox[{
         "Purge", " ", "all", " ", "cells", " ", "created", " ", "during", " ",
@@ -597,8 +613,10 @@ is now ready to use.\>\"", "]"}], ";", "\[IndentingNewLine]",
    3.869936767062187*^9}, {3.869937702436548*^9, 3.8699377101124372`*^9}, {
    3.869937743315797*^9, 3.869937743318668*^9}, {3.869938033523736*^9, 
    3.869938152835483*^9}, {3.870061675126671*^9, 3.870061675205085*^9}, {
-   3.870103124578631*^9, 
-   3.87010316532273*^9}},ExpressionUUID->"7669c24e-b8b9-4be5-bd8f-\
+   3.870103124578631*^9, 3.87010316532273*^9}, {3.870148841165949*^9, 
+   3.8701488611346188`*^9}, {3.870148998471067*^9, 3.8701490194544573`*^9}, {
+   3.8701518749309483`*^9, 
+   3.870151875422851*^9}},ExpressionUUID->"7669c24e-b8b9-4be5-bd8f-\
 86bc8ca5e89d"],
 
 Cell["\<\
@@ -809,7 +827,18 @@ Cell[BoxData[
         RowBox[{"ToMomentumExpr", "//", "ToNewCanonical"}]}], ";", 
        "\[IndentingNewLine]", 
        RowBox[{"ToMomentumExpr", "=", 
-        RowBox[{"ToMomentumExpr", "//", "CollectTensors"}]}], ";", "\n", 
+        RowBox[{"ToMomentumExpr", "//", "CollectTensors"}]}], ";", "\n", "\n", 
+       RowBox[{
+       "Print", "@", 
+        "\"\< ** FourierLagrangian: Lagrangian in Fourier space, decomposed \
+among the SO(3) irreducible representations of the fields:\>\""}], ";", "\n", 
+       
+       RowBox[{"Print", "[", 
+        RowBox[{
+        "\"\<\!\(\*SuperscriptBox[OverscriptBox[\(\[Zeta]\), \(^\)], \(\
+\[Dagger]\)]\)(\[ScriptK])\[CenterDot]\!\(\*OverscriptBox[\(\[ScriptCapitalO]\
+\), \(^\)]\)(\[ScriptK])\[CenterDot]\!\(\*OverscriptBox[\(\[Zeta]\), \
+\(^\)]\)(\[ScriptK]) = \>\"", ",", "ToMomentumExpr"}], "]"}], ";", "\n", "\n", 
        RowBox[{"NotebookDelete", "@", "printer"}], ";", "\n", 
        "ToMomentumExpr"}]}], "]"}]}]}], ";"}]], "Code",
  CellChangeTimes->{{3.870089537528511*^9, 3.8700895383044157`*^9}, {
@@ -831,8 +860,9 @@ Cell[BoxData[
    3.8701044013883333`*^9}, {3.8701050264720078`*^9, 3.870105029853676*^9}, {
    3.870105307542502*^9, 3.870105318884577*^9}, {3.870105474716042*^9, 
    3.870105477588193*^9}, {3.870105563397612*^9, 3.870105591421432*^9}, {
-   3.870105621963969*^9, 
-   3.870105635748568*^9}},ExpressionUUID->"a1266c82-967a-4615-82aa-\
+   3.870105621963969*^9, 3.870105635748568*^9}, {3.8701535126039753`*^9, 
+   3.870153582394672*^9}, {3.870153684017839*^9, 
+   3.870153717676859*^9}},ExpressionUUID->"a1266c82-967a-4615-82aa-\
 93e09aad878e"],
 
 Cell["Modules to construct the matrices.", "Text",
@@ -1218,6 +1248,108 @@ inverse of the Hermition, SPO-rescaled matrix Lagrangian:\>\""}], ";", "\n",
    3.870114365580318*^9}},ExpressionUUID->"de0fa22a-8d58-439b-8009-\
 0848a3550c69"],
 
+Cell["\<\
+A function to produce a list of components of all the source constraints, \
+where symmetries of the source tensors are used to make this list as short as \
+possible.\
+\>", "Text",
+ CellChangeTimes->{{3.870153004297536*^9, 
+  3.870153097543056*^9}},ExpressionUUID->"19b668cc-375d-46cb-a908-\
+9864d2076310"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"MakeConstraintComponentList", "[", 
+    RowBox[{"PropagatorConstraints_List", ",", 
+     RowBox[{"ManualConstraints_List", ":", 
+      RowBox[{"{", "}"}]}]}], "]"}], ":=", 
+   RowBox[{"Catch", "@", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"AllConstraints", ",", "ConstraintComponents"}], "}"}], ",", 
+      "\n", 
+      RowBox[{"(*", 
+       RowBox[{
+       "First", " ", "join", " ", "up", " ", "the", " ", "automatically", " ",
+         "and", " ", "manually", " ", "derived", " ", "constraints", " ", 
+        "lists"}], "*)"}], "\n", 
+      RowBox[{
+       RowBox[{"AllConstraints", "=", 
+        RowBox[{
+        "PropagatorConstraints", "~", "Join", "~", "ManualConstraints"}]}], 
+       ";", "\n", 
+       RowBox[{"(*", 
+        RowBox[{
+        "Obtain", " ", "nested", " ", "lists", " ", "of", " ", "all", " ", 
+         "the", " ", "Cartesian", " ", "components", " ", "of", " ", "the", 
+         " ", "vanishing", " ", "constraint", " ", "functions"}], "*)"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{"ConstraintComponents", "=", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"Length", "@", 
+              RowBox[{"FindFreeIndices", "@", "#"}]}], "!=", "0"}], ",", 
+            RowBox[{"xAct`xCoba`ComponentArray", "[", 
+             RowBox[{
+              RowBox[{
+              "xAct`xCoba`FreeToBasis", "[", "Global`cartesian", "]"}], "@", 
+              "#"}], "]"}], ",", "#"}], "]"}], "&"}], "/@", 
+         "AllConstraints"}]}], ";", "\n", 
+       RowBox[{"(*", 
+        RowBox[{"Flatten", " ", "them"}], "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"ConstraintComponents", "=", 
+        RowBox[{"Flatten", "@", "ConstraintComponents"}]}], ";", "\n", 
+       RowBox[{"(*", 
+        RowBox[{
+        "Use", " ", "the", " ", "symmetries", " ", "of", " ", "the", " ", 
+         "SO", 
+         RowBox[{"(", "3", ")"}], " ", "irreps", " ", "to", " ", 
+         "\"\<canonicalise\>\"", " ", "these", " ", "component", " ", 
+         "expressions", " ", "via", " ", "folded", " ", "rules"}], "*)"}], 
+       "\n", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"ConstraintComponents", "=", 
+           RowBox[{"ConstraintComponents", "/.", 
+            RowBox[{"xAct`xCoba`TensorValues", "@", "#"}]}]}], ")"}], "&"}], "/@", 
+        RowBox[{"{", 
+         RowBox[{
+         "Global`TauP1p", ",", "Global`SigmaP1p", ",", "Global`SigmaPerp1p", 
+          ",", "Global`TauP1m", ",", "Global`SigmaP1m", ",", 
+          "Global`TauPerp1m", ",", "Global`SigmaPerp1m", ",", "Global`TauP2p",
+           ",", "Global`SigmaP2p", ",", "Global`SigmaP2m"}], "}"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{
+         RowBox[{"Remove", " ", "symmetry"}], "-", 
+         RowBox[{
+         "vanishing", " ", "and", " ", "duplicate", " ", "entries", " ", 
+          "that", " ", "the", " ", "\"\<canonicalisation\>\"", " ", 
+          "reveals"}]}], "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"ConstraintComponents", "=", 
+        RowBox[{"ConstraintComponents", "~", "DeleteCases", "~", "0"}]}], ";",
+        "\[IndentingNewLine]", 
+       RowBox[{"ConstraintComponents", "=", 
+        RowBox[{"ConstraintComponents", "//", "DeleteDuplicates"}]}], ";", 
+       "\n", "ConstraintComponents"}]}], "]"}]}]}], ";"}]], "Code",
+ CellChangeTimes->{{3.870153186223755*^9, 3.87015319385639*^9}, {
+  3.870153226575736*^9, 3.8701532499760313`*^9}, {3.87015329741884*^9, 
+  3.870153341336288*^9}, {3.870153937425139*^9, 3.8701539831772747`*^9}, {
+  3.8701540558006144`*^9, 3.8701541341945353`*^9}, {3.870154168379554*^9, 
+  3.87015436711378*^9}, {3.870154475633808*^9, 3.870154492258522*^9}, {
+  3.8701545355619507`*^9, 3.8701545793868237`*^9}, {3.8701546266907454`*^9, 
+  3.870154686506535*^9}, {3.8701551116438837`*^9, 3.8701551339711733`*^9}, {
+  3.870155308313943*^9, 3.87015531741873*^9}, {3.870155871515061*^9, 
+  3.8701559101313143`*^9}, {3.870155972250393*^9, 
+  3.870155974196121*^9}},ExpressionUUID->"6e92047b-38cf-4102-97ea-\
+07edca112e0e"],
+
 Cell["End the private context and also the package.", "Text",
  CellChangeTimes->{{3.8666236458945436`*^9, 
   3.8666236556910686`*^9}},ExpressionUUID->"f2f06fa7-b6c6-4c13-a31b-\
@@ -1292,24 +1424,26 @@ Cell[13813, 344, 169, 3, 35, "Text",ExpressionUUID->"4d69d1a6-18b4-49bd-8687-5b3
 Cell[13985, 349, 2927, 48, 102, "Code",ExpressionUUID->"0d303fea-233e-44b8-936d-2c95feb0d542",
  InitializationCell->True],
 Cell[16915, 399, 150, 3, 35, "Text",ExpressionUUID->"613d2077-58e1-48b3-be51-98454f8b46db"],
-Cell[17068, 404, 1051, 18, 39, "Code",ExpressionUUID->"6b9ac97c-72a5-49e6-baf1-35bdc26b8bc4"],
-Cell[18122, 424, 207, 4, 35, "Text",ExpressionUUID->"cb8fb7c7-03a2-4790-b621-e463b855dce0"],
-Cell[18332, 430, 680, 14, 39, "Code",ExpressionUUID->"758a0e41-5295-462b-9437-5280624e09c7",
+Cell[17068, 404, 1048, 18, 39, "Code",ExpressionUUID->"6b9ac97c-72a5-49e6-baf1-35bdc26b8bc4"],
+Cell[18119, 424, 207, 4, 35, "Text",ExpressionUUID->"cb8fb7c7-03a2-4790-b621-e463b855dce0"],
+Cell[18329, 430, 680, 14, 39, "Code",ExpressionUUID->"758a0e41-5295-462b-9437-5280624e09c7",
  InitializationCell->True]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[19049, 449, 202, 4, 68, "Section",ExpressionUUID->"a6b00713-ece3-4dc1-9431-e34d7272d190"],
-Cell[19254, 455, 171, 3, 35, "Text",ExpressionUUID->"2d795a04-6d19-4b93-887e-ff53f39ead5d"],
-Cell[19428, 460, 329, 7, 36, "Code",ExpressionUUID->"696e3f34-5f4d-47e5-ab6a-441391b71169",
+Cell[19046, 449, 202, 4, 68, "Section",ExpressionUUID->"a6b00713-ece3-4dc1-9431-e34d7272d190"],
+Cell[19251, 455, 171, 3, 35, "Text",ExpressionUUID->"2d795a04-6d19-4b93-887e-ff53f39ead5d"],
+Cell[19425, 460, 329, 7, 36, "Code",ExpressionUUID->"696e3f34-5f4d-47e5-ab6a-441391b71169",
  InitializationCell->True],
-Cell[19760, 469, 296, 7, 35, "Text",ExpressionUUID->"cd1cede3-8e70-4172-bd0b-bd6dca95f21e"],
-Cell[20059, 478, 5836, 123, 420, "Code",ExpressionUUID->"7669c24e-b8b9-4be5-bd8f-86bc8ca5e89d"],
-Cell[25898, 603, 218, 5, 35, "Text",ExpressionUUID->"22f91f6e-c314-4759-91b3-13470832f1d6"],
-Cell[26119, 610, 9912, 225, 735, "Code",ExpressionUUID->"a1266c82-967a-4615-82aa-93e09aad878e"],
-Cell[36034, 837, 176, 3, 35, "Text",ExpressionUUID->"3788fb21-d0d8-49c8-85a4-68390524263d"],
-Cell[36213, 842, 15783, 376, 1163, "Code",ExpressionUUID->"de0fa22a-8d58-439b-8009-0848a3550c69"],
-Cell[51999, 1220, 191, 3, 35, "Text",ExpressionUUID->"f2f06fa7-b6c6-4c13-a31b-64c909d1dfac"],
-Cell[52193, 1225, 300, 8, 58, "Code",ExpressionUUID->"be6e4c65-8777-4371-a9d3-a94948ca9d30",
+Cell[19757, 469, 296, 7, 35, "Text",ExpressionUUID->"cd1cede3-8e70-4172-bd0b-bd6dca95f21e"],
+Cell[20056, 478, 6577, 141, 503, "Code",ExpressionUUID->"7669c24e-b8b9-4be5-bd8f-86bc8ca5e89d"],
+Cell[26636, 621, 218, 5, 35, "Text",ExpressionUUID->"22f91f6e-c314-4759-91b3-13470832f1d6"],
+Cell[26857, 628, 10569, 237, 820, "Code",ExpressionUUID->"a1266c82-967a-4615-82aa-93e09aad878e"],
+Cell[37429, 867, 176, 3, 35, "Text",ExpressionUUID->"3788fb21-d0d8-49c8-85a4-68390524263d"],
+Cell[37608, 872, 15783, 376, 1163, "Code",ExpressionUUID->"de0fa22a-8d58-439b-8009-0848a3550c69"],
+Cell[53394, 1250, 315, 7, 35, "Text",ExpressionUUID->"19b668cc-375d-46cb-a908-9864d2076310"],
+Cell[53712, 1259, 4177, 91, 290, "Code",ExpressionUUID->"6e92047b-38cf-4102-97ea-07edca112e0e"],
+Cell[57892, 1352, 191, 3, 35, "Text",ExpressionUUID->"f2f06fa7-b6c6-4c13-a31b-64c909d1dfac"],
+Cell[58086, 1357, 300, 8, 58, "Code",ExpressionUUID->"be6e4c65-8777-4371-a9d3-a94948ca9d30",
  InitializationCell->True]
 }, Open  ]]
 }, Open  ]]

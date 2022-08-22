@@ -69,7 +69,7 @@ Both Expr and at least one field must be provided. Do not include indices in the
 SaturateMe::usage="SaturateMe[Expr] produces the saturated propagator from the Lagrangian Expr, which must be a scalar of the form output by FourierLagrangian[].";
 
 
-BuildSpinors::usage="Spinors is a boolean option for BuildPriam, which determines whether spinorial FieldsX package objects (such as the frame bundle, spin structure and spin connections), are built when the geometric setup is introduced. Default is True.";
+BuildLightcone::usage="BuildLightcone is a boolean option for BuildPriam, which determines whether the lightcone coordinates are constructed using xCoba.";
 
 
 (* ::Code::Initialization:: *)
@@ -82,8 +82,9 @@ Begin["xAct`Priam`Private`"];
 
 $PriamBuilt=False;
 BuildPriam::unbuilt="The HiGGS environment has not been built: you can build it by running BuildHiGGS[].";
+Options@BuildPriam={BuildLightcone->True};
 BuildPriam::built="The Priam environment has already been built.";
-BuildPriam[]:=Catch@Module[{PriorMemory,UsedMemory},
+BuildPriam[OptionsPattern[]]:=Catch@Module[{PriorMemory,UsedMemory},
 (*A message*)
 xAct`xTensor`Private`MakeDefInfo[BuildPriam,$KernelID,{"Priam environment for kernel",""}];
 (*Check for pre-existing build*)
@@ -93,6 +94,9 @@ If[$PriamBuilt,Throw@Message[BuildPriam::built]];
 $PrintCellsBeforeStartBuildPriam=Flatten@Cells[SelectedNotebook[],CellStyle->{"Print"}];
 Print[" ** BuildPriam: Building session from ",FileNameJoin@{$PriamInstallDirectory,"Priam_sources.nb"}];
 Get[FileNameJoin@{$PriamInstallDirectory,"Priam_sources.m"}];
+If[OptionValue@BuildLightcone,
+Get[FileNameJoin@{$PriamInstallDirectory,"Priam_lightcone.m"}];
+];
 (*Purge all cells created during build process*)
 Pause[2];
 NotebookDelete@(Flatten@Cells[SelectedNotebook[],CellStyle->{"Print"}]~Complement~$PrintCellsBeforeStartBuildPriam);
@@ -133,6 +137,10 @@ ToMomentumExpr=ToMomentumExpr/.Global`ManualAll;
 ToMomentumExpr=ToMomentumExpr/.Global`ManualAll;
 ToMomentumExpr=ToMomentumExpr//ToNewCanonical;
 ToMomentumExpr=ToMomentumExpr//CollectTensors;
+
+Print@" ** FourierLagrangian: Lagrangian in Fourier space, decomposed among the SO(3) irreducible representations of the fields:";
+Print["\!\(\*SuperscriptBox[OverscriptBox[\(\[Zeta]\), \(^\)], \(\[Dagger]\)]\)(\[ScriptK])\[CenterDot]\!\(\*OverscriptBox[\(\[ScriptCapitalO]\), \(^\)]\)(\[ScriptK])\[CenterDot]\!\(\*OverscriptBox[\(\[Zeta]\), \(^\)]\)(\[ScriptK]) = ",ToMomentumExpr];
+
 NotebookDelete@printer;
 ToMomentumExpr];
 
@@ -191,6 +199,21 @@ Print["\!\(\*SuperscriptBox[OverscriptBox[\(\[ScriptJ]\), \(^\)], \(\[Dagger]\)]
 
 NotebookDelete@printer;
 {SourceConstraints,SaturatedPropagator}];
+
+
+MakeConstraintComponentList[PropagatorConstraints_List,ManualConstraints_List:{}]:=Catch@Module[{AllConstraints,ConstraintComponents},
+(*First join up the automatically and manually derived constraints lists*)
+AllConstraints=PropagatorConstraints~Join~ManualConstraints;
+(*Obtain nested lists of all the Cartesian components of the vanishing constraint functions*)
+ConstraintComponents=If[Length@FindFreeIndices@#!=0,xAct`xCoba`ComponentArray[xAct`xCoba`FreeToBasis[Global`cartesian]@#],#]&/@AllConstraints;
+(*Flatten them*)
+ConstraintComponents=Flatten@ConstraintComponents;
+(*Use the symmetries of the SO(3) irreps to "canonicalise" these component expressions via folded rules*)
+(ConstraintComponents=ConstraintComponents/.xAct`xCoba`TensorValues@#)&/@{Global`TauP1p,Global`SigmaP1p,Global`SigmaPerp1p,Global`TauP1m,Global`SigmaP1m,Global`TauPerp1m,Global`SigmaPerp1m,Global`TauP2p,Global`SigmaP2p,Global`SigmaP2m};
+(*Remove symmetry-vanishing and duplicate entries that the "canonicalisation" reveals*)
+ConstraintComponents=ConstraintComponents~DeleteCases~0;
+ConstraintComponents=ConstraintComponents//DeleteDuplicates;
+ConstraintComponents];
 
 
 (* ::Code::Initialization:: *)
