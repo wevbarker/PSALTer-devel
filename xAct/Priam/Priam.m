@@ -216,6 +216,55 @@ ConstraintComponents=ConstraintComponents//DeleteDuplicates;
 ConstraintComponents];
 
 
+ConstraintComponentToLightcone[ConstraintComponent_]:=Catch@Module[{Constraint},
+Constraint=ConstraintComponent/.Global`SourcePO3Activate;
+Constraint=Constraint/.Global`SourcePerpO3Activate;
+Constraint=Constraint/.Global`PADMPiActivate;
+Constraint=Constraint/.Global`PO3PiActivate;
+Constraint=Constraint/.Global`PADMActivate;
+Constraint=Constraint/.Global`SourceCompose;
+Constraint=xAct`xCoba`SeparateBasis[AIndex][Constraint];
+Constraint=Constraint//NoScalar;
+Constraint=Constraint/.Global`ToP;
+Constraint=Constraint/.Global`SourceCompose;
+Constraint=xAct`xCoba`SeparateBasis[AIndex][Constraint];
+Constraint=Constraint//NoScalar;
+Constraint=Constraint/.Global`ToP;
+Constraint=Constraint//ToNewCanonical;
+Constraint=Constraint//NoScalar;
+Constraint=Constraint/.Global`ToV;
+Constraint=Constraint//ToNewCanonical;
+Constraint=Constraint//NoScalar;
+Constraint=Constraint/.Global`ToP;
+Constraint=xAct`xCoba`SeparateBasis[AIndex][Constraint];
+Constraint=Constraint//NoScalar;
+Constraint=Constraint/.Global`ToP;
+Constraint=Constraint//NoScalar;
+Constraint=xAct`xCoba`SeparateBasis[Global`cartesian][Constraint];
+Constraint=Constraint//NoScalar;
+Constraint=Constraint/.Global`ToP;
+Constraint=Constraint//xAct`xCoba`ContractBasis;
+Constraint=Constraint//ScreenDollarIndices;
+Constraint=Constraint//NoScalar;
+Constraint=SeparateMetric[Global`G][Evaluate@Constraint];
+Constraint=xAct`xCoba`SeparateBasis[Global`cartesian][Constraint];
+Constraint=Constraint//NoScalar;
+Constraint=Constraint//xAct`xCoba`ContractBasis;
+Constraint=Constraint//NoScalar;
+Constraint=Constraint//xAct`xCoba`TraceBasisDummy;
+Constraint=Constraint/.xAct`xCoba`TensorValues[Global`P];
+Constraint=Constraint/.xAct`xCoba`TensorValues[Global`G];
+Constraint=Constraint/.xAct`xCoba`TensorValues[Global`Tau];
+Constraint=Constraint/.xAct`xCoba`TensorValues[Global`Sigma];
+Constraint=Constraint/.{Global`Def->Sqrt[Global`En^2-Global`Mo^2]};
+Constraint=Constraint/(2*3*5*7*11*Global`En Global`Mo)^10;
+Constraint=Constraint//Together;
+Constraint=Constraint//Numerator;
+Constraint=Constraint//CollectTensors;
+Print@Constraint;
+Constraint==0];
+
+
 (* ::Code::Initialization:: *)
 End[];
 EndPackage[];

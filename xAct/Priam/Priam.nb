@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     63096,       1445]
-NotebookOptionsPosition[     58414,       1369]
-NotebookOutlinePosition[     58985,       1389]
-CellTagsIndexPosition[     58942,       1386]
+NotebookDataLength[     71529,       1635]
+NotebookOptionsPosition[     66653,       1557]
+NotebookOutlinePosition[     67226,       1577]
+CellTagsIndexPosition[     67183,       1574]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1350,6 +1350,194 @@ Cell[BoxData[
   3.870155974196121*^9}},ExpressionUUID->"6e92047b-38cf-4102-97ea-\
 07edca112e0e"],
 
+Cell["\<\
+A function to express the component list of source constraints as a list of \
+constraints in terms of the energy and momentum of the momentum vector.\
+\>", "Text",
+ CellChangeTimes->{{3.870162947226219*^9, 3.87016295220954*^9}, {
+  3.870163028865234*^9, 
+  3.870163077544634*^9}},ExpressionUUID->"244b37ba-e31b-447d-a2c2-\
+22e53dc06825"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+   "ConstraintComponentToLightcone", "[", "ConstraintComponent_", "]"}], ":=", 
+   RowBox[{"Catch", "@", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", "Constraint", "}"}], ",", "\n", 
+      RowBox[{
+       RowBox[{"Constraint", "=", 
+        RowBox[{"ConstraintComponent", "/.", "Global`SourcePO3Activate"}]}], 
+       ";", "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "/.", "Global`SourcePerpO3Activate"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "/.", "Global`PADMPiActivate"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "/.", "Global`PO3PiActivate"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "/.", "Global`PADMActivate"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "/.", "Global`SourceCompose"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{
+         RowBox[{"xAct`xCoba`SeparateBasis", "[", "AIndex", "]"}], "[", 
+         "Constraint", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "//", "NoScalar"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "/.", "Global`ToP"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "/.", "Global`SourceCompose"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{
+         RowBox[{"xAct`xCoba`SeparateBasis", "[", "AIndex", "]"}], "[", 
+         "Constraint", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "//", "NoScalar"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "/.", "Global`ToP"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "//", "ToNewCanonical"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "//", "NoScalar"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "/.", "Global`ToV"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "//", "ToNewCanonical"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "//", "NoScalar"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "/.", "Global`ToP"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{
+         RowBox[{"xAct`xCoba`SeparateBasis", "[", "AIndex", "]"}], "[", 
+         "Constraint", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "//", "NoScalar"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "/.", "Global`ToP"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "//", "NoScalar"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{
+         RowBox[{"xAct`xCoba`SeparateBasis", "[", "Global`cartesian", "]"}], 
+         "[", "Constraint", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "//", "NoScalar"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "/.", "Global`ToP"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "//", "xAct`xCoba`ContractBasis"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "//", "ScreenDollarIndices"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "//", "NoScalar"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{
+         RowBox[{"SeparateMetric", "[", "Global`G", "]"}], "[", 
+         RowBox[{"Evaluate", "@", "Constraint"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{
+         RowBox[{"xAct`xCoba`SeparateBasis", "[", "Global`cartesian", "]"}], 
+         "[", "Constraint", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "//", "NoScalar"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "//", "xAct`xCoba`ContractBasis"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "//", "NoScalar"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "//", "xAct`xCoba`TraceBasisDummy"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "/.", 
+         RowBox[{"xAct`xCoba`TensorValues", "[", "Global`P", "]"}]}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "/.", 
+         RowBox[{"xAct`xCoba`TensorValues", "[", "Global`G", "]"}]}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "/.", 
+         RowBox[{"xAct`xCoba`TensorValues", "[", "Global`Tau", "]"}]}]}], ";",
+        "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "/.", 
+         RowBox[{"xAct`xCoba`TensorValues", "[", "Global`Sigma", "]"}]}]}], 
+       ";", "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "/.", 
+         RowBox[{"{", 
+          RowBox[{"Global`Def", "->", 
+           RowBox[{"Sqrt", "[", 
+            RowBox[{
+             RowBox[{"Global`En", "^", "2"}], "-", 
+             RowBox[{"Global`Mo", "^", "2"}]}], "]"}]}], "}"}]}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "/", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+           "2", "*", "3", "*", "5", "*", "7", "*", "11", "*", "Global`En", 
+            " ", "Global`Mo"}], ")"}], "^", "10"}]}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "//", "Together"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "//", "Numerator"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "=", 
+        RowBox[{"Constraint", "//", "CollectTensors"}]}], ";", "\n", 
+       RowBox[{"Print", "@", "Constraint"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Constraint", "==", "0"}]}]}], "]"}]}]}], ";"}]], "Code",
+ CellChangeTimes->{
+  3.870163081339739*^9, {3.8701631278584013`*^9, 3.870163134137924*^9}, {
+   3.870163195088974*^9, 3.870163196181294*^9}, {3.870163272027256*^9, 
+   3.870163289872016*^9}, {3.870163405747093*^9, 3.870163416425498*^9}, {
+   3.870163448604278*^9, 3.8701634582814074`*^9}, {3.8701634907449408`*^9, 
+   3.870163528277018*^9}, {3.87016368736619*^9, 3.870163834651682*^9}, {
+   3.870163913029336*^9, 3.8701640403081636`*^9}, {3.870164172760151*^9, 
+   3.870164195851873*^9}, {3.870164278866997*^9, 3.870164291207979*^9}, {
+   3.8701643520648947`*^9, 3.870164354654482*^9}, {3.8701645241958447`*^9, 
+   3.8701645554606457`*^9}, 3.870164601220497*^9, {3.870164672293518*^9, 
+   3.8701646806530523`*^9}, 
+   3.870178498532152*^9},ExpressionUUID->"fd96df7b-9b8d-434d-b25d-\
+1b7ee0bb6077"],
+
 Cell["End the private context and also the package.", "Text",
  CellChangeTimes->{{3.8666236458945436`*^9, 
   3.8666236556910686`*^9}},ExpressionUUID->"f2f06fa7-b6c6-4c13-a31b-\
@@ -1369,8 +1557,8 @@ a94948ca9d30"]
 },
 AutoGeneratedPackage->Automatic,
 ScreenStyleEnvironment->"Slideshow Working",
-WindowSize->{1440., 770.25},
-WindowMargins->{{0, Automatic}, {Automatic, 19.5}},
+WindowSize->{1440., 860.25},
+WindowMargins->{{Automatic, 810}, {Automatic, 19.5}},
 TaggingRules-><|
  "TryRealOnly" -> False, "PresenterSettings" -> <|"ShowSlideBreaks" -> True|>|>,
 FrontEndVersion->"13.1 for Linux x86 (64-bit) (June 16, 2022)",
@@ -1442,8 +1630,10 @@ Cell[37429, 867, 176, 3, 35, "Text",ExpressionUUID->"3788fb21-d0d8-49c8-85a4-683
 Cell[37608, 872, 15783, 376, 1163, "Code",ExpressionUUID->"de0fa22a-8d58-439b-8009-0848a3550c69"],
 Cell[53394, 1250, 315, 7, 35, "Text",ExpressionUUID->"19b668cc-375d-46cb-a908-9864d2076310"],
 Cell[53712, 1259, 4177, 91, 290, "Code",ExpressionUUID->"6e92047b-38cf-4102-97ea-07edca112e0e"],
-Cell[57892, 1352, 191, 3, 35, "Text",ExpressionUUID->"f2f06fa7-b6c6-4c13-a31b-64c909d1dfac"],
-Cell[58086, 1357, 300, 8, 58, "Code",ExpressionUUID->"be6e4c65-8777-4371-a9d3-a94948ca9d30",
+Cell[57892, 1352, 347, 7, 35, "Text",ExpressionUUID->"244b37ba-e31b-447d-a2c2-22e53dc06825"],
+Cell[58242, 1361, 7886, 177, 990, "Code",ExpressionUUID->"fd96df7b-9b8d-434d-b25d-1b7ee0bb6077"],
+Cell[66131, 1540, 191, 3, 35, "Text",ExpressionUUID->"f2f06fa7-b6c6-4c13-a31b-64c909d1dfac"],
+Cell[66325, 1545, 300, 8, 58, "Code",ExpressionUUID->"be6e4c65-8777-4371-a9d3-a94948ca9d30",
  InitializationCell->True]
 }, Open  ]]
 }, Open  ]]
