@@ -59,3 +59,7 @@ ClearBuild[];
 
 (* ::Code::Initialization:: *)
 (AllComponentValues@FreeToBasis[cartesian]@#;ClearBuild[];)&/@{TauP1p[a,b],SigmaP1p[a,b],SigmaPerp1p[a,b],TauP1m[a],SigmaP1m[a],TauPerp1m[a],SigmaPerp1m[a],TauP2p[a,b],SigmaP2p[a,b],SigmaP2m[a,b,c],TauP1p[-a,-b],SigmaP1p[-a,-b],SigmaPerp1p[-a,-b],TauP1m[-a],SigmaP1m[-a],TauPerp1m[-a],SigmaPerp1m[-a],TauP2p[-a,-b],SigmaP2p[-a,-b],SigmaP2m[-a,-b,-c]};
+
+
+DefConstantSymbol[Symbol["X"<>ToString@#],PrintAs->"\!\(\*SubscriptBox[\(\[ScriptCapitalX]\), \("<>ColorString[ToString@#,RGBColor[1.,0.,1.]]<>"\)]\)",Dagger->Complex]&/@Table[i,{i,100}];
+ClearBuild[];

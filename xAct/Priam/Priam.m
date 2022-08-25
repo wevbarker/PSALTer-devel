@@ -67,13 +67,15 @@ BuildPriam::usage="BuildPriam[] introduces a few new definitions.";
 FourierLagrangian::usage="FourierLagrangian[Expr,Tensor1,Tensor2,...] transfers a scalar expression Expr which is quadratic in the given perturbed fields whose xTensor heads are Tensor1 and Tensor2 into its Fourier form. 
 Both Expr and at least one field must be provided. Do not include indices in the fields, just list the xTensor heads (i.e. the tensor names).";
 SaturateMe::usage="SaturateMe[Expr] produces the saturated propagator from the Lagrangian Expr, which must be a scalar of the form output by FourierLagrangian[].";
+YunCherngLin::usage="YunCherngLin[Expr,Tensor1,Tensor2,...] performs the whole propagator analysis on a scalar Lagrangian Expr, which is quadratic in the given perturbed fields whose xTensor heads are Tensor1 and Tensor2 into its Fourier form. 
+Both Expr and at least one field must be provided. Do not include indices in the fields, just list the xTensor heads (i.e. the tensor names). If these names do not correspond to gauge field perturbations that are already known to Priam, an error will be thrown."
 
 
-BuildLightcone::usage="BuildLightcone is a boolean option for BuildPriam, which determines whether the lightcone coordinates are constructed using xCoba.";
+BuildLightcone::usage="BuildLightcone is a boolean option for BuildPriam, which determines whether the lightcone coordinates are constructed using xCoba. Default is True.";
 
 
 (* ::Code::Initialization:: *)
-$PriamBuilt::usage="Did we already go over to the curved and torsionful geometry?";
+$PriamBuilt::usage="$PriamBuilt is a global variable which tells us whether the Priam package environment is ready to use.";
 
 
 (* ::Code::Initialization:: *)
@@ -263,6 +265,148 @@ Constraint=Constraint//Numerator;
 Constraint=Constraint//CollectTensors;
 Print@Constraint;
 Constraint==0];
+
+
+IndependentComponents[Tensors__]:=Catch@Module[{ComponentsList},
+ComponentsList=xAct`xCoba`ComponentArray[xAct`xCoba`FreeToBasis[Global`cartesian]@#]&/@{Tensors};(*make a big nested array of components*)
+ComponentsList=Flatten@ComponentsList;(*flatten it*)
+ComponentsList=ComponentsList/.xAct`xCoba`TensorValues[Global`Sigma];
+ComponentsList=ComponentsList/.xAct`xCoba`TensorValues[Global`Tau];
+ComponentsList=ComponentsList~DeleteCases~0; (*get rid of zereos*)
+ComponentsList=Sqrt[ComponentsList ComponentsList]//PowerExpand;(*we want to get rid of minus signs*)
+ComponentsList=ComponentsList//DeleteDuplicates;(*clearly!*)
+ComponentsList];
+
+
+RescaleNullVector[NullVector_List]:=Catch@Module[{TrialPower,RescaledNullVector,Rescaled,UltravioletNullVector,NullVectorDegreeOfDivergence},
+RescaledNullVector=NullVector;
+(*First we get rid of infrared and lightcone singularities, i.e. those which are introduced by poles*)
+TrialPower=10;(*start with a big power, and try smaller powers for "minimal power needed"*)
+Rescaled=False;(*can we stop rescaling?*)
+While[TrialPower>0&&!Rescaled,
+If[Total@(Abs/@Residue[#,{Global`En,Global`Mo}]&/@Evaluate[(Global`En-Global`Mo)^(TrialPower-1)RescaledNullVector])==0,(*would the rescaled vector be okay yet?*)
+Rescaled=False,(*no, it wouldn't*)
+RescaledNullVector=((Global`En-Global`Mo)/Global`Mo)^TrialPower RescaledNullVector;Rescaled=True,(*yes, it would*)
+RescaledNullVector=((Global`En-Global`Mo)/Global`Mo)^TrialPower RescaledNullVector;Rescaled=True];
+TrialPower--];(*okay, try the next power down*)
+(*now we get rid of the ultraviolet singularities*)
+UltravioletNullVector=FullSimplify@(Total@(RescaledNullVector[[1;;Length@IndependentComponents[Global`Sigma[-Global`a,-Global`b,-Global`c]]]]/.{Global`En->Pi Global`Mo})+
+Total@(RescaledNullVector[[Length@IndependentComponents[Global`Sigma[-Global`a,-Global`b,-Global`c]]+1;;Length@IndependentComponents[Global`Sigma[-Global`a,-Global`b,-Global`c],Global`Tau[-Global`a,-Global`b]]]]/Global`Mo/.{Global`En->Pi Global`Mo}));
+NullVectorDegreeOfDivergence=Limit[Log[UltravioletNullVector]/Log[Global`Mo]//FullSimplify,Global`Mo->Infinity];(*how does the vector go at large momenta?*)
+RescaledNullVector=RescaledNullVector Global`Mo^(-NullVectorDegreeOfDivergence);(*rescale that divergence away*)
+RescaledNullVector];
+
+
+MakeFreeSourceVariables[NullSpace_List,SourceComponents_List]:=Catch@Module[{NullSpaceDimension,FreeSourceVariables,SourceComponentsAsFreeSourceVariables,SourceComponentsToFreeSourceVariables},
+NullSpaceDimension=(Dimensions@NullSpace)[[1]];
+FreeSourceVariables=Table[Symbol["Global`X"<>ToString@i],{i,NullSpaceDimension}];
+SourceComponentsAsFreeSourceVariables=(Transpose@FreeSourceVariables) . NullSpace;
+SourceComponentsToFreeSourceVariables=Flatten@MapThread[#1->#2&,{SourceComponents,SourceComponentsAsFreeSourceVariables}];
+SourceComponentsToFreeSourceVariables=SourceComponentsToFreeSourceVariables~Join~Flatten@MapThread[Evaluate@Dagger@#1->Evaluate@Dagger@#2&,{SourceComponents,SourceComponentsAsFreeSourceVariables}];
+SourceComponentsToFreeSourceVariables];
+
+
+MassiveAnalysisOfSector[RawSector_,SourceComponentsToFreeSourceVariables_List]:=Catch@Module[{printer,Sector},
+printer={};
+printer=printer~Append~PrintTemporary@" ** MassiveAnalysisOfSector...";
+Sector=RawSector//NoScalar;
+Sector=Sector/.Global`SourcePO3Activate;
+Sector=Sector//NoScalar;
+Sector=Sector//ToNewCanonical;
+Sector=Sector/.Global`SourcePerpO3Activate;
+Sector=Sector//NoScalar;
+Sector=Sector//ToNewCanonical;
+Sector=Sector/.Global`PADMPiActivate;
+Sector=Sector//NoScalar;
+Sector=Sector//ToNewCanonical;
+Sector=Sector/.Global`PO3PiActivate;
+Sector=Sector//NoScalar;
+Sector=Sector//ToNewCanonical;
+Sector=Sector/.Global`PADMActivate;
+Sector=Sector//NoScalar;
+Sector=Sector//ToNewCanonical;
+Sector=Sector/.Global`SourceCompose;
+Sector=xAct`xCoba`SeparateBasis[AIndex][Sector];
+Sector=Sector/.Global`ToP;
+Sector=Sector/.Global`SourceCompose;
+Sector=xAct`xCoba`SeparateBasis[AIndex][Sector];
+Sector=Sector/.Global`ToP;
+Sector=Sector//NoScalar;
+Sector=Sector//ToNewCanonical;
+Sector=Sector/.Global`ToV;
+Sector=Sector//ToNewCanonical;
+Sector=Sector/.Global`ToP;
+Sector=xAct`xCoba`SeparateBasis[AIndex][Sector];
+Sector=Sector//NoScalar;
+Sector=Sector/.Global`ToP;
+Sector=Sector//ToNewCanonical;
+Sector=Sector//NoScalar;
+printer=printer~Append~PrintTemporary[" ** SeparateMetric..."];
+Sector=SeparateMetric[Global`G][Evaluate@Sector];
+printer=printer~Append~PrintTemporary[" ** SeparateBasis..."];
+Sector=xAct`xCoba`SeparateBasis[Global`cartesian][Sector];
+printer=printer~Append~PrintTemporary[" ** ContractBasis..."];
+Sector=Sector//xAct`xCoba`ContractBasis;
+printer=printer~Append~PrintTemporary[" ** TraceBasisDummy..."];
+Sector=Sector//xAct`xCoba`TraceBasisDummy;
+printer=printer~Append~PrintTemporary[" ** TensorValues..."];
+Sector=Sector/.xAct`xCoba`TensorValues[Global`P];
+Sector=Sector/.xAct`xCoba`TensorValues[Global`G];
+Sector=Sector/.xAct`xCoba`TensorValues[Global`Tau];
+Sector=Sector/.xAct`xCoba`TensorValues[Global`Sigma];
+Sector=Sector/.xAct`xCoba`TensorValues[Dagger@Global`Tau];
+Sector=Sector/.xAct`xCoba`TensorValues[Dagger@Global`Sigma];
+Sector=Sector/.{Global`Def->Sqrt[Global`En^2-Global`Mo^2]};
+Sector=Sector//Together;
+printer=printer~Append~PrintTemporary[" ** Imposing conserved sources..."];
+Sector=Sector/.SourceComponentsToFreeSourceVariables;
+Sector=Sector//Together;
+NotebookDelete@printer;
+Print@" ** YunCherngLin: massive mode contribution from given spin-parity sector in the lightcone basis:";
+Print@Sector;
+Sector];
+
+
+MasslessAnalysisOfTotal[LightconePropagator_List,NullSpace_List]:=Catch@Module[{printer,MasslessPropagaor,MasslessPropagaorResidue,NullSpaceDimension,FreeSourceVariables,NummeratorFreeSourceCoefficientMatrix,NummeratorFreeSourceEigenvalues},
+MasslessPropagaor=Together@Total@LightconePropagator;
+MasslessPropagaorResidue=Residue[MasslessPropagaor (Global`En-Global`Mo)^0,{Global`En,Global`Mo}]//Simplify;
+
+NullSpaceDimension=(Dimensions@NullSpace)[[1]];
+FreeSourceVariables=Table[Symbol["Global`X"<>ToString@i],{i,NullSpaceDimension}];
+NummeratorFreeSourceCoefficientMatrix=Last@CoefficientArrays[Numerator@MasslessPropagaorResidue,FreeSourceVariables~Join~(Evaluate@Dagger[FreeSourceVariables]),"Symmetric"->False];
+NummeratorFreeSourceCoefficientMatrix=NummeratorFreeSourceCoefficientMatrix[[1;;(1/2)Length@#,(1/2)Length@#+1;;Length@#]]&@NummeratorFreeSourceCoefficientMatrix;
+NummeratorFreeSourceEigenvalues=Eigenvalues@NummeratorFreeSourceCoefficientMatrix;
+
+Print@" ** YunCherngLin: residue of the massless propagator at the massless pole (unitarity reflected in the denominator):";
+Print@MasslessPropagaorResidue;
+Print@" ** YunCherngLin: current eigenvalues of the massless propagator residues (number of massless polarisations is number of positive-definite eigenvalues):";
+Print@NummeratorFreeSourceEigenvalues;
+
+{MasslessPropagaorResidue,NummeratorFreeSourceEigenvalues}];
+
+
+YunCherngLin[Expr_,Tensors__]:=Catch@Module[{printer,FourierDecomposedLagrangian,SaturatedPropagator,ConstraintComponentList,SourceComponents,UnscaledNullSpace,LightconePropagator,RescaledNullSpace,SourceComponentsToFreeSourceVariables},
+printer={};
+printer=printer~Append~PrintTemporary@" ** YunCherngLin...";
+
+FourierDecomposedLagrangian=FourierLagrangian[Expr,Tensors];
+SaturatedPropagator=SaturateMe[FourierDecomposedLagrangian];
+
+Print@" ** YunCherngLin: null eigenvectors of the Lagrangian imply the following constraints on the source currents (stress-energy and spin tensors) expressed in the lightcone components where \[ScriptK]=(\!\(\*SubscriptBox[\(\[ScriptK]\), \(0\)]\),\!\(\*SubscriptBox[\(\[ScriptK]\), \(1\)]\),\!\(\*SubscriptBox[\(\[ScriptK]\), \(2\)]\),\!\(\*SubscriptBox[\(\[ScriptK]\), \(3\)]\))=(\[ScriptCapitalE],0,0,\[ScriptP]):";
+ConstraintComponentList=MakeConstraintComponentList[SaturatedPropagator[[1]]];(*~Take~2*)
+ConstraintComponentList=xAct`xCoba`SeparateBasis[AIndex][#]&/@ConstraintComponentList;
+ConstraintComponentList=ConstraintComponentToLightcone/@ConstraintComponentList;
+ConstraintComponentList=DeleteCases[ConstraintComponentList,True];
+SourceComponents=IndependentComponents[Global`Sigma[-Global`a,-Global`b,-Global`c],Global`Tau[-Global`a,-Global`b]];
+UnscaledNullSpace=NullSpace@Last@(ConstraintComponentList~CoefficientArrays~SourceComponents);
+RescaledNullSpace=RescaleNullVector/@UnscaledNullSpace;
+SourceComponentsToFreeSourceVariables=MakeFreeSourceVariables[RescaledNullSpace,SourceComponents];
+
+LightconePropagator=MassiveAnalysisOfSector[#,SourceComponentsToFreeSourceVariables]&/@SaturatedPropagator[[2]];
+MasslessAnalysisOfTotal[LightconePropagator,UnscaledNullSpace];
+
+NotebookDelete@printer;
+];
 
 
 (* ::Code::Initialization:: *)

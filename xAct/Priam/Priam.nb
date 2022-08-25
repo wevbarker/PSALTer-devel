@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     71529,       1635]
-NotebookOptionsPosition[     66653,       1557]
-NotebookOutlinePosition[     67226,       1577]
-CellTagsIndexPosition[     67183,       1574]
+NotebookDataLength[    111129,       2531]
+NotebookOptionsPosition[    105097,       2441]
+NotebookOutlinePosition[    105668,       2461]
+CellTagsIndexPosition[    105625,       2458]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -365,7 +365,16 @@ just list the xTensor heads (i.e. the tensor names).\>\""}], ";"}], "\n",
    RowBox[{"SaturateMe", "::", "usage"}], "=", 
    "\"\<SaturateMe[Expr] produces the saturated propagator from the \
 Lagrangian Expr, which must be a scalar of the form output by \
-FourierLagrangian[].\>\""}], ";"}]}], "Code",
+FourierLagrangian[].\>\""}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"YunCherngLin", "::", "usage"}], "=", 
+  "\"\<YunCherngLin[Expr,Tensor1,Tensor2,...] performs the whole propagator \
+analysis on a scalar Lagrangian Expr, which is quadratic in the given \
+perturbed fields whose xTensor heads are Tensor1 and Tensor2 into its Fourier \
+form. \nBoth Expr and at least one field must be provided. Do not include \
+indices in the fields, just list the xTensor heads (i.e. the tensor names). \
+If these names do not correspond to gauge field perturbations that are \
+already known to Priam, an error will be thrown.\>\""}]}], "Code",
  InitializationCell->True,
  CellChangeTimes->{{3.853171149996469*^9, 3.8531711706735353`*^9}, {
    3.853171250440598*^9, 3.853171258064022*^9}, {3.853582318943416*^9, 
@@ -393,8 +402,8 @@ FourierLagrangian[].\>\""}], ";"}]}], "Code",
    3.87009488975593*^9}, {3.870095057723699*^9, 3.870095071051853*^9}, {
    3.87010327595207*^9, 3.870103282072507*^9}, {3.870105042227046*^9, 
    3.870105046419022*^9}, {3.870105178609681*^9, 3.870105292978079*^9}, {
-   3.8701103728742657`*^9, 
-   3.870110488963705*^9}},ExpressionUUID->"0d303fea-233e-44b8-936d-\
+   3.8701103728742657`*^9, 3.870110488963705*^9}, {3.870269616315631*^9, 
+   3.870269789092588*^9}},ExpressionUUID->"0d303fea-233e-44b8-936d-\
 2c95feb0d542"],
 
 Cell["Options.", "Text",
@@ -407,8 +416,8 @@ Cell[BoxData[
   RowBox[{
    RowBox[{"BuildLightcone", "::", "usage"}], "=", 
    "\"\<BuildLightcone is a boolean option for BuildPriam, which determines \
-whether the lightcone coordinates are constructed using xCoba.\>\""}], 
-  ";"}]], "Code",
+whether the lightcone coordinates are constructed using xCoba. Default is \
+True.\>\""}], ";"}]], "Code",
  CellChangeTimes->{{3.866655579049555*^9, 3.8666555961367397`*^9}, {
    3.86665565250416*^9, 3.8666557056247377`*^9}, {3.86665574469639*^9, 
    3.866655862832568*^9}, {3.8678234783587112`*^9, 3.867823478360281*^9}, {
@@ -418,8 +427,9 @@ whether the lightcone coordinates are constructed using xCoba.\>\""}],
    3.869925780217216*^9}, {3.869925810665097*^9, 3.869925844000597*^9}, {
    3.8699274299511003`*^9, 3.869927446391567*^9}, 3.86993391344634*^9, 
    3.869937743312509*^9, 3.8700616751151648`*^9, {3.870148878972501*^9, 
-   3.870148900700541*^9}, {3.8701489563646517`*^9, 
-   3.8701489713406563`*^9}},ExpressionUUID->"6b9ac97c-72a5-49e6-baf1-\
+   3.870148900700541*^9}, {3.8701489563646517`*^9, 3.8701489713406563`*^9}, {
+   3.870252159098639*^9, 
+   3.870252162634282*^9}},ExpressionUUID->"6b9ac97c-72a5-49e6-baf1-\
 35bdc26b8bc4"],
 
 Cell["Global variables.", "Text",
@@ -432,16 +442,16 @@ Cell[BoxData[
  RowBox[{
   RowBox[{
    RowBox[{"$PriamBuilt", "::", "usage"}], "=", 
-   "\"\<Did we already go over to the curved and torsionful geometry?\>\""}], 
-  ";"}]], "Code",
+   "\"\<$PriamBuilt is a global variable which tells us whether the Priam \
+package environment is ready to use.\>\""}], ";"}]], "Code",
  InitializationCell->True,
  CellChangeTimes->{{3.866623379542755*^9, 3.866623398198105*^9}, {
    3.86662344534988*^9, 3.866623501516817*^9}, {3.866628717496813*^9, 
    3.866628764951301*^9}, 3.866629057814749*^9, {3.8666295580402937`*^9, 
    3.866629560255681*^9}, {3.86665572021599*^9, 3.8666557251045628`*^9}, {
    3.867827603317243*^9, 3.867827607669133*^9}, {3.8678313614540033`*^9, 
-   3.867831385820711*^9}, 
-   3.8700616751179247`*^9},ExpressionUUID->"758a0e41-5295-462b-9437-\
+   3.867831385820711*^9}, 3.8700616751179247`*^9, {3.870252123929988*^9, 
+   3.870252149202675*^9}},ExpressionUUID->"758a0e41-5295-462b-9437-\
 5280624e09c7"]
 }, Open  ]],
 
@@ -1538,6 +1548,880 @@ Cell[BoxData[
    3.870178498532152*^9},ExpressionUUID->"fd96df7b-9b8d-434d-b25d-\
 1b7ee0bb6077"],
 
+Cell[TextData[{
+ "A function to make a list of the independent components of a tensor in the \
+given basis. This is broadly the format needed for the column vector on the \
+RHS of ",
+ StyleBox["equation (29)",
+  FontWeight->"Bold"],
+ " in ",
+ ButtonBox["arXiv:1812.02675",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["\nhttps://doi.org/10.48550/arXiv.1812.02675"], None},
+  ButtonNote->"\nhttps://doi.org/10.48550/arXiv.1812.02675"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.870246368498892*^9, 3.870246381903513*^9}, {
+  3.8702464131035767`*^9, 3.87024643253552*^9}, {3.87025868426571*^9, 
+  3.870258697025708*^9}, {3.870258727249772*^9, 
+  3.870258742626255*^9}},ExpressionUUID->"73fb5e83-3d59-43eb-9589-\
+ab2bfd424942"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"IndependentComponents", "[", "Tensors__", "]"}], ":=", 
+   RowBox[{"Catch", "@", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", "ComponentsList", "}"}], ",", "\n", 
+      RowBox[{
+       RowBox[{"ComponentsList", "=", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"xAct`xCoba`ComponentArray", "[", 
+           RowBox[{
+            RowBox[{"xAct`xCoba`FreeToBasis", "[", "Global`cartesian", "]"}], 
+            "@", "#"}], "]"}], "&"}], "/@", 
+         RowBox[{"{", "Tensors", "}"}]}]}], ";", 
+       RowBox[{"(*", 
+        RowBox[{
+        "make", " ", "a", " ", "big", " ", "nested", " ", "array", " ", "of", 
+         " ", "components"}], "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"ComponentsList", "=", 
+        RowBox[{"Flatten", "@", "ComponentsList"}]}], ";", 
+       RowBox[{"(*", 
+        RowBox[{"flatten", " ", "it"}], "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"ComponentsList", "=", 
+        RowBox[{"ComponentsList", "/.", 
+         RowBox[{"xAct`xCoba`TensorValues", "[", "Global`Sigma", "]"}]}]}], 
+       ";", "\[IndentingNewLine]", 
+       RowBox[{"ComponentsList", "=", 
+        RowBox[{"ComponentsList", "/.", 
+         RowBox[{"xAct`xCoba`TensorValues", "[", "Global`Tau", "]"}]}]}], ";",
+        "\[IndentingNewLine]", 
+       RowBox[{"ComponentsList", "=", 
+        RowBox[{"ComponentsList", "~", "DeleteCases", "~", "0"}]}], ";", " ", 
+       
+       RowBox[{"(*", 
+        RowBox[{"get", " ", "rid", " ", "of", " ", "zereos"}], "*)"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{"ComponentsList", "=", 
+        RowBox[{
+         RowBox[{"Sqrt", "[", 
+          RowBox[{"ComponentsList", " ", "ComponentsList"}], "]"}], "//", 
+         "PowerExpand"}]}], ";", 
+       RowBox[{"(*", 
+        RowBox[{
+        "we", " ", "want", " ", "to", " ", "get", " ", "rid", " ", "of", " ", 
+         "minus", " ", "signs"}], "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"ComponentsList", "=", 
+        RowBox[{"ComponentsList", "//", "DeleteDuplicates"}]}], ";", 
+       RowBox[{"(*", 
+        RowBox[{"clearly", "!"}], "*)"}], "\n", "ComponentsList"}]}], 
+     "]"}]}]}], ";"}]], "Code",
+ CellChangeTimes->{{3.8702464524476643`*^9, 3.870246467327793*^9}, {
+  3.870246497735423*^9, 3.870246502343811*^9}, {3.870246532783536*^9, 
+  3.870246647889889*^9}, {3.870246679792721*^9, 3.870246714601789*^9}, {
+  3.870246754673133*^9, 3.870246759352933*^9}, {3.870247823905623*^9, 
+  3.8702478483300056`*^9}, {3.870247907657609*^9, 3.870247992178713*^9}, {
+  3.870248144298142*^9, 3.870248145898932*^9}, {3.8702584218345127`*^9, 
+  3.870258423051008*^9}},ExpressionUUID->"d88d0974-2ff2-4137-af6d-\
+dd7b130f6946"],
+
+Cell[TextData[{
+ "A function to rescale the null vectors so as not to introduce spurious \
+singularities into the saturated propagator, see discussion following ",
+ StyleBox["equation (30)",
+  FontWeight->"Bold"],
+ " in ",
+ ButtonBox["arXiv:1812.02675",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["\nhttps://doi.org/10.48550/arXiv.1812.02675"], None},
+  ButtonNote->"\nhttps://doi.org/10.48550/arXiv.1812.02675"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.870248708459203*^9, 3.870248720160907*^9}, {
+  3.8702492438174057`*^9, 3.870249259241901*^9}, {3.870249296025591*^9, 
+  3.870249302665196*^9}, {3.870249388713521*^9, 3.870249389857532*^9}, {
+  3.8702501696569242`*^9, 3.870250218538617*^9}, {3.870251841498087*^9, 
+  3.870251854273905*^9}},ExpressionUUID->"971dca6d-c0bc-4ff9-985c-\
+3f0b24691610"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"RescaleNullVector", "[", "NullVector_List", "]"}], ":=", 
+   RowBox[{"Catch", "@", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "TrialPower", ",", "RescaledNullVector", ",", "Rescaled", ",", 
+        "UltravioletNullVector", ",", "NullVectorDegreeOfDivergence"}], "}"}],
+       ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"RescaledNullVector", "=", "NullVector"}], ";", "\n", 
+       RowBox[{"(*", 
+        RowBox[{
+         RowBox[{
+         "First", " ", "we", " ", "get", " ", "rid", " ", "of", " ", 
+          "infrared", " ", "and", " ", "lightcone", " ", "singularities"}], 
+         ",", " ", 
+         RowBox[{
+          RowBox[{"i", ".", "e", ".", " ", "those"}], " ", "which", " ", 
+          "are", " ", "introduced", " ", "by", " ", "poles"}]}], "*)"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{"TrialPower", "=", "10"}], ";", 
+       RowBox[{"(*", 
+        RowBox[{
+         RowBox[{"start", " ", "with", " ", "a", " ", "big", " ", "power"}], 
+         ",", " ", 
+         RowBox[{
+         "and", " ", "try", " ", "smaller", " ", "powers", " ", "for", " ", 
+          "\"\<minimal power needed\>\""}]}], "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"Rescaled", "=", "False"}], ";", 
+       RowBox[{"(*", 
+        RowBox[{"can", " ", "we", " ", "stop", " ", 
+         RowBox[{"rescaling", "?"}]}], "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"While", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"TrialPower", ">", "0"}], "&&", 
+          RowBox[{"!", "Rescaled"}]}], ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"Total", "@", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"Abs", "/@", 
+                  RowBox[{"Residue", "[", 
+                   RowBox[{"#", ",", 
+                    RowBox[{"{", 
+                    RowBox[{"Global`En", ",", "Global`Mo"}], "}"}]}], "]"}]}],
+                  "&"}], "/@", 
+                RowBox[{"Evaluate", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"Global`En", "-", "Global`Mo"}], ")"}], "^", 
+                   RowBox[{"(", 
+                    RowBox[{"TrialPower", "-", "1"}], ")"}]}], 
+                  "RescaledNullVector"}], "]"}]}], ")"}]}], "==", "0"}], ",", 
+            
+            RowBox[{"(*", 
+             RowBox[{
+             "would", " ", "the", " ", "rescaled", " ", "vector", " ", "be", 
+              " ", "okay", " ", 
+              RowBox[{"yet", "?"}]}], "*)"}], "\[IndentingNewLine]", 
+            RowBox[{"Rescaled", "=", "False"}], ",", 
+            RowBox[{"(*", 
+             RowBox[{"no", ",", " ", 
+              RowBox[{"it", " ", 
+               RowBox[{"wouldn", "'"}], "t"}]}], "*)"}], 
+            "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"RescaledNullVector", "=", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"Global`En", "-", "Global`Mo"}], ")"}], "/", 
+                  "Global`Mo"}], ")"}], "^", "TrialPower"}], " ", 
+               "RescaledNullVector"}]}], ";", 
+             RowBox[{"Rescaled", "=", "True"}]}], ",", 
+            RowBox[{"(*", 
+             RowBox[{"yes", ",", " ", 
+              RowBox[{"it", " ", "would"}]}], "*)"}], "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"RescaledNullVector", "=", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"Global`En", "-", "Global`Mo"}], ")"}], "/", 
+                  "Global`Mo"}], ")"}], "^", "TrialPower"}], " ", 
+               "RescaledNullVector"}]}], ";", 
+             RowBox[{"Rescaled", "=", "True"}]}]}], "]"}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"TrialPower", "--"}]}]}], "]"}], ";", 
+       RowBox[{"(*", 
+        RowBox[{"okay", ",", " ", 
+         RowBox[{
+         "try", " ", "the", " ", "next", " ", "power", " ", "down"}]}], 
+        "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{
+        "now", " ", "we", " ", "get", " ", "rid", " ", "of", " ", "the", " ", 
+         "ultraviolet", " ", "singularities"}], "*)"}], "\n", 
+       RowBox[{"UltravioletNullVector", "=", 
+        RowBox[{"FullSimplify", "@", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"Total", "@", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"RescaledNullVector", "[", 
+               RowBox[{"[", 
+                RowBox[{"1", ";;", 
+                 RowBox[{"Length", "@", 
+                  RowBox[{"IndependentComponents", "[", 
+                   RowBox[{"Global`Sigma", "[", 
+                    RowBox[{
+                    RowBox[{"-", "Global`a"}], ",", 
+                    RowBox[{"-", "Global`b"}], ",", 
+                    RowBox[{"-", "Global`c"}]}], "]"}], "]"}]}]}], "]"}], 
+               "]"}], "/.", 
+              RowBox[{"{", 
+               RowBox[{"Global`En", "->", 
+                RowBox[{"Pi", " ", "Global`Mo"}]}], "}"}]}], ")"}]}], "+", 
+           "\n", 
+           RowBox[{"Total", "@", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"RescaledNullVector", "[", 
+                RowBox[{"[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"Length", "@", 
+                    RowBox[{"IndependentComponents", "[", 
+                    RowBox[{"Global`Sigma", "[", 
+                    RowBox[{
+                    RowBox[{"-", "Global`a"}], ",", 
+                    RowBox[{"-", "Global`b"}], ",", 
+                    RowBox[{"-", "Global`c"}]}], "]"}], "]"}]}], "+", "1"}], ";;", 
+                  RowBox[{"Length", "@", 
+                   RowBox[{"IndependentComponents", "[", 
+                    RowBox[{
+                    RowBox[{"Global`Sigma", "[", 
+                    RowBox[{
+                    RowBox[{"-", "Global`a"}], ",", 
+                    RowBox[{"-", "Global`b"}], ",", 
+                    RowBox[{"-", "Global`c"}]}], "]"}], ",", 
+                    RowBox[{"Global`Tau", "[", 
+                    RowBox[{
+                    RowBox[{"-", "Global`a"}], ",", 
+                    RowBox[{"-", "Global`b"}]}], "]"}]}], "]"}]}]}], "]"}], 
+                "]"}], "/", "Global`Mo"}], "/.", 
+              RowBox[{"{", 
+               RowBox[{"Global`En", "->", 
+                RowBox[{"Pi", " ", "Global`Mo"}]}], "}"}]}], ")"}]}]}], 
+          ")"}]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"NullVectorDegreeOfDivergence", "=", 
+        RowBox[{"Limit", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"Log", "[", "UltravioletNullVector", "]"}], "/", 
+            RowBox[{"Log", "[", "Global`Mo", "]"}]}], "//", "FullSimplify"}], 
+          ",", 
+          RowBox[{"Global`Mo", "->", "Infinity"}]}], "]"}]}], ";", 
+       RowBox[{"(*", 
+        RowBox[{
+        "how", " ", "does", " ", "the", " ", "vector", " ", "go", " ", "at", 
+         " ", "large", " ", 
+         RowBox[{"momenta", "?"}]}], "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"RescaledNullVector", "=", 
+        RowBox[{"RescaledNullVector", " ", 
+         RowBox[{"Global`Mo", "^", 
+          RowBox[{"(", 
+           RowBox[{"-", "NullVectorDegreeOfDivergence"}], ")"}]}]}]}], ";", 
+       RowBox[{"(*", 
+        RowBox[{"rescale", " ", "that", " ", "divergence", " ", "away"}], 
+        "*)"}], "\n", "RescaledNullVector"}]}], "]"}]}]}], ";"}]], "Code",
+ CellChangeTimes->{{3.8702502278658524`*^9, 3.870250247116008*^9}, {
+  3.870250296748672*^9, 3.8702504191407137`*^9}, {3.8702504973651457`*^9, 
+  3.870250509099565*^9}, {3.870250551331459*^9, 3.870250694459989*^9}, {
+  3.870251332636477*^9, 3.8702515191572237`*^9}, {3.8702515695411453`*^9, 
+  3.870251615164761*^9}, {3.870251652556987*^9, 3.870251805021132*^9}, {
+  3.870252448172474*^9, 3.870252453101552*^9}, {3.87025286028414*^9, 
+  3.870252865789887*^9}, {3.8702529055344343`*^9, 3.870252908310198*^9}, {
+  3.870253144462311*^9, 3.870253217324737*^9}, {3.870253641567013*^9, 
+  3.870253644359432*^9}, {3.870256206250862*^9, 3.870256206602545*^9}, {
+  3.870258413556378*^9, 
+  3.870258415045064*^9}},ExpressionUUID->"12a5da34-d411-43bc-83f8-\
+9c5b1dd797af"],
+
+Cell[TextData[{
+ "A function to make the free source variables, i.e. the reduced sources \
+which are the components defined in ",
+ StyleBox["equation (30)",
+  FontWeight->"Bold"],
+ " in ",
+ ButtonBox["arXiv:1812.02675",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["\nhttps://doi.org/10.48550/arXiv.1812.02675"], None},
+  ButtonNote->"\nhttps://doi.org/10.48550/arXiv.1812.02675"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.870255263126169*^9, 
+  3.870255356926765*^9}},ExpressionUUID->"2fb33349-2954-4f48-a6ef-\
+f6cc954677c4"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"MakeFreeSourceVariables", "[", 
+    RowBox[{"NullSpace_List", ",", "SourceComponents_List"}], "]"}], ":=", 
+   RowBox[{"Catch", "@", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "NullSpaceDimension", ",", "FreeSourceVariables", ",", 
+        "SourceComponentsAsFreeSourceVariables", ",", 
+        "SourceComponentsToFreeSourceVariables"}], "}"}], ",", "\n", 
+      RowBox[{
+       RowBox[{"NullSpaceDimension", "=", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"Dimensions", "@", "NullSpace"}], ")"}], "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], ";", "\n", 
+       RowBox[{"FreeSourceVariables", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"Symbol", "[", 
+           RowBox[{"\"\<Global`X\>\"", "<>", 
+            RowBox[{"ToString", "@", "i"}]}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "NullSpaceDimension"}], "}"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"SourceComponentsAsFreeSourceVariables", "=", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"Transpose", "@", "FreeSourceVariables"}], ")"}], ".", 
+         "NullSpace"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"SourceComponentsToFreeSourceVariables", "=", 
+        RowBox[{"Flatten", "@", 
+         RowBox[{"MapThread", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"#1", "->", "#2"}], "&"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+            "SourceComponents", ",", 
+             "SourceComponentsAsFreeSourceVariables"}], "}"}]}], "]"}]}]}], 
+       ";", "\[IndentingNewLine]", 
+       RowBox[{"SourceComponentsToFreeSourceVariables", "=", 
+        RowBox[{"SourceComponentsToFreeSourceVariables", "~", "Join", "~", 
+         RowBox[{"Flatten", "@", 
+          RowBox[{"MapThread", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"Evaluate", "@", 
+               RowBox[{"Dagger", "@", "#1"}]}], "->", 
+              RowBox[{"Evaluate", "@", 
+               RowBox[{"Dagger", "@", "#2"}]}]}], "&"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+             "SourceComponents", ",", 
+              "SourceComponentsAsFreeSourceVariables"}], "}"}]}], "]"}]}]}]}],
+        ";", "\n", "SourceComponentsToFreeSourceVariables"}]}], "]"}]}]}], 
+  ";"}]], "Code",
+ CellChangeTimes->{{3.870255361830735*^9, 3.870255368062346*^9}, {
+   3.870255424743143*^9, 3.8702554592153482`*^9}, 3.8702555446924877`*^9, {
+   3.870255609280612*^9, 3.8702556332170677`*^9}, {3.8702557049221287`*^9, 
+   3.870255713202135*^9}, {3.870255812529048*^9, 3.8702558422412233`*^9}, {
+   3.870255961873493*^9, 3.8702559639370413`*^9}, {3.870256179417149*^9, 
+   3.870256219537675*^9}, {3.870256254425438*^9, 3.870256314073542*^9}, {
+   3.870256351625423*^9, 3.8702564003616533`*^9}, {3.870257897778091*^9, 
+   3.870257899162088*^9}, {3.8702584066106043`*^9, 3.870258407930931*^9}, {
+   3.870276281802928*^9, 3.8702763336120243`*^9}, 3.870277001165885*^9, {
+   3.8702770894514837`*^9, 
+   3.87027710338796*^9}},ExpressionUUID->"89b2d1cb-fec0-480c-ba41-\
+df88e31456dd"],
+
+Cell[TextData[{
+ "A function to perform the massive pole analysis of a given spin (or \
+spin-parity) sector. The steps involved are set out in ",
+ StyleBox["Section IIIB",
+  FontWeight->"Bold"],
+ " of ",
+ ButtonBox["arXiv:1812.02675",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["\nhttps://doi.org/10.48550/arXiv.1812.02675"], None},
+  ButtonNote->"\nhttps://doi.org/10.48550/arXiv.1812.02675"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.870257219642069*^9, 3.870257235224148*^9}, {
+  3.870257289600337*^9, 3.870257316960113*^9}, {3.870257411560486*^9, 
+  3.8702574245603848`*^9}},ExpressionUUID->"132639a0-77d3-415d-a1e2-\
+f3d2a89caea4"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"MassiveAnalysisOfSector", "[", 
+    RowBox[{"RawSector_", ",", "SourceComponentsToFreeSourceVariables_List"}],
+     "]"}], ":=", 
+   RowBox[{"Catch", "@", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"printer", ",", "Sector"}], "}"}], ",", "\[IndentingNewLine]", 
+      
+      RowBox[{
+       RowBox[{"printer", "=", 
+        RowBox[{"{", "}"}]}], ";", "\n", 
+       RowBox[{"printer", "=", 
+        RowBox[{"printer", "~", "Append", "~", 
+         RowBox[{
+         "PrintTemporary", "@", 
+          "\"\< ** MassiveAnalysisOfSector...\>\""}]}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"RawSector", "//", "NoScalar"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "/.", "Global`SourcePO3Activate"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "//", "NoScalar"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "//", "ToNewCanonical"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "/.", "Global`SourcePerpO3Activate"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "//", "NoScalar"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "//", "ToNewCanonical"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "/.", "Global`PADMPiActivate"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "//", "NoScalar"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "//", "ToNewCanonical"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "/.", "Global`PO3PiActivate"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "//", "NoScalar"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "//", "ToNewCanonical"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "/.", "Global`PADMActivate"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "//", "NoScalar"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "//", "ToNewCanonical"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "/.", "Global`SourceCompose"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{
+         RowBox[{"xAct`xCoba`SeparateBasis", "[", "AIndex", "]"}], "[", 
+         "Sector", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "/.", "Global`ToP"}]}], ";", "\[IndentingNewLine]", 
+       
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "/.", "Global`SourceCompose"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{
+         RowBox[{"xAct`xCoba`SeparateBasis", "[", "AIndex", "]"}], "[", 
+         "Sector", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "/.", "Global`ToP"}]}], ";", "\[IndentingNewLine]", 
+       
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "//", "NoScalar"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "//", "ToNewCanonical"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "/.", "Global`ToV"}]}], ";", "\[IndentingNewLine]", 
+       
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "//", "ToNewCanonical"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "/.", "Global`ToP"}]}], ";", "\[IndentingNewLine]", 
+       
+       RowBox[{"Sector", "=", 
+        RowBox[{
+         RowBox[{"xAct`xCoba`SeparateBasis", "[", "AIndex", "]"}], "[", 
+         "Sector", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "//", "NoScalar"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "/.", "Global`ToP"}]}], ";", "\[IndentingNewLine]", 
+       
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "//", "ToNewCanonical"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "//", "NoScalar"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"printer", "=", 
+        RowBox[{"printer", "~", "Append", "~", 
+         RowBox[{
+         "PrintTemporary", "[", "\"\< ** SeparateMetric...\>\"", "]"}]}]}], 
+       ";", "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{
+         RowBox[{"SeparateMetric", "[", "Global`G", "]"}], "[", 
+         RowBox[{"Evaluate", "@", "Sector"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"printer", "=", 
+        RowBox[{"printer", "~", "Append", "~", 
+         RowBox[{
+         "PrintTemporary", "[", "\"\< ** SeparateBasis...\>\"", "]"}]}]}], 
+       ";", "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{
+         RowBox[{"xAct`xCoba`SeparateBasis", "[", "Global`cartesian", "]"}], 
+         "[", "Sector", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"printer", "=", 
+        RowBox[{"printer", "~", "Append", "~", 
+         RowBox[{
+         "PrintTemporary", "[", "\"\< ** ContractBasis...\>\"", "]"}]}]}], 
+       ";", "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "//", "xAct`xCoba`ContractBasis"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"printer", "=", 
+        RowBox[{"printer", "~", "Append", "~", 
+         RowBox[{
+         "PrintTemporary", "[", "\"\< ** TraceBasisDummy...\>\"", "]"}]}]}], 
+       ";", "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "//", "xAct`xCoba`TraceBasisDummy"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"printer", "=", 
+        RowBox[{"printer", "~", "Append", "~", 
+         RowBox[{
+         "PrintTemporary", "[", "\"\< ** TensorValues...\>\"", "]"}]}]}], ";",
+        "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "/.", 
+         RowBox[{"xAct`xCoba`TensorValues", "[", "Global`P", "]"}]}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "/.", 
+         RowBox[{"xAct`xCoba`TensorValues", "[", "Global`G", "]"}]}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "/.", 
+         RowBox[{"xAct`xCoba`TensorValues", "[", "Global`Tau", "]"}]}]}], ";",
+        "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "/.", 
+         RowBox[{"xAct`xCoba`TensorValues", "[", "Global`Sigma", "]"}]}]}], 
+       ";", "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "/.", 
+         RowBox[{"xAct`xCoba`TensorValues", "[", 
+          RowBox[{"Dagger", "@", "Global`Tau"}], "]"}]}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "/.", 
+         RowBox[{"xAct`xCoba`TensorValues", "[", 
+          RowBox[{"Dagger", "@", "Global`Sigma"}], "]"}]}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "/.", 
+         RowBox[{"{", 
+          RowBox[{"Global`Def", "->", 
+           RowBox[{"Sqrt", "[", 
+            RowBox[{
+             RowBox[{"Global`En", "^", "2"}], "-", 
+             RowBox[{"Global`Mo", "^", "2"}]}], "]"}]}], "}"}]}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "//", "Together"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"printer", "=", 
+        RowBox[{"printer", "~", "Append", "~", 
+         RowBox[{
+         "PrintTemporary", "[", "\"\< ** Imposing conserved sources...\>\"", 
+          "]"}]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "/.", "SourceComponentsToFreeSourceVariables"}]}], 
+       ";", "\[IndentingNewLine]", 
+       RowBox[{"Sector", "=", 
+        RowBox[{"Sector", "//", "Together"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"NotebookDelete", "@", "printer"}], ";", "\n", 
+       RowBox[{
+       "Print", "@", 
+        "\"\< ** YunCherngLin: massive mode contribution from given \
+spin-parity sector in the lightcone basis:\>\""}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Print", "@", "Sector"}], ";", "\[IndentingNewLine]", 
+       "Sector"}]}], "]"}]}]}], ";"}]], "Code",
+ CellChangeTimes->{
+  3.870257202986389*^9, {3.870257582145989*^9, 3.870257587090251*^9}, {
+   3.8702576188414993`*^9, 3.870257628602915*^9}, {3.8702580513725557`*^9, 
+   3.8702582859411488`*^9}, {3.87025839708044*^9, 3.870258403902446*^9}, {
+   3.8702584792372313`*^9, 3.8702585705669394`*^9}, {3.870258779554454*^9, 
+   3.870258863030299*^9}, {3.870258893295375*^9, 3.870258919190475*^9}, 
+   3.87025991692834*^9, {3.870260729419366*^9, 3.870260751128749*^9}, {
+   3.8703304329311934`*^9, 
+   3.870330496498344*^9}},ExpressionUUID->"237dd3e6-c5ff-468f-abb4-\
+78f18cc2aae6"],
+
+Cell[TextData[{
+ "A function to perform the massless analysis on the total propagator, as set \
+out in ",
+ StyleBox["Section IIIA",
+  FontWeight->"Bold"],
+ " of ",
+ ButtonBox["arXiv:1812.02675",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["\nhttps://doi.org/10.48550/arXiv.1812.02675"], None},
+  ButtonNote->"\nhttps://doi.org/10.48550/arXiv.1812.02675"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.870261556031239*^9, 3.870261557660534*^9}, {
+  3.8702617163651876`*^9, 3.8702617518927937`*^9}, {3.8702617911091843`*^9, 
+  3.870261791567176*^9}},ExpressionUUID->"5fcdd6d7-1dac-47d7-83ac-\
+3930e5d7bccc"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"MasslessAnalysisOfTotal", "[", 
+    RowBox[{"LightconePropagator_List", ",", "NullSpace_List"}], "]"}], ":=", 
+   
+   RowBox[{"Catch", "@", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "printer", ",", "MasslessPropagaor", ",", "MasslessPropagaorResidue", 
+        ",", "NullSpaceDimension", ",", "FreeSourceVariables", ",", 
+        "NummeratorFreeSourceCoefficientMatrix", ",", 
+        "NummeratorFreeSourceEigenvalues"}], "}"}], ",", "\n", 
+      RowBox[{
+       RowBox[{"MasslessPropagaor", "=", 
+        RowBox[{"Together", "@", 
+         RowBox[{"Total", "@", "LightconePropagator"}]}]}], ";", "\n", 
+       RowBox[{"MasslessPropagaorResidue", "=", 
+        RowBox[{
+         RowBox[{"Residue", "[", 
+          RowBox[{
+           RowBox[{"MasslessPropagaor", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"Global`En", "-", "Global`Mo"}], ")"}], "^", "0"}]}], 
+           ",", 
+           RowBox[{"{", 
+            RowBox[{"Global`En", ",", "Global`Mo"}], "}"}]}], "]"}], "//", 
+         "Simplify"}]}], ";", "\n", "\n", 
+       RowBox[{"NullSpaceDimension", "=", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"Dimensions", "@", "NullSpace"}], ")"}], "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], ";", "\n", 
+       RowBox[{"FreeSourceVariables", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"Symbol", "[", 
+           RowBox[{"\"\<Global`X\>\"", "<>", 
+            RowBox[{"ToString", "@", "i"}]}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "NullSpaceDimension"}], "}"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"NummeratorFreeSourceCoefficientMatrix", "=", 
+        RowBox[{"Last", "@", 
+         RowBox[{"CoefficientArrays", "[", 
+          RowBox[{
+           RowBox[{"Numerator", "@", "MasslessPropagaorResidue"}], ",", 
+           RowBox[{"FreeSourceVariables", "~", "Join", "~", 
+            RowBox[{"(", 
+             RowBox[{"Evaluate", "@", 
+              RowBox[{"Dagger", "[", "FreeSourceVariables", "]"}]}], ")"}]}], 
+           ",", 
+           RowBox[{"\"\<Symmetric\>\"", "\[Rule]", "False"}]}], "]"}]}]}], 
+       ";", "\[IndentingNewLine]", 
+       RowBox[{"NummeratorFreeSourceCoefficientMatrix", "=", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"NummeratorFreeSourceCoefficientMatrix", "[", 
+           RowBox[{"[", 
+            RowBox[{
+             RowBox[{"1", ";;", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"1", "/", "2"}], ")"}], 
+               RowBox[{"Length", "@", "#"}]}]}], ",", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"1", "/", "2"}], ")"}], 
+                RowBox[{"Length", "@", "#"}]}], "+", "1"}], ";;", 
+              RowBox[{"Length", "@", "#"}]}]}], "]"}], "]"}], "&"}], "@", 
+         "NummeratorFreeSourceCoefficientMatrix"}]}], ";", "\n", 
+       RowBox[{"NummeratorFreeSourceEigenvalues", "=", 
+        RowBox[{
+        "Eigenvalues", "@", "NummeratorFreeSourceCoefficientMatrix"}]}], ";", 
+       "\n", "\n", 
+       RowBox[{
+       "Print", "@", 
+        "\"\< ** YunCherngLin: residue of the massless propagator at the \
+massless pole (unitarity reflected in the denominator):\>\""}], ";", "\n", 
+       RowBox[{"Print", "@", "MasslessPropagaorResidue"}], ";", "\n", 
+       RowBox[{
+       "Print", "@", 
+        "\"\< ** YunCherngLin: current eigenvalues of the massless propagator \
+residues (number of massless polarisations is number of positive-definite \
+eigenvalues):\>\""}], ";", "\n", 
+       RowBox[{"Print", "@", "NummeratorFreeSourceEigenvalues"}], ";", "\n", 
+       "\n", 
+       RowBox[{"{", 
+        RowBox[{
+        "MasslessPropagaorResidue", ",", "NummeratorFreeSourceEigenvalues"}], 
+        "}"}]}]}], "]"}]}]}], ";"}]], "Code",
+ CellChangeTimes->{
+  3.870261878182192*^9, {3.870262095957609*^9, 3.8702621329252787`*^9}, 
+   3.8702621644215593`*^9, {3.870262241373948*^9, 3.870262245413858*^9}, {
+   3.87026233976656*^9, 3.870262352799012*^9}, {3.870262531319613*^9, 
+   3.870262563902584*^9}, {3.870262673463108*^9, 3.870262685808086*^9}, {
+   3.870266958243812*^9, 3.870267070147073*^9}, {3.870267140140051*^9, 
+   3.870267226739593*^9}, {3.870267363563113*^9, 3.8702674020990067`*^9}, {
+   3.870268831477852*^9, 3.8702688478125677`*^9}, {3.8702689131253242`*^9, 
+   3.870268919404469*^9}, 3.870268997392745*^9, {3.870269049158774*^9, 
+   3.870269053332642*^9}, {3.870269127645372*^9, 3.8702691432365313`*^9}, 
+   3.870269185357464*^9, {3.870278294715865*^9, 3.8702782948695107`*^9}, {
+   3.870278470110094*^9, 3.8702784716382437`*^9}, {3.870330116185017*^9, 
+   3.870330210287459*^9}, {3.870330246448243*^9, 
+   3.8703304002969713`*^9}},ExpressionUUID->"0c712521-49f5-4e40-a083-\
+05f629f9737f"],
+
+Cell["A function to act as a wrapper for the whole analysis.", "Text",
+ CellChangeTimes->{{3.870269346855618*^9, 
+  3.870269358635316*^9}},ExpressionUUID->"2c9ecd05-f5b9-4de5-8ff2-\
+7435a40cc052"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"YunCherngLin", "[", 
+    RowBox[{"Expr_", ",", "Tensors__"}], "]"}], ":=", 
+   RowBox[{"Catch", "@", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "printer", ",", "FourierDecomposedLagrangian", ",", 
+        "SaturatedPropagator", ",", "ConstraintComponentList", ",", 
+        "SourceComponents", ",", "UnscaledNullSpace", ",", 
+        "LightconePropagator", ",", "RescaledNullSpace", ",", 
+        "SourceComponentsToFreeSourceVariables"}], "}"}], ",", "\n", 
+      RowBox[{
+       RowBox[{"printer", "=", 
+        RowBox[{"{", "}"}]}], ";", "\n", 
+       RowBox[{"printer", "=", 
+        RowBox[{"printer", "~", "Append", "~", 
+         RowBox[{"PrintTemporary", "@", "\"\< ** YunCherngLin...\>\""}]}]}], 
+       ";", "\n", "\n", 
+       RowBox[{"FourierDecomposedLagrangian", "=", 
+        RowBox[{"FourierLagrangian", "[", 
+         RowBox[{"Expr", ",", "Tensors"}], "]"}]}], ";", "\n", 
+       RowBox[{"SaturatedPropagator", "=", 
+        RowBox[{"SaturateMe", "[", "FourierDecomposedLagrangian", "]"}]}], 
+       ";", "\n", "\n", 
+       RowBox[{
+       "Print", "@", 
+        "\"\< ** YunCherngLin: null eigenvectors of the Lagrangian imply the \
+following constraints on the source currents (stress-energy and spin tensors) \
+expressed in the lightcone components where \[ScriptK]=(\!\(\*SubscriptBox[\(\
+\[ScriptK]\), \(0\)]\),\!\(\*SubscriptBox[\(\[ScriptK]\), \
+\(1\)]\),\!\(\*SubscriptBox[\(\[ScriptK]\), \(2\)]\),\!\(\*SubscriptBox[\(\
+\[ScriptK]\), \(3\)]\))=(\[ScriptCapitalE],0,0,\[ScriptP]):\>\""}], ";", "\n", 
+       RowBox[{"ConstraintComponentList", "=", 
+        RowBox[{"MakeConstraintComponentList", "[", 
+         RowBox[{"SaturatedPropagator", "[", 
+          RowBox[{"[", "1", "]"}], "]"}], "]"}]}], ";", 
+       RowBox[{"(*", 
+        RowBox[{"~", "Take", "~", "2"}], "*)"}], "\n", 
+       RowBox[{"ConstraintComponentList", "=", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"xAct`xCoba`SeparateBasis", "[", "AIndex", "]"}], "[", "#",
+            "]"}], "&"}], "/@", "ConstraintComponentList"}]}], ";", "\n", 
+       RowBox[{"ConstraintComponentList", "=", 
+        RowBox[{
+        "ConstraintComponentToLightcone", "/@", "ConstraintComponentList"}]}],
+        ";", "\n", 
+       RowBox[{"ConstraintComponentList", "=", 
+        RowBox[{"DeleteCases", "[", 
+         RowBox[{"ConstraintComponentList", ",", "True"}], "]"}]}], ";", "\n", 
+       RowBox[{"SourceComponents", "=", 
+        RowBox[{"IndependentComponents", "[", 
+         RowBox[{
+          RowBox[{"Global`Sigma", "[", 
+           RowBox[{
+            RowBox[{"-", "Global`a"}], ",", 
+            RowBox[{"-", "Global`b"}], ",", 
+            RowBox[{"-", "Global`c"}]}], "]"}], ",", 
+          RowBox[{"Global`Tau", "[", 
+           RowBox[{
+            RowBox[{"-", "Global`a"}], ",", 
+            RowBox[{"-", "Global`b"}]}], "]"}]}], "]"}]}], ";", "\n", 
+       RowBox[{"UnscaledNullSpace", "=", 
+        RowBox[{"NullSpace", "@", 
+         RowBox[{"Last", "@", 
+          RowBox[{"(", 
+           RowBox[{
+           "ConstraintComponentList", "~", "CoefficientArrays", "~", 
+            "SourceComponents"}], ")"}]}]}]}], ";", "\n", 
+       RowBox[{"RescaledNullSpace", "=", 
+        RowBox[{"RescaleNullVector", "/@", "UnscaledNullSpace"}]}], ";", "\n", 
+       RowBox[{"SourceComponentsToFreeSourceVariables", "=", 
+        RowBox[{"MakeFreeSourceVariables", "[", 
+         RowBox[{"RescaledNullSpace", ",", "SourceComponents"}], "]"}]}], ";",
+        "\n", "\n", 
+       RowBox[{"LightconePropagator", "=", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"MassiveAnalysisOfSector", "[", 
+           RowBox[{"#", ",", "SourceComponentsToFreeSourceVariables"}], "]"}],
+           "&"}], "/@", 
+         RowBox[{"SaturatedPropagator", "[", 
+          RowBox[{"[", "2", "]"}], "]"}]}]}], ";", "\n", 
+       RowBox[{"MasslessAnalysisOfTotal", "[", 
+        RowBox[{"LightconePropagator", ",", "UnscaledNullSpace"}], "]"}], ";",
+        "\n", "\n", 
+       RowBox[{"NotebookDelete", "@", "printer"}], ";"}]}], 
+     "\[IndentingNewLine]", "]"}]}]}], ";"}]], "Code",
+ CellChangeTimes->{{3.8702698229319687`*^9, 3.870269826339918*^9}, {
+   3.870269867532074*^9, 3.8702698794130297`*^9}, {3.870269992708544*^9, 
+   3.87027011306153*^9}, {3.8702708221655903`*^9, 3.8702708374939127`*^9}, {
+   3.870270919438446*^9, 3.870270940558469*^9}, {3.870270996278036*^9, 
+   3.870271082550864*^9}, 3.870271239430719*^9, {3.870271360431423*^9, 
+   3.8702713622485733`*^9}, {3.870271394334607*^9, 3.870271451560938*^9}, {
+   3.870271580007037*^9, 3.870271620768403*^9}, {3.8702716606001663`*^9, 
+   3.870271679375679*^9}, {3.870271925192368*^9, 3.870272064616179*^9}, 
+   3.870272105727995*^9, {3.870272213983885*^9, 3.870272268983151*^9}, {
+   3.87027247931986*^9, 3.870272589226207*^9}, {3.870272685089344*^9, 
+   3.8702726868894672`*^9}, {3.870273082753273*^9, 3.870273086682523*^9}, {
+   3.870273517754038*^9, 3.870273532961714*^9}, {3.870274809314999*^9, 
+   3.870274816155205*^9}, {3.870274875747776*^9, 3.870274913083474*^9}, {
+   3.8702749746603622`*^9, 3.870274983412814*^9}, {3.870275076075429*^9, 
+   3.870275076483362*^9}, {3.8702763409090233`*^9, 3.870276348812561*^9}, {
+   3.8702771136934433`*^9, 3.8702771345095263`*^9}, {3.870330529977083*^9, 
+   3.870330682119536*^9}},ExpressionUUID->"ff6689da-a977-43b7-87b3-\
+912d679e79a4"],
+
 Cell["End the private context and also the package.", "Text",
  CellChangeTimes->{{3.8666236458945436`*^9, 
   3.8666236556910686`*^9}},ExpressionUUID->"f2f06fa7-b6c6-4c13-a31b-\
@@ -1557,8 +2441,8 @@ a94948ca9d30"]
 },
 AutoGeneratedPackage->Automatic,
 ScreenStyleEnvironment->"Slideshow Working",
-WindowSize->{1440., 860.25},
-WindowMargins->{{Automatic, 810}, {Automatic, 19.5}},
+WindowSize->{1440., 770.25},
+WindowMargins->{{0, Automatic}, {Automatic, 19.5}},
 TaggingRules-><|
  "TryRealOnly" -> False, "PresenterSettings" -> <|"ShowSlideBreaks" -> True|>|>,
 FrontEndVersion->"13.1 for Linux x86 (64-bit) (June 16, 2022)",
@@ -1609,31 +2493,43 @@ Cell[12732, 315, 165, 3, 35, "Text",ExpressionUUID->"7777b45a-222c-4cec-a9de-662
 Cell[12900, 320, 910, 22, 124, "Code",ExpressionUUID->"3ca84c8e-e339-4984-8697-8540aee073e2",
  InitializationCell->True],
 Cell[13813, 344, 169, 3, 35, "Text",ExpressionUUID->"4d69d1a6-18b4-49bd-8687-5b3ffd9669e7"],
-Cell[13985, 349, 2927, 48, 102, "Code",ExpressionUUID->"0d303fea-233e-44b8-936d-2c95feb0d542",
+Cell[13985, 349, 3553, 57, 145, "Code",ExpressionUUID->"0d303fea-233e-44b8-936d-2c95feb0d542",
  InitializationCell->True],
-Cell[16915, 399, 150, 3, 35, "Text",ExpressionUUID->"613d2077-58e1-48b3-be51-98454f8b46db"],
-Cell[17068, 404, 1048, 18, 39, "Code",ExpressionUUID->"6b9ac97c-72a5-49e6-baf1-35bdc26b8bc4"],
-Cell[18119, 424, 207, 4, 35, "Text",ExpressionUUID->"cb8fb7c7-03a2-4790-b621-e463b855dce0"],
-Cell[18329, 430, 680, 14, 39, "Code",ExpressionUUID->"758a0e41-5295-462b-9437-5280624e09c7",
+Cell[17541, 408, 150, 3, 35, "Text",ExpressionUUID->"613d2077-58e1-48b3-be51-98454f8b46db"],
+Cell[17694, 413, 1114, 19, 39, "Code",ExpressionUUID->"6b9ac97c-72a5-49e6-baf1-35bdc26b8bc4"],
+Cell[18811, 434, 207, 4, 35, "Text",ExpressionUUID->"cb8fb7c7-03a2-4790-b621-e463b855dce0"],
+Cell[19021, 440, 766, 14, 39, "Code",ExpressionUUID->"758a0e41-5295-462b-9437-5280624e09c7",
  InitializationCell->True]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[19046, 449, 202, 4, 68, "Section",ExpressionUUID->"a6b00713-ece3-4dc1-9431-e34d7272d190"],
-Cell[19251, 455, 171, 3, 35, "Text",ExpressionUUID->"2d795a04-6d19-4b93-887e-ff53f39ead5d"],
-Cell[19425, 460, 329, 7, 36, "Code",ExpressionUUID->"696e3f34-5f4d-47e5-ab6a-441391b71169",
+Cell[19824, 459, 202, 4, 68, "Section",ExpressionUUID->"a6b00713-ece3-4dc1-9431-e34d7272d190"],
+Cell[20029, 465, 171, 3, 35, "Text",ExpressionUUID->"2d795a04-6d19-4b93-887e-ff53f39ead5d"],
+Cell[20203, 470, 329, 7, 36, "Code",ExpressionUUID->"696e3f34-5f4d-47e5-ab6a-441391b71169",
  InitializationCell->True],
-Cell[19757, 469, 296, 7, 35, "Text",ExpressionUUID->"cd1cede3-8e70-4172-bd0b-bd6dca95f21e"],
-Cell[20056, 478, 6577, 141, 503, "Code",ExpressionUUID->"7669c24e-b8b9-4be5-bd8f-86bc8ca5e89d"],
-Cell[26636, 621, 218, 5, 35, "Text",ExpressionUUID->"22f91f6e-c314-4759-91b3-13470832f1d6"],
-Cell[26857, 628, 10569, 237, 820, "Code",ExpressionUUID->"a1266c82-967a-4615-82aa-93e09aad878e"],
-Cell[37429, 867, 176, 3, 35, "Text",ExpressionUUID->"3788fb21-d0d8-49c8-85a4-68390524263d"],
-Cell[37608, 872, 15783, 376, 1163, "Code",ExpressionUUID->"de0fa22a-8d58-439b-8009-0848a3550c69"],
-Cell[53394, 1250, 315, 7, 35, "Text",ExpressionUUID->"19b668cc-375d-46cb-a908-9864d2076310"],
-Cell[53712, 1259, 4177, 91, 290, "Code",ExpressionUUID->"6e92047b-38cf-4102-97ea-07edca112e0e"],
-Cell[57892, 1352, 347, 7, 35, "Text",ExpressionUUID->"244b37ba-e31b-447d-a2c2-22e53dc06825"],
-Cell[58242, 1361, 7886, 177, 990, "Code",ExpressionUUID->"fd96df7b-9b8d-434d-b25d-1b7ee0bb6077"],
-Cell[66131, 1540, 191, 3, 35, "Text",ExpressionUUID->"f2f06fa7-b6c6-4c13-a31b-64c909d1dfac"],
-Cell[66325, 1545, 300, 8, 58, "Code",ExpressionUUID->"be6e4c65-8777-4371-a9d3-a94948ca9d30",
+Cell[20535, 479, 296, 7, 35, "Text",ExpressionUUID->"cd1cede3-8e70-4172-bd0b-bd6dca95f21e"],
+Cell[20834, 488, 6577, 141, 503, "Code",ExpressionUUID->"7669c24e-b8b9-4be5-bd8f-86bc8ca5e89d"],
+Cell[27414, 631, 218, 5, 35, "Text",ExpressionUUID->"22f91f6e-c314-4759-91b3-13470832f1d6"],
+Cell[27635, 638, 10569, 237, 820, "Code",ExpressionUUID->"a1266c82-967a-4615-82aa-93e09aad878e"],
+Cell[38207, 877, 176, 3, 35, "Text",ExpressionUUID->"3788fb21-d0d8-49c8-85a4-68390524263d"],
+Cell[38386, 882, 15783, 376, 1163, "Code",ExpressionUUID->"de0fa22a-8d58-439b-8009-0848a3550c69"],
+Cell[54172, 1260, 315, 7, 35, "Text",ExpressionUUID->"19b668cc-375d-46cb-a908-9864d2076310"],
+Cell[54490, 1269, 4177, 91, 290, "Code",ExpressionUUID->"6e92047b-38cf-4102-97ea-07edca112e0e"],
+Cell[58670, 1362, 347, 7, 35, "Text",ExpressionUUID->"244b37ba-e31b-447d-a2c2-22e53dc06825"],
+Cell[59020, 1371, 7886, 177, 990, "Code",ExpressionUUID->"fd96df7b-9b8d-434d-b25d-1b7ee0bb6077"],
+Cell[66909, 1550, 726, 18, 35, "Text",ExpressionUUID->"73fb5e83-3d59-43eb-9589-ab2bfd424942"],
+Cell[67638, 1570, 2699, 60, 208, "Code",ExpressionUUID->"d88d0974-2ff2-4137-af6d-dd7b130f6946"],
+Cell[70340, 1632, 806, 18, 35, "Text",ExpressionUUID->"971dca6d-c0bc-4ff9-985c-3f0b24691610"],
+Cell[71149, 1652, 8539, 198, 388, "Code",ExpressionUUID->"12a5da34-d411-43bc-83f8-9c5b1dd797af"],
+Cell[79691, 1852, 529, 15, 35, "Text",ExpressionUUID->"2fb33349-2954-4f48-a6ef-f6cc954677c4"],
+Cell[80223, 1869, 3187, 72, 161, "Code",ExpressionUUID->"89b2d1cb-fec0-480c-ba41-df88e31456dd"],
+Cell[83413, 1943, 641, 16, 35, "Text",ExpressionUUID->"132639a0-77d3-415d-a1e2-f3d2a89caea4"],
+Cell[84057, 1961, 9349, 214, 1247, "Code",ExpressionUUID->"237dd3e6-c5ff-468f-abb4-78f18cc2aae6"],
+Cell[93409, 2177, 605, 16, 35, "Text",ExpressionUUID->"5fcdd6d7-1dac-47d7-83ac-3930e5d7bccc"],
+Cell[94017, 2195, 4907, 110, 350, "Code",ExpressionUUID->"0c712521-49f5-4e40-a083-05f629f9737f"],
+Cell[98927, 2307, 196, 3, 35, "Text",ExpressionUUID->"2c9ecd05-f5b9-4de5-8ff2-7435a40cc052"],
+Cell[99126, 2312, 5446, 110, 474, "Code",ExpressionUUID->"ff6689da-a977-43b7-87b3-912d679e79a4"],
+Cell[104575, 2424, 191, 3, 35, "Text",ExpressionUUID->"f2f06fa7-b6c6-4c13-a31b-64c909d1dfac"],
+Cell[104769, 2429, 300, 8, 58, "Code",ExpressionUUID->"be6e4c65-8777-4371-a9d3-a94948ca9d30",
  InitializationCell->True]
 }, Open  ]]
 }, Open  ]]
