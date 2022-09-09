@@ -72,6 +72,8 @@ Both Expr and at least one field must be provided. Do not include indices in the
 
 
 BuildLightcone::usage="BuildLightcone is a boolean option for BuildPriam, which determines whether the lightcone coordinates are constructed using xCoba. Default is True.";
+Even::usage="Even is an association key which refers to even-parity spin states.";
+Odd::usage="Odd is an association key which refers to odd-parity spin states.";
 
 
 (* ::Code::Initialization:: *)
@@ -384,6 +386,57 @@ Print@NummeratorFreeSourceEigenvalues;
 
 {MasslessPropagaorResidue,NummeratorFreeSourceEigenvalues}];
 
+SpinParityTensorHeads=<|
+		Global`A-><|
+			0-><|Even->{Global`AP0p},Odd->{Global`AP0m}|>,
+			1-><|Even->{Global`AP1p,Global`APerp1p},Odd->{Global`AP1m,Global`APerp1m}|>,
+			2-><|Even->{Global`AP2p},Odd->{Global`AP2m}|>
+		|>,
+		Global`F-><|
+			0-><|Even->{Global`FP0p,Global`FPerp0p},Odd->{}|>,
+			1-><|Even->{Global`FP1p},Odd->{Global`FP1m,Global`FPerp1m}|>,
+			2-><|Even->{Global`FP2p},Odd->{}|>
+		|>
+|>;
+
+
+ExecuteRules[]:=(
+AutomaticRules[Global`AP2m,MakeRule[{Evaluate[Global`AP2m[-Global`a,-Global`c,-Global`b]Dagger@Global`AP2m[Global`a,Global`b,Global`c]],Evaluate[(1/2)Global`AP2m[-Global`a,-Global`b,-Global`c]Dagger@Global`AP2m[Global`a,Global`b,Global`c]]},MetricOn->All,ContractMetrics->True]];
+AutomaticRules[Evaluate[Dagger@Global`AP2m],MakeRule[{Evaluate[Dagger@Global`AP2m[-Global`a,-Global`c,-Global`b]Global`AP2m[Global`a,Global`b,Global`c]],Evaluate[(1/2)Dagger@Global`AP2m[-Global`a,-Global`b,-Global`c]Global`AP2m[Global`a,Global`b,Global`c]]},MetricOn->All,ContractMetrics->True]];
+AutomaticRules[Evaluate[Dagger@Global`AP2m],MakeRule[{Evaluate[Dagger@Global`AP2m[-Global`a,-Global`b,-Global`c]Global`Eps[Global`d,Global`b,Global`c]],Evaluate[-(1/2)Dagger@Global`AP2m[-Global`b,-Global`c,-Global`a]Global`Eps[Global`d,Global`b,Global`c]]},MetricOn->All,ContractMetrics->True]];
+AutomaticRules[Global`AP2m,MakeRule[{Evaluate[Global`AP2m[-Global`a,-Global`b,-Global`c]Global`Eps[Global`d,Global`b,Global`c]],Evaluate[-(1/2)Global`AP2m[-Global`b,-Global`c,-Global`a]Global`Eps[Global`d,Global`b,Global`c]]},MetricOn->All,ContractMetrics->True]];
+);
+
+
+QuadraticAnsatz[Tensors__]:=If[Evaluate@Total@((Length@SlotsOfTensor@#)&/@(List@Tensors))>0,
+	AllContractions@IndexFree@Times@Tensors,
+	Times@@((#[])&/@(List@Tensors))
+];
+
+SuadraticAnsatz[Tensors__]:=If[Evaluate@Total@((Length@SlotsOfTensor@#)&/@(List@Tensors))>0,
+	AllContractions@IndexFree@((Times@Tensors)~Times~Global`Eps),
+	Times@@((#[])&/@(List@Tensors))
+];
+
+GenerateAnsatz[Tensors__]:=Catch@Module[{},
+	(*
+	Print@MatrixForm@(Outer[QuadraticAnsatz,#,(Dagger/@#)]&@(Join@@(SpinParityTensorHeads[Tensor][Spin][Even]~Table~{Tensor,List@Tensors})))
+	~Table~{Spin,0,2};
+*)
+	Print@MatrixForm@(Outer[QuadraticAnsatz,#,(Dagger/@#)]&@(Join@@(SpinParityTensorHeads[Tensor][Spin][Odd]~Table~{Tensor,List@Tensors})))
+	~Table~{Spin,0,2};
+	Print@MatrixForm@(Outer[SuadraticAnsatz,#[[1]],(Dagger@#)&/@#[[2]]]&@{
+	Join@@(SpinParityTensorHeads[Tensor][Spin][Even]~Table~{Tensor,List@Tensors}),
+	Join@@(SpinParityTensorHeads[Tensor][Spin][Odd]~Table~{Tensor,List@Tensors})
+	})
+	~Table~{Spin,0,2};
+];
+
+(*~Times~Global`Eps*)
+
+(*
+Tensors1=(#@@(ToExpression/@Alphabet[][[1;;(Length@SlotsOfTensor@#)]]))&/@(List@Tensors);
+*)
 
 YunCherngLin[Expr_,Tensors__]:=Catch@Module[{printer,FourierDecomposedLagrangian,SaturatedPropagator,ConstraintComponentList,SourceComponents,UnscaledNullSpace,LightconePropagator,RescaledNullSpace,SourceComponentsToFreeSourceVariables},
 printer={};
@@ -391,6 +444,8 @@ printer=printer~Append~PrintTemporary@" ** YunCherngLin...";
 
 FourierDecomposedLagrangian=FourierLagrangian[Expr,Tensors];
 SaturatedPropagator=SaturateMe[FourierDecomposedLagrangian];
+
+(*
 
 Print@" ** YunCherngLin: null eigenvectors of the Lagrangian imply the following constraints on the source currents (stress-energy and spin tensors) expressed in the lightcone components where \[ScriptK]=(\!\(\*SubscriptBox[\(\[ScriptK]\), \(0\)]\),\!\(\*SubscriptBox[\(\[ScriptK]\), \(1\)]\),\!\(\*SubscriptBox[\(\[ScriptK]\), \(2\)]\),\!\(\*SubscriptBox[\(\[ScriptK]\), \(3\)]\))=(\[ScriptCapitalE],0,0,\[ScriptP]):";
 ConstraintComponentList=MakeConstraintComponentList[SaturatedPropagator[[1]]];(*~Take~2*)
@@ -404,6 +459,9 @@ SourceComponentsToFreeSourceVariables=MakeFreeSourceVariables[RescaledNullSpace,
 
 LightconePropagator=MassiveAnalysisOfSector[#,SourceComponentsToFreeSourceVariables]&/@SaturatedPropagator[[2]];
 MasslessAnalysisOfTotal[LightconePropagator,UnscaledNullSpace];
+
+
+*)
 
 NotebookDelete@printer;
 ];
