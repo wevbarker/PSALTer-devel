@@ -1,0 +1,481 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     17786,        473]
+NotebookOptionsPosition[     14795,        417]
+NotebookOutlinePosition[     15439,        438]
+CellTagsIndexPosition[     15396,        435]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["Department of Physics", "Department",
+ CellChangeTimes->{{3.864792470280526*^9, 
+  3.8647924819956284`*^9}},ExpressionUUID->"0bc37bb9-fabf-4cb3-8ebb-\
+3d150bf7ee54"],
+
+Cell[CellGroupData[{
+
+Cell["Quantum Stability : The Special Conformal Phase", "Title",
+ CellChangeTimes->{{3.856165344530184*^9, 3.856165360586437*^9}, {
+  3.856592043342741*^9, 3.8565920465891027`*^9}, {3.860570667239029*^9, 
+  3.860570670134791*^9}, {3.864550710189993*^9, 3.864550718430193*^9}, {
+  3.8647200714534063`*^9, 3.864720142813765*^9}, {3.864723307218957*^9, 
+  3.864723307898204*^9}},ExpressionUUID->"77b3805d-060b-4070-8508-\
+41576cdf0004"],
+
+Cell[CellGroupData[{
+
+Cell["W. E. V. Barker", "Author",
+ CellChangeTimes->{{3.864749323312978*^9, 3.864749328306797*^9}, {
+  3.8647926323894053`*^9, 
+  3.864792635660534*^9}},ExpressionUUID->"100960d2-4b38-41a5-b137-\
+191a74131b9c"],
+
+Cell["Cavendish Astrophysics Group, University of Cambridge", "Institution",
+ CellChangeTimes->{{3.8647496067443113`*^9, 
+  3.864749632519373*^9}},ExpressionUUID->"7b839eae-4784-493d-b59a-\
+51bcafa75e59"],
+
+Cell["Kavli Institute for Cosmology, Cambridge", "Institution",
+ CellChangeTimes->{{3.864792539783351*^9, 
+  3.864792546672456*^9}},ExpressionUUID->"0ac373f1-6b62-4d29-9854-\
+7937575c2f2d"],
+
+Cell["\<\
+The idea here is to recover the massive and massless propagator structures \
+for the theories of interest. We also want to show that the unitarity \
+conditions are independent of Gauss-Bonnet.\
+\>", "Abstract",
+ CellChangeTimes->{{3.864792321119171*^9, 3.864792323980362*^9}, {
+  3.864792550694606*^9, 3.8647926003744*^9}, {3.864792640417905*^9, 
+  3.864792648429236*^9}, {3.8647926787887573`*^9, 
+  3.864792693781187*^9}},ExpressionUUID->"0a578ac9-1a36-42ab-a8de-\
+2ddac1efbc33"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Introduction", "Section",
+ CellChangeTimes->{{3.864722450700447*^9, 
+  3.8647224522967176`*^9}},ExpressionUUID->"6a0763e1-9e4f-49f3-abe7-\
+978c2e2f6f31"],
+
+Cell["\<\
+This notebook is designed to recover the particle spectrum of the theory in \
+the \[OpenCurlyDoubleQuote]special conformal phase\[CloseCurlyDoubleQuote].\
+\>", "Text",
+ CellChangeTimes->{{3.85659205646922*^9, 3.8565920652907*^9}, {
+   3.864550726533654*^9, 3.864550739216448*^9}, {3.864721030356936*^9, 
+   3.864721036833041*^9}, 
+   3.86472331228697*^9},ExpressionUUID->"ac3b952a-323b-405e-9ac1-\
+f072cdc53b32"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["The HiGGS and Priam packages", "Section",
+ CellChangeTimes->{{3.864719448515771*^9, 3.8647194514852943`*^9}, {
+   3.864721176372871*^9, 3.864721187493012*^9}, 3.8647214550104303`*^9, {
+   3.870279547715768*^9, 
+   3.8702795517403812`*^9}},ExpressionUUID->"5784ebd6-eb51-488b-8f27-\
+8ddfa59cf073"],
+
+Cell["Load the HiGGS environment.", "Text",
+ CellChangeTimes->{{3.864716111135146*^9, 
+  3.864716117145434*^9}},ExpressionUUID->"8cf36182-b0fe-4b62-9ff4-\
+55b4a2d0f2c5"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<<", " ", "xAct`Priam`"}], ";"}]], "Input",
+ CellChangeTimes->{3.8702797643439302`*^9},
+ CellLabel->"In[1]:=",ExpressionUUID->"21dd7eff-c318-49af-b079-cb80317a62a3"],
+
+Cell["\<\
+Build the HiGGS environment. This takes about a minute to run.\
+\>", "Text",
+ CellChangeTimes->{{3.864716085611658*^9, 3.864716093788251*^9}, {
+  3.864719745427451*^9, 
+  3.8647197515276546`*^9}},ExpressionUUID->"7ebfc577-36a1-4e08-9fb0-\
+cc8bde31babb"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"BuildHiGGS", "[", "]"}], ";"}]], "Input",
+ CellChangeTimes->{3.870279772726343*^9},
+ CellLabel->"In[2]:=",ExpressionUUID->"c3475578-29a5-4c73-bb03-0c506e5af3e9"],
+
+Cell["\<\
+Build Priam, too! This should be a little faster but not much.\
+\>", "Text",
+ CellChangeTimes->{{3.87027956028944*^9, 
+  3.870279574147772*^9}},ExpressionUUID->"1e0a07d7-498f-45df-8d3d-\
+7d49b889dee6"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"BuildPriam", "[", "]"}], ";"}]], "Input",
+ CellChangeTimes->{3.870279798676847*^9},
+ CellLabel->"In[3]:=",ExpressionUUID->"c55bcc63-a942-4c3a-8f76-9d3a401b8502"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["The theory we are studying", "Section",
+ CellChangeTimes->{{3.870330752861752*^9, 
+  3.870330757197946*^9}},ExpressionUUID->"09b1ac94-d9ce-49f3-a4fe-\
+53fa92722631"],
+
+Cell["Here is the theory under investigation.", "Text",
+ CellChangeTimes->{{3.870330760728072*^9, 
+  3.8703307723979807`*^9}},ExpressionUUID->"2516e1f3-251e-4402-a08d-\
+2033f0675393"],
+
+Cell[BoxData[
+ RowBox[{"Lagrangian", " ", "=", " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"T", "[", 
+      RowBox[{"i", ",", " ", "g", ",", " ", "h"}], "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"Bet1", " ", 
+        RowBox[{"PT1", "[", 
+         RowBox[{
+          RowBox[{"-", "i"}], ",", " ", 
+          RowBox[{"-", "g"}], ",", " ", 
+          RowBox[{"-", "h"}], ",", " ", "a", ",", " ", "c", ",", " ", "d"}], 
+         "]"}]}], " ", "+", "\n", "       ", 
+       RowBox[{"Bet2", " ", 
+        RowBox[{"PT2", "[", 
+         RowBox[{
+          RowBox[{"-", "i"}], ",", " ", 
+          RowBox[{"-", "g"}], ",", " ", 
+          RowBox[{"-", "h"}], ",", " ", "a", ",", " ", "c", ",", " ", "d"}], 
+         "]"}]}], " ", "+", "\n", "       ", 
+       RowBox[{"Bet3", " ", 
+        RowBox[{"PT3", "[", 
+         RowBox[{
+          RowBox[{"-", "i"}], ",", " ", 
+          RowBox[{"-", "g"}], ",", " ", 
+          RowBox[{"-", "h"}], ",", " ", "a", ",", " ", "c", ",", " ", "d"}], 
+         "]"}]}]}], ")"}], " ", 
+     RowBox[{"T", "[", 
+      RowBox[{
+       RowBox[{"-", "a"}], ",", " ", 
+       RowBox[{"-", "c"}], ",", " ", 
+       RowBox[{"-", "d"}]}], "]"}]}], " ", "+", " ", 
+    RowBox[{
+     RowBox[{"R", "[", 
+      RowBox[{"i", ",", " ", "j", ",", " ", "g", ",", " ", "h"}], "]"}], " ", 
+     
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"Alp1", " ", 
+        RowBox[{"PR1", "[", 
+         RowBox[{
+          RowBox[{"-", "i"}], ",", " ", 
+          RowBox[{"-", "j"}], ",", " ", 
+          RowBox[{"-", "g"}], ",", " ", 
+          RowBox[{"-", "h"}], ",", " ", "a", ",", " ", "b", ",", " ", "c", 
+          ",", " ", "d"}], "]"}]}], " ", "+", "\n", "       ", 
+       RowBox[{"Alp2", " ", 
+        RowBox[{"PR2", "[", 
+         RowBox[{
+          RowBox[{"-", "i"}], ",", " ", 
+          RowBox[{"-", "j"}], ",", " ", 
+          RowBox[{"-", "g"}], ",", " ", 
+          RowBox[{"-", "h"}], ",", " ", "a", ",", " ", "b", ",", " ", "c", 
+          ",", " ", "d"}], "]"}]}], " ", "+", "\n", "       ", 
+       RowBox[{"Alp3", " ", 
+        RowBox[{"PR3", "[", 
+         RowBox[{
+          RowBox[{"-", "i"}], ",", " ", 
+          RowBox[{"-", "j"}], ",", " ", 
+          RowBox[{"-", "g"}], ",", " ", 
+          RowBox[{"-", "h"}], ",", " ", "a", ",", " ", "b", ",", " ", "c", 
+          ",", " ", "d"}], "]"}]}], " ", "+", "\n", "       ", 
+       RowBox[{"Alp4", " ", 
+        RowBox[{"PR4", "[", 
+         RowBox[{
+          RowBox[{"-", "i"}], ",", " ", 
+          RowBox[{"-", "j"}], ",", " ", 
+          RowBox[{"-", "g"}], ",", " ", 
+          RowBox[{"-", "h"}], ",", " ", "a", ",", " ", "b", ",", " ", "c", 
+          ",", " ", "d"}], "]"}]}], " ", "+", "\n", "       ", 
+       RowBox[{"Alp5", " ", 
+        RowBox[{"PR5", "[", 
+         RowBox[{
+          RowBox[{"-", "i"}], ",", " ", 
+          RowBox[{"-", "j"}], ",", " ", 
+          RowBox[{"-", "g"}], ",", " ", 
+          RowBox[{"-", "h"}], ",", " ", "a", ",", " ", "b", ",", " ", "c", 
+          ",", " ", "d"}], "]"}]}], " ", "+", "\n", "       ", 
+       RowBox[{"Alp6", " ", 
+        RowBox[{"PR6", "[", 
+         RowBox[{
+          RowBox[{"-", "i"}], ",", " ", 
+          RowBox[{"-", "j"}], ",", " ", 
+          RowBox[{"-", "g"}], ",", " ", 
+          RowBox[{"-", "h"}], ",", " ", "a", ",", " ", "b", ",", " ", "c", 
+          ",", " ", "d"}], "]"}]}]}], ")"}], " ", 
+     RowBox[{"R", "[", 
+      RowBox[{
+       RowBox[{"-", "a"}], ",", " ", 
+       RowBox[{"-", "b"}], ",", " ", 
+       RowBox[{"-", "c"}], ",", " ", 
+       RowBox[{"-", "d"}]}], "]"}]}], " ", "-", " ", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"1", "/", "2"}], ")"}], " ", "Alp0", " ", 
+     RowBox[{"G", "[", 
+      RowBox[{"a", ",", " ", "c"}], "]"}], " ", 
+     RowBox[{"G", "[", 
+      RowBox[{"b", ",", " ", "d"}], "]"}], " ", 
+     RowBox[{"R", "[", 
+      RowBox[{
+       RowBox[{"-", "a"}], ",", " ", 
+       RowBox[{"-", "b"}], ",", " ", 
+       RowBox[{"-", "c"}], ",", " ", 
+       RowBox[{"-", "d"}]}], "]"}]}], " ", "+", " ", 
+    RowBox[{"AlpGB", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"R", "[", 
+         RowBox[{"a", ",", " ", "b", ",", " ", 
+          RowBox[{"-", "a"}], ",", " ", 
+          RowBox[{"-", "b"}]}], "]"}], " ", 
+        RowBox[{"R", "[", 
+         RowBox[{"i", ",", " ", "j", ",", " ", 
+          RowBox[{"-", "i"}], ",", " ", 
+          RowBox[{"-", "j"}]}], "]"}]}], " ", "-", " ", 
+       RowBox[{"4", " ", 
+        RowBox[{"R", "[", 
+         RowBox[{"q", ",", " ", 
+          RowBox[{"-", "i"}], ",", " ", 
+          RowBox[{"-", "q"}], ",", " ", 
+          RowBox[{"-", "j"}]}], "]"}], " ", 
+        RowBox[{"R", "[", 
+         RowBox[{"p", ",", " ", "j", ",", " ", 
+          RowBox[{"-", "p"}], ",", " ", "i"}], "]"}]}], " ", "+", " ", 
+       RowBox[{
+        RowBox[{"R", "[", 
+         RowBox[{
+          RowBox[{"-", "i"}], ",", " ", 
+          RowBox[{"-", "j"}], ",", " ", 
+          RowBox[{"-", "k"}], ",", " ", 
+          RowBox[{"-", "l"}]}], "]"}], " ", 
+        RowBox[{"R", "[", 
+         RowBox[{"k", ",", " ", "l", ",", " ", "i", ",", " ", "j"}], 
+         "]"}]}]}], ")"}]}]}], " ", "/.", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Bet1", " ", "->", " ", "0"}], ",", " ", 
+     RowBox[{"Alp1", " ", "->", " ", 
+      RowBox[{
+       RowBox[{"-", "2"}], " ", "Alp6"}]}], ",", " ", 
+     RowBox[{"Alp2", " ", "->", " ", 
+      RowBox[{"2", " ", "Alp6"}]}], ",", " ", 
+     RowBox[{"Alp3", " ", "->", " ", "0"}], ",", " ", 
+     RowBox[{"Alp4", " ", "->", " ", 
+      RowBox[{"-", "Alp6"}]}], ",", " ", 
+     RowBox[{"Alp0", " ", "->", " ", "0"}]}], "}"}]}]}]], "Input",
+ CellChangeTimes->{{3.870330721961338*^9, 3.870330724943235*^9}, {
+  3.870330776750592*^9, 3.870330777858184*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"e5be92b8-4316-4210-8024-ad37a0fe2368"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Claire\[CloseCurlyQuote]s part", "Section",
+ CellChangeTimes->{{3.863852228615663*^9, 3.8638522402875*^9}, {
+  3.864720009390642*^9, 3.864720017920673*^9}, {3.870279587990725*^9, 
+  3.8702795912601337`*^9}},
+ Background->RGBColor[
+  1, 0.5, 0],ExpressionUUID->"10122325-9899-4e58-9c89-f39214ad7cef"],
+
+Cell["\<\
+My understanding is that this following cell is the one which becomes highly \
+nontrivial to compute when the background is torsionful, or curved (both are \
+true for cosmology). Then, you have been developing cool tools and \
+computations to perform this.\
+\>", "Text",
+ CellChangeTimes->{{3.87010491717691*^9, 3.870104925064849*^9}, {
+  3.8701130273340607`*^9, 3.870113069010798*^9}, {3.870113158778453*^9, 
+  3.870113200994851*^9}, {3.8704175007236032`*^9, 3.8704175014929113`*^9}},
+ Background->RGBColor[
+  1, 0.5, 0],ExpressionUUID->"06a5d8db-22cd-4c30-9e2d-15065f8c8185"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ToOrderA", "=", 
+   RowBox[{"MakeRule", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"A", "[", 
+        RowBox[{
+         RowBox[{"-", "a"}], ",", 
+         RowBox[{"-", "b"}], ",", 
+         RowBox[{"-", "c"}]}], "]"}], ",", 
+       RowBox[{"Prt", " ", 
+        RowBox[{"A", "[", 
+         RowBox[{
+          RowBox[{"-", "a"}], ",", 
+          RowBox[{"-", "b"}], ",", 
+          RowBox[{"-", "c"}]}], "]"}]}]}], "}"}], ",", 
+     RowBox[{"MetricOn", "\[Rule]", "All"}], ",", 
+     RowBox[{"ContractMetrics", "\[Rule]", "True"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ToOrderF", "=", 
+   RowBox[{"MakeRule", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"F", "[", 
+        RowBox[{
+         RowBox[{"-", "a"}], ",", 
+         RowBox[{"-", "b"}]}], "]"}], ",", 
+       RowBox[{"Prt", " ", 
+        RowBox[{"F", "[", 
+         RowBox[{
+          RowBox[{"-", "a"}], ",", 
+          RowBox[{"-", "b"}]}], "]"}]}]}], "}"}], ",", 
+     RowBox[{"MetricOn", "\[Rule]", "All"}], ",", 
+     RowBox[{"ContractMetrics", "\[Rule]", "True"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"ToOrder", "=", 
+    RowBox[{"Join", "[", 
+     RowBox[{"ToOrderA", ",", "ToOrderF"}], "]"}]}], ";"}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Lagrangian", "/.", "ExpandStrengths"}], "/.", "ToF"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"%", "/.", "ToOrder"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Series", "[", 
+    RowBox[{"%", ",", 
+     RowBox[{"{", 
+      RowBox[{"Prt", ",", "0", ",", "2"}], "}"}]}], "]"}], "//", "Normal"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"%", "/.", 
+   RowBox[{"Prt", "\[Rule]", "1"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"%", "/.", "PActivate"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"%", "//", "ToNewCanonical"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"SecondOrderLagrangian", "=", 
+  RowBox[{"%", "//", "ToNewCanonical"}]}]}], "Input",
+ CellChangeTimes->{
+  3.870279786461598*^9, {3.870330712891473*^9, 3.87033071416772*^9}},
+ Background->RGBColor[1, 0.5, 0],
+ CellLabel->"In[5]:=",ExpressionUUID->"054f04b3-a729-41cb-bb76-3bf74ae65331"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Back to the Priam package for evaluation", "Section",
+ CellChangeTimes->{{3.8702796221819677`*^9, 
+  3.870279628844007*^9}},ExpressionUUID->"bb6b23d9-c2d4-4b90-a30a-\
+b7b8822e411d"],
+
+Cell["\<\
+Priam only provides one function, which does the whole of the propagator \
+analysis in one go.\
+\>", "Text",
+ CellChangeTimes->{{3.870279630456749*^9, 
+  3.8702796463879833`*^9}},ExpressionUUID->"6358e643-c3b5-49fe-9128-\
+18fbcedde5a1"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"YunCherngLin", "[", 
+   RowBox[{"SecondOrderLagrangian", ",", "F", ",", "A"}], "]"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.870279808989193*^9, 3.8702798159005213`*^9}},
+ CellLabel->"In[15]:=",ExpressionUUID->"70ef0416-2389-4ee7-8bae-f8e0b0703c93"]
+}, Open  ]]
+}, Open  ]]
+},
+AutoGeneratedPackage->Automatic,
+ScreenStyleEnvironment->"Slideshow Working",
+WindowSize->{1440., 770.25},
+WindowMargins->{{0, Automatic}, {Automatic, 19.5}},
+TaggingRules-><|
+ "TryRealOnly" -> False, "PresenterSettings" -> <|"ShowSlideBreaks" -> True|>|>,
+FrontEndVersion->"13.1 for Linux x86 (64-bit) (June 16, 2022)",
+StyleDefinitions->FrontEnd`FileName[{"Article"}, "JournalArticle.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"f0892181-16ac-4a5b-9eda-c744fca94a50"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 171, 3, 15, "Department",ExpressionUUID->"0bc37bb9-fabf-4cb3-8ebb-3d150bf7ee54"],
+Cell[CellGroupData[{
+Cell[754, 27, 433, 6, 79, "Title",ExpressionUUID->"77b3805d-060b-4070-8508-41576cdf0004"],
+Cell[CellGroupData[{
+Cell[1212, 37, 210, 4, 43, "Author",ExpressionUUID->"100960d2-4b38-41a5-b137-191a74131b9c"],
+Cell[1425, 43, 204, 3, 15, "Institution",ExpressionUUID->"7b839eae-4784-493d-b59a-51bcafa75e59"],
+Cell[1632, 48, 189, 3, 15, "Institution",ExpressionUUID->"0ac373f1-6b62-4d29-9854-7937575c2f2d"],
+Cell[1824, 53, 490, 9, 45, "Abstract",ExpressionUUID->"0a578ac9-1a36-42ab-a8de-2ddac1efbc33"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2351, 67, 159, 3, 51, "Section",ExpressionUUID->"6a0763e1-9e4f-49f3-abe7-978c2e2f6f31"],
+Cell[2513, 72, 422, 8, 23, "Text",ExpressionUUID->"ac3b952a-323b-405e-9ac1-f072cdc53b32"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2972, 85, 302, 5, 51, "Section",ExpressionUUID->"5784ebd6-eb51-488b-8f27-8ddfa59cf073"],
+Cell[3277, 92, 169, 3, 23, "Text",ExpressionUUID->"8cf36182-b0fe-4b62-9ff4-55b4a2d0f2c5"],
+Cell[3449, 97, 200, 4, 32, "Input",ExpressionUUID->"21dd7eff-c318-49af-b079-cb80317a62a3"],
+Cell[3652, 103, 263, 6, 23, "Text",ExpressionUUID->"7ebfc577-36a1-4e08-9fb0-cc8bde31babb"],
+Cell[3918, 111, 196, 4, 30, "Input",ExpressionUUID->"c3475578-29a5-4c73-bb03-0c506e5af3e9"],
+Cell[4117, 117, 211, 5, 23, "Text",ExpressionUUID->"1e0a07d7-498f-45df-8d3d-7d49b889dee6"],
+Cell[4331, 124, 196, 4, 30, "Input",ExpressionUUID->"c55bcc63-a942-4c3a-8f76-9d3a401b8502"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4564, 133, 171, 3, 51, "Section",ExpressionUUID->"09b1ac94-d9ce-49f3-a4fe-53fa92722631"],
+Cell[4738, 138, 183, 3, 23, "Text",ExpressionUUID->"2516e1f3-251e-4402-a08d-2033f0675393"],
+Cell[4924, 143, 5856, 153, 224, "Input",ExpressionUUID->"e5be92b8-4316-4210-8024-ad37a0fe2368"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10817, 301, 305, 5, 59, "Section",ExpressionUUID->"10122325-9899-4e58-9c89-f39214ad7cef"],
+Cell[11125, 308, 587, 10, 39, "Text",ExpressionUUID->"06a5d8db-22cd-4c30-9e2d-15065f8c8185"],
+Cell[11715, 320, 2289, 69, 247, "Input",ExpressionUUID->"054f04b3-a729-41cb-bb76-3bf74ae65331"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14041, 394, 187, 3, 51, "Section",ExpressionUUID->"bb6b23d9-c2d4-4b90-a30a-b7b8822e411d"],
+Cell[14231, 399, 246, 6, 23, "Text",ExpressionUUID->"6358e643-c3b5-49fe-9128-18fbcedde5a1"],
+Cell[14480, 407, 287, 6, 30, "Input",ExpressionUUID->"70ef0416-2389-4ee7-8bae-f8e0b0703c93"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
