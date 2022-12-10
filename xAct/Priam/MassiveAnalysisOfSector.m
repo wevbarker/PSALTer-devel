@@ -1,0 +1,63 @@
+(*===========================*)
+(*  MassiveAnalysisOfSector  *)
+(*===========================*)
+
+MassiveAnalysisOfSector[RawSector_,SourceComponentsToFreeSourceVariables_List]:=Catch@Module[{printer,Sector},
+printer={};
+printer=printer~Append~PrintTemporary@" ** MassiveAnalysisOfSector...";
+Sector=RawSector//NoScalar;
+Sector=Sector/.Global`SourcePO3Activate;
+Sector=Sector//NoScalar;
+Sector=Sector//ToNewCanonical;
+Sector=Sector/.Global`SourcePerpO3Activate;
+Sector=Sector//NoScalar;
+Sector=Sector//ToNewCanonical;
+Sector=Sector/.Global`PADMPiActivate;
+Sector=Sector//NoScalar;
+Sector=Sector//ToNewCanonical;
+Sector=Sector/.Global`PO3PiActivate;
+Sector=Sector//NoScalar;
+Sector=Sector//ToNewCanonical;
+Sector=Sector/.Global`PADMActivate;
+Sector=Sector//NoScalar;
+Sector=Sector//ToNewCanonical;
+Sector=Sector/.Global`SourceCompose;
+Sector=xAct`xCoba`SeparateBasis[AIndex][Sector];
+Sector=Sector/.Global`ToP;
+Sector=Sector/.Global`SourceCompose;
+Sector=xAct`xCoba`SeparateBasis[AIndex][Sector];
+Sector=Sector/.Global`ToP;
+Sector=Sector//NoScalar;
+Sector=Sector//ToNewCanonical;
+Sector=Sector/.Global`ToV;
+Sector=Sector//ToNewCanonical;
+Sector=Sector/.Global`ToP;
+Sector=xAct`xCoba`SeparateBasis[AIndex][Sector];
+Sector=Sector//NoScalar;
+Sector=Sector/.Global`ToP;
+Sector=Sector//ToNewCanonical;
+Sector=Sector//NoScalar;
+printer=printer~Append~PrintTemporary[" ** SeparateMetric..."];
+Sector=SeparateMetric[Global`G][Evaluate@Sector];
+printer=printer~Append~PrintTemporary[" ** SeparateBasis..."];
+Sector=xAct`xCoba`SeparateBasis[Global`cartesian][Sector];
+printer=printer~Append~PrintTemporary[" ** ContractBasis..."];
+Sector=Sector//xAct`xCoba`ContractBasis;
+printer=printer~Append~PrintTemporary[" ** TraceBasisDummy..."];
+Sector=Sector//xAct`xCoba`TraceBasisDummy;
+printer=printer~Append~PrintTemporary[" ** TensorValues..."];
+Sector=Sector/.xAct`xCoba`TensorValues[Global`P];
+Sector=Sector/.xAct`xCoba`TensorValues[Global`G];
+Sector=Sector/.xAct`xCoba`TensorValues[Global`Tau];
+Sector=Sector/.xAct`xCoba`TensorValues[Global`Sigma];
+Sector=Sector/.xAct`xCoba`TensorValues[Dagger@Global`Tau];
+Sector=Sector/.xAct`xCoba`TensorValues[Dagger@Global`Sigma];
+Sector=Sector/.{Global`Def->Sqrt[Global`En^2-Global`Mo^2]};
+Sector=Sector//Together;
+printer=printer~Append~PrintTemporary[" ** Imposing conserved sources..."];
+Sector=Sector/.SourceComponentsToFreeSourceVariables;
+Sector=Sector//Together;
+NotebookDelete@printer;
+Print@" ** YunCherngLin: massive mode contribution from given spin-parity sector in the lightcone basis:";
+Print@Sector;
+Sector];
