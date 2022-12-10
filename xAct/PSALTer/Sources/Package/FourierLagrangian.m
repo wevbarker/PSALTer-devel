@@ -10,11 +10,11 @@ Tensors2=(#@@(ToExpression/@Alphabet[][[-(Length@SlotsOfTensor@#);;-1]]))&/@(Lis
 CrossingRules={};(*start off without any rules*)
 (*first the double derivatives*)
 Table[(CrossingRules=CrossingRules~Join~
-MakeRule[{Evaluate[Global`CD[-Global`q]@Tensor1 Global`CD[-Global`p]@Tensor2],Evaluate[Dagger@Tensor1 Global`P[-Global`p]Global`P[-Global`q]Tensor2]},MetricOn->All,ContractMetrics->True]),
+MakeRule[{Evaluate[CD[-q]@Tensor1 CD[-p]@Tensor2],Evaluate[Dagger@Tensor1 P[-p]P[-q]Tensor2]},MetricOn->All,ContractMetrics->True]),
 {Tensor1,Tensors1},{Tensor2,Tensors2}];
 (*then single derivatives*)
 Table[(CrossingRules=CrossingRules~Join~
-MakeRule[{Evaluate[Tensor1 Global`CD[-Global`p]@Tensor2],Evaluate[-I Dagger@Tensor1 Global`P[-Global`p]Tensor2]},MetricOn->All,ContractMetrics->True]),
+MakeRule[{Evaluate[Tensor1 CD[-p]@Tensor2],Evaluate[-I Dagger@Tensor1 P[-p]Tensor2]},MetricOn->All,ContractMetrics->True]),
 {Tensor1,Tensors1},{Tensor2,Tensors2}];
 (*and finally algebraic products*)
 Table[(CrossingRules=CrossingRules~Join~
@@ -24,14 +24,14 @@ ToMomentumExpr=Expr/.CrossingRules;(*now impose these rules to obtain Fourier sp
 ToMomentumExpr=ToMomentumExpr//ToNewCanonical;
 printer=printer~Append~PrintTemporary@ToMomentumExpr;
 (*now move over to SO(3) decomposition*)
-ToMomentumExpr=ToMomentumExpr/.Global`ToV;
+ToMomentumExpr=ToMomentumExpr/.ToV;
 ToMomentumExpr=ToMomentumExpr//ToNewCanonical;
-ToMomentumExpr=ToMomentumExpr/.Global`GaugeDecompose//ToNewCanonical;
-ToMomentumExpr=ToMomentumExpr/.Global`GaugePToGaugePO3/.Global`GaugePerpToGaugePO3//ToNewCanonical;
+ToMomentumExpr=ToMomentumExpr/.GaugeDecompose//ToNewCanonical;
+ToMomentumExpr=ToMomentumExpr/.GaugePToGaugePO3/.GaugePerpToGaugePO3//ToNewCanonical;
 ToMomentumExpr=ToMomentumExpr//CollectTensors;
-ToMomentumExpr=ToMomentumExpr/.Global`Patch2m;
-ToMomentumExpr=ToMomentumExpr/.Global`ManualAll;
-ToMomentumExpr=ToMomentumExpr/.Global`ManualAll;
+ToMomentumExpr=ToMomentumExpr/.Patch2m;
+ToMomentumExpr=ToMomentumExpr/.ManualAll;
+ToMomentumExpr=ToMomentumExpr/.ManualAll;
 ToMomentumExpr=ToMomentumExpr//ToNewCanonical;
 ToMomentumExpr=ToMomentumExpr//CollectTensors;
 

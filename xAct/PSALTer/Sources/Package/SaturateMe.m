@@ -7,8 +7,8 @@ printer={};
 printer=printer~Append~PrintTemporary@" ** SaturateMe...";
 
 (*coefficient matrices*)
-SymbolicLagrangian=Expr/.Global`cRules;(*remember the 2m mode turns out to vanish once you consider the cyclic identitiy on the indices!*)
-Symbols=(#~Join~((Evaluate@Dagger[#])&/@#))&/@{Global`c0p,Global`c0m,Global`c1p,Global`c1m,Global`c2p,Global`c2m};(*lists of all the symbolic projected tensors*)
+SymbolicLagrangian=Expr/.cRules;(*remember the 2m mode turns out to vanish once you consider the cyclic identitiy on the indices!*)
+Symbols=(#~Join~((Evaluate@Dagger[#])&/@#))&/@{c0p,c0m,c1p,c1m,c2p,c2m};(*lists of all the symbolic projected tensors*)
 (*now transfer the Lagrangian to coefficient matrix form, accommodating for zero and dimension-one matrices*)
 MatrixLagrangian=If[SparseArrayQ@Last@CoefficientArrays[SymbolicLagrangian,#,"Symmetric"->False],
 Last@CoefficientArrays[SymbolicLagrangian,#,"Symmetric"->False],
@@ -26,7 +26,7 @@ Print@" ** SaturateMe: Hermitian equivalent of these coefficient matrices:";
 Print@(MatrixForm/@MatrixLagrangian);
 
 (*rescaled versions of matrices*)
-MatrixLagrangian=MapThread[MapThread[#1 #2&,{#1,#2}]&,{MatrixLagrangian,Global`rescmat}]/.Global`rescsols;
+MatrixLagrangian=MapThread[MapThread[#1 #2&,{#1,#2}]&,{MatrixLagrangian,rescmat}]/.rescsols;
 Print@" ** SaturateMe: SPO-rescaled equivalent of these coefficient matrices:";
 Print@(MatrixForm/@MatrixLagrangian);
 
@@ -36,7 +36,7 @@ Print@" ** SaturateMe: Null spaces of these coefficient matrices:";
 Print@NullSpaces;
 
 (*source constraints*)
-SourceConstraints=Quiet@DeleteCases[Flatten@MapThread[#1 . #2&,{If[#=={},{0},#,#]&/@NullSpaces,MapThread[MapThread[(#2/#1)&,{#1,#2}]&,{{Global`r0p,Global`r0m,Global`r1p,Global`r1m,Global`r2p,Global`r2m},Global`Ups}]}],0,Infinity]/.Global`rescsols;
+SourceConstraints=Quiet@DeleteCases[Flatten@MapThread[#1 . #2&,{If[#=={},{0},#,#]&/@NullSpaces,MapThread[MapThread[(#2/#1)&,{#1,#2}]&,{{r0p,r0m,r1p,r1m,r2p,r2m},Ups}]}],0,Infinity]/.rescsols;
 SourceConstraints=Numerator@Together[#/Sqrt[2^5*3^5*5^5*7^5]]&/@SourceConstraints;
 Print@" ** SaturateMe: Corresponding source constraints:";
 Print[#," = 0"]&/@SourceConstraints;
@@ -47,8 +47,8 @@ Print@" ** SaturateMe: Matrix propagator as the Drazin (Moore-Penrose) inverse o
 Print@(MatrixForm/@MatrixPropagator);
 
 (*saturated form of the propagator*)
-MatrixPropagator=MapThread[MapThread[#1 #2&,{#1,#2}]&,{MatrixPropagator,Global`invrescmat}]/.Global`rescsols;(*descale the propagator ready for multiplication by sources*)
-SaturatedPropagator=MapThread[#1 . #2 . #3&,{Dagger/@Global`Ups,MatrixPropagator,Global`Downs}];
+MatrixPropagator=MapThread[MapThread[#1 #2&,{#1,#2}]&,{MatrixPropagator,invrescmat}]/.rescsols;(*descale the propagator ready for multiplication by sources*)
+SaturatedPropagator=MapThread[#1 . #2 . #3&,{Dagger/@Ups,MatrixPropagator,Downs}];
 SaturatedPropagator=ToNewCanonical/@SaturatedPropagator;
 SaturatedPropagator=CollectTensors/@SaturatedPropagator;
 Print@" ** SaturateMe: Saturated propagator:";

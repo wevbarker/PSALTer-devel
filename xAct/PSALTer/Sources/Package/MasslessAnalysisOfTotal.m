@@ -4,10 +4,10 @@
 
 MasslessAnalysisOfTotal[LightconePropagator_List,NullSpace_List]:=Catch@Module[{printer,MasslessPropagaor,MasslessPropagaorResidue,NullSpaceDimension,FreeSourceVariables,NummeratorFreeSourceCoefficientMatrix,NummeratorFreeSourceEigenvalues},
 MasslessPropagaor=Together@Total@LightconePropagator;
-MasslessPropagaorResidue=Residue[MasslessPropagaor (Global`En-Global`Mo)^0,{Global`En,Global`Mo}]//Simplify;
+MasslessPropagaorResidue=Residue[MasslessPropagaor (En-Mo)^0,{En,Mo}]//Simplify;
 
 NullSpaceDimension=(Dimensions@NullSpace)[[1]];
-FreeSourceVariables=Table[Symbol["Global`X"<>ToString@i],{i,NullSpaceDimension}];
+FreeSourceVariables=Table[Symbol["X"<>ToString@i],{i,NullSpaceDimension}];
 NummeratorFreeSourceCoefficientMatrix=Last@CoefficientArrays[Numerator@MasslessPropagaorResidue,FreeSourceVariables~Join~(Evaluate@Dagger[FreeSourceVariables]),"Symmetric"->False];
 NummeratorFreeSourceCoefficientMatrix=NummeratorFreeSourceCoefficientMatrix[[1;;(1/2)Length@#,(1/2)Length@#+1;;Length@#]]&@NummeratorFreeSourceCoefficientMatrix;
 NummeratorFreeSourceEigenvalues=Eigenvalues@NummeratorFreeSourceCoefficientMatrix;
