@@ -23,7 +23,8 @@ PSALTer has been tested in the following environment(s):
 - HiGGS v 2.0.0-developer
 #### Install 
 1. Make sure you have [installed xAct](http://www.xact.es/download.html).
-2. Download HiGGS:
+1. Make sure you have also [installed the developer version of HiGGS](https://github.com/wevbarker/HiGGS-devel).
+2. Download PSALTer:
 	```bash, git
 	git clone https://github.com/wevbarker/PSALTer-devel
 	cd PSALTer-devel 
