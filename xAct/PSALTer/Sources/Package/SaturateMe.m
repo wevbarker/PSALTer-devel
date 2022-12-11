@@ -2,9 +2,9 @@
 (*  SaturateMe  *)
 (*==============*)
 
-SaturateMe[Expr_]:=Catch@Module[{SymbolicLagrangian,Symbols,MatrixLagrangian,ImaginaryParts,RealParts,NullSpaces,SourceConstraints,MatrixPropagator,SaturatedPropagator,printer},
-printer={};
-printer=printer~Append~PrintTemporary@" ** SaturateMe...";
+SaturateMe[Expr_]:=Catch@Module[{SymbolicLagrangian,Symbols,MatrixLagrangian,ImaginaryParts,RealParts,NullSpaces,SourceConstraints,MatrixPropagator,SaturatedPropagator,PrintVariable},
+PrintVariable={};
+PrintVariable=PrintVariable~Append~PrintTemporary@" ** SaturateMe...";
 
 (*coefficient matrices*)
 SymbolicLagrangian=Expr/.cRules;(*remember the 2m mode turns out to vanish once you consider the cyclic identitiy on the indices!*)
@@ -54,5 +54,5 @@ SaturatedPropagator=CollectTensors/@SaturatedPropagator;
 Print@" ** SaturateMe: Saturated propagator:";
 Print["\!\(\*SuperscriptBox[OverscriptBox[\(\[ScriptJ]\), \(^\)], \(\[Dagger]\)]\)(\[ScriptK])\[CenterDot]\!\(\*SuperscriptBox[OverscriptBox[\(\[ScriptCapitalO]\), \(^\)], \(-1\)]\)(\[ScriptK])\[CenterDot]\!\(\*OverscriptBox[\(\[ScriptJ]\), \(^\)]\)(\[ScriptK]) = ",Evaluate@ToNewCanonical@Total@SaturatedPropagator];
 
-NotebookDelete@printer;
+NotebookDelete@PrintVariable;
 {SourceConstraints,SaturatedPropagator}];

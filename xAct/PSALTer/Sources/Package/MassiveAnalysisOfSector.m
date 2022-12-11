@@ -2,9 +2,9 @@
 (*  MassiveAnalysisOfSector  *)
 (*===========================*)
 
-MassiveAnalysisOfSector[RawSector_,SourceComponentsToFreeSourceVariables_List]:=Catch@Module[{printer,Sector},
-printer={};
-printer=printer~Append~PrintTemporary@" ** MassiveAnalysisOfSector...";
+MassiveAnalysisOfSector[RawSector_,SourceComponentsToFreeSourceVariables_List]:=Catch@Module[{PrintVariable,Sector},
+PrintVariable={};
+PrintVariable=PrintVariable~Append~PrintTemporary@" ** MassiveAnalysisOfSector...";
 Sector=RawSector//NoScalar;
 Sector=Sector/.SourcePO3Activate;
 Sector=Sector//NoScalar;
@@ -37,15 +37,15 @@ Sector=Sector//NoScalar;
 Sector=Sector/.ToP;
 Sector=Sector//ToNewCanonical;
 Sector=Sector//NoScalar;
-printer=printer~Append~PrintTemporary[" ** SeparateMetric..."];
+PrintVariable=PrintVariable~Append~PrintTemporary[" ** SeparateMetric..."];
 Sector=SeparateMetric[G][Evaluate@Sector];
-printer=printer~Append~PrintTemporary[" ** SeparateBasis..."];
+PrintVariable=PrintVariable~Append~PrintTemporary[" ** SeparateBasis..."];
 Sector=xAct`xCoba`SeparateBasis[cartesian][Sector];
-printer=printer~Append~PrintTemporary[" ** ContractBasis..."];
+PrintVariable=PrintVariable~Append~PrintTemporary[" ** ContractBasis..."];
 Sector=Sector//xAct`xCoba`ContractBasis;
-printer=printer~Append~PrintTemporary[" ** TraceBasisDummy..."];
+PrintVariable=PrintVariable~Append~PrintTemporary[" ** TraceBasisDummy..."];
 Sector=Sector//xAct`xCoba`TraceBasisDummy;
-printer=printer~Append~PrintTemporary[" ** TensorValues..."];
+PrintVariable=PrintVariable~Append~PrintTemporary[" ** TensorValues..."];
 Sector=Sector/.xAct`xCoba`TensorValues[P];
 Sector=Sector/.xAct`xCoba`TensorValues[G];
 Sector=Sector/.xAct`xCoba`TensorValues[Tau];
@@ -54,10 +54,10 @@ Sector=Sector/.xAct`xCoba`TensorValues[Dagger@Tau];
 Sector=Sector/.xAct`xCoba`TensorValues[Dagger@Sigma];
 Sector=Sector/.{Def->Sqrt[En^2-Mo^2]};
 Sector=Sector//Together;
-printer=printer~Append~PrintTemporary[" ** Imposing conserved sources..."];
+PrintVariable=PrintVariable~Append~PrintTemporary[" ** Imposing conserved sources..."];
 Sector=Sector/.SourceComponentsToFreeSourceVariables;
 Sector=Sector//Together;
-NotebookDelete@printer;
-Print@" ** YunCherngLin: massive mode contribution from given spin-parity sector in the lightcone basis:";
+NotebookDelete@PrintVariable;
+Print@" ** ParticleSpectrum: massive mode contribution from given spin-parity sector in the lightcone basis:";
 Print@Sector;
 Sector];

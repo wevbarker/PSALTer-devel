@@ -5,10 +5,10 @@
 DefBasis[cartesian,TangentM4,{0,1,2,3},BasisColor->RGBColor[0,1,0]];
 
 EnSymb="\[ScriptCapitalE]";
-DefConstantSymbol[En,PrintAs->SymbolBuild@EnSymb];
+DefConstantSymbol[En,PrintAs->xAct`HiGGS`Private`SymbolBuild@EnSymb];
 
 MoSymb="\[ScriptP]";
-DefConstantSymbol[Mo,PrintAs->SymbolBuild@MoSymb];
+DefConstantSymbol[Mo,PrintAs->xAct`HiGGS`Private`SymbolBuild@MoSymb];
 
 AllComponentValues[P[{a,cartesian}],{En,0,0,Mo}];
 AllComponentValues[P[{-a,-cartesian}],{En,0,0,-Mo}];

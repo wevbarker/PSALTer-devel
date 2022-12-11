@@ -2,7 +2,7 @@
 (*  MasslessAnalysisOfTotal  *)
 (*===========================*)
 
-MasslessAnalysisOfTotal[LightconePropagator_List,NullSpace_List]:=Catch@Module[{printer,MasslessPropagaor,MasslessPropagaorResidue,NullSpaceDimension,FreeSourceVariables,NummeratorFreeSourceCoefficientMatrix,NummeratorFreeSourceEigenvalues},
+MasslessAnalysisOfTotal[LightconePropagator_List,NullSpace_List]:=Catch@Module[{PrintVariable,MasslessPropagaor,MasslessPropagaorResidue,NullSpaceDimension,FreeSourceVariables,NummeratorFreeSourceCoefficientMatrix,NummeratorFreeSourceEigenvalues},
 MasslessPropagaor=Together@Total@LightconePropagator;
 MasslessPropagaorResidue=Residue[MasslessPropagaor (En-Mo)^0,{En,Mo}]//Simplify;
 
@@ -12,9 +12,9 @@ NummeratorFreeSourceCoefficientMatrix=Last@CoefficientArrays[Numerator@MasslessP
 NummeratorFreeSourceCoefficientMatrix=NummeratorFreeSourceCoefficientMatrix[[1;;(1/2)Length@#,(1/2)Length@#+1;;Length@#]]&@NummeratorFreeSourceCoefficientMatrix;
 NummeratorFreeSourceEigenvalues=Eigenvalues@NummeratorFreeSourceCoefficientMatrix;
 
-Print@" ** YunCherngLin: residue of the massless propagator at the massless pole (unitarity reflected in the denominator):";
+Print@" ** ParticleSpectrum: residue of the massless propagator at the massless pole (unitarity reflected in the denominator):";
 Print@MasslessPropagaorResidue;
-Print@" ** YunCherngLin: current eigenvalues of the massless propagator residues (number of massless polarisations is number of positive-definite eigenvalues):";
+Print@" ** ParticleSpectrum: current eigenvalues of the massless propagator residues (number of massless polarisations is number of positive-definite eigenvalues):";
 Print@NummeratorFreeSourceEigenvalues;
 
 {MasslessPropagaorResidue,NummeratorFreeSourceEigenvalues}];

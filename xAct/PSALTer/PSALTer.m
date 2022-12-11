@@ -45,7 +45,7 @@ Print[xAct`xCore`Private`bars]];
 FourierLagrangian::usage="FourierLagrangian[Expr,Tensor1,Tensor2,...] transfers a scalar expression Expr which is quadratic in the given perturbed fields whose xTensor heads are Tensor1 and Tensor2 into its Fourier form. 
 Both Expr and at least one field must be provided. Do not include indices in the fields, just list the xTensor heads (i.e. the tensor names).";
 SaturateMe::usage="SaturateMe[Expr] produces the saturated propagator from the Lagrangian Expr, which must be a scalar of the form output by FourierLagrangian[].";
-YunCherngLin::usage="YunCherngLin[Expr,Tensor1,Tensor2,...] performs the whole propagator analysis on a scalar Lagrangian Expr, which is quadratic in the given perturbed fields whose xTensor heads are Tensor1 and Tensor2 into its Fourier form. 
+ParticleSpectrum::usage="ParticleSpectrum[Expr,Tensor1,Tensor2,...] performs the whole propagator analysis on a scalar Lagrangian Expr, which is quadratic in the given perturbed fields whose xTensor heads are Tensor1 and Tensor2 into its Fourier form. 
 Both Expr and at least one field must be provided. Do not include indices in the fields, just list the xTensor heads (i.e. the tensor names). If these names do not correspond to gauge field perturbations that are already known to PSALTer, an error will be thrown."
 Even::usage="Even is an association key which refers to even-parity spin states.";
 Odd::usage="Odd is an association key which refers to odd-parity spin states.";
@@ -74,12 +74,14 @@ BuildPSALTerPackage[]:=BuildPackage/@{
 	"MakeFreeSourceVariables.m",
 	"MassiveAnalysisOfSector.m",
 	"MasslessAnalysisOfTotal.m",
-	"YunCherngLin.m"
+	"ParticleSpectrum.m"
 };
 
 BuildPSALTerPackage[];
 
 ContextList={	
+	"xAct`HiGGS`",
+	"xAct`HiGGS`Private`",
 	"xAct`PSALTer`",
 	"xAct`PSALTer`Private`"
 };
