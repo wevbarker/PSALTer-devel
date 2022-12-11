@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[   1909014,      59682]
-NotebookOptionsPosition[   1890334,      59465]
-NotebookOutlinePosition[   1890768,      59482]
-CellTagsIndexPosition[   1890725,      59479]
+NotebookDataLength[   1910508,      59723]
+NotebookOptionsPosition[   1891474,      59499]
+NotebookOutlinePosition[   1891908,      59516]
+CellTagsIndexPosition[   1891865,      59513]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -25,6 +25,13 @@ Cell["Calibration for v1.0.0", "Title",
   3.876303711016974*^9, 3.8763037299077806`*^9}, {3.8796719371881313`*^9, 
   3.879671938032817*^9}},ExpressionUUID->"33fd9952-67c4-4232-a8dc-\
 4bbf7436299e"],
+
+Cell[CellGroupData[{
+
+Cell["Load PSALTer", "Section",
+ CellChangeTimes->{{3.8797770160423*^9, 
+  3.8797770184742317`*^9}},ExpressionUUID->"fef849a5-4b5a-484d-974f-\
+f3640391eeb9"],
 
 Cell["\<\
 First load the package. It should rebuild automatically on the first loading \
@@ -65,10 +72,10 @@ Cell[CellGroupData[{
 
 Cell[BoxData["\<\"------------------------------------------------------------\
 \"\>"], "Print",
- CellChangeTimes->{3.879741584695745*^9},
+ CellChangeTimes->{3.8797801673314037`*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"c33a693b-d3d3-4e13-b21e-983d6c3626a5"],
+In[1]:=",ExpressionUUID->"7d1a84a7-74b2-436d-b839-d9744486615e"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -80,36 +87,36 @@ Cell[BoxData[
   SequenceForm["Package xAct`xPerm`  version ", "1.2.3", ", ", {2015, 8, 23}],
   
   Editable->False]], "Print",
- CellChangeTimes->{3.87974158469901*^9},
+ CellChangeTimes->{3.879780167334181*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"a42ceb6e-2211-415b-8cef-13448d5da00d"],
+In[1]:=",ExpressionUUID->"a23ec199-c1cf-4463-a5ba-c43106b5dc4b"],
 
 Cell[BoxData["\<\"CopyRight (C) 2003-2020, Jose M. Martin-Garcia, under the \
 General Public License.\"\>"], "Print",
- CellChangeTimes->{3.879741584701148*^9},
+ CellChangeTimes->{3.879780167336432*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"9af858d6-5427-4ab2-8690-0e5f4d16ea4d"],
+In[1]:=",ExpressionUUID->"7812cbdd-94f1-4b5c-b4ad-335fd4791207"],
 
 Cell[BoxData["\<\"Connecting to external linux executable...\"\>"], "Print",
- CellChangeTimes->{3.879741584761881*^9},
+ CellChangeTimes->{3.8797801674110518`*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"186eb8e7-a0d5-46c1-88d6-cf92fbb094a2"],
+In[1]:=",ExpressionUUID->"d1bad7a2-69bf-470e-a759-87c88c141f72"],
 
 Cell[BoxData["\<\"Connection established.\"\>"], "Print",
- CellChangeTimes->{3.879741584813984*^9},
+ CellChangeTimes->{3.879780167464683*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"34c8cb90-70e9-44f9-be2e-5e8fdcc9ce3e"],
+In[1]:=",ExpressionUUID->"55ca50a7-b69b-4fde-96e9-0fe2d9634908"],
 
 Cell[BoxData["\<\"------------------------------------------------------------\
 \"\>"], "Print",
- CellChangeTimes->{3.8797415848160143`*^9},
+ CellChangeTimes->{3.8797801674666977`*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"1af18939-fa79-4711-8756-02825ceab382"],
+In[1]:=",ExpressionUUID->"65005371-9e85-4af1-9ae6-f79e343b6e37"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -121,24 +128,24 @@ Cell[BoxData[
   SequenceForm[
   "Package xAct`xTensor`  version ", "1.2.0", ", ", {2021, 10, 17}],
   Editable->False]], "Print",
- CellChangeTimes->{3.879741584817975*^9},
+ CellChangeTimes->{3.879780167468512*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"a9613cf6-5440-4f44-a7c4-95f0bc5c0ad6"],
+In[1]:=",ExpressionUUID->"bea25ff6-3132-4675-a18c-01be9b900b02"],
 
 Cell[BoxData["\<\"CopyRight (C) 2002-2021, Jose M. Martin-Garcia, under the \
 General Public License.\"\>"], "Print",
- CellChangeTimes->{3.879741584819738*^9},
+ CellChangeTimes->{3.879780167470487*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"fa2f35e7-4c60-4fb4-98ca-cf87f0269663"],
+In[1]:=",ExpressionUUID->"f8e963f6-04b2-43b3-9207-4afeb894159d"],
 
 Cell[BoxData["\<\"------------------------------------------------------------\
 \"\>"], "Print",
- CellChangeTimes->{3.879741584966278*^9},
+ CellChangeTimes->{3.879780167639917*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"3fcad05e-f349-457e-9862-7ca0afe22172"],
+In[1]:=",ExpressionUUID->"5bb5da19-5a29-4aee-a4bf-769e07a1a161"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -150,18 +157,18 @@ Cell[BoxData[
   SequenceForm["Package xAct`xPert`  version ", "1.0.6", ", ", {2018, 2, 28}],
   
   Editable->False]], "Print",
- CellChangeTimes->{3.8797415849684362`*^9},
+ CellChangeTimes->{3.879780167641768*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"b0317972-84b6-4737-b881-b22e2cbe32b5"],
+In[1]:=",ExpressionUUID->"24afe664-76a5-4749-b4bd-d68f96c62561"],
 
 Cell[BoxData["\<\"CopyRight (C) 2005-2020, David Brizuela, Jose M. \
 Martin-Garcia and Guillermo A. Mena Marugan, under the General Public \
 License.\"\>"], "Print",
- CellChangeTimes->{3.8797415849703703`*^9},
+ CellChangeTimes->{3.879780167643471*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"5512e7e0-7e59-4fb6-b44c-cdde7fb7842b"],
+In[1]:=",ExpressionUUID->"a902486f-c581-47c0-96bb-1360517fc0b5"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -172,10 +179,10 @@ Cell[BoxData[
   "** Variable ", $PrePrint, " assigned value ", 
    xAct`xTensor`ScreenDollarIndices],
   Editable->False]], "Print",
- CellChangeTimes->{3.879741584990814*^9},
+ CellChangeTimes->{3.879780167663665*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"d2369d7d-424e-467c-bd71-935244b9b500"],
+In[1]:=",ExpressionUUID->"c8c880c1-e390-46e5-a3c7-ad33e2aa6ade"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -187,10 +194,10 @@ Cell[BoxData[
   "** Variable ", xAct`xTensor`$CovDFormat, " changed from ", "Prefix", 
    " to ", "Postfix"],
   Editable->False]], "Print",
- CellChangeTimes->{3.879741584993256*^9},
+ CellChangeTimes->{3.879780167665889*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"e54d3f85-51f5-453b-97bf-55d022e63a58"],
+In[1]:=",ExpressionUUID->"ffc0224f-7013-4a49-b224-5cff0b27bc18"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -202,10 +209,10 @@ Cell[BoxData[
   "** Option ", xAct`xTensor`AllowUpperDerivatives, " of ", 
    xAct`xTensor`ContractMetric, " changed from ", False, " to ", True],
   Editable->False]], "Print",
- CellChangeTimes->{3.87974158499547*^9},
+ CellChangeTimes->{3.879780167667859*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"99fffd23-d885-4019-b703-9bb4362d0c57"],
+In[1]:=",ExpressionUUID->"7db64d8c-bda1-4d2f-9035-c01b23b9f755"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -217,10 +224,10 @@ Cell[BoxData[
   "** Option ", xAct`xTensor`MetricOn, " of ", xAct`xTensor`MakeRule, 
    " changed from ", None, " to ", All],
   Editable->False]], "Print",
- CellChangeTimes->{3.879741584997553*^9},
+ CellChangeTimes->{3.87978016766984*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"15fdd996-8de5-4b8d-b2d6-c62ede01f3c5"],
+In[1]:=",ExpressionUUID->"99c1bbfa-b0f3-4110-a85d-34e2cd4f93a5"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -232,17 +239,17 @@ Cell[BoxData[
   "** Option ", xAct`xTensor`ContractMetrics, " of ", xAct`xTensor`MakeRule, 
    " changed from ", False, " to ", True],
   Editable->False]], "Print",
- CellChangeTimes->{3.879741584999531*^9},
+ CellChangeTimes->{3.879780167671852*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"676a23b3-d2bc-41d2-af90-14a3be6ff495"],
+In[1]:=",ExpressionUUID->"ca8097db-21c4-4cf9-8dd2-e0251060a0e0"],
 
 Cell[BoxData["\<\"------------------------------------------------------------\
 \"\>"], "Print",
- CellChangeTimes->{3.8797415850048*^9},
+ CellChangeTimes->{3.879780167693933*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"49d7c29c-440e-4b09-9d6d-9ecd1fd06eca"],
+In[1]:=",ExpressionUUID->"80c3381e-5ac0-4068-b310-49671ebc771d"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -253,17 +260,17 @@ Cell[BoxData[
     RowBox[{"2013", ",", "7", ",", "1"}], "}"}]}],
   SequenceForm["Package xAct`Invar`  version ", "2.0.5", ", ", {2013, 7, 1}],
   Editable->False]], "Print",
- CellChangeTimes->{3.879741585008933*^9},
+ CellChangeTimes->{3.879780167695952*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"c56fccbd-2004-4738-89f7-36bbd110dfb8"],
+In[1]:=",ExpressionUUID->"4a9a845e-dae3-42b7-84ad-d691b9d187be"],
 
 Cell[BoxData["\<\"CopyRight (C) 2006-2020, J. M. Martin-Garcia, D. Yllanes \
 and R. Portugal, under the General Public License.\"\>"], "Print",
- CellChangeTimes->{3.8797415850108757`*^9},
+ CellChangeTimes->{3.879780167697857*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"5ee0b786-9932-44fc-bc48-044c0a9cdfeb"],
+In[1]:=",ExpressionUUID->"df9b5e02-6b3d-4422-934b-9760434688e1"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -276,10 +283,10 @@ Cell[BoxData[
   "** ", xAct`xTensor`DefConstantSymbol, ": Defining ", "constant symbol ", 
    xAct`Invar`sigma, ". ", ""],
   Editable->False]], "Print",
- CellChangeTimes->{3.8797415850371513`*^9},
+ CellChangeTimes->{3.879780167699687*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"bf046588-abe0-4370-9bed-b4da5874c2e1"],
+In[1]:=",ExpressionUUID->"80bd44c0-0136-4010-a434-c3549997dd5c"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -291,10 +298,10 @@ Cell[BoxData[
   "** ", xAct`xTensor`DefConstantSymbol, ": Defining ", "constant symbol ", 
    xAct`Invar`dim, ". ", ""],
   Editable->False]], "Print",
- CellChangeTimes->{3.8797415850397587`*^9},
+ CellChangeTimes->{3.879780167701579*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"7dd6f6e7-7d95-455e-9a5c-e48ed223fcc8"],
+In[1]:=",ExpressionUUID->"af303bbe-c06b-45bf-b00f-11751aa02e1c"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -306,10 +313,10 @@ Cell[BoxData[
   "** Option ", xAct`xTensor`CurvatureRelations, " of ", xAct`xTensor`DefCovD,
     " changed from ", True, " to ", False],
   Editable->False]], "Print",
- CellChangeTimes->{3.879741585041855*^9},
+ CellChangeTimes->{3.8797801677035627`*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"24d5abff-9cc8-44ae-a91c-23fc949b9ca1"],
+In[1]:=",ExpressionUUID->"3c13bf92-96ce-4519-bac6-44e730a31937"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -321,17 +328,17 @@ Cell[BoxData[
   "** Variable ", xAct`xTensor`$CommuteCovDsOnScalars, " changed from ", True,
     " to ", False],
   Editable->False]], "Print",
- CellChangeTimes->{3.879741585043681*^9},
+ CellChangeTimes->{3.879780167705634*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"a2545457-f8a5-4bf2-850c-623cb9955e24"],
+In[1]:=",ExpressionUUID->"2cc5858a-8f53-4623-a1fe-3f5bf49f9b0f"],
 
 Cell[BoxData["\<\"------------------------------------------------------------\
 \"\>"], "Print",
- CellChangeTimes->{3.879741585045495*^9},
+ CellChangeTimes->{3.879780167734408*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"b3ac2fc3-bb5e-427b-a5c8-0739ad7e60d0"],
+In[1]:=",ExpressionUUID->"e03f72d0-6cc0-4466-80dd-c248ec260df7"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -343,24 +350,24 @@ Cell[BoxData[
   SequenceForm["Package xAct`xCoba`  version ", "0.8.6", ", ", {2021, 2, 28}],
   
   Editable->False]], "Print",
- CellChangeTimes->{3.879741585047229*^9},
+ CellChangeTimes->{3.8797801677363997`*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"f52b9368-3cd4-4ab0-b6c5-acdc076feaf0"],
+In[1]:=",ExpressionUUID->"543c77d9-7497-441d-abc9-ed2755b34f39"],
 
 Cell[BoxData["\<\"CopyRight (C) 2005-2021, David Yllanes and Jose M. \
 Martin-Garcia, under the General Public License.\"\>"], "Print",
- CellChangeTimes->{3.8797415850490303`*^9},
+ CellChangeTimes->{3.879780167738315*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"c661f9ad-1c7d-45ce-9ac8-69f67ba98ff5"],
+In[1]:=",ExpressionUUID->"62a062c6-a4bb-4ce0-a10e-75c697d999cb"],
 
 Cell[BoxData["\<\"------------------------------------------------------------\
 \"\>"], "Print",
- CellChangeTimes->{3.879741585401105*^9},
+ CellChangeTimes->{3.87978016807165*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"73abea0b-d068-4fb0-ada7-f2eac4c0991c"],
+In[1]:=",ExpressionUUID->"0044ccf6-66e1-4a26-92d0-9425643a0878"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -372,24 +379,24 @@ Cell[BoxData[
   SequenceForm[
   "Package xAct`SymManipulator`  version ", "0.9.5", ", ", {2021, 9, 14}],
   Editable->False]], "Print",
- CellChangeTimes->{3.8797415854032297`*^9},
+ CellChangeTimes->{3.879780168073743*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"9fb5b899-b796-485d-bcf4-a76da81b67fa"],
+In[1]:=",ExpressionUUID->"4772a940-ab19-44f8-87aa-44a06a90b681"],
 
 Cell[BoxData["\<\"CopyRight (C) 2011-2021, Thomas B\[ADoubleDot]ckdahl, under \
 the General Public License.\"\>"], "Print",
- CellChangeTimes->{3.879741585405143*^9},
+ CellChangeTimes->{3.879780168075675*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"26dd3a3c-1334-49d5-ba9a-5902057f943f"],
+In[1]:=",ExpressionUUID->"0cb9a9e7-f5c6-4d49-a8ef-02118414726b"],
 
 Cell[BoxData["\<\"------------------------------------------------------------\
 \"\>"], "Print",
- CellChangeTimes->{3.879741585483392*^9},
+ CellChangeTimes->{3.879780168126527*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"d3d44fac-4569-43dd-ad9c-4b7b8ba407b2"],
+In[1]:=",ExpressionUUID->"bbe6ed24-9e9d-41a2-87be-ccde1f42f531"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -400,17 +407,17 @@ Cell[BoxData[
     RowBox[{"2014", ",", "10", ",", "30"}], "}"}]}],
   SequenceForm["Package xAct`xTras`  version ", "1.4.2", ", ", {2014, 10, 30}],
   Editable->False]], "Print",
- CellChangeTimes->{3.8797415854856043`*^9},
+ CellChangeTimes->{3.879780168128901*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"cda4cd01-e3c6-447c-8a59-0770bb74af1d"],
+In[1]:=",ExpressionUUID->"c40a55d4-e6ac-4efc-a021-51b4beef58f5"],
 
 Cell[BoxData["\<\"CopyRight (C) 2012-2014, Teake Nutma, under the General \
 Public License.\"\>"], "Print",
- CellChangeTimes->{3.8797415854875593`*^9},
+ CellChangeTimes->{3.879780168131*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"96a8436d-94c1-4ea0-9de5-ac1e7d497663"],
+In[1]:=",ExpressionUUID->"a9439a15-ae62-4f5e-af59-30e06bd85343"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -423,10 +430,10 @@ Cell[BoxData[
   "** Variable ", xAct`xTensor`$CovDFormat, " changed from ", "Postfix", 
    " to ", "Prefix"],
   Editable->False]], "Print",
- CellChangeTimes->{3.8797415854894857`*^9},
+ CellChangeTimes->{3.879780168132979*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"06594d0e-1c9f-40a4-93a8-36dc53793d30"],
+In[1]:=",ExpressionUUID->"7a5b3faa-ae00-4660-9eaf-061d0cefe237"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -438,17 +445,17 @@ Cell[BoxData[
   "** Option ", xAct`xTensor`CurvatureRelations, " of ", xAct`xTensor`DefCovD,
     " changed from ", False, " to ", True],
   Editable->False]], "Print",
- CellChangeTimes->{3.8797415854913816`*^9},
+ CellChangeTimes->{3.879780168134932*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"b5faaf70-668f-4272-a7fa-ca1f91c6c473"],
+In[1]:=",ExpressionUUID->"80526294-33c4-4978-8968-678ccbfbf201"],
 
 Cell[BoxData["\<\"------------------------------------------------------------\
 \"\>"], "Print",
- CellChangeTimes->{3.8797415858637037`*^9},
+ CellChangeTimes->{3.879780169081575*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"b2557d0c-58a3-4b40-b0ca-0d659bbf2a1b"],
+In[1]:=",ExpressionUUID->"4fba94a5-756a-4545-9b36-0a8baf72989c"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -460,37 +467,37 @@ Cell[BoxData[
   SequenceForm[
   "Package xAct`HiGGS`  version ", "2.0.0-developer", ", ", {2022, 12, 10}],
   Editable->False]], "Print",
- CellChangeTimes->{3.879741585865829*^9},
+ CellChangeTimes->{3.879780169083971*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"613b2a3f-c77b-432d-986a-83284eead59d"],
+In[1]:=",ExpressionUUID->"b9fa6245-b734-455f-8baf-eda53db21358"],
 
 Cell[BoxData["\<\"CopyRight \[Copyright] 2022, Will E. V. Barker and Manuel \
 Hohmann, under the General Public License.\"\>"], "Print",
- CellChangeTimes->{3.879741585867773*^9},
+ CellChangeTimes->{3.879780169086248*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"d1d7b69e-17f0-4f6f-ab54-970ba966842d"],
+In[1]:=",ExpressionUUID->"813709a3-24aa-4e4e-8777-c3a7228a3d91"],
 
 Cell[BoxData["\<\"------------------------------------------------------------\
 \"\>"], "Print",
- CellChangeTimes->{3.8797415858694696`*^9},
+ CellChangeTimes->{3.879780169088336*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"5886ded2-9ea1-4bcd-8d2d-b4176ccee776"],
+In[1]:=",ExpressionUUID->"d3ae61a8-10d7-41a3-b877-3c58413f76ac"],
 
 Cell[BoxData["\<\"HiGGS incorporates code by Cyril Pitrou.\"\>"], "Print",
- CellChangeTimes->{3.879741585871149*^9},
+ CellChangeTimes->{3.879780169090262*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"564b7f5d-7907-4319-8c8e-2feb3cfc2c52"],
+In[1]:=",ExpressionUUID->"db36c3b4-2cf4-4d64-b7ed-dade5c41643a"],
 
 Cell[BoxData["\<\"------------------------------------------------------------\
 \"\>"], "Print",
- CellChangeTimes->{3.879741598023747*^9},
+ CellChangeTimes->{3.8797801807684317`*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"c9016d35-4fde-43a3-b174-0ab7649cb0d3"],
+In[1]:=",ExpressionUUID->"1c3d98f4-3ee5-48ad-8c10-eb09233a9185"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -502,25 +509,25 @@ Cell[BoxData[
   SequenceForm[
   "Package xAct`TexAct`  version ", "0.4.3", ", ", {2021, 10, 28}],
   Editable->False]], "Print",
- CellChangeTimes->{3.879741598025736*^9},
+ CellChangeTimes->{3.879780180770465*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"e90b1e3d-af4f-4eef-a7f4-b57f3efaa6a0"],
+In[1]:=",ExpressionUUID->"01263161-bbcc-48ac-adb0-9942876536a8"],
 
 Cell[BoxData["\<\"CopyRight (C) 2008-2021, Thomas B\[ADoubleDot]ckdahl, Jose \
 M. Martin-Garcia and Barry Wardell, under the General Public License.\"\>"], \
 "Print",
- CellChangeTimes->{3.879741598027487*^9},
+ CellChangeTimes->{3.8797801807723293`*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"3e1baab5-8740-4c1e-84cb-32bbd5b63f26"],
+In[1]:=",ExpressionUUID->"a2748313-d147-4b78-8dc3-4a42c3c72dad"],
 
 Cell[BoxData["\<\"------------------------------------------------------------\
 \"\>"], "Print",
- CellChangeTimes->{3.879741598157544*^9},
+ CellChangeTimes->{3.8797801809173937`*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"cbdbf5a3-c34a-472f-a55a-022b6512026d"],
+In[1]:=",ExpressionUUID->"e830a6d3-c062-409e-81e7-ef4b4d8056bd"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -531,24 +538,24 @@ Cell[BoxData[
     RowBox[{"2021", ",", "8", ",", "26"}], "}"}]}],
   SequenceForm["Package xAct`FieldsX` version ", "1.1.4", ", ", {2021, 8, 26}],
   Editable->False]], "Print",
- CellChangeTimes->{3.879741598159738*^9},
+ CellChangeTimes->{3.8797801809197073`*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"03d444b9-4e1c-4dd5-bef3-3f84c4c70c13"],
+In[1]:=",ExpressionUUID->"7b541c89-9b52-437e-b20b-3e655d9e2e42"],
 
 Cell[BoxData["\<\"Copyright \[Copyright] 2019-2021 Markus B. Fr\[ODoubleDot]b \
 under the GNU General Public License.\"\>"], "Print",
- CellChangeTimes->{3.879741598161696*^9},
+ CellChangeTimes->{3.879780180921756*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"abca468d-afc1-44b1-8c93-6df5419b87ec"],
+In[1]:=",ExpressionUUID->"30332c01-7fa5-4a38-ba32-b66262701e7a"],
 
 Cell[BoxData["\<\"FieldsX uses the Multisets package \[Copyright] 2011 David \
 Bevan under the Wolfram Library Archive License.\"\>"], "Print",
- CellChangeTimes->{3.879741598163394*^9},
+ CellChangeTimes->{3.879780180923674*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"459745bd-b143-4d29-a52c-3f69fe304f4e"],
+In[1]:=",ExpressionUUID->"bf440548-69a3-42f0-ae71-d618391f07af"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -560,17 +567,17 @@ Cell[BoxData[
   "** Variable ", xAct`xTensor`$CommuteCovDsOnScalars, " changed from ", 
    False, " to ", True],
   Editable->False]], "Print",
- CellChangeTimes->{3.879741598192045*^9},
+ CellChangeTimes->{3.879780180951438*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"563e72bb-f101-452c-93f5-cb5435574d67"],
+In[1]:=",ExpressionUUID->"27e14a18-c041-42e7-8f26-3a31ec6f82f0"],
 
 Cell[BoxData["\<\"------------------------------------------------------------\
 \"\>"], "Print",
- CellChangeTimes->{3.879741598287109*^9},
+ CellChangeTimes->{3.879780181027528*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"522a356b-25fe-46ea-8680-3914cffd697f"],
+In[1]:=",ExpressionUUID->"0d64b387-a6dd-4bc8-b374-fba5b827d543"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -582,54 +589,60 @@ Cell[BoxData[
   SequenceForm[
   "Package xAct`PSALTer` version ", "1.0.0-developer", ", ", {2022, 12, 11}],
   Editable->False]], "Print",
- CellChangeTimes->{3.8797415982893763`*^9},
+ CellChangeTimes->{3.879780181029931*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"6704daf2-eaa4-46ca-b74d-4d2dd5c342d8"],
+In[1]:=",ExpressionUUID->"c61f391a-ea95-4b6b-9b1c-5968b83fa820"],
 
 Cell[BoxData["\<\"CopyRight \[Copyright] 2022, Will E. V. Barker, under the \
 General Public License.\"\>"], "Print",
- CellChangeTimes->{3.879741598291379*^9},
+ CellChangeTimes->{3.8797801810319843`*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"ff9a6d09-c20a-405f-b845-16a84dd5e0ee"],
+In[1]:=",ExpressionUUID->"f4ae6662-e493-4763-a236-e7b31c87d507"],
 
 Cell[BoxData["\<\"------------------------------------------------------------\
 \"\>"], "Print",
- CellChangeTimes->{3.8797415982931004`*^9},
+ CellChangeTimes->{3.879780181033811*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"d1a3ba8d-d0a0-4ec9-b315-b269418ee0c1"],
+In[1]:=",ExpressionUUID->"51aa4855-87c2-4539-bd6c-151d6b4fab07"],
 
 Cell[BoxData["\<\"These packages come with ABSOLUTELY NO WARRANTY; for \
 details type Disclaimer[]. This is free software, and you are welcome to \
 redistribute it under certain conditions. See the General Public License for \
 details.\"\>"], "Print",
- CellChangeTimes->{3.879741598294754*^9},
+ CellChangeTimes->{3.8797801810355453`*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"6e756208-4c51-4be5-96de-ead85ba11617"],
+In[1]:=",ExpressionUUID->"734f98cc-cd61-4b7e-b719-85e62e6d18a4"],
 
 Cell[BoxData["\<\"------------------------------------------------------------\
 \"\>"], "Print",
- CellChangeTimes->{3.8797415982965307`*^9},
+ CellChangeTimes->{3.879780181037456*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"99e31b66-5c8b-4405-86a6-4c69b0ce57ad"]
+In[1]:=",ExpressionUUID->"49d8088d-93df-4430-8c34-32fd94ba95e0"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
 Cell["The theory we are studying", "Section",
- CellChangeTimes->{{3.870330752861752*^9, 3.870330757197946*^9}},
- Background->RGBColor[
-  1, 0.9, 0.8],ExpressionUUID->"e7c1ee08-6113-4ef2-a5af-61181e40dde6"],
+ CellChangeTimes->{{3.870330752861752*^9, 
+  3.870330757197946*^9}},ExpressionUUID->"e7c1ee08-6113-4ef2-a5af-\
+61181e40dde6"],
 
-Cell["Here is the theory under investigation.", "Text",
- CellChangeTimes->{{3.870330760728072*^9, 3.8703307723979807`*^9}},
- Background->RGBColor[
-  1, 0.9, 0.8],ExpressionUUID->"d5bdd055-dfb8-4d1f-adac-723073ab576c"],
+Cell["\<\
+Here is the theory under investigation. Using some of the formulation already \
+within HiGGS, it is a specific combination of quadratic curvature and torsion \
+terms.\
+\>", "Text",
+ CellChangeTimes->{{3.870330760728072*^9, 3.8703307723979807`*^9}, {
+  3.879776765738811*^9, 
+  3.8797768068188066`*^9}},ExpressionUUID->"d5bdd055-dfb8-4d1f-adac-\
+723073ab576c"],
 
 Cell[CellGroupData[{
 
@@ -792,7 +805,6 @@ Cell[BoxData[{
    3.870330776750592*^9, 3.870330777858184*^9}, {3.875325301319249*^9, 
    3.87532532424076*^9}, 3.879740733512467*^9, 3.879741464048963*^9, {
    3.8797415441718817`*^9, 3.8797415541746283`*^9}},
- Background->RGBColor[1, 0.9, 0.8],
  CellLabel->"In[2]:=",ExpressionUUID->"21d54f1c-377b-4a90-90e4-6408f80dbb33"],
 
 Cell[BoxData[
@@ -1722,8 +1734,8 @@ Cell[BoxData[
      AutoSpacing->False],
     xAct`HiGGS`T[-xAct`HiGGS`c, xAct`HiGGS`c, -xAct`HiGGS`g],
     Editable->False]}]}]], "Output",
- CellChangeTimes->{3.879741607937097*^9},
- CellLabel->"Out[4]=",ExpressionUUID->"8a7a229d-b5f1-4e45-a5b9-467f7f52dbe5"]
+ CellChangeTimes->{3.879780232173964*^9},
+ CellLabel->"Out[4]=",ExpressionUUID->"d15c12b4-f18d-4057-aa81-e60cb1823421"]
 }, Open  ]]
 }, Open  ]],
 
@@ -1732,22 +1744,24 @@ Cell[CellGroupData[{
 Cell["Linearise the theory on the background", "Section",
  CellChangeTimes->{{3.863852228615663*^9, 3.8638522402875*^9}, {
   3.864720009390642*^9, 3.864720017920673*^9}, {3.870279587990725*^9, 
-  3.8702795912601337`*^9}, {3.8753248335045233`*^9, 3.875324844600247*^9}},
- Background->RGBColor[
-  1, 0.9, 0.8],ExpressionUUID->"f8bb8128-bdc5-474c-bbfc-e547bb0101e5"],
+  3.8702795912601337`*^9}, {3.8753248335045233`*^9, 
+  3.875324844600247*^9}},ExpressionUUID->"f8bb8128-bdc5-474c-bbfc-\
+e547bb0101e5"],
 
 Cell["\<\
-My understanding is that this following cell is the one which becomes highly \
-nontrivial to compute wheFn the background is torsionful, or curved (both are \
-true for cosmology). Then, you have been developing cool tools and \
-computations to perform this.\
+Now we linearise this theory on the Minkowski background. This also has to be \
+done with some user-defined steps (it is not part of the PSALTer package). \
+For the moment, the rotational gauge field is assumed to be perturbative (it \
+is defined of course in HiGGS), and the perturbation of the tetrad is also \
+defined in HiGGS (though it is never used in the Hamiltonian analysis).\
 \>", "Text",
  CellChangeTimes->{{3.87010491717691*^9, 3.870104925064849*^9}, {
    3.8701130273340607`*^9, 3.870113069010798*^9}, {3.870113158778453*^9, 
    3.870113200994851*^9}, {3.870417551604895*^9, 3.8704175522526693`*^9}, 
-   3.87973868568943*^9},
- Background->RGBColor[
-  1, 0.9, 0.8],ExpressionUUID->"e540e718-a0fa-4c8d-b236-bcd746a53169"],
+   3.87973868568943*^9, {3.879776814914915*^9, 3.879776841170021*^9}, {
+   3.879776880194723*^9, 3.8797769068425303`*^9}, {3.879777243937862*^9, 
+   3.8797773300109787`*^9}},ExpressionUUID->"e540e718-a0fa-4c8d-b236-\
+bcd746a53169"],
 
 Cell[CellGroupData[{
 
@@ -1824,7 +1838,6 @@ Cell[BoxData[{
   3.870279786461598*^9, {3.870330712891473*^9, 3.87033071416772*^9}, {
    3.8796813408532352`*^9, 3.879681350050969*^9}, 3.879738954537965*^9, 
    3.879739193137405*^9},
- Background->RGBColor[1, 0.9, 0.8],
  CellLabel->"In[5]:=",ExpressionUUID->"7e502692-f071-4416-bc37-f6c938048ee3"],
 
 Cell[BoxData[
@@ -1837,10 +1850,10 @@ Cell[BoxData[
   "** ", xAct`xTensor`DefConstantSymbol, ": Defining ", 
    "constant symbol ", $CellContext`Prt, ". ", ""],
   Editable->False]], "Print",
- CellChangeTimes->{3.879741611397233*^9},
+ CellChangeTimes->{3.8797802354914093`*^9},
  CellLabel->
   "During evaluation of \
-In[5]:=",ExpressionUUID->"f366d186-cb4f-4fb1-92fd-c835f702d8b8"],
+In[5]:=",ExpressionUUID->"6f7b0ffe-15e8-4097-8e1d-cbf285872f0a"],
 
 Cell[BoxData[
  RowBox[{
@@ -4845,29 +4858,50 @@ Cell[BoxData[
     xAct`HiGGS`CD[xAct`HiGGS`d][
      xAct`HiGGS`A[xAct`HiGGS`a, xAct`HiGGS`b, xAct`HiGGS`c]],
     Editable->False]}]}]], "Output",
- CellChangeTimes->{3.879741613686092*^9},
- CellLabel->"Out[15]=",ExpressionUUID->"2878feb9-c71c-4fc1-803b-942fa96dc6e9"]
+ CellChangeTimes->{3.87978023778935*^9},
+ CellLabel->"Out[15]=",ExpressionUUID->"2f0c4805-7c92-4603-a2f2-2be2abaa8ff5"]
+}, Open  ]]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
+Cell["Now use the PSALTer package", "Section",
+ CellChangeTimes->{{3.879777032278494*^9, 3.879777036946312*^9}, 
+   3.8797773948634243`*^9},ExpressionUUID->"03d7e7ca-f006-4b26-9cfa-\
+d2c80317f209"],
+
+Cell["\<\
+PSALTer only provides one function, which does the whole analysis in one go. \
+You pass the linearised Lagrangian above, and also the names of the tensor \
+fields which appear at quadratic order.\
+\>", "Text",
+ CellChangeTimes->{{3.87977704005783*^9, 3.879777072402224*^9}, {
+  3.8797772055939703`*^9, 
+  3.87977723482617*^9}},ExpressionUUID->"12c23f67-a16c-42ed-bb84-\
+9fa54f200969"],
+
+Cell[CellGroupData[{
+
 Cell[BoxData[
- RowBox[{"ParticleSpectrum", "[", 
-  RowBox[{"SecondOrderLagrangian", ",", "F", ",", "A"}], "]"}]], "Input",
+ RowBox[{
+  RowBox[{"ParticleSpectrum", "[", 
+   RowBox[{"SecondOrderLagrangian", ",", "F", ",", "A"}], "]"}], 
+  ";"}]], "Input",
  CellChangeTimes->{{3.879681371938847*^9, 3.879681389834815*^9}, {
-  3.879738698676317*^9, 3.8797387008845863`*^9}, {3.879738758356271*^9, 
-  3.879738758516334*^9}, {3.879739255899435*^9, 3.8797392655166273`*^9}},
+   3.879738698676317*^9, 3.8797387008845863`*^9}, {3.879738758356271*^9, 
+   3.879738758516334*^9}, {3.879739255899435*^9, 3.8797392655166273`*^9}, 
+   3.879777379685314*^9},
  CellLabel->"In[16]:=",ExpressionUUID->"5b8be491-3fcd-4d14-b8a9-0187dad61ca3"],
 
 Cell[CellGroupData[{
 
-Cell[BoxData["\<\" ** FourierLagrangian: Lagrangian in Fourier space, \
+Cell[BoxData["\<\" ** ParticleSpectrum: Lagrangian in Fourier space, \
 decomposed among the SO(3) irreducible representations of the fields:\"\>"], \
 "Print",
- CellChangeTimes->{3.8797416211608152`*^9},
+ CellChangeTimes->{3.879780249376122*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"218b8fc1-4237-4b86-841f-8cf59d6ef13b"],
+In[16]:=",ExpressionUUID->"6dac51a6-e9c3-47d2-b90b-b67eddd4924d"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -7046,17 +7080,17 @@ Cell[BoxData[
     xAct`HiGGS`FP1m[xAct`HiGGS`a] xAct`HiGGS`FPerp1m\[Dagger][-xAct`HiGGS`a]],
   
   Editable->False]], "Print",
- CellChangeTimes->{3.879741621207446*^9},
+ CellChangeTimes->{3.879780249421618*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"08a896d1-a7e0-4d7c-95ff-cf60dbfefb3f"],
+In[16]:=",ExpressionUUID->"9f05d918-e069-44e3-946c-772fe27601dd"],
 
-Cell[BoxData["\<\" ** SaturateMe: Lagrangian as coefficient matrices for the \
-HiGGS SO(3) decomposition of the gauge fields:\"\>"], "Print",
- CellChangeTimes->{3.879741621258523*^9},
+Cell[BoxData["\<\" ** ParticleSpectrum: Lagrangian as coefficient matrices \
+for the HiGGS SO(3) decomposition of the gauge fields:\"\>"], "Print",
+ CellChangeTimes->{3.879780249469264*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"6c9edb7c-d85e-46d2-8df8-073bf38de2d7"],
+In[16]:=",ExpressionUUID->"0d6b6457-0d51-4d99-82c8-721d11f03fd0"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -7923,17 +7957,17 @@ Cell[BoxData[
     Function[BoxForm`e$, 
      MatrixForm[SparseArray[Automatic, {1, 1}, 0, {1, {{0, 0}, {}}, {}}]]]]}],
    "}"}]], "Print",
- CellChangeTimes->{3.8797416212717743`*^9},
+ CellChangeTimes->{3.879780249482093*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"c0744dd6-d576-45e2-948e-be51bdee87aa"],
+In[16]:=",ExpressionUUID->"13ac3ed3-9774-4345-aede-bf3a8b182dfa"],
 
-Cell[BoxData["\<\" ** SaturateMe: Hermitian equivalent of these coefficient \
-matrices:\"\>"], "Print",
- CellChangeTimes->{3.8797416212783127`*^9},
+Cell[BoxData["\<\" ** ParticleSpectrum: Hermitian equivalent of these \
+coefficient matrices:\"\>"], "Print",
+ CellChangeTimes->{3.879780249488813*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"73240cff-26a7-4260-b2dd-86f3756b1ad1"],
+In[16]:=",ExpressionUUID->"94543c06-0493-464f-b8b8-b558e0272825"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -8654,17 +8688,17 @@ Cell[BoxData[
           Offset[0.2]}}], "\[NoBreak]", ")"}],
     Function[BoxForm`e$, 
      MatrixForm[BoxForm`e$]]]}], "}"}]], "Print",
- CellChangeTimes->{3.8797416212891283`*^9},
+ CellChangeTimes->{3.879780249499343*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"68f813ec-29dd-479e-8414-27fc8ac189a5"],
+In[16]:=",ExpressionUUID->"d5dd3da0-45f9-4b1f-9031-73f824d821bb"],
 
-Cell[BoxData["\<\" ** SaturateMe: SPO-rescaled equivalent of these \
+Cell[BoxData["\<\" ** ParticleSpectrum: SPO-rescaled equivalent of these \
 coefficient matrices:\"\>"], "Print",
- CellChangeTimes->{3.879741621295022*^9},
+ CellChangeTimes->{3.8797802495052834`*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"c32b4c22-ddd2-480c-a539-b38e38079c82"],
+In[16]:=",ExpressionUUID->"6deaefef-bd91-48a8-ba21-a2995029f848"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -9392,17 +9426,17 @@ Cell[BoxData[
           Offset[0.2]}}], "\[NoBreak]", ")"}],
     Function[BoxForm`e$, 
      MatrixForm[BoxForm`e$]]]}], "}"}]], "Print",
- CellChangeTimes->{3.8797416213056793`*^9},
+ CellChangeTimes->{3.879780249515596*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"0b01c671-a33a-4171-8763-b137da0c2c47"],
+In[16]:=",ExpressionUUID->"f4eec095-2814-4492-ad11-1c74348ec9d7"],
 
-Cell[BoxData["\<\" ** SaturateMe: Null spaces of these coefficient \
+Cell[BoxData["\<\" ** ParticleSpectrum: Null spaces of these coefficient \
 matrices:\"\>"], "Print",
- CellChangeTimes->{3.8797416213117037`*^9},
+ CellChangeTimes->{3.879780249521694*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"94826801-b22f-4998-8f41-4ed2f135baee"],
+In[16]:=",ExpressionUUID->"d68cf3fe-15b9-4e66-9eab-2d70271b5d71"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -9455,17 +9489,17 @@ Cell[BoxData[
      RowBox[{"1", ",", "0"}], "}"}], "}"}], ",", 
    RowBox[{"{", 
     RowBox[{"{", "1", "}"}], "}"}]}], "}"}]], "Print",
- CellChangeTimes->{3.879741621313573*^9},
+ CellChangeTimes->{3.879780249523713*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"dc6f8519-ac61-4514-a824-a6df858c5092"],
+In[16]:=",ExpressionUUID->"b29c6dc8-4793-4127-9634-566c559b0f08"],
 
-Cell[BoxData["\<\" ** SaturateMe: Corresponding source constraints:\"\>"], \
-"Print",
- CellChangeTimes->{3.879741621315464*^9},
+Cell[BoxData["\<\" ** ParticleSpectrum: Corresponding source \
+constraints:\"\>"], "Print",
+ CellChangeTimes->{3.879780249525702*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"23b1db1c-9696-470e-a788-11345b4de498"],
+In[16]:=",ExpressionUUID->"4ce78402-562f-45b3-8e97-4fea4ec1dad8"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -9488,10 +9522,10 @@ Cell[BoxData[
      Editable->False]}], "\[InvisibleSpace]", "\<\" = 0\"\>"}],
   SequenceForm[-xAct`HiGGS`TauPerp0p[], " = 0"],
   Editable->False]], "Print",
- CellChangeTimes->{3.879741621317623*^9},
+ CellChangeTimes->{3.8797802495279417`*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"488355e5-3bc2-4041-9a30-9750b44f58c5"],
+In[16]:=",ExpressionUUID->"f780dd9c-5808-4253-ae62-5bdd6cd64657"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -9539,10 +9573,10 @@ Cell[BoxData[
   SequenceForm[(-2) xAct`PSALTer`Def xAct`HiGGS`SigmaP0p[] + 
    Complex[0, -1] xAct`HiGGS`TauP0p[], " = 0"],
   Editable->False]], "Print",
- CellChangeTimes->{3.879741621320118*^9},
+ CellChangeTimes->{3.879780249530572*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"e2d7d789-2392-4f9d-aa96-db7ed744cb9c"],
+In[16]:=",ExpressionUUID->"eb45aff3-0a88-4f1f-a75f-b1122eec4cc7"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -9631,10 +9665,10 @@ Cell[BoxData[
     xAct`HiGGS`SigmaPerp1p[xAct`HiGGS`a, xAct`HiGGS`b] + 
    Complex[0, -1] xAct`HiGGS`TauP1p[xAct`HiGGS`a, xAct`HiGGS`b], " = 0"],
   Editable->False]], "Print",
- CellChangeTimes->{3.8797416213444033`*^9},
+ CellChangeTimes->{3.879780249554501*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"6329e4a1-b8ef-49a1-926e-c9736737a5b9"],
+In[16]:=",ExpressionUUID->"02514a1f-d661-46b5-9df2-43f61e1b5d1c"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -9722,10 +9756,10 @@ Cell[BoxData[
   SequenceForm[(-2) xAct`PSALTer`Def xAct`HiGGS`SigmaPerp1m[xAct`HiGGS`a] + 
    Complex[0, 1] xAct`HiGGS`TauP1m[xAct`HiGGS`a], " = 0"],
   Editable->False]], "Print",
- CellChangeTimes->{3.8797416213683567`*^9},
+ CellChangeTimes->{3.87978024957754*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"ed148c00-e21e-4474-a270-d1b570574248"],
+In[16]:=",ExpressionUUID->"f5ed028b-bfb5-4298-964a-1333bfe5d157"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -9768,10 +9802,10 @@ Cell[BoxData[
      Editable->False]}], "\[InvisibleSpace]", "\<\" = 0\"\>"}],
   SequenceForm[-xAct`HiGGS`TauPerp1m[xAct`HiGGS`a], " = 0"],
   Editable->False]], "Print",
- CellChangeTimes->{3.879741621391708*^9},
+ CellChangeTimes->{3.879780249601191*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"622a7921-b03c-4e64-a8a3-5a2e664e0bf9"],
+In[16]:=",ExpressionUUID->"f094ec5d-3ee3-4f8b-94c8-f22958bb3197"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -9814,10 +9848,10 @@ Cell[BoxData[
      Editable->False]}], "\[InvisibleSpace]", "\<\" = 0\"\>"}],
   SequenceForm[-xAct`HiGGS`TauP2p[xAct`HiGGS`a, xAct`HiGGS`b], " = 0"],
   Editable->False]], "Print",
- CellChangeTimes->{3.8797416214148483`*^9},
+ CellChangeTimes->{3.879780249623138*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"4162bc4c-2fcc-4732-844e-e8855e1bbb89"],
+In[16]:=",ExpressionUUID->"38f70e4d-c016-4ac2-a27d-84382d8f7f49"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -9861,18 +9895,18 @@ Cell[BoxData[
   SequenceForm[-xAct`HiGGS`SigmaP2m[xAct`HiGGS`a, xAct`HiGGS`b, xAct`HiGGS`c],
     " = 0"],
   Editable->False]], "Print",
- CellChangeTimes->{3.879741621438541*^9},
+ CellChangeTimes->{3.879780249646196*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"0fcdfe64-0b5d-4120-9fcd-fa1b33f6b842"],
+In[16]:=",ExpressionUUID->"947f4d7d-00ec-4109-88ee-891d5363ae61"],
 
-Cell[BoxData["\<\" ** SaturateMe: Matrix propagator as the Drazin \
+Cell[BoxData["\<\" ** ParticleSpectrum: Matrix propagator as the Drazin \
 (Moore-Penrose) inverse of the Hermition, SPO-rescaled matrix \
 Lagrangian:\"\>"], "Print",
- CellChangeTimes->{3.879741624834387*^9},
+ CellChangeTimes->{3.8797802530721617`*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"ad7f614c-e67d-43b0-8a4e-009eedc5b770"],
+In[16]:=",ExpressionUUID->"b0c4bfb0-4d9b-431d-867e-46d865d8a8e7"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -11574,16 +11608,16 @@ Cell[BoxData[
           Offset[0.2]}}], "\[NoBreak]", ")"}],
     Function[BoxForm`e$, 
      MatrixForm[BoxForm`e$]]]}], "}"}]], "Print",
- CellChangeTimes->{3.879741624876338*^9},
+ CellChangeTimes->{3.879780253111575*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"d7e17c03-e3f1-4a7f-9f39-5298adf1d2bc"],
+In[16]:=",ExpressionUUID->"98efae3a-540f-4708-bc79-6a79aefc1e46"],
 
-Cell[BoxData["\<\" ** SaturateMe: Saturated propagator:\"\>"], "Print",
- CellChangeTimes->{3.879741625265003*^9},
+Cell[BoxData["\<\" ** ParticleSpectrum: Saturated propagator:\"\>"], "Print",
+ CellChangeTimes->{3.879780253491444*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"2afbb373-6d92-4747-9990-944ab3b56e84"],
+In[16]:=",ExpressionUUID->"2fde6a5f-3bf8-4b73-87e2-385bbb85e644"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -16685,10 +16719,10 @@ OverscriptBox[\\(\[ScriptCapitalO]\\), \\(^\\)], \\(-1\\)]\\)(\[ScriptK])\
     xAct`HiGGS`TauP1p[xAct`HiGGS`a, xAct`HiGGS`b] 
     xAct`HiGGS`TauP1p\[Dagger][-xAct`HiGGS`a, -xAct`HiGGS`b]],
   Editable->False]], "Print",
- CellChangeTimes->{3.8797416254773893`*^9},
+ CellChangeTimes->{3.879780253698354*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"07211480-df18-4ecc-963f-c96f13452a69"],
+In[16]:=",ExpressionUUID->"e10e0faf-fa56-4a58-93d9-1ecb5a01a145"],
 
 Cell[BoxData["\<\" ** ParticleSpectrum: null eigenvectors of the Lagrangian \
 imply the following constraints on the source currents (stress-energy and \
@@ -16698,10 +16732,10 @@ spin tensors) expressed in the lightcone components where \
 \\(1\\)]\\),\\!\\(\\*SubscriptBox[\\(\[ScriptK]\\), \
 \\(2\\)]\\),\\!\\(\\*SubscriptBox[\\(\[ScriptK]\\), \\(3\\)]\\))=(\
 \[ScriptCapitalE],0,0,\[ScriptP]):\"\>"], "Print",
- CellChangeTimes->{3.87974162552497*^9},
+ CellChangeTimes->{3.879780253746146*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"4e37ed1f-f279-4a91-a67d-b06d4798ee53"],
+In[16]:=",ExpressionUUID->"00d81383-cf27-46ae-a771-4be515fbd664"],
 
 Cell[BoxData[
  RowBox[{
@@ -16882,10 +16916,10 @@ Cell[BoxData[
      AutoSpacing->False],
     xAct`HiGGS`Tau[{3, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741626606598*^9},
+ CellChangeTimes->{3.879780254817271*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"ac1957ca-5607-4bcd-88b0-c30e50e64005"],
+In[16]:=",ExpressionUUID->"c2568c3b-1adf-4be5-beb9-4015e9b1676b"],
 
 Cell[BoxData[
  RowBox[{
@@ -17539,10 +17573,10 @@ Cell[BoxData[
      AutoSpacing->False],
     xAct`HiGGS`Tau[{3, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741627701035*^9},
+ CellChangeTimes->{3.8797802559215403`*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"9bdd61a9-5ce5-4ae1-b340-f7bf13a1fde1"],
+In[16]:=",ExpressionUUID->"0a69783b-6ef2-42d8-be9f-3e5938c5ee47"],
 
 Cell[BoxData[
  RowBox[{
@@ -17895,10 +17929,10 @@ Cell[BoxData[
      AutoSpacing->False],
     xAct`HiGGS`Tau[{3, -xAct`PSALTer`cartesian}, {1, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.8797416285978413`*^9},
+ CellChangeTimes->{3.879780256823542*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"af4a0b53-7d43-46d4-acd5-134faa85ec3f"],
+In[16]:=",ExpressionUUID->"6f6e01da-ed54-4afc-814e-15470886a279"],
 
 Cell[BoxData[
  RowBox[{
@@ -18251,16 +18285,16 @@ Cell[BoxData[
      AutoSpacing->False],
     xAct`HiGGS`Tau[{3, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.8797416295237627`*^9},
+ CellChangeTimes->{3.879780257754018*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"20f55b30-7e0e-44e3-a5f0-d1971bfd6d81"],
+In[16]:=",ExpressionUUID->"97bf5f02-cc46-47da-9ffc-7b9a5cdc86ba"],
 
 Cell[BoxData["0"], "Print",
- CellChangeTimes->{3.879741630440818*^9},
+ CellChangeTimes->{3.879780258678183*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"6b19700c-4538-49d0-89e2-fedce4323c3e"],
+In[16]:=",ExpressionUUID->"eea099ca-11cb-4b20-88da-3e1c745d86e1"],
 
 Cell[BoxData[
  RowBox[{
@@ -18612,10 +18646,10 @@ Cell[BoxData[
      AutoSpacing->False],
     xAct`HiGGS`Tau[{3, -xAct`PSALTer`cartesian}, {1, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741631355197*^9},
+ CellChangeTimes->{3.879780259595443*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"fa202fb8-9b17-4106-b195-7ba857d02e13"],
+In[16]:=",ExpressionUUID->"287a93c4-6a49-45ed-935d-bd4dbc8c5a66"],
 
 Cell[BoxData[
  RowBox[{
@@ -18772,10 +18806,10 @@ Cell[BoxData[
      AutoSpacing->False],
     xAct`HiGGS`Tau[{2, -xAct`PSALTer`cartesian}, {1, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741632272574*^9},
+ CellChangeTimes->{3.8797802605128593`*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"da600705-2fc3-4115-9830-c7f2d53321d9"],
+In[16]:=",ExpressionUUID->"273da519-2d17-4d3a-93af-78d393a750df"],
 
 Cell[BoxData[
  RowBox[{
@@ -19127,10 +19161,10 @@ Cell[BoxData[
      AutoSpacing->False],
     xAct`HiGGS`Tau[{3, -xAct`PSALTer`cartesian}, {1, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.8797416331919327`*^9},
+ CellChangeTimes->{3.879780261441984*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"b1be3765-e3d7-458e-93b9-322a360f2d91"],
+In[16]:=",ExpressionUUID->"565f4318-6dc8-4502-a9aa-768e2e3bb617"],
 
 Cell[BoxData[
  RowBox[{
@@ -19482,10 +19516,10 @@ Cell[BoxData[
      AutoSpacing->False],
     xAct`HiGGS`Tau[{3, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741634116663*^9},
+ CellChangeTimes->{3.8797802623794737`*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"4cde6f65-76ac-4d4d-88b3-6191249ad5c6"],
+In[16]:=",ExpressionUUID->"90a2c525-e8b1-4f12-b196-c432327d519b"],
 
 Cell[BoxData[
  RowBox[{
@@ -19641,10 +19675,10 @@ Cell[BoxData[
      AutoSpacing->False],
     xAct`HiGGS`Tau[{2, -xAct`PSALTer`cartesian}, {1, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741635017993*^9},
+ CellChangeTimes->{3.879780263301922*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"af771572-2d80-4206-ab6d-cac0d2f0cc69"],
+In[16]:=",ExpressionUUID->"8c012d35-dd7a-4b90-a15a-4a92181ad96b"],
 
 Cell[BoxData[
  RowBox[{
@@ -19996,16 +20030,16 @@ Cell[BoxData[
      AutoSpacing->False],
     xAct`HiGGS`Tau[{3, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.8797416359447193`*^9},
+ CellChangeTimes->{3.879780264250601*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"97207231-91e4-4fae-bded-e1bd5d960950"],
+In[16]:=",ExpressionUUID->"aca02bab-c0f7-40ca-886e-41ced6a2e35a"],
 
 Cell[BoxData["0"], "Print",
- CellChangeTimes->{3.8797416368664303`*^9},
+ CellChangeTimes->{3.879780265191333*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"da7faf76-986f-4a71-a1fb-3ad6f9b5e43b"],
+In[16]:=",ExpressionUUID->"73be3595-1c01-4ae1-9a3e-2a67f152d793"],
 
 Cell[BoxData[
  RowBox[{
@@ -20358,10 +20392,10 @@ Cell[BoxData[
      AutoSpacing->False],
     xAct`HiGGS`Tau[{3, -xAct`PSALTer`cartesian}, {1, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741637782302*^9},
+ CellChangeTimes->{3.879780266118229*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"cd85b813-230b-4e7a-903c-335e54c8ebe2"],
+In[16]:=",ExpressionUUID->"418d8c5a-02c8-4bba-9588-812f58ef4948"],
 
 Cell[BoxData[
  RowBox[{
@@ -20714,10 +20748,10 @@ Cell[BoxData[
      AutoSpacing->False],
     xAct`HiGGS`Tau[{3, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741638715074*^9},
+ CellChangeTimes->{3.879780267060562*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"f41065c0-2166-45b3-8cbc-4b7df828cc3e"],
+In[16]:=",ExpressionUUID->"cf6a4c2e-299a-4f42-b947-db4050056702"],
 
 Cell[BoxData[
  RowBox[{
@@ -21025,10 +21059,10 @@ Cell[BoxData[
      AutoSpacing->False],
     xAct`HiGGS`Tau[{3, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741640078779*^9},
+ CellChangeTimes->{3.8797802684436626`*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"8fe62257-2442-4937-8b9b-1d7634aad276"],
+In[16]:=",ExpressionUUID->"8a37a773-cbc5-43ce-8979-b216cd77ff33"],
 
 Cell[BoxData[
  RowBox[{
@@ -21301,10 +21335,10 @@ Cell[BoxData[
      AutoSpacing->False],
     xAct`HiGGS`Tau[{3, -xAct`PSALTer`cartesian}, {1, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741641380014*^9},
+ CellChangeTimes->{3.8797802697507668`*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"58727785-abe4-46af-8cbe-7f40aecdddd0"],
+In[16]:=",ExpressionUUID->"5d6cb3da-dcbc-4275-9c36-06328e5448df"],
 
 Cell[BoxData[
  RowBox[{
@@ -21577,10 +21611,10 @@ Cell[BoxData[
      AutoSpacing->False],
     xAct`HiGGS`Tau[{3, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741642684433*^9},
+ CellChangeTimes->{3.879780271053646*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"103ad17d-cf32-4541-9aaf-bfbd14784bb9"],
+In[16]:=",ExpressionUUID->"76bc2eb6-7aaa-4b60-8000-b30376a0442a"],
 
 Cell[BoxData[
  RowBox[{
@@ -21888,10 +21922,10 @@ Cell[BoxData[
      AutoSpacing->False],
     xAct`HiGGS`Tau[{3, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.87974164405252*^9},
+ CellChangeTimes->{3.879780272432077*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"39941011-8431-4d61-b001-6f6a54a708e1"],
+In[16]:=",ExpressionUUID->"607d283b-765c-4ac9-b72d-9d885c6d6de6"],
 
 Cell[BoxData[
  RowBox[{
@@ -22071,10 +22105,10 @@ Cell[BoxData[
      AutoSpacing->False],
     xAct`HiGGS`Tau[{3, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741645310774*^9},
+ CellChangeTimes->{3.879780273702018*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"67253f1c-805e-4643-a504-6e4572c5f03f"],
+In[16]:=",ExpressionUUID->"6ac434d1-56b5-4dd3-b474-462d0a3f99fe"],
 
 Cell[BoxData[
  RowBox[{
@@ -22158,10 +22192,10 @@ Cell[BoxData[
      AutoSpacing->False],
     xAct`HiGGS`Tau[{1, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.8797416465031347`*^9},
+ CellChangeTimes->{3.879780274897809*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"6612e154-35c0-490a-b4fd-3cbca89da636"],
+In[16]:=",ExpressionUUID->"75a2df7d-dc85-478a-936f-af872a4b3cf8"],
 
 Cell[BoxData[
  RowBox[{
@@ -22245,10 +22279,10 @@ Cell[BoxData[
      AutoSpacing->False],
     xAct`HiGGS`Tau[{2, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741647690145*^9},
+ CellChangeTimes->{3.879780276097033*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"2a1115ea-1e97-437d-a3f9-7404a6d53be3"],
+In[16]:=",ExpressionUUID->"44299b14-40a1-4162-a5f2-b3721fcb8add"],
 
 Cell[BoxData[
  RowBox[{
@@ -22428,10 +22462,10 @@ Cell[BoxData[
      AutoSpacing->False],
     xAct`HiGGS`Tau[{3, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741648931755*^9},
+ CellChangeTimes->{3.8797802773570232`*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"0d7ffe98-0957-4bbd-8497-5983ed9a19e2"],
+In[16]:=",ExpressionUUID->"5a440377-d410-4655-9d98-08699a57c0f0"],
 
 Cell[BoxData[
  RowBox[{
@@ -22714,10 +22748,10 @@ Cell[BoxData[
      AutoSpacing->False],
     xAct`HiGGS`Tau[{3, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741652131041*^9},
+ CellChangeTimes->{3.8797802805810137`*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"5565d27b-7ea0-42a5-a8a6-54781819de3b"],
+In[16]:=",ExpressionUUID->"9fd19b2c-113d-408a-afe3-85fa582c4ad0"],
 
 Cell[BoxData[
  RowBox[{
@@ -22882,10 +22916,10 @@ Cell[BoxData[
      AutoSpacing->False],
     xAct`HiGGS`Tau[{3, -xAct`PSALTer`cartesian}, {1, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741655847921*^9},
+ CellChangeTimes->{3.87978028434608*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"aa4c790b-9d33-43cf-8eb6-b30350af8779"],
+In[16]:=",ExpressionUUID->"57c01212-5e61-4c8e-a956-81b907570ff4"],
 
 Cell[BoxData[
  RowBox[{
@@ -23050,10 +23084,10 @@ Cell[BoxData[
      AutoSpacing->False],
     xAct`HiGGS`Tau[{3, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.87974165956544*^9},
+ CellChangeTimes->{3.8797802881224127`*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"5b3bbd20-6ea3-4ef8-b850-1aec11481fd5"],
+In[16]:=",ExpressionUUID->"d0978db0-80ea-437d-af38-85ed94221e4a"],
 
 Cell[BoxData[
  RowBox[{
@@ -23336,10 +23370,10 @@ Cell[BoxData[
      AutoSpacing->False],
     xAct`HiGGS`Tau[{3, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741663372755*^9},
+ CellChangeTimes->{3.879780291981884*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"8a0e4dfd-be83-474f-9b4a-3aebaa17aa2a"],
+In[16]:=",ExpressionUUID->"7ebe6c6c-3630-4e95-9b2c-c8514afce7fa"],
 
 Cell[BoxData[
  RowBox[{
@@ -23624,10 +23658,10 @@ Cell[BoxData[
      AutoSpacing->False],
     xAct`HiGGS`Tau[{3, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.8797416664730167`*^9},
+ CellChangeTimes->{3.879780295136211*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"d65e31a8-93cb-4e29-86ef-eec2e29eb9e1"],
+In[16]:=",ExpressionUUID->"15de7ef8-9425-42bd-ae22-a2933db44181"],
 
 Cell[BoxData[
  RowBox[{
@@ -23697,10 +23731,10 @@ Cell[BoxData[
    xAct`HiGGS`Tau[{2, -xAct`PSALTer`cartesian}, {1, -xAct`PSALTer`cartesian}],
    
    Editable->False]}]], "Print",
- CellChangeTimes->{3.879741670182823*^9},
+ CellChangeTimes->{3.879780298878572*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"93eb2a42-3df3-4a09-90bb-11484f454b69"],
+In[16]:=",ExpressionUUID->"8f708acd-d7a6-4bf3-864a-94335856aeba"],
 
 Cell[BoxData[
  RowBox[{
@@ -23865,10 +23899,10 @@ Cell[BoxData[
      AutoSpacing->False],
     xAct`HiGGS`Tau[{3, -xAct`PSALTer`cartesian}, {1, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741673904217*^9},
+ CellChangeTimes->{3.8797803026460733`*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"c4915d9e-e05d-4be7-8ac4-33e6db786825"],
+In[16]:=",ExpressionUUID->"82eb4c6f-b2e3-4757-8983-e5b1138558b6"],
 
 Cell[BoxData[
  RowBox[{
@@ -24153,10 +24187,10 @@ Cell[BoxData[
      AutoSpacing->False],
     xAct`HiGGS`Tau[{3, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741677024118*^9},
+ CellChangeTimes->{3.879780305819625*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"6d8f99c3-64ce-4009-95e4-0663a6305f5e"],
+In[16]:=",ExpressionUUID->"f006daf4-32f4-4f0c-a986-91a314f5cc28"],
 
 Cell[BoxData[
  RowBox[{
@@ -24321,10 +24355,10 @@ Cell[BoxData[
      AutoSpacing->False],
     xAct`HiGGS`Tau[{3, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.87974168077852*^9},
+ CellChangeTimes->{3.879780309556931*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"705e5a09-9c1c-4b46-8b4e-b024c2786feb"],
+In[16]:=",ExpressionUUID->"d50a17d3-0006-4159-8f7a-41bf65ab923d"],
 
 Cell[BoxData[
  RowBox[{
@@ -24607,10 +24641,10 @@ Cell[BoxData[
      AutoSpacing->False],
     xAct`HiGGS`Tau[{3, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.8797416839945097`*^9},
+ CellChangeTimes->{3.8797803127793627`*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"9c259f6c-f7fb-433e-9fb7-db3738d6fe65"],
+In[16]:=",ExpressionUUID->"c18b54e5-2fc1-4bc5-b8bf-f3a2801802db"],
 
 Cell[BoxData[
  RowBox[{
@@ -24856,10 +24890,10 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
      1, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.8797416893644753`*^9},
+ CellChangeTimes->{3.879780318203932*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"ffa34ff5-2e17-4520-af39-6724f4804236"],
+In[16]:=",ExpressionUUID->"f77d5587-c53c-4a02-8ee4-8e65682bdc3b"],
 
 Cell[BoxData[
  RowBox[{
@@ -25035,10 +25069,10 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{2, -xAct`PSALTer`cartesian}, {
      2, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741694675724*^9},
+ CellChangeTimes->{3.87978032357648*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"18723758-e79c-4aa5-885a-a05ba187686f"],
+In[16]:=",ExpressionUUID->"32635bb3-779d-424c-a3e7-e69637869484"],
 
 Cell[BoxData[
  RowBox[{
@@ -25301,10 +25335,10 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
      1, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.87974170191648*^9},
+ CellChangeTimes->{3.879780330950285*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"e7db96a1-1a86-4af6-b3f4-82e047966412"],
+In[16]:=",ExpressionUUID->"25d4c437-ab89-426a-b912-96f337d58b29"],
 
 Cell[BoxData[
  RowBox[{
@@ -25550,10 +25584,10 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
      1, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.8797417092327213`*^9},
+ CellChangeTimes->{3.879780338350912*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"c520dcea-ab3f-47b1-a70a-a65ff14b5f9f"],
+In[16]:=",ExpressionUUID->"67bc1a83-7330-47cb-900b-e165e7afeeaa"],
 
 Cell[BoxData[
  RowBox[{
@@ -25800,10 +25834,10 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
      2, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741714593759*^9},
+ CellChangeTimes->{3.879780343881249*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"9c0062f2-5625-4207-a7e3-3e1bd24005af"],
+In[16]:=",ExpressionUUID->"ded4b623-b72b-4390-a8ee-e976cd17b6f0"],
 
 Cell[BoxData[
  RowBox[{
@@ -26065,10 +26099,10 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
      1, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741721895748*^9},
+ CellChangeTimes->{3.8797803512173243`*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"0a6ed349-70b8-498d-b97a-a663541ba559"],
+In[16]:=",ExpressionUUID->"a9eaaa9a-7d57-494a-b941-a29fb4939423"],
 
 Cell[BoxData[
  RowBox[{
@@ -26245,10 +26279,10 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{2, -xAct`PSALTer`cartesian}, {
      2, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.8797417272046547`*^9},
+ CellChangeTimes->{3.879780356616249*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"d40aa653-3bb9-485d-8667-f93bb5642e04"],
+In[16]:=",ExpressionUUID->"5d9e126c-f00d-4021-8fa1-ef9d359c0cc1"],
 
 Cell[BoxData[
  RowBox[{
@@ -26495,34 +26529,34 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
      2, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.8797417344562387`*^9},
+ CellChangeTimes->{3.879780364032071*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"c3d9825a-1e40-48a0-9e4b-d0b1bf7f0ef0"],
+In[16]:=",ExpressionUUID->"285afd02-728c-43fd-aeb8-e965a5efaa08"],
 
 Cell[BoxData["0"], "Print",
- CellChangeTimes->{3.879741739838132*^9},
+ CellChangeTimes->{3.8797803694115143`*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"8d564aae-204e-4542-bfa5-0b02943199e7"],
+In[16]:=",ExpressionUUID->"dbe861c2-3878-4228-812b-b07edef92f2d"],
 
 Cell[BoxData["0"], "Print",
- CellChangeTimes->{3.8797417471848707`*^9},
+ CellChangeTimes->{3.879780376813264*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"c4dfd525-a116-44f7-8d34-accc0f038f9c"],
+In[16]:=",ExpressionUUID->"b5ed3c23-882b-4107-a9dc-26d556829fc4"],
 
 Cell[BoxData["0"], "Print",
- CellChangeTimes->{3.8797417545185833`*^9},
+ CellChangeTimes->{3.8797803841836576`*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"616abb6c-fc34-48ce-a7e7-f467fbe3317f"],
+In[16]:=",ExpressionUUID->"85dd8829-cc82-46ed-8113-c47ed116d09b"],
 
 Cell[BoxData["0"], "Print",
- CellChangeTimes->{3.8797417599074087`*^9},
+ CellChangeTimes->{3.879780389575015*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"3047befa-5333-418f-85d9-ba785e54eab7"],
+In[16]:=",ExpressionUUID->"9aa5e1e1-98a0-42b2-b047-1042e478e268"],
 
 Cell[BoxData[
  RowBox[{
@@ -26770,10 +26804,10 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
      1, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741765304702*^9},
+ CellChangeTimes->{3.879780394980434*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"a22e0eb8-c780-45f6-83c9-1ce651efe0cf"],
+In[16]:=",ExpressionUUID->"80a443f3-b1a0-4b0b-a2d0-78b4e31e6baa"],
 
 Cell[BoxData[
  RowBox[{
@@ -26950,10 +26984,10 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{2, -xAct`PSALTer`cartesian}, {
      2, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.8797417706941338`*^9},
+ CellChangeTimes->{3.879780400370306*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"22d8ab60-cf9f-4494-86a0-1e77e4ca5319"],
+In[16]:=",ExpressionUUID->"3d6e0417-5bc9-4389-9ef2-b341a7f2b8d1"],
 
 Cell[BoxData[
  RowBox[{
@@ -27215,10 +27249,10 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
      1, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741778047842*^9},
+ CellChangeTimes->{3.87978040766989*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"8e9fb5f0-8714-44ea-8e8b-fab5d525660d"],
+In[16]:=",ExpressionUUID->"48314cba-6420-43ed-abb9-4dc250da7994"],
 
 Cell[BoxData[
  RowBox[{
@@ -27466,10 +27500,10 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
      1, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741785449793*^9},
+ CellChangeTimes->{3.8797804150650682`*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"9ab921e4-2bba-4a38-95b5-e5a74ab44e39"],
+In[16]:=",ExpressionUUID->"54164c63-9b4a-43a1-8c02-17b108c7ea12"],
 
 Cell[BoxData[
  RowBox[{
@@ -27731,10 +27765,10 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
      1, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741792836203*^9},
+ CellChangeTimes->{3.8797804224434357`*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"f40b84ea-cd32-4381-9d77-5432ea7b43e8"],
+In[16]:=",ExpressionUUID->"b05660fd-6d60-4a5c-92a8-c9caf60eae1d"],
 
 Cell[BoxData[
  RowBox[{
@@ -27981,10 +28015,10 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
      2, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.8797417983184633`*^9},
+ CellChangeTimes->{3.879780427897799*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"6bf5ff60-e97c-4ef8-b394-88970314e18e"],
+In[16]:=",ExpressionUUID->"4090eac4-fe8c-4562-9031-11fed4dba55a"],
 
 Cell[BoxData[
  RowBox[{
@@ -28230,10 +28264,10 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
      1, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741803722066*^9},
+ CellChangeTimes->{3.8797804333396397`*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"a87e71bd-e068-40a6-ae11-6834ee9e9459"],
+In[16]:=",ExpressionUUID->"ff08e922-b953-4711-ae2e-bef18a220c1a"],
 
 Cell[BoxData[
  RowBox[{
@@ -28495,10 +28529,10 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
      1, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741811019896*^9},
+ CellChangeTimes->{3.879780440701021*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"72744b25-f8c6-4b4d-86d6-293a3314c2e4"],
+In[16]:=",ExpressionUUID->"b91856a2-aee7-4618-98cd-8eadce5ca959"],
 
 Cell[BoxData[
  RowBox[{
@@ -28746,956 +28780,10 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
      1, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.8797418184397717`*^9},
+ CellChangeTimes->{3.879780448101471*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"7a8c5134-370d-4724-b7a7-d910b98a06a7"],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{
-   RowBox[{"-", 
-    InterpretationBox[
-     StyleBox["\[ScriptP]",
-      ShowAutoStyles->False,
-      AutoSpacing->False,
-      FontColor->RGBColor[0., 0., 0.]],
-     xAct`PSALTer`Mo,
-     Editable->False]}], " ", 
-   InterpretationBox[
-    StyleBox[GridBox[{
-       {
-        StyleBox["\[Sigma]",
-         FontColor->RGBColor[0., 0., 0.]], 
-        StyleBox[GridBox[{
-           {" ", " ", " "},
-           {
-            StyleBox["1",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["0",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["1",
-             FontColor->RGBColor[0., 1., 0.]]}
-          },
-          GridBoxSpacings->{"Columns" -> {
-              Offset[0.], {
-               Offset[0.034999999999999996`]}, 
-              Offset[0.]}, "Rows" -> {{
-               Offset[0.]}}}],
-         FontSize->Rational[39, 4]]}
-      },
-      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
-      GridBoxSpacings->{"Columns" -> {
-          Offset[0.27999999999999997`], {
-           Offset[0.034999999999999996`]}, 
-          Offset[0.27999999999999997`]}, "Rows" -> {
-          Offset[0.2], {
-           Offset[0.4]}, 
-          Offset[0.2]}}],
-     ShowAutoStyles->False,
-     AutoSpacing->False],
-    xAct`HiGGS`Sigma[{1, -xAct`PSALTer`cartesian}, {
-     0, -xAct`PSALTer`cartesian}, {1, -xAct`PSALTer`cartesian}],
-    Editable->False]}], "+", 
-  RowBox[{
-   InterpretationBox[
-    StyleBox["\[ScriptCapitalE]",
-     ShowAutoStyles->False,
-     AutoSpacing->False,
-     FontColor->RGBColor[0., 0., 0.]],
-    xAct`PSALTer`En,
-    Editable->False], " ", 
-   InterpretationBox[
-    StyleBox[GridBox[{
-       {
-        StyleBox["\[Sigma]",
-         FontColor->RGBColor[0., 0., 0.]], 
-        StyleBox[GridBox[{
-           {" ", " ", " "},
-           {
-            StyleBox["1",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["1",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["3",
-             FontColor->RGBColor[0., 1., 0.]]}
-          },
-          GridBoxSpacings->{"Columns" -> {
-              Offset[0.], {
-               Offset[0.034999999999999996`]}, 
-              Offset[0.]}, "Rows" -> {{
-               Offset[0.]}}}],
-         FontSize->Rational[39, 4]]}
-      },
-      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
-      GridBoxSpacings->{"Columns" -> {
-          Offset[0.27999999999999997`], {
-           Offset[0.034999999999999996`]}, 
-          Offset[0.27999999999999997`]}, "Rows" -> {
-          Offset[0.2], {
-           Offset[0.4]}, 
-          Offset[0.2]}}],
-     ShowAutoStyles->False,
-     AutoSpacing->False],
-    xAct`HiGGS`Sigma[{1, -xAct`PSALTer`cartesian}, {
-     1, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
-    Editable->False]}], "+", 
-  RowBox[{
-   InterpretationBox[
-    StyleBox["\[ScriptP]",
-     ShowAutoStyles->False,
-     AutoSpacing->False,
-     FontColor->RGBColor[0., 0., 0.]],
-    xAct`PSALTer`Mo,
-    Editable->False], " ", 
-   InterpretationBox[
-    StyleBox[GridBox[{
-       {
-        StyleBox["\[Sigma]",
-         FontColor->RGBColor[0., 0., 0.]], 
-        StyleBox[GridBox[{
-           {" ", " ", " "},
-           {
-            StyleBox["2",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["0",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["2",
-             FontColor->RGBColor[0., 1., 0.]]}
-          },
-          GridBoxSpacings->{"Columns" -> {
-              Offset[0.], {
-               Offset[0.034999999999999996`]}, 
-              Offset[0.]}, "Rows" -> {{
-               Offset[0.]}}}],
-         FontSize->Rational[39, 4]]}
-      },
-      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
-      GridBoxSpacings->{"Columns" -> {
-          Offset[0.27999999999999997`], {
-           Offset[0.034999999999999996`]}, 
-          Offset[0.27999999999999997`]}, "Rows" -> {
-          Offset[0.2], {
-           Offset[0.4]}, 
-          Offset[0.2]}}],
-     ShowAutoStyles->False,
-     AutoSpacing->False],
-    xAct`HiGGS`Sigma[{2, -xAct`PSALTer`cartesian}, {
-     0, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
-    Editable->False]}], "-", 
-  RowBox[{
-   InterpretationBox[
-    StyleBox["\[ScriptCapitalE]",
-     ShowAutoStyles->False,
-     AutoSpacing->False,
-     FontColor->RGBColor[0., 0., 0.]],
-    xAct`PSALTer`En,
-    Editable->False], " ", 
-   InterpretationBox[
-    StyleBox[GridBox[{
-       {
-        StyleBox["\[Sigma]",
-         FontColor->RGBColor[0., 0., 0.]], 
-        StyleBox[GridBox[{
-           {" ", " ", " "},
-           {
-            StyleBox["2",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["2",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["3",
-             FontColor->RGBColor[0., 1., 0.]]}
-          },
-          GridBoxSpacings->{"Columns" -> {
-              Offset[0.], {
-               Offset[0.034999999999999996`]}, 
-              Offset[0.]}, "Rows" -> {{
-               Offset[0.]}}}],
-         FontSize->Rational[39, 4]]}
-      },
-      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
-      GridBoxSpacings->{"Columns" -> {
-          Offset[0.27999999999999997`], {
-           Offset[0.034999999999999996`]}, 
-          Offset[0.27999999999999997`]}, "Rows" -> {
-          Offset[0.2], {
-           Offset[0.4]}, 
-          Offset[0.2]}}],
-     ShowAutoStyles->False,
-     AutoSpacing->False],
-    xAct`HiGGS`Sigma[{2, -xAct`PSALTer`cartesian}, {
-     2, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
-    Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741823867075*^9},
- CellLabel->
-  "During evaluation of \
-In[16]:=",ExpressionUUID->"71a5a2d7-0145-42d4-82e1-1cd80f172af9"],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{
-   InterpretationBox[
-    StyleBox["\[ScriptP]",
-     ShowAutoStyles->False,
-     AutoSpacing->False,
-     FontColor->RGBColor[0., 0., 0.]],
-    xAct`PSALTer`Mo,
-    Editable->False], " ", 
-   InterpretationBox[
-    StyleBox[GridBox[{
-       {
-        StyleBox["\[Sigma]",
-         FontColor->RGBColor[0., 0., 0.]], 
-        StyleBox[GridBox[{
-           {" ", " ", " "},
-           {
-            StyleBox["0",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["1",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["2",
-             FontColor->RGBColor[0., 1., 0.]]}
-          },
-          GridBoxSpacings->{"Columns" -> {
-              Offset[0.], {
-               Offset[0.034999999999999996`]}, 
-              Offset[0.]}, "Rows" -> {{
-               Offset[0.]}}}],
-         FontSize->Rational[39, 4]]}
-      },
-      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
-      GridBoxSpacings->{"Columns" -> {
-          Offset[0.27999999999999997`], {
-           Offset[0.034999999999999996`]}, 
-          Offset[0.27999999999999997`]}, "Rows" -> {
-          Offset[0.2], {
-           Offset[0.4]}, 
-          Offset[0.2]}}],
-     ShowAutoStyles->False,
-     AutoSpacing->False],
-    xAct`HiGGS`Sigma[{0, -xAct`PSALTer`cartesian}, {
-     1, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
-    Editable->False]}], "-", 
-  RowBox[{
-   InterpretationBox[
-    StyleBox["\[ScriptP]",
-     ShowAutoStyles->False,
-     AutoSpacing->False,
-     FontColor->RGBColor[0., 0., 0.]],
-    xAct`PSALTer`Mo,
-    Editable->False], " ", 
-   InterpretationBox[
-    StyleBox[GridBox[{
-       {
-        StyleBox["\[Sigma]",
-         FontColor->RGBColor[0., 0., 0.]], 
-        StyleBox[GridBox[{
-           {" ", " ", " "},
-           {
-            StyleBox["1",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["0",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["2",
-             FontColor->RGBColor[0., 1., 0.]]}
-          },
-          GridBoxSpacings->{"Columns" -> {
-              Offset[0.], {
-               Offset[0.034999999999999996`]}, 
-              Offset[0.]}, "Rows" -> {{
-               Offset[0.]}}}],
-         FontSize->Rational[39, 4]]}
-      },
-      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
-      GridBoxSpacings->{"Columns" -> {
-          Offset[0.27999999999999997`], {
-           Offset[0.034999999999999996`]}, 
-          Offset[0.27999999999999997`]}, "Rows" -> {
-          Offset[0.2], {
-           Offset[0.4]}, 
-          Offset[0.2]}}],
-     ShowAutoStyles->False,
-     AutoSpacing->False],
-    xAct`HiGGS`Sigma[{1, -xAct`PSALTer`cartesian}, {
-     0, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
-    Editable->False]}], "+", 
-  RowBox[{
-   InterpretationBox[
-    StyleBox["\[ScriptCapitalE]",
-     ShowAutoStyles->False,
-     AutoSpacing->False,
-     FontColor->RGBColor[0., 0., 0.]],
-    xAct`PSALTer`En,
-    Editable->False], " ", 
-   InterpretationBox[
-    StyleBox[GridBox[{
-       {
-        StyleBox["\[Sigma]",
-         FontColor->RGBColor[0., 0., 0.]], 
-        StyleBox[GridBox[{
-           {" ", " ", " "},
-           {
-            StyleBox["1",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["2",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["3",
-             FontColor->RGBColor[0., 1., 0.]]}
-          },
-          GridBoxSpacings->{"Columns" -> {
-              Offset[0.], {
-               Offset[0.034999999999999996`]}, 
-              Offset[0.]}, "Rows" -> {{
-               Offset[0.]}}}],
-         FontSize->Rational[39, 4]]}
-      },
-      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
-      GridBoxSpacings->{"Columns" -> {
-          Offset[0.27999999999999997`], {
-           Offset[0.034999999999999996`]}, 
-          Offset[0.27999999999999997`]}, "Rows" -> {
-          Offset[0.2], {
-           Offset[0.4]}, 
-          Offset[0.2]}}],
-     ShowAutoStyles->False,
-     AutoSpacing->False],
-    xAct`HiGGS`Sigma[{1, -xAct`PSALTer`cartesian}, {
-     2, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
-    Editable->False]}], "-", 
-  RowBox[{"2", " ", 
-   InterpretationBox[
-    StyleBox["\[ScriptP]",
-     ShowAutoStyles->False,
-     AutoSpacing->False,
-     FontColor->RGBColor[0., 0., 0.]],
-    xAct`PSALTer`Mo,
-    Editable->False], " ", 
-   InterpretationBox[
-    StyleBox[GridBox[{
-       {
-        StyleBox["\[Sigma]",
-         FontColor->RGBColor[0., 0., 0.]], 
-        StyleBox[GridBox[{
-           {" ", " ", " "},
-           {
-            StyleBox["2",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["0",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["1",
-             FontColor->RGBColor[0., 1., 0.]]}
-          },
-          GridBoxSpacings->{"Columns" -> {
-              Offset[0.], {
-               Offset[0.034999999999999996`]}, 
-              Offset[0.]}, "Rows" -> {{
-               Offset[0.]}}}],
-         FontSize->Rational[39, 4]]}
-      },
-      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
-      GridBoxSpacings->{"Columns" -> {
-          Offset[0.27999999999999997`], {
-           Offset[0.034999999999999996`]}, 
-          Offset[0.27999999999999997`]}, "Rows" -> {
-          Offset[0.2], {
-           Offset[0.4]}, 
-          Offset[0.2]}}],
-     ShowAutoStyles->False,
-     AutoSpacing->False],
-    xAct`HiGGS`Sigma[{2, -xAct`PSALTer`cartesian}, {
-     0, -xAct`PSALTer`cartesian}, {1, -xAct`PSALTer`cartesian}],
-    Editable->False]}], "+", 
-  RowBox[{"2", " ", 
-   InterpretationBox[
-    StyleBox["\[ScriptCapitalE]",
-     ShowAutoStyles->False,
-     AutoSpacing->False,
-     FontColor->RGBColor[0., 0., 0.]],
-    xAct`PSALTer`En,
-    Editable->False], " ", 
-   InterpretationBox[
-    StyleBox[GridBox[{
-       {
-        StyleBox["\[Sigma]",
-         FontColor->RGBColor[0., 0., 0.]], 
-        StyleBox[GridBox[{
-           {" ", " ", " "},
-           {
-            StyleBox["2",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["1",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["3",
-             FontColor->RGBColor[0., 1., 0.]]}
-          },
-          GridBoxSpacings->{"Columns" -> {
-              Offset[0.], {
-               Offset[0.034999999999999996`]}, 
-              Offset[0.]}, "Rows" -> {{
-               Offset[0.]}}}],
-         FontSize->Rational[39, 4]]}
-      },
-      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
-      GridBoxSpacings->{"Columns" -> {
-          Offset[0.27999999999999997`], {
-           Offset[0.034999999999999996`]}, 
-          Offset[0.27999999999999997`]}, "Rows" -> {
-          Offset[0.2], {
-           Offset[0.4]}, 
-          Offset[0.2]}}],
-     ShowAutoStyles->False,
-     AutoSpacing->False],
-    xAct`HiGGS`Sigma[{2, -xAct`PSALTer`cartesian}, {
-     1, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
-    Editable->False]}], "+", 
-  RowBox[{
-   InterpretationBox[
-    StyleBox["\[ScriptCapitalE]",
-     ShowAutoStyles->False,
-     AutoSpacing->False,
-     FontColor->RGBColor[0., 0., 0.]],
-    xAct`PSALTer`En,
-    Editable->False], " ", 
-   InterpretationBox[
-    StyleBox[GridBox[{
-       {
-        StyleBox["\[Sigma]",
-         FontColor->RGBColor[0., 0., 0.]], 
-        StyleBox[GridBox[{
-           {" ", " ", " "},
-           {
-            StyleBox["3",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["1",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["2",
-             FontColor->RGBColor[0., 1., 0.]]}
-          },
-          GridBoxSpacings->{"Columns" -> {
-              Offset[0.], {
-               Offset[0.034999999999999996`]}, 
-              Offset[0.]}, "Rows" -> {{
-               Offset[0.]}}}],
-         FontSize->Rational[39, 4]]}
-      },
-      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
-      GridBoxSpacings->{"Columns" -> {
-          Offset[0.27999999999999997`], {
-           Offset[0.034999999999999996`]}, 
-          Offset[0.27999999999999997`]}, "Rows" -> {
-          Offset[0.2], {
-           Offset[0.4]}, 
-          Offset[0.2]}}],
-     ShowAutoStyles->False,
-     AutoSpacing->False],
-    xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
-     1, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
-    Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741831286029*^9},
- CellLabel->
-  "During evaluation of \
-In[16]:=",ExpressionUUID->"a09cd3c2-ed3e-4bd6-b2b9-38f3fb2fbb34"],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{
-   RowBox[{"-", 
-    SuperscriptBox[
-     InterpretationBox[
-      StyleBox["\[ScriptP]",
-       ShowAutoStyles->False,
-       AutoSpacing->False,
-       FontColor->RGBColor[0., 0., 0.]],
-      xAct`PSALTer`Mo,
-      Editable->False], "2"]}], " ", 
-   InterpretationBox[
-    StyleBox[GridBox[{
-       {
-        StyleBox["\[Sigma]",
-         FontColor->RGBColor[0., 0., 0.]], 
-        StyleBox[GridBox[{
-           {" ", " ", " "},
-           {
-            StyleBox["0",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["0",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["1",
-             FontColor->RGBColor[0., 1., 0.]]}
-          },
-          GridBoxSpacings->{"Columns" -> {
-              Offset[0.], {
-               Offset[0.034999999999999996`]}, 
-              Offset[0.]}, "Rows" -> {{
-               Offset[0.]}}}],
-         FontSize->Rational[39, 4]]}
-      },
-      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
-      GridBoxSpacings->{"Columns" -> {
-          Offset[0.27999999999999997`], {
-           Offset[0.034999999999999996`]}, 
-          Offset[0.27999999999999997`]}, "Rows" -> {
-          Offset[0.2], {
-           Offset[0.4]}, 
-          Offset[0.2]}}],
-     ShowAutoStyles->False,
-     AutoSpacing->False],
-    xAct`HiGGS`Sigma[{0, -xAct`PSALTer`cartesian}, {
-     0, -xAct`PSALTer`cartesian}, {1, -xAct`PSALTer`cartesian}],
-    Editable->False]}], "+", 
-  RowBox[{
-   InterpretationBox[
-    StyleBox["\[ScriptCapitalE]",
-     ShowAutoStyles->False,
-     AutoSpacing->False,
-     FontColor->RGBColor[0., 0., 0.]],
-    xAct`PSALTer`En,
-    Editable->False], " ", 
-   InterpretationBox[
-    StyleBox["\[ScriptP]",
-     ShowAutoStyles->False,
-     AutoSpacing->False,
-     FontColor->RGBColor[0., 0., 0.]],
-    xAct`PSALTer`Mo,
-    Editable->False], " ", 
-   InterpretationBox[
-    StyleBox[GridBox[{
-       {
-        StyleBox["\[Sigma]",
-         FontColor->RGBColor[0., 0., 0.]], 
-        StyleBox[GridBox[{
-           {" ", " ", " "},
-           {
-            StyleBox["0",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["1",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["3",
-             FontColor->RGBColor[0., 1., 0.]]}
-          },
-          GridBoxSpacings->{"Columns" -> {
-              Offset[0.], {
-               Offset[0.034999999999999996`]}, 
-              Offset[0.]}, "Rows" -> {{
-               Offset[0.]}}}],
-         FontSize->Rational[39, 4]]}
-      },
-      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
-      GridBoxSpacings->{"Columns" -> {
-          Offset[0.27999999999999997`], {
-           Offset[0.034999999999999996`]}, 
-          Offset[0.27999999999999997`]}, "Rows" -> {
-          Offset[0.2], {
-           Offset[0.4]}, 
-          Offset[0.2]}}],
-     ShowAutoStyles->False,
-     AutoSpacing->False],
-    xAct`HiGGS`Sigma[{0, -xAct`PSALTer`cartesian}, {
-     1, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
-    Editable->False]}], "+", 
-  RowBox[{
-   RowBox[{"(", 
-    RowBox[{
-     RowBox[{"-", 
-      SuperscriptBox[
-       InterpretationBox[
-        StyleBox["\[ScriptCapitalE]",
-         ShowAutoStyles->False,
-         AutoSpacing->False,
-         FontColor->RGBColor[0., 0., 0.]],
-        xAct`PSALTer`En,
-        Editable->False], "2"]}], "+", 
-     SuperscriptBox[
-      InterpretationBox[
-       StyleBox["\[ScriptP]",
-        ShowAutoStyles->False,
-        AutoSpacing->False,
-        FontColor->RGBColor[0., 0., 0.]],
-       xAct`PSALTer`Mo,
-       Editable->False], "2"]}], ")"}], " ", 
-   InterpretationBox[
-    StyleBox[GridBox[{
-       {
-        StyleBox["\[Sigma]",
-         FontColor->RGBColor[0., 0., 0.]], 
-        StyleBox[GridBox[{
-           {" ", " ", " "},
-           {
-            StyleBox["2",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["1",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["2",
-             FontColor->RGBColor[0., 1., 0.]]}
-          },
-          GridBoxSpacings->{"Columns" -> {
-              Offset[0.], {
-               Offset[0.034999999999999996`]}, 
-              Offset[0.]}, "Rows" -> {{
-               Offset[0.]}}}],
-         FontSize->Rational[39, 4]]}
-      },
-      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
-      GridBoxSpacings->{"Columns" -> {
-          Offset[0.27999999999999997`], {
-           Offset[0.034999999999999996`]}, 
-          Offset[0.27999999999999997`]}, "Rows" -> {
-          Offset[0.2], {
-           Offset[0.4]}, 
-          Offset[0.2]}}],
-     ShowAutoStyles->False,
-     AutoSpacing->False],
-    xAct`HiGGS`Sigma[{2, -xAct`PSALTer`cartesian}, {
-     1, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
-    Editable->False]}], "-", 
-  RowBox[{
-   InterpretationBox[
-    StyleBox["\[ScriptCapitalE]",
-     ShowAutoStyles->False,
-     AutoSpacing->False,
-     FontColor->RGBColor[0., 0., 0.]],
-    xAct`PSALTer`En,
-    Editable->False], " ", 
-   InterpretationBox[
-    StyleBox["\[ScriptP]",
-     ShowAutoStyles->False,
-     AutoSpacing->False,
-     FontColor->RGBColor[0., 0., 0.]],
-    xAct`PSALTer`Mo,
-    Editable->False], " ", 
-   InterpretationBox[
-    StyleBox[GridBox[{
-       {
-        StyleBox["\[Sigma]",
-         FontColor->RGBColor[0., 0., 0.]], 
-        StyleBox[GridBox[{
-           {" ", " ", " "},
-           {
-            StyleBox["3",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["0",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["1",
-             FontColor->RGBColor[0., 1., 0.]]}
-          },
-          GridBoxSpacings->{"Columns" -> {
-              Offset[0.], {
-               Offset[0.034999999999999996`]}, 
-              Offset[0.]}, "Rows" -> {{
-               Offset[0.]}}}],
-         FontSize->Rational[39, 4]]}
-      },
-      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
-      GridBoxSpacings->{"Columns" -> {
-          Offset[0.27999999999999997`], {
-           Offset[0.034999999999999996`]}, 
-          Offset[0.27999999999999997`]}, "Rows" -> {
-          Offset[0.2], {
-           Offset[0.4]}, 
-          Offset[0.2]}}],
-     ShowAutoStyles->False,
-     AutoSpacing->False],
-    xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
-     0, -xAct`PSALTer`cartesian}, {1, -xAct`PSALTer`cartesian}],
-    Editable->False]}], "+", 
-  RowBox[{
-   SuperscriptBox[
-    InterpretationBox[
-     StyleBox["\[ScriptCapitalE]",
-      ShowAutoStyles->False,
-      AutoSpacing->False,
-      FontColor->RGBColor[0., 0., 0.]],
-     xAct`PSALTer`En,
-     Editable->False], "2"], " ", 
-   InterpretationBox[
-    StyleBox[GridBox[{
-       {
-        StyleBox["\[Sigma]",
-         FontColor->RGBColor[0., 0., 0.]], 
-        StyleBox[GridBox[{
-           {" ", " ", " "},
-           {
-            StyleBox["3",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["1",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["3",
-             FontColor->RGBColor[0., 1., 0.]]}
-          },
-          GridBoxSpacings->{"Columns" -> {
-              Offset[0.], {
-               Offset[0.034999999999999996`]}, 
-              Offset[0.]}, "Rows" -> {{
-               Offset[0.]}}}],
-         FontSize->Rational[39, 4]]}
-      },
-      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
-      GridBoxSpacings->{"Columns" -> {
-          Offset[0.27999999999999997`], {
-           Offset[0.034999999999999996`]}, 
-          Offset[0.27999999999999997`]}, "Rows" -> {
-          Offset[0.2], {
-           Offset[0.4]}, 
-          Offset[0.2]}}],
-     ShowAutoStyles->False,
-     AutoSpacing->False],
-    xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
-     1, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
-    Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741836801158*^9},
- CellLabel->
-  "During evaluation of \
-In[16]:=",ExpressionUUID->"7a58f293-f3c2-4ae5-9521-0741f4c707de"],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{
-   RowBox[{"-", 
-    SuperscriptBox[
-     InterpretationBox[
-      StyleBox["\[ScriptP]",
-       ShowAutoStyles->False,
-       AutoSpacing->False,
-       FontColor->RGBColor[0., 0., 0.]],
-      xAct`PSALTer`Mo,
-      Editable->False], "2"]}], " ", 
-   InterpretationBox[
-    StyleBox[GridBox[{
-       {
-        StyleBox["\[Sigma]",
-         FontColor->RGBColor[0., 0., 0.]], 
-        StyleBox[GridBox[{
-           {" ", " ", " "},
-           {
-            StyleBox["0",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["0",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["2",
-             FontColor->RGBColor[0., 1., 0.]]}
-          },
-          GridBoxSpacings->{"Columns" -> {
-              Offset[0.], {
-               Offset[0.034999999999999996`]}, 
-              Offset[0.]}, "Rows" -> {{
-               Offset[0.]}}}],
-         FontSize->Rational[39, 4]]}
-      },
-      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
-      GridBoxSpacings->{"Columns" -> {
-          Offset[0.27999999999999997`], {
-           Offset[0.034999999999999996`]}, 
-          Offset[0.27999999999999997`]}, "Rows" -> {
-          Offset[0.2], {
-           Offset[0.4]}, 
-          Offset[0.2]}}],
-     ShowAutoStyles->False,
-     AutoSpacing->False],
-    xAct`HiGGS`Sigma[{0, -xAct`PSALTer`cartesian}, {
-     0, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
-    Editable->False]}], "+", 
-  RowBox[{
-   InterpretationBox[
-    StyleBox["\[ScriptCapitalE]",
-     ShowAutoStyles->False,
-     AutoSpacing->False,
-     FontColor->RGBColor[0., 0., 0.]],
-    xAct`PSALTer`En,
-    Editable->False], " ", 
-   InterpretationBox[
-    StyleBox["\[ScriptP]",
-     ShowAutoStyles->False,
-     AutoSpacing->False,
-     FontColor->RGBColor[0., 0., 0.]],
-    xAct`PSALTer`Mo,
-    Editable->False], " ", 
-   InterpretationBox[
-    StyleBox[GridBox[{
-       {
-        StyleBox["\[Sigma]",
-         FontColor->RGBColor[0., 0., 0.]], 
-        StyleBox[GridBox[{
-           {" ", " ", " "},
-           {
-            StyleBox["0",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["2",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["3",
-             FontColor->RGBColor[0., 1., 0.]]}
-          },
-          GridBoxSpacings->{"Columns" -> {
-              Offset[0.], {
-               Offset[0.034999999999999996`]}, 
-              Offset[0.]}, "Rows" -> {{
-               Offset[0.]}}}],
-         FontSize->Rational[39, 4]]}
-      },
-      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
-      GridBoxSpacings->{"Columns" -> {
-          Offset[0.27999999999999997`], {
-           Offset[0.034999999999999996`]}, 
-          Offset[0.27999999999999997`]}, "Rows" -> {
-          Offset[0.2], {
-           Offset[0.4]}, 
-          Offset[0.2]}}],
-     ShowAutoStyles->False,
-     AutoSpacing->False],
-    xAct`HiGGS`Sigma[{0, -xAct`PSALTer`cartesian}, {
-     2, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
-    Editable->False]}], "+", 
-  RowBox[{
-   RowBox[{"(", 
-    RowBox[{
-     SuperscriptBox[
-      InterpretationBox[
-       StyleBox["\[ScriptCapitalE]",
-        ShowAutoStyles->False,
-        AutoSpacing->False,
-        FontColor->RGBColor[0., 0., 0.]],
-       xAct`PSALTer`En,
-       Editable->False], "2"], "-", 
-     SuperscriptBox[
-      InterpretationBox[
-       StyleBox["\[ScriptP]",
-        ShowAutoStyles->False,
-        AutoSpacing->False,
-        FontColor->RGBColor[0., 0., 0.]],
-       xAct`PSALTer`Mo,
-       Editable->False], "2"]}], ")"}], " ", 
-   InterpretationBox[
-    StyleBox[GridBox[{
-       {
-        StyleBox["\[Sigma]",
-         FontColor->RGBColor[0., 0., 0.]], 
-        StyleBox[GridBox[{
-           {" ", " ", " "},
-           {
-            StyleBox["1",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["1",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["2",
-             FontColor->RGBColor[0., 1., 0.]]}
-          },
-          GridBoxSpacings->{"Columns" -> {
-              Offset[0.], {
-               Offset[0.034999999999999996`]}, 
-              Offset[0.]}, "Rows" -> {{
-               Offset[0.]}}}],
-         FontSize->Rational[39, 4]]}
-      },
-      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
-      GridBoxSpacings->{"Columns" -> {
-          Offset[0.27999999999999997`], {
-           Offset[0.034999999999999996`]}, 
-          Offset[0.27999999999999997`]}, "Rows" -> {
-          Offset[0.2], {
-           Offset[0.4]}, 
-          Offset[0.2]}}],
-     ShowAutoStyles->False,
-     AutoSpacing->False],
-    xAct`HiGGS`Sigma[{1, -xAct`PSALTer`cartesian}, {
-     1, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
-    Editable->False]}], "-", 
-  RowBox[{
-   InterpretationBox[
-    StyleBox["\[ScriptCapitalE]",
-     ShowAutoStyles->False,
-     AutoSpacing->False,
-     FontColor->RGBColor[0., 0., 0.]],
-    xAct`PSALTer`En,
-    Editable->False], " ", 
-   InterpretationBox[
-    StyleBox["\[ScriptP]",
-     ShowAutoStyles->False,
-     AutoSpacing->False,
-     FontColor->RGBColor[0., 0., 0.]],
-    xAct`PSALTer`Mo,
-    Editable->False], " ", 
-   InterpretationBox[
-    StyleBox[GridBox[{
-       {
-        StyleBox["\[Sigma]",
-         FontColor->RGBColor[0., 0., 0.]], 
-        StyleBox[GridBox[{
-           {" ", " ", " "},
-           {
-            StyleBox["3",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["0",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["2",
-             FontColor->RGBColor[0., 1., 0.]]}
-          },
-          GridBoxSpacings->{"Columns" -> {
-              Offset[0.], {
-               Offset[0.034999999999999996`]}, 
-              Offset[0.]}, "Rows" -> {{
-               Offset[0.]}}}],
-         FontSize->Rational[39, 4]]}
-      },
-      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
-      GridBoxSpacings->{"Columns" -> {
-          Offset[0.27999999999999997`], {
-           Offset[0.034999999999999996`]}, 
-          Offset[0.27999999999999997`]}, "Rows" -> {
-          Offset[0.2], {
-           Offset[0.4]}, 
-          Offset[0.2]}}],
-     ShowAutoStyles->False,
-     AutoSpacing->False],
-    xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
-     0, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
-    Editable->False]}], "+", 
-  RowBox[{
-   SuperscriptBox[
-    InterpretationBox[
-     StyleBox["\[ScriptCapitalE]",
-      ShowAutoStyles->False,
-      AutoSpacing->False,
-      FontColor->RGBColor[0., 0., 0.]],
-     xAct`PSALTer`En,
-     Editable->False], "2"], " ", 
-   InterpretationBox[
-    StyleBox[GridBox[{
-       {
-        StyleBox["\[Sigma]",
-         FontColor->RGBColor[0., 0., 0.]], 
-        StyleBox[GridBox[{
-           {" ", " ", " "},
-           {
-            StyleBox["3",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["2",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["3",
-             FontColor->RGBColor[0., 1., 0.]]}
-          },
-          GridBoxSpacings->{"Columns" -> {
-              Offset[0.], {
-               Offset[0.034999999999999996`]}, 
-              Offset[0.]}, "Rows" -> {{
-               Offset[0.]}}}],
-         FontSize->Rational[39, 4]]}
-      },
-      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
-      GridBoxSpacings->{"Columns" -> {
-          Offset[0.27999999999999997`], {
-           Offset[0.034999999999999996`]}, 
-          Offset[0.27999999999999997`]}, "Rows" -> {
-          Offset[0.2], {
-           Offset[0.4]}, 
-          Offset[0.2]}}],
-     ShowAutoStyles->False,
-     AutoSpacing->False],
-    xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
-     2, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
-    Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741842236855*^9},
- CellLabel->
-  "During evaluation of \
-In[16]:=",ExpressionUUID->"ea3b0b50-d17b-4be7-b15d-477cdbee0911"],
+In[16]:=",ExpressionUUID->"cbbd0eee-dc82-477e-9066-9cccb1f2e2ba"],
 
 Cell[BoxData[
  RowBox[{
@@ -29716,6 +28804,185 @@ Cell[BoxData[
         StyleBox[GridBox[{
            {" ", " ", " "},
            {
+            StyleBox["1",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["0",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["1",
+             FontColor->RGBColor[0., 1., 0.]]}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Sigma[{1, -xAct`PSALTer`cartesian}, {
+     0, -xAct`PSALTer`cartesian}, {1, -xAct`PSALTer`cartesian}],
+    Editable->False]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox["\[ScriptCapitalE]",
+     ShowAutoStyles->False,
+     AutoSpacing->False,
+     FontColor->RGBColor[0., 0., 0.]],
+    xAct`PSALTer`En,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[Sigma]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", " "},
+           {
+            StyleBox["1",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["1",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["3",
+             FontColor->RGBColor[0., 1., 0.]]}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Sigma[{1, -xAct`PSALTer`cartesian}, {
+     1, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
+    Editable->False]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox["\[ScriptP]",
+     ShowAutoStyles->False,
+     AutoSpacing->False,
+     FontColor->RGBColor[0., 0., 0.]],
+    xAct`PSALTer`Mo,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[Sigma]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", " "},
+           {
+            StyleBox["2",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["0",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["2",
+             FontColor->RGBColor[0., 1., 0.]]}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Sigma[{2, -xAct`PSALTer`cartesian}, {
+     0, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
+    Editable->False]}], "-", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox["\[ScriptCapitalE]",
+     ShowAutoStyles->False,
+     AutoSpacing->False,
+     FontColor->RGBColor[0., 0., 0.]],
+    xAct`PSALTer`En,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[Sigma]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", " "},
+           {
+            StyleBox["2",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["2",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["3",
+             FontColor->RGBColor[0., 1., 0.]]}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Sigma[{2, -xAct`PSALTer`cartesian}, {
+     2, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
+    Editable->False]}]}]], "Print",
+ CellChangeTimes->{3.879780453597451*^9},
+ CellLabel->
+  "During evaluation of \
+In[16]:=",ExpressionUUID->"37bf7db3-b49f-4c4a-bff7-e2ac0fc74405"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   InterpretationBox[
+    StyleBox["\[ScriptP]",
+     ShowAutoStyles->False,
+     AutoSpacing->False,
+     FontColor->RGBColor[0., 0., 0.]],
+    xAct`PSALTer`Mo,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[Sigma]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", " "},
+           {
             StyleBox["0",
              FontColor->RGBColor[0., 1., 0.]], 
             StyleBox["1",
@@ -29743,7 +29010,7 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{0, -xAct`PSALTer`cartesian}, {
      1, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
     Editable->False]}], "-", 
-  RowBox[{"2", " ", 
+  RowBox[{
    InterpretationBox[
     StyleBox["\[ScriptP]",
      ShowAutoStyles->False,
@@ -29786,7 +29053,7 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{1, -xAct`PSALTer`cartesian}, {
      0, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
     Editable->False]}], "+", 
-  RowBox[{"2", " ", 
+  RowBox[{
    InterpretationBox[
     StyleBox["\[ScriptCapitalE]",
      ShowAutoStyles->False,
@@ -29829,7 +29096,7 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{1, -xAct`PSALTer`cartesian}, {
      2, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}], "-", 
-  RowBox[{
+  RowBox[{"2", " ", 
    InterpretationBox[
     StyleBox["\[ScriptP]",
      ShowAutoStyles->False,
@@ -29872,7 +29139,7 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{2, -xAct`PSALTer`cartesian}, {
      0, -xAct`PSALTer`cartesian}, {1, -xAct`PSALTer`cartesian}],
     Editable->False]}], "+", 
-  RowBox[{
+  RowBox[{"2", " ", 
    InterpretationBox[
     StyleBox["\[ScriptCapitalE]",
      ShowAutoStyles->False,
@@ -29914,7 +29181,7 @@ Cell[BoxData[
      AutoSpacing->False],
     xAct`HiGGS`Sigma[{2, -xAct`PSALTer`cartesian}, {
      1, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
-    Editable->False]}], "-", 
+    Editable->False]}], "+", 
   RowBox[{
    InterpretationBox[
     StyleBox["\[ScriptCapitalE]",
@@ -29958,21 +29225,23 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
      1, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.8797418496052313`*^9},
+ CellChangeTimes->{3.879780461073303*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"c403fc89-c56f-4758-97e0-091f9431235a"],
+In[16]:=",ExpressionUUID->"7a7671de-d146-4146-af2e-c5801450a1f9"],
 
 Cell[BoxData[
  RowBox[{
   RowBox[{
-   InterpretationBox[
-    StyleBox["\[ScriptP]",
-     ShowAutoStyles->False,
-     AutoSpacing->False,
-     FontColor->RGBColor[0., 0., 0.]],
-    xAct`PSALTer`Mo,
-    Editable->False], " ", 
+   RowBox[{"-", 
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox["\[ScriptP]",
+       ShowAutoStyles->False,
+       AutoSpacing->False,
+       FontColor->RGBColor[0., 0., 0.]],
+      xAct`PSALTer`Mo,
+      Editable->False], "2"]}], " ", 
    InterpretationBox[
     StyleBox[GridBox[{
        {
@@ -29981,7 +29250,7 @@ Cell[BoxData[
         StyleBox[GridBox[{
            {" ", " ", " "},
            {
-            StyleBox["1",
+            StyleBox["0",
              FontColor->RGBColor[0., 1., 0.]], 
             StyleBox["0",
              FontColor->RGBColor[0., 1., 0.]], 
@@ -30005,94 +29274,8 @@ Cell[BoxData[
           Offset[0.2]}}],
      ShowAutoStyles->False,
      AutoSpacing->False],
-    xAct`HiGGS`Sigma[{1, -xAct`PSALTer`cartesian}, {
+    xAct`HiGGS`Sigma[{0, -xAct`PSALTer`cartesian}, {
      0, -xAct`PSALTer`cartesian}, {1, -xAct`PSALTer`cartesian}],
-    Editable->False]}], "-", 
-  RowBox[{
-   InterpretationBox[
-    StyleBox["\[ScriptCapitalE]",
-     ShowAutoStyles->False,
-     AutoSpacing->False,
-     FontColor->RGBColor[0., 0., 0.]],
-    xAct`PSALTer`En,
-    Editable->False], " ", 
-   InterpretationBox[
-    StyleBox[GridBox[{
-       {
-        StyleBox["\[Sigma]",
-         FontColor->RGBColor[0., 0., 0.]], 
-        StyleBox[GridBox[{
-           {" ", " ", " "},
-           {
-            StyleBox["1",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["1",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["3",
-             FontColor->RGBColor[0., 1., 0.]]}
-          },
-          GridBoxSpacings->{"Columns" -> {
-              Offset[0.], {
-               Offset[0.034999999999999996`]}, 
-              Offset[0.]}, "Rows" -> {{
-               Offset[0.]}}}],
-         FontSize->Rational[39, 4]]}
-      },
-      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
-      GridBoxSpacings->{"Columns" -> {
-          Offset[0.27999999999999997`], {
-           Offset[0.034999999999999996`]}, 
-          Offset[0.27999999999999997`]}, "Rows" -> {
-          Offset[0.2], {
-           Offset[0.4]}, 
-          Offset[0.2]}}],
-     ShowAutoStyles->False,
-     AutoSpacing->False],
-    xAct`HiGGS`Sigma[{1, -xAct`PSALTer`cartesian}, {
-     1, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
-    Editable->False]}], "-", 
-  RowBox[{
-   InterpretationBox[
-    StyleBox["\[ScriptP]",
-     ShowAutoStyles->False,
-     AutoSpacing->False,
-     FontColor->RGBColor[0., 0., 0.]],
-    xAct`PSALTer`Mo,
-    Editable->False], " ", 
-   InterpretationBox[
-    StyleBox[GridBox[{
-       {
-        StyleBox["\[Sigma]",
-         FontColor->RGBColor[0., 0., 0.]], 
-        StyleBox[GridBox[{
-           {" ", " ", " "},
-           {
-            StyleBox["2",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["0",
-             FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["2",
-             FontColor->RGBColor[0., 1., 0.]]}
-          },
-          GridBoxSpacings->{"Columns" -> {
-              Offset[0.], {
-               Offset[0.034999999999999996`]}, 
-              Offset[0.]}, "Rows" -> {{
-               Offset[0.]}}}],
-         FontSize->Rational[39, 4]]}
-      },
-      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
-      GridBoxSpacings->{"Columns" -> {
-          Offset[0.27999999999999997`], {
-           Offset[0.034999999999999996`]}, 
-          Offset[0.27999999999999997`]}, "Rows" -> {
-          Offset[0.2], {
-           Offset[0.4]}, 
-          Offset[0.2]}}],
-     ShowAutoStyles->False,
-     AutoSpacing->False],
-    xAct`HiGGS`Sigma[{2, -xAct`PSALTer`cartesian}, {
-     0, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
     Editable->False]}], "+", 
   RowBox[{
    InterpretationBox[
@@ -30103,6 +29286,13 @@ Cell[BoxData[
     xAct`PSALTer`En,
     Editable->False], " ", 
    InterpretationBox[
+    StyleBox["\[ScriptP]",
+     ShowAutoStyles->False,
+     AutoSpacing->False,
+     FontColor->RGBColor[0., 0., 0.]],
+    xAct`PSALTer`Mo,
+    Editable->False], " ", 
+   InterpretationBox[
     StyleBox[GridBox[{
        {
         StyleBox["\[Sigma]",
@@ -30110,9 +29300,9 @@ Cell[BoxData[
         StyleBox[GridBox[{
            {" ", " ", " "},
            {
-            StyleBox["2",
+            StyleBox["0",
              FontColor->RGBColor[0., 1., 0.]], 
-            StyleBox["2",
+            StyleBox["1",
              FontColor->RGBColor[0., 1., 0.]], 
             StyleBox["3",
              FontColor->RGBColor[0., 1., 0.]]}
@@ -30134,13 +29324,162 @@ Cell[BoxData[
           Offset[0.2]}}],
      ShowAutoStyles->False,
      AutoSpacing->False],
+    xAct`HiGGS`Sigma[{0, -xAct`PSALTer`cartesian}, {
+     1, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
+    Editable->False]}], "+", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"-", 
+      SuperscriptBox[
+       InterpretationBox[
+        StyleBox["\[ScriptCapitalE]",
+         ShowAutoStyles->False,
+         AutoSpacing->False,
+         FontColor->RGBColor[0., 0., 0.]],
+        xAct`PSALTer`En,
+        Editable->False], "2"]}], "+", 
+     SuperscriptBox[
+      InterpretationBox[
+       StyleBox["\[ScriptP]",
+        ShowAutoStyles->False,
+        AutoSpacing->False,
+        FontColor->RGBColor[0., 0., 0.]],
+       xAct`PSALTer`Mo,
+       Editable->False], "2"]}], ")"}], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[Sigma]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", " "},
+           {
+            StyleBox["2",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["1",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["2",
+             FontColor->RGBColor[0., 1., 0.]]}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
     xAct`HiGGS`Sigma[{2, -xAct`PSALTer`cartesian}, {
-     2, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
+     1, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
+    Editable->False]}], "-", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox["\[ScriptCapitalE]",
+     ShowAutoStyles->False,
+     AutoSpacing->False,
+     FontColor->RGBColor[0., 0., 0.]],
+    xAct`PSALTer`En,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox["\[ScriptP]",
+     ShowAutoStyles->False,
+     AutoSpacing->False,
+     FontColor->RGBColor[0., 0., 0.]],
+    xAct`PSALTer`Mo,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[Sigma]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", " "},
+           {
+            StyleBox["3",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["0",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["1",
+             FontColor->RGBColor[0., 1., 0.]]}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
+     0, -xAct`PSALTer`cartesian}, {1, -xAct`PSALTer`cartesian}],
+    Editable->False]}], "+", 
+  RowBox[{
+   SuperscriptBox[
+    InterpretationBox[
+     StyleBox["\[ScriptCapitalE]",
+      ShowAutoStyles->False,
+      AutoSpacing->False,
+      FontColor->RGBColor[0., 0., 0.]],
+     xAct`PSALTer`En,
+     Editable->False], "2"], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[Sigma]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", " "},
+           {
+            StyleBox["3",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["1",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["3",
+             FontColor->RGBColor[0., 1., 0.]]}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
+     1, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.8797418550702353`*^9},
+ CellChangeTimes->{3.879780466479694*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"8456ad16-6816-42a0-82e7-6c290c39707e"],
+In[16]:=",ExpressionUUID->"35c2bf35-5328-4b1d-adc8-94567b36f316"],
 
 Cell[BoxData[
  RowBox[{
@@ -30387,10 +29726,705 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
      2, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741862544772*^9},
+ CellChangeTimes->{3.879780471938993*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"15fd6056-cf7e-490a-8a8a-af1a46586aa0"],
+In[16]:=",ExpressionUUID->"41df86e0-3200-47ac-ac57-1c5d6ebb17c4"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"-", 
+    InterpretationBox[
+     StyleBox["\[ScriptP]",
+      ShowAutoStyles->False,
+      AutoSpacing->False,
+      FontColor->RGBColor[0., 0., 0.]],
+     xAct`PSALTer`Mo,
+     Editable->False]}], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[Sigma]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", " "},
+           {
+            StyleBox["0",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["1",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["2",
+             FontColor->RGBColor[0., 1., 0.]]}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Sigma[{0, -xAct`PSALTer`cartesian}, {
+     1, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
+    Editable->False]}], "-", 
+  RowBox[{"2", " ", 
+   InterpretationBox[
+    StyleBox["\[ScriptP]",
+     ShowAutoStyles->False,
+     AutoSpacing->False,
+     FontColor->RGBColor[0., 0., 0.]],
+    xAct`PSALTer`Mo,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[Sigma]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", " "},
+           {
+            StyleBox["1",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["0",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["2",
+             FontColor->RGBColor[0., 1., 0.]]}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Sigma[{1, -xAct`PSALTer`cartesian}, {
+     0, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
+    Editable->False]}], "+", 
+  RowBox[{"2", " ", 
+   InterpretationBox[
+    StyleBox["\[ScriptCapitalE]",
+     ShowAutoStyles->False,
+     AutoSpacing->False,
+     FontColor->RGBColor[0., 0., 0.]],
+    xAct`PSALTer`En,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[Sigma]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", " "},
+           {
+            StyleBox["1",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["2",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["3",
+             FontColor->RGBColor[0., 1., 0.]]}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Sigma[{1, -xAct`PSALTer`cartesian}, {
+     2, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
+    Editable->False]}], "-", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox["\[ScriptP]",
+     ShowAutoStyles->False,
+     AutoSpacing->False,
+     FontColor->RGBColor[0., 0., 0.]],
+    xAct`PSALTer`Mo,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[Sigma]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", " "},
+           {
+            StyleBox["2",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["0",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["1",
+             FontColor->RGBColor[0., 1., 0.]]}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Sigma[{2, -xAct`PSALTer`cartesian}, {
+     0, -xAct`PSALTer`cartesian}, {1, -xAct`PSALTer`cartesian}],
+    Editable->False]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox["\[ScriptCapitalE]",
+     ShowAutoStyles->False,
+     AutoSpacing->False,
+     FontColor->RGBColor[0., 0., 0.]],
+    xAct`PSALTer`En,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[Sigma]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", " "},
+           {
+            StyleBox["2",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["1",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["3",
+             FontColor->RGBColor[0., 1., 0.]]}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Sigma[{2, -xAct`PSALTer`cartesian}, {
+     1, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
+    Editable->False]}], "-", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox["\[ScriptCapitalE]",
+     ShowAutoStyles->False,
+     AutoSpacing->False,
+     FontColor->RGBColor[0., 0., 0.]],
+    xAct`PSALTer`En,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[Sigma]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", " "},
+           {
+            StyleBox["3",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["1",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["2",
+             FontColor->RGBColor[0., 1., 0.]]}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
+     1, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
+    Editable->False]}]}]], "Print",
+ CellChangeTimes->{3.8797804793487473`*^9},
+ CellLabel->
+  "During evaluation of \
+In[16]:=",ExpressionUUID->"07e2c2e2-188c-4557-be40-67ecb6d6d6b0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   InterpretationBox[
+    StyleBox["\[ScriptP]",
+     ShowAutoStyles->False,
+     AutoSpacing->False,
+     FontColor->RGBColor[0., 0., 0.]],
+    xAct`PSALTer`Mo,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[Sigma]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", " "},
+           {
+            StyleBox["1",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["0",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["1",
+             FontColor->RGBColor[0., 1., 0.]]}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Sigma[{1, -xAct`PSALTer`cartesian}, {
+     0, -xAct`PSALTer`cartesian}, {1, -xAct`PSALTer`cartesian}],
+    Editable->False]}], "-", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox["\[ScriptCapitalE]",
+     ShowAutoStyles->False,
+     AutoSpacing->False,
+     FontColor->RGBColor[0., 0., 0.]],
+    xAct`PSALTer`En,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[Sigma]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", " "},
+           {
+            StyleBox["1",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["1",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["3",
+             FontColor->RGBColor[0., 1., 0.]]}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Sigma[{1, -xAct`PSALTer`cartesian}, {
+     1, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
+    Editable->False]}], "-", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox["\[ScriptP]",
+     ShowAutoStyles->False,
+     AutoSpacing->False,
+     FontColor->RGBColor[0., 0., 0.]],
+    xAct`PSALTer`Mo,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[Sigma]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", " "},
+           {
+            StyleBox["2",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["0",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["2",
+             FontColor->RGBColor[0., 1., 0.]]}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Sigma[{2, -xAct`PSALTer`cartesian}, {
+     0, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
+    Editable->False]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox["\[ScriptCapitalE]",
+     ShowAutoStyles->False,
+     AutoSpacing->False,
+     FontColor->RGBColor[0., 0., 0.]],
+    xAct`PSALTer`En,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[Sigma]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", " "},
+           {
+            StyleBox["2",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["2",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["3",
+             FontColor->RGBColor[0., 1., 0.]]}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Sigma[{2, -xAct`PSALTer`cartesian}, {
+     2, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
+    Editable->False]}]}]], "Print",
+ CellChangeTimes->{3.879780484775655*^9},
+ CellLabel->
+  "During evaluation of \
+In[16]:=",ExpressionUUID->"6743ddeb-8a68-4557-948a-624677a3f3d8"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"-", 
+    SuperscriptBox[
+     InterpretationBox[
+      StyleBox["\[ScriptP]",
+       ShowAutoStyles->False,
+       AutoSpacing->False,
+       FontColor->RGBColor[0., 0., 0.]],
+      xAct`PSALTer`Mo,
+      Editable->False], "2"]}], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[Sigma]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", " "},
+           {
+            StyleBox["0",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["0",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["2",
+             FontColor->RGBColor[0., 1., 0.]]}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Sigma[{0, -xAct`PSALTer`cartesian}, {
+     0, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
+    Editable->False]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox["\[ScriptCapitalE]",
+     ShowAutoStyles->False,
+     AutoSpacing->False,
+     FontColor->RGBColor[0., 0., 0.]],
+    xAct`PSALTer`En,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox["\[ScriptP]",
+     ShowAutoStyles->False,
+     AutoSpacing->False,
+     FontColor->RGBColor[0., 0., 0.]],
+    xAct`PSALTer`Mo,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[Sigma]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", " "},
+           {
+            StyleBox["0",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["2",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["3",
+             FontColor->RGBColor[0., 1., 0.]]}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Sigma[{0, -xAct`PSALTer`cartesian}, {
+     2, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
+    Editable->False]}], "+", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     SuperscriptBox[
+      InterpretationBox[
+       StyleBox["\[ScriptCapitalE]",
+        ShowAutoStyles->False,
+        AutoSpacing->False,
+        FontColor->RGBColor[0., 0., 0.]],
+       xAct`PSALTer`En,
+       Editable->False], "2"], "-", 
+     SuperscriptBox[
+      InterpretationBox[
+       StyleBox["\[ScriptP]",
+        ShowAutoStyles->False,
+        AutoSpacing->False,
+        FontColor->RGBColor[0., 0., 0.]],
+       xAct`PSALTer`Mo,
+       Editable->False], "2"]}], ")"}], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[Sigma]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", " "},
+           {
+            StyleBox["1",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["1",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["2",
+             FontColor->RGBColor[0., 1., 0.]]}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Sigma[{1, -xAct`PSALTer`cartesian}, {
+     1, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
+    Editable->False]}], "-", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox["\[ScriptCapitalE]",
+     ShowAutoStyles->False,
+     AutoSpacing->False,
+     FontColor->RGBColor[0., 0., 0.]],
+    xAct`PSALTer`En,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox["\[ScriptP]",
+     ShowAutoStyles->False,
+     AutoSpacing->False,
+     FontColor->RGBColor[0., 0., 0.]],
+    xAct`PSALTer`Mo,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[Sigma]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", " "},
+           {
+            StyleBox["3",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["0",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["2",
+             FontColor->RGBColor[0., 1., 0.]]}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
+     0, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
+    Editable->False]}], "+", 
+  RowBox[{
+   SuperscriptBox[
+    InterpretationBox[
+     StyleBox["\[ScriptCapitalE]",
+      ShowAutoStyles->False,
+      AutoSpacing->False,
+      FontColor->RGBColor[0., 0., 0.]],
+     xAct`PSALTer`En,
+     Editable->False], "2"], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[Sigma]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", " "},
+           {
+            StyleBox["3",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["2",
+             FontColor->RGBColor[0., 1., 0.]], 
+            StyleBox["3",
+             FontColor->RGBColor[0., 1., 0.]]}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
+     2, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
+    Editable->False]}]}]], "Print",
+ CellChangeTimes->{3.8797804921145983`*^9},
+ CellLabel->
+  "During evaluation of \
+In[16]:=",ExpressionUUID->"6517c150-b13c-4998-a094-9d957e0fdcc4"],
 
 Cell[BoxData[
  RowBox[{
@@ -30653,10 +30687,10 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
      1, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741869943287*^9},
+ CellChangeTimes->{3.8797804994011583`*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"a859d325-9497-405c-932e-547234df55be"],
+In[16]:=",ExpressionUUID->"a8594092-c8cd-42e3-81a2-d75d13c6ccf6"],
 
 Cell[BoxData[
  RowBox[{
@@ -30903,10 +30937,10 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
      2, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.8797418754502573`*^9},
+ CellChangeTimes->{3.879780504770544*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"50425285-7d5a-4ebf-82ca-861cff3f7523"],
+In[16]:=",ExpressionUUID->"b2d38546-ff00-47f5-9e0e-7cacb9463fd3"],
 
 Cell[BoxData[
  RowBox[{
@@ -31154,10 +31188,10 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
      1, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741880909307*^9},
+ CellChangeTimes->{3.8797805101580877`*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"36dd8903-7345-49ea-b4b6-3bf70e14d63d"],
+In[16]:=",ExpressionUUID->"d2f22964-0e4d-446a-9473-94cad715e820"],
 
 Cell[BoxData[
  RowBox[{
@@ -31420,10 +31454,10 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
      1, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.8797418883568296`*^9},
+ CellChangeTimes->{3.87978051750292*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"52ee4e14-390c-483e-b321-71e85190554f"],
+In[16]:=",ExpressionUUID->"3be91cda-1da0-4764-a560-8ec713b0a7ea"],
 
 Cell[BoxData[
  RowBox[{
@@ -31670,10 +31704,10 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
      2, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741895733078*^9},
+ CellChangeTimes->{3.8797805247575006`*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"bcb23774-d7ee-492f-829b-b58a71f7ccbb"],
+In[16]:=",ExpressionUUID->"989cec6f-06cc-4711-b1b9-896a709c21df"],
 
 Cell[BoxData[
  RowBox[{
@@ -31936,10 +31970,10 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
      1, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.8797419029724083`*^9},
+ CellChangeTimes->{3.879780532119583*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"e6b9b26c-c249-4704-bf2c-c41a7a738e67"],
+In[16]:=",ExpressionUUID->"b098e4f1-d560-41fc-8085-474d4d1b2374"],
 
 Cell[BoxData[
  RowBox[{
@@ -32115,10 +32149,10 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{2, -xAct`PSALTer`cartesian}, {
      2, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741908378666*^9},
+ CellChangeTimes->{3.8797805374792843`*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"acab85c8-7b03-4189-a61c-5eba43046855"],
+In[16]:=",ExpressionUUID->"dab08b1c-8017-414c-9e05-57200af05be9"],
 
 Cell[BoxData[
  RowBox[{
@@ -32365,34 +32399,34 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
      2, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741913710458*^9},
+ CellChangeTimes->{3.879780542850816*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"dd37d529-7c76-44d3-9c59-7b5cff250fae"],
+In[16]:=",ExpressionUUID->"132bb7ac-6169-4a44-99df-3aa92dabcfa4"],
 
 Cell[BoxData["0"], "Print",
- CellChangeTimes->{3.8797419190719223`*^9},
+ CellChangeTimes->{3.879780548258155*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"358a802e-ff44-4b44-8cf7-5038049c105d"],
+In[16]:=",ExpressionUUID->"b4ba7ae4-f7a1-4d22-b918-1edf5a2614dc"],
 
 Cell[BoxData["0"], "Print",
- CellChangeTimes->{3.8797419263598223`*^9},
+ CellChangeTimes->{3.879780555570118*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"5f284a72-b1ee-4200-be76-7f4514a15dee"],
+In[16]:=",ExpressionUUID->"a411319a-6452-49b1-9f6d-61b6dc757bfa"],
 
 Cell[BoxData["0"], "Print",
- CellChangeTimes->{3.87974193354799*^9},
+ CellChangeTimes->{3.879780562849538*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"413ceb24-54ee-41b5-a2c5-52dd697a7ac4"],
+In[16]:=",ExpressionUUID->"65d06ecb-7751-44bd-8a37-dfaf9e9ed4f6"],
 
 Cell[BoxData["0"], "Print",
- CellChangeTimes->{3.8797419389055758`*^9},
+ CellChangeTimes->{3.879780568247178*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"68050afb-6ea9-417f-9475-a9acf061abc8"],
+In[16]:=",ExpressionUUID->"055b9ada-5a33-414f-8074-09c1561470ae"],
 
 Cell[BoxData[
  RowBox[{
@@ -32638,10 +32672,10 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
      1, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741946127187*^9},
+ CellChangeTimes->{3.879780575644162*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"08b7d5b9-be95-4418-9849-01119aa47b46"],
+In[16]:=",ExpressionUUID->"72731939-7130-4a28-8af3-c1ddb21265de"],
 
 Cell[BoxData[
  RowBox[{
@@ -32817,10 +32851,10 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{2, -xAct`PSALTer`cartesian}, {
      2, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741951482834*^9},
+ CellChangeTimes->{3.8797805810402737`*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"a1eede63-d004-46b3-bff4-500fcd14258f"],
+In[16]:=",ExpressionUUID->"aa83d3c4-d140-4f0b-9e48-de2556533029"],
 
 Cell[BoxData[
  RowBox[{
@@ -33083,10 +33117,10 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
      1, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741958684712*^9},
+ CellChangeTimes->{3.879780588395977*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"dd060545-5882-4527-9b32-2c5977d103e7"],
+In[16]:=",ExpressionUUID->"4326d303-c52c-4ef9-af02-42c7236cab90"],
 
 Cell[BoxData[
  RowBox[{
@@ -33332,10 +33366,10 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
      1, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741964007584*^9},
+ CellChangeTimes->{3.87978059378636*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"f4c22ec5-fc08-43c6-ad33-77e226669435"],
+In[16]:=",ExpressionUUID->"78e00ddb-87b0-4ff4-aaad-62e390c1eeb1"],
 
 Cell[BoxData[
  RowBox[{
@@ -33582,10 +33616,10 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
      2, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.87974197122078*^9},
+ CellChangeTimes->{3.8797806011688633`*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"e9f870f9-2d06-4d10-bfe1-5fdb6b3faf76"],
+In[16]:=",ExpressionUUID->"5d7df7ec-e8c9-4b2f-ab92-ea3b7ad9f547"],
 
 Cell[BoxData[
  RowBox[{
@@ -33847,10 +33881,10 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
      1, -xAct`PSALTer`cartesian}, {2, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741978478414*^9},
+ CellChangeTimes->{3.879780608593795*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"ce58e37d-9cdd-4941-acd0-5dacdb7fc00b"],
+In[16]:=",ExpressionUUID->"0f660ba7-dad7-4984-a15a-ffa65318d652"],
 
 Cell[BoxData[
  RowBox[{
@@ -34027,10 +34061,10 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{2, -xAct`PSALTer`cartesian}, {
      2, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741983854982*^9},
+ CellChangeTimes->{3.8797806139855433`*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"1d435c1c-a308-4741-814c-5c6da313e539"],
+In[16]:=",ExpressionUUID->"1bd3df2a-7b87-4cd2-871d-64fea89a8b8d"],
 
 Cell[BoxData[
  RowBox[{
@@ -34277,17 +34311,17 @@ Cell[BoxData[
     xAct`HiGGS`Sigma[{3, -xAct`PSALTer`cartesian}, {
      2, -xAct`PSALTer`cartesian}, {3, -xAct`PSALTer`cartesian}],
     Editable->False]}]}]], "Print",
- CellChangeTimes->{3.879741989212129*^9},
+ CellChangeTimes->{3.8797806193509693`*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"186ccd38-4388-4fe1-b355-80f8f4b81e81"],
+In[16]:=",ExpressionUUID->"70bb0e97-8b1f-43a0-b975-66831ef3ef86"],
 
 Cell[BoxData["\<\" ** ParticleSpectrum: massive mode contribution from given \
 spin-parity sector in the lightcone basis:\"\>"], "Print",
- CellChangeTimes->{3.879741993709032*^9},
+ CellChangeTimes->{3.879780623799*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"ffb5f0dc-648d-4b88-a3c8-b033600a1256"],
+In[16]:=",ExpressionUUID->"b000504b-4b79-478d-b5aa-6aecbddb90e0"],
 
 Cell[BoxData[
  FractionBox[
@@ -34360,17 +34394,17 @@ Cell[BoxData[
        FontColor->RGBColor[0., 0., 0.]],
       xAct`PSALTer`Mo,
       Editable->False]}], ")"}]}]]], "Print",
- CellChangeTimes->{3.879741993713307*^9},
+ CellChangeTimes->{3.8797806238024893`*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"e0c3c768-da1e-4682-98eb-6d811262a075"],
+In[16]:=",ExpressionUUID->"ce45fa90-3d5a-481e-a9bb-8c3a59d1bc31"],
 
 Cell[BoxData["\<\" ** ParticleSpectrum: massive mode contribution from given \
 spin-parity sector in the lightcone basis:\"\>"], "Print",
- CellChangeTimes->{3.8797420010584908`*^9},
+ CellChangeTimes->{3.8797806312631207`*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"09d6efac-8d3f-4af7-9723-53b3f510ad4f"],
+In[16]:=",ExpressionUUID->"82aecaf2-cd99-4b2f-8d71-434d6d838659"],
 
 Cell[BoxData[
  RowBox[{"-", 
@@ -34716,17 +34750,17 @@ Cell[BoxData[
           FontColor->RGBColor[0., 0., 0.]],
          xAct`PSALTer`Mo,
          Editable->False], "2"]}]}], ")"}]}]]}]], "Print",
- CellChangeTimes->{3.879742001064309*^9},
+ CellChangeTimes->{3.879780631269113*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"4cbfddda-95e3-45c3-b879-3b06079565d9"],
+In[16]:=",ExpressionUUID->"f62582b2-c1c1-4c0c-99fa-a8a4d073c37d"],
 
 Cell[BoxData["\<\" ** ParticleSpectrum: massive mode contribution from given \
 spin-parity sector in the lightcone basis:\"\>"], "Print",
- CellChangeTimes->{3.8797421225072536`*^9},
+ CellChangeTimes->{3.879780754919004*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"2fc0d6e7-e5c8-4bfc-9400-449a9e5a6cbe"],
+In[16]:=",ExpressionUUID->"f2d604a0-fce9-449a-a2f9-ef8dd8dfed35"],
 
 Cell[BoxData[
  RowBox[{
@@ -38567,17 +38601,17 @@ Cell[BoxData[
        AutoSpacing->False],
       xAct`PSALTer`X9\[Dagger],
       Editable->False]}]}], ")"}]}]], "Print",
- CellChangeTimes->{3.879742122555909*^9},
+ CellChangeTimes->{3.87978075497121*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"6b6a5d4a-4d53-457b-af6c-e61a2aa75f90"],
+In[16]:=",ExpressionUUID->"a3308015-ca0f-4127-aec7-d2af0e65ea12"],
 
 Cell[BoxData["\<\" ** ParticleSpectrum: massive mode contribution from given \
 spin-parity sector in the lightcone basis:\"\>"], "Print",
- CellChangeTimes->{3.879742193977438*^9},
+ CellChangeTimes->{3.8797808306015368`*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"fe74e937-7647-4081-a145-55be9254beba"],
+In[16]:=",ExpressionUUID->"44038c2c-a16e-46a5-8219-f81fd80ac051"],
 
 Cell[BoxData[
  RowBox[{
@@ -50055,17 +50089,17 @@ Cell[BoxData[
        AutoSpacing->False],
       xAct`PSALTer`X9\[Dagger],
       Editable->False]}]}], ")"}]}]], "Print",
- CellChangeTimes->{3.8797421941072474`*^9},
+ CellChangeTimes->{3.8797808307249613`*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"dc10b985-dc6f-45ca-94af-f16aad3f2642"],
+In[16]:=",ExpressionUUID->"1935216c-9990-401e-adcd-b3d3fd437f44"],
 
 Cell[BoxData["\<\" ** ParticleSpectrum: massive mode contribution from given \
 spin-parity sector in the lightcone basis:\"\>"], "Print",
- CellChangeTimes->{3.879742199822197*^9},
+ CellChangeTimes->{3.879780836500311*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"4a36678b-f621-4cad-a157-3a46d6677040"],
+In[16]:=",ExpressionUUID->"e5a31a6a-d006-40e8-b1aa-c5eace6b3dc0"],
 
 Cell[BoxData[
  RowBox[{
@@ -56338,30 +56372,30 @@ Cell[BoxData[
        AutoSpacing->False],
       xAct`PSALTer`X9\[Dagger],
       Editable->False]}]}], ")"}]}]], "Print",
- CellChangeTimes->{3.87974219988127*^9},
+ CellChangeTimes->{3.879780836560611*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"65d2e348-f77a-4aee-85db-8bdb4e3d163d"],
+In[16]:=",ExpressionUUID->"2f74a108-0887-45c7-b287-5e88b5828d3b"],
 
 Cell[BoxData["\<\" ** ParticleSpectrum: massive mode contribution from given \
 spin-parity sector in the lightcone basis:\"\>"], "Print",
- CellChangeTimes->{3.879742200301157*^9},
+ CellChangeTimes->{3.879780836969702*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"0269701c-b5a5-4c92-9531-2f38c54d5804"],
+In[16]:=",ExpressionUUID->"6fc76b12-090f-424a-87b5-b4abd5b95c82"],
 
 Cell[BoxData["0"], "Print",
- CellChangeTimes->{3.879742200303791*^9},
+ CellChangeTimes->{3.879780836972534*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"ac5918a6-2a56-4168-88cc-b2d7336c1651"],
+In[16]:=",ExpressionUUID->"d707e7c9-9933-42c4-bc17-e09df6ec8b32"],
 
 Cell[BoxData["\<\" ** ParticleSpectrum: residue of the massless propagator at \
 the massless pole (unitarity reflected in the denominator):\"\>"], "Print",
- CellChangeTimes->{3.8797422198873672`*^9},
+ CellChangeTimes->{3.879780856621065*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"c3820ce0-01f6-4aa7-8ac7-a0a9a1afa47e"],
+In[16]:=",ExpressionUUID->"02dea28e-5943-4075-a30b-ac4ec9f33142"],
 
 Cell[BoxData[
  RowBox[{
@@ -59315,18 +59349,18 @@ Cell[BoxData[
           AutoSpacing->False],
          xAct`PSALTer`X9\[Dagger],
          Editable->False]}]}], ")"}]}]}], ")"}]}]], "Print",
- CellChangeTimes->{3.879742219924014*^9},
+ CellChangeTimes->{3.879780856658164*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"5a5192d5-09ee-48ea-8bcb-8a1e4a16907d"],
+In[16]:=",ExpressionUUID->"7bfea283-ffe0-4eb7-8913-063376dcb272"],
 
 Cell[BoxData["\<\" ** ParticleSpectrum: current eigenvalues of the massless \
 propagator residues (number of massless polarisations is number of \
 positive-definite eigenvalues):\"\>"], "Print",
- CellChangeTimes->{3.879742219953068*^9},
+ CellChangeTimes->{3.879780856686496*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"f54dfc24-bb97-4c7f-97b1-abead791ed44"],
+In[16]:=",ExpressionUUID->"8af1b6d4-eb25-4229-a8fa-db3e3a82261e"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -59454,10 +59488,10 @@ Cell[BoxData[
           AutoSpacing->False],
          xAct`HiGGS`Alp6,
          Editable->False], "2"]}]}], ")"}]}]}], "}"}]], "Print",
- CellChangeTimes->{3.879742219957067*^9},
+ CellChangeTimes->{3.879780856690402*^9},
  CellLabel->
   "During evaluation of \
-In[16]:=",ExpressionUUID->"fd46c819-edbf-46c6-8853-fa6c91c9a346"]
+In[16]:=",ExpressionUUID->"e82f2617-1efe-4203-982c-91c73977808e"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
@@ -59483,203 +59517,210 @@ CellTagsIndex->{}
 Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 264, 4, 98, "Title",ExpressionUUID->"33fd9952-67c4-4232-a8dc-4bbf7436299e"],
-Cell[847, 28, 343, 7, 35, "Text",ExpressionUUID->"e372cb89-2c39-4d26-b1ad-5b8db68608c0"],
 Cell[CellGroupData[{
-Cell[1215, 39, 1622, 22, 30, "Input",ExpressionUUID->"5d2a558d-bfb2-4fcf-ab7a-620b399e58c4"],
+Cell[869, 30, 157, 3, 68, "Section",ExpressionUUID->"fef849a5-4b5a-484d-974f-f3640391eeb9"],
+Cell[1029, 35, 343, 7, 35, "Text",ExpressionUUID->"e372cb89-2c39-4d26-b1ad-5b8db68608c0"],
 Cell[CellGroupData[{
-Cell[2862, 65, 242, 5, 23, "Print",ExpressionUUID->"c33a693b-d3d3-4e13-b21e-983d6c3626a5"],
-Cell[3107, 72, 513, 13, 25, "Print",ExpressionUUID->"a42ceb6e-2211-415b-8cef-13448d5da00d"],
-Cell[3623, 87, 263, 5, 25, "Print",ExpressionUUID->"9af858d6-5427-4ab2-8690-0e5f4d16ea4d"],
-Cell[3889, 94, 222, 4, 25, "Print",ExpressionUUID->"186eb8e7-a0d5-46c1-88d6-cf92fbb094a2"],
-Cell[4114, 100, 203, 4, 25, "Print",ExpressionUUID->"34c8cb90-70e9-44f9-be2e-5e8fdcc9ce3e"],
-Cell[4320, 106, 244, 5, 23, "Print",ExpressionUUID->"1af18939-fa79-4711-8756-02825ceab382"],
-Cell[4567, 113, 520, 13, 25, "Print",ExpressionUUID->"a9613cf6-5440-4f44-a7c4-95f0bc5c0ad6"],
-Cell[5090, 128, 263, 5, 25, "Print",ExpressionUUID->"fa2f35e7-4c60-4fb4-98ca-cf87f0269663"],
-Cell[5356, 135, 242, 5, 23, "Print",ExpressionUUID->"3fcad05e-f349-457e-9862-7ca0afe22172"],
-Cell[5601, 142, 516, 13, 25, "Print",ExpressionUUID->"b0317972-84b6-4737-b881-b22e2cbe32b5"],
-Cell[6120, 157, 313, 6, 25, "Print",ExpressionUUID->"5512e7e0-7e59-4fb6-b44c-cdde7fb7842b"],
-Cell[6436, 165, 484, 12, 25, "Print",ExpressionUUID->"d2369d7d-424e-467c-bd71-935244b9b500"],
-Cell[6923, 179, 568, 13, 25, "Print",ExpressionUUID->"e54d3f85-51f5-453b-97bf-55d022e63a58"],
-Cell[7494, 194, 668, 13, 25, "Print",ExpressionUUID->"99fffd23-d885-4019-b703-9bb4362d0c57"],
-Cell[8165, 209, 627, 13, 25, "Print",ExpressionUUID->"15fdd996-8de5-4b8d-b2d6-c62ede01f3c5"],
-Cell[8795, 224, 645, 13, 25, "Print",ExpressionUUID->"676a23b3-d2bc-41d2-af90-14a3be6ff495"],
-Cell[9443, 239, 240, 5, 23, "Print",ExpressionUUID->"49d7c29c-440e-4b09-9d6d-9ecd1fd06eca"],
-Cell[9686, 246, 509, 12, 25, "Print",ExpressionUUID->"c56fccbd-2004-4738-89f7-36bbd110dfb8"],
-Cell[10198, 260, 291, 5, 25, "Print",ExpressionUUID->"5ee0b786-9932-44fc-bc48-044c0a9cdfeb"],
-Cell[10492, 267, 612, 14, 25, "Print",ExpressionUUID->"bf046588-abe0-4370-9bed-b4da5874c2e1"],
-Cell[11107, 283, 604, 13, 25, "Print",ExpressionUUID->"7dd6f6e7-7d95-455e-9a5c-e48ed223fcc8"],
-Cell[11714, 298, 649, 13, 25, "Print",ExpressionUUID->"24d5abff-9cc8-44ae-a91c-23fc949b9ca1"],
-Cell[12366, 313, 562, 13, 25, "Print",ExpressionUUID->"a2545457-f8a5-4bf2-850c-623cb9955e24"],
-Cell[12931, 328, 242, 5, 23, "Print",ExpressionUUID->"b3ac2fc3-bb5e-427b-a5c8-0739ad7e60d0"],
-Cell[13176, 335, 514, 13, 25, "Print",ExpressionUUID->"f52b9368-3cd4-4ab0-b6c5-acdc076feaf0"],
-Cell[13693, 350, 283, 5, 25, "Print",ExpressionUUID->"c661f9ad-1c7d-45ce-9ac8-69f67ba98ff5"],
-Cell[13979, 357, 242, 5, 23, "Print",ExpressionUUID->"73abea0b-d068-4fb0-ada7-f2eac4c0991c"],
-Cell[14224, 364, 534, 13, 25, "Print",ExpressionUUID->"9fb5b899-b796-485d-bcf4-a76da81b67fa"],
-Cell[14761, 379, 269, 5, 25, "Print",ExpressionUUID->"26dd3a3c-1334-49d5-ba9a-5902057f943f"],
-Cell[15033, 386, 242, 5, 23, "Print",ExpressionUUID->"d3d44fac-4569-43dd-ad9c-4b7b8ba407b2"],
-Cell[15278, 393, 515, 12, 25, "Print",ExpressionUUID->"cda4cd01-e3c6-447c-8a59-0770bb74af1d"],
-Cell[15796, 407, 255, 5, 25, "Print",ExpressionUUID->"96a8436d-94c1-4ea0-9de5-ac1e7d497663"],
-Cell[16054, 414, 574, 14, 25, "Print",ExpressionUUID->"06594d0e-1c9f-40a4-93a8-36dc53793d30"],
-Cell[16631, 430, 651, 13, 25, "Print",ExpressionUUID->"b5faaf70-668f-4272-a7fa-ca1f91c6c473"],
-Cell[17285, 445, 244, 5, 23, "Print",ExpressionUUID->"b2557d0c-58a3-4b40-b0ca-0d659bbf2a1b"],
-Cell[17532, 452, 536, 13, 25, "Print",ExpressionUUID->"613b2a3f-c77b-432d-986a-83284eead59d"],
-Cell[18071, 467, 282, 5, 25, "Print",ExpressionUUID->"d1d7b69e-17f0-4f6f-ab54-970ba966842d"],
-Cell[18356, 474, 244, 5, 23, "Print",ExpressionUUID->"5886ded2-9ea1-4bcd-8d2d-b4176ccee776"],
-Cell[18603, 481, 220, 4, 25, "Print",ExpressionUUID->"564b7f5d-7907-4319-8c8e-2feb3cfc2c52"],
-Cell[18826, 487, 242, 5, 23, "Print",ExpressionUUID->"c9016d35-4fde-43a3-b174-0ab7649cb0d3"],
-Cell[19071, 494, 518, 13, 25, "Print",ExpressionUUID->"e90b1e3d-af4f-4eef-a7f4-b57f3efaa6a0"],
-Cell[19592, 509, 312, 6, 25, "Print",ExpressionUUID->"3e1baab5-8740-4c1e-84cb-32bbd5b63f26"],
-Cell[19907, 517, 242, 5, 23, "Print",ExpressionUUID->"cbdbf5a3-c34a-472f-a55a-022b6512026d"],
-Cell[20152, 524, 513, 12, 25, "Print",ExpressionUUID->"03d444b9-4e1c-4dd5-bef3-3f84c4c70c13"],
-Cell[20668, 538, 279, 5, 25, "Print",ExpressionUUID->"abca468d-afc1-44b1-8c93-6df5419b87ec"],
-Cell[20950, 545, 289, 5, 25, "Print",ExpressionUUID->"459745bd-b143-4d29-a52c-3f69fe304f4e"],
-Cell[21242, 552, 562, 13, 25, "Print",ExpressionUUID->"563e72bb-f101-452c-93f5-cb5435574d67"],
-Cell[21807, 567, 242, 5, 23, "Print",ExpressionUUID->"522a356b-25fe-46ea-8680-3914cffd697f"],
-Cell[22052, 574, 540, 13, 25, "Print",ExpressionUUID->"6704daf2-eaa4-46ca-b74d-4d2dd5c342d8"],
-Cell[22595, 589, 263, 5, 25, "Print",ExpressionUUID->"ff9a6d09-c20a-405f-b845-16a84dd5e0ee"],
-Cell[22861, 596, 244, 5, 23, "Print",ExpressionUUID->"d1a3ba8d-d0a0-4ec9-b315-b269418ee0c1"],
-Cell[23108, 603, 397, 7, 45, "Print",ExpressionUUID->"6e756208-4c51-4be5-96de-ead85ba11617"],
-Cell[23508, 612, 244, 5, 23, "Print",ExpressionUUID->"99e31b66-5c8b-4405-86a6-4c69b0ce57ad"]
+Cell[1397, 46, 1622, 22, 30, "Input",ExpressionUUID->"5d2a558d-bfb2-4fcf-ab7a-620b399e58c4"],
+Cell[CellGroupData[{
+Cell[3044, 72, 244, 5, 23, "Print",ExpressionUUID->"7d1a84a7-74b2-436d-b839-d9744486615e"],
+Cell[3291, 79, 514, 13, 25, "Print",ExpressionUUID->"a23ec199-c1cf-4463-a5ba-c43106b5dc4b"],
+Cell[3808, 94, 263, 5, 25, "Print",ExpressionUUID->"7812cbdd-94f1-4b5c-b4ad-335fd4791207"],
+Cell[4074, 101, 224, 4, 25, "Print",ExpressionUUID->"d1bad7a2-69bf-470e-a759-87c88c141f72"],
+Cell[4301, 107, 203, 4, 25, "Print",ExpressionUUID->"55ca50a7-b69b-4fde-96e9-0fe2d9634908"],
+Cell[4507, 113, 244, 5, 23, "Print",ExpressionUUID->"65005371-9e85-4af1-9ae6-f79e343b6e37"],
+Cell[4754, 120, 520, 13, 25, "Print",ExpressionUUID->"bea25ff6-3132-4675-a18c-01be9b900b02"],
+Cell[5277, 135, 263, 5, 25, "Print",ExpressionUUID->"f8e963f6-04b2-43b3-9207-4afeb894159d"],
+Cell[5543, 142, 242, 5, 23, "Print",ExpressionUUID->"5bb5da19-5a29-4aee-a4bf-769e07a1a161"],
+Cell[5788, 149, 514, 13, 25, "Print",ExpressionUUID->"24afe664-76a5-4749-b4bd-d68f96c62561"],
+Cell[6305, 164, 311, 6, 25, "Print",ExpressionUUID->"a902486f-c581-47c0-96bb-1360517fc0b5"],
+Cell[6619, 172, 484, 12, 25, "Print",ExpressionUUID->"c8c880c1-e390-46e5-a3c7-ad33e2aa6ade"],
+Cell[7106, 186, 568, 13, 25, "Print",ExpressionUUID->"ffc0224f-7013-4a49-b224-5cff0b27bc18"],
+Cell[7677, 201, 669, 13, 25, "Print",ExpressionUUID->"7db64d8c-bda1-4d2f-9035-c01b23b9f755"],
+Cell[8349, 216, 626, 13, 25, "Print",ExpressionUUID->"99c1bbfa-b0f3-4110-a85d-34e2cd4f93a5"],
+Cell[8978, 231, 645, 13, 25, "Print",ExpressionUUID->"ca8097db-21c4-4cf9-8dd2-e0251060a0e0"],
+Cell[9626, 246, 242, 5, 23, "Print",ExpressionUUID->"80c3381e-5ac0-4068-b310-49671ebc771d"],
+Cell[9871, 253, 509, 12, 25, "Print",ExpressionUUID->"4a9a845e-dae3-42b7-84ad-d691b9d187be"],
+Cell[10383, 267, 289, 5, 25, "Print",ExpressionUUID->"df9b5e02-6b3d-4422-934b-9760434688e1"],
+Cell[10675, 274, 610, 14, 25, "Print",ExpressionUUID->"80bd44c0-0136-4010-a434-c3549997dd5c"],
+Cell[11288, 290, 602, 13, 25, "Print",ExpressionUUID->"af303bbe-c06b-45bf-b00f-11751aa02e1c"],
+Cell[11893, 305, 651, 13, 25, "Print",ExpressionUUID->"3c13bf92-96ce-4519-bac6-44e730a31937"],
+Cell[12547, 320, 562, 13, 25, "Print",ExpressionUUID->"2cc5858a-8f53-4623-a1fe-3f5bf49f9b0f"],
+Cell[13112, 335, 242, 5, 23, "Print",ExpressionUUID->"e03f72d0-6cc0-4466-80dd-c248ec260df7"],
+Cell[13357, 342, 516, 13, 25, "Print",ExpressionUUID->"543c77d9-7497-441d-abc9-ed2755b34f39"],
+Cell[13876, 357, 281, 5, 25, "Print",ExpressionUUID->"62a062c6-a4bb-4ce0-a10e-75c697d999cb"],
+Cell[14160, 364, 241, 5, 23, "Print",ExpressionUUID->"0044ccf6-66e1-4a26-92d0-9425643a0878"],
+Cell[14404, 371, 532, 13, 25, "Print",ExpressionUUID->"4772a940-ab19-44f8-87aa-44a06a90b681"],
+Cell[14939, 386, 269, 5, 25, "Print",ExpressionUUID->"0cb9a9e7-f5c6-4d49-a8ef-02118414726b"],
+Cell[15211, 393, 242, 5, 23, "Print",ExpressionUUID->"bbe6ed24-9e9d-41a2-87be-ccde1f42f531"],
+Cell[15456, 400, 513, 12, 25, "Print",ExpressionUUID->"c40a55d4-e6ac-4efc-a021-51b4beef58f5"],
+Cell[15972, 414, 250, 5, 25, "Print",ExpressionUUID->"a9439a15-ae62-4f5e-af59-30e06bd85343"],
+Cell[16225, 421, 572, 14, 25, "Print",ExpressionUUID->"7a5b3faa-ae00-4660-9eaf-061d0cefe237"],
+Cell[16800, 437, 649, 13, 25, "Print",ExpressionUUID->"80526294-33c4-4978-8968-678ccbfbf201"],
+Cell[17452, 452, 242, 5, 23, "Print",ExpressionUUID->"4fba94a5-756a-4545-9b36-0a8baf72989c"],
+Cell[17697, 459, 536, 13, 25, "Print",ExpressionUUID->"b9fa6245-b734-455f-8baf-eda53db21358"],
+Cell[18236, 474, 282, 5, 25, "Print",ExpressionUUID->"813709a3-24aa-4e4e-8777-c3a7228a3d91"],
+Cell[18521, 481, 242, 5, 23, "Print",ExpressionUUID->"d3ae61a8-10d7-41a3-b877-3c58413f76ac"],
+Cell[18766, 488, 220, 4, 25, "Print",ExpressionUUID->"db36c3b4-2cf4-4d64-b7ed-dade5c41643a"],
+Cell[18989, 494, 244, 5, 23, "Print",ExpressionUUID->"1c3d98f4-3ee5-48ad-8c10-eb09233a9185"],
+Cell[19236, 501, 518, 13, 25, "Print",ExpressionUUID->"01263161-bbcc-48ac-adb0-9942876536a8"],
+Cell[19757, 516, 314, 6, 25, "Print",ExpressionUUID->"a2748313-d147-4b78-8dc3-4a42c3c72dad"],
+Cell[20074, 524, 244, 5, 23, "Print",ExpressionUUID->"e830a6d3-c062-409e-81e7-ef4b4d8056bd"],
+Cell[20321, 531, 515, 12, 25, "Print",ExpressionUUID->"7b541c89-9b52-437e-b20b-3e655d9e2e42"],
+Cell[20839, 545, 279, 5, 25, "Print",ExpressionUUID->"30332c01-7fa5-4a38-ba32-b66262701e7a"],
+Cell[21121, 552, 289, 5, 25, "Print",ExpressionUUID->"bf440548-69a3-42f0-ae71-d618391f07af"],
+Cell[21413, 559, 562, 13, 25, "Print",ExpressionUUID->"27e14a18-c041-42e7-8f26-3a31ec6f82f0"],
+Cell[21978, 574, 242, 5, 23, "Print",ExpressionUUID->"0d64b387-a6dd-4bc8-b374-fba5b827d543"],
+Cell[22223, 581, 538, 13, 25, "Print",ExpressionUUID->"c61f391a-ea95-4b6b-9b1c-5968b83fa820"],
+Cell[22764, 596, 265, 5, 25, "Print",ExpressionUUID->"f4ae6662-e493-4763-a236-e7b31c87d507"],
+Cell[23032, 603, 242, 5, 23, "Print",ExpressionUUID->"51aa4855-87c2-4539-bd6c-151d6b4fab07"],
+Cell[23277, 610, 399, 7, 45, "Print",ExpressionUUID->"734f98cc-cd61-4b7e-b719-85e62e6d18a4"],
+Cell[23679, 619, 242, 5, 23, "Print",ExpressionUUID->"49d8088d-93df-4430-8c34-32fd94ba95e0"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[23801, 623, 205, 3, 72, "Section",ExpressionUUID->"e7c1ee08-6113-4ef2-a5af-61181e40dde6"],
-Cell[24009, 628, 217, 3, 51, "Text",ExpressionUUID->"d5bdd055-dfb8-4d1f-adac-723073ab576c"],
+Cell[23982, 631, 171, 3, 68, "Section",ExpressionUUID->"e7c1ee08-6113-4ef2-a5af-61181e40dde6"],
+Cell[24156, 636, 369, 8, 35, "Text",ExpressionUUID->"d5bdd055-dfb8-4d1f-adac-723073ab576c"],
 Cell[CellGroupData[{
-Cell[24251, 635, 6346, 160, 296, "Input",ExpressionUUID->"21d54f1c-377b-4a90-90e4-6408f80dbb33"],
-Cell[30600, 797, 31053, 928, 86, "Output",ExpressionUUID->"8a7a229d-b5f1-4e45-a5b9-467f7f52dbe5"]
+Cell[24550, 648, 6310, 159, 280, "Input",ExpressionUUID->"21d54f1c-377b-4a90-90e4-6408f80dbb33"],
+Cell[30863, 809, 31053, 928, 86, "Output",ExpressionUUID->"d15c12b4-f18d-4057-aa81-e60cb1823421"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[61702, 1731, 363, 5, 72, "Section",ExpressionUUID->"f8bb8128-bdc5-474c-bbfc-e547bb0101e5"],
-Cell[62068, 1738, 615, 11, 74, "Text",ExpressionUUID->"e540e718-a0fa-4c8d-b236-bcd746a53169"],
+Cell[61965, 1743, 329, 5, 68, "Section",ExpressionUUID->"f8bb8128-bdc5-474c-bbfc-e547bb0101e5"],
+Cell[62297, 1750, 855, 13, 58, "Text",ExpressionUUID->"e540e718-a0fa-4c8d-b236-bcd746a53169"],
 Cell[CellGroupData[{
-Cell[62708, 1753, 2485, 74, 277, "Input",ExpressionUUID->"7e502692-f071-4416-bc37-f6c938048ee3"],
-Cell[65196, 1829, 604, 13, 25, "Print",ExpressionUUID->"f366d186-cb4f-4fb1-92fd-c835f702d8b8"],
-Cell[65803, 1844, 99194, 3004, 196, "Output",ExpressionUUID->"2878feb9-c71c-4fc1-803b-942fa96dc6e9"]
+Cell[63177, 1767, 2449, 73, 261, "Input",ExpressionUUID->"7e502692-f071-4416-bc37-f6c938048ee3"],
+Cell[65629, 1842, 606, 13, 25, "Print",ExpressionUUID->"6f7b0ffe-15e8-4097-8e1d-cbf285872f0a"],
+Cell[66238, 1857, 99193, 3004, 196, "Output",ExpressionUUID->"2f0c4805-7c92-4603-a2f2-2be2abaa8ff5"]
+}, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[165034, 4853, 415, 6, 29, "Input",ExpressionUUID->"5b8be491-3fcd-4d14-b8a9-0187dad61ca3"],
+Cell[165480, 4867, 197, 3, 68, "Section",ExpressionUUID->"03d7e7ca-f006-4b26-9cfa-d2c80317f209"],
+Cell[165680, 4872, 394, 8, 35, "Text",ExpressionUUID->"12c23f67-a16c-42ed-bb84-9fa54f200969"],
 Cell[CellGroupData[{
-Cell[165474, 4863, 308, 6, 25, "Print",ExpressionUUID->"218b8fc1-4237-4b86-841f-8cf59d6ef13b"],
-Cell[165785, 4871, 73246, 2180, 220, "Print",ExpressionUUID->"08a896d1-a7e0-4d7c-95ff-cf60dbfefb3f"],
-Cell[239034, 7053, 288, 5, 25, "Print",ExpressionUUID->"6c9edb7c-d85e-46d2-8df8-073bf38de2d7"],
-Cell[239325, 7060, 29937, 868, 329, "Print",ExpressionUUID->"c0744dd6-d576-45e2-948e-be51bdee87aa"],
-Cell[269265, 7930, 252, 5, 25, "Print",ExpressionUUID->"73240cff-26a7-4260-b2dd-86f3756b1ad1"],
-Cell[269520, 7937, 24176, 722, 148, "Print",ExpressionUUID->"68f813ec-29dd-479e-8414-27fc8ac189a5"],
-Cell[293699, 8661, 253, 5, 25, "Print",ExpressionUUID->"c32b4c22-ddd2-480c-a539-b38e38079c82"],
-Cell[293955, 8668, 24319, 729, 253, "Print",ExpressionUUID->"0b01c671-a33a-4171-8763-b137da0c2c47"],
-Cell[318277, 9399, 243, 5, 25, "Print",ExpressionUUID->"94826801-b22f-4998-8f41-4ed2f135baee"],
-Cell[318523, 9406, 1629, 54, 44, "Print",ExpressionUUID->"dc6f8519-ac61-4514-a824-a6df858c5092"],
-Cell[320155, 9462, 232, 5, 25, "Print",ExpressionUUID->"23b1db1c-9696-470e-a788-11345b4de498"],
-Cell[320390, 9469, 751, 24, 27, "Print",ExpressionUUID->"488355e5-3bc2-4041-9a30-9750b44f58c5"],
-Cell[321144, 9495, 1536, 49, 27, "Print",ExpressionUUID->"e2d7d789-2392-4f9d-aa96-db7ed744cb9c"],
-Cell[322683, 9546, 3145, 90, 32, "Print",ExpressionUUID->"6329e4a1-b8ef-49a1-926e-c9736737a5b9"],
-Cell[325831, 9638, 3053, 89, 32, "Print",ExpressionUUID->"ed148c00-e21e-4474-a270-d1b570574248"],
-Cell[328887, 9729, 1489, 44, 32, "Print",ExpressionUUID->"622a7921-b03c-4e64-a8a3-5a2e664e0bf9"],
-Cell[330379, 9775, 1544, 44, 32, "Print",ExpressionUUID->"4162bc4c-2fcc-4732-844e-e8855e1bbb89"],
-Cell[331926, 9821, 1599, 45, 32, "Print",ExpressionUUID->"0fcdfe64-0b5d-4120-9fcd-fa1b33f6b842"],
-Cell[333528, 9868, 306, 6, 25, "Print",ExpressionUUID->"ad7f614c-e67d-43b0-8a4e-009eedc5b770"],
-Cell[333837, 9876, 59023, 1703, 365, "Print",ExpressionUUID->"d7e17c03-e3f1-4a7f-9f39-5298adf1d2bc"],
-Cell[392863, 11581, 218, 4, 25, "Print",ExpressionUUID->"2afbb373-6d92-4747-9990-944ab3b56e84"],
-Cell[393084, 11587, 173435, 5103, 438, "Print",ExpressionUUID->"07211480-df18-4ecc-963f-c96f13452a69"],
-Cell[566522, 16692, 640, 11, 45, "Print",ExpressionUUID->"4e37ed1f-f279-4a91-a67d-b06d4798ee53"],
-Cell[567165, 16705, 5776, 182, 33, "Print",ExpressionUUID->"ac1957ca-5607-4bcd-88b0-c30e50e64005"],
-Cell[572944, 16889, 20890, 655, 33, "Print",ExpressionUUID->"9bdd61a9-5ce5-4ae1-b340-f7bf13a1fde1"],
-Cell[593837, 17546, 11496, 354, 33, "Print",ExpressionUUID->"af4a0b53-7d43-46d4-acd5-134faa85ec3f"],
-Cell[605336, 17902, 11496, 354, 33, "Print",ExpressionUUID->"20f55b30-7e0e-44e3-a5f0-d1971bfd6d81"],
-Cell[616835, 18258, 174, 4, 23, "Print",ExpressionUUID->"6b19700c-4538-49d0-89e2-fedce4323c3e"],
-Cell[617012, 18264, 11475, 353, 33, "Print",ExpressionUUID->"fa202fb8-9b17-4106-b195-7ba857d02e13"],
-Cell[628490, 18619, 5232, 158, 33, "Print",ExpressionUUID->"da600705-2fc3-4115-9830-c7f2d53321d9"],
-Cell[633725, 18779, 11477, 353, 33, "Print",ExpressionUUID->"b1be3765-e3d7-458e-93b9-322a360f2d91"],
-Cell[645205, 19134, 11475, 353, 33, "Print",ExpressionUUID->"4cde6f65-76ac-4d4d-88b3-6191249ad5c6"],
-Cell[656683, 19489, 5213, 157, 33, "Print",ExpressionUUID->"af771572-2d80-4206-ab6d-cac0d2f0cc69"],
-Cell[661899, 19648, 11477, 353, 33, "Print",ExpressionUUID->"97207231-91e4-4fae-bded-e1bd5d960950"],
-Cell[673379, 20003, 176, 4, 23, "Print",ExpressionUUID->"da7faf76-986f-4a71-a1fb-3ad6f9b5e43b"],
-Cell[673558, 20009, 11494, 354, 33, "Print",ExpressionUUID->"cd85b813-230b-4e7a-903c-335e54c8ebe2"],
-Cell[685055, 20365, 11494, 354, 33, "Print",ExpressionUUID->"f41065c0-2166-45b3-8cbc-4b7df828cc3e"],
-Cell[696552, 20721, 9902, 309, 33, "Print",ExpressionUUID->"8fe62257-2442-4937-8b9b-1d7634aad276"],
-Cell[706457, 21032, 8889, 274, 33, "Print",ExpressionUUID->"58727785-abe4-46af-8cbe-7f40aecdddd0"],
-Cell[715349, 21308, 8889, 274, 33, "Print",ExpressionUUID->"103ad17d-cf32-4541-9aaf-bfbd14784bb9"],
-Cell[724241, 21584, 9901, 309, 33, "Print",ExpressionUUID->"39941011-8431-4d61-b001-6f6a54a708e1"],
-Cell[734145, 21895, 5749, 181, 33, "Print",ExpressionUUID->"67253f1c-805e-4643-a504-6e4572c5f03f"],
-Cell[739897, 22078, 2739, 85, 33, "Print",ExpressionUUID->"6612e154-35c0-490a-b4fd-3cbca89da636"],
-Cell[742639, 22165, 2737, 85, 33, "Print",ExpressionUUID->"2a1115ea-1e97-437d-a3f9-7404a6d53be3"],
-Cell[745379, 22252, 5749, 181, 33, "Print",ExpressionUUID->"0d7ffe98-0957-4bbd-8497-5983ed9a19e2"],
-Cell[751131, 22435, 9026, 284, 33, "Print",ExpressionUUID->"5565d27b-7ea0-42a5-a8a6-54781819de3b"],
-Cell[760160, 22721, 5324, 166, 33, "Print",ExpressionUUID->"aa4c790b-9d33-43cf-8eb6-b30350af8779"],
-Cell[765487, 22889, 5323, 166, 33, "Print",ExpressionUUID->"5b3bbd20-6ea3-4ef8-b850-1aec11481fd5"],
-Cell[770813, 23057, 9026, 284, 33, "Print",ExpressionUUID->"8a0e4dfd-be83-474f-9b4a-3aebaa17aa2a"],
-Cell[779842, 23343, 9059, 286, 33, "Print",ExpressionUUID->"d65e31a8-93cb-4e29-86ef-eec2e29eb9e1"],
-Cell[788904, 23631, 2314, 71, 33, "Print",ExpressionUUID->"93eb2a42-3df3-4a09-90bb-11484f454b69"],
-Cell[791221, 23704, 5324, 166, 33, "Print",ExpressionUUID->"c4915d9e-e05d-4be7-8ac4-33e6db786825"],
-Cell[796548, 23872, 9057, 286, 33, "Print",ExpressionUUID->"6d8f99c3-64ce-4009-95e4-0663a6305f5e"],
-Cell[805608, 24160, 5323, 166, 33, "Print",ExpressionUUID->"705e5a09-9c1c-4b46-8b4e-b024c2786feb"],
-Cell[810934, 24328, 9028, 284, 33, "Print",ExpressionUUID->"9c259f6c-f7fb-433e-9fb7-db3738d6fe65"],
-Cell[819965, 24614, 7955, 247, 33, "Print",ExpressionUUID->"ffa34ff5-2e17-4520-af39-6724f4804236"],
-Cell[827923, 24863, 5774, 177, 33, "Print",ExpressionUUID->"18723758-e79c-4aa5-885a-a05ba187686f"],
-Cell[833700, 25042, 8618, 264, 33, "Print",ExpressionUUID->"e7db96a1-1a86-4af6-b3f4-82e047966412"],
-Cell[842321, 25308, 7955, 247, 33, "Print",ExpressionUUID->"c520dcea-ab3f-47b1-a70a-a65ff14b5f9f"],
-Cell[850279, 25557, 7982, 248, 33, "Print",ExpressionUUID->"9c0062f2-5625-4207-a7e3-3e1bd24005af"],
-Cell[858264, 25807, 8593, 263, 33, "Print",ExpressionUUID->"0a6ed349-70b8-498d-b97a-a663541ba559"],
-Cell[866860, 26072, 5802, 178, 33, "Print",ExpressionUUID->"d40aa653-3bb9-485d-8667-f93bb5642e04"],
-Cell[872665, 26252, 7984, 248, 33, "Print",ExpressionUUID->"c3d9825a-1e40-48a0-9e4b-d0b1bf7f0ef0"],
-Cell[880652, 26502, 174, 4, 23, "Print",ExpressionUUID->"8d564aae-204e-4542-bfa5-0b02943199e7"],
-Cell[880829, 26508, 176, 4, 23, "Print",ExpressionUUID->"c4dfd525-a116-44f7-8d34-accc0f038f9c"],
-Cell[881008, 26514, 176, 4, 23, "Print",ExpressionUUID->"616abb6c-fc34-48ce-a7e7-f467fbe3317f"],
-Cell[881187, 26520, 176, 4, 23, "Print",ExpressionUUID->"3047befa-5333-418f-85d9-ba785e54eab7"],
-Cell[881366, 26526, 8009, 249, 33, "Print",ExpressionUUID->"a22e0eb8-c780-45f6-83c9-1ce651efe0cf"],
-Cell[889378, 26777, 5802, 178, 33, "Print",ExpressionUUID->"22d8ab60-cf9f-4494-86a0-1e77e4ca5319"],
-Cell[895183, 26957, 8593, 263, 33, "Print",ExpressionUUID->"8e9fb5f0-8714-44ea-8e8b-fab5d525660d"],
-Cell[903779, 27222, 8009, 249, 33, "Print",ExpressionUUID->"9ab921e4-2bba-4a38-95b5-e5a74ab44e39"],
-Cell[911791, 27473, 8593, 263, 33, "Print",ExpressionUUID->"f40b84ea-cd32-4381-9d77-5432ea7b43e8"],
-Cell[920387, 27738, 7982, 248, 33, "Print",ExpressionUUID->"6bf5ff60-e97c-4ef8-b394-88970314e18e"],
-Cell[928372, 27988, 7953, 247, 33, "Print",ExpressionUUID->"a87e71bd-e068-40a6-ae11-6834ee9e9459"],
-Cell[936328, 28237, 8593, 263, 33, "Print",ExpressionUUID->"72744b25-f8c6-4b4d-86d6-293a3314c2e4"],
-Cell[944924, 28502, 8011, 249, 33, "Print",ExpressionUUID->"7a8c5134-370d-4724-b7a7-d910b98a06a7"],
-Cell[952938, 28753, 5800, 178, 33, "Print",ExpressionUUID->"71a5a2d7-0145-42d4-82e1-1cd80f172af9"],
-Cell[958741, 28933, 8593, 263, 33, "Print",ExpressionUUID->"a09cd3c2-ed3e-4bd6-b2b9-38f3fb2fbb34"],
-Cell[967337, 29198, 8009, 249, 33, "Print",ExpressionUUID->"7a58f293-f3c2-4ae5-9521-0741f4c707de"],
-Cell[975349, 29449, 7980, 248, 33, "Print",ExpressionUUID->"ea3b0b50-d17b-4be7-b15d-477cdbee0911"],
-Cell[983332, 29699, 8621, 264, 33, "Print",ExpressionUUID->"c403fc89-c56f-4758-97e0-091f9431235a"],
-Cell[991956, 29965, 5776, 177, 33, "Print",ExpressionUUID->"8456ad16-6816-42a0-82e7-6c290c39707e"],
-Cell[997735, 30144, 7980, 248, 33, "Print",ExpressionUUID->"15fd6056-cf7e-490a-8a8a-af1a46586aa0"],
-Cell[1005718, 30394, 8612, 264, 33, "Print",ExpressionUUID->"a859d325-9497-405c-932e-547234df55be"],
-Cell[1014333, 30660, 7984, 248, 33, "Print",ExpressionUUID->"50425285-7d5a-4ebf-82ca-861cff3f7523"],
-Cell[1022320, 30910, 8009, 249, 33, "Print",ExpressionUUID->"36dd8903-7345-49ea-b4b6-3bf70e14d63d"],
-Cell[1030332, 31161, 8614, 264, 33, "Print",ExpressionUUID->"52ee4e14-390c-483e-b321-71e85190554f"],
-Cell[1038949, 31427, 7980, 248, 33, "Print",ExpressionUUID->"bcb23774-d7ee-492f-829b-b58a71f7ccbb"],
-Cell[1046932, 31677, 8621, 264, 33, "Print",ExpressionUUID->"e6b9b26c-c249-4704-bf2c-c41a7a738e67"],
-Cell[1055556, 31943, 5774, 177, 33, "Print",ExpressionUUID->"acab85c8-7b03-4189-a61c-5eba43046855"],
-Cell[1061333, 32122, 7980, 248, 33, "Print",ExpressionUUID->"dd37d529-7c76-44d3-9c59-7b5cff250fae"],
-Cell[1069316, 32372, 176, 4, 23, "Print",ExpressionUUID->"358a802e-ff44-4b44-8cf7-5038049c105d"],
-Cell[1069495, 32378, 176, 4, 23, "Print",ExpressionUUID->"5f284a72-b1ee-4200-be76-7f4514a15dee"],
-Cell[1069674, 32384, 173, 4, 23, "Print",ExpressionUUID->"413ceb24-54ee-41b5-a2c5-52dd697a7ac4"],
-Cell[1069850, 32390, 176, 4, 23, "Print",ExpressionUUID->"68050afb-6ea9-417f-9475-a9acf061abc8"],
-Cell[1070029, 32396, 7953, 247, 33, "Print",ExpressionUUID->"08b7d5b9-be95-4418-9849-01119aa47b46"],
-Cell[1077985, 32645, 5774, 177, 33, "Print",ExpressionUUID->"a1eede63-d004-46b3-bff4-500fcd14258f"],
-Cell[1083762, 32824, 8619, 264, 33, "Print",ExpressionUUID->"dd060545-5882-4527-9b32-2c5977d103e7"],
-Cell[1092384, 33090, 7953, 247, 33, "Print",ExpressionUUID->"f4c22ec5-fc08-43c6-ad33-77e226669435"],
-Cell[1100340, 33339, 7981, 248, 33, "Print",ExpressionUUID->"e9f870f9-2d06-4d10-bfe1-5fdb6b3faf76"],
-Cell[1108324, 33589, 8593, 263, 33, "Print",ExpressionUUID->"ce58e37d-9cdd-4941-acd0-5dacdb7fc00b"],
-Cell[1116920, 33854, 5800, 178, 33, "Print",ExpressionUUID->"1d435c1c-a308-4741-814c-5c6da313e539"],
-Cell[1122723, 34034, 7982, 248, 33, "Print",ExpressionUUID->"186ccd38-4388-4fe1-b355-80f8f4b81e81"],
-Cell[1130708, 34284, 284, 5, 25, "Print",ExpressionUUID->"ffb5f0dc-648d-4b88-a3c8-b033600a1256"],
-Cell[1130995, 34291, 2092, 74, 60, "Print",ExpressionUUID->"e0c3c768-da1e-4682-98eb-6d811262a075"],
-Cell[1133090, 34367, 286, 5, 25, "Print",ExpressionUUID->"09d6efac-8d3f-4af7-9723-53b3f510ad4f"],
-Cell[1133379, 34374, 10826, 347, 61, "Print",ExpressionUUID->"4cbfddda-95e3-45c3-b879-3b06079565d9"],
-Cell[1144208, 34723, 286, 5, 25, "Print",ExpressionUUID->"2fc0d6e7-e5c8-4bfc-9400-449a9e5a6cbe"],
-Cell[1144497, 34730, 114119, 3842, 365, "Print",ExpressionUUID->"6b6a5d4a-4d53-457b-af6c-e61a2aa75f90"],
-Cell[1258619, 38574, 284, 5, 25, "Print",ExpressionUUID->"fe74e937-7647-4081-a145-55be9254beba"],
-Cell[1258906, 38581, 340215, 11479, 911, "Print",ExpressionUUID->"dc10b985-dc6f-45ca-94af-f16aad3f2642"],
-Cell[1599124, 50062, 284, 5, 25, "Print",ExpressionUUID->"4a36678b-f621-4cad-a157-3a46d6677040"],
-Cell[1599411, 50069, 188057, 6274, 359, "Print",ExpressionUUID->"65d2e348-f77a-4aee-85db-8bdb4e3d163d"],
-Cell[1787471, 56345, 284, 5, 25, "Print",ExpressionUUID->"0269701c-b5a5-4c92-9531-2f38c54d5804"],
-Cell[1787758, 56352, 174, 4, 23, "Print",ExpressionUUID->"ac5918a6-2a56-4168-88cc-b2d7336c1651"],
-Cell[1787935, 56358, 304, 5, 25, "Print",ExpressionUUID->"c3820ce0-01f6-4aa7-8ac7-a0a9a1afa47e"],
-Cell[1788242, 56365, 97695, 2955, 308, "Print",ExpressionUUID->"5a5192d5-09ee-48ea-8bcb-8a1e4a16907d"],
-Cell[1885940, 59322, 341, 6, 25, "Print",ExpressionUUID->"f54dfc24-bb97-4c7f-97b1-abead791ed44"],
-Cell[1886284, 59330, 3998, 129, 35, "Print",ExpressionUUID->"fd46c819-edbf-46c6-8853-fa6c91c9a346"]
+Cell[166099, 4884, 465, 9, 29, "Input",ExpressionUUID->"5b8be491-3fcd-4d14-b8a9-0187dad61ca3"],
+Cell[CellGroupData[{
+Cell[166589, 4897, 305, 6, 25, "Print",ExpressionUUID->"6dac51a6-e9c3-47d2-b90b-b67eddd4924d"],
+Cell[166897, 4905, 73246, 2180, 220, "Print",ExpressionUUID->"9f05d918-e069-44e3-946c-772fe27601dd"],
+Cell[240146, 7087, 294, 5, 25, "Print",ExpressionUUID->"0d6b6457-0d51-4d99-82c8-721d11f03fd0"],
+Cell[240443, 7094, 29935, 868, 329, "Print",ExpressionUUID->"13ac3ed3-9774-4345-aede-bf3a8b182dfa"],
+Cell[270381, 7964, 256, 5, 25, "Print",ExpressionUUID->"94543c06-0493-464f-b8b8-b558e0272825"],
+Cell[270640, 7971, 24174, 722, 148, "Print",ExpressionUUID->"d5dd3da0-45f9-4b1f-9031-73f824d821bb"],
+Cell[294817, 8695, 261, 5, 25, "Print",ExpressionUUID->"6deaefef-bd91-48a8-ba21-a2995029f848"],
+Cell[295081, 8702, 24317, 729, 253, "Print",ExpressionUUID->"f4eec095-2814-4492-ad11-1c74348ec9d7"],
+Cell[319401, 9433, 247, 5, 25, "Print",ExpressionUUID->"d68cf3fe-15b9-4e66-9eab-2d70271b5d71"],
+Cell[319651, 9440, 1629, 54, 44, "Print",ExpressionUUID->"b29c6dc8-4793-4127-9634-566c559b0f08"],
+Cell[321283, 9496, 238, 5, 25, "Print",ExpressionUUID->"4ce78402-562f-45b3-8e97-4fea4ec1dad8"],
+Cell[321524, 9503, 753, 24, 27, "Print",ExpressionUUID->"f780dd9c-5808-4253-ae62-5bdd6cd64657"],
+Cell[322280, 9529, 1536, 49, 27, "Print",ExpressionUUID->"eb45aff3-0a88-4f1f-a75f-b1122eec4cc7"],
+Cell[323819, 9580, 3143, 90, 32, "Print",ExpressionUUID->"02514a1f-d661-46b5-9df2-43f61e1b5d1c"],
+Cell[326965, 9672, 3050, 89, 32, "Print",ExpressionUUID->"f5ed028b-bfb5-4298-964a-1333bfe5d157"],
+Cell[330018, 9763, 1489, 44, 32, "Print",ExpressionUUID->"f094ec5d-3ee3-4f8b-94c8-f22958bb3197"],
+Cell[331510, 9809, 1542, 44, 32, "Print",ExpressionUUID->"38f70e4d-c016-4ac2-a27d-84382d8f7f49"],
+Cell[333055, 9855, 1599, 45, 32, "Print",ExpressionUUID->"947f4d7d-00ec-4109-88ee-891d5363ae61"],
+Cell[334657, 9902, 314, 6, 25, "Print",ExpressionUUID->"b0c4bfb0-4d9b-431d-867e-46d865d8a8e7"],
+Cell[334974, 9910, 59023, 1703, 365, "Print",ExpressionUUID->"98efae3a-540f-4708-bc79-6a79aefc1e46"],
+Cell[394000, 11615, 224, 4, 25, "Print",ExpressionUUID->"2fde6a5f-3bf8-4b73-87e2-385bbb85e644"],
+Cell[394227, 11621, 173433, 5103, 438, "Print",ExpressionUUID->"e10e0faf-fa56-4a58-93d9-1ecb5a01a145"],
+Cell[567663, 16726, 641, 11, 45, "Print",ExpressionUUID->"00d81383-cf27-46ae-a771-4be515fbd664"],
+Cell[568307, 16739, 5776, 182, 33, "Print",ExpressionUUID->"c2568c3b-1adf-4be5-beb9-4015e9b1676b"],
+Cell[574086, 16923, 20892, 655, 33, "Print",ExpressionUUID->"0a69783b-6ef2-42d8-be9f-3e5938c5ee47"],
+Cell[594981, 17580, 11494, 354, 33, "Print",ExpressionUUID->"6f6e01da-ed54-4afc-814e-15470886a279"],
+Cell[606478, 17936, 11494, 354, 33, "Print",ExpressionUUID->"97bf5f02-cc46-47da-9ffc-7b9a5cdc86ba"],
+Cell[617975, 18292, 174, 4, 23, "Print",ExpressionUUID->"eea099ca-11cb-4b20-88da-3e1c745d86e1"],
+Cell[618152, 18298, 11475, 353, 33, "Print",ExpressionUUID->"287a93c4-6a49-45ed-935d-bd4dbc8c5a66"],
+Cell[629630, 18653, 5234, 158, 33, "Print",ExpressionUUID->"273da519-2d17-4d3a-93af-78d393a750df"],
+Cell[634867, 18813, 11475, 353, 33, "Print",ExpressionUUID->"565f4318-6dc8-4502-a9aa-768e2e3bb617"],
+Cell[646345, 19168, 11477, 353, 33, "Print",ExpressionUUID->"90a2c525-e8b1-4f12-b196-c432327d519b"],
+Cell[657825, 19523, 5213, 157, 33, "Print",ExpressionUUID->"8c012d35-dd7a-4b90-a15a-4a92181ad96b"],
+Cell[663041, 19682, 11475, 353, 33, "Print",ExpressionUUID->"aca02bab-c0f7-40ca-886e-41ced6a2e35a"],
+Cell[674519, 20037, 174, 4, 23, "Print",ExpressionUUID->"73be3595-1c01-4ae1-9a3e-2a67f152d793"],
+Cell[674696, 20043, 11494, 354, 33, "Print",ExpressionUUID->"418d8c5a-02c8-4bba-9588-812f58ef4948"],
+Cell[686193, 20399, 11494, 354, 33, "Print",ExpressionUUID->"cf6a4c2e-299a-4f42-b947-db4050056702"],
+Cell[697690, 20755, 9904, 309, 33, "Print",ExpressionUUID->"8a37a773-cbc5-43ce-8979-b216cd77ff33"],
+Cell[707597, 21066, 8891, 274, 33, "Print",ExpressionUUID->"5d6cb3da-dcbc-4275-9c36-06328e5448df"],
+Cell[716491, 21342, 8889, 274, 33, "Print",ExpressionUUID->"76bc2eb6-7aaa-4b60-8000-b30376a0442a"],
+Cell[725383, 21618, 9902, 309, 33, "Print",ExpressionUUID->"607d283b-765c-4ac9-b72d-9d885c6d6de6"],
+Cell[735288, 21929, 5749, 181, 33, "Print",ExpressionUUID->"6ac434d1-56b5-4dd3-b474-462d0a3f99fe"],
+Cell[741040, 22112, 2737, 85, 33, "Print",ExpressionUUID->"75a2df7d-dc85-478a-936f-af872a4b3cf8"],
+Cell[743780, 22199, 2737, 85, 33, "Print",ExpressionUUID->"44299b14-40a1-4162-a5f2-b3721fcb8add"],
+Cell[746520, 22286, 5751, 181, 33, "Print",ExpressionUUID->"5a440377-d410-4655-9d98-08699a57c0f0"],
+Cell[752274, 22469, 9028, 284, 33, "Print",ExpressionUUID->"9fd19b2c-113d-408a-afe3-85fa582c4ad0"],
+Cell[761305, 22755, 5323, 166, 33, "Print",ExpressionUUID->"57c01212-5e61-4c8e-a956-81b907570ff4"],
+Cell[766631, 22923, 5326, 166, 33, "Print",ExpressionUUID->"d0978db0-80ea-437d-af38-85ed94221e4a"],
+Cell[771960, 23091, 9026, 284, 33, "Print",ExpressionUUID->"7ebe6c6c-3630-4e95-9b2c-c8514afce7fa"],
+Cell[780989, 23377, 9057, 286, 33, "Print",ExpressionUUID->"15de7ef8-9425-42bd-ae22-a2933db44181"],
+Cell[790049, 23665, 2314, 71, 33, "Print",ExpressionUUID->"8f708acd-d7a6-4bf3-864a-94335856aeba"],
+Cell[792366, 23738, 5326, 166, 33, "Print",ExpressionUUID->"82eb4c6f-b2e3-4757-8983-e5b1138558b6"],
+Cell[797695, 23906, 9057, 286, 33, "Print",ExpressionUUID->"f006daf4-32f4-4f0c-a986-91a314f5cc28"],
+Cell[806755, 24194, 5324, 166, 33, "Print",ExpressionUUID->"d50a17d3-0006-4159-8f7a-41bf65ab923d"],
+Cell[812082, 24362, 9028, 284, 33, "Print",ExpressionUUID->"c18b54e5-2fc1-4bc5-b8bf-f3a2801802db"],
+Cell[821113, 24648, 7953, 247, 33, "Print",ExpressionUUID->"f77d5587-c53c-4a02-8ee4-8e65682bdc3b"],
+Cell[829069, 24897, 5773, 177, 33, "Print",ExpressionUUID->"32635bb3-779d-424c-a3e7-e69637869484"],
+Cell[834845, 25076, 8619, 264, 33, "Print",ExpressionUUID->"25d4c437-ab89-426a-b912-96f337d58b29"],
+Cell[843467, 25342, 7953, 247, 33, "Print",ExpressionUUID->"67bc1a83-7330-47cb-900b-e165e7afeeaa"],
+Cell[851423, 25591, 7982, 248, 33, "Print",ExpressionUUID->"ded4b623-b72b-4390-a8ee-e976cd17b6f0"],
+Cell[859408, 25841, 8595, 263, 33, "Print",ExpressionUUID->"a9eaaa9a-7d57-494a-b941-a29fb4939423"],
+Cell[868006, 26106, 5800, 178, 33, "Print",ExpressionUUID->"5d9e126c-f00d-4021-8fa1-ef9d359c0cc1"],
+Cell[873809, 26286, 7982, 248, 33, "Print",ExpressionUUID->"285afd02-728c-43fd-aeb8-e965a5efaa08"],
+Cell[881794, 26536, 176, 4, 23, "Print",ExpressionUUID->"dbe861c2-3878-4228-812b-b07edef92f2d"],
+Cell[881973, 26542, 174, 4, 23, "Print",ExpressionUUID->"b5ed3c23-882b-4107-a9dc-26d556829fc4"],
+Cell[882150, 26548, 176, 4, 23, "Print",ExpressionUUID->"85dd8829-cc82-46ed-8113-c47ed116d09b"],
+Cell[882329, 26554, 174, 4, 23, "Print",ExpressionUUID->"9aa5e1e1-98a0-42b2-b047-1042e478e268"],
+Cell[882506, 26560, 8009, 249, 33, "Print",ExpressionUUID->"80a443f3-b1a0-4b0b-a2d0-78b4e31e6baa"],
+Cell[890518, 26811, 5800, 178, 33, "Print",ExpressionUUID->"3d6e0417-5bc9-4389-9ef2-b341a7f2b8d1"],
+Cell[896321, 26991, 8592, 263, 33, "Print",ExpressionUUID->"48314cba-6420-43ed-abb9-4dc250da7994"],
+Cell[904916, 27256, 8011, 249, 33, "Print",ExpressionUUID->"54164c63-9b4a-43a1-8c02-17b108c7ea12"],
+Cell[912930, 27507, 8595, 263, 33, "Print",ExpressionUUID->"b05660fd-6d60-4a5c-92a8-c9caf60eae1d"],
+Cell[921528, 27772, 7980, 248, 33, "Print",ExpressionUUID->"4090eac4-fe8c-4562-9031-11fed4dba55a"],
+Cell[929511, 28022, 7955, 247, 33, "Print",ExpressionUUID->"ff08e922-b953-4711-ae2e-bef18a220c1a"],
+Cell[937469, 28271, 8593, 263, 33, "Print",ExpressionUUID->"b91856a2-aee7-4618-98cd-8eadce5ca959"],
+Cell[946065, 28536, 8009, 249, 33, "Print",ExpressionUUID->"cbbd0eee-dc82-477e-9066-9cccb1f2e2ba"],
+Cell[954077, 28787, 5800, 178, 33, "Print",ExpressionUUID->"37bf7db3-b49f-4c4a-bff7-e2ac0fc74405"],
+Cell[959880, 28967, 8593, 263, 33, "Print",ExpressionUUID->"7a7671de-d146-4146-af2e-c5801450a1f9"],
+Cell[968476, 29232, 8009, 249, 33, "Print",ExpressionUUID->"35c2bf35-5328-4b1d-adc8-94567b36f316"],
+Cell[976488, 29483, 7980, 248, 33, "Print",ExpressionUUID->"41df86e0-3200-47ac-ac57-1c5d6ebb17c4"],
+Cell[984471, 29733, 8621, 264, 33, "Print",ExpressionUUID->"07e2c2e2-188c-4557-be40-67ecb6d6d6b0"],
+Cell[993095, 29999, 5774, 177, 33, "Print",ExpressionUUID->"6743ddeb-8a68-4557-948a-624677a3f3d8"],
+Cell[998872, 30178, 7982, 248, 33, "Print",ExpressionUUID->"6517c150-b13c-4998-a094-9d957e0fdcc4"],
+Cell[1006857, 30428, 8614, 264, 33, "Print",ExpressionUUID->"a8594092-c8cd-42e3-81a2-d75d13c6ccf6"],
+Cell[1015474, 30694, 7982, 248, 33, "Print",ExpressionUUID->"b2d38546-ff00-47f5-9e0e-7cacb9463fd3"],
+Cell[1023459, 30944, 8011, 249, 33, "Print",ExpressionUUID->"d2f22964-0e4d-446a-9473-94cad715e820"],
+Cell[1031473, 31195, 8611, 264, 33, "Print",ExpressionUUID->"3be91cda-1da0-4764-a560-8ec713b0a7ea"],
+Cell[1040087, 31461, 7982, 248, 33, "Print",ExpressionUUID->"989cec6f-06cc-4711-b1b9-896a709c21df"],
+Cell[1048072, 31711, 8619, 264, 33, "Print",ExpressionUUID->"b098e4f1-d560-41fc-8085-474d4d1b2374"],
+Cell[1056694, 31977, 5776, 177, 33, "Print",ExpressionUUID->"dab08b1c-8017-414c-9e05-57200af05be9"],
+Cell[1062473, 32156, 7980, 248, 33, "Print",ExpressionUUID->"132bb7ac-6169-4a44-99df-3aa92dabcfa4"],
+Cell[1070456, 32406, 174, 4, 23, "Print",ExpressionUUID->"b4ba7ae4-f7a1-4d22-b918-1edf5a2614dc"],
+Cell[1070633, 32412, 174, 4, 23, "Print",ExpressionUUID->"a411319a-6452-49b1-9f6d-61b6dc757bfa"],
+Cell[1070810, 32418, 174, 4, 23, "Print",ExpressionUUID->"65d06ecb-7751-44bd-8a37-dfaf9e9ed4f6"],
+Cell[1070987, 32424, 174, 4, 23, "Print",ExpressionUUID->"055b9ada-5a33-414f-8074-09c1561470ae"],
+Cell[1071164, 32430, 7953, 247, 33, "Print",ExpressionUUID->"72731939-7130-4a28-8af3-c1ddb21265de"],
+Cell[1079120, 32679, 5776, 177, 33, "Print",ExpressionUUID->"aa83d3c4-d140-4f0b-9e48-de2556533029"],
+Cell[1084899, 32858, 8619, 264, 33, "Print",ExpressionUUID->"4326d303-c52c-4ef9-af02-42c7236cab90"],
+Cell[1093521, 33124, 7952, 247, 33, "Print",ExpressionUUID->"78e00ddb-87b0-4ff4-aaad-62e390c1eeb1"],
+Cell[1101476, 33373, 7984, 248, 33, "Print",ExpressionUUID->"5d7df7ec-e8c9-4b2f-ab92-ea3b7ad9f547"],
+Cell[1109463, 33623, 8593, 263, 33, "Print",ExpressionUUID->"0f660ba7-dad7-4984-a15a-ffa65318d652"],
+Cell[1118059, 33888, 5802, 178, 33, "Print",ExpressionUUID->"1bd3df2a-7b87-4cd2-871d-64fea89a8b8d"],
+Cell[1123864, 34068, 7984, 248, 33, "Print",ExpressionUUID->"70bb0e97-8b1f-43a0-b975-66831ef3ef86"],
+Cell[1131851, 34318, 281, 5, 25, "Print",ExpressionUUID->"b000504b-4b79-478d-b5aa-6aecbddb90e0"],
+Cell[1132135, 34325, 2094, 74, 60, "Print",ExpressionUUID->"ce45fa90-3d5a-481e-a9bb-8c3a59d1bc31"],
+Cell[1134232, 34401, 286, 5, 25, "Print",ExpressionUUID->"82aecaf2-cd99-4b2f-8d71-434d6d838659"],
+Cell[1134521, 34408, 10826, 347, 61, "Print",ExpressionUUID->"f62582b2-c1c1-4c0c-99fa-a8a4d073c37d"],
+Cell[1145350, 34757, 284, 5, 25, "Print",ExpressionUUID->"f2d604a0-fce9-449a-a2f9-ef8dd8dfed35"],
+Cell[1145637, 34764, 114118, 3842, 365, "Print",ExpressionUUID->"a3308015-ca0f-4127-aec7-d2af0e65ea12"],
+Cell[1259758, 38608, 286, 5, 25, "Print",ExpressionUUID->"44038c2c-a16e-46a5-8219-f81fd80ac051"],
+Cell[1260047, 38615, 340215, 11479, 911, "Print",ExpressionUUID->"1935216c-9990-401e-adcd-b3d3fd437f44"],
+Cell[1600265, 50096, 284, 5, 25, "Print",ExpressionUUID->"e5a31a6a-d006-40e8-b1aa-c5eace6b3dc0"],
+Cell[1600552, 50103, 188058, 6274, 359, "Print",ExpressionUUID->"2f74a108-0887-45c7-b287-5e88b5828d3b"],
+Cell[1788613, 56379, 284, 5, 25, "Print",ExpressionUUID->"6fc76b12-090f-424a-87b5-b4abd5b95c82"],
+Cell[1788900, 56386, 174, 4, 23, "Print",ExpressionUUID->"d707e7c9-9933-42c4-bc17-e09df6ec8b32"],
+Cell[1789077, 56392, 302, 5, 25, "Print",ExpressionUUID->"02dea28e-5943-4075-a30b-ac4ec9f33142"],
+Cell[1789382, 56399, 97695, 2955, 308, "Print",ExpressionUUID->"7bfea283-ffe0-4eb7-8913-063376dcb272"],
+Cell[1887080, 59356, 341, 6, 25, "Print",ExpressionUUID->"8af1b6d4-eb25-4229-a8fa-db3e3a82261e"],
+Cell[1887424, 59364, 3998, 129, 35, "Print",ExpressionUUID->"e82f2617-1efe-4203-982c-91c73977808e"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]

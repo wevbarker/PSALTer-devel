@@ -4,7 +4,7 @@
 
 FourierLagrangian[Expr_,Tensors__]:=Catch@Module[{CrossingRules,ToMomentumExpr,Tensors1,Tensors2,PrintVariable},
 PrintVariable={};
-PrintVariable=PrintVariable~Append~PrintTemporary@" ** FourierLagrangian...";
+PrintVariable=PrintVariable~Append~PrintTemporary@" ** ParticleSpectrum...";
 Tensors1=(#@@(ToExpression/@Alphabet[][[1;;(Length@SlotsOfTensor@#)]]))&/@(List@Tensors);
 Tensors2=(#@@(ToExpression/@Alphabet[][[-(Length@SlotsOfTensor@#);;-1]]))&/@(List@Tensors);
 CrossingRules={};(*start off without any rules*)
@@ -35,7 +35,7 @@ ToMomentumExpr=ToMomentumExpr/.ManualAll;
 ToMomentumExpr=ToMomentumExpr//ToNewCanonical;
 ToMomentumExpr=ToMomentumExpr//CollectTensors;
 
-Print@" ** FourierLagrangian: Lagrangian in Fourier space, decomposed among the SO(3) irreducible representations of the fields:";
+Print@" ** ParticleSpectrum: Lagrangian in Fourier space, decomposed among the SO(3) irreducible representations of the fields:";
 Print["\!\(\*SuperscriptBox[OverscriptBox[\(\[Zeta]\), \(^\)], \(\[Dagger]\)]\)(\[ScriptK])\[CenterDot]\!\(\*OverscriptBox[\(\[ScriptCapitalO]\), \(^\)]\)(\[ScriptK])\[CenterDot]\!\(\*OverscriptBox[\(\[Zeta]\), \(^\)]\)(\[ScriptK]) = ",ToMomentumExpr];
 
 NotebookDelete@PrintVariable;
