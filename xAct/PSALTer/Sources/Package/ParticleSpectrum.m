@@ -82,9 +82,16 @@ ParticleSpectrum[Expr_,Tensors__]:=Module[{
 	SaturatedPropagator=SaturateMe[FourierDecomposedLagrangian];
 
 
-	Print@" ** ParticleSpectrum: null eigenvectors of the Lagrangian imply the following constraints on the source currents (stress-energy and spin tensors) expressed in the lightcone components where \[ScriptK]=(\!\(\*SubscriptBox[\(\[ScriptK]\), \(0\)]\),\!\(\*SubscriptBox[\(\[ScriptK]\), \(1\)]\),\!\(\*SubscriptBox[\(\[ScriptK]\), \(2\)]\),\!\(\*SubscriptBox[\(\[ScriptK]\), \(3\)]\))=(\[ScriptCapitalE],0,0,\[ScriptP]):";
+	Print@" ** ParticleSpectrum: null eigenvectors of the Lagrangian imply
+the following constraints on the source currents (stress-energy and spin
+tensors) expressed in the lightcone components where
+\[ScriptK]=(\!\(\*SubscriptBox[\(\[ScriptK]\),
+\(0\)]\),\!\(\*SubscriptBox[\(\[ScriptK]\),
+\(1\)]\),\!\(\*SubscriptBox[\(\[ScriptK]\),
+\(2\)]\),\!\(\*SubscriptBox[\(\[ScriptK]\),
+\(3\)]\))=(\[ScriptCapitalE],0,0,\[ScriptP]):";
 
-	ConstraintComponentList=MakeConstraintComponentList[SaturatedPropagator[[1]]];(*~Take~2*)
+	ConstraintComponentList=MakeConstraintComponentList[SaturatedPropagator[[1]]];
 	ConstraintComponentList=xAct`xCoba`SeparateBasis[AIndex][#]&/@ConstraintComponentList;
 	ConstraintComponentList=ConstraintComponentToLightcone/@ConstraintComponentList;
 	ConstraintComponentList=DeleteCases[ConstraintComponentList,True];
