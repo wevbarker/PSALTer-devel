@@ -93,7 +93,13 @@ tensors) expressed in the lightcone components where
 
 	ConstraintComponentList=MakeConstraintComponentList[SaturatedPropagator[[1]]];
 	ConstraintComponentList=xAct`xCoba`SeparateBasis[AIndex][#]&/@ConstraintComponentList;
-	ConstraintComponentList=ConstraintComponentToLightcone/@ConstraintComponentList;
+
+	(*ConstraintComponentList=ConstraintComponentToLightcone/@ConstraintComponentList;*)
+	ConstraintComponentList=(xAct`HiGGS`Private`HiGGSParallelSubmit@(ConstraintComponentToLightcone@#))&/@ConstraintComponentList;
+	PrintVariable=PrintTemporary@ConstraintComponentList;
+	ConstraintComponentList=WaitAll@ConstraintComponentList;
+	NotebookDelete@PrintVariable;
+
 	ConstraintComponentList=DeleteCases[ConstraintComponentList,True];
 	SourceComponents=IndependentComponents[Sigma[-a,-b,-c],Tau[-a,-b]];
 	UnscaledNullSpace=NullSpace@Last@(ConstraintComponentList~CoefficientArrays~SourceComponents);
