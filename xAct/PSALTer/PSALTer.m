@@ -22,6 +22,8 @@ Off@(Solve::fulldim);
 
 BeginPackage["xAct`PSALTer`",{"xAct`xTensor`","xAct`xPerm`","xAct`xCore`","xAct`xTras`","xAct`HiGGS`","xAct`FieldsX`","xAct`xCoba`"}];
 
+ParallelNeeds["xAct`PSALTer`"];
+
 Print[xAct`xCore`Private`bars];
 Print["Package xAct`PSALTer` version ",$Version[[1]],", ",$Version[[2]]];
 Print["CopyRight \[Copyright] 2022, Will E. V. Barker, under the General Public License."];
