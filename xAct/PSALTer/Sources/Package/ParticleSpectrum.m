@@ -100,12 +100,16 @@ tensors) expressed in the lightcone components where
 	ConstraintComponentList=WaitAll@ConstraintComponentList;
 	NotebookDelete@PrintVariable;
 
+	Print/@ConstraintComponentList;
+
 	ConstraintComponentList=DeleteCases[ConstraintComponentList,True];
+
 	SourceComponents=IndependentComponents[Sigma[-a,-b,-c],Tau[-a,-b]];
+
 	UnscaledNullSpace=NullSpace@Last@(ConstraintComponentList~CoefficientArrays~SourceComponents);
 	RescaledNullSpace=RescaleNullVector/@UnscaledNullSpace;
-	SourceComponentsToFreeSourceVariables=MakeFreeSourceVariables[RescaledNullSpace,SourceComponents];
 
+	SourceComponentsToFreeSourceVariables=MakeFreeSourceVariables[RescaledNullSpace,SourceComponents];
 	LightconePropagator=MassiveAnalysisOfSector[#,SourceComponentsToFreeSourceVariables]&/@SaturatedPropagator[[2]];
 	MasslessAnalysisOfTotal[LightconePropagator,UnscaledNullSpace];
 

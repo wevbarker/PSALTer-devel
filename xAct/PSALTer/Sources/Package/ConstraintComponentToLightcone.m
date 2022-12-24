@@ -47,5 +47,5 @@ ConstraintComponentToLightcone[ConstraintComponent_]:=Module[{Constraint},
 	Constraint//=Together;
 	Constraint//=Numerator;
 	Constraint//=CollectTensors;
-	Print@Constraint;
+	(*Print@Constraint;*)
 Constraint==0];
