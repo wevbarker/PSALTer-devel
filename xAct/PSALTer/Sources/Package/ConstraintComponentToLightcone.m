@@ -2,7 +2,7 @@
 (*  ConstraintComponentToLightcone  *)
 (*==================================*)
 
-ConstraintComponentToLightcone[ConstraintComponent_]:=Catch@Module[{Constraint},
+ConstraintComponentToLightcone[ConstraintComponent_]:=Module[{Constraint},
 	Constraint=ConstraintComponent/.SourcePO3Activate;
 	Constraint=Constraint/.SourcePerpO3Activate;
 	Constraint=Constraint/.PADMPiActivate;
