@@ -13,9 +13,11 @@ SaturateMe[Expr_]:=Module[{
 	MatrixLagrangian,
 	ImaginaryParts,
 	RealParts,
+	BMatricesValues,
 	NullSpaces,
 	SourceConstraints,
 	MatrixPropagator,
+	InverseBMatricesValues,
 	SaturatedPropagator,
 	PrintVariable},
 
@@ -57,6 +59,7 @@ matrices:";
 
 	Print@" ** ParticleSpectrum: SPO-rescaled equivalent of these coefficient matrices:";
 	Print@(MatrixForm/@MatrixLagrangian);
+	BMatricesValues=MatrixLagrangian;
 
 	(*null spaces*)
 	NullSpaces=NullSpace@Transpose[#]&/@MatrixLagrangian;
@@ -76,6 +79,7 @@ matrices:";
 	MatrixPropagator=FullSimplify@ComplexExpand@DrazinInverse[#]&/@MatrixLagrangian;
 	Print@" ** ParticleSpectrum: Matrix propagator as the Drazin (Moore-Penrose) inverse of the Hermition, SPO-rescaled matrix Lagrangian:";
 	Print@(MatrixForm/@MatrixPropagator);
+	InverseBMatricesValues=MatrixPropagator;
 
 	(*saturated form of the propagator*)
 	MatrixPropagator=MapThread[MapThread[#1 #2&,{#1,#2}]&,{MatrixPropagator,invrescmat}]/.rescsols;(*descale the propagator ready for multiplication by sources*)
@@ -86,4 +90,4 @@ matrices:";
 	Print["\!\(\*SuperscriptBox[OverscriptBox[\(\[ScriptJ]\), \(^\)], \(\[Dagger]\)]\)(\[ScriptK])\[CenterDot]\!\(\*SuperscriptBox[OverscriptBox[\(\[ScriptCapitalO]\), \(^\)], \(-1\)]\)(\[ScriptK])\[CenterDot]\!\(\*OverscriptBox[\(\[ScriptJ]\), \(^\)]\)(\[ScriptK]) = ",Evaluate@ToNewCanonical@Total@SaturatedPropagator];
 
 	NotebookDelete@PrintVariable;
-{SourceConstraints,SaturatedPropagator}];
+{SourceConstraints,SaturatedPropagator,BMatricesValues,InverseBMatricesValues}];

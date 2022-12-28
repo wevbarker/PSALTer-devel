@@ -52,5 +52,4 @@ FourierLagrangian[Expr_,Tensors__]:=Module[{CrossingRules,
 	Print["\!\(\*SuperscriptBox[OverscriptBox[\(\[Zeta]\), \(^\)], \(\[Dagger]\)]\)(\[ScriptK])\[CenterDot]\!\(\*OverscriptBox[\(\[ScriptCapitalO]\), \(^\)]\)(\[ScriptK])\[CenterDot]\!\(\*OverscriptBox[\(\[Zeta]\), \(^\)]\)(\[ScriptK]) = ",ToMomentumExpr];
 
 	NotebookDelete@PrintVariable;
-	Quit[];
 ToMomentumExpr];

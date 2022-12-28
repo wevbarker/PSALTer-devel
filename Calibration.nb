@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     18453,        467]
-NotebookOptionsPosition[     16434,        425]
-NotebookOutlinePosition[     16872,        442]
-CellTagsIndexPosition[     16829,        439]
+NotebookDataLength[    172120,       4963]
+NotebookOptionsPosition[    165709,       4868]
+NotebookOutlinePosition[    166147,       4885]
+CellTagsIndexPosition[    166104,       4882]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -42,6 +42,8 @@ Let me know if there are any issues.\
   3.87740825696666*^9}},ExpressionUUID->"e372cb89-2c39-4d26-b1ad-\
 5b8db68608c0"],
 
+Cell[CellGroupData[{
+
 Cell["<<xAct`PSALTer`;", "Input",
  CellChangeTimes->{{3.872780647962205*^9, 3.8727807076349907`*^9}, {
    3.8729225157356167`*^9, 3.872922520212813*^9}, {3.8729237495859947`*^9, 
@@ -64,7 +66,485 @@ Cell["<<xAct`PSALTer`;", "Input",
    3.874309491136951*^9, {3.87517474396349*^9, 3.875174759036145*^9}, {
    3.8756827817442503`*^9, 3.875682783044375*^9}, {3.8796718966304092`*^9, 
    3.8796719043567266`*^9}},
- CellLabel->"In[1]:=",ExpressionUUID->"5d2a558d-bfb2-4fcf-ab7a-620b399e58c4"]
+ CellLabel->"In[1]:=",ExpressionUUID->"5d2a558d-bfb2-4fcf-ab7a-620b399e58c4"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"------------------------------------------------------------\
+\"\>"], "Print",
+ CellChangeTimes->{3.881215282892042*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"a8e1778c-390d-49e9-aeed-60c54f9f241d"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Package xAct`xPerm`  version \"\>", 
+   "\[InvisibleSpace]", "\<\"1.2.3\"\>", "\[InvisibleSpace]", "\<\", \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"2015", ",", "8", ",", "23"}], "}"}]}],
+  SequenceForm["Package xAct`xPerm`  version ", "1.2.3", ", ", {2015, 8, 23}],
+  
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8812152829092083`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"58efbbb5-43ec-41ea-a599-ab121fc08885"],
+
+Cell[BoxData["\<\"CopyRight (C) 2003-2020, Jose M. Martin-Garcia, under the \
+General Public License.\"\>"], "Print",
+ CellChangeTimes->{3.88121528291492*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"772a7362-2605-444a-a095-78bfe16edaac"],
+
+Cell[BoxData["\<\"Connecting to external linux executable...\"\>"], "Print",
+ CellChangeTimes->{3.88121528315596*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"6947e495-d0ea-4544-a450-e919b9d6bb0a"],
+
+Cell[BoxData["\<\"Connection established.\"\>"], "Print",
+ CellChangeTimes->{3.881215283217461*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"415b46b2-e138-4cbc-a480-e8e1f7b37354"],
+
+Cell[BoxData["\<\"------------------------------------------------------------\
+\"\>"], "Print",
+ CellChangeTimes->{3.881215283260253*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"77366de8-0885-4cba-8ffe-edad752f1c24"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Package xAct`xTensor`  version \"\>", 
+   "\[InvisibleSpace]", "\<\"1.2.0\"\>", "\[InvisibleSpace]", "\<\", \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"2021", ",", "10", ",", "17"}], "}"}]}],
+  SequenceForm[
+  "Package xAct`xTensor`  version ", "1.2.0", ", ", {2021, 10, 17}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.881215283264555*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"1354de0b-4d4f-48d0-87a6-8cef0d87b5db"],
+
+Cell[BoxData["\<\"CopyRight (C) 2002-2021, Jose M. Martin-Garcia, under the \
+General Public License.\"\>"], "Print",
+ CellChangeTimes->{3.8812152832688093`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"30d820bd-cbdc-40a0-b517-4f5dc1ac217b"],
+
+Cell[BoxData["\<\"------------------------------------------------------------\
+\"\>"], "Print",
+ CellChangeTimes->{3.8812152837286367`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"14ecc46d-eaf7-4d6c-8576-4304f42fd277"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Package xAct`xPert`  version \"\>", 
+   "\[InvisibleSpace]", "\<\"1.0.6\"\>", "\[InvisibleSpace]", "\<\", \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"2018", ",", "2", ",", "28"}], "}"}]}],
+  SequenceForm["Package xAct`xPert`  version ", "1.0.6", ", ", {2018, 2, 28}],
+  
+  Editable->False]], "Print",
+ CellChangeTimes->{3.881215283740727*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"e326491c-bdd3-4b79-a73e-d2860acdb220"],
+
+Cell[BoxData["\<\"CopyRight (C) 2005-2020, David Brizuela, Jose M. \
+Martin-Garcia and Guillermo A. Mena Marugan, under the General Public \
+License.\"\>"], "Print",
+ CellChangeTimes->{3.8812152837474937`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"58e0f17f-5325-4d8f-b9d6-0c857388fd71"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** Variable \"\>", "\[InvisibleSpace]", "$PrePrint", 
+   "\[InvisibleSpace]", "\<\" assigned value \"\>", "\[InvisibleSpace]", 
+   "ScreenDollarIndices"}],
+  SequenceForm[
+  "** Variable ", $PrePrint, " assigned value ", 
+   xAct`xTensor`ScreenDollarIndices],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8812152838122673`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"18e2e023-b5bd-4f77-8b04-fca42754e643"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** Variable \"\>", "\[InvisibleSpace]", "$CovDFormat", 
+   "\[InvisibleSpace]", "\<\" changed from \"\>", 
+   "\[InvisibleSpace]", "\<\"Prefix\"\>", "\[InvisibleSpace]", "\<\" to \"\>",
+    "\[InvisibleSpace]", "\<\"Postfix\"\>"}],
+  SequenceForm[
+  "** Variable ", xAct`xTensor`$CovDFormat, " changed from ", "Prefix", 
+   " to ", "Postfix"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.881215283818326*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"dc8bf893-32d0-41ab-bfb9-8122a2492df7"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** Option \"\>", "\[InvisibleSpace]", "AllowUpperDerivatives", 
+   "\[InvisibleSpace]", "\<\" of \"\>", "\[InvisibleSpace]", "ContractMetric",
+    "\[InvisibleSpace]", "\<\" changed from \"\>", "\[InvisibleSpace]", 
+   "False", "\[InvisibleSpace]", "\<\" to \"\>", "\[InvisibleSpace]", "True"}],
+  SequenceForm[
+  "** Option ", xAct`xTensor`AllowUpperDerivatives, " of ", 
+   xAct`xTensor`ContractMetric, " changed from ", False, " to ", True],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8812152838318*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"745f26fa-97c7-4e3d-9ff6-a1df0183161a"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** Option \"\>", "\[InvisibleSpace]", "MetricOn", 
+   "\[InvisibleSpace]", "\<\" of \"\>", "\[InvisibleSpace]", "MakeRule", 
+   "\[InvisibleSpace]", "\<\" changed from \"\>", "\[InvisibleSpace]", "None",
+    "\[InvisibleSpace]", "\<\" to \"\>", "\[InvisibleSpace]", "All"}],
+  SequenceForm[
+  "** Option ", xAct`xTensor`MetricOn, " of ", xAct`xTensor`MakeRule, 
+   " changed from ", None, " to ", All],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8812152838370934`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"d03e1c37-3d09-4f50-a7b3-3e13a4b528a0"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** Option \"\>", "\[InvisibleSpace]", "ContractMetrics", 
+   "\[InvisibleSpace]", "\<\" of \"\>", "\[InvisibleSpace]", "MakeRule", 
+   "\[InvisibleSpace]", "\<\" changed from \"\>", "\[InvisibleSpace]", 
+   "False", "\[InvisibleSpace]", "\<\" to \"\>", "\[InvisibleSpace]", "True"}],
+  SequenceForm[
+  "** Option ", xAct`xTensor`ContractMetrics, " of ", xAct`xTensor`MakeRule, 
+   " changed from ", False, " to ", True],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.881215283841524*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"5d079b67-a02a-491a-bf42-458847b9df91"],
+
+Cell[BoxData["\<\"------------------------------------------------------------\
+\"\>"], "Print",
+ CellChangeTimes->{3.881215283846435*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"2c635e6b-1daf-4f8e-ab3c-47b0f480ce54"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Package xAct`Invar`  version \"\>", 
+   "\[InvisibleSpace]", "\<\"2.0.5\"\>", "\[InvisibleSpace]", "\<\", \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"2013", ",", "7", ",", "1"}], "}"}]}],
+  SequenceForm["Package xAct`Invar`  version ", "2.0.5", ", ", {2013, 7, 1}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.881215283851543*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"85c3427b-7457-4f97-90ad-b62bad0f5d30"],
+
+Cell[BoxData["\<\"CopyRight (C) 2006-2020, J. M. Martin-Garcia, D. Yllanes \
+and R. Portugal, under the General Public License.\"\>"], "Print",
+ CellChangeTimes->{3.881215283856462*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"6ad9bd02-1e17-4a04-84c0-3e03967097f0"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefConstantSymbol", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"constant symbol \"\>", "\[InvisibleSpace]", 
+   "sigma", "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefConstantSymbol, ": Defining ", "constant symbol ", 
+   xAct`Invar`sigma, ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.881215283949127*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"ec04f2a3-8a33-455b-abbf-ffc987cba757"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefConstantSymbol", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"constant symbol \"\>", "\[InvisibleSpace]", 
+   "dim", "\[InvisibleSpace]", "\<\". \"\>", "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefConstantSymbol, ": Defining ", "constant symbol ", 
+   xAct`Invar`dim, ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.881215283954154*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"c2dc00ed-151d-498f-8d0d-975a755934f0"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** Option \"\>", "\[InvisibleSpace]", "CurvatureRelations", 
+   "\[InvisibleSpace]", "\<\" of \"\>", "\[InvisibleSpace]", "DefCovD", 
+   "\[InvisibleSpace]", "\<\" changed from \"\>", "\[InvisibleSpace]", "True",
+    "\[InvisibleSpace]", "\<\" to \"\>", "\[InvisibleSpace]", "False"}],
+  SequenceForm[
+  "** Option ", xAct`xTensor`CurvatureRelations, " of ", xAct`xTensor`DefCovD,
+    " changed from ", True, " to ", False],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.881215283960526*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"9cbe2f24-f769-4a67-b840-53fa7417cb96"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** Variable \"\>", "\[InvisibleSpace]", 
+   "$CommuteCovDsOnScalars", "\[InvisibleSpace]", "\<\" changed from \"\>", 
+   "\[InvisibleSpace]", "True", "\[InvisibleSpace]", "\<\" to \"\>", 
+   "\[InvisibleSpace]", "False"}],
+  SequenceForm[
+  "** Variable ", xAct`xTensor`$CommuteCovDsOnScalars, " changed from ", True,
+    " to ", False],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8812152839659767`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"c4367778-e183-4a06-9982-daa9a5896bcb"],
+
+Cell[BoxData["\<\"------------------------------------------------------------\
+\"\>"], "Print",
+ CellChangeTimes->{3.8812152839712048`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"223a8f22-b4a2-4f3f-9a0a-394a0f6ceeea"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Package xAct`xCoba`  version \"\>", 
+   "\[InvisibleSpace]", "\<\"0.8.6\"\>", "\[InvisibleSpace]", "\<\", \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"2021", ",", "2", ",", "28"}], "}"}]}],
+  SequenceForm["Package xAct`xCoba`  version ", "0.8.6", ", ", {2021, 2, 28}],
+  
+  Editable->False]], "Print",
+ CellChangeTimes->{3.881215283975945*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"705a2a39-fd8c-4077-b7d3-6f9e875fbcb6"],
+
+Cell[BoxData["\<\"CopyRight (C) 2005-2021, David Yllanes and Jose M. \
+Martin-Garcia, under the General Public License.\"\>"], "Print",
+ CellChangeTimes->{3.8812152839807796`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"9573cb87-16e7-4d4a-a287-63dd6d07b018"],
+
+Cell[BoxData["\<\"------------------------------------------------------------\
+\"\>"], "Print",
+ CellChangeTimes->{3.881215285251359*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"67703ec3-dfef-43a7-962f-d14611a667aa"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Package xAct`SymManipulator`  version \"\>", 
+   "\[InvisibleSpace]", "\<\"0.9.5\"\>", "\[InvisibleSpace]", "\<\", \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"2021", ",", "9", ",", "14"}], "}"}]}],
+  SequenceForm[
+  "Package xAct`SymManipulator`  version ", "0.9.5", ", ", {2021, 9, 14}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.881215285256939*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"4294c7bb-4372-42a8-9c95-5c5d4456dc29"],
+
+Cell[BoxData["\<\"CopyRight (C) 2011-2021, Thomas B\[ADoubleDot]ckdahl, under \
+the General Public License.\"\>"], "Print",
+ CellChangeTimes->{3.88121528526762*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"3e3155d8-c443-469e-a033-97c833d3dd8b"],
+
+Cell[BoxData["\<\"------------------------------------------------------------\
+\"\>"], "Print",
+ CellChangeTimes->{3.8812152854573174`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"a56ab7ba-845c-4621-aa82-f65076291ee0"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Package xAct`xTras`  version \"\>", 
+   "\[InvisibleSpace]", "\<\"1.4.2\"\>", "\[InvisibleSpace]", "\<\", \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"2014", ",", "10", ",", "30"}], "}"}]}],
+  SequenceForm["Package xAct`xTras`  version ", "1.4.2", ", ", {2014, 10, 30}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8812152854631367`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"d34d4f6a-a744-4e87-ac87-6ad36101b942"],
+
+Cell[BoxData["\<\"CopyRight (C) 2012-2014, Teake Nutma, under the General \
+Public License.\"\>"], "Print",
+ CellChangeTimes->{3.881215285467848*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"268194a6-e8dd-4fad-bcaf-74aaa90080eb"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** Variable \"\>", "\[InvisibleSpace]", "$CovDFormat", 
+   "\[InvisibleSpace]", "\<\" changed from \"\>", 
+   "\[InvisibleSpace]", "\<\"Postfix\"\>", 
+   "\[InvisibleSpace]", "\<\" to \"\>", 
+   "\[InvisibleSpace]", "\<\"Prefix\"\>"}],
+  SequenceForm[
+  "** Variable ", xAct`xTensor`$CovDFormat, " changed from ", "Postfix", 
+   " to ", "Prefix"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.881215285472309*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"7a2b516c-5bf0-4909-8b40-bf47fffccef3"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** Option \"\>", "\[InvisibleSpace]", "CurvatureRelations", 
+   "\[InvisibleSpace]", "\<\" of \"\>", "\[InvisibleSpace]", "DefCovD", 
+   "\[InvisibleSpace]", "\<\" changed from \"\>", "\[InvisibleSpace]", 
+   "False", "\[InvisibleSpace]", "\<\" to \"\>", "\[InvisibleSpace]", "True"}],
+  SequenceForm[
+  "** Option ", xAct`xTensor`CurvatureRelations, " of ", xAct`xTensor`DefCovD,
+    " changed from ", False, " to ", True],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.881215285477109*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"49e0105e-6a07-429a-97a2-22999485a3f7"],
+
+Cell[BoxData["\<\"------------------------------------------------------------\
+\"\>"], "Print",
+ CellChangeTimes->{3.8812152868717403`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"9edbdadb-b9f8-425c-8896-f5a072f24681"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Package xAct`HiGGS`  version \"\>", 
+   "\[InvisibleSpace]", "\<\"2.0.0-developer\"\>", 
+   "\[InvisibleSpace]", "\<\", \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"2022", ",", "12", ",", "22"}], "}"}]}],
+  SequenceForm[
+  "Package xAct`HiGGS`  version ", "2.0.0-developer", ", ", {2022, 12, 22}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.881215286874907*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"ff15c5b3-a5d4-4f37-9bf3-8b864ffc3c7c"],
+
+Cell[BoxData["\<\"CopyRight \[Copyright] 2022, Will E. V. Barker and Manuel \
+Hohmann, under the General Public License.\"\>"], "Print",
+ CellChangeTimes->{3.881215286878389*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"7c13bf71-d988-4583-a48c-41673a93559a"],
+
+Cell[BoxData["\<\"------------------------------------------------------------\
+\"\>"], "Print",
+ CellChangeTimes->{3.8812152868809757`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"74e9d849-9fa0-4f89-a725-0ebf7d0ee5de"],
+
+Cell[BoxData["\<\"HiGGS incorporates code by Cyril Pitrou.\"\>"], "Print",
+ CellChangeTimes->{3.881215286883524*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"1fd0ff30-8481-4d5d-8006-1f5824061139"],
+
+Cell[BoxData["\<\"------------------------------------------------------------\
+\"\>"], "Print",
+ CellChangeTimes->{3.881215313577055*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"6f43d4cf-0c57-4381-817f-4b99775aae58"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Package xAct`PSALTer` version \"\>", 
+   "\[InvisibleSpace]", "\<\"1.0.0-developer\"\>", 
+   "\[InvisibleSpace]", "\<\", \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"2022", ",", "12", ",", "26"}], "}"}]}],
+  SequenceForm[
+  "Package xAct`PSALTer` version ", "1.0.0-developer", ", ", {2022, 12, 26}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.881215313581163*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"3f0eaa3a-5e1f-4621-b05c-6317cf17d13a"],
+
+Cell[BoxData["\<\"CopyRight \[Copyright] 2022, Will E. V. Barker, under the \
+General Public License.\"\>"], "Print",
+ CellChangeTimes->{3.881215313585306*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"e1b0cb75-fb80-4665-bebb-a74ae8625519"],
+
+Cell[BoxData["\<\"------------------------------------------------------------\
+\"\>"], "Print",
+ CellChangeTimes->{3.881215313589039*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"5241deef-6680-4217-a6b1-aca8981ee3cb"],
+
+Cell[BoxData["\<\"These packages come with ABSOLUTELY NO WARRANTY; for \
+details type Disclaimer[]. This is free software, and you are welcome to \
+redistribute it under certain conditions. See the General Public License for \
+details.\"\>"], "Print",
+ CellChangeTimes->{3.881215313592354*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"c0826ebd-8fe6-4762-a941-dd8d5f90a12a"],
+
+Cell[BoxData["\<\"------------------------------------------------------------\
+\"\>"], "Print",
+ CellChangeTimes->{3.881215313594949*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"5a1412be-0e9e-404d-b89d-e77bf2d928e3"]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -84,145 +564,164 @@ terms.\
   3.8797768068188066`*^9}},ExpressionUUID->"d5bdd055-dfb8-4d1f-adac-\
 723073ab576c"],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[{
  RowBox[{
-  RowBox[{"Lagrangian", " ", "=", " ", 
-   RowBox[{
+  RowBox[{
+   RowBox[{"Lagrangian", " ", "=", " ", 
     RowBox[{
      RowBox[{
-      RowBox[{"T", "[", 
-       RowBox[{"i", ",", " ", "g", ",", " ", "h"}], "]"}], " ", 
-      RowBox[{"(", 
-       RowBox[{
-        RowBox[{"Bet1", " ", 
-         RowBox[{"PT1", "[", 
-          RowBox[{
-           RowBox[{"-", "i"}], ",", " ", 
-           RowBox[{"-", "g"}], ",", " ", 
-           RowBox[{"-", "h"}], ",", " ", "a", ",", " ", "c", ",", " ", "d"}], 
-          "]"}]}], " ", "+", "\n", "       ", 
-        RowBox[{"Bet2", " ", 
-         RowBox[{"PT2", "[", 
-          RowBox[{
-           RowBox[{"-", "i"}], ",", " ", 
-           RowBox[{"-", "g"}], ",", " ", 
-           RowBox[{"-", "h"}], ",", " ", "a", ",", " ", "c", ",", " ", "d"}], 
-          "]"}]}], " ", "+", "\n", "       ", 
-        RowBox[{"Bet3", " ", 
-         RowBox[{"PT3", "[", 
-          RowBox[{
-           RowBox[{"-", "i"}], ",", " ", 
-           RowBox[{"-", "g"}], ",", " ", 
-           RowBox[{"-", "h"}], ",", " ", "a", ",", " ", "c", ",", " ", "d"}], 
-          "]"}]}]}], ")"}], " ", 
-      RowBox[{"T", "[", 
-       RowBox[{
-        RowBox[{"-", "a"}], ",", " ", 
-        RowBox[{"-", "c"}], ",", " ", 
-        RowBox[{"-", "d"}]}], "]"}]}], " ", "+", " ", 
-     RowBox[{
-      RowBox[{"R", "[", 
-       RowBox[{"i", ",", " ", "j", ",", " ", "g", ",", " ", "h"}], "]"}], " ", 
-      RowBox[{"(", 
-       RowBox[{
-        RowBox[{"Alp1", " ", 
-         RowBox[{"PR1", "[", 
-          RowBox[{
-           RowBox[{"-", "i"}], ",", " ", 
-           RowBox[{"-", "j"}], ",", " ", 
-           RowBox[{"-", "g"}], ",", " ", 
-           RowBox[{"-", "h"}], ",", " ", "a", ",", " ", "b", ",", " ", "c", 
-           ",", " ", "d"}], "]"}]}], " ", "+", "\n", "       ", 
-        RowBox[{"Alp2", " ", 
-         RowBox[{"PR2", "[", 
-          RowBox[{
-           RowBox[{"-", "i"}], ",", " ", 
-           RowBox[{"-", "j"}], ",", " ", 
-           RowBox[{"-", "g"}], ",", " ", 
-           RowBox[{"-", "h"}], ",", " ", "a", ",", " ", "b", ",", " ", "c", 
-           ",", " ", "d"}], "]"}]}], " ", "+", "\n", "       ", 
-        RowBox[{"Alp3", " ", 
-         RowBox[{"PR3", "[", 
-          RowBox[{
-           RowBox[{"-", "i"}], ",", " ", 
-           RowBox[{"-", "j"}], ",", " ", 
-           RowBox[{"-", "g"}], ",", " ", 
-           RowBox[{"-", "h"}], ",", " ", "a", ",", " ", "b", ",", " ", "c", 
-           ",", " ", "d"}], "]"}]}], " ", "+", "\n", "       ", 
-        RowBox[{"Alp4", " ", 
-         RowBox[{"PR4", "[", 
-          RowBox[{
-           RowBox[{"-", "i"}], ",", " ", 
-           RowBox[{"-", "j"}], ",", " ", 
-           RowBox[{"-", "g"}], ",", " ", 
-           RowBox[{"-", "h"}], ",", " ", "a", ",", " ", "b", ",", " ", "c", 
-           ",", " ", "d"}], "]"}]}], " ", "+", "\n", "       ", 
-        RowBox[{"Alp5", " ", 
-         RowBox[{"PR5", "[", 
-          RowBox[{
-           RowBox[{"-", "i"}], ",", " ", 
-           RowBox[{"-", "j"}], ",", " ", 
-           RowBox[{"-", "g"}], ",", " ", 
-           RowBox[{"-", "h"}], ",", " ", "a", ",", " ", "b", ",", " ", "c", 
-           ",", " ", "d"}], "]"}]}], " ", "+", "\n", "       ", 
-        RowBox[{"Alp6", " ", 
-         RowBox[{"PR6", "[", 
-          RowBox[{
-           RowBox[{"-", "i"}], ",", " ", 
-           RowBox[{"-", "j"}], ",", " ", 
-           RowBox[{"-", "g"}], ",", " ", 
-           RowBox[{"-", "h"}], ",", " ", "a", ",", " ", "b", ",", " ", "c", 
-           ",", " ", "d"}], "]"}]}]}], ")"}], " ", 
-      RowBox[{"R", "[", 
-       RowBox[{
-        RowBox[{"-", "a"}], ",", " ", 
-        RowBox[{"-", "b"}], ",", " ", 
-        RowBox[{"-", "c"}], ",", " ", 
-        RowBox[{"-", "d"}]}], "]"}]}], " ", "-", " ", 
-     RowBox[{
-      RowBox[{"(", 
-       RowBox[{"1", "/", "2"}], ")"}], " ", "Alp0", " ", 
-      RowBox[{"G", "[", 
-       RowBox[{"a", ",", " ", "c"}], "]"}], " ", 
-      RowBox[{"G", "[", 
-       RowBox[{"b", ",", " ", "d"}], "]"}], " ", 
-      RowBox[{"R", "[", 
-       RowBox[{
-        RowBox[{"-", "a"}], ",", " ", 
-        RowBox[{"-", "b"}], ",", " ", 
-        RowBox[{"-", "c"}], ",", " ", 
-        RowBox[{"-", "d"}]}], "]"}]}], " ", "+", " ", 
-     RowBox[{"AlpGB", " ", 
-      RowBox[{"(", 
-       RowBox[{
+      RowBox[{
+       RowBox[{"T", "[", 
+        RowBox[{"i", ",", " ", "g", ",", " ", "h"}], "]"}], " ", 
+       RowBox[{"(", 
         RowBox[{
-         RowBox[{"R", "[", 
-          RowBox[{"a", ",", " ", "b", ",", " ", 
-           RowBox[{"-", "a"}], ",", " ", 
-           RowBox[{"-", "b"}]}], "]"}], " ", 
-         RowBox[{"R", "[", 
-          RowBox[{"i", ",", " ", "j", ",", " ", 
-           RowBox[{"-", "i"}], ",", " ", 
-           RowBox[{"-", "j"}]}], "]"}]}], " ", "-", " ", 
-        RowBox[{"4", " ", 
-         RowBox[{"R", "[", 
-          RowBox[{"q", ",", " ", 
-           RowBox[{"-", "i"}], ",", " ", 
-           RowBox[{"-", "q"}], ",", " ", 
-           RowBox[{"-", "j"}]}], "]"}], " ", 
-         RowBox[{"R", "[", 
-          RowBox[{"p", ",", " ", "j", ",", " ", 
-           RowBox[{"-", "p"}], ",", " ", "i"}], "]"}]}], " ", "+", " ", 
+         RowBox[{"Bet1", " ", 
+          RowBox[{"PT1", "[", 
+           RowBox[{
+            RowBox[{"-", "i"}], ",", " ", 
+            RowBox[{"-", "g"}], ",", " ", 
+            RowBox[{"-", "h"}], ",", " ", "a", ",", " ", "c", ",", " ", "d"}],
+            "]"}]}], " ", "+", "\n", "       ", 
+         RowBox[{"Bet2", " ", 
+          RowBox[{"PT2", "[", 
+           RowBox[{
+            RowBox[{"-", "i"}], ",", " ", 
+            RowBox[{"-", "g"}], ",", " ", 
+            RowBox[{"-", "h"}], ",", " ", "a", ",", " ", "c", ",", " ", "d"}],
+            "]"}]}], " ", "+", "\n", "       ", 
+         RowBox[{"Bet3", " ", 
+          RowBox[{"PT3", "[", 
+           RowBox[{
+            RowBox[{"-", "i"}], ",", " ", 
+            RowBox[{"-", "g"}], ",", " ", 
+            RowBox[{"-", "h"}], ",", " ", "a", ",", " ", "c", ",", " ", "d"}],
+            "]"}]}]}], ")"}], " ", 
+       RowBox[{"T", "[", 
         RowBox[{
-         RowBox[{"R", "[", 
-          RowBox[{
-           RowBox[{"-", "i"}], ",", " ", 
-           RowBox[{"-", "j"}], ",", " ", 
-           RowBox[{"-", "k"}], ",", " ", 
-           RowBox[{"-", "l"}]}], "]"}], " ", 
-         RowBox[{"R", "[", 
-          RowBox[{"k", ",", " ", "l", ",", " ", "i", ",", " ", "j"}], 
-          "]"}]}]}], ")"}]}]}], " ", "/.", " ", 
+         RowBox[{"-", "a"}], ",", " ", 
+         RowBox[{"-", "c"}], ",", " ", 
+         RowBox[{"-", "d"}]}], "]"}]}], " ", "+", " ", 
+      RowBox[{
+       RowBox[{"R", "[", 
+        RowBox[{"i", ",", " ", "j", ",", " ", "g", ",", " ", "h"}], "]"}], 
+       " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"Alp1", " ", 
+          RowBox[{"PR1", "[", 
+           RowBox[{
+            RowBox[{"-", "i"}], ",", " ", 
+            RowBox[{"-", "j"}], ",", " ", 
+            RowBox[{"-", "g"}], ",", " ", 
+            RowBox[{"-", "h"}], ",", " ", "a", ",", " ", "b", ",", " ", "c", 
+            ",", " ", "d"}], "]"}]}], " ", "+", "\n", "       ", 
+         RowBox[{"Alp2", " ", 
+          RowBox[{"PR2", "[", 
+           RowBox[{
+            RowBox[{"-", "i"}], ",", " ", 
+            RowBox[{"-", "j"}], ",", " ", 
+            RowBox[{"-", "g"}], ",", " ", 
+            RowBox[{"-", "h"}], ",", " ", "a", ",", " ", "b", ",", " ", "c", 
+            ",", " ", "d"}], "]"}]}], " ", "+", "\n", "       ", 
+         RowBox[{"Alp3", " ", 
+          RowBox[{"PR3", "[", 
+           RowBox[{
+            RowBox[{"-", "i"}], ",", " ", 
+            RowBox[{"-", "j"}], ",", " ", 
+            RowBox[{"-", "g"}], ",", " ", 
+            RowBox[{"-", "h"}], ",", " ", "a", ",", " ", "b", ",", " ", "c", 
+            ",", " ", "d"}], "]"}]}], " ", "+", "\n", "       ", 
+         RowBox[{"Alp4", " ", 
+          RowBox[{"PR4", "[", 
+           RowBox[{
+            RowBox[{"-", "i"}], ",", " ", 
+            RowBox[{"-", "j"}], ",", " ", 
+            RowBox[{"-", "g"}], ",", " ", 
+            RowBox[{"-", "h"}], ",", " ", "a", ",", " ", "b", ",", " ", "c", 
+            ",", " ", "d"}], "]"}]}], " ", "+", "\n", "       ", 
+         RowBox[{"Alp5", " ", 
+          RowBox[{"PR5", "[", 
+           RowBox[{
+            RowBox[{"-", "i"}], ",", " ", 
+            RowBox[{"-", "j"}], ",", " ", 
+            RowBox[{"-", "g"}], ",", " ", 
+            RowBox[{"-", "h"}], ",", " ", "a", ",", " ", "b", ",", " ", "c", 
+            ",", " ", "d"}], "]"}]}], " ", "+", "\n", "       ", 
+         RowBox[{"Alp6", " ", 
+          RowBox[{"PR6", "[", 
+           RowBox[{
+            RowBox[{"-", "i"}], ",", " ", 
+            RowBox[{"-", "j"}], ",", " ", 
+            RowBox[{"-", "g"}], ",", " ", 
+            RowBox[{"-", "h"}], ",", " ", "a", ",", " ", "b", ",", " ", "c", 
+            ",", " ", "d"}], "]"}]}]}], ")"}], " ", 
+       RowBox[{"R", "[", 
+        RowBox[{
+         RowBox[{"-", "a"}], ",", " ", 
+         RowBox[{"-", "b"}], ",", " ", 
+         RowBox[{"-", "c"}], ",", " ", 
+         RowBox[{"-", "d"}]}], "]"}]}], " ", "-", " ", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"1", "/", "2"}], ")"}], " ", "Alp0", " ", 
+       RowBox[{"G", "[", 
+        RowBox[{"a", ",", " ", "c"}], "]"}], " ", 
+       RowBox[{"G", "[", 
+        RowBox[{"b", ",", " ", "d"}], "]"}], " ", 
+       RowBox[{"R", "[", 
+        RowBox[{
+         RowBox[{"-", "a"}], ",", " ", 
+         RowBox[{"-", "b"}], ",", " ", 
+         RowBox[{"-", "c"}], ",", " ", 
+         RowBox[{"-", "d"}]}], "]"}]}], " ", "+", " ", 
+      RowBox[{"AlpGB", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"R", "[", 
+           RowBox[{"a", ",", " ", "b", ",", " ", 
+            RowBox[{"-", "a"}], ",", " ", 
+            RowBox[{"-", "b"}]}], "]"}], " ", 
+          RowBox[{"R", "[", 
+           RowBox[{"i", ",", " ", "j", ",", " ", 
+            RowBox[{"-", "i"}], ",", " ", 
+            RowBox[{"-", "j"}]}], "]"}]}], " ", "-", " ", 
+         RowBox[{"4", " ", 
+          RowBox[{"R", "[", 
+           RowBox[{"q", ",", " ", 
+            RowBox[{"-", "i"}], ",", " ", 
+            RowBox[{"-", "q"}], ",", " ", 
+            RowBox[{"-", "j"}]}], "]"}], " ", 
+          RowBox[{"R", "[", 
+           RowBox[{"p", ",", " ", "j", ",", " ", 
+            RowBox[{"-", "p"}], ",", " ", "i"}], "]"}]}], " ", "+", " ", 
+         RowBox[{
+          RowBox[{"R", "[", 
+           RowBox[{
+            RowBox[{"-", "i"}], ",", " ", 
+            RowBox[{"-", "j"}], ",", " ", 
+            RowBox[{"-", "k"}], ",", " ", 
+            RowBox[{"-", "l"}]}], "]"}], " ", 
+          RowBox[{"R", "[", 
+           RowBox[{"k", ",", " ", "l", ",", " ", "i", ",", " ", "j"}], 
+           "]"}]}]}], ")"}]}]}], " ", "/.", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Bet1", " ", "->", " ", "0"}], ",", " ", 
+       RowBox[{"Alp1", " ", "->", " ", 
+        RowBox[{
+         RowBox[{"-", "2"}], " ", "Alp6"}]}], ",", " ", 
+       RowBox[{"Alp2", " ", "->", " ", 
+        RowBox[{"2", " ", "Alp6"}]}], ",", " ", 
+       RowBox[{"Alp3", " ", "->", " ", "0"}], ",", " ", 
+       RowBox[{"Alp4", " ", "->", " ", 
+        RowBox[{"-", "Alp6"}]}], ",", " ", 
+       RowBox[{"Alp0", " ", "->", " ", "0"}]}], "}"}]}]}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
     RowBox[{"{", 
      RowBox[{
       RowBox[{"Bet1", " ", "->", " ", "0"}], ",", 
@@ -233,8 +732,8 @@ Cell[BoxData[{
       RowBox[{"Alp3", " ", "->", " ", "0"}], ",", " ", 
       RowBox[{"Alp4", " ", "->", " ", "0"}], ",", " ", 
       RowBox[{"Alp5", " ", "->", " ", "0"}], ",", 
-      RowBox[{"Alp6", " ", "->", " ", "0"}]}], "}"}]}]}], 
-  ";"}], "\[IndentingNewLine]", 
+      RowBox[{"Alp6", " ", "->", " ", "0"}]}], "}"}], ";"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"%", "/.", "PActivate"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{"%", "//", "ToNewCanonical"}]}], "Input",
@@ -243,8 +742,940 @@ Cell[BoxData[{
    3.870330776750592*^9, 3.870330777858184*^9}, {3.875325301319249*^9, 
    3.87532532424076*^9}, 3.879740733512467*^9, 3.879741464048963*^9, {
    3.8797415441718817`*^9, 3.8797415541746283`*^9}, 3.880808115580338*^9, 
-   3.880808146313792*^9, {3.880865978779324*^9, 3.880866015881089*^9}},
- CellLabel->"In[2]:=",ExpressionUUID->"21d54f1c-377b-4a90-90e4-6408f80dbb33"]
+   3.880808146313792*^9, {3.880865978779324*^9, 3.880866015881089*^9}, {
+   3.8809587457990103`*^9, 3.8809587533745747`*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"21d54f1c-377b-4a90-90e4-6408f80dbb33"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   FractionBox["1", "3"], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       OverscriptBox["\[Alpha]", "^"],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "6"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Alp6,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalR]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", " ", " "},
+           {"\[GothicA]", "\[GothicB]", "\[GothicC]", "\[GothicD]"}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`R[-xAct`HiGGS`a, -xAct`HiGGS`b, -xAct`HiGGS`c, -xAct`HiGGS`d],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalR]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {"\[GothicA]", "\[GothicB]", "\[GothicC]", "\[GothicD]"},
+           {" ", " ", " ", " "}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`R[xAct`HiGGS`a, xAct`HiGGS`b, xAct`HiGGS`c, xAct`HiGGS`d],
+    Editable->False]}], "-", 
+  RowBox[{
+   FractionBox["4", "3"], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       OverscriptBox["\[Alpha]", "^"],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "6"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Alp6,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalR]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", " ", " "},
+           {"\[GothicA]", "\[GothicC]", "\[GothicB]", "\[GothicD]"}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`R[-xAct`HiGGS`a, -xAct`HiGGS`c, -xAct`HiGGS`b, -xAct`HiGGS`d],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalR]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {"\[GothicA]", "\[GothicB]", "\[GothicC]", "\[GothicD]"},
+           {" ", " ", " ", " "}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`R[xAct`HiGGS`a, xAct`HiGGS`b, xAct`HiGGS`c, xAct`HiGGS`d],
+    Editable->False]}], "-", 
+  RowBox[{
+   FractionBox["5", "3"], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       OverscriptBox["\[Alpha]", "^"],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "6"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Alp6,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalR]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {"\[GothicA]", "\[GothicB]", "\[GothicC]", "\[GothicD]"},
+           {" ", " ", " ", " "}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`R[xAct`HiGGS`a, xAct`HiGGS`b, xAct`HiGGS`c, xAct`HiGGS`d],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalR]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", " ", " "},
+           {"\[GothicC]", "\[GothicD]", "\[GothicA]", "\[GothicB]"}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`R[-xAct`HiGGS`c, -xAct`HiGGS`d, -xAct`HiGGS`a, -xAct`HiGGS`b],
+    Editable->False]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       OverscriptBox["\[Alpha]", "^"],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "GB"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`AlpGB,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalR]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {"\[GothicA]", "\[GothicB]", "\[GothicC]", "\[GothicD]"},
+           {" ", " ", " ", " "}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`R[xAct`HiGGS`a, xAct`HiGGS`b, xAct`HiGGS`c, xAct`HiGGS`d],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalR]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", " ", " "},
+           {"\[GothicC]", "\[GothicD]", "\[GothicA]", "\[GothicB]"}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`R[-xAct`HiGGS`c, -xAct`HiGGS`d, -xAct`HiGGS`a, -xAct`HiGGS`b],
+    Editable->False]}], "-", 
+  RowBox[{"4", " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       OverscriptBox["\[Alpha]", "^"],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "GB"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`AlpGB,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalR]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {"\[GothicA]", "\[GothicB]", " ", "\[GothicC]"},
+           {" ", " ", "\[GothicA]", " "}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`R[xAct`HiGGS`a, xAct`HiGGS`b, -xAct`HiGGS`a, xAct`HiGGS`c],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalR]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", "\[GothicD]", " ", " "},
+           {"\[GothicC]", " ", "\[GothicB]", "\[GothicD]"}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`R[-xAct`HiGGS`c, xAct`HiGGS`d, -xAct`HiGGS`b, -xAct`HiGGS`d],
+    Editable->False]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       OverscriptBox["\[Alpha]", "^"],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "5"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Alp5,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalR]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", "\[GothicG]", "\[GothicA]", "\[GothicH]"},
+           {"\[GothicA]", " ", " ", " "}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`R[-xAct`HiGGS`a, xAct`HiGGS`g, xAct`HiGGS`a, xAct`HiGGS`h],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalR]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", "\[GothicC]", " "},
+           {"\[GothicC]", "\[GothicG]", " ", "\[GothicH]"}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`R[-xAct`HiGGS`c, -xAct`HiGGS`g, xAct`HiGGS`c, -xAct`HiGGS`h],
+    Editable->False]}], "-", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       OverscriptBox["\[Alpha]", "^"],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "6"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Alp6,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalR]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", "\[GothicG]", "\[GothicA]", "\[GothicH]"},
+           {"\[GothicA]", " ", " ", " "}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`R[-xAct`HiGGS`a, xAct`HiGGS`g, xAct`HiGGS`a, xAct`HiGGS`h],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalR]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", "\[GothicC]", " "},
+           {"\[GothicC]", "\[GothicG]", " ", "\[GothicH]"}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`R[-xAct`HiGGS`c, -xAct`HiGGS`g, xAct`HiGGS`c, -xAct`HiGGS`h],
+    Editable->False]}], "-", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       OverscriptBox["\[Alpha]", "^"],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "5"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Alp5,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalR]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", "\[GothicG]", "\[GothicA]", "\[GothicH]"},
+           {"\[GothicA]", " ", " ", " "}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`R[-xAct`HiGGS`a, xAct`HiGGS`g, xAct`HiGGS`a, xAct`HiGGS`h],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalR]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", "\[GothicC]", " "},
+           {"\[GothicC]", "\[GothicH]", " ", "\[GothicG]"}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`R[-xAct`HiGGS`c, -xAct`HiGGS`h, xAct`HiGGS`c, -xAct`HiGGS`g],
+    Editable->False]}], "+", 
+  RowBox[{"3", " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       OverscriptBox["\[Alpha]", "^"],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "6"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Alp6,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalR]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", "\[GothicG]", "\[GothicA]", "\[GothicH]"},
+           {"\[GothicA]", " ", " ", " "}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`R[-xAct`HiGGS`a, xAct`HiGGS`g, xAct`HiGGS`a, xAct`HiGGS`h],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalR]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", "\[GothicC]", " "},
+           {"\[GothicC]", "\[GothicH]", " ", "\[GothicG]"}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`R[-xAct`HiGGS`c, -xAct`HiGGS`h, xAct`HiGGS`c, -xAct`HiGGS`g],
+    Editable->False]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       OverscriptBox["\[Alpha]", "^"],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "GB"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`AlpGB,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalR]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {"\[GothicA]", "\[GothicB]", " ", " "},
+           {" ", " ", "\[GothicA]", "\[GothicB]"}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`R[xAct`HiGGS`a, xAct`HiGGS`b, -xAct`HiGGS`a, -xAct`HiGGS`b],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalR]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {"\[GothicC]", "\[GothicD]", " ", " "},
+           {" ", " ", "\[GothicC]", "\[GothicD]"}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`R[xAct`HiGGS`c, xAct`HiGGS`d, -xAct`HiGGS`c, -xAct`HiGGS`d],
+    Editable->False]}], "+", 
+  RowBox[{
+   FractionBox["1", "3"], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       RowBox[{
+        SuperscriptBox[
+         SubscriptBox["\[ScriptCapitalM]", "Pl"], "2"], 
+        OverscriptBox["\[Beta]", "^"]}],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "3"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Bet3,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalT]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", " "},
+           {"\[GothicA]", "\[GothicB]", "\[GothicC]"}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`T[-xAct`HiGGS`a, -xAct`HiGGS`b, -xAct`HiGGS`c],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalT]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {"\[GothicA]", "\[GothicB]", "\[GothicC]"},
+           {" ", " ", " "}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`T[xAct`HiGGS`a, xAct`HiGGS`b, xAct`HiGGS`c],
+    Editable->False]}], "-", 
+  RowBox[{
+   FractionBox["2", "3"], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       RowBox[{
+        SuperscriptBox[
+         SubscriptBox["\[ScriptCapitalM]", "Pl"], "2"], 
+        OverscriptBox["\[Beta]", "^"]}],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "3"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Bet3,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalT]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {"\[GothicA]", "\[GothicB]", "\[GothicC]"},
+           {" ", " ", " "}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`T[xAct`HiGGS`a, xAct`HiGGS`b, xAct`HiGGS`c],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalT]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", " "},
+           {"\[GothicB]", "\[GothicA]", "\[GothicC]"}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`T[-xAct`HiGGS`b, -xAct`HiGGS`a, -xAct`HiGGS`c],
+    Editable->False]}], "+", 
+  RowBox[{
+   FractionBox["2", "3"], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       RowBox[{
+        SuperscriptBox[
+         SubscriptBox["\[ScriptCapitalM]", "Pl"], "2"], 
+        OverscriptBox["\[Beta]", "^"]}],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "2"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Bet2,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalT]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", "\[GothicA]", "\[GothicG]"},
+           {"\[GothicA]", " ", " "}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`T[-xAct`HiGGS`a, xAct`HiGGS`a, xAct`HiGGS`g],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalT]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", "\[GothicC]", " "},
+           {"\[GothicC]", " ", "\[GothicG]"}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`T[-xAct`HiGGS`c, xAct`HiGGS`c, -xAct`HiGGS`g],
+    Editable->False]}]}]], "Output",
+ CellChangeTimes->{3.8812153432951612`*^9},
+ CellLabel->"Out[4]=",ExpressionUUID->"03ba4d85-a6cf-400e-9ba3-cdd29cc5a5fc"]
+}, Open  ]]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -270,6 +1701,8 @@ defined in HiGGS (though it is never used in the Hamiltonian analysis).\
    3.879776880194723*^9, 3.8797769068425303`*^9}, {3.879777243937862*^9, 
    3.8797773300109787`*^9}},ExpressionUUID->"e540e718-a0fa-4c8d-b236-\
 bcd746a53169"],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[{
  RowBox[{
@@ -375,9 +1808,3030 @@ Cell[BoxData[{
  CellChangeTimes->{
   3.870279786461598*^9, {3.870330712891473*^9, 3.87033071416772*^9}, {
    3.8796813408532352`*^9, 3.879681350050969*^9}, 3.879738954537965*^9, 
-   3.879739193137405*^9, {3.880893170745809*^9, 
-   3.880893213368905*^9}},ExpressionUUID->"7e502692-f071-4416-bc37-\
-f6c938048ee3"]
+   3.879739193137405*^9, {3.880893170745809*^9, 3.880893213368905*^9}},
+ CellLabel->"In[5]:=",ExpressionUUID->"7e502692-f071-4416-bc37-f6c938048ee3"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefConstantSymbol", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"constant symbol \"\>", "\[InvisibleSpace]", 
+   "Prt", "\[InvisibleSpace]", "\<\". \"\>", "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefConstantSymbol, ": Defining ", 
+   "constant symbol ", $CellContext`Prt, ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.881215352041044*^9},
+ CellLabel->
+  "During evaluation of \
+In[5]:=",ExpressionUUID->"114f5dcf-510c-4eca-ae6c-5a7fa8049d64"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   FractionBox["4", "3"], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       RowBox[{
+        SuperscriptBox[
+         SubscriptBox["\[ScriptCapitalM]", "Pl"], "2"], 
+        OverscriptBox["\[Beta]", "^"]}],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "3"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Bet3,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalA]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", " "},
+           {"\[GothicA]", "\[GothicB]", "\[GothicC]"}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`A[-xAct`HiGGS`a, -xAct`HiGGS`b, -xAct`HiGGS`c],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalA]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {"\[GothicA]", "\[GothicB]", "\[GothicC]"},
+           {" ", " ", " "}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`A[xAct`HiGGS`a, xAct`HiGGS`b, xAct`HiGGS`c],
+    Editable->False]}], "-", 
+  RowBox[{
+   FractionBox["8", "3"], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       RowBox[{
+        SuperscriptBox[
+         SubscriptBox["\[ScriptCapitalM]", "Pl"], "2"], 
+        OverscriptBox["\[Beta]", "^"]}],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "3"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Bet3,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalA]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", " "},
+           {"\[GothicA]", "\[GothicC]", "\[GothicB]"}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`A[-xAct`HiGGS`a, -xAct`HiGGS`c, -xAct`HiGGS`b],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalA]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {"\[GothicA]", "\[GothicB]", "\[GothicC]"},
+           {" ", " ", " "}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`A[xAct`HiGGS`a, xAct`HiGGS`b, xAct`HiGGS`c],
+    Editable->False]}], "-", 
+  RowBox[{
+   FractionBox["2", "3"], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       RowBox[{
+        SuperscriptBox[
+         SubscriptBox["\[ScriptCapitalM]", "Pl"], "2"], 
+        OverscriptBox["\[Beta]", "^"]}],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "2"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Bet2,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalA]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {"\[GothicA]", "\[GothicB]", " "},
+           {" ", " ", "\[GothicA]"}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`A[xAct`HiGGS`a, xAct`HiGGS`b, -xAct`HiGGS`a],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalA]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", "\[GothicC]", " "},
+           {"\[GothicB]", " ", "\[GothicC]"}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`A[-xAct`HiGGS`b, xAct`HiGGS`c, -xAct`HiGGS`c],
+    Editable->False]}], "+", 
+  RowBox[{
+   FractionBox["4", "3"], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       RowBox[{
+        SuperscriptBox[
+         SubscriptBox["\[ScriptCapitalM]", "Pl"], "2"], 
+        OverscriptBox["\[Beta]", "^"]}],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "2"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Bet2,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalA]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", "\[GothicC]", " "},
+           {"\[GothicB]", " ", "\[GothicC]"}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`A[-xAct`HiGGS`b, xAct`HiGGS`c, -xAct`HiGGS`c],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicA]"], GridBox[{
+        {
+         StyleBox["\[ScriptF]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicA]", "\[GothicB]"},
+            {" ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`a][
+     xAct`HiGGS`F[xAct`HiGGS`a, xAct`HiGGS`b]],
+    Editable->False]}], "-", 
+  RowBox[{
+   FractionBox["4", "3"], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       RowBox[{
+        SuperscriptBox[
+         SubscriptBox["\[ScriptCapitalM]", "Pl"], "2"], 
+        OverscriptBox["\[Beta]", "^"]}],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "2"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Bet2,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalA]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", "\[GothicC]", " "},
+           {"\[GothicB]", " ", "\[GothicC]"}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`A[-xAct`HiGGS`b, xAct`HiGGS`c, -xAct`HiGGS`c],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "\[GothicB]"], GridBox[{
+        {
+         StyleBox["\[ScriptF]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicA]", " "},
+            {" ", "\[GothicA]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[xAct`HiGGS`b][
+     xAct`HiGGS`F[xAct`HiGGS`a, -xAct`HiGGS`a]],
+    Editable->False]}], "+", 
+  RowBox[{
+   FractionBox["2", "3"], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       RowBox[{
+        SuperscriptBox[
+         SubscriptBox["\[ScriptCapitalM]", "Pl"], "2"], 
+        OverscriptBox["\[Beta]", "^"]}],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "2"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Bet2,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicB]"], GridBox[{
+        {
+         StyleBox["\[ScriptF]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicC]", " "},
+            {" ", "\[GothicC]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`b][
+     xAct`HiGGS`F[xAct`HiGGS`c, -xAct`HiGGS`c]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "\[GothicB]"], GridBox[{
+        {
+         StyleBox["\[ScriptF]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicA]", " "},
+            {" ", "\[GothicA]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[xAct`HiGGS`b][
+     xAct`HiGGS`F[xAct`HiGGS`a, -xAct`HiGGS`a]],
+    Editable->False]}], "+", 
+  RowBox[{
+   FractionBox["2", "3"], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       RowBox[{
+        SuperscriptBox[
+         SubscriptBox["\[ScriptCapitalM]", "Pl"], "2"], 
+        OverscriptBox["\[Beta]", "^"]}],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "2"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Bet2,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicA]"], GridBox[{
+        {
+         StyleBox["\[ScriptF]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicA]", "\[GothicB]"},
+            {" ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`a][
+     xAct`HiGGS`F[xAct`HiGGS`a, xAct`HiGGS`b]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicC]"], GridBox[{
+        {
+         StyleBox["\[ScriptF]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicC]", " "},
+            {" ", "\[GothicB]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`c][
+     xAct`HiGGS`F[xAct`HiGGS`c, -xAct`HiGGS`b]],
+    Editable->False]}], "-", 
+  RowBox[{
+   FractionBox["4", "3"], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       RowBox[{
+        SuperscriptBox[
+         SubscriptBox["\[ScriptCapitalM]", "Pl"], "2"], 
+        OverscriptBox["\[Beta]", "^"]}],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "2"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Bet2,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "\[GothicB]"], GridBox[{
+        {
+         StyleBox["\[ScriptF]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicA]", " "},
+            {" ", "\[GothicA]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[xAct`HiGGS`b][
+     xAct`HiGGS`F[xAct`HiGGS`a, -xAct`HiGGS`a]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicC]"], GridBox[{
+        {
+         StyleBox["\[ScriptF]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicC]", " "},
+            {" ", "\[GothicB]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`c][
+     xAct`HiGGS`F[xAct`HiGGS`c, -xAct`HiGGS`b]],
+    Editable->False]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       OverscriptBox["\[Alpha]", "^"],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "5"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Alp5,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicB]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {" ", "\[GothicD]", " "},
+            {"\[GothicC]", " ", "\[GothicD]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`b][
+     xAct`HiGGS`A[-xAct`HiGGS`c, xAct`HiGGS`d, -xAct`HiGGS`d]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "\[GothicC]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicA]", "\[GothicB]", " "},
+            {" ", " ", "\[GothicA]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[xAct`HiGGS`c][
+     xAct`HiGGS`A[xAct`HiGGS`a, xAct`HiGGS`b, -xAct`HiGGS`a]],
+    Editable->False]}], "-", 
+  RowBox[{"3", " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       OverscriptBox["\[Alpha]", "^"],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "6"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Alp6,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicB]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {" ", "\[GothicD]", " "},
+            {"\[GothicC]", " ", "\[GothicD]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`b][
+     xAct`HiGGS`A[-xAct`HiGGS`c, xAct`HiGGS`d, -xAct`HiGGS`d]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "\[GothicC]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicA]", "\[GothicB]", " "},
+            {" ", " ", "\[GothicA]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[xAct`HiGGS`c][
+     xAct`HiGGS`A[xAct`HiGGS`a, xAct`HiGGS`b, -xAct`HiGGS`a]],
+    Editable->False]}], "+", 
+  RowBox[{"4", " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       OverscriptBox["\[Alpha]", "^"],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "GB"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`AlpGB,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicB]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {" ", "\[GothicD]", " "},
+            {"\[GothicC]", " ", "\[GothicD]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`b][
+     xAct`HiGGS`A[-xAct`HiGGS`c, xAct`HiGGS`d, -xAct`HiGGS`d]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "\[GothicC]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicA]", "\[GothicB]", " "},
+            {" ", " ", "\[GothicA]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[xAct`HiGGS`c][
+     xAct`HiGGS`A[xAct`HiGGS`a, xAct`HiGGS`b, -xAct`HiGGS`a]],
+    Editable->False]}], "-", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       OverscriptBox["\[Alpha]", "^"],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "5"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Alp5,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicC]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {" ", "\[GothicD]", " "},
+            {"\[GothicB]", " ", "\[GothicD]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`c][
+     xAct`HiGGS`A[-xAct`HiGGS`b, xAct`HiGGS`d, -xAct`HiGGS`d]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "\[GothicC]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicA]", "\[GothicB]", " "},
+            {" ", " ", "\[GothicA]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[xAct`HiGGS`c][
+     xAct`HiGGS`A[xAct`HiGGS`a, xAct`HiGGS`b, -xAct`HiGGS`a]],
+    Editable->False]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       OverscriptBox["\[Alpha]", "^"],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "6"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Alp6,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicC]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {" ", "\[GothicD]", " "},
+            {"\[GothicB]", " ", "\[GothicD]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`c][
+     xAct`HiGGS`A[-xAct`HiGGS`b, xAct`HiGGS`d, -xAct`HiGGS`d]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "\[GothicC]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicA]", "\[GothicB]", " "},
+            {" ", " ", "\[GothicA]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[xAct`HiGGS`c][
+     xAct`HiGGS`A[xAct`HiGGS`a, xAct`HiGGS`b, -xAct`HiGGS`a]],
+    Editable->False]}], "-", 
+  RowBox[{
+   FractionBox["8", "3"], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       RowBox[{
+        SuperscriptBox[
+         SubscriptBox["\[ScriptCapitalM]", "Pl"], "2"], 
+        OverscriptBox["\[Beta]", "^"]}],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "3"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Bet3,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalA]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", " "},
+           {"\[GothicA]", "\[GothicB]", "\[GothicC]"}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`A[-xAct`HiGGS`a, -xAct`HiGGS`b, -xAct`HiGGS`c],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "\[GothicC]"], GridBox[{
+        {
+         StyleBox["\[ScriptF]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicA]", "\[GothicB]"},
+            {" ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[xAct`HiGGS`c][
+     xAct`HiGGS`F[xAct`HiGGS`a, xAct`HiGGS`b]],
+    Editable->False]}], "+", 
+  RowBox[{
+   FractionBox["8", "3"], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       RowBox[{
+        SuperscriptBox[
+         SubscriptBox["\[ScriptCapitalM]", "Pl"], "2"], 
+        OverscriptBox["\[Beta]", "^"]}],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "3"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Bet3,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalA]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", " "},
+           {"\[GothicA]", "\[GothicC]", "\[GothicB]"}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`A[-xAct`HiGGS`a, -xAct`HiGGS`c, -xAct`HiGGS`b],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "\[GothicC]"], GridBox[{
+        {
+         StyleBox["\[ScriptF]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicA]", "\[GothicB]"},
+            {" ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[xAct`HiGGS`c][
+     xAct`HiGGS`F[xAct`HiGGS`a, xAct`HiGGS`b]],
+    Editable->False]}], "-", 
+  RowBox[{
+   FractionBox["8", "3"], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       RowBox[{
+        SuperscriptBox[
+         SubscriptBox["\[ScriptCapitalM]", "Pl"], "2"], 
+        OverscriptBox["\[Beta]", "^"]}],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "3"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Bet3,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[GridBox[{
+       {
+        StyleBox["\[ScriptCapitalA]",
+         FontColor->RGBColor[0., 0., 0.]], 
+        StyleBox[GridBox[{
+           {" ", " ", " "},
+           {"\[GothicB]", "\[GothicC]", "\[GothicA]"}
+          },
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.], {
+               Offset[0.034999999999999996`]}, 
+              Offset[0.]}, "Rows" -> {{
+               Offset[0.]}}}],
+         FontSize->Rational[39, 4]]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.034999999999999996`]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`A[-xAct`HiGGS`b, -xAct`HiGGS`c, -xAct`HiGGS`a],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "\[GothicC]"], GridBox[{
+        {
+         StyleBox["\[ScriptF]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicA]", "\[GothicB]"},
+            {" ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[xAct`HiGGS`c][
+     xAct`HiGGS`F[xAct`HiGGS`a, xAct`HiGGS`b]],
+    Editable->False]}], "+", 
+  RowBox[{
+   FractionBox["4", "3"], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       RowBox[{
+        SuperscriptBox[
+         SubscriptBox["\[ScriptCapitalM]", "Pl"], "2"], 
+        OverscriptBox["\[Beta]", "^"]}],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "3"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Bet3,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicA]"], GridBox[{
+        {
+         StyleBox["\[ScriptF]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {" ", " "},
+            {"\[GothicB]", "\[GothicC]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`a][
+     xAct`HiGGS`F[-xAct`HiGGS`b, -xAct`HiGGS`c]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "\[GothicC]"], GridBox[{
+        {
+         StyleBox["\[ScriptF]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicA]", "\[GothicB]"},
+            {" ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[xAct`HiGGS`c][
+     xAct`HiGGS`F[xAct`HiGGS`a, xAct`HiGGS`b]],
+    Editable->False]}], "-", 
+  RowBox[{
+   FractionBox["2", "3"], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       RowBox[{
+        SuperscriptBox[
+         SubscriptBox["\[ScriptCapitalM]", "Pl"], "2"], 
+        OverscriptBox["\[Beta]", "^"]}],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "3"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Bet3,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicA]"], GridBox[{
+        {
+         StyleBox["\[ScriptF]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {" ", " "},
+            {"\[GothicC]", "\[GothicB]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`a][
+     xAct`HiGGS`F[-xAct`HiGGS`c, -xAct`HiGGS`b]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "\[GothicC]"], GridBox[{
+        {
+         StyleBox["\[ScriptF]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicA]", "\[GothicB]"},
+            {" ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[xAct`HiGGS`c][
+     xAct`HiGGS`F[xAct`HiGGS`a, xAct`HiGGS`b]],
+    Editable->False]}], "-", 
+  RowBox[{
+   FractionBox["2", "3"], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       RowBox[{
+        SuperscriptBox[
+         SubscriptBox["\[ScriptCapitalM]", "Pl"], "2"], 
+        OverscriptBox["\[Beta]", "^"]}],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "3"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Bet3,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicB]"], GridBox[{
+        {
+         StyleBox["\[ScriptF]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {" ", " "},
+            {"\[GothicA]", "\[GothicC]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`b][
+     xAct`HiGGS`F[-xAct`HiGGS`a, -xAct`HiGGS`c]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "\[GothicC]"], GridBox[{
+        {
+         StyleBox["\[ScriptF]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicA]", "\[GothicB]"},
+            {" ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[xAct`HiGGS`c][
+     xAct`HiGGS`F[xAct`HiGGS`a, xAct`HiGGS`b]],
+    Editable->False]}], "+", 
+  RowBox[{
+   FractionBox["2", "3"], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       RowBox[{
+        SuperscriptBox[
+         SubscriptBox["\[ScriptCapitalM]", "Pl"], "2"], 
+        OverscriptBox["\[Beta]", "^"]}],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "3"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Bet3,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicC]"], GridBox[{
+        {
+         StyleBox["\[ScriptF]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {" ", " "},
+            {"\[GothicA]", "\[GothicB]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`c][
+     xAct`HiGGS`F[-xAct`HiGGS`a, -xAct`HiGGS`b]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "\[GothicC]"], GridBox[{
+        {
+         StyleBox["\[ScriptF]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicA]", "\[GothicB]"},
+            {" ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[xAct`HiGGS`c][
+     xAct`HiGGS`F[xAct`HiGGS`a, xAct`HiGGS`b]],
+    Editable->False]}], "-", 
+  RowBox[{
+   FractionBox["2", "3"], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       RowBox[{
+        SuperscriptBox[
+         SubscriptBox["\[ScriptCapitalM]", "Pl"], "2"], 
+        OverscriptBox["\[Beta]", "^"]}],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "3"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Bet3,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicC]"], GridBox[{
+        {
+         StyleBox["\[ScriptF]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {" ", " "},
+            {"\[GothicB]", "\[GothicA]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`c][
+     xAct`HiGGS`F[-xAct`HiGGS`b, -xAct`HiGGS`a]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "\[GothicC]"], GridBox[{
+        {
+         StyleBox["\[ScriptF]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicA]", "\[GothicB]"},
+            {" ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[xAct`HiGGS`c][
+     xAct`HiGGS`F[xAct`HiGGS`a, xAct`HiGGS`b]],
+    Editable->False]}], "-", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       OverscriptBox["\[Alpha]", "^"],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "5"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Alp5,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicA]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicA]", "\[GothicB]", "\[GothicC]"},
+            {" ", " ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`a][
+     xAct`HiGGS`A[xAct`HiGGS`a, xAct`HiGGS`b, xAct`HiGGS`c]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicD]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {" ", "\[GothicD]", " "},
+            {"\[GothicB]", " ", "\[GothicC]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`d][
+     xAct`HiGGS`A[-xAct`HiGGS`b, xAct`HiGGS`d, -xAct`HiGGS`c]],
+    Editable->False]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       OverscriptBox["\[Alpha]", "^"],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "6"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Alp6,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicA]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicA]", "\[GothicB]", "\[GothicC]"},
+            {" ", " ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`a][
+     xAct`HiGGS`A[xAct`HiGGS`a, xAct`HiGGS`b, xAct`HiGGS`c]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicD]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {" ", "\[GothicD]", " "},
+            {"\[GothicB]", " ", "\[GothicC]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`d][
+     xAct`HiGGS`A[-xAct`HiGGS`b, xAct`HiGGS`d, -xAct`HiGGS`c]],
+    Editable->False]}], "+", 
+  RowBox[{"2", " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       OverscriptBox["\[Alpha]", "^"],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "5"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Alp5,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "\[GothicC]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicA]", "\[GothicB]", " "},
+            {" ", " ", "\[GothicA]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[xAct`HiGGS`c][
+     xAct`HiGGS`A[xAct`HiGGS`a, xAct`HiGGS`b, -xAct`HiGGS`a]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicD]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {" ", "\[GothicD]", " "},
+            {"\[GothicB]", " ", "\[GothicC]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`d][
+     xAct`HiGGS`A[-xAct`HiGGS`b, xAct`HiGGS`d, -xAct`HiGGS`c]],
+    Editable->False]}], "-", 
+  RowBox[{"2", " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       OverscriptBox["\[Alpha]", "^"],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "6"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Alp6,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "\[GothicC]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicA]", "\[GothicB]", " "},
+            {" ", " ", "\[GothicA]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[xAct`HiGGS`c][
+     xAct`HiGGS`A[xAct`HiGGS`a, xAct`HiGGS`b, -xAct`HiGGS`a]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicD]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {" ", "\[GothicD]", " "},
+            {"\[GothicB]", " ", "\[GothicC]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`d][
+     xAct`HiGGS`A[-xAct`HiGGS`b, xAct`HiGGS`d, -xAct`HiGGS`c]],
+    Editable->False]}], "+", 
+  RowBox[{
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       OverscriptBox["\[Alpha]", "^"],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "5"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Alp5,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicA]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicA]", "\[GothicB]", "\[GothicC]"},
+            {" ", " ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`a][
+     xAct`HiGGS`A[xAct`HiGGS`a, xAct`HiGGS`b, xAct`HiGGS`c]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicD]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {" ", "\[GothicD]", " "},
+            {"\[GothicC]", " ", "\[GothicB]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`d][
+     xAct`HiGGS`A[-xAct`HiGGS`c, xAct`HiGGS`d, -xAct`HiGGS`b]],
+    Editable->False]}], "-", 
+  RowBox[{"3", " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       OverscriptBox["\[Alpha]", "^"],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "6"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Alp6,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicA]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicA]", "\[GothicB]", "\[GothicC]"},
+            {" ", " ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`a][
+     xAct`HiGGS`A[xAct`HiGGS`a, xAct`HiGGS`b, xAct`HiGGS`c]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicD]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {" ", "\[GothicD]", " "},
+            {"\[GothicC]", " ", "\[GothicB]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`d][
+     xAct`HiGGS`A[-xAct`HiGGS`c, xAct`HiGGS`d, -xAct`HiGGS`b]],
+    Editable->False]}], "+", 
+  RowBox[{"4", " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       OverscriptBox["\[Alpha]", "^"],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "GB"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`AlpGB,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicA]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicA]", "\[GothicB]", "\[GothicC]"},
+            {" ", " ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`a][
+     xAct`HiGGS`A[xAct`HiGGS`a, xAct`HiGGS`b, xAct`HiGGS`c]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicD]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {" ", "\[GothicD]", " "},
+            {"\[GothicC]", " ", "\[GothicB]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`d][
+     xAct`HiGGS`A[-xAct`HiGGS`c, xAct`HiGGS`d, -xAct`HiGGS`b]],
+    Editable->False]}], "-", 
+  RowBox[{"2", " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       OverscriptBox["\[Alpha]", "^"],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "5"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Alp5,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "\[GothicC]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicA]", "\[GothicB]", " "},
+            {" ", " ", "\[GothicA]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[xAct`HiGGS`c][
+     xAct`HiGGS`A[xAct`HiGGS`a, xAct`HiGGS`b, -xAct`HiGGS`a]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicD]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {" ", "\[GothicD]", " "},
+            {"\[GothicC]", " ", "\[GothicB]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`d][
+     xAct`HiGGS`A[-xAct`HiGGS`c, xAct`HiGGS`d, -xAct`HiGGS`b]],
+    Editable->False]}], "+", 
+  RowBox[{"6", " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       OverscriptBox["\[Alpha]", "^"],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "6"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Alp6,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "\[GothicC]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicA]", "\[GothicB]", " "},
+            {" ", " ", "\[GothicA]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[xAct`HiGGS`c][
+     xAct`HiGGS`A[xAct`HiGGS`a, xAct`HiGGS`b, -xAct`HiGGS`a]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicD]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {" ", "\[GothicD]", " "},
+            {"\[GothicC]", " ", "\[GothicB]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`d][
+     xAct`HiGGS`A[-xAct`HiGGS`c, xAct`HiGGS`d, -xAct`HiGGS`b]],
+    Editable->False]}], "-", 
+  RowBox[{"8", " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       OverscriptBox["\[Alpha]", "^"],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "GB"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`AlpGB,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "\[GothicC]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicA]", "\[GothicB]", " "},
+            {" ", " ", "\[GothicA]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[xAct`HiGGS`c][
+     xAct`HiGGS`A[xAct`HiGGS`a, xAct`HiGGS`b, -xAct`HiGGS`a]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicD]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {" ", "\[GothicD]", " "},
+            {"\[GothicC]", " ", "\[GothicB]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`d][
+     xAct`HiGGS`A[-xAct`HiGGS`c, xAct`HiGGS`d, -xAct`HiGGS`b]],
+    Editable->False]}], "+", 
+  RowBox[{"4", " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       OverscriptBox["\[Alpha]", "^"],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "GB"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`AlpGB,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicB]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicA]", "\[GothicB]", " "},
+            {" ", " ", "\[GothicA]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`b][
+     xAct`HiGGS`A[xAct`HiGGS`a, xAct`HiGGS`b, -xAct`HiGGS`a]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicD]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicC]", "\[GothicD]", " "},
+            {" ", " ", "\[GothicC]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`d][
+     xAct`HiGGS`A[xAct`HiGGS`c, xAct`HiGGS`d, -xAct`HiGGS`c]],
+    Editable->False]}], "+", 
+  RowBox[{
+   FractionBox["8", "3"], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       OverscriptBox["\[Alpha]", "^"],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "6"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Alp6,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicB]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {" ", " ", " "},
+            {"\[GothicA]", "\[GothicC]", "\[GothicD]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`b][
+     xAct`HiGGS`A[-xAct`HiGGS`a, -xAct`HiGGS`c, -xAct`HiGGS`d]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "\[GothicD]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicA]", "\[GothicB]", "\[GothicC]"},
+            {" ", " ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[xAct`HiGGS`d][
+     xAct`HiGGS`A[xAct`HiGGS`a, xAct`HiGGS`b, xAct`HiGGS`c]],
+    Editable->False]}], "-", 
+  RowBox[{
+   FractionBox["4", "3"], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       OverscriptBox["\[Alpha]", "^"],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "6"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Alp6,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicB]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {" ", " ", " "},
+            {"\[GothicA]", "\[GothicD]", "\[GothicC]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`b][
+     xAct`HiGGS`A[-xAct`HiGGS`a, -xAct`HiGGS`d, -xAct`HiGGS`c]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "\[GothicD]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicA]", "\[GothicB]", "\[GothicC]"},
+            {" ", " ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[xAct`HiGGS`d][
+     xAct`HiGGS`A[xAct`HiGGS`a, xAct`HiGGS`b, xAct`HiGGS`c]],
+    Editable->False]}], "-", 
+  RowBox[{
+   FractionBox["20", "3"], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       OverscriptBox["\[Alpha]", "^"],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "6"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Alp6,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicB]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {" ", " ", " "},
+            {"\[GothicC]", "\[GothicD]", "\[GothicA]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`b][
+     xAct`HiGGS`A[-xAct`HiGGS`c, -xAct`HiGGS`d, -xAct`HiGGS`a]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "\[GothicD]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicA]", "\[GothicB]", "\[GothicC]"},
+            {" ", " ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[xAct`HiGGS`d][
+     xAct`HiGGS`A[xAct`HiGGS`a, xAct`HiGGS`b, xAct`HiGGS`c]],
+    Editable->False]}], "+", 
+  RowBox[{"4", " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       OverscriptBox["\[Alpha]", "^"],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "GB"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`AlpGB,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicB]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {" ", " ", " "},
+            {"\[GothicC]", "\[GothicD]", "\[GothicA]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`b][
+     xAct`HiGGS`A[-xAct`HiGGS`c, -xAct`HiGGS`d, -xAct`HiGGS`a]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "\[GothicD]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicA]", "\[GothicB]", "\[GothicC]"},
+            {" ", " ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[xAct`HiGGS`d][
+     xAct`HiGGS`A[xAct`HiGGS`a, xAct`HiGGS`b, xAct`HiGGS`c]],
+    Editable->False]}], "-", 
+  RowBox[{
+   FractionBox["2", "3"], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       OverscriptBox["\[Alpha]", "^"],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "6"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Alp6,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicC]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {" ", " ", " "},
+            {"\[GothicA]", "\[GothicB]", "\[GothicD]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`c][
+     xAct`HiGGS`A[-xAct`HiGGS`a, -xAct`HiGGS`b, -xAct`HiGGS`d]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "\[GothicD]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicA]", "\[GothicB]", "\[GothicC]"},
+            {" ", " ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[xAct`HiGGS`d][
+     xAct`HiGGS`A[xAct`HiGGS`a, xAct`HiGGS`b, xAct`HiGGS`c]],
+    Editable->False]}], "+", 
+  RowBox[{
+   FractionBox["2", "3"], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       OverscriptBox["\[Alpha]", "^"],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "6"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Alp6,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicD]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {" ", " ", " "},
+            {"\[GothicA]", "\[GothicB]", "\[GothicC]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`d][
+     xAct`HiGGS`A[-xAct`HiGGS`a, -xAct`HiGGS`b, -xAct`HiGGS`c]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "\[GothicD]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicA]", "\[GothicB]", "\[GothicC]"},
+            {" ", " ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[xAct`HiGGS`d][
+     xAct`HiGGS`A[xAct`HiGGS`a, xAct`HiGGS`b, xAct`HiGGS`c]],
+    Editable->False]}], "-", 
+  RowBox[{
+   FractionBox["4", "3"], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      StyleBox[
+       OverscriptBox["\[Alpha]", "^"],
+       FontColor->RGBColor[1., 0., 0.]], 
+      StyleBox[
+       UnderscriptBox[".", "6"],
+       FontColor->RGBColor[0., 0., 1.]]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`Alp6,
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SubscriptBox["\[PartialD]", "\[GothicD]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {" ", " ", " "},
+            {"\[GothicA]", "\[GothicC]", "\[GothicB]"}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[-xAct`HiGGS`d][
+     xAct`HiGGS`A[-xAct`HiGGS`a, -xAct`HiGGS`c, -xAct`HiGGS`b]],
+    Editable->False], " ", 
+   InterpretationBox[
+    StyleBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "\[GothicD]"], GridBox[{
+        {
+         StyleBox["\[ScriptCapitalA]",
+          FontColor->RGBColor[0., 0., 0.]], 
+         StyleBox[GridBox[{
+            {"\[GothicA]", "\[GothicB]", "\[GothicC]"},
+            {" ", " ", " "}
+           },
+           GridBoxSpacings->{"Columns" -> {
+               Offset[0.], {
+                Offset[0.034999999999999996`]}, 
+               Offset[0.]}, "Rows" -> {{
+                Offset[0.]}}}],
+          FontSize->Rational[39, 4]]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.034999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}]}],
+     ShowAutoStyles->False,
+     AutoSpacing->False],
+    xAct`HiGGS`CD[xAct`HiGGS`d][
+     xAct`HiGGS`A[xAct`HiGGS`a, xAct`HiGGS`b, xAct`HiGGS`c]],
+    Editable->False]}]}]], "Output",
+ CellChangeTimes->{3.881215357047811*^9},
+ CellLabel->"Out[23]=",ExpressionUUID->"c23cba59-1ac5-4542-96e2-0478cdb5d34c"]
+}, Open  ]]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -400,26 +4854,15 @@ fields which appear at quadratic order.\
 Cell[BoxData[
  RowBox[{
   RowBox[{"ParticleSpectrum", "[", 
-   RowBox[{"SecondOrderLagrangian", ",", "F", ",", "A"}], "]"}], 
-  ";"}]], "Input",
+   RowBox[{
+   "\"\<Case16\>\"", ",", "SecondOrderLagrangian", ",", "F", ",", "A", ",", 
+    RowBox[{"ExportTheory", "->", "True"}]}], "]"}], ";"}]], "Input",
  CellChangeTimes->{{3.879681371938847*^9, 3.879681389834815*^9}, {
    3.879738698676317*^9, 3.8797387008845863`*^9}, {3.879738758356271*^9, 
    3.879738758516334*^9}, {3.879739255899435*^9, 3.8797392655166273`*^9}, 
-   3.879777379685314*^9},
- CellLabel->"In[16]:=",ExpressionUUID->"5b8be491-3fcd-4d14-b8a9-0187dad61ca3"],
-
-Cell[BoxData["ToV"], "Input",
- CellChangeTimes->{{3.880891351858419*^9, 3.880891424113023*^9}},
- CellLabel->"In[21]:=",ExpressionUUID->"e7523455-c8ac-4c7b-b7d8-1e640e809de5"],
-
-Cell[BoxData["GaugeDecompose"], "Input",
- CellChangeTimes->{{3.88089271351826*^9, 3.880892715453538*^9}},
- CellLabel->"In[22]:=",ExpressionUUID->"512140dc-91f5-43d6-b5bf-6e43f4a76db0"],
-
-Cell[BoxData[""], "Input",
- CellChangeTimes->{3.8807036740262337`*^9, 
-  3.880719252681929*^9},ExpressionUUID->"c3eb0d15-3854-414c-9d11-\
-6b7bba482588"]
+   3.879777379685314*^9, {3.881215390836938*^9, 
+   3.881215414515953*^9}},ExpressionUUID->"5b8be491-3fcd-4d14-b8a9-\
+0187dad61ca3"]
 }, Open  ]]
 }, Open  ]]
 },
@@ -446,27 +4889,80 @@ Cell[580, 22, 264, 4, 98, "Title",ExpressionUUID->"33fd9952-67c4-4232-a8dc-4bbf7
 Cell[CellGroupData[{
 Cell[869, 30, 157, 3, 68, "Section",ExpressionUUID->"fef849a5-4b5a-484d-974f-f3640391eeb9"],
 Cell[1029, 35, 343, 7, 35, "Text",ExpressionUUID->"e372cb89-2c39-4d26-b1ad-5b8db68608c0"],
-Cell[1375, 44, 1622, 22, 30, "Input",ExpressionUUID->"5d2a558d-bfb2-4fcf-ab7a-620b399e58c4"]
+Cell[CellGroupData[{
+Cell[1397, 46, 1622, 22, 30, "Input",ExpressionUUID->"5d2a558d-bfb2-4fcf-ab7a-620b399e58c4"],
+Cell[CellGroupData[{
+Cell[3044, 72, 242, 5, 23, "Print",ExpressionUUID->"a8e1778c-390d-49e9-aeed-60c54f9f241d"],
+Cell[3289, 79, 516, 13, 25, "Print",ExpressionUUID->"58efbbb5-43ec-41ea-a599-ab121fc08885"],
+Cell[3808, 94, 262, 5, 25, "Print",ExpressionUUID->"772a7362-2605-444a-a095-78bfe16edaac"],
+Cell[4073, 101, 221, 4, 25, "Print",ExpressionUUID->"6947e495-d0ea-4544-a450-e919b9d6bb0a"],
+Cell[4297, 107, 203, 4, 25, "Print",ExpressionUUID->"415b46b2-e138-4cbc-a480-e8e1f7b37354"],
+Cell[4503, 113, 242, 5, 23, "Print",ExpressionUUID->"77366de8-0885-4cba-8ffe-edad752f1c24"],
+Cell[4748, 120, 520, 13, 25, "Print",ExpressionUUID->"1354de0b-4d4f-48d0-87a6-8cef0d87b5db"],
+Cell[5271, 135, 265, 5, 25, "Print",ExpressionUUID->"30d820bd-cbdc-40a0-b517-4f5dc1ac217b"],
+Cell[5539, 142, 244, 5, 23, "Print",ExpressionUUID->"14ecc46d-eaf7-4d6c-8576-4304f42fd277"],
+Cell[5786, 149, 514, 13, 25, "Print",ExpressionUUID->"e326491c-bdd3-4b79-a73e-d2860acdb220"],
+Cell[6303, 164, 313, 6, 25, "Print",ExpressionUUID->"58e0f17f-5325-4d8f-b9d6-0c857388fd71"],
+Cell[6619, 172, 486, 12, 25, "Print",ExpressionUUID->"18e2e023-b5bd-4f77-8b04-fca42754e643"],
+Cell[7108, 186, 568, 13, 25, "Print",ExpressionUUID->"dc8bf893-32d0-41ab-bfb9-8122a2492df7"],
+Cell[7679, 201, 667, 13, 25, "Print",ExpressionUUID->"745f26fa-97c7-4e3d-9ff6-a1df0183161a"],
+Cell[8349, 216, 629, 13, 25, "Print",ExpressionUUID->"d03e1c37-3d09-4f50-a7b3-3e13a4b528a0"],
+Cell[8981, 231, 645, 13, 25, "Print",ExpressionUUID->"5d079b67-a02a-491a-bf42-458847b9df91"],
+Cell[9629, 246, 242, 5, 23, "Print",ExpressionUUID->"2c635e6b-1daf-4f8e-ab3c-47b0f480ce54"],
+Cell[9874, 253, 509, 12, 25, "Print",ExpressionUUID->"85c3427b-7457-4f97-90ad-b62bad0f5d30"],
+Cell[10386, 267, 289, 5, 25, "Print",ExpressionUUID->"6ad9bd02-1e17-4a04-84c0-3e03967097f0"],
+Cell[10678, 274, 610, 14, 25, "Print",ExpressionUUID->"ec04f2a3-8a33-455b-abbf-ffc987cba757"],
+Cell[11291, 290, 602, 13, 25, "Print",ExpressionUUID->"c2dc00ed-151d-498f-8d0d-975a755934f0"],
+Cell[11896, 305, 649, 13, 25, "Print",ExpressionUUID->"9cbe2f24-f769-4a67-b840-53fa7417cb96"],
+Cell[12548, 320, 564, 13, 25, "Print",ExpressionUUID->"c4367778-e183-4a06-9982-daa9a5896bcb"],
+Cell[13115, 335, 244, 5, 23, "Print",ExpressionUUID->"223a8f22-b4a2-4f3f-9a0a-394a0f6ceeea"],
+Cell[13362, 342, 514, 13, 25, "Print",ExpressionUUID->"705a2a39-fd8c-4077-b7d3-6f9e875fbcb6"],
+Cell[13879, 357, 283, 5, 25, "Print",ExpressionUUID->"9573cb87-16e7-4d4a-a287-63dd6d07b018"],
+Cell[14165, 364, 242, 5, 23, "Print",ExpressionUUID->"67703ec3-dfef-43a7-962f-d14611a667aa"],
+Cell[14410, 371, 532, 13, 25, "Print",ExpressionUUID->"4294c7bb-4372-42a8-9c95-5c5d4456dc29"],
+Cell[14945, 386, 268, 5, 25, "Print",ExpressionUUID->"3e3155d8-c443-469e-a033-97c833d3dd8b"],
+Cell[15216, 393, 244, 5, 23, "Print",ExpressionUUID->"a56ab7ba-845c-4621-aa82-f65076291ee0"],
+Cell[15463, 400, 515, 12, 25, "Print",ExpressionUUID->"d34d4f6a-a744-4e87-ac87-6ad36101b942"],
+Cell[15981, 414, 253, 5, 25, "Print",ExpressionUUID->"268194a6-e8dd-4fad-bcaf-74aaa90080eb"],
+Cell[16237, 421, 572, 14, 25, "Print",ExpressionUUID->"7a2b516c-5bf0-4909-8b40-bf47fffccef3"],
+Cell[16812, 437, 649, 13, 25, "Print",ExpressionUUID->"49e0105e-6a07-429a-97a2-22999485a3f7"],
+Cell[17464, 452, 244, 5, 23, "Print",ExpressionUUID->"9edbdadb-b9f8-425c-8896-f5a072f24681"],
+Cell[17711, 459, 536, 13, 25, "Print",ExpressionUUID->"ff15c5b3-a5d4-4f37-9bf3-8b864ffc3c7c"],
+Cell[18250, 474, 282, 5, 25, "Print",ExpressionUUID->"7c13bf71-d988-4583-a48c-41673a93559a"],
+Cell[18535, 481, 244, 5, 23, "Print",ExpressionUUID->"74e9d849-9fa0-4f89-a725-0ebf7d0ee5de"],
+Cell[18782, 488, 220, 4, 25, "Print",ExpressionUUID->"1fd0ff30-8481-4d5d-8006-1f5824061139"],
+Cell[19005, 494, 242, 5, 23, "Print",ExpressionUUID->"6f43d4cf-0c57-4381-817f-4b99775aae58"],
+Cell[19250, 501, 538, 13, 25, "Print",ExpressionUUID->"3f0eaa3a-5e1f-4621-b05c-6317cf17d13a"],
+Cell[19791, 516, 263, 5, 25, "Print",ExpressionUUID->"e1b0cb75-fb80-4665-bebb-a74ae8625519"],
+Cell[20057, 523, 242, 5, 23, "Print",ExpressionUUID->"5241deef-6680-4217-a6b1-aca8981ee3cb"],
+Cell[20302, 530, 397, 7, 45, "Print",ExpressionUUID->"c0826ebd-8fe6-4762-a941-dd8d5f90a12a"],
+Cell[20702, 539, 242, 5, 23, "Print",ExpressionUUID->"5a1412be-0e9e-404d-b89d-e77bf2d928e3"]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3034, 71, 171, 3, 68, "Section",ExpressionUUID->"e7c1ee08-6113-4ef2-a5af-61181e40dde6"],
-Cell[3208, 76, 369, 8, 35, "Text",ExpressionUUID->"d5bdd055-dfb8-4d1f-adac-723073ab576c"],
-Cell[3580, 86, 6462, 160, 296, "Input",ExpressionUUID->"21d54f1c-377b-4a90-90e4-6408f80dbb33",
- InitializationCell->True]
+Cell[21005, 551, 171, 3, 68, "Section",ExpressionUUID->"e7c1ee08-6113-4ef2-a5af-61181e40dde6"],
+Cell[21179, 556, 369, 8, 35, "Text",ExpressionUUID->"d5bdd055-dfb8-4d1f-adac-723073ab576c"],
+Cell[CellGroupData[{
+Cell[21573, 568, 7236, 178, 319, "Input",ExpressionUUID->"21d54f1c-377b-4a90-90e4-6408f80dbb33",
+ InitializationCell->True],
+Cell[28812, 748, 31055, 928, 86, "Output",ExpressionUUID->"03ba4d85-a6cf-400e-9ba3-cdd29cc5a5fc"]
+}, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[10079, 251, 329, 5, 68, "Section",ExpressionUUID->"f8bb8128-bdc5-474c-bbfc-e547bb0101e5"],
-Cell[10411, 258, 855, 13, 58, "Text",ExpressionUUID->"e540e718-a0fa-4c8d-b236-bcd746a53169"],
-Cell[11269, 273, 3519, 106, 484, "Input",ExpressionUUID->"7e502692-f071-4416-bc37-f6c938048ee3",
- InitializationCell->True]
+Cell[59916, 1682, 329, 5, 68, "Section",ExpressionUUID->"f8bb8128-bdc5-474c-bbfc-e547bb0101e5"],
+Cell[60248, 1689, 855, 13, 58, "Text",ExpressionUUID->"e540e718-a0fa-4c8d-b236-bcd746a53169"],
+Cell[CellGroupData[{
+Cell[61128, 1706, 3536, 105, 484, "Input",ExpressionUUID->"7e502692-f071-4416-bc37-f6c938048ee3",
+ InitializationCell->True],
+Cell[64667, 1813, 604, 13, 25, "Print",ExpressionUUID->"114f5dcf-510c-4eca-ae6c-5a7fa8049d64"],
+Cell[65274, 1828, 99194, 3004, 196, "Output",ExpressionUUID->"c23cba59-1ac5-4542-96e2-0478cdb5d34c"]
+}, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[14825, 384, 197, 3, 68, "Section",ExpressionUUID->"03d7e7ca-f006-4b26-9cfa-d2c80317f209"],
-Cell[15025, 389, 394, 8, 35, "Text",ExpressionUUID->"12c23f67-a16c-42ed-bb84-9fa54f200969"],
-Cell[15422, 399, 465, 9, 29, "Input",ExpressionUUID->"5b8be491-3fcd-4d14-b8a9-0187dad61ca3"],
-Cell[15890, 410, 174, 2, 29, "Input",ExpressionUUID->"e7523455-c8ac-4c7b-b7d8-1e640e809de5"],
-Cell[16067, 414, 184, 2, 29, "Input",ExpressionUUID->"512140dc-91f5-43d6-b5bf-6e43f4a76db0"],
-Cell[16254, 418, 152, 3, 29, "Input",ExpressionUUID->"c3eb0d15-3854-414c-9d11-6b7bba482588"]
+Cell[164517, 4838, 197, 3, 68, "Section",ExpressionUUID->"03d7e7ca-f006-4b26-9cfa-d2c80317f209"],
+Cell[164717, 4843, 394, 8, 35, "Text",ExpressionUUID->"12c23f67-a16c-42ed-bb84-9fa54f200969"],
+Cell[165114, 4853, 567, 11, 29, "Input",ExpressionUUID->"5b8be491-3fcd-4d14-b8a9-0187dad61ca3"]
 }, Open  ]]
 }, Open  ]]
 }

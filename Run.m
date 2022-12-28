@@ -58,6 +58,6 @@ Print@SecondOrderLagrangian;
 
 Print@"Now attempt to find the particle spectrum:";
 
-ParticleSpectrum[SecondOrderLagrangian,F,A];
+ParticleSpectrum["Case16New",SecondOrderLagrangian,F,A,ExportTheory->True];
 
 Quit[];
