@@ -8,7 +8,7 @@ Print@"First we load the PSALTer package:";
 
 Print@"Now we set up the general Lagrangian:";
 
-Get@FileNameJoin@{$WorkingDirectory,"LagrangianKarananasCouplings.m"};
+Get@FileNameJoin@{Directory[],"LagrangianKarananasCouplings.m"};
 (*Get@FileNameJoin@{$WorkingDirectory,"LagrangianHayashiShirafujiCouplings.m"};*)
 
 Print@NonlinearLagrangian;
