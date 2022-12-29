@@ -9,18 +9,18 @@ Print@"First we load the PSALTer package:";
 Print@"Now we set up the general Lagrangian:";
 
 Get@FileNameJoin@{Directory[],"LagrangianKarananasCouplings.m"};
-(*Get@FileNameJoin@{$WorkingDirectory,"LagrangianHayashiShirafujiCouplings.m"};*)
+(*Get@FileNameJoin@{Directory[],"LagrangianHayashiShirafujiCouplings.m"};*)
 
 Print@NonlinearLagrangian;
 
 Print@"We also knock up some simple tools to linearise the Lagrangian:";
 
-Get@FileNameJoin@{$WorkingDirectory,"Linearise.m"};
+Get@FileNameJoin@{Directory[],"Linearise.m"};
 
 Print@"Next we write down all the cases which define the theories in
 arXiv:1910.14197:";
 
-Get@FileNameJoin@{$WorkingDirectory,"CriticalCases.m"};
+Get@FileNameJoin@{Directory[],"CriticalCases.m"};
 
 Print/@CriticalCases;
 
