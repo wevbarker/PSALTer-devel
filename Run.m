@@ -34,7 +34,7 @@ Print/@CriticalCasesSolutions;
 Print@"Now to perform the calibration";
 
 MapThread[
-		ParticleSpectroom[
+		ParticleSpectrum[
 			"Case"<>ToString@#1,
 			LineariseLagrangian[NonlinearLagrangian/.#2],
 			F,
