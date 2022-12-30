@@ -2,7 +2,7 @@
 (*  FourierLagrangian  *)
 (*=====================*)
 
-FourierLagrangian[Expr_,Tensors__]:=Module[{CrossingRules,
+FourierLagrangian[Expr_,Tensors_]:=Module[{CrossingRules,
 	ToMomentumExpr,
 	Tensors1,
 	Tensors2,
@@ -11,8 +11,8 @@ FourierLagrangian[Expr_,Tensors__]:=Module[{CrossingRules,
 	PrintVariable={};
 	PrintVariable=PrintVariable~Append~PrintTemporary@" ** ParticleSpectrum...";
 
-	Tensors1=(#@@(ToExpression/@Alphabet[][[1;;(Length@SlotsOfTensor@#)]]))&/@(List@Tensors);
-	Tensors2=(#@@(ToExpression/@Alphabet[][[-(Length@SlotsOfTensor@#);;-1]]))&/@(List@Tensors);
+	Tensors1=(#@@(ToExpression/@Alphabet[][[1;;(Length@SlotsOfTensor@#)]]))&/@(Tensors);
+	Tensors2=(#@@(ToExpression/@Alphabet[][[-(Length@SlotsOfTensor@#);;-1]]))&/@(Tensors);
 
 	CrossingRules={};(*start off without any rules*)
 

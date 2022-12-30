@@ -44,12 +44,12 @@ Print[xAct`xCore`Private`bars]];
 (*  Declaration of provided functions and symbols for PSALTer   *)
 (*--------------------------------------------------------------*)
 
-FourierLagrangian::usage="FourierLagrangian[Expr,Tensor1,Tensor2,...] transfers a scalar expression Expr which is quadratic in the given perturbed fields whose xTensor heads are Tensor1 and Tensor2 into its Fourier form. 
-Both Expr and at least one field must be provided. Do not include indices in the fields, just list the xTensor heads (i.e. the tensor names).";
-SaturateMe::usage="SaturateMe[Expr] produces the saturated propagator from the Lagrangian Expr, which must be a scalar of the form output by FourierLagrangian[].";
 ParticleSpectrum::usage="ParticleSpectrum[TheoryName,Expr,Tensor1,Tensor2,...,Options] performs the whole propagator analysis on a scalar Lagrangian Expr, which is quadratic in the given perturbed fields whose xTensor heads are Tensor1 and Tensor2 into its Fourier form. 
 Both Expr and at least one field must be provided. Do not include indices in the fields, just list the xTensor heads (i.e. the tensor names). If these names do not correspond to gauge field perturbations that are already known to PSALTer, an error will be thrown. The string TheoryName must not contain spaces, it will be converted to a symbol set to an association which contains the results of the analysis, and (if the option Export->True is passed) it will be used to construct the file \"TheoryName.thr.mx\".";
 ViewParticleSpectrum::usage="ViewParticleSpectrum[TheoryName] displays the results of the analysis.";
+CouplingConstants::usage="CouplingConstants is an option for ParticleSpectrum which identifies the xTensor constant symbols (as defined using DefConstantSymbol) which should be interpreted as real coupling constants in the Lagrangian.";
+TensorFields::usage="TensorFields is an option for ParticleSpectrum which identifies the xTensor tensors (as defined using DefTensor) which should be interpreted as real, perhaps dynamical fields in the Lagrangian.";
+
 Even::usage="Even is an association key which refers to even-parity spin states.";
 Odd::usage="Odd is an association key which refers to odd-parity spin states.";
 MomentumSpaceLagrangian::usage="MomentumSpaceLagrangian is an association key which refers to the quadratically expanded Lagrangian in momentum space.";

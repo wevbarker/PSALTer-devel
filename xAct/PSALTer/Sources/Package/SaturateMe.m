@@ -7,7 +7,8 @@ NonTrivialDot[LeftOperand_,RightOperand_]:=If[((LeftOperand=={})||(LeftOperand==
 		LeftOperand~Dot~RightOperand,
 		LeftOperand~Dot~RightOperand];
 
-SaturateMe[Expr_]:=Module[{
+SaturateMe[Expr_,Couplings_]:=Module[{
+	CouplingAssumptions,
 	SymbolicLagrangian,
 	Symbols,
 	MatrixLagrangian,
@@ -76,7 +77,12 @@ matrices:";
 	Print[#," = 0"]&/@SourceConstraints;
 
 	(*matrix form of the propagator*)
-	MatrixPropagator=FullSimplify@ComplexExpand@DrazinInverse[#]&/@MatrixLagrangian;
+	CouplingAssumptions=(#~Element~Reals)&/@Couplings;
+	CouplingAssumptions~AppendTo~(xAct`PSALTer`Def~Element~Reals);
+	(*Sometimes the Drazin inverse is failing*)
+	(*MatrixPropagator=FullSimplify@ComplexExpand@DrazinInverse[#]&/@MatrixLagrangian;*)
+	(*So we use the Moore-Penrose inverse*)
+	MatrixPropagator=((PseudoInverse@#)~FullSimplify~CouplingAssumptions)&/@MatrixLagrangian;
 	Print@" ** ParticleSpectrum: Matrix propagator as the Drazin (Moore-Penrose) inverse of the Hermition, SPO-rescaled matrix Lagrangian:";
 	Print@(MatrixForm/@MatrixPropagator);
 	InverseBMatricesValues=MatrixPropagator;

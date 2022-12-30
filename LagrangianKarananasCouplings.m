@@ -11,5 +11,5 @@ NonlinearLagrangian=(
 	+(kR1/3+kR2/6-kR3)*R[i,j,k,l]*R[-k,-l,-i,-j]
 	+(kLambda/4+kT1/3+kT2/12)*T[i,j,k]*T[-i,-j,-k]
 	+(-kLambda/2-kT1/3+kT2/6)*T[i,j,k]*T[-j,-k,-i]
-	+(-kLambda-kT1/3+2*kT3/3)*T[i,j,k]*T[-j,-k,-i]
+	+(-kLambda-kT1/3+2*kT3/3)*T[-i,j,i]*T[-k,-j,k]
 );
