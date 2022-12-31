@@ -5,6 +5,9 @@
 PoleToSquareMass[Pole_List]:=Module[{Position=First@Pole,Order=Pole[[2]]},
 	{Simplify@(Position^2-Mo^2),Order}];
 
+NewPoleToSquareMass[Pole_List]:=Module[{Position=First@Pole,Order=Pole[[2]]},
+	{Simplify@(Position^2),Order}];
+
 ExpressInLightcone[RawSector_,SourceComponentsToFreeSourceVariables_List]:=Module[{
 	PrintVariable,
 	Sector=RawSector},
@@ -124,14 +127,12 @@ MassiveAnalysisOfSector[RawSector_,Couplings_]:=Module[{
 
 
 	CouplingAssumptions=(#~Element~Reals)&/@Couplings;
-	CouplingAssumptions~AppendTo~(xAct`PSALTer`Def~Element~Reals);
-	CouplingAssumptions~AppendTo~(xAct`PSALTer`Mo~Element~Reals);
 	Poles=Assuming[CouplingAssumptions,Sector~FunctionPoles~xAct`PSALTer`Def];
 	(*Singularities=Assuming[CouplingAssumptions,Sector~FunctionSingularities~xAct`PSALTer`En];*)
 
 	SquareMassesValues=(
 		First/@(
-				(PoleToSquareMass/@Poles)~Cases~
+				(NewPoleToSquareMass/@Poles)~Cases~
 				(
 					Except@(_?((Variables@First@#~MemberQ~xAct`PSALTer`Mo)&))
 				)
