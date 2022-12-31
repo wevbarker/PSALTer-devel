@@ -65,6 +65,9 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 
 	SaturatedPropagatorArray//=(#~PadRight~{Length@#,First@((Length/@#)~TakeLargest~1)})&;
 
+	Print/@SaturatedPropagatorArray;
+	Quit[];
+
 	LightconePropagator=MapThread[
 		(xAct`HiGGS`Private`HiGGSParallelSubmit@(ExpressInLightcone[#1,#2]))&,
 		{SaturatedPropagatorArray,
@@ -74,7 +77,7 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 	NotebookDelete@PrintVariable;
 
 	Print/@LightconePropagator;
-
+(*
 	MassiveAnalysis=MapThread[
 		(xAct`HiGGS`Private`HiGGSParallelSubmit@(MassiveAnalysisOfSector[#1,#2]))&,
 		{LightconePropagator,
@@ -82,8 +85,8 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 	PrintVariable=PrintTemporary@MassiveAnalysis;
 	MassiveAnalysis=WaitAll@MassiveAnalysis;
 	NotebookDelete@PrintVariable;
-
-(*
+*)
+(**)
 	LightconePropagator//=DeleteCases[#,0,Infinity]&;
 
 	MassiveAnalysis=MapThread[
@@ -93,7 +96,7 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 	PrintVariable=PrintTemporary@MassiveAnalysis;
 	MassiveAnalysis=WaitAll@MassiveAnalysis;
 	NotebookDelete@PrintVariable;
-*)
+(**)
 	Print/@MassiveAnalysis;
 
 	Quit[];
