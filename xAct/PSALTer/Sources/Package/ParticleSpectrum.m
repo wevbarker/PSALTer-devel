@@ -68,9 +68,12 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 	MassiveAnalysis=WaitAll@MassiveAnalysis;
 	NotebookDelete@PrintVariable;
 
+	Print/@MassiveAnalysis;
+
+	Quit[];
+
 	UpdateTheoryAssociation[TheoryName,SquareMasses,MassiveAnalysis,ExportTheory->OptionValue@ExportTheory];
 (**)
-	Print/@MassiveAnalysis;
 
 	(*-----------------------*)
 	(*  LightconePropagator  *)
