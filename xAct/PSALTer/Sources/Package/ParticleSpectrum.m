@@ -19,6 +19,7 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 	UnscaledNullSpace,
 	LightconePropagator,
 	MassiveAnalysis,
+	MassiveGhostAnalysis,
 	MasslessPropagatorResidue,
 	RescaledNullSpace,
 	SourceComponentsToFreeSourceVariables,
@@ -57,11 +58,9 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 
 	SourceComponentsToFreeSourceVariables=MakeFreeSourceVariables[RescaledNullSpace,SourceComponents];
 
-
 	(*====================*)
 	(*  Massive analysis  *)
 	(*====================*)
-
 
 	Print@(SaturatedPropagator[[2]]);
 
@@ -74,6 +73,16 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 	NotebookDelete@PrintVariable;
 
 	Print/@MassiveAnalysis;
+
+	MassiveGhostAnalysis=MapThread[
+		(xAct`HiGGS`Private`HiGGSParallelSubmit@(MassiveGhost[#1,#2]))&,
+		{(SaturatedPropagator[[4]]),
+		MassiveAnalysis}];
+	PrintVariable=PrintTemporary@MassiveGhostAnalysis;
+	MassiveGhostAnalysis=WaitAll@MassiveGhostAnalysis;
+	NotebookDelete@PrintVariable;
+
+	Print/@MassiveGhostAnalysis;
 
 	Quit[];
 
