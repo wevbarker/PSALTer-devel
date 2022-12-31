@@ -73,6 +73,7 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 	LightconePropagator=WaitAll@LightconePropagator;
 	NotebookDelete@PrintVariable;
 
+	Print@/LightconePropagator;
 
 	MassiveAnalysis=MapThread[
 		(xAct`HiGGS`Private`HiGGSParallelSubmit@(MassiveAnalysisOfSector[#1,#2]))&,
