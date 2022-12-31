@@ -85,6 +85,8 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 
 	Print/@MassiveAnalysis;
 
+	Quit[];
+
 	UpdateTheoryAssociation[TheoryName,SquareMasses,MassiveAnalysis,ExportTheory->OptionValue@ExportTheory];
 
 	(*=======================*)
