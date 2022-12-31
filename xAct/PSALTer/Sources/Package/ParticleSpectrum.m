@@ -57,6 +57,8 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 
 	SourceComponentsToFreeSourceVariables=MakeFreeSourceVariables[RescaledNullSpace,SourceComponents];
 
+	Print@(SaturatedPropagator[[2]]);
+
 (**)
 	MassiveAnalysis=MapThread[
 		(xAct`HiGGS`Private`HiGGSParallelSubmit@(MassiveAnalysisOfSector[#1,#2]))&,
