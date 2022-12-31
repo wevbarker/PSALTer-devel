@@ -13,10 +13,13 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 	PrintVariable,
 	FourierDecomposedLagrangian,
 	SaturatedPropagator,
+	SaturatedPropagatorArray,
 	ConstraintComponentList,
 	SourceComponents,
 	UnscaledNullSpace,
 	LightconePropagator,
+	MassiveAnalysis,
+	MasslessPropagatorResidue,
 	RescaledNullSpace,
 	SourceComponentsToFreeSourceVariables,
 	MasslessAnalysis,
@@ -32,15 +35,6 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 	UpdateTheoryAssociation[TheoryName,BMatrices,SaturatedPropagator[[3]],ExportTheory->OptionValue@ExportTheory];
 	UpdateTheoryAssociation[TheoryName,InverseBMatrices,SaturatedPropagator[[4]],ExportTheory->OptionValue@ExportTheory];
 
-	Print@" ** ParticleSpectrum: null eigenvectors of the Lagrangian imply
-the following constraints on the source currents (stress-energy and spin
-tensors) expressed in the lightcone components where
-\[ScriptK]=(\!\(\*SubscriptBox[\(\[ScriptK]\),
-\(0\)]\),\!\(\*SubscriptBox[\(\[ScriptK]\),
-\(1\)]\),\!\(\*SubscriptBox[\(\[ScriptK]\),
-\(2\)]\),\!\(\*SubscriptBox[\(\[ScriptK]\),
-\(3\)]\))=(\[ScriptCapitalE],0,0,\[ScriptP]):";
-
 	ConstraintComponentList=MakeConstraintComponentList[SaturatedPropagator[[1]]];
 	ConstraintComponentList=xAct`xCoba`SeparateBasis[AIndex][#]&/@ConstraintComponentList;
 
@@ -52,7 +46,6 @@ tensors) expressed in the lightcone components where
 	PrintVariable=PrintTemporary@ConstraintComponentList;
 	ConstraintComponentList=WaitAll@ConstraintComponentList;
 	NotebookDelete@PrintVariable;
-	Print/@ConstraintComponentList;
 
 	ConstraintComponentList=DeleteCases[ConstraintComponentList,True];
 	UpdateTheoryAssociation[TheoryName,SourceConstraintComponents,ConstraintComponentList,ExportTheory->OptionValue@ExportTheory];
@@ -67,27 +60,50 @@ tensors) expressed in the lightcone components where
 	(*-----------------------*)
 	(*  LightconePropagator  *)
 	(*-----------------------*)
+	
+	SaturatedPropagatorArray=(If[Head@#===Plus,List@@#,List@#])&/@(SaturatedPropagator[[2]]);
 
+	SaturatedPropagatorArray//=(#~PadRight~{Length@#,First@((Length/@#)~TakeLargest~1)})&;
+
+	LightconePropagator=MapThread[
+		(xAct`HiGGS`Private`HiGGSParallelSubmit@(ExpressInLightcone[#1,#2]))&,
+		{SaturatedPropagatorArray,
+		Map[((SourceComponentsToFreeSourceVariables)&),SaturatedPropagatorArray,{2}]},2];
+
+(*
 	LightconePropagator=MapThread[
 		(xAct`HiGGS`Private`HiGGSParallelSubmit@(MassiveAnalysisOfSector[#1,#2]))&,
 		{SaturatedPropagator[[2]],
 		SourceComponentsToFreeSourceVariables~Table~({i,Length@(SaturatedPropagator[[2]])})}
 	];
+*)
 	PrintVariable=PrintTemporary@LightconePropagator;
 	LightconePropagator=WaitAll@LightconePropagator;
 	NotebookDelete@PrintVariable;
-	Print/@(#[[2]]&)/@LightconePropagator;
 
-	UpdateTheoryAssociation[TheoryName,SquareMasses,(#[[2]]&)/@LightconePropagator,ExportTheory->OptionValue@ExportTheory];
+	LightconePropagator//=DeleteCases[#,0,Infinity]&;
 
-	MasslessAnalysis=MasslessAnalysisOfTotal[First/@LightconePropagator,UnscaledNullSpace];
+	MassiveAnalysis=(xAct`HiGGS`Private`HiGGSParallelSubmit@(MassiveAnalysisOfSectorList@#))&/@LightconePropagator;
+	PrintVariable=PrintTemporary@MassiveAnalysis;
+	MassiveAnalysis=WaitAll@MassiveAnalysis;
+	NotebookDelete@PrintVariable;
+
+	Print/@MassiveAnalysis;
+
+	UpdateTheoryAssociation[TheoryName,SquareMasses,MassiveAnalysis,ExportTheory->OptionValue@ExportTheory];
+
+	(*=======================*)
+	(*  Massless propagator  *)
+	(*=======================*)
+
+	MasslessPropagatorResidue=Map[(xAct`HiGGS`Private`HiGGSParallelSubmit@(NullResidue@#))&,LightconePropagator,{2}];
+	PrintVariable=PrintTemporary@MasslessPropagatorResidue;
+	MasslessPropagatorResidue=WaitAll@MasslessPropagatorResidue;
+	NotebookDelete@PrintVariable;
+
+	MasslessAnalysis=MasslessAnalysisOfTotalList[MasslessPropagatorResidue,UnscaledNullSpace];
 
 	UpdateTheoryAssociation[TheoryName,MasslessEigenvalues,MasslessAnalysis[[2]],ExportTheory->OptionValue@ExportTheory];
 
 	NotebookDelete@PrintVariable;
-
-	If[OptionValue@ExportTheory,
-		Print[" ** DefTheory: Exporting the binary at "<>TheoryName<>".thr.mx"];
-		DumpSave[FileNameJoin@{$WorkingDirectory,TheoryName<>".thr.mx"},{TheoryName}];
-	];
 ];

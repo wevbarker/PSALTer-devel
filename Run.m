@@ -33,6 +33,7 @@ Print/@CriticalCasesSolutions;
 
 Print@"Now to perform the calibration";
 
+(*
 ParticleSpectrum[
 	"Case6",
 	LineariseLagrangian[NonlinearLagrangian/.CriticalCasesSolutions[[6]]],
@@ -40,10 +41,11 @@ ParticleSpectrum[
 	CouplingConstants->{kR1,kR2,kR3,kR4,kR5,kT1,kT2,kT3,kLambda},
 	ExportTheory->True
 ];
+*)
 
-(*
-MapThread[
-		ParticleSpectrum[
+(**)
+CalibrationTimingData=MapThread[
+		AbsoluteTiming@ParticleSpectrum[
 			"Case"<>ToString@#1,
 			LineariseLagrangian[NonlinearLagrangian/.#2],
 			TensorFields->{F,A},
@@ -51,8 +53,10 @@ MapThread[
 			ExportTheory->True
 		]&,
 		{
-			Table[i,{i,1,8}],
-			CriticalCasesSolutions[[1;;8]]
+			Table[i,{i,1,58}],
+			CriticalCasesSolutions[[1;;58]]
 		}];
-*)
+Print@CalibrationTimingData;
+DumpSave[FileNameJoin@{NotebookDirectory[],"CalibrationTimingData.mx"},{CalibrationTimingData}];
+(**)
 Quit[];

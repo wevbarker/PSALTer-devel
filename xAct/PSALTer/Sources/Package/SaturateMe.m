@@ -23,7 +23,7 @@ SaturateMe[Expr_,Couplings_]:=Module[{
 	PrintVariable},
 
 	PrintVariable={};
-	PrintVariable=PrintVariable~Append~PrintTemporary@" ** ParticleSpectrum...";
+	PrintVariable=PrintVariable~Append~PrintTemporary@" ** SaturateMe...";
 
 	(*coefficient matrices*)
 	(*remember the 2m mode turns out to vanish once you consider the cyclic
@@ -42,30 +42,26 @@ SaturateMe[Expr_,Couplings_]:=Module[{
 	(*pick out the blocks of the coefficient arrays that are nonzero*)
 	MatrixLagrangian=#[[1;;(1/2)Length@#,(1/2)Length@#+1;;Length@#]]&/@MatrixLagrangian;
 
-	Print@" ** ParticleSpectrum: Lagrangian as coefficient matrices for the
-HiGGS SO(3) decomposition of the gauge fields:";
-	Print@(MatrixForm/@MatrixLagrangian);
+	(*Lagrangian as coefficient matrices for the
+HiGGS SO(3) decomposition of the gauge fields*)
 
 	(*Hermitian versions of matrices*)
 	ImaginaryParts=Map[If[(MemberQ[Flatten@(Arg@#&/@FactorList[#]),Pi/2]||MemberQ[Flatten@(Arg@#&/@FactorList[#]),-Pi/2]),#,0]&,MatrixLagrangian,{3}];
 	RealParts=MatrixLagrangian-ImaginaryParts;
 	MatrixLagrangian=Simplify/@((1/2)(RealParts+Transpose/@RealParts)+(1/2)(ImaginaryParts-Transpose/@ImaginaryParts));
 
-	Print@" ** ParticleSpectrum: Hermitian equivalent of these coefficient
-matrices:";
-	Print@(MatrixForm/@MatrixLagrangian);
+	(* Hermitian equivalent of these coefficient
+matrices*)
 
 	(*rescaled versions of matrices*)
 	MatrixLagrangian=MapThread[MapThread[#1 #2&,{#1,#2}]&,{MatrixLagrangian,rescmat}]/.rescsols;
 
-	Print@" ** ParticleSpectrum: SPO-rescaled equivalent of these coefficient matrices:";
-	Print@(MatrixForm/@MatrixLagrangian);
+	(*SPO-rescaled equivalent of these coefficient matrices*)
 	BMatricesValues=MatrixLagrangian;
 
 	(*null spaces*)
 	NullSpaces=NullSpace@Transpose[#]&/@MatrixLagrangian;
-	Print@" ** ParticleSpectrum: Null spaces of these coefficient matrices:";
-	Print@NullSpaces;
+	(*Null spaces of these coefficient matrices*)
 
 	(*source constraints*)
 	SourceConstraints=Quiet@DeleteCases[
@@ -73,8 +69,8 @@ matrices:";
 			{NullSpaces,MapThread[MapThread[(#2/#1)&,{#1,#2}]&,{{r0p,r0m,r1p,r1m,r2p,r2m},Ups}]}
 		],0,Infinity]/.rescsols;
 	SourceConstraints=Numerator@Together[#/Sqrt[2^5*3^5*5^5*7^5]]&/@SourceConstraints;
-	Print@" ** ParticleSpectrum: Corresponding source constraints:";
-	Print[#," = 0"]&/@SourceConstraints;
+	(*Corresponding source constraints*)
+	((Print@(#==0))&)/@SourceConstraints;
 
 	(*matrix form of the propagator*)
 	CouplingAssumptions=(#~Element~Reals)&/@Couplings;
@@ -83,8 +79,7 @@ matrices:";
 	(*MatrixPropagator=FullSimplify@ComplexExpand@DrazinInverse[#]&/@MatrixLagrangian;*)
 	(*So we use the Moore-Penrose inverse*)
 	MatrixPropagator=((PseudoInverse@#)~FullSimplify~CouplingAssumptions)&/@MatrixLagrangian;
-	Print@" ** ParticleSpectrum: Matrix propagator as the Drazin (Moore-Penrose) inverse of the Hermition, SPO-rescaled matrix Lagrangian:";
-	Print@(MatrixForm/@MatrixPropagator);
+	(*Matrix propagator as the Drazin (Moore-Penrose) inverse of the Hermition, SPO-rescaled matrix Lagrangian*)
 	InverseBMatricesValues=MatrixPropagator;
 
 	(*saturated form of the propagator*)
@@ -92,8 +87,7 @@ matrices:";
 	SaturatedPropagator=MapThread[#1 . #2 . #3&,{Dagger/@Ups,MatrixPropagator,Downs}];
 	SaturatedPropagator=ToNewCanonical/@SaturatedPropagator;
 	SaturatedPropagator=CollectTensors/@SaturatedPropagator;
-	Print@" ** ParticleSpectrum: Saturated propagator:";
-	Print["\!\(\*SuperscriptBox[OverscriptBox[\(\[ScriptJ]\), \(^\)], \(\[Dagger]\)]\)(\[ScriptK])\[CenterDot]\!\(\*SuperscriptBox[OverscriptBox[\(\[ScriptCapitalO]\), \(^\)], \(-1\)]\)(\[ScriptK])\[CenterDot]\!\(\*OverscriptBox[\(\[ScriptJ]\), \(^\)]\)(\[ScriptK]) = ",Evaluate@ToNewCanonical@Total@SaturatedPropagator];
+	(*"\!\(\*SuperscriptBox[OverscriptBox[\(\[ScriptJ]\), \(^\)], \(\[Dagger]\)]\)(\[ScriptK])\[CenterDot]\!\(\*SuperscriptBox[OverscriptBox[\(\[ScriptCapitalO]\), \(^\)], \(-1\)]\)(\[ScriptK])\[CenterDot]\!\(\*OverscriptBox[\(\[ScriptJ]\), \(^\)]\)(\[ScriptK])"*)
 
 	NotebookDelete@PrintVariable;
 {SourceConstraints,SaturatedPropagator,BMatricesValues,InverseBMatricesValues}];
