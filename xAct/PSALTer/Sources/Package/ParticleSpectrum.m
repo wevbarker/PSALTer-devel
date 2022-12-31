@@ -19,6 +19,7 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 	UnscaledNullSpace,
 	LightconePropagator,
 	MassiveAnalysis,
+	SignedInverseBMatrices,
 	MassiveGhostAnalysis,
 	MasslessPropagatorResidue,
 	RescaledNullSpace,
@@ -28,6 +29,10 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 
 	PrintVariable={};
 	PrintVariable=PrintVariable~Append~PrintTemporary@" ** ParticleSpectrum...";
+
+	(*========================*)
+	(*  Saturated propagator  *)
+	(*========================*)
 
 	FourierDecomposedLagrangian=FourierLagrangian[Expr,Tensors];
 	UpdateTheoryAssociation[TheoryName,MomentumSpaceLagrangian,FourierDecomposedLagrangian,ExportTheory->OptionValue@ExportTheory];
@@ -39,9 +44,9 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 	ConstraintComponentList=MakeConstraintComponentList[SaturatedPropagator[[1]]];
 	ConstraintComponentList=xAct`xCoba`SeparateBasis[AIndex][#]&/@ConstraintComponentList;
 
-	(*---------------------------*)
-	(*  ConstraintComponentList  *)
-	(*---------------------------*)
+	(*======================*)
+	(*  Source constraints  *)
+	(*======================*)
 
 	ConstraintComponentList=(xAct`HiGGS`Private`HiGGSParallelSubmit@(ConstraintComponentToLightcone@#))&/@ConstraintComponentList;
 	PrintVariable=PrintTemporary@ConstraintComponentList;
@@ -72,25 +77,27 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 	MassiveAnalysis=WaitAll@MassiveAnalysis;
 	NotebookDelete@PrintVariable;
 
-	Print/@MassiveAnalysis;
+	Print@MassiveAnalysis;
+
+	SignedInverseBMatrices=Times~MapThread~{(SaturatedPropagator[[4]]),{1,-1,1,-1,1,-1}};
 
 	MassiveGhostAnalysis=MapThread[
 		(xAct`HiGGS`Private`HiGGSParallelSubmit@(MassiveGhost[#1,#2]))&,
-		{(SaturatedPropagator[[4]]),
+		{SignedInverseBMatrices,
 		MassiveAnalysis}];
 	PrintVariable=PrintTemporary@MassiveGhostAnalysis;
 	MassiveGhostAnalysis=WaitAll@MassiveGhostAnalysis;
 	NotebookDelete@PrintVariable;
 
-	Print/@MassiveGhostAnalysis;
+	Print@MassiveGhostAnalysis;
 
 	Quit[];
 
 	UpdateTheoryAssociation[TheoryName,SquareMasses,MassiveAnalysis,ExportTheory->OptionValue@ExportTheory];
 
-	(*-----------------------*)
-	(*  LightconePropagator  *)
-	(*-----------------------*)
+	(*=============*)
+	(*  Lightcone  *)
+	(*=============*)
 	
 	SaturatedPropagatorArray=(If[Head@#===Plus,List@@#,List@#])&/@(SaturatedPropagator[[2]]);
 
@@ -104,19 +111,9 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 	LightconePropagator=WaitAll@LightconePropagator;
 	NotebookDelete@PrintVariable;
 
-(*
-	MassiveAnalysis=MapThread[
-		(xAct`HiGGS`Private`HiGGSParallelSubmit@(MassiveAnalysisOfSector[#1,#2]))&,
-		{LightconePropagator,
-		Map[((Couplings)&),LightconePropagator,{2}]},2];
-	PrintVariable=PrintTemporary@MassiveAnalysis;
-	MassiveAnalysis=WaitAll@MassiveAnalysis;
-	NotebookDelete@PrintVariable;
-*)
-
-	(*=======================*)
-	(*  Massless propagator  *)
-	(*=======================*)
+	(*=====================*)
+	(*  Massless analysis  *)
+	(*=====================*)
 
 	MasslessPropagatorResidue=Map[(xAct`HiGGS`Private`HiGGSParallelSubmit@(NullResidue@#))&,LightconePropagator,{2}];
 	PrintVariable=PrintTemporary@MasslessPropagatorResidue;
