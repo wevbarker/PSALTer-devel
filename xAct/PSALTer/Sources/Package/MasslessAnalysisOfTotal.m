@@ -2,15 +2,6 @@
 (*  MasslessAnalysisOfTotal  *)
 (*===========================*)
 
-NullResidue[LightconePropagator_]:=Module[{
-	PrintVariable,
-	MasslessPropagaor=LightconePropagator,
-	MasslessPropagaorResidue},
-
-	MasslessPropagaor//=Together;
-	MasslessPropagaorResidue=2*Mo*Residue[MasslessPropagaor,{En,Mo}]//Simplify;
-MasslessPropagaorResidue];
-
 MasslessAnalysisOfTotalList[RawMasslessPropagaorResidue_List,NullSpace_List]:=Module[{
 	PrintVariable,
 	MasslessPropagaorResidue=RawMasslessPropagaorResidue,
@@ -19,7 +10,8 @@ MasslessAnalysisOfTotalList[RawMasslessPropagaorResidue_List,NullSpace_List]:=Mo
 	NumeratorFreeSourceCoefficientMatrix,
 	NumeratorFreeSourceEigenvalues},
 
-	Print@" ** MasslessAnalysisOfTotalList...";
+	PrintVariable={};
+	PrintVariable=PrintVariable~Append~PrintTemporary@" ** MasslessAnalysisOfTotalList...";
 
 	MasslessPropagaorResidue//=Flatten;
 	MasslessPropagaorResidue//=Total;
@@ -39,4 +31,5 @@ MasslessAnalysisOfTotalList[RawMasslessPropagaorResidue_List,NullSpace_List]:=Mo
 		Print@NumeratorFreeSourceEigenvalues;
 	];
 
+	NotebookDelete@PrintVariable;
 {MasslessPropagaorResidue,NumeratorFreeSourceEigenvalues}];

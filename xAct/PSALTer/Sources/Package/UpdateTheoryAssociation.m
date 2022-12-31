@@ -24,7 +24,7 @@ UpdateTheoryAssociation[Name_?StringQ,AssocKey_,Val_,OptionsPattern[]]:=Module[{
 	];
 
 	If[OptionValue@ExportTheory,
-		Print[" ** DefTheory: Exporting the binary at "<>Name<>".thr.mx"];
+		(*Print[" ** DefTheory: Exporting the binary at "<>Name<>".thr.mx"];*)
 		DumpSave[FileNameJoin@{$WorkingDirectory,Name<>".thr.mx"},{Name}];
 	];
 

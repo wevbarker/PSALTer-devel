@@ -2,11 +2,6 @@
 (*  ConstructSaturatedPropagator  *)
 (*================================*)
 
-NonTrivialDot[LeftOperand_,RightOperand_]:=If[((LeftOperand=={})||(LeftOperand=={})),
-		0,
-		LeftOperand~Dot~RightOperand,
-		LeftOperand~Dot~RightOperand];
-
 ConstructSaturatedPropagator[Expr_,Couplings_]:=Module[{
 	CouplingAssumptions,
 	SymbolicLagrangian,
@@ -69,8 +64,6 @@ matrices*)
 			{NullSpaces,MapThread[MapThread[(#2/#1)&,{#1,#2}]&,{{r0p,r0m,r1p,r1m,r2p,r2m},Ups}]}
 		],0,Infinity]/.rescsols;
 	SourceConstraints=Numerator@Together[#/Sqrt[2^5*3^5*5^5*7^5]]&/@SourceConstraints;
-	(*Corresponding source constraints*)
-	((Print@(#==0))&)/@SourceConstraints;
 
 	(*matrix form of the propagator*)
 	CouplingAssumptions=(#~Element~Reals)&/@Couplings;

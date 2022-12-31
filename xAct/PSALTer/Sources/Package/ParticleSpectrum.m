@@ -32,23 +32,30 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 	PrintVariable={};
 	PrintVariable=PrintVariable~Append~PrintTemporary@" ** ParticleSpectrum...";
 
-	(*========================*)
-	(*  Saturated propagator  *)
-	(*========================*)
+	(*=========================*)
+	(*  Fourier decomposition  *)
+	(*=========================*)
 
 	FourierDecomposedLagrangian=FourierLagrangian[Expr,Tensors];
 	UpdateTheoryAssociation[TheoryName,MomentumSpaceLagrangian,FourierDecomposedLagrangian,ExportTheory->OptionValue@ExportTheory];
+
+	(*========================*)
+	(*  Saturated propagator  *)
+	(*========================*)
 
 	SaturatedPropagator=ConstructSaturatedPropagator[FourierDecomposedLagrangian,Couplings];
 	UpdateTheoryAssociation[TheoryName,BMatrices,SaturatedPropagator[[3]],ExportTheory->OptionValue@ExportTheory];
 	UpdateTheoryAssociation[TheoryName,InverseBMatrices,SaturatedPropagator[[4]],ExportTheory->OptionValue@ExportTheory];
 
-	ConstraintComponentList=MakeConstraintComponentList[SaturatedPropagator[[1]]];
-	ConstraintComponentList=xAct`xCoba`SeparateBasis[AIndex][#]&/@ConstraintComponentList;
+	Print@"Gauge constraints on source currents:";
+	Print@(((Simplify@(#==0))&)/@(SaturatedPropagator[[1]]));
 
 	(*======================*)
 	(*  Source constraints  *)
 	(*======================*)
+
+	ConstraintComponentList=MakeConstraintComponentList[SaturatedPropagator[[1]]];
+	ConstraintComponentList=xAct`xCoba`SeparateBasis[AIndex][#]&/@ConstraintComponentList;
 
 	ConstraintComponentList=(xAct`HiGGS`Private`HiGGSParallelSubmit@(ConstraintComponentToLightcone@#))&/@ConstraintComponentList;
 	PrintVariable=PrintTemporary@ConstraintComponentList;
@@ -77,6 +84,7 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 	MassiveAnalysis=WaitAll@MassiveAnalysis;
 	NotebookDelete@PrintVariable;
 
+	Print@"Square masses:";
 	Print@MassiveAnalysis;
 
 	SignedInverseBMatrices=Times~MapThread~{(SaturatedPropagator[[4]]),{1,-1,1,-1,1,-1}};
@@ -89,6 +97,7 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 	MassiveGhostAnalysis=WaitAll@MassiveGhostAnalysis;
 	NotebookDelete@PrintVariable;
 
+	Print@"Massive pole residues:";
 	Print@MassiveGhostAnalysis;
 
 	UpdateTheoryAssociation[TheoryName,SquareMasses,MassiveAnalysis,ExportTheory->OptionValue@ExportTheory];
@@ -129,6 +138,9 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 
 	PositiveSystemValue=Unitarity[
 		MassiveAnalysis,MassiveGhostAnalysis,MasslessAnalysisValue,Couplings];
+
+	Print@"Overall unitarity conditions:";
+	Print@PositiveSystemValue;
 
 	UpdateTheoryAssociation[TheoryName,PositiveSystem,PositiveSystemValue,ExportTheory->OptionValue@ExportTheory];
 

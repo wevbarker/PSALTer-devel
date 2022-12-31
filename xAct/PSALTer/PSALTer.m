@@ -75,13 +75,18 @@ BuildRebuild[FileName_String]:=Get[FileNameJoin@{$PSALTerInstallDirectory,"Sourc
 BuildPSALTerPackage[]:=BuildPackage/@{
 	"BuildPSALTer.m",
 	"FourierLagrangian.m",
+	"NonTrivialDot.m",
 	"ConstructSaturatedPropagator.m",
 	"MakeConstraintComponentList.m",
 	"ConstraintComponentToLightcone.m",
 	"IndependentComponents.m",
 	"RescaleNullVector.m",
 	"MakeFreeSourceVariables.m",
+	"PoleToSquareMass.m",
+	"ExpressInLightcone.m",
 	"MassiveAnalysisOfSector.m",
+	"MassiveGhost.m",
+	"NullResidue.m",
 	"MasslessAnalysisOfTotal.m",
 	"Unitarity.m",
 	"UpdateTheoryAssociation.m",
@@ -99,7 +104,7 @@ ContextList={
 };
 
 Begin["xAct`PSALTer`"];
-	xAct`PSALTer`Private`BuildPSALTer[xAct`PSALTer`Private`Recompile->False];
+	xAct`PSALTer`Private`BuildPSALTer[xAct`PSALTer`Private`Recompile->True];
 End[];
 
 End[];
