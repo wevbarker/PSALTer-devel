@@ -39,7 +39,7 @@ Print/@CriticalCasesSolutions;
 
 Comment@"Now to perform the calibration";
 
-(**)
+(*
 ParticleSpectrum[
 	"Case8",
 	LineariseLagrangian[NonlinearLagrangian/.CriticalCasesSolutions[[8]]],
@@ -47,9 +47,9 @@ ParticleSpectrum[
 	CouplingConstants->{kR1,kR2,kR3,kR4,kR5,kT1,kT2,kT3,kLambda},
 	ExportTheory->True
 ];
-(**)
+*)
 
-(*
+(**)
 CalibrationTimingData=MapThread[
 		AbsoluteTiming@(
 			Print@Simplify@ToCanonical[NonlinearLagrangian/.#2];
@@ -67,5 +67,5 @@ CalibrationTimingData=MapThread[
 		}];
 Print@CalibrationTimingData;
 DumpSave[FileNameJoin@{NotebookDirectory[],"CalibrationTimingData.mx"},{CalibrationTimingData}];
-*)
+		(**)
 Quit[];
