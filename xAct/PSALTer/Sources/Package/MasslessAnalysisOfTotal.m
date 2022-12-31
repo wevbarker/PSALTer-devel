@@ -51,6 +51,9 @@ MasslessAnalysisOfTotal[LightconePropagator_List,NullSpace_List]:=Module[{
 	MasslessPropagaor=Together@Total@LightconePropagator;
 	MasslessPropagaorResidue=2*Mo*Residue[MasslessPropagaor,{En,Mo}]//Simplify;
 
+	Print@"here is the residue";
+	Print@MasslessPropagaorResidue;
+
 	NullSpaceDimension=(Dimensions@NullSpace)[[1]];
 	FreeSourceVariables=Table[Symbol["X"<>ToString@i],{i,NullSpaceDimension}];
 
