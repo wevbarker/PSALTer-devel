@@ -83,6 +83,7 @@ BuildPSALTerPackage[]:=BuildPackage/@{
 	"MakeFreeSourceVariables.m",
 	"MassiveAnalysisOfSector.m",
 	"MasslessAnalysisOfTotal.m",
+	"Unitarity.m",
 	"UpdateTheoryAssociation.m",
 	"ParticleSpectrum.m",
 	"ViewParticleSpectrum.m"

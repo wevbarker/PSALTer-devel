@@ -25,7 +25,9 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 	RescaledNullSpace,
 	SourceComponentsToFreeSourceVariables,
 	MasslessAnalysis,
-	MasslessEigenvaluesValues},
+	MasslessEigenvaluesValues,
+	MasslessAnalysisValue,
+	PositiveSystem},
 
 	PrintVariable={};
 	PrintVariable=PrintVariable~Append~PrintTemporary@" ** ParticleSpectrum...";
@@ -91,8 +93,6 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 
 	Print@MassiveGhostAnalysis;
 
-	Quit[];
-
 	UpdateTheoryAssociation[TheoryName,SquareMasses,MassiveAnalysis,ExportTheory->OptionValue@ExportTheory];
 
 	(*=============*)
@@ -121,8 +121,18 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 	NotebookDelete@PrintVariable;
 
 	MasslessAnalysis=MasslessAnalysisOfTotalList[MasslessPropagatorResidue,UnscaledNullSpace];
+	MasslessAnalysisValue=MasslessAnalysis[[2]];
 
-	UpdateTheoryAssociation[TheoryName,MasslessEigenvalues,MasslessAnalysis[[2]],ExportTheory->OptionValue@ExportTheory];
+	UpdateTheoryAssociation[TheoryName,MasslessEigenvalues,MasslessAnalysisValue,ExportTheory->OptionValue@ExportTheory];
+
+	(*=============*)
+	(*  Unitarity  *)
+	(*=============*)
+
+	PositiveSystemValue=Unitarity[
+		MassiveAnalysis,MassiveGhostAnalysis,MasslessAnalysisValue,Couplings];
+
+	UpdateTheoryAssociation[TheoryName,PositiveSystem,PositiveSystemValue,ExportTheory->OptionValue@ExportTheory];
 
 	NotebookDelete@PrintVariable;
 ];
