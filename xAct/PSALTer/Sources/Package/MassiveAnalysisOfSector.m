@@ -109,7 +109,7 @@ MassiveAnalysisOfSectorList[RawSector_List,Couplings_]:=Module[{
 
 SquareMassesValues];
 
-MassiveAnalysisOfSector[RawSector_,Couplings_]:=Module[{
+MassiveAnalysisOfSector[RawSector,Couplings_]:=Module[{
 	PrintVariable,
 	Sector=RawSector,
 	CouplingAssumptions,
