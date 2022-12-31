@@ -25,6 +25,9 @@ MasslessAnalysisOfTotalList[RawMasslessPropagaorResidue_List,NullSpace_List]:=Mo
 	MasslessPropagaorResidue//=Total;
 	MasslessPropagaorResidue//=Simplify;
 
+	Print@"here is the residue";
+	Print@MasslessPropagaorResidue;
+
 	NullSpaceDimension=(Dimensions@NullSpace)[[1]];
 	FreeSourceVariables=Table[Symbol["X"<>ToString@i],{i,NullSpaceDimension}];
 
