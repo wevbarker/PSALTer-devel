@@ -2,36 +2,42 @@
 (*  Run  *)
 (*=======*)
 
-Print@"First we load the PSALTer package:";
+Print@"First we import some formatting...";
+
+Get@FileNameJoin@{NotebookDirectory[],"VimFormat.m"};
+
+Comment@"Okay, that's better, from now on any commentary written inside this
+Calibration.m wrapper will present as blue text (i.e. this text is not part of
+	PSALTer, it is just a use-case). Next we load the PSALTer package:";
 
 <<xAct`PSALTer`;
 
-Print@"Now we set up the general Lagrangian:";
+Comment@"Now we set up the general Lagrangian:";
 
 Get@FileNameJoin@{NotebookDirectory[],"LagrangianKarananasCouplings.m"};
 (*Get@FileNameJoin@{Directory[],"LagrangianHayashiShirafujiCouplings.m"};*)
 
 Print@NonlinearLagrangian;
 
-Print@"We also knock up some simple tools to linearise the Lagrangian:";
+Comment@"We also knock up some simple tools to linearise the Lagrangian:";
 
 Get@FileNameJoin@{NotebookDirectory[],"Linearise.m"};
 
-Print@"Next we write down all the cases which define the theories in
+Comment@"Next we write down all the cases which define the theories in
 arXiv:1910.14197:";
 
 Get@FileNameJoin@{NotebookDirectory[],"CriticalCases.m"};
 
 Print/@CriticalCases;
 
-Print@"Now we wish to solve for these:";
+Comment@"Now we wish to solve for these:";
 
 Off[Solve::svars];
 CriticalCasesSolutions=First/@(Solve[#,{kR1,kR2,kR3,kR4,kR5,kT1,kT2,kT3,kLambda}]&/@CriticalCases);
 On[Solve::svars];
 Print/@CriticalCasesSolutions;
 
-Print@"Now to perform the calibration";
+Comment@"Now to perform the calibration";
 
 (**)
 ParticleSpectrum[

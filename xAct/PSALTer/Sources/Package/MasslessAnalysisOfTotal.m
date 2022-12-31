@@ -24,11 +24,9 @@ MasslessAnalysisOfTotalList[RawMasslessPropagaorResidue_List,NullSpace_List]:=Mo
 		NumeratorFreeSourceCoefficientMatrix=Last@CoefficientArrays[MasslessPropagaorResidue,FreeSourceVariables~Join~(Evaluate@Dagger[FreeSourceVariables]),"Symmetric"->False];
 		NumeratorFreeSourceCoefficientMatrix=NumeratorFreeSourceCoefficientMatrix[[1;;(1/2)Length@#,(1/2)Length@#+1;;Length@#]]&@NumeratorFreeSourceCoefficientMatrix;
 		NumeratorFreeSourceEigenvalues=Eigenvalues@NumeratorFreeSourceCoefficientMatrix;
-		NumeratorFreeSourceEigenvalues//=DeleteCases[#,0,Infinity]&;
-		Print@NumeratorFreeSourceEigenvalues;,
+		NumeratorFreeSourceEigenvalues//=DeleteCases[#,0,Infinity]&;,
 
 		NumeratorFreeSourceEigenvalues={};
-		Print@NumeratorFreeSourceEigenvalues;
 	];
 
 	NotebookDelete@PrintVariable;
