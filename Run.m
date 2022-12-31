@@ -45,9 +45,9 @@ ParticleSpectrum[
 
 (*
 CalibrationTimingData=MapThread[
-		(
+		AbsoluteTiming@(
 			Print@Simplify@ToCanonical[NonlinearLagrangian/.#2];
-			AbsoluteTiming@ParticleSpectrum[
+			ParticleSpectrum[
 				"Case"<>ToString@#1,
 				LineariseLagrangian[NonlinearLagrangian/.#2],
 				TensorFields->{F,A},
