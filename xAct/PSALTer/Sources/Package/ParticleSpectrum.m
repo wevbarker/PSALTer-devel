@@ -59,7 +59,7 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 
 (**)
 	MassiveAnalysis=MapThread[
-		(xAct`HiGGS`Private`HiGGSParallelSubmit@(MassiveAnalysisOfSectorList[#1,#2]))&,
+		(xAct`HiGGS`Private`HiGGSParallelSubmit@(MassiveAnalysisOfSector[#1,#2]))&,
 		{(SaturatedPropagator[[2]]),
 		Couplings~ConstantArray~(Length@(SaturatedPropagator[[2]]))}];
 	PrintVariable=PrintTemporary@MassiveAnalysis;

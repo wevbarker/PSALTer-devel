@@ -109,7 +109,7 @@ MassiveAnalysisOfSectorList[RawSector_List,Couplings_]:=Module[{
 
 SquareMassesValues];
 
-MassiveAnalysisOfSector[RawSector,Couplings_]:=Module[{
+MassiveAnalysisOfSector[RawSector_,Couplings_]:=Module[{
 	PrintVariable,
 	Sector=RawSector,
 	CouplingAssumptions,
@@ -126,7 +126,7 @@ MassiveAnalysisOfSector[RawSector,Couplings_]:=Module[{
 	CouplingAssumptions=(#~Element~Reals)&/@Couplings;
 	CouplingAssumptions~AppendTo~(xAct`PSALTer`Def~Element~Reals);
 	CouplingAssumptions~AppendTo~(xAct`PSALTer`Mo~Element~Reals);
-	Poles=Assuming[CouplingAssumptions,Sector~FunctionPoles~xAct`PSALTer`En];
+	Poles=Assuming[CouplingAssumptions,Sector~FunctionPoles~xAct`PSALTer`Def];
 	(*Singularities=Assuming[CouplingAssumptions,Sector~FunctionSingularities~xAct`PSALTer`En];*)
 
 	SquareMassesValues=(
