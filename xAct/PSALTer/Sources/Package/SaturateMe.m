@@ -78,7 +78,8 @@ matrices*)
 	(*Sometimes the Drazin inverse is failing*)
 	(*MatrixPropagator=FullSimplify@ComplexExpand@DrazinInverse[#]&/@MatrixLagrangian;*)
 	(*So we use the Moore-Penrose inverse*)
-	MatrixPropagator=((PseudoInverse@#)~FullSimplify~CouplingAssumptions)&/@MatrixLagrangian;
+	MatrixPropagator=Assuming[CouplingAssumptions,((PseudoInverse@#))&/@MatrixLagrangian];
+	MatrixPropagator=((#)~FullSimplify~CouplingAssumptions)&/@MatrixPropagator;
 	(*Matrix propagator as the Drazin (Moore-Penrose) inverse of the Hermition, SPO-rescaled matrix Lagrangian*)
 	InverseBMatricesValues=MatrixPropagator;
 
