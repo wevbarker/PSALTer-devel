@@ -39,7 +39,7 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 	FourierDecomposedLagrangian=FourierLagrangian[Expr,Tensors];
 	UpdateTheoryAssociation[TheoryName,MomentumSpaceLagrangian,FourierDecomposedLagrangian,ExportTheory->OptionValue@ExportTheory];
 
-	SaturatedPropagator=SaturateMe[FourierDecomposedLagrangian,Couplings];
+	SaturatedPropagator=ConstructSaturatedPropagator[FourierDecomposedLagrangian,Couplings];
 	UpdateTheoryAssociation[TheoryName,BMatrices,SaturatedPropagator[[3]],ExportTheory->OptionValue@ExportTheory];
 	UpdateTheoryAssociation[TheoryName,InverseBMatrices,SaturatedPropagator[[4]],ExportTheory->OptionValue@ExportTheory];
 

@@ -12,9 +12,6 @@ Unitarity[MassiveAnalysis_,MassiveGhostAnalysis_,MasslessAnalysisValue_,Coupling
 
 	PositiveSystem//=Flatten;
 	PositiveSystem=(#>0)&/@PositiveSystem;
-	dfd=PositiveSystem;
-	Print@Assuming[CouplingAssumptions,FullSimplify[dfd]];
-	Print@PositiveSystem;
 	PositiveSystem//=Assuming[CouplingAssumptions,Reduce[#,Couplings]]&;
 	Print@PositiveSystem;
 PositiveSystem];

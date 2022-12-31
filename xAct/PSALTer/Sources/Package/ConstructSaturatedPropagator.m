@@ -1,13 +1,13 @@
-(*==============*)
-(*  SaturateMe  *)
-(*==============*)
+(*================================*)
+(*  ConstructSaturatedPropagator  *)
+(*================================*)
 
 NonTrivialDot[LeftOperand_,RightOperand_]:=If[((LeftOperand=={})||(LeftOperand=={})),
 		0,
 		LeftOperand~Dot~RightOperand,
 		LeftOperand~Dot~RightOperand];
 
-SaturateMe[Expr_,Couplings_]:=Module[{
+ConstructSaturatedPropagator[Expr_,Couplings_]:=Module[{
 	CouplingAssumptions,
 	SymbolicLagrangian,
 	Symbols,
@@ -23,7 +23,7 @@ SaturateMe[Expr_,Couplings_]:=Module[{
 	PrintVariable},
 
 	PrintVariable={};
-	PrintVariable=PrintVariable~Append~PrintTemporary@" ** SaturateMe...";
+	PrintVariable=PrintVariable~Append~PrintTemporary@" ** ConstructSaturatedPropagator...";
 
 	(*coefficient matrices*)
 	(*remember the 2m mode turns out to vanish once you consider the cyclic

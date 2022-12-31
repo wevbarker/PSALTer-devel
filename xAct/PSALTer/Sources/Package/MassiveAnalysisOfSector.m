@@ -2,9 +2,6 @@
 (*  MassiveAnalysisOfSector  *)
 (*===========================*)
 
-PoleToSquareMass[Pole_List]:=Module[{Position=First@Pole,Order=Pole[[2]]},
-	{Simplify@(Position^2-Mo^2),Order}];
-
 NewPoleToSquareMass[Pole_List]:=Module[{Position=First@Pole,Order=Pole[[2]]},
 	{Simplify@(Position^2),Order}];
 
@@ -77,40 +74,6 @@ ExpressInLightcone[RawSector_,SourceComponentsToFreeSourceVariables_List]:=Modul
 	NotebookDelete@PrintVariable;
 
 Sector];
-
-MassiveAnalysisOfSectorList[RawSector_List,Couplings_]:=Module[{
-	PrintVariable,
-	Sector=Total@RawSector,
-	CouplingAssumptions,
-	Poles,
-	Singularities,
-	SquareMassesValues},
-
-	PrintVariable={};
-	PrintVariable=PrintVariable~Append~PrintTemporary@" ** MassiveAnalysisOfSector...";
-
-	Sector//=Together;
-
-
-	CouplingAssumptions=(#~Element~Reals)&/@Couplings;
-	CouplingAssumptions~AppendTo~(xAct`PSALTer`Def~Element~Reals);
-	CouplingAssumptions~AppendTo~(xAct`PSALTer`Mo~Element~Reals);
-	Poles=Assuming[CouplingAssumptions,Sector~FunctionPoles~xAct`PSALTer`En];
-	(*Singularities=Assuming[CouplingAssumptions,Sector~FunctionSingularities~xAct`PSALTer`En];*)
-
-	SquareMassesValues=(
-		First/@(
-				(PoleToSquareMass/@Poles)~Cases~
-				(
-					Except@(_?((Variables@First@#~MemberQ~xAct`PSALTer`Mo)&))
-				)
-			)
-		);
-
-	SquareMassesValues//=DeleteDuplicates;
-	SquareMassesValues//=DeleteCases[#,0,Infinity]&;
-
-SquareMassesValues];
 
 MassiveAnalysisOfSector[RawSector_,Couplings_]:=Module[{
 	PrintVariable,

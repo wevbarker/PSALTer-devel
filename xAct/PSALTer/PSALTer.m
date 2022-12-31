@@ -75,7 +75,7 @@ BuildRebuild[FileName_String]:=Get[FileNameJoin@{$PSALTerInstallDirectory,"Sourc
 BuildPSALTerPackage[]:=BuildPackage/@{
 	"BuildPSALTer.m",
 	"FourierLagrangian.m",
-	"SaturateMe.m",
+	"ConstructSaturatedPropagator.m",
 	"MakeConstraintComponentList.m",
 	"ConstraintComponentToLightcone.m",
 	"IndependentComponents.m",
