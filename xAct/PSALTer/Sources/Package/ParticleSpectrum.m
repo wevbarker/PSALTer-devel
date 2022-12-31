@@ -27,7 +27,8 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 	MasslessAnalysis,
 	MasslessEigenvaluesValues,
 	MasslessAnalysisValue,
-	PositiveSystem},
+	PositiveSystem,
+	PositiveSystemValue},
 
 	PrintVariable={};
 	PrintVariable=PrintVariable~Append~PrintTemporary@" ** ParticleSpectrum...";
@@ -131,6 +132,9 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 	MasslessAnalysisValue=MasslessAnalysis[[2]];
 
 	UpdateTheoryAssociation[TheoryName,MasslessEigenvalues,MasslessAnalysisValue,ExportTheory->OptionValue@ExportTheory];
+
+	Print@"Massless eigenvalues:";
+	Print@MasslessAnalysisValue;
 
 	(*=============*)
 	(*  Unitarity  *)
