@@ -141,6 +141,6 @@ MassiveAnalysisOfSector[RawSector_,Couplings_]:=Module[{
 
 	SquareMassesValues//=DeleteDuplicates;
 	SquareMassesValues//=DeleteCases[#,0,Infinity]&;
-	SquareMassesValues//=DeleteCases[#,_?NumberQ,Infinity]&;
+	SquareMassesValues//=DeleteCases[#,_?NumberQ]&;
 
 SquareMassesValues];
