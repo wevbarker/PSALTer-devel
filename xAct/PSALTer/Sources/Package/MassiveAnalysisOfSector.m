@@ -86,7 +86,7 @@ MassiveAnalysisOfSectorList[RawSector_List,Couplings_]:=Module[{
 	PrintVariable={};
 	PrintVariable=PrintVariable~Append~PrintTemporary@" ** MassiveAnalysisOfSector...";
 
-	Sector//=Together;
+	(*Sector//=Together;*)
 
 
 	CouplingAssumptions=(#~Element~Reals)&/@Couplings;
