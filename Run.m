@@ -35,7 +35,7 @@ Print@"Now to perform the calibration";
 
 (**)
 ParticleSpectrum[
-	"Case6",
+	"Case42",
 	LineariseLagrangian[NonlinearLagrangian/.CriticalCasesSolutions[[42]]],
 	TensorFields->{F,A},
 	CouplingConstants->{kR1,kR2,kR3,kR4,kR5,kT1,kT2,kT3,kLambda},

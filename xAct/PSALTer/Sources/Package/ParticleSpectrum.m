@@ -69,21 +69,16 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 		(xAct`HiGGS`Private`HiGGSParallelSubmit@(ExpressInLightcone[#1,#2]))&,
 		{SaturatedPropagatorArray,
 		Map[((SourceComponentsToFreeSourceVariables)&),SaturatedPropagatorArray,{2}]},2];
-
-(*
-	LightconePropagator=MapThread[
-		(xAct`HiGGS`Private`HiGGSParallelSubmit@(MassiveAnalysisOfSector[#1,#2]))&,
-		{SaturatedPropagator[[2]],
-		SourceComponentsToFreeSourceVariables~Table~({i,Length@(SaturatedPropagator[[2]])})}
-	];
-*)
 	PrintVariable=PrintTemporary@LightconePropagator;
 	LightconePropagator=WaitAll@LightconePropagator;
 	NotebookDelete@PrintVariable;
 
 	LightconePropagator//=DeleteCases[#,0,Infinity]&;
 
-	MassiveAnalysis=(xAct`HiGGS`Private`HiGGSParallelSubmit@(MassiveAnalysisOfSectorList@#))&/@LightconePropagator;
+	MassiveAnalysis=MapThread[
+		(xAct`HiGGS`Private`HiGGSParallelSubmit@(MassiveAnalysisOfSectorList[#1,#2]))&,
+		{LightconePropagator,
+		Couplings~ConstantArray~(Length@LightconePropagator)}];
 	PrintVariable=PrintTemporary@MassiveAnalysis;
 	MassiveAnalysis=WaitAll@MassiveAnalysis;
 	NotebookDelete@PrintVariable;

@@ -75,9 +75,10 @@ ExpressInLightcone[RawSector_,SourceComponentsToFreeSourceVariables_List]:=Modul
 
 Sector];
 
-MassiveAnalysisOfSectorList[RawSector_List]:=Module[{
+MassiveAnalysisOfSectorList[RawSector_List,Couplings_]:=Module[{
 	PrintVariable,
 	Sector=Total@RawSector,
+	CouplingAssumptions,
 	Poles,
 	SquareMassesValues},
 
@@ -86,13 +87,18 @@ MassiveAnalysisOfSectorList[RawSector_List]:=Module[{
 
 	Sector//=Together;
 
-	Poles=Sector~FunctionPoles~En;
+
+	CouplingAssumptions=(#~Element~Reals)&/@Couplings;
+	CouplingAssumptions~AppendTo~(xAct`PSALTer`Def~Element~Reals);
+	CouplingAssumptions~AppendTo~(xAct`PSALTer`En~Element~Reals);
+	CouplingAssumptions~AppendTo~(xAct`PSALTer`Mo~Element~Reals);
+	Poles=Assuming[CouplingAssumptions,Sector~FunctionPoles~xAct`PSALTer`En];
 
 	SquareMassesValues=(
 		First/@(
 				(PoleToSquareMass/@Poles)~Cases~
 				(
-					Except@(_?((Variables@First@#~MemberQ~Mo)&))
+					Except@(_?((Variables@First@#~MemberQ~xAct`PSALTer`Mo)&))
 				)
 			)
 		);
@@ -101,89 +107,3 @@ MassiveAnalysisOfSectorList[RawSector_List]:=Module[{
 	SquareMassesValues//=DeleteCases[#,0,Infinity]&;
 
 SquareMassesValues];
-
-MassiveAnalysisOfSector[RawSector_,SourceComponentsToFreeSourceVariables_List]:=Module[{
-	PrintVariable,
-	Sector=RawSector,
-	Poles,
-	SquareMassesValues},
-
-	PrintVariable={};
-	PrintVariable=PrintVariable~Append~PrintTemporary@" ** MassiveAnalysisOfSector...";
-
-	Sector//=NoScalar;
-	Sector=Sector/.SourcePO3Activate;
-	Sector//=NoScalar;
-	Sector//=ToNewCanonical;
-	Sector=Sector/.SourcePerpO3Activate;
-	Sector//=NoScalar;
-	Sector//=ToNewCanonical;
-	Sector=Sector/.PADMPiActivate;
-	Sector//=NoScalar;
-	Sector//=ToNewCanonical;
-	Sector=Sector/.PO3PiActivate;
-	Sector//=NoScalar;
-	Sector//=ToNewCanonical;
-	Sector=Sector/.PADMActivate;
-	Sector//=NoScalar;
-	Sector//=ToNewCanonical;
-	Sector=Sector/.SourceCompose;
-	Sector//=xAct`xCoba`SeparateBasis[AIndex];
-	Sector=Sector/.ToP;
-	Sector=Sector/.SourceCompose;
-	Sector//=xAct`xCoba`SeparateBasis[AIndex];
-	Sector=Sector/.ToP;
-	Sector//=NoScalar;
-	Sector//=ToNewCanonical;
-	Sector=Sector/.ToV;
-	Sector//=ToNewCanonical;
-	Sector=Sector/.ToP;
-	Sector//=xAct`xCoba`SeparateBasis[AIndex];
-	Sector//=NoScalar;
-	Sector=Sector/.ToP;
-	Sector//=ToNewCanonical;
-	Sector//=NoScalar;
-
-	PrintVariable=PrintVariable~Append~PrintTemporary[" ** SeparateMetric..."];
-	Sector=SeparateMetric[G][Evaluate@Sector];
-
-	PrintVariable=PrintVariable~Append~PrintTemporary[" ** SeparateBasis..."];
-	Sector//=xAct`xCoba`SeparateBasis[cartesian];
-
-	PrintVariable=PrintVariable~Append~PrintTemporary[" ** ContractBasis..."];
-	Sector//=xAct`xCoba`ContractBasis;
-
-	PrintVariable=PrintVariable~Append~PrintTemporary[" ** TraceBasisDummy..."];
-	Sector//=xAct`xCoba`TraceBasisDummy;
-
-	PrintVariable=PrintVariable~Append~PrintTemporary[" ** TensorValues..."];
-	Sector=Sector/.xAct`xCoba`TensorValues[P];
-	Sector=Sector/.xAct`xCoba`TensorValues[G];
-	Sector=Sector/.xAct`xCoba`TensorValues[Tau];
-	Sector=Sector/.xAct`xCoba`TensorValues[Sigma];
-	Sector=Sector/.xAct`xCoba`TensorValues[Dagger@Tau];
-	Sector=Sector/.xAct`xCoba`TensorValues[Dagger@Sigma];
-	Sector=Sector/.{Def->Sqrt[En^2-Mo^2]};
-	Sector//=Together;
-
-	PrintVariable=PrintVariable~Append~PrintTemporary[" ** Imposing conserved sources..."];
-	Sector=Sector/.SourceComponentsToFreeSourceVariables;
-	Sector//=Together;
-
-	NotebookDelete@PrintVariable;
-
-	Poles=Sector~FunctionPoles~En;
-
-	SquareMassesValues=(
-		First/@(
-				(PoleToSquareMass/@Poles)~Cases~
-				(
-					Except@(_?((Variables@First@#~MemberQ~Mo)&))
-				)
-			)
-		);
-
-	SquareMassesValues//=DeleteDuplicates;
-	SquareMassesValues//=DeleteCases[#,0,Infinity]&;
-
-{Sector,SquareMassesValues}];
