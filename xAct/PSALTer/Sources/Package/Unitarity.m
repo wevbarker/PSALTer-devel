@@ -10,6 +10,6 @@ Unitarity[MassiveAnalysis_,MassiveGhostAnalysis_,MasslessAnalysisValue_,Coupling
 	PositiveSystem=(#>0)&/@PositiveSystem;
 	PositiveSystem~AppendTo~(xAct`PSALTer`Mo>0);
 	Print@PositiveSystem;
-	PositiveSystem=Reduce[#,Couplings]&;
+	PositiveSystem//=Reduce[#,Couplings]&;
 	Print@PositiveSystem;
 PositiveSystem];
