@@ -24,18 +24,14 @@ Comment@"We also knock up some simple tools to linearise the Lagrangian:";
 Get@FileNameJoin@{NotebookDirectory[],"Linearise.m"};
 
 Comment@"Next we write down all the cases which define the theories in
-arXiv:1910.14197:";
+arXiv:1910.14197.";
 
 Get@FileNameJoin@{NotebookDirectory[],"CriticalCases.m"};
-
-Print/@CriticalCases;
-
-Comment@"Now we wish to solve for these:";
+Get@FileNameJoin@{NotebookDirectory[],"Unitarity.m"};
 
 Off[Solve::svars];
 CriticalCasesSolutions=First/@(Solve[#,{kR1,kR2,kR3,kR4,kR5,kT1,kT2,kT3,kLambda}]&/@CriticalCases);
 On[Solve::svars];
-Print/@CriticalCasesSolutions;
 
 Comment@"Now to perform the calibration";
 
@@ -49,23 +45,22 @@ ParticleSpectrum[
 ];
 *)
 
+Get@FileNameJoin@{NotebookDirectory[],"CalibrateCase.m"};
+
 (**)
 CalibrationTimingData=MapThread[
-		AbsoluteTiming@(
-			Print@Simplify@ToCanonical[NonlinearLagrangian/.#2];
-			ParticleSpectrum[
-				"Case"<>ToString@#1,
-				LineariseLagrangian[NonlinearLagrangian/.#2],
-				TensorFields->{F,A},
-				CouplingConstants->{kR1,kR2,kR3,kR4,kR5,kT1,kT2,kT3,kLambda},
-				ExportTheory->True
-			];
-		)&,
+		AbsoluteTiming@CalibrateCase[#1,#2,#3]&,
 		{
-			Table[i,{i,1,58}],
-			CriticalCasesSolutions[[1;;58]]
+			Table[i,{i,1,2}],
+			CriticalCasesSolutions[[1;;2]],
+			Unitarity[[1;;2]],
 		}];
+
+Comment@"Okay, that's all the cases. You can see from the timing below (in
+	seconds) that each theory takes about a minute to process:";
+
 Print@CalibrationTimingData;
+
 DumpSave[FileNameJoin@{NotebookDirectory[],"CalibrationTimingData.mx"},{CalibrationTimingData}];
 		(**)
 Quit[];
