@@ -53,7 +53,7 @@ CalibrationTimingData=MapThread[
 		{
 			Table[i,{i,1,2}],
 			CriticalCasesSolutions[[1;;2]],
-			Unitarity[[1;;2]],
+			Unitarity[[1;;2]]
 		}];
 
 Comment@"Okay, that's all the cases. You can see from the timing below (in
