@@ -136,6 +136,15 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 	Print@"Massless eigenvalues:";
 	Print@MasslessAnalysisValue;
 
+	(*================================*)
+	(*  Summary of particle spectrum  *)
+	(*================================*)
+
+	CillianArgument=ParticleSpectrumSummary[MassiveAnalysis,MassiveGhostAnalysis,MasslessAnalysisValue];	
+
+	Print@"FeynArts representation of particle spectrum:";
+	Print@CillianArgument;
+
 	(*=============*)
 	(*  Unitarity  *)
 	(*=============*)

@@ -88,6 +88,7 @@ BuildPSALTerPackage[]:=BuildPackage/@{
 	"MassiveGhost.m",
 	"NullResidue.m",
 	"MasslessAnalysisOfTotal.m",
+	"ParticleSpectrumSummary.m",
 	"Unitarity.m",
 	"UpdateTheoryAssociation.m",
 	"ParticleSpectrum.m",
