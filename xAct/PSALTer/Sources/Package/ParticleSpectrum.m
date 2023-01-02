@@ -48,8 +48,14 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 	UpdateTheoryAssociation[TheoryName,BMatrices,SaturatedPropagator[[3]],ExportTheory->OptionValue@ExportTheory];
 	UpdateTheoryAssociation[TheoryName,InverseBMatrices,SaturatedPropagator[[4]],ExportTheory->OptionValue@ExportTheory];
 
+	Print@"The (possibly singular) \[ScriptA]-matrices associated with the Lagrangian, as defined below Eq. (18) of arXiv:1812.02675:";
+	Print@(MatrixForm/@(SaturatedPropagator[[3]]));
+
 	Print@"Gauge constraints on source currents:";
 	Print@(((Simplify@(#==0))&)/@(SaturatedPropagator[[1]]));
+
+	Print@"The Drazin (Moore-Penrose) inverses of these \[ScriptA]-matrices, which are functionally analogous to the inverse \[ScriptB]-matrices described below Eq. (21) of arXiv:1812.02675:";
+	Print@(MatrixForm/@(SaturatedPropagator[[4]]));
 
 	(*======================*)
 	(*  Source constraints  *)

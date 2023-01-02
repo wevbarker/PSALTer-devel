@@ -18,5 +18,6 @@ ParticleSpectrumSummary[MassiveAnalysis_,MassiveGhostAnalysis_,MasslessAnalysisV
 	CillianArgument=(If[!(#1==={}),{First@#2,#3,First@#1}]&)~MapThread~{MassiveAnalysis,MassiveGhostAnalysis,SpinParitySectors};
 
 	CillianArgument~AppendTo~(If[!(MasslessAnalysisValue==={}),{First@MasslessAnalysisValue},{}]);
+	CillianArgument=CillianArgument~DeleteCases~Null;
 	
 CillianArgument];
