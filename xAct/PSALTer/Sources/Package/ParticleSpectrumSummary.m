@@ -2,7 +2,7 @@
 (*  ParticleSpectrumSummary  *)
 (*===========================*)
 
-ParticleSpectrumSummary[MassiveAnalysis,MassiveGhostAnalysis,MasslessAnalysisValue]:=Module[{
+ParticleSpectrumSummary[MassiveAnalysis_,MassiveGhostAnalysis_,MasslessAnalysisValue_]:=Module[{
 	SpinParitySectors,
 	CillianArgument},
 
