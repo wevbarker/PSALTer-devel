@@ -42,14 +42,19 @@ ParticleSpectrum[
 
 Get@FileNameJoin@{NotebookDirectory[],"CalibrateCase.m"};
 
+
+Title@"Performing the survey";
+
 (**)
 CalibrationTimingData=MapThread[
 		AbsoluteTiming@CalibrateCase[#1,#2,#3]&,
 		{
-			Table[i,{i,1,1}],
-			CriticalCasesSolutions[[1;;1]],
-			Unitarity[[1;;1]]
+			Table[i,{i,1,58}],
+			CriticalCasesSolutions[[1;;58]],
+			Unitarity[[1;;58]]
 		}];
+
+Title@"How long did this take?";
 
 Comment@"Okay, that's all the cases. You can see from the timing below (in seconds) that each theory takes about a minute to process:";
 
