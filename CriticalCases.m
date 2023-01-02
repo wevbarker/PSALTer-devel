@@ -25,7 +25,7 @@ CriticalCases={
 	kR1==kR3==kR4==kR5==kLambda==0,
 	kR1==kR3==kR4==kR5==kT1+kT2==kLambda==0,
 	kR1==kR3==kR4==kR5==kT1+kT3==kLambda==0,
-	kR1==kR3==kR4==kR5==kT1+kR2==kT1+kT3==kLambda==0,
+	kR1==kR3==kR4==kR5==kT1+kT2==kT1+kT3==kLambda==0,
 	kR1==kR3==kR4==kT1==kLambda==0,
 	kR1==kR3==kR4==kR5==kT1==kLambda==0,
 	kR1==kR3==kR4==kR5==kT1==kT3==kLambda==0,

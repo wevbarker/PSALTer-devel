@@ -50,7 +50,7 @@ Unitarity={
 	{kR5>0,2*kR1+kR5>0,kT1>0,kT1+kT2>0,kR1<0,kT2<0},
 	{kT1>0,kT2>0,kR1<0,kR2<0},
 	{kR5<0,kT1*kT3*(kT1+kT3)>0},
-	{kR5>0,kT1*kT2*(kT1+kT2)>0},
+	{kR5>0,kT1*kT2*(kT1+kT2)<0},
 	{kR2<0,kT1<0},
 	{kT1>0,kR1<0},
 	{kT1>0,kR1<0},
