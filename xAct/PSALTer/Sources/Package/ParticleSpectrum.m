@@ -147,10 +147,10 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 	(*================================*)
 
 	CillianArgument=ParticleSpectrumSummary[MassiveAnalysis,MassiveGhostAnalysis,MasslessAnalysisValue];	
-
+(*
 	Print@"FeynArts representation of particle spectrum:";
 	Print@CillianArgument;
-
+*)
 	(*=============*)
 	(*  Unitarity  *)
 	(*=============*)
