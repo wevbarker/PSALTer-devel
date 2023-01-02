@@ -7,6 +7,8 @@ CalibrateCase[CaseNumber_,CaseRules_List,CaseConditions_List]:=Module[{
 	Couplings={kR1,kR2,kR3,kR4,kR5,kT1,kT2,kT3,kLambda},
 	CouplingAssumptions},
 
+	Title@("Case "<>ToString@CaseNumber);	
+
 	Comment@("Now for a new theory. Here is the full nonlinear Lagrangian for Case "<>ToString@CaseNumber<>" as defined by the second column of TABLE V. in arXiv:1910.14197:");	
 
 	Print@CollectTensors@ToCanonical[NonlinearLagrangian/.CaseRules];
