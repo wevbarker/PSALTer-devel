@@ -26,7 +26,7 @@ ParallelNeeds["xAct`PSALTer`"];
 
 Print[xAct`xCore`Private`bars];
 Print["Package xAct`PSALTer` version ",$Version[[1]],", ",$Version[[2]]];
-Print["CopyRight \[Copyright] 2022, Will E. V. Barker and C. Rew, under the General Public License."];
+Print["CopyRight \[Copyright] 2022, Will E. V. Barker, C. Rigouzzo and C. Rew, under the General Public License."];
 
 $PSALTerInstallDirectory=Select[FileNameJoin[{#,"xAct/PSALTer"}]&/@$Path,DirectoryQ][[1]];
 
