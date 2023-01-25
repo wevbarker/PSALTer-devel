@@ -2,10 +2,10 @@
 (*  BuildPSALTer  *)
 (*================*)
 
-PSymb="\[ScriptK]";
-DefConstantSymbol[Def,PrintAs->PSymb];
+xAct`PSALTer`Private`PSymb="\[ScriptK]";
+DefConstantSymbol[Def,PrintAs->xAct`PSALTer`Private`PSymb];
 
-DefTensor[P[i],M4,PrintAs->PSymb];
+DefTensor[P[i],M4,PrintAs->xAct`PSALTer`Private`PSymb];
 AutomaticRules[P,MakeRule[{CD[-a][P[-b]],0},MetricOn->All,ContractMetrics->True]];
 ToV=MakeRule[{P[-i],Def V[-i]},MetricOn->All,ContractMetrics->True];
 ToP=MakeRule[{V[-i],P[-i]/Def},MetricOn->All,ContractMetrics->True];
@@ -44,6 +44,7 @@ rescaleAPerp1mD=MakeRule[{Evaluate@Dagger@APerp1m[-a],rAPerp1m Evaluate@Dagger[ 
 rescale=Join[rescaleFP0p,rescaleFP1p,rescaleFP1m,rescaleFP2p,rescaleAP0p,rescaleAP0m,rescaleAP1p,rescaleAP1m,rescaleAP2p,rescaleAP2m,rescaleFPerp0p,rescaleFPerp1m,rescaleAPerp1p,rescaleAPerp1m,rescaleFP0pD,rescaleFP1pD,rescaleFP1mD,rescaleFP2pD,rescaleAP0pD,rescaleAP0mD,rescaleAP1pD,rescaleAP1mD,rescaleAP2pD,rescaleAP2mD,rescaleFPerp0pD,rescaleFPerp1mD,rescaleAPerp1pD,rescaleAPerp1mD];
 
 DefConstantSymbol[#,Dagger->Complex]&/@{cFP0p,cFP1p,cFP1m,cFP2p,cAP0p,cAP0m,cAP1p,cAP1m,cAP2p,cAP2m,cFPerp0p,cFPerp1m,cAPerp1p,cAPerp1m};
+
 Up0p={FP0p[],AP0p[],FPerp0p[]};
 Up0m={AP0m[]};
 Up1p={FP1p[a,b],AP1p[a,b],APerp1p[a,b]};
@@ -95,21 +96,31 @@ MatrixForm/@rescmat;
 MatrixForm/@invrescmat;
 
 cRules={};
-For[ii=1,ii<(Length@#[[1]]+1),ii++,For[jj=1,jj<(Length@#[[1]]+1),jj++,
-cRules=Join[cRules,MakeRule[{Evaluate@(#[[1]][[ii]]Evaluate@Dagger[#[[2]][[jj]]]),Evaluate@(#[[3]][[ii]]Evaluate@Dagger[#[[3]][[jj]]])},MetricOn->All,ContractMetrics->True]];
-]]&/@{{Up0p,Down0p,c0p},
-{Up0m,Down0m,c0m},
-{Up1p,Down1p,c1p},
-{Up1m,Down1m,c1m},
-{Up2p,Down2p,c2p},
-{Up2m,Down2m,c2m}};
+For[ii=1,ii<(Length@#[[1]]+1),ii++,
+	For[jj=1,jj<(Length@#[[1]]+1),jj++,
+		cRules=Join[cRules,
+			MakeRule[{
+				Evaluate@(#[[1]][[ii]]Evaluate@Dagger[#[[2]][[jj]]]),
+				Evaluate@(#[[3]][[ii]]Evaluate@Dagger[#[[3]][[jj]]])
+			},MetricOn->All,ContractMetrics->True]];
+	]
+]&/@{
+	{Up0p,Down0p,c0p},
+	{Up0m,Down0m,c0m},
+	{Up1p,Down1p,c1p},
+	{Up1m,Down1m,c1m},
+	{Up2p,Down2p,c2p},
+	{Up2m,Down2m,c2m}
+};
 
-res=(Transpose@#[[1]]) . ((Evaluate@Dagger[#])&/@#[[2]])&/@{{Up0p,Down0p},
-{Up0m,Down0m},
-{Up1p,Down1p},
-{Up1m,Down1m},
-{Up2p,Down2p},
-{Up2m,Down2m}}//Total;
+res=(Transpose@#[[1]]) . ((Evaluate@Dagger[#])&/@#[[2]])&/@{
+	{Up0p,Down0p},
+	{Up0m,Down0m},
+	{Up1p,Down1p},
+	{Up1m,Down1m},
+	{Up2p,Down2p},
+	{Up2m,Down2m}
+}//Total;
 
 res=res-Evaluate@Dagger@F[-a,-b]F[a,b]-Evaluate@Dagger@A[-a,-b,-c]A[a,b,c];
 res=res/.rescale;
@@ -138,5 +149,6 @@ sys=res==0//ToConstantSymbolEquations;
 sols=Solve@sys;
 
 rescsols=sols[[1]];
+Print@rescsols;
 
 xAct`PSALTer`Private`BuildRebuild@"Lightcone.m";

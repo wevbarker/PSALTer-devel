@@ -2,9 +2,8 @@
 (*  VimFormat  *)
 (*=============*)
 
-Comment[Expr_?StringQ]:=Module[{},
+Comment[InputExpr_?StringQ]:=Module[{Expr=InputExpr},
 	Print@Style[Expr,Blue]];
 
-Title[Expr_?StringQ]:=Module[{},
+Title[InputExpr_?StringQ]:=Module[{Expr=InputExpr},
 	Print@Style[Expr,24,Blue]];
-

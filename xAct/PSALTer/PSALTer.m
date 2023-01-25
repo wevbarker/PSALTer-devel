@@ -26,7 +26,7 @@ ParallelNeeds["xAct`PSALTer`"];
 
 Print[xAct`xCore`Private`bars];
 Print["Package xAct`PSALTer` version ",$Version[[1]],", ",$Version[[2]]];
-Print["CopyRight \[Copyright] 2022, Will E. V. Barker, C. Rigouzzo and C. Rew, under the General Public License."];
+Print["CopyRight \[Copyright] 2022, Will E. V. Barker, Claire Rigouzzo and Cillian Rew, under the General Public License."];
 
 $PSALTerInstallDirectory=Select[FileNameJoin[{#,"xAct/PSALTer"}]&/@$Path,DirectoryQ][[1]];
 
@@ -92,7 +92,8 @@ BuildPSALTerPackage[]:=BuildPackage/@{
 	"Unitarity.m",
 	"UpdateTheoryAssociation.m",
 	"ParticleSpectrum.m",
-	"ViewParticleSpectrum.m"
+	"ViewParticleSpectrum.m",
+	"BusCode.m"
 };
 
 BuildPSALTerPackage[];
