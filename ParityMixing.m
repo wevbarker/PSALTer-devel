@@ -16,6 +16,8 @@ xAct`PSALTer`Private`ExecuteRules[];
 xAct`PSALTer`Private`GenerateAnsatz[F,A];
 xAct`PSALTer`Private`NormaliseRescalings[];
 
+Print@xAct`PSALTer`Private`IndexedSourceSpinParityTensors;
+
 (*
 Print@xAct`PSALTer`Private`SpinParityConstantSymbols;
 Print@xAct`PSALTer`Private`InvariantToConstantRules;

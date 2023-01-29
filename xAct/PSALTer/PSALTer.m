@@ -106,7 +106,7 @@ ContextList={
 };
 
 Begin["xAct`PSALTer`"];
-	xAct`PSALTer`Private`BuildPSALTer[xAct`PSALTer`Private`Recompile->False];
+	xAct`PSALTer`Private`BuildPSALTer[xAct`PSALTer`Private`Recompile->True];
 End[];
 
 End[];
