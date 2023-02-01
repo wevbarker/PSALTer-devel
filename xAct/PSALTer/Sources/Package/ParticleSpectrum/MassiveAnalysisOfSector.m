@@ -2,6 +2,8 @@
 (*  MassiveAnalysisOfSector  *)
 (*===========================*)
 
+BuildPackage@"ParticleSpectrum/MassiveAnalysisOfSector/PoleToSquareMass.m";
+
 MassiveAnalysisOfSector[RawSector_,Couplings_]:=Module[{
 	PrintVariable,
 	Sector=RawSector,

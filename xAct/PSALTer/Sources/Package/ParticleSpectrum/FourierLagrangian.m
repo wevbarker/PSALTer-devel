@@ -2,7 +2,9 @@
 (*  FourierLagrangian  *)
 (*=====================*)
 
-FourierLagrangian[Expr_,Tensors_]:=Module[{CrossingRules,
+FourierLagrangian[ClassName_?StringQ,Expr_,Tensors_]:=Module[{
+	Class,
+	CrossingRules,
 	ToMomentumExpr,
 	Tensors1,
 	Tensors2,
@@ -10,6 +12,8 @@ FourierLagrangian[Expr_,Tensors_]:=Module[{CrossingRules,
 
 	PrintVariable={};
 	PrintVariable=PrintVariable~Append~PrintTemporary@" ** FourierLagrangian...";
+
+	Class=Evaluate@Symbol@ClassName;
 
 	Tensors1=(#@@(ToExpression/@Alphabet[][[1;;(Length@SlotsOfTensor@#)]]))&/@(Tensors);
 	Tensors2=(#@@(ToExpression/@Alphabet[][[-(Length@SlotsOfTensor@#);;-1]]))&/@(Tensors);
@@ -31,23 +35,15 @@ FourierLagrangian[Expr_,Tensors_]:=Module[{CrossingRules,
 	MakeRule[{Evaluate[Tensor1 Tensor2],Evaluate[Dagger@Tensor1 Tensor2]},MetricOn->All,ContractMetrics->True]),
 	{Tensor1,Tensors1},{Tensor2,Tensors2}];
 
+	Print@CrossingRules;
+
 	ToMomentumExpr=Expr/.CrossingRules;(*now impose these rules to obtain Fourier space version*)
 	ToMomentumExpr//=ToNewCanonical;
+
 	(*now move over to SO(3) decomposition*)
 	ToMomentumExpr=ToMomentumExpr/.ToV;
-	ToMomentumExpr//=ToNewCanonical;
-	ToMomentumExpr=ToMomentumExpr/.GaugeDecompose;
-	ToMomentumExpr//=ToNewCanonical;
-	ToMomentumExpr=ToMomentumExpr/.GaugePToGaugePO3/.GaugePerpToGaugePO3;
-	ToMomentumExpr//=ToNewCanonical;
-	ToMomentumExpr//=CollectTensors;
-	ToMomentumExpr=ToMomentumExpr/.Patch2m;
-	ToMomentumExpr=ToMomentumExpr/.ManualAll;
-	ToMomentumExpr=ToMomentumExpr/.ManualAll;
-	ToMomentumExpr//=ToNewCanonical;
-	ToMomentumExpr//=CollectTensors;
 
-	(*"\!\(\*SuperscriptBox[OverscriptBox[\(\[Zeta]\), \(^\)], \(\[Dagger]\)]\)(\[ScriptK])\[CenterDot]\!\(\*OverscriptBox[\(\[ScriptCapitalO]\), \(^\)]\)(\[ScriptK])\[CenterDot]\!\(\*OverscriptBox[\(\[Zeta]\), \(^\)]\)(\[ScriptK])"*)
+	ToMomentumExpr//=Class@FourierDecompose;
 
 	NotebookDelete@PrintVariable;
 ToMomentumExpr];

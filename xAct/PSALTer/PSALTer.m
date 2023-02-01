@@ -49,6 +49,9 @@ Both Expr and at least one field must be provided. Do not include indices in the
 ViewParticleSpectrum::usage="ViewParticleSpectrum[TheoryName] displays the results of the analysis.";
 CouplingConstants::usage="CouplingConstants is an option for ParticleSpectrum which identifies the xTensor constant symbols (as defined using DefConstantSymbol) which should be interpreted as real coupling constants in the Lagrangian.";
 TensorFields::usage="TensorFields is an option for ParticleSpectrum which identifies the xTensor tensors (as defined using DefTensor) which should be interpreted as real, perhaps dynamical fields in the Lagrangian.";
+DefClass::usage="DefClass[FieldSpinParityTensorHeads,SourceSpinParityTensorHeads] defines a class of models.";
+ExportClass::usage="ExportClass is an option for DefClass.";
+ImportClass::usage="ImportClass is an option for DefClass.";
 
 Even::usage="Even is an association key which refers to even-parity spin states.";
 Odd::usage="Odd is an association key which refers to odd-parity spin states.";
@@ -74,26 +77,9 @@ BuildRebuild[FileName_String]:=Get[FileNameJoin@{$PSALTerInstallDirectory,"Sourc
 
 BuildPSALTerPackage[]:=BuildPackage/@{
 	"BuildPSALTer.m",
-	"FourierLagrangian.m",
-	"NonTrivialDot.m",
-	"ConstructSaturatedPropagator.m",
-	"MakeConstraintComponentList.m",
-	"ConstraintComponentToLightcone.m",
-	"IndependentComponents.m",
-	"RescaleNullVector.m",
-	"MakeFreeSourceVariables.m",
-	"PoleToSquareMass.m",
-	"ExpressInLightcone.m",
-	"MassiveAnalysisOfSector.m",
-	"MassiveGhost.m",
-	"NullResidue.m",
-	"MasslessAnalysisOfTotal.m",
-	"ParticleSpectrumSummary.m",
-	"Unitarity.m",
-	"UpdateTheoryAssociation.m",
 	"ParticleSpectrum.m",
 	"ViewParticleSpectrum.m",
-	"BusCode.m"
+	"DefClass.m"
 };
 
 BuildPSALTerPackage[];
@@ -106,7 +92,7 @@ ContextList={
 };
 
 Begin["xAct`PSALTer`"];
-	xAct`PSALTer`Private`BuildPSALTer[xAct`PSALTer`Private`Recompile->True];
+	xAct`PSALTer`Private`BuildPSALTer[xAct`PSALTer`Private`Recompile->False];
 End[];
 
 End[];

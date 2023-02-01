@@ -2,7 +2,7 @@
 (*  MasslessAnalysisOfTotal  *)
 (*===========================*)
 
-MasslessAnalysisOfTotalList[RawMasslessPropagaorResidue_List,NullSpace_List]:=Module[{
+MasslessAnalysisOfTotal[RawMasslessPropagaorResidue_List,NullSpace_List]:=Module[{
 	PrintVariable,
 	MasslessPropagaorResidue=RawMasslessPropagaorResidue,
 	NullSpaceDimension,
@@ -11,7 +11,7 @@ MasslessAnalysisOfTotalList[RawMasslessPropagaorResidue_List,NullSpace_List]:=Mo
 	NumeratorFreeSourceEigenvalues},
 
 	PrintVariable={};
-	PrintVariable=PrintVariable~Append~PrintTemporary@" ** MasslessAnalysisOfTotalList...";
+	PrintVariable=PrintVariable~Append~PrintTemporary@" ** MasslessAnalysisOfTotal...";
 
 	MasslessPropagaorResidue//=Flatten;
 	MasslessPropagaorResidue//=Total;

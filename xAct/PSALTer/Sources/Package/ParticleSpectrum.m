@@ -2,12 +2,28 @@
 (*  ParticleSpectrum  *)
 (*====================*)
 
+BuildPackage@"ParticleSpectrum/UpdateTheoryAssociation.m";
+BuildPackage@"ParticleSpectrum/FourierLagrangian.m";
+BuildPackage@"ParticleSpectrum/ConstructSaturatedPropagator.m";
+BuildPackage@"ParticleSpectrum/MakeConstraintComponentList.m";
+BuildPackage@"ParticleSpectrum/ConstraintComponentToLightcone.m";
+BuildPackage@"ParticleSpectrum/AllIndependentComponents.m";
+BuildPackage@"ParticleSpectrum/RescaleNullVector.m";
+BuildPackage@"ParticleSpectrum/MakeFreeSourceVariables.m";
+BuildPackage@"ParticleSpectrum/MassiveAnalysisOfSector.m";
+BuildPackage@"ParticleSpectrum/MassiveGhost.m";
+BuildPackage@"ParticleSpectrum/ExpressInLightcone.m";
+BuildPackage@"ParticleSpectrum/NullResidue.m";
+BuildPackage@"ParticleSpectrum/MasslessAnalysisOfTotal.m";
+BuildPackage@"ParticleSpectrum/ParticleSpectrumSummary.m";
+BuildPackage@"ParticleSpectrum/Unitarity.m";
+
 Options@ParticleSpectrum={
 	TensorFields->{},
 	CouplingConstants->{},
 	ExportTheory->False};
 
-ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
+ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 	Tensors=OptionValue@TensorFields,
 	Couplings=OptionValue@CouplingConstants,
 	PrintVariable,
@@ -37,14 +53,15 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 	(*  Fourier decomposition  *)
 	(*=========================*)
 
-	FourierDecomposedLagrangian=FourierLagrangian[Expr,Tensors];
+	FourierDecomposedLagrangian=FourierLagrangian[ClassName,Expr,Tensors];
 	UpdateTheoryAssociation[TheoryName,MomentumSpaceLagrangian,FourierDecomposedLagrangian,ExportTheory->OptionValue@ExportTheory];
 
 	(*========================*)
 	(*  Saturated propagator  *)
 	(*========================*)
 
-	SaturatedPropagator=ConstructSaturatedPropagator[FourierDecomposedLagrangian,Couplings];
+	SaturatedPropagator=ConstructSaturatedPropagator[ClassName,FourierDecomposedLagrangian,Couplings];
+	(*Throw["ReachedEval"];*)
 	UpdateTheoryAssociation[TheoryName,BMatrices,SaturatedPropagator[[3]],ExportTheory->OptionValue@ExportTheory];
 	UpdateTheoryAssociation[TheoryName,InverseBMatrices,SaturatedPropagator[[4]],ExportTheory->OptionValue@ExportTheory];
 
@@ -61,10 +78,10 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 	(*  Source constraints  *)
 	(*======================*)
 
-	ConstraintComponentList=MakeConstraintComponentList[SaturatedPropagator[[1]]];
+	ConstraintComponentList=MakeConstraintComponentList[ClassName,SaturatedPropagator[[1]]];
 	ConstraintComponentList=xAct`xCoba`SeparateBasis[AIndex][#]&/@ConstraintComponentList;
 
-	ConstraintComponentList=(xAct`HiGGS`Private`HiGGSParallelSubmit@(ConstraintComponentToLightcone@#))&/@ConstraintComponentList;
+	ConstraintComponentList=(xAct`HiGGS`Private`HiGGSParallelSubmit@(ConstraintComponentToLightcone[ClassName,#]))&/@ConstraintComponentList;
 	PrintVariable=PrintTemporary@ConstraintComponentList;
 	ConstraintComponentList=WaitAll@ConstraintComponentList;
 	NotebookDelete@PrintVariable;
@@ -72,10 +89,10 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 	ConstraintComponentList=DeleteCases[ConstraintComponentList,True];
 	UpdateTheoryAssociation[TheoryName,SourceConstraintComponents,ConstraintComponentList,ExportTheory->OptionValue@ExportTheory];
 
-	SourceComponents=IndependentComponents[Sigma[-a,-b,-c],Tau[-a,-b]];
+	SourceComponents=AllIndependentComponents[ClassName];
 
 	UnscaledNullSpace=NullSpace@Last@(ConstraintComponentList~CoefficientArrays~SourceComponents);
-	RescaledNullSpace=RescaleNullVector/@UnscaledNullSpace;
+	RescaledNullSpace=RescaleNullVector[ClassName,SourceComponents,#]&/@UnscaledNullSpace;
 
 	SourceComponentsToFreeSourceVariables=MakeFreeSourceVariables[RescaledNullSpace,SourceComponents];
 
@@ -134,7 +151,7 @@ ParticleSpectrum[TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 	MasslessPropagatorResidue=WaitAll@MasslessPropagatorResidue;
 	NotebookDelete@PrintVariable;
 
-	MasslessAnalysis=MasslessAnalysisOfTotalList[MasslessPropagatorResidue,UnscaledNullSpace];
+	MasslessAnalysis=MasslessAnalysisOfTotal[MasslessPropagatorResidue,UnscaledNullSpace];
 	MasslessAnalysisValue=MasslessAnalysis[[2]];
 
 	UpdateTheoryAssociation[TheoryName,MasslessEigenvalues,MasslessAnalysisValue,ExportTheory->OptionValue@ExportTheory];
