@@ -1,0 +1,57 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      1457,         49]
+NotebookOptionsPosition[      1062,         34]
+NotebookOutlinePosition[      1506,         51]
+CellTagsIndexPosition[      1463,         48]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Get", "@", 
+   RowBox[{"FileNameJoin", "@", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<Calibration.m\>\""}],
+      "}"}]}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.881335155853407*^9, 3.881335176405672*^9}, {
+  3.8825943163826847`*^9, 3.882594319694297*^9}, {3.8860717540372334`*^9, 
+  3.886071755501113*^9}},
+ EmphasizeSyntaxErrors->True,
+ CellLabel->"In[1]:=",ExpressionUUID->"fa830831-9bb6-486c-90db-7d3f6b5b88d8"]
+},
+WindowSize->{1440., 860.25},
+WindowMargins->{{1440, Automatic}, {Automatic, 19.5}},
+TaggingRules-><|"TryRealOnly" -> False|>,
+FrontEndVersion->"13.2 for Linux x86 (64-bit) (December 7, 2022)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"34e78da9-a457-4960-94bd-05fe79a0f0a3"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 500, 12, 29, "Input",ExpressionUUID->"fa830831-9bb6-486c-90db-7d3f6b5b88d8"]
+}
+]
+*)
+

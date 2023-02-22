@@ -4,7 +4,7 @@
 
 Print@"First we import some formatting...";
 
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","VimFormat.m"};
+Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","VimFormat.m"};
 
 Comment@"...okay, that's better, from now on any commentary written inside this Calibration.m wrapper will present as blue text (i.e. this text is not part of PSALTer, it is just a use-case). Next we load the PSALTer package:";
 
@@ -12,16 +12,16 @@ Comment@"...okay, that's better, from now on any commentary written inside this 
 
 Comment@"Now we set up the general Lagrangian:";
 
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","LagrangianKarananasCouplings.m"};
+Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","LagrangianKarananasCouplings.m"};
 (*Get@FileNameJoin@{Directory[],"LagrangianHayashiShirafujiCouplings.m"};*)
 
 Print@NonlinearLagrangian;
 
 Comment@"We also knock up some simple tools to linearise the Lagrangian:";
 
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","Linearise.m"};
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","CriticalCases.m"};
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","Unitarity.m"};
+Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","Linearise.m"};
+Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","CriticalCases.m"};
+Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","Unitarity.m"};
 
 (*==========================*)
 (*  Einstein-Cartan theory  *)
@@ -52,6 +52,10 @@ ParticleSpectrum[
 
 Comment@"Okay, so that is the end of the PSALTer output for Einstein-Cartan gravity. What we find are no propagating massive modes, but instead two degrees of freedom in the massive sector. The no-ghost conditions on these massless d.o.f restrict the sign in front of the Einstein-Hilbert term to be negative (which is what we expect for our conventions).";
 
+(*======================*)
+(*  General relativity  *)
+(*======================*)
+
 Comment@"Using Karananas' coefficients, it is particularly easy to also look at GR, instead of Einstein-Cartan theory. The difference here is that the quadratic torsion coefficients are manually removed. Here is the nonlinear Lagrangian:";
 
 Off[Solve::svars];
@@ -68,7 +72,7 @@ Print@CollectTensors@LinearisedLagrangian;
 Comment@"Now we pass this theory into the PSALTer package, which computes the particle spectrum:";
 
 ParticleSpectrum[
-	"GR",
+	"GeneralRelativity",
 	LinearisedLagrangian,
 	TensorFields->{F,A},
 	CouplingConstants->{kR1,kR2,kR3,kR4,kR5,kT1,kT2,kT3,kLambda},
@@ -89,7 +93,7 @@ On[Solve::svars];
 
 Comment@"We are now ready to check that PSALTer is getting the physics right by running it on the 58 theories in arXiv:1910.14197.";
 
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","CalibrateCase.m"};
+Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","CalibrateCase.m"};
 
 Title@"Performing the survey";
 
