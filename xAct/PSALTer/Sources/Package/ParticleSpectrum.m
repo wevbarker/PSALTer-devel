@@ -61,7 +61,6 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	(*========================*)
 
 	SaturatedPropagator=ConstructSaturatedPropagator[ClassName,FourierDecomposedLagrangian,Couplings];
-	(*Throw["ReachedEval"];*)
 	UpdateTheoryAssociation[TheoryName,BMatrices,SaturatedPropagator[[3]],ExportTheory->OptionValue@ExportTheory];
 	UpdateTheoryAssociation[TheoryName,InverseBMatrices,SaturatedPropagator[[4]],ExportTheory->OptionValue@ExportTheory];
 
@@ -111,7 +110,10 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	Print@"Square masses:";
 	Print@MassiveAnalysis;
 
-	SignedInverseBMatrices=Times~MapThread~{(SaturatedPropagator[[4]]),{1,-1,1,-1,1,-1}};
+	(*Throw["ReachedEval"];*)
+
+		(*SignedInverseBMatrices=Times~MapThread~{(SaturatedPropagator[[4]]),{1,-1,1,-1,1,-1}};*)
+	SignedInverseBMatrices=Times~MapThread~{(SaturatedPropagator[[4]]),{1,1,1}};
 
 	MassiveGhostAnalysis=MapThread[
 		(xAct`HiGGS`Private`HiGGSParallelSubmit@(MassiveGhost[#1,#2]))&,
@@ -129,13 +131,13 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	(*=============*)
 	(*  Lightcone  *)
 	(*=============*)
-	
+
 	SaturatedPropagatorArray=(If[Head@#===Plus,List@@#,List@#])&/@(SaturatedPropagator[[2]]);
 
 	SaturatedPropagatorArray//=(#~PadRight~{Length@#,First@((Length/@#)~TakeLargest~1)})&;
 
 	LightconePropagator=MapThread[
-		(xAct`HiGGS`Private`HiGGSParallelSubmit@(ExpressInLightcone[#1,#2]))&,
+		(xAct`HiGGS`Private`HiGGSParallelSubmit@(ExpressInLightcone[ClassName,#1,#2]))&,
 		{SaturatedPropagatorArray,
 		Map[((SourceComponentsToFreeSourceVariables)&),SaturatedPropagatorArray,{2}]},2];
 	PrintVariable=PrintTemporary@LightconePropagator;
@@ -152,6 +154,7 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	NotebookDelete@PrintVariable;
 
 	MasslessAnalysis=MasslessAnalysisOfTotal[MasslessPropagatorResidue,UnscaledNullSpace];
+	Print@MasslessAnalysis;
 	MasslessAnalysisValue=MasslessAnalysis[[2]];
 
 	UpdateTheoryAssociation[TheoryName,MasslessEigenvalues,MasslessAnalysisValue,ExportTheory->OptionValue@ExportTheory];

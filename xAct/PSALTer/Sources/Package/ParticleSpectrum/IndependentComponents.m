@@ -2,14 +2,14 @@
 (*  IndependentComponents  *)
 (*=========================*)
 
-IndependentComponents[ClassName_?StringQ,Tensors__]:=Module[{
+IndependentComponents[ClassName_?StringQ,Tensors_List]:=Module[{
 	Class,
 	ComponentsList},
 
 	Class=Evaluate@Symbol@ClassName;
 
 	(*make a big nested array of components*)
-	ComponentsList=xAct`xCoba`ComponentArray[xAct`xCoba`FreeToBasis[xAct`PSALTer`cartesian]@#]&/@{Tensors};
+	ComponentsList=xAct`xCoba`ComponentArray[xAct`xCoba`FreeToBasis[xAct`PSALTer`cartesian]@#]&/@Tensors;
 	(*flatten it*)
 	ComponentsList=Flatten@ComponentsList;
 

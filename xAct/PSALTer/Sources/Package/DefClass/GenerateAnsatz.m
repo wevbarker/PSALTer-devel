@@ -7,15 +7,21 @@ BuildPackage@"DefClass/CatalogueInvariant.m";
 GenerateAnsatz[ClassName_?StringQ]:=Catch@Module[{
 	Class,
 	EvenEven,
+	EvenEvenMask,
 	EvenOdd,
+	EvenOddMask,
 	OddEven,
+	OddEvenMask,
 	OddOdd,
+	OddOddMask,
 	SpinParityConstantSymbols,
 	SpinParityRescalingSymbols,
 	SpinParityRescalingRulesValue,
 	FieldSpinParityTensorHeadsValue,
 	InverseRescalingMatrixValue,
-	RescalingMatrixValue
+	RescalingMatrixValue,
+	InvariantMatrixValue,
+	MaskMatrixValue
 	},
 
 	Class=Evaluate@Symbol@ClassName;
@@ -24,6 +30,7 @@ GenerateAnsatz[ClassName_?StringQ]:=Catch@Module[{
 	RescalingMatrixValue=<||>;
 	InverseRescalingMatrixValue=<||>;
 	InvariantMatrixValue=<||>;
+	MaskMatrixValue=<||>;
 
 	Block[{Print},
 	Unprotect@Print;
@@ -65,6 +72,10 @@ GenerateAnsatz[ClassName_?StringQ]:=Catch@Module[{
 	},
 	1];
 
+	EvenEvenMask=Outer[(0)&,	
+	Join@@FieldSpinParityTensorHeadsValue[Tensor][Spin][Even]~Table~{Tensor,Class@Tensors},	
+	Join@@FieldSpinParityTensorHeadsValue[Tensor][Spin][Even]~Table~{Tensor,Class@Tensors}];
+
 	EvenOdd=Outer[CatalogueInvariant[
 			ClassName,
 			Dagger@(#1[[1]]),
@@ -80,6 +91,10 @@ GenerateAnsatz[ClassName_?StringQ]:=Catch@Module[{
 		Join@@SpinParityConstantSymbols[Tensor][Spin][Odd]~Table~{Tensor,Class@Tensors}
 	},
 	1];
+
+	EvenOddMask=Outer[(1)&,	
+	Join@@FieldSpinParityTensorHeadsValue[Tensor][Spin][Even]~Table~{Tensor,Class@Tensors},	
+	Join@@FieldSpinParityTensorHeadsValue[Tensor][Spin][Odd]~Table~{Tensor,Class@Tensors}];
 
 	OddEven=Outer[CatalogueInvariant[
 			ClassName,
@@ -97,6 +112,10 @@ GenerateAnsatz[ClassName_?StringQ]:=Catch@Module[{
 	},
 	1];
 
+	OddEvenMask=Outer[(1)&,	
+	Join@@FieldSpinParityTensorHeadsValue[Tensor][Spin][Odd]~Table~{Tensor,Class@Tensors},	
+	Join@@FieldSpinParityTensorHeadsValue[Tensor][Spin][Even]~Table~{Tensor,Class@Tensors}];
+
 	OddOdd=Outer[CatalogueInvariant[
 			ClassName,
 			Dagger@(#1[[1]]),
@@ -113,8 +132,15 @@ GenerateAnsatz[ClassName_?StringQ]:=Catch@Module[{
 	},
 	1];
 
+	OddOddMask=Outer[(0)&,	
+	Join@@FieldSpinParityTensorHeadsValue[Tensor][Spin][Odd]~Table~{Tensor,Class@Tensors},	
+	Join@@FieldSpinParityTensorHeadsValue[Tensor][Spin][Odd]~Table~{Tensor,Class@Tensors}];
+
 	InvariantMatrixValue[Spin]=ArrayFlatten@{{EvenEven,EvenOdd},{OddEven,OddOdd}};
 	Print@MatrixForm@InvariantMatrixValue[Spin];
+
+	MaskMatrixValue[Spin]=ArrayFlatten@{{EvenEvenMask,EvenOddMask},{OddEvenMask,OddOddMask}};
+	Print@MatrixForm@MaskMatrixValue[Spin];
 
 	RescalingMatrixValue[Spin]=TensorProduct[#,#]&@Flatten@Join[
 		SpinParityRescalingSymbols[Tensor][Spin][Even]~Table~{Tensor,Class@Tensors},
@@ -130,6 +156,7 @@ GenerateAnsatz[ClassName_?StringQ]:=Catch@Module[{
 
 
 	UpdateClassAssociation[ClassName,InvariantMatrix,InvariantMatrixValue];
+	UpdateClassAssociation[ClassName,MaskMatrix,MaskMatrixValue];
 	UpdateClassAssociation[ClassName,RescalingMatrix,RescalingMatrixValue];
 	UpdateClassAssociation[ClassName,InverseRescalingMatrix,InverseRescalingMatrixValue];
 ];

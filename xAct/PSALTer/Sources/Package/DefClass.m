@@ -25,6 +25,7 @@ DefClass[ClassName_?StringQ,
 	FourierDecomposeInput_,
 	FirstSpeciousFunctionInput_,
 	SecondSpeciousFunctionInput_,
+	ThirdSpeciousFunctionInput_,
 	OptionsPattern[]]:=Module[{},
 
 	(*Firstly we remove all definitions which might be associated with a class already*)
@@ -43,6 +44,7 @@ DefClass[ClassName_?StringQ,
 		UpdateClassAssociation[ClassName,FourierDecompose,FourierDecomposeInput];
 		UpdateClassAssociation[ClassName,FirstSpeciousFunction,FirstSpeciousFunctionInput];
 		UpdateClassAssociation[ClassName,SecondSpeciousFunction,SecondSpeciousFunctionInput];
+		UpdateClassAssociation[ClassName,ThirdSpeciousFunction,ThirdSpeciousFunctionInput];
 		UpdateClassAssociation[ClassName,EngineeringDimensions,EngineeringDimensionsInput];
 
 		(*--------------------------------------------*)

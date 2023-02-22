@@ -7,6 +7,8 @@ RescaleNullVector[ClassName_?StringQ,SourceComponents_List,NullVector_List]:=Mod
 	TrialPower,
 	RescaledNullVector=NullVector,
 	Rescaled,
+	LocalEngineeringDimensions,
+	SourceEngineeringDimensions,
 	UltravioletNullVector,
 	NullVectorDegreeOfDivergence},
 
@@ -26,18 +28,16 @@ which are introduced by poles*)
 		TrialPower--
 	];
 
-	UltravioletNullVector=FullSimplify@(
+	LocalEngineeringDimensions=Class@EngineeringDimensions;
 
-FullSimplify@
+	SourceEngineeringDimensions=(LocalEngineeringDimensions@(Head@#))&/@SourceComponents;
 
-Total@(Abs)
+	UltravioletNullVector=FullSimplify@Total@MapThread[(Abs@((#1/(Mo^#2))/.{En->Pi Mo}))&,
+		{RescaledNullVector,
+		SourceEngineeringDimensions}
+	];
 
-
-		Total@(Abs/@(RescaledNullVector[[1;;Length@IndependentComponents[ClassName,Sigma[-a,-b,-c]]]]/.{En->Pi Mo}))+
-	Total@(Abs/@(RescaledNullVector[[Length@IndependentComponents[ClassName,Sigma[-a,-b,-c]]+1;;Length@IndependentComponents[ClassName,Sigma[-a,-b,-c],Tau[-a,-b]]]]/Mo/.{En->Pi Mo}))
-);
-
-	NullVectorDegreeOfDivergence=Limit[Log[UltravioletNullVector]/Log[Mo]//FullSimplify,Mo->Infinity];
+	NullVectorDegreeOfDivergence=(Log@UltravioletNullVector/Log@Mo//FullSimplify)~Limit~(Mo->Infinity);
 
 	RescaledNullVector*=Mo^(-NullVectorDegreeOfDivergence);
 RescaledNullVector];

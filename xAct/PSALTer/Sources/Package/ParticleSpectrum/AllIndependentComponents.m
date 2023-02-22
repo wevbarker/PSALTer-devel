@@ -14,6 +14,6 @@ AllIndependentComponents[ClassName_?StringQ]:=Module[{
 	Tensors=((FromIndexFree@ToIndexFree@#)/.{-SomeIndex_?TangentM4`Q->SomeIndex}/.{SomeIndex_?TangentM4`Q->-SomeIndex})&/@(Class@Sources);
 
 	(*make a big nested array of components*)
-	ComponentsList=IndependentComponents[ClassName,#]&@@Tensors;
+	ComponentsList=IndependentComponents[ClassName,Tensors];
 
 ComponentsList];

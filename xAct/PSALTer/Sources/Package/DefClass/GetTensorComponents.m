@@ -7,7 +7,6 @@ GetTensorComponents[ClassName_?StringQ]:=Module[{
 	TensorsWhoseComponentsWeNeed,
 	PrintVariable},
 
-
 	Class=Evaluate@Symbol@ClassName;
 
 	TensorsWhoseComponentsWeNeed=Flatten@Map[Values,Evaluate@(Class@SourceSpinParityTensorHeads),{0,2}];
@@ -25,8 +24,12 @@ GetTensorComponents[ClassName_?StringQ]:=Module[{
 		);
 
 
-	Block[{xAct`xCoba`Private`storeact,xAct`xCoba`Private`addrule},
+			(*Block[{xAct`xCoba`Private`storeact,xAct`xCoba`Private`addrule},*)
+	Block[{Print},
 
+		Unprotect@Print;
+		Print[Expr_]:=NoPrint[Expr];
+		(*
 		xAct`xCoba`Private`storeact[flist_,rule_,tensor_,First]:=(If[$CVVerbose,NotebookDelete@PrintVariable;PrintVariable=PrintTemporary["Added dependent rule ",rule," for tensor ",tensor]];Append[flist,rule]);
 		xAct`xCoba`Private`storeact[flist_,rule:Rule[_,Null|-Null],tensor_,Last]:=droprule[flist,rule,tensor];
 		xAct`xCoba`Private`storeact[flist_,rule_,tensor_,Last]:=xAct`xCoba`Private`addrule[flist,rule,tensor];
@@ -38,8 +41,9 @@ GetTensorComponents[ClassName_?StringQ]:=Module[{
 		xAct`xCoba`Private`addrule[{rules___},rule_,tensor_]:=(
 		If[$CVVerbose,NotebookDelete@PrintVariable;PrintVariable=PrintTemporary["Added independent rule ",rule," for tensor ",tensor]];
 		{rules,rule});
-
+		*)
 		(AllComponentValues@FreeToBasis[xAct`PSALTer`cartesian]@#;)&/@TensorsWhoseComponentsWeNeed;
 
+		Protect@Print;
 	];
 ];

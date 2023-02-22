@@ -2,33 +2,23 @@
 (*  ExpressInLightcone  *)
 (*======================*)
 
-ExpressInLightcone[RawSector_,SourceComponentsToFreeSourceVariables_List]:=Module[{
+ExpressInLightcone[ClassName_?StringQ,RawSector_,SourceComponentsToFreeSourceVariables_List]:=Module[{
+	Class,
 	PrintVariable,
 	Sector=RawSector},
+
+	Class=Evaluate@Symbol@ClassName;
 
 	PrintVariable={};
 	PrintVariable=PrintVariable~Append~PrintTemporary@" ** MassiveAnalysisOfSector...";
 
-	Sector//=NoScalar;
-	Sector=Sector/.SourcePO3Activate;
-	Sector//=NoScalar;
-	Sector//=ToNewCanonical;
-	Sector=Sector/.SourcePerpO3Activate;
-	Sector//=NoScalar;
-	Sector//=ToNewCanonical;
-	Sector=Sector/.PADMPiActivate;
-	Sector//=NoScalar;
-	Sector//=ToNewCanonical;
-	Sector=Sector/.PO3PiActivate;
-	Sector//=NoScalar;
-	Sector//=ToNewCanonical;
-	Sector=Sector/.PADMActivate;
-	Sector//=NoScalar;
-	Sector//=ToNewCanonical;
-	Sector=Sector/.SourceCompose;
+	Sector//=Class@ThirdSpeciousFunction;
+
 	Sector//=xAct`xCoba`SeparateBasis[AIndex];
 	Sector=Sector/.ToP;
-	Sector=Sector/.SourceCompose;
+
+	Sector//=Class@SecondSpeciousFunction;
+
 	Sector//=xAct`xCoba`SeparateBasis[AIndex];
 	Sector=Sector/.ToP;
 	Sector//=NoScalar;
@@ -57,10 +47,10 @@ ExpressInLightcone[RawSector_,SourceComponentsToFreeSourceVariables_List]:=Modul
 	PrintVariable=PrintVariable~Append~PrintTemporary[" ** TensorValues..."];
 	Sector=Sector/.xAct`xCoba`TensorValues[P];
 	Sector=Sector/.xAct`xCoba`TensorValues[G];
-	Sector=Sector/.xAct`xCoba`TensorValues[Tau];
-	Sector=Sector/.xAct`xCoba`TensorValues[Sigma];
-	Sector=Sector/.xAct`xCoba`TensorValues[Dagger@Tau];
-	Sector=Sector/.xAct`xCoba`TensorValues[Dagger@Sigma];
+
+	(Sector=Sector/.xAct`xCoba`TensorValues[#])&/@(Class@Sources);
+	(Sector=Sector/.xAct`xCoba`TensorValues[#])&/@(Dagger/@(Class@Sources));
+
 	Sector=Sector/.{Def->Sqrt[En^2-Mo^2]};
 	Sector//=Together;
 

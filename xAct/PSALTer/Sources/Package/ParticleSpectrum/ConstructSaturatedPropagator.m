@@ -59,10 +59,10 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 
 	Rescalings=<||>;
 	(
-		Rescalings[Spin]=Flatten@Join[
+		Rescalings[Spin]=Flatten@(((1/#)&)/@Join[
 			SpinParityRescalingSymbols[Tensor][Spin][Even]~Table~{Tensor,Class@Tensors},
 			SpinParityRescalingSymbols[Tensor][Spin][Odd]~Table~{Tensor,Class@Tensors}
-		];
+		]);
 	)~Table~{Spin,Class@Spins};
 	Print@Rescalings;
 
@@ -107,8 +107,10 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 	MatrixLagrangian=MapThread[
 		MapThread[(#1*#2)&,{#1,#2}]&,
 			{MatrixLagrangian,
-			Class@RescalingMatrix}
-	]/.Class@RescalingSolutions;
+			Class@InverseRescalingMatrix}
+	];
+	Print@(MatrixForm/@MatrixLagrangian);
+	MatrixLagrangian=MatrixLagrangian/.Class@RescalingSolutions;
 	Print@(MatrixForm/@MatrixLagrangian);
 
 	BMatricesValues=MatrixLagrangian;
@@ -144,7 +146,7 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 	MatrixPropagator=MapThread[
 		MapThread[(#1*#2)&,{#1,#2}]&,
 			{MatrixPropagator,
-			Class@InverseRescalingMatrix}
+			Class@RescalingMatrix}
 	]/.Class@RescalingSolutions;
 	Print@(MatrixForm/@MatrixPropagator);
 

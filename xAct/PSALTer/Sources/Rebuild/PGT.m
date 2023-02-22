@@ -33,6 +33,11 @@ xAct`PSALTer`Private`EngineeringDimensionsPGT=<|
 		Tau->1
 |>;
 
+PatchA2m=MakeRule[{AP2m[-a,-c,-b]AP2m[a,b,c],(1/2)AP2m[-a,-b,-c]AP2m[a,b,c]},MetricOn->All,ContractMetrics->True];
+PatchA2mD1=MakeRule[{Evaluate[Dagger@AP2m[-a,-c,-b]AP2m[a,b,c]],Evaluate[(1/2)Dagger@AP2m[-a,-b,-c]AP2m[a,b,c]]},MetricOn->All,ContractMetrics->True];
+PatchA2mD2=MakeRule[{Evaluate[AP2m[-a,-c,-b]Dagger@AP2m[a,b,c]],Evaluate[(1/2)AP2m[-a,-b,-c]Dagger@AP2m[a,b,c]]},MetricOn->All,ContractMetrics->True];
+PatchSigma2m=MakeRule[{SigmaP2m[-a,-c,-b]SigmaP2m[a,b,c],(1/2)SigmaP2m[-a,-b,-c]SigmaP2m[a,b,c]},MetricOn->All,ContractMetrics->True];
+Patch2m=Join[PatchA2m,PatchA2mD1,PatchA2mD2,PatchSigma2m];
 
 AutomaticRules[AP2m,MakeRule[{Evaluate[AP2m[-a,-c,-b]Dagger@AP2m[a,b,c]],Evaluate[(1/2)AP2m[-a,-b,-c]Dagger@AP2m[a,b,c]]},MetricOn->All,ContractMetrics->True]];
 AutomaticRules[Evaluate[Dagger@AP2m],MakeRule[{Evaluate[Dagger@AP2m[-a,-c,-b]AP2m[a,b,c]],Evaluate[(1/2)Dagger@AP2m[-a,-b,-c]AP2m[a,b,c]]},MetricOn->All,ContractMetrics->True]];
@@ -85,3 +90,23 @@ Constraint];
 xAct`PSALTer`Private`SecondSpeciousFunctionPGT[InputExpr_]:=Module[{Constraint=InputExpr},
 	Constraint=Constraint/.SourceCompose;
 Constraint];
+
+xAct`PSALTer`Private`ThirdSpeciousFunctionPGT[InputExpr_]:=Module[{Sector=InputExpr},
+	Sector//=NoScalar;
+	Sector=Sector/.SourcePO3Activate;
+	Sector//=NoScalar;
+	Sector//=ToNewCanonical;
+	Sector=Sector/.SourcePerpO3Activate;
+	Sector//=NoScalar;
+	Sector//=ToNewCanonical;
+	Sector=Sector/.PADMPiActivate;
+	Sector//=NoScalar;
+	Sector//=ToNewCanonical;
+	Sector=Sector/.PO3PiActivate;
+	Sector//=NoScalar;
+	Sector//=ToNewCanonical;
+	Sector=Sector/.PADMActivate;
+	Sector//=NoScalar;
+	Sector//=ToNewCanonical;
+	Sector=Sector/.SourceCompose;
+Sector];
