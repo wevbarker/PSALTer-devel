@@ -89,8 +89,6 @@ Comment@"Thus, the conclusions are the same, as expected.";
 (*  Yun Cherng Lin's 58 cases  *)
 (*=============================*)
 
-(*
-
 Off[Solve::svars];
 CriticalCasesSolutions=First/@(Solve[#,{kR1,kR2,kR3,kR4,kR5,kT1,kT2,kT3,kLambda}]&/@CriticalCases);
 On[Solve::svars];
@@ -116,7 +114,5 @@ Comment@"Okay, that's all the cases. You can see from the timing below (in secon
 Print@CalibrationTimingData;
 
 DumpSave[FileNameJoin@{NotebookDirectory[],"CalibrationTimingData.mx"},{CalibrationTimingData}];
-	
-*)
 
 Quit[];
