@@ -17,6 +17,7 @@ BuildPackage@"ParticleSpectrum/NullResidue.m";
 BuildPackage@"ParticleSpectrum/MasslessAnalysisOfTotal.m";
 BuildPackage@"ParticleSpectrum/ParticleSpectrumSummary.m";
 BuildPackage@"ParticleSpectrum/Unitarity.m";
+BuildPackage@"ParticleSpectrum/PSALTerParallelSubmit.m";
 
 Options@ParticleSpectrum={
 	TensorFields->{},
@@ -54,6 +55,7 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	(*=========================*)
 
 	FourierDecomposedLagrangian=FourierLagrangian[ClassName,Expr,Tensors];
+	Print@FourierDecomposedLagrangian;
 	UpdateTheoryAssociation[TheoryName,MomentumSpaceLagrangian,FourierDecomposedLagrangian,ExportTheory->OptionValue@ExportTheory];
 
 	(*========================*)
@@ -80,7 +82,7 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	ConstraintComponentList=MakeConstraintComponentList[ClassName,SaturatedPropagator[[1]]];
 	ConstraintComponentList=xAct`xCoba`SeparateBasis[AIndex][#]&/@ConstraintComponentList;
 
-	ConstraintComponentList=(xAct`HiGGS`Private`HiGGSParallelSubmit@(ConstraintComponentToLightcone[ClassName,#]))&/@ConstraintComponentList;
+	ConstraintComponentList=(xAct`PSALTer`Private`PSALTerParallelSubmit@(ConstraintComponentToLightcone[ClassName,#]))&/@ConstraintComponentList;
 	PrintVariable=PrintTemporary@ConstraintComponentList;
 	ConstraintComponentList=WaitAll@ConstraintComponentList;
 	NotebookDelete@PrintVariable;
@@ -100,7 +102,7 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	(*====================*)
 
 	MassiveAnalysis=MapThread[
-		(xAct`HiGGS`Private`HiGGSParallelSubmit@(MassiveAnalysisOfSector[#1,#2]))&,
+		(xAct`PSALTer`Private`PSALTerParallelSubmit@(MassiveAnalysisOfSector[#1,#2]))&,
 		{(SaturatedPropagator[[2]]),
 		Couplings~ConstantArray~(Length@(SaturatedPropagator[[2]]))}];
 	PrintVariable=PrintTemporary@MassiveAnalysis;
@@ -116,7 +118,7 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	SignedInverseBMatrices=Times~MapThread~{(SaturatedPropagator[[4]]),{1,1,1}};
 
 	MassiveGhostAnalysis=MapThread[
-		(xAct`HiGGS`Private`HiGGSParallelSubmit@(MassiveGhost[#1,#2]))&,
+		(xAct`PSALTer`Private`PSALTerParallelSubmit@(MassiveGhost[#1,#2]))&,
 		{SignedInverseBMatrices,
 		MassiveAnalysis}];
 	PrintVariable=PrintTemporary@MassiveGhostAnalysis;
@@ -137,7 +139,7 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	SaturatedPropagatorArray//=(#~PadRight~{Length@#,First@((Length/@#)~TakeLargest~1)})&;
 
 	LightconePropagator=MapThread[
-		(xAct`HiGGS`Private`HiGGSParallelSubmit@(ExpressInLightcone[ClassName,#1,#2]))&,
+		(xAct`PSALTer`Private`PSALTerParallelSubmit@(ExpressInLightcone[ClassName,#1,#2]))&,
 		{SaturatedPropagatorArray,
 		Map[((SourceComponentsToFreeSourceVariables)&),SaturatedPropagatorArray,{2}]},2];
 	PrintVariable=PrintTemporary@LightconePropagator;
@@ -148,13 +150,12 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	(*  Massless analysis  *)
 	(*=====================*)
 
-	MasslessPropagatorResidue=Map[(xAct`HiGGS`Private`HiGGSParallelSubmit@(NullResidue@#))&,LightconePropagator,{2}];
+	MasslessPropagatorResidue=Map[(xAct`PSALTer`Private`PSALTerParallelSubmit@(NullResidue@#))&,LightconePropagator,{2}];
 	PrintVariable=PrintTemporary@MasslessPropagatorResidue;
 	MasslessPropagatorResidue=WaitAll@MasslessPropagatorResidue;
 	NotebookDelete@PrintVariable;
 
 	MasslessAnalysis=MasslessAnalysisOfTotal[MasslessPropagatorResidue,UnscaledNullSpace];
-	Print@MasslessAnalysis;
 	MasslessAnalysisValue=MasslessAnalysis[[2]];
 
 	UpdateTheoryAssociation[TheoryName,MasslessEigenvalues,MasslessAnalysisValue,ExportTheory->OptionValue@ExportTheory];
@@ -166,8 +167,8 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	(*  Summary of particle spectrum  *)
 	(*================================*)
 
-	CillianArgument=ParticleSpectrumSummary[MassiveAnalysis,MassiveGhostAnalysis,MasslessAnalysisValue];	
 (*
+	CillianArgument=ParticleSpectrumSummary[MassiveAnalysis,MassiveGhostAnalysis,MasslessAnalysisValue];	
 	Print@"FeynArts representation of particle spectrum:";
 	Print@CillianArgument;
 *)

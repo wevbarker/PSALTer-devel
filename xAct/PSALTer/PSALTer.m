@@ -20,14 +20,26 @@ Off@(Solve::fulldim);
 (*  xAct`PSALTer`  *)
 (*=================*)
 
-BeginPackage["xAct`PSALTer`",{"xAct`xTensor`","xAct`xPerm`","xAct`xCore`","xAct`xTras`","xAct`HiGGS`","xAct`xCoba`"}];
+BeginPackage["xAct`PSALTer`",{"xAct`xTensor`","xAct`xPerm`","xAct`xCore`","xAct`xTras`","xAct`xCoba`"}];
 
 ParallelNeeds["xAct`PSALTer`"];
+
+(*========================================================================*)
+(*  The output can be long, we prefer to scroll automatically to the end  *)
+(*========================================================================*)
+
+SetOptions[$FrontEndSession,EvaluationCompletionAction->"ScrollToOutput"];
 
 Print[xAct`xCore`Private`bars];
 Print["Package xAct`PSALTer` version ",$Version[[1]],", ",$Version[[2]]];
 Print["CopyRight \[Copyright] 2022, Will E. V. Barker, Claire Rigouzzo and Cillian Rew, under the General Public License."];
 
+(*-------------------------------------------------------------------*)
+(*  Modify the path to accommodate notebook and install directories  *)
+(*-------------------------------------------------------------------*)
+
+Quiet@If[NotebookDirectory[]==$Failed,$WorkingDirectory=Directory[];,$WorkingDirectory=NotebookDirectory[];,$WorkingDirectory=NotebookDirectory[];];
+$Path~AppendTo~$WorkingDirectory;
 $PSALTerInstallDirectory=Select[FileNameJoin[{#,"xAct/PSALTer"}]&/@$Path,DirectoryQ][[1]];
 
 (*--------------*)
@@ -79,20 +91,26 @@ BuildPSALTerPackage[]:=BuildPackage/@{
 	"BuildPSALTer.m",
 	"ParticleSpectrum.m",
 	"ViewParticleSpectrum.m",
-	"DefClass.m"
+	"DefClass.m",
+	"SymbolBuild.m",
+	"ToNewCanonical.m"
 };
 
 BuildPSALTerPackage[];
 
 ContextList={	
-	"xAct`HiGGS`",
-	"xAct`HiGGS`Private`",
 	"xAct`PSALTer`",
-	"xAct`PSALTer`Private`"
+	"xAct`PSALTer`Private`",
+	"xAct`PSALTer`PGT`",
+	"xAct`PSALTer`PGT`Private`",
+	"xAct`xTensor`",
+	"xAct`xTensor`Private`",
+	"TangentM4`",
+	"xAct`PSALTer`"
 };
 
 Begin["xAct`PSALTer`"];
-	xAct`PSALTer`Private`BuildPSALTer[xAct`PSALTer`Private`Recompile->False];
+	xAct`PSALTer`Private`BuildPSALTer[xAct`PSALTer`Private`Recompile->True];
 End[];
 
 End[];

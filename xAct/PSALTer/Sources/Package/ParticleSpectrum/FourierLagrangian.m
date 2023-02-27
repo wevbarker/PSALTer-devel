@@ -39,6 +39,7 @@ FourierLagrangian[ClassName_?StringQ,Expr_,Tensors_]:=Module[{
 
 	ToMomentumExpr=Expr/.CrossingRules;(*now impose these rules to obtain Fourier space version*)
 	ToMomentumExpr//=ToNewCanonical;
+	Print@ToMomentumExpr;
 
 	(*now move over to SO(3) decomposition*)
 	ToMomentumExpr=ToMomentumExpr/.ToV;

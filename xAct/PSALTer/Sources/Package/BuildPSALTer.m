@@ -22,6 +22,9 @@ LoadBinaryContext[Context_String]:=Module[{PrintVariable},
 ];
 
 LoadPSALTer[]:=Catch@Module[{PrintVariable,InitialMemory,Progress},
+
+	<<xAct`PSALTer`PGT`;
+
 	PrintVariable=PrintTemporary[" ** BuildPSALTer: loading binary definitions..."];
 	InitialMemory=MemoryInUse[];
 	Progress=PrintTemporary@ProgressIndicator[Dynamic[N[(Refresh[MemoryInUse[],UpdateInterval->0.1]-InitialMemory)/10^8]],Appearance->"Percolate"];
@@ -44,7 +47,7 @@ BuildPSALTer[OptionsPattern[]]:=Module[{PrintVariable},
 			now quit. Please reload PSALTer.";
 			Quit[];,
 
-			Quiet@Check[
+			Check[
 
 				PrintVariable=PrintTemporary@" ** BuildPSALTer: Attempting to load PSALTer as usual
 				from context binaries...";

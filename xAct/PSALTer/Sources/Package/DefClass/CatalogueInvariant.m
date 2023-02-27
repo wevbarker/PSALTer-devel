@@ -20,7 +20,7 @@ CatalogueInvariant[
 		Off[ToCanonical::noident];
 		If[OptionValue@Mixed,
 		If[Head@#===List,TensorContraction=First@#,TensorContraction=#]&@AllContractions[
-				IndexFree@((LeftTensor~Times~RightTensor)~Times~Eps),
+				IndexFree@((LeftTensor~Times~RightTensor)~Times~xAct`PSALTer`Eps),
 				Parallelization->False];,
 		If[Head@#===List,TensorContraction=First@#,TensorContraction=#]&@AllContractions[
 				IndexFree@(LeftTensor~Times~RightTensor),
