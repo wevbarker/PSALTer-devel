@@ -65,6 +65,9 @@ DefClass::usage="DefClass[FieldSpinParityTensorHeads,SourceSpinParityTensorHeads
 ExportClass::usage="ExportClass is an option for DefClass.";
 ImportClass::usage="ImportClass is an option for DefClass.";
 
+V::usage="V[-a] is a unit timelike vector V[-a]V[a]=1, which is assumed to be proportional to the momentum P[-a], and which functions as the four-velocity of an observer in whose rest frame all massive particles in the spectrum are also taken to be at rest.";
+P::usage="P[-a] is the timelike momentum used in the massive particle analysis, which approaches the null cone in the limit of the massless analysis.";
+
 Even::usage="Even is an association key which refers to even-parity spin states.";
 Odd::usage="Odd is an association key which refers to odd-parity spin states.";
 MomentumSpaceLagrangian::usage="MomentumSpaceLagrangian is an association key which refers to the quadratically expanded Lagrangian in momentum space.";
