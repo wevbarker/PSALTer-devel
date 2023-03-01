@@ -12,15 +12,14 @@ Comment@"...okay, that's better, from now on any commentary written inside this 
 
 Comment@"PSALTer should now be loaded, let's try a theory.";
 
-DefConstantSymbol[Kp,PrintAs->"\[Kappa]"];
-LinearisedLagrangian=(-1/(2*Kp))*(A[-a,-j,-i]*A[a,i,j]+A[a,i,-a]*A[-i,j,-j]+2*F[a,i]*CD[-i]@A[-a,j,-j]-2*F[a,i]*CD[-j]@A[-a,j,-i]);
+LinearisedLagrangian=(-kLambda)*(A[-a,-j,-i]*A[a,i,j]+A[a,i,-a]*A[-i,j,-j]+2*F[a,i]*CD[-i]@A[-a,j,-j]-2*F[a,i]*CD[-j]@A[-a,j,-i]);
 
 Catch@ParticleSpectrum[
 	"PGT",
 	"EinsteinCartanTheory",
 	LinearisedLagrangian,
 	TensorFields->{F,A},
-	CouplingConstants->{Kp},
+	CouplingConstants->{kLambda},
 	ExportTheory->True
 ];
 
