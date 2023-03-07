@@ -12,7 +12,7 @@ ExpressInLightcone[ClassName_?StringQ,RawSector_,SourceComponentsToFreeSourceVar
 	PrintVariable={};
 	PrintVariable=PrintVariable~Append~PrintTemporary@" ** MassiveAnalysisOfSector...";
 
-	Sector//=Class@ThirdSpeciousFunction;
+	Sector//=Class@FirstSpeciousFunction;
 (*
 	Sector//=xAct`xCoba`SeparateBasis[AIndex];
 	Sector=Sector/.ToP;
