@@ -8,32 +8,6 @@
 
 BeginPackage["xAct`PSALTer`PGT`",{"xAct`xTensor`","xAct`xPerm`","xAct`xCore`","xAct`xTras`","xAct`xCoba`","xAct`PSALTer`"}];
 
-(*================================================*)
-(*  Some infrastructure for linearising theories  *)
-(*================================================*)
-
-(*==========================================================*)
-(*  Basic definitions of the Lagrangian coupling constants  *)
-(*==========================================================*)
-
-xAct`PSALTer`PGT`Private`kRSymb="\[ScriptR]";
-xAct`PSALTer`PGT`Private`kLambdaSymb="\[Lambda]";
-DefConstantSymbol[kLambda,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kLambdaSymb,xAct`PSALTer`Private`dSOX,IsConstantSymbol->True]];
-DefConstantSymbol[kR1,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kRSymb,xAct`PSALTer`Private`dSO1,IsConstantSymbol->True]];
-DefConstantSymbol[kR2,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kRSymb,xAct`PSALTer`Private`dSO2,IsConstantSymbol->True]];
-DefConstantSymbol[kR3,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kRSymb,xAct`PSALTer`Private`dSO3,IsConstantSymbol->True]];
-DefConstantSymbol[kR4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kRSymb,xAct`PSALTer`Private`dSO4,IsConstantSymbol->True]];
-DefConstantSymbol[kR5,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kRSymb,xAct`PSALTer`Private`dSO5,IsConstantSymbol->True]];
-DefConstantSymbol[kR6,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kRSymb,xAct`PSALTer`Private`dSO6,IsConstantSymbol->True]];
-
-xAct`PSALTer`PGT`Private`kTSymb="\[ScriptT]";
-DefConstantSymbol[kT1,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kTSymb,xAct`PSALTer`Private`dSO1,IsConstantSymbol->True]];
-DefConstantSymbol[kT2,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kTSymb,xAct`PSALTer`Private`dSO2,IsConstantSymbol->True]];
-DefConstantSymbol[kT3,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kTSymb,xAct`PSALTer`Private`dSO3,IsConstantSymbol->True]];
-DefConstantSymbol[kT4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kTSymb,xAct`PSALTer`Private`dSO4,IsConstantSymbol->True]];
-DefConstantSymbol[kT5,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kTSymb,xAct`PSALTer`Private`dSO5,IsConstantSymbol->True]];
-DefConstantSymbol[kT6,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kTSymb,xAct`PSALTer`Private`dSO6,IsConstantSymbol->True]];
-
 (*=================================================================*)
 (*  Basic definitions of gauge fields and their conjugate sources  *)
 (*=================================================================*)
@@ -478,6 +452,56 @@ xAct`PSALTer`PGT`Private`Patch2m=Join[
 
 AutomaticRules[APara2m,MakeRule[{Evaluate[APara2m[-a,-c,-b]Dagger@APara2m[a,b,c]],Evaluate[(1/2)APara2m[-a,-b,-c]Dagger@APara2m[a,b,c]]},MetricOn->All,ContractMetrics->True]];
 AutomaticRules[Evaluate[Dagger@APara2m],MakeRule[{Evaluate[Dagger@APara2m[-a,-c,-b]APara2m[a,b,c]],Evaluate[(1/2)Dagger@APara2m[-a,-b,-c]APara2m[a,b,c]]},MetricOn->All,ContractMetrics->True]];
+
+(*==========================================================*)
+(*  Basic definitions of the Lagrangian coupling constants  *)
+(*==========================================================*)
+
+xAct`PSALTer`PGT`Private`kRSymb="\[ScriptR]";
+xAct`PSALTer`PGT`Private`kLambdaSymb="\[Lambda]";
+DefConstantSymbol[kLambda,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kLambdaSymb,xAct`PSALTer`Private`dSOX,IsConstantSymbol->True]];
+DefConstantSymbol[kR1,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kRSymb,xAct`PSALTer`Private`dSO1,IsConstantSymbol->True]];
+DefConstantSymbol[kR2,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kRSymb,xAct`PSALTer`Private`dSO2,IsConstantSymbol->True]];
+DefConstantSymbol[kR3,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kRSymb,xAct`PSALTer`Private`dSO3,IsConstantSymbol->True]];
+DefConstantSymbol[kR4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kRSymb,xAct`PSALTer`Private`dSO4,IsConstantSymbol->True]];
+DefConstantSymbol[kR5,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kRSymb,xAct`PSALTer`Private`dSO5,IsConstantSymbol->True]];
+DefConstantSymbol[kR6,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kRSymb,xAct`PSALTer`Private`dSO6,IsConstantSymbol->True]];
+
+xAct`PSALTer`PGT`Private`kTSymb="\[ScriptT]";
+DefConstantSymbol[kT1,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kTSymb,xAct`PSALTer`Private`dSO1,IsConstantSymbol->True]];
+DefConstantSymbol[kT2,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kTSymb,xAct`PSALTer`Private`dSO2,IsConstantSymbol->True]];
+DefConstantSymbol[kT3,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kTSymb,xAct`PSALTer`Private`dSO3,IsConstantSymbol->True]];
+DefConstantSymbol[kT4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kTSymb,xAct`PSALTer`Private`dSO4,IsConstantSymbol->True]];
+DefConstantSymbol[kT5,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kTSymb,xAct`PSALTer`Private`dSO5,IsConstantSymbol->True]];
+DefConstantSymbol[kT6,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kTSymb,xAct`PSALTer`Private`dSO6,IsConstantSymbol->True]];
+
+(*================================================*)
+(*  Some infrastructure for linearising theories  *)
+(*================================================*)
+
+xAct`PSALTer`PGT`Private`RSymb="\[ScriptCapitalR]";
+DefTensor[R[a, b, -d, -e], M4, {Antisymmetric[{a, b}], Antisymmetric[{-d, -e}]},PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`RSymb]]; 
+xAct`PSALTer`PGT`Private`TSymb="\[ScriptCapitalT]";
+DefTensor[T[a, -b, -c], M4, Antisymmetric[{-b, -c}],PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`TSymb]]; 
+
+xAct`PSALTer`PGT`Private`HSymb="\[ScriptH]";
+DefTensor[H[-a,c],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`HSymb]];
+xAct`PSALTer`PGT`Private`BSymb="\[ScriptB]";
+DefTensor[B[a,-c],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`BSymb]];
+
+xAct`PSALTer`PGT`Private`HBToGF=Join[
+	MakeRule[{H[-i,-j],G[-i,-j]+F[-i,-j]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{B[-i,-j],G[-i,-j]-F[-i,-j]+F[-i,-m]F[m,-j]},MetricOn->All,ContractMetrics->True]
+];
+
+AutomaticRules[H,MakeRule[{H[-a,i]B[a,-j],G[i,-j]},MetricOn->All,ContractMetrics->True]];
+AutomaticRules[H,MakeRule[{H[-a,i]B[c,-i],G[-a,c]},MetricOn->All,ContractMetrics->True]];
+AutomaticRules[H,MakeRule[{CD[-a][H[-j,n]],Evaluate[-H[-i,n]H[-j,m]CD[-a][B[i,-m]]]},MetricOn->All,ContractMetrics->True]];
+
+xAct`PSALTer`PGT`Private`RTToHBACDBCDA=Join[	
+	MakeRule[{R[a,b,-d,-e],H[-d,i]H[-e,j](CD[-i][A[a,b,-j]]-CD[-j][A[a,b,-i]]+A[a,-k,-i]A[k,b,-j]-A[a,-k,-j]A[k,b,-i])},MetricOn->All,ContractMetrics->True],
+	MakeRule[{T[a,-b,-c],H[-b,i]H[-c,j](CD[-i][B[a,-j]]-CD[-j][B[a,-i]]+A[a,-k,-i]B[k,-j]-A[a,-k,-j]B[k,-i])},MetricOn->All,ContractMetrics->True]
+];
 
 (*===================*)
 (*  Private context  *)
