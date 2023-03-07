@@ -8,6 +8,10 @@
 
 BeginPackage["xAct`PSALTer`PGT`",{"xAct`xTensor`","xAct`xPerm`","xAct`xCore`","xAct`xTras`","xAct`xCoba`","xAct`PSALTer`"}];
 
+(*================================================*)
+(*  Some infrastructure for linearising theories  *)
+(*================================================*)
+
 (*==========================================================*)
 (*  Basic definitions of the Lagrangian coupling constants  *)
 (*==========================================================*)
@@ -341,7 +345,7 @@ xAct`PSALTer`PGT`Private`TauSigmaParaJPToTauSigma=Join[
 	MakeRule[{TauPara1m[-n],Evaluate[
 		ProjF1m[-n,f]ProjFPerp[-f,a,c]TauPara[-a,-c]]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{TauPara2p[-n,-m],Evaluate[
-		ProjF2p[-n,-m,e,f]ProjFPara[-e,-f,a,c]TauPara[-a,-c]]},MetricOn->All,ContractMetrics->True];
+		ProjF2p[-n,-m,e,f]ProjFPara[-e,-f,a,c]TauPara[-a,-c]]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{SigmaPara0p[],Scalar[Evaluate[
 		ProjA0p[e,f]ProjAPerp[-e,-f,a,b,c]SigmaPara[-c,-a,-b]]]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{SigmaPara0m[],Scalar[Evaluate[
