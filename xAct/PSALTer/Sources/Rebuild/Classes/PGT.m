@@ -540,6 +540,10 @@ EngineeringDimensionsPGT=<|
 		Tau->1
 |>;
 
+(*================*)
+(*  Expand gauge  *)
+(*================*)
+
 DecomposeFieldsPGT[InputExpr_]:=Module[{Expr=InputExpr},
 	Expr=Expr/.xAct`PSALTer`PGT`Private`FAParaJPToFA;
 	Expr//=xAct`PSALTer`Private`ToNewCanonical;
@@ -557,11 +561,16 @@ DecomposeFieldsPGT[InputExpr_]:=Module[{Expr=InputExpr},
 	Expr//=CollectTensors;
 Expr];
 
+(*===================*)
+(*  Decompose gauge  *)
+(*===================*)
+
 FourierDecomposePGT[InputExpr_]:=Module[{Expr=InputExpr},
 	Expr//=xAct`PSALTer`Private`ToNewCanonical;
 	Expr=Expr/.xAct`PSALTer`PGT`Private`FAToFAPerpPara;
 	Expr//=xAct`PSALTer`Private`ToNewCanonical;
-	Expr=Expr/.xAct`PSALTer`PGT`Private`FAParaToFAParaJP/.xAct`PSALTer`PGT`Private`FAPerpToFAPerpJP;
+	Expr=Expr/.xAct`PSALTer`PGT`Private`FAParaToFAParaJP;
+	Expr=Expr/.xAct`PSALTer`PGT`Private`FAPerpToFAPerpJP;
 	Expr//=xAct`PSALTer`Private`ToNewCanonical;
 	Expr//=CollectTensors;
 	Expr=Expr/.xAct`PSALTer`PGT`Private`Patch2m;
@@ -571,6 +580,10 @@ FourierDecomposePGT[InputExpr_]:=Module[{Expr=InputExpr},
 	Expr//=CollectTensors;
 Expr];
 
+(*=================*)
+(*  Expand source  *)
+(*=================*)
+
 FirstSpeciousFunctionPGT[InputExpr_]:=Module[{Constraint=InputExpr},
 	Constraint=Constraint/.xAct`PSALTer`PGT`Private`TauSigmaParaJPToTauSigma;
 	Constraint=Constraint/.xAct`PSALTer`PGT`Private`TauSigmaPerpJPToTauSigma;
@@ -578,11 +591,20 @@ FirstSpeciousFunctionPGT[InputExpr_]:=Module[{Constraint=InputExpr},
 	Constraint=Constraint/.xAct`PSALTer`PGT`Private`ProjFAJPToVG;
 	Constraint=Constraint/.xAct`PSALTer`PGT`Private`ProjPerpParaToVG;
 	Constraint=Constraint/.xAct`PSALTer`PGT`Private`TauSigmaPerpParaToTauSigma;
+	Constraint=Constraint/.xAct`PSALTer`PGT`Private`TauSigmaPerpParaToTauSigma;
 Constraint];
+
+(*=================*)
+(*  Expand source  *)
+(*=================*)
 
 SecondSpeciousFunctionPGT[InputExpr_]:=Module[{Constraint=InputExpr},
 	Constraint=Constraint/.xAct`PSALTer`PGT`Private`TauSigmaPerpParaToTauSigma;
 Constraint];
+
+(*=================*)
+(*  Expand source  *)
+(*=================*)
 
 ThirdSpeciousFunctionPGT[InputExpr_]:=Module[{Sector=InputExpr},
 	Sector//=NoScalar;

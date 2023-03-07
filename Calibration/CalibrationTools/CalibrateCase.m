@@ -21,6 +21,7 @@ CalibrateCase[CaseNumber_,CaseRules_List,CaseConditions_List]:=Module[{
 	Comment@"Now we pass this theory into the PSALTer package, which computes the particle spectrum:";
 
 	ParticleSpectrum[
+		"PGT",
 		"Case"<>ToString@CaseNumber,
 		LinearisedLagrangian,
 		TensorFields->{F,A},

@@ -55,7 +55,7 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 			SpinParityConstantSymbols[Tensor][Spin][Odd]~Table~{Tensor,Class@Tensors}
 		];
 	)~Table~{Spin,Class@Spins};
-	Print@Symbols;
+	(*Print@Symbols;*)
 
 	Rescalings=<||>;
 	(
@@ -64,7 +64,7 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 			SpinParityRescalingSymbols[Tensor][Spin][Odd]~Table~{Tensor,Class@Tensors}
 		]);
 	)~Table~{Spin,Class@Spins};
-	Print@Rescalings;
+	(*Print@Rescalings;*)
 
 	RaisedIndexSources=<||>;
 	(
@@ -73,7 +73,7 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 			SourceSpinParityTensorHeadsValue[Source][Spin][Odd]~Table~{Source,Class@Sources}
 		];
 	)~Table~{Spin,Class@Spins};
-	Print@RaisedIndexSources;
+	(*Print@RaisedIndexSources;*)
 
 	LoweredIndexSources=<||>;
 	(
@@ -82,7 +82,7 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 			SourceSpinParityTensorHeadsValue[Source][Spin][Odd]~Table~{Source,Class@Sources}
 		];
 	)~Table~{Spin,Class@Spins};
-	Print@LoweredIndexSources;
+	(*Print@LoweredIndexSources;*)
 
 	(*------------------------*)
 	(*  Coefficient matrices  *)
@@ -97,11 +97,11 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 			SparseArray@ConstantArray[0,{Length@#,Length@#}]
 		]&@Symbols@Spin;
 	)~Table~{Spin,Class@Spins};
-	Print@(MatrixForm/@MatrixLagrangian);
+	(*Print@(MatrixForm/@MatrixLagrangian);*)
 
 	(*Hermitian versions of coefficient matrices*)
 	MatrixLagrangian=GetHermitianPart/@MatrixLagrangian;
-	Print@(MatrixForm/@MatrixLagrangian);
+	(*Print@(MatrixForm/@MatrixLagrangian);*)
 
 	(*rescaled versions of matrices*)
 	MatrixLagrangian=MapThread[
@@ -109,9 +109,9 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 			{MatrixLagrangian,
 			Class@InverseRescalingMatrix}
 	];
-	Print@(MatrixForm/@MatrixLagrangian);
+	(*Print@(MatrixForm/@MatrixLagrangian);*)
 	MatrixLagrangian=MatrixLagrangian/.Class@RescalingSolutions;
-	Print@(MatrixForm/@MatrixLagrangian);
+	(*Print@(MatrixForm/@MatrixLagrangian);*)
 
 	BMatricesValues=MatrixLagrangian;
 
@@ -129,7 +129,7 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 				]}
 		],0,Infinity]/.Class@RescalingSolutions;
 	SourceConstraints=Numerator@Together[#/Sqrt[2^5*3^5*5^5*7^5]]&/@SourceConstraints;
-	Print@SourceConstraints;
+	(*Print@SourceConstraints;*)
 
 	(*matrix form of the propagator*)
 	CouplingAssumptions=(#~Element~Reals)&/@Couplings;
@@ -138,7 +138,7 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 	(*So we use the Moore-Penrose inverse*)
 	MatrixPropagator=Assuming[CouplingAssumptions,((PseudoInverse@#))&/@MatrixLagrangian];
 	MatrixPropagator=((#)~FullSimplify~CouplingAssumptions)&/@MatrixPropagator;
-	Print@(MatrixForm/@MatrixPropagator);
+	(*Print@(MatrixForm/@MatrixPropagator);*)
 
 	InverseBMatricesValues=MatrixPropagator;
 
@@ -148,17 +148,17 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 			{MatrixPropagator,
 			Class@RescalingMatrix}
 	]/.Class@RescalingSolutions;
-	Print@(MatrixForm/@MatrixPropagator);
+	(*Print@(MatrixForm/@MatrixPropagator);*)
 
 	(*saturated form of the propagator*)
 	SaturatedPropagator=MapThread[#1 . #2 . #3&,
 			{Dagger/@RaisedIndexSources,
 			MatrixPropagator,
 			LoweredIndexSources}];
-	Print@(MatrixForm/@SaturatedPropagator);
+	(*Print@(MatrixForm/@SaturatedPropagator);*)
 	SaturatedPropagator=ToNewCanonical/@SaturatedPropagator;
 	SaturatedPropagator=CollectTensors/@SaturatedPropagator;
-	Print@(MatrixForm/@SaturatedPropagator);
+	(*Print@(MatrixForm/@SaturatedPropagator);*)
 
 	NotebookDelete@PrintVariable;
 {SourceConstraints,Values@SaturatedPropagator,Values@BMatricesValues,Values@InverseBMatricesValues}];

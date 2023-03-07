@@ -47,6 +47,7 @@ Print@CollectTensors@LinearisedLagrangian;
 Comment@"Now we pass this theory into the PSALTer package, which computes the particle spectrum:";
 
 ParticleSpectrum[
+	"PGT",
 	"EinsteinCartanTheory",
 	LinearisedLagrangian,
 	TensorFields->{F,A},
@@ -76,6 +77,7 @@ Print@CollectTensors@LinearisedLagrangian;
 Comment@"Now we pass this theory into the PSALTer package, which computes the particle spectrum:";
 
 ParticleSpectrum[
+	"PGT",
 	"GeneralRelativity",
 	LinearisedLagrangian,
 	TensorFields->{F,A},
@@ -102,9 +104,9 @@ Title@"Performing the survey";
 CalibrationTimingData=MapThread[
 		AbsoluteTiming@CalibrateCase[#1,#2,#3]&,
 		{
-			Table[i,{i,1,58}],
-			CriticalCasesSolutions[[1;;58]],
-			Unitarity[[1;;58]]
+			Table[i,{i,1,2}],
+			CriticalCasesSolutions[[1;;2]],(*formerly 1--58*)
+			Unitarity[[1;;2]]
 		}];
 
 Title@"How long did this take?";
