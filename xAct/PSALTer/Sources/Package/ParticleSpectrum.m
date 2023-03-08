@@ -28,7 +28,7 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	Tensors=OptionValue@TensorFields,
 	Couplings=OptionValue@CouplingConstants,
 	PrintVariable,
-	FourierDecomposedLagrangian,
+	DecomposeFieldsdLagrangian,
 	SaturatedPropagator,
 	SaturatedPropagatorArray,
 	ConstraintComponentList,
@@ -54,18 +54,16 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	(*  Fourier decomposition  *)
 	(*=========================*)
 
-	FourierDecomposedLagrangian=FourierLagrangian[ClassName,Expr,Tensors];
-(*
-	Print@"FourierDecomposedLagrangian";
-	Print@FourierDecomposedLagrangian;
-*)
-	UpdateTheoryAssociation[TheoryName,MomentumSpaceLagrangian,FourierDecomposedLagrangian,ExportTheory->OptionValue@ExportTheory];
+	DecomposeFieldsdLagrangian=FourierLagrangian[ClassName,Expr,Tensors];
+	Diagnostic@DecomposeFieldsdLagrangian;
+
+	UpdateTheoryAssociation[TheoryName,MomentumSpaceLagrangian,DecomposeFieldsdLagrangian,ExportTheory->OptionValue@ExportTheory];
 
 	(*========================*)
 	(*  Saturated propagator  *)
 	(*========================*)
 
-	SaturatedPropagator=ConstructSaturatedPropagator[ClassName,FourierDecomposedLagrangian,Couplings];
+	SaturatedPropagator=ConstructSaturatedPropagator[ClassName,DecomposeFieldsdLagrangian,Couplings];
 	UpdateTheoryAssociation[TheoryName,BMatrices,SaturatedPropagator[[3]],ExportTheory->OptionValue@ExportTheory];
 	UpdateTheoryAssociation[TheoryName,InverseBMatrices,SaturatedPropagator[[4]],ExportTheory->OptionValue@ExportTheory];
 
@@ -83,54 +81,34 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	(*======================*)
 
 	ConstraintComponentList=MakeConstraintComponentList[ClassName,SaturatedPropagator[[1]]];
-(*
-	Print@"ConstraintComponentList";
-	Print@ConstraintComponentList;
-*)
+	Diagnostic@ConstraintComponentList;
 	ConstraintComponentList=xAct`xCoba`SeparateBasis[AIndex][#]&/@ConstraintComponentList;
-(*
-	Print@"ConstraintComponentList";
-	Print@ConstraintComponentList;
-*)
+	Diagnostic@ConstraintComponentList;
 
 	ConstraintComponentList=(xAct`PSALTer`Private`PSALTerParallelSubmit@(ConstraintComponentToLightcone[ClassName,#]))&/@ConstraintComponentList;
 	PrintVariable=PrintTemporary@ConstraintComponentList;
 	ConstraintComponentList=WaitAll@ConstraintComponentList;
 	NotebookDelete@PrintVariable;
-(*
-	Print@"ConstraintComponentList";
-	Print@ConstraintComponentList;
-*)
+	Diagnostic@ConstraintComponentList;
 
 	ConstraintComponentList=DeleteCases[ConstraintComponentList,True];
-(*
-	Print@"ConstraintComponentList";
-	Print@ConstraintComponentList;
-*)
+	Diagnostic@ConstraintComponentList;
 	UpdateTheoryAssociation[TheoryName,SourceConstraintComponents,ConstraintComponentList,ExportTheory->OptionValue@ExportTheory];
 
 	SourceComponents=AllIndependentComponents[ClassName];
-(*
-	Print@"SourceComponents";
-	Print@SourceComponents;
-*)
+	Diagnostic@SourceComponents;
 
-	UnscaledNullSpace=NullSpace@Last@(ConstraintComponentList~CoefficientArrays~SourceComponents);
-(*
-	Print@"UnscaledNullSpace";
-	Print@UnscaledNullSpace;
-*)
+	If[ConstraintComponentList==={},	
+		UnscaledNullSpace=IdentityMatrix@Length@SourceComponents,
+		UnscaledNullSpace=NullSpace@Last@(ConstraintComponentList~CoefficientArrays~SourceComponents);
+	];
+	Diagnostic@UnscaledNullSpace;
+
 	RescaledNullSpace=RescaleNullVector[ClassName,SourceComponents,#]&/@UnscaledNullSpace;
-(*
-	Print@"RescaledNullSpace";
-	Print@RescaledNullSpace;
-*)
+	Diagnostic@RescaledNullSpace;
 
 	SourceComponentsToFreeSourceVariables=MakeFreeSourceVariables[RescaledNullSpace,SourceComponents];
-(*
-	Print@"SourceComponentsToFreeSourceVariables";
-	Print@SourceComponentsToFreeSourceVariables;
-*)
+	Diagnostic@SourceComponentsToFreeSourceVariables;
 
 	(*====================*)
 	(*  Massive analysis  *)
@@ -170,16 +148,10 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	(*=============*)
 
 	SaturatedPropagatorArray=(If[Head@#===Plus,List@@#,List@#])&/@(SaturatedPropagator[[2]]);
-(*
-	Print@"SaturatedPropagatorArray";
-	Print@SaturatedPropagatorArray;
-*)
+	Diagnostic@SaturatedPropagatorArray;
 
 	SaturatedPropagatorArray//=(#~PadRight~{Length@#,First@((Length/@#)~TakeLargest~1)})&;
-(*
-	Print@"SaturatedPropagatorArray";
-	Print@SaturatedPropagatorArray;
-*)
+	Diagnostic@SaturatedPropagatorArray;
 
 	LightconePropagator=MapThread[
 		(xAct`PSALTer`Private`PSALTerParallelSubmit@(ExpressInLightcone[ClassName,#1,#2]))&,
@@ -188,10 +160,7 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	PrintVariable=PrintTemporary@LightconePropagator;
 	LightconePropagator=WaitAll@LightconePropagator;
 	NotebookDelete@PrintVariable;
-(*
-	Print@"LightconePropagator";
-	Print@LightconePropagator;
-*)
+	Diagnostic@LightconePropagator;
 
 	(*=====================*)
 	(*  Massless analysis  *)
@@ -201,16 +170,10 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	PrintVariable=PrintTemporary@MasslessPropagatorResidue;
 	MasslessPropagatorResidue=WaitAll@MasslessPropagatorResidue;
 	NotebookDelete@PrintVariable;
-(*
-	Print@"MasslessPropagatorResidue";
-	Print@MasslessPropagatorResidue;
-*)
+	Diagnostic@MasslessPropagatorResidue;
 
 	MasslessAnalysis=MasslessAnalysisOfTotal[MasslessPropagatorResidue,UnscaledNullSpace];
-(*
-	Print@"MasslessAnalysis";
-	Print@MasslessAnalysis;
-*)
+	Diagnostic@MasslessAnalysis;
 	MasslessAnalysisValue=MasslessAnalysis[[2]];
 
 	UpdateTheoryAssociation[TheoryName,MasslessEigenvalues,MasslessAnalysisValue,ExportTheory->OptionValue@ExportTheory];

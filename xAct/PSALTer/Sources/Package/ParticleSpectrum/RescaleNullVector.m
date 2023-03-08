@@ -7,8 +7,8 @@ RescaleNullVector[ClassName_?StringQ,SourceComponents_List,NullVector_List]:=Mod
 	TrialPower,
 	RescaledNullVector=NullVector,
 	Rescaled,
-	LocalEngineeringDimensions,
-	SourceEngineeringDimensions,
+	LocalSourceEngineeringDimensions,
+	SourceEngineeringDimensionsList,
 	UltravioletNullVector,
 	NullVectorDegreeOfDivergence},
 
@@ -28,13 +28,13 @@ which are introduced by poles*)
 		TrialPower--
 	];
 
-	LocalEngineeringDimensions=Class@EngineeringDimensions;
+	LocalSourceEngineeringDimensions=Class@SourceEngineeringDimensions;
 
-	SourceEngineeringDimensions=(LocalEngineeringDimensions@(Head@#))&/@SourceComponents;
+	SourceEngineeringDimensionsList=(LocalSourceEngineeringDimensions@(Head@#))&/@SourceComponents;
 
 	UltravioletNullVector=FullSimplify@Total@MapThread[(Abs@((#1/(Mo^#2))/.{En->Pi Mo}))&,
 		{RescaledNullVector,
-		SourceEngineeringDimensions}
+		SourceEngineeringDimensionsList}
 	];
 
 	NullVectorDegreeOfDivergence=(Log@UltravioletNullVector/Log@Mo//FullSimplify)~Limit~(Mo->Infinity);

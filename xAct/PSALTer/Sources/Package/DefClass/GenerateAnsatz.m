@@ -8,12 +8,16 @@ GenerateAnsatz[ClassName_?StringQ]:=Catch@Module[{
 	Class,
 	EvenEven,
 	EvenEvenMask,
+	EvenEvenAntiMask,
 	EvenOdd,
 	EvenOddMask,
+	EvenOddAntiMask,
 	OddEven,
 	OddEvenMask,
+	OddEvenAntiMask,
 	OddOdd,
 	OddOddMask,
+	OddOddAntiMask,
 	SpinParityConstantSymbols,
 	SpinParityRescalingSymbols,
 	SpinParityRescalingRulesValue,
@@ -21,7 +25,8 @@ GenerateAnsatz[ClassName_?StringQ]:=Catch@Module[{
 	InverseRescalingMatrixValue,
 	RescalingMatrixValue,
 	InvariantMatrixValue,
-	MaskMatrixValue
+	MaskMatrixValue,
+	AntiMaskMatrixValue
 	},
 
 	Class=Evaluate@Symbol@ClassName;
@@ -31,6 +36,7 @@ GenerateAnsatz[ClassName_?StringQ]:=Catch@Module[{
 	InverseRescalingMatrixValue=<||>;
 	InvariantMatrixValue=<||>;
 	MaskMatrixValue=<||>;
+	AntiMaskMatrixValue=<||>;
 
 	Block[{Print},
 	Unprotect@Print;
@@ -71,10 +77,18 @@ GenerateAnsatz[ClassName_?StringQ]:=Catch@Module[{
 		Join@@SpinParityConstantSymbols[Tensor][Spin][Even]~Table~{Tensor,Class@Tensors}
 	},
 	1];
+	EvenEven//=DeleteCases[#,{}]&;
+	Diagnostic@EvenEven;
 
 	EvenEvenMask=Outer[(0)&,	
 	Join@@FieldSpinParityTensorHeadsValue[Tensor][Spin][Even]~Table~{Tensor,Class@Tensors},	
 	Join@@FieldSpinParityTensorHeadsValue[Tensor][Spin][Even]~Table~{Tensor,Class@Tensors}];
+	EvenEvenMask//=DeleteCases[#,{}]&;
+
+	EvenEvenAntiMask=Outer[(1)&,	
+	Join@@FieldSpinParityTensorHeadsValue[Tensor][Spin][Even]~Table~{Tensor,Class@Tensors},	
+	Join@@FieldSpinParityTensorHeadsValue[Tensor][Spin][Even]~Table~{Tensor,Class@Tensors}];
+	EvenEvenAntiMask//=DeleteCases[#,{}]&;
 
 	EvenOdd=Outer[CatalogueInvariant[
 			ClassName,
@@ -91,10 +105,18 @@ GenerateAnsatz[ClassName_?StringQ]:=Catch@Module[{
 		Join@@SpinParityConstantSymbols[Tensor][Spin][Odd]~Table~{Tensor,Class@Tensors}
 	},
 	1];
+	EvenOdd//=DeleteCases[#,{}]&;
+	Diagnostic@EvenOdd;
 
 	EvenOddMask=Outer[(1)&,	
 	Join@@FieldSpinParityTensorHeadsValue[Tensor][Spin][Even]~Table~{Tensor,Class@Tensors},	
 	Join@@FieldSpinParityTensorHeadsValue[Tensor][Spin][Odd]~Table~{Tensor,Class@Tensors}];
+	EvenOddMask//=DeleteCases[#,{}]&;
+
+	EvenOddAntiMask=Outer[(0)&,	
+	Join@@FieldSpinParityTensorHeadsValue[Tensor][Spin][Even]~Table~{Tensor,Class@Tensors},	
+	Join@@FieldSpinParityTensorHeadsValue[Tensor][Spin][Odd]~Table~{Tensor,Class@Tensors}];
+	EvenOddAntiMask//=DeleteCases[#,{}]&;
 
 	OddEven=Outer[CatalogueInvariant[
 			ClassName,
@@ -111,10 +133,18 @@ GenerateAnsatz[ClassName_?StringQ]:=Catch@Module[{
 		Join@@SpinParityConstantSymbols[Tensor][Spin][Even]~Table~{Tensor,Class@Tensors}
 	},
 	1];
+	OddEven//=DeleteCases[#,{}]&;
+	Diagnostic@OddEven;
 
 	OddEvenMask=Outer[(1)&,	
 	Join@@FieldSpinParityTensorHeadsValue[Tensor][Spin][Odd]~Table~{Tensor,Class@Tensors},	
 	Join@@FieldSpinParityTensorHeadsValue[Tensor][Spin][Even]~Table~{Tensor,Class@Tensors}];
+	OddEvenMask//=DeleteCases[#,{}]&;
+
+	OddEvenAntiMask=Outer[(0)&,	
+	Join@@FieldSpinParityTensorHeadsValue[Tensor][Spin][Odd]~Table~{Tensor,Class@Tensors},	
+	Join@@FieldSpinParityTensorHeadsValue[Tensor][Spin][Even]~Table~{Tensor,Class@Tensors}];
+	OddEvenAntiMask//=DeleteCases[#,{}]&;
 
 	OddOdd=Outer[CatalogueInvariant[
 			ClassName,
@@ -131,16 +161,44 @@ GenerateAnsatz[ClassName_?StringQ]:=Catch@Module[{
 		Join@@SpinParityConstantSymbols[Tensor][Spin][Odd]~Table~{Tensor,Class@Tensors}
 	},
 	1];
+	OddOdd//=DeleteCases[#,{}]&;
+	Diagnostic@OddOdd;
 
 	OddOddMask=Outer[(0)&,	
 	Join@@FieldSpinParityTensorHeadsValue[Tensor][Spin][Odd]~Table~{Tensor,Class@Tensors},	
 	Join@@FieldSpinParityTensorHeadsValue[Tensor][Spin][Odd]~Table~{Tensor,Class@Tensors}];
+	OddOddMask//=DeleteCases[#,{}]&;
 
-	InvariantMatrixValue[Spin]=ArrayFlatten@{{EvenEven,EvenOdd},{OddEven,OddOdd}};
-	Print@MatrixForm@InvariantMatrixValue[Spin];
+	OddOddAntiMask=Outer[(1)&,	
+	Join@@FieldSpinParityTensorHeadsValue[Tensor][Spin][Odd]~Table~{Tensor,Class@Tensors},	
+	Join@@FieldSpinParityTensorHeadsValue[Tensor][Spin][Odd]~Table~{Tensor,Class@Tensors}];
+	OddOddAntiMask//=DeleteCases[#,{}]&;
+	
+	If[Length@DeleteCases[{EvenEven,EvenOdd,OddEven,OddOdd},{}]===1,
+		InvariantMatrixValue[Spin]=ArrayFlatten@DeleteCases[{EvenEven,EvenOdd,OddEven,OddOdd},{}];
+		Diagnostic@MatrixForm@InvariantMatrixValue[Spin];
 
-	MaskMatrixValue[Spin]=ArrayFlatten@{{EvenEvenMask,EvenOddMask},{OddEvenMask,OddOddMask}};
-	Print@MatrixForm@MaskMatrixValue[Spin];
+		MaskMatrixValue[Spin]=Flatten@DeleteCases[{EvenEvenAntiMask,EvenOddAntiMask,OddEvenAntiMask,OddOddAntiMask},{}];
+		Diagnostic@MatrixForm@MaskMatrixValue[Spin];
+
+		AntiMaskMatrixValue[Spin]=<||>;
+		AntiMaskMatrixValue[Spin][Even]=Flatten@DeleteCases[{EvenEvenAntiMask,EvenOddAntiMask,OddEvenAntiMask,OddOddMask},{}];
+		AntiMaskMatrixValue[Spin][Odd]=Flatten@DeleteCases[{EvenEvenMask,EvenOddAntiMask,OddEvenAntiMask,OddOddAntiMask},{}];
+		Diagnostic@MatrixForm@AntiMaskMatrixValue[Spin];
+		,
+	
+		InvariantMatrixValue[Spin]=ArrayFlatten@{{EvenEven,EvenOdd},{OddEven,OddOdd}};
+		Diagnostic@MatrixForm@InvariantMatrixValue[Spin];
+
+		MaskMatrixValue[Spin]=ArrayFlatten@{{EvenEvenAntiMask,EvenOddAntiMask},{OddEvenAntiMask,OddOddAntiMask}};
+		Diagnostic@MatrixForm@MaskMatrixValue[Spin];
+
+		AntiMaskMatrixValue[Spin]=<||>;
+		AntiMaskMatrixValue[Spin][Even]=ArrayFlatten@{{EvenEvenAntiMask,EvenOddAntiMask},{OddEvenAntiMask,OddOddMask}};
+		AntiMaskMatrixValue[Spin][Odd]=ArrayFlatten@{{EvenEvenMask,EvenOddAntiMask},{OddEvenAntiMask,OddOddAntiMask}};
+		Diagnostic@MatrixForm@MaskMatrixValue[Spin];
+	];
+
 
 	RescalingMatrixValue[Spin]=TensorProduct[#,#]&@Flatten@Join[
 		SpinParityRescalingSymbols[Tensor][Spin][Even]~Table~{Tensor,Class@Tensors},
@@ -157,6 +215,7 @@ GenerateAnsatz[ClassName_?StringQ]:=Catch@Module[{
 
 	UpdateClassAssociation[ClassName,InvariantMatrix,InvariantMatrixValue];
 	UpdateClassAssociation[ClassName,MaskMatrix,MaskMatrixValue];
+	UpdateClassAssociation[ClassName,AntiMaskMatrix,AntiMaskMatrixValue];
 	UpdateClassAssociation[ClassName,RescalingMatrix,RescalingMatrixValue];
 	UpdateClassAssociation[ClassName,InverseRescalingMatrix,InverseRescalingMatrixValue];
 ];

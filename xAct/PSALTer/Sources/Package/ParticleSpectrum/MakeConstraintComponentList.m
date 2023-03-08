@@ -20,5 +20,5 @@ MakeConstraintComponentList[ClassName_?StringQ,PropagatorConstraints_List,Manual
 
 	(*Remove symmetry-vanishing and duplicate entries that the "canonicalisation" reveals*)
 	ConstraintComponents=ConstraintComponents~DeleteCases~0;
-	ConstraintComponents=ConstraintComponents//DeleteDuplicates;
+	ConstraintComponents//=DeleteDuplicates;
 ConstraintComponents];

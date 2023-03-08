@@ -42,6 +42,8 @@ Quiet@If[NotebookDirectory[]==$Failed,$WorkingDirectory=Directory[];,$WorkingDir
 $Path~AppendTo~$WorkingDirectory;
 $PSALTerInstallDirectory=Select[FileNameJoin[{#,"xAct/PSALTer"}]&/@$Path,DirectoryQ][[1]];
 
+$DiagnosticMode=True;
+
 (*--------------*)
 (*  Disclaimer  *)
 (*--------------*)
@@ -77,6 +79,8 @@ SourceConstraintComponents::usage="SourceConstraintComponents is an association 
 SquareMasses::usage="SquareMasses is an association key which refers to the list of square masses.";
 MasslessEigenvalues::usage="MasslessEigenvalues is an association key which refers to the list of source current eignevalues in the residue of the massless pole.";
 
+$DiagnosticMode::usage="$DiagnosticMode is a boolean variable in the context xAct`PSALTer` which controls whether internal variables are displayed during a computation. Default is False.";
+
 (*=========================*)
 (*  xAct`PSALTer`Private`  *)
 (*=========================*)
@@ -96,7 +100,8 @@ BuildPSALTerPackage[]:=BuildPackage/@{
 	"ViewParticleSpectrum.m",
 	"DefClass.m",
 	"SymbolBuild.m",
-	"ToNewCanonical.m"
+	"ToNewCanonical.m",
+	"Diagnostic.m"
 };
 
 BuildPSALTerPackage[];
@@ -104,8 +109,12 @@ BuildPSALTerPackage[];
 ContextList={	
 	"xAct`PSALTer`",
 	"xAct`PSALTer`Private`",
+	"xAct`PSALTer`Proca`",
+	"xAct`PSALTer`Proca`Private`",
+(*
 	"xAct`PSALTer`PGT`",
 	"xAct`PSALTer`PGT`Private`",
+*)
 	"xAct`xTensor`",
 	"xAct`xTensor`Private`",
 	"TangentM4`",

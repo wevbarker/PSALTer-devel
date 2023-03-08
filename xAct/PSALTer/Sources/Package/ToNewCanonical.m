@@ -8,6 +8,7 @@ ToNewCanonical[Expr_]:=Module[{
 
 	PrintVariable=PrintTemporary[" ** ToNewCanonical..."];
 
+	CanonicalisedExpr//=NoScalar;
 	CanonicalisedExpr//=ToCanonical;
 	CanonicalisedExpr//=ContractMetric;
 	CanonicalisedExpr//=ScreenDollarIndices;

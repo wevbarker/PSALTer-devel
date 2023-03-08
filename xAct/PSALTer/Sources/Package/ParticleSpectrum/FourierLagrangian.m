@@ -35,16 +35,25 @@ FourierLagrangian[ClassName_?StringQ,Expr_,Tensors_]:=Module[{
 	MakeRule[{Evaluate[Tensor1 Tensor2],Evaluate[Dagger@Tensor1 Tensor2]},MetricOn->All,ContractMetrics->True]),
 	{Tensor1,Tensors1},{Tensor2,Tensors2}];
 
-	(*Print@CrossingRules;*)
+	Diagnostic@CrossingRules;
 
-	ToMomentumExpr=Expr/.CrossingRules;(*now impose these rules to obtain Fourier space version*)
+	Diagnostic@Expr;
+	ToMomentumExpr=Expr;
 	ToMomentumExpr//=ToNewCanonical;
-	(*Print@ToMomentumExpr;*)
+	ToMomentumExpr//=CollectTensors;
+
+	ToMomentumExpr=ToMomentumExpr/.CrossingRules;(*now impose these rules to obtain Fourier space version*)
+	Diagnostic@ToMomentumExpr;
+	ToMomentumExpr=ToMomentumExpr/.CrossingRules;(*now impose these rules to obtain Fourier space version*)
+	Diagnostic@ToMomentumExpr;
+	ToMomentumExpr//=ToNewCanonical;
+	Diagnostic@ToMomentumExpr;
 
 	(*now move over to SO(3) decomposition*)
 	ToMomentumExpr=ToMomentumExpr/.ToV;
 
-	ToMomentumExpr//=Class@FourierDecompose;
+	ToMomentumExpr//=Class@DecomposeFields;
+	Diagnostic@ToMomentumExpr;
 
 	NotebookDelete@PrintVariable;
 ToMomentumExpr];

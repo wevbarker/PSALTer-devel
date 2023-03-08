@@ -12,7 +12,33 @@ Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","VimFormat.m"};
 
 Comment@"...okay, that's better, from now on any commentary written inside this Calibration.m wrapper will present as blue text (i.e. this text is not part of PSALTer, it is just a use-case). Next we load the PSALTer package:";
 
+Comment@"Do we want diagnostic mode?";
+
+xAct`PSALTer`$DiagnosticMode=True;
+
 <<xAct`PSALTer`;
+
+Comment@"Do we want diagnostic mode?";
+
+$DiagnosticMode=True;
+
+Comment@"Now attempting a simple Proca model.";
+
+LinearisedLagrangian=Kinetic1*(CD[-a]@B[-b]-CD[-b]@B[-a])*(CD[a]@B[b]-CD[b]@B[a])-Mass^2*B[-a]*B[a];
+LinearisedLagrangian//=ToCanonical;
+LinearisedLagrangian//=CollectTensors;
+Print@LinearisedLagrangian;
+
+ParticleSpectrum[
+	"Proca",
+	"BasicProcaTheory",
+	LinearisedLagrangian,
+	TensorFields->{B},
+	CouplingConstants->{Kinetic1,Mass},
+	ExportTheory->True
+];
+
+Throw@"Hold my beer!";
 
 Comment@"Now we set up the general Lagrangian:";
 
@@ -117,4 +143,4 @@ Print@CalibrationTimingData;
 
 DumpSave[FileNameJoin@{NotebookDirectory[],"CalibrationTimingData.mx"},{CalibrationTimingData}];
 
-Quit[];
+Throw@"End of survey!";

@@ -78,7 +78,7 @@ DefTensor[ProjF1p[-a,-b,c,d],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`P
 DefTensor[ProjF2p[-a,-b,c,d],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`ProjFSymb,xAct`PSALTer`Private`Spin2p]];
 DefTensor[ProjF1m[-a,d],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`ProjFSymb,xAct`PSALTer`Private`Spin1m]];
 
-xAct`PSALTer`PGT`Private`ProjFAJPToVG=Join[
+xAct`PSALTer`PGT`Private`ProjFASpinParityToVG=Join[
 	MakeRule[{ProjA0p[c,d],Evaluate[
 		ProjPara[c,-k]ProjPara[d,-l]G[k,l]/.xAct`PSALTer`PGT`Private`ProjPerpParaToVG//ToCanonical]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{ProjA1p[-a,-b,c,d],Evaluate[
@@ -246,7 +246,7 @@ AutomaticRules[SigmaPara2p,MakeRule[{SigmaPara2p[a,-a],0},MetricOn->All,Contract
 (*  Expansions  *)
 (*==============*)
 
-xAct`PSALTer`PGT`Private`FAParaJPToFA=Join[
+xAct`PSALTer`PGT`Private`FAParaSpinParityToFA=Join[
 	MakeRule[{FPara0p[],Scalar[Evaluate[
 		ProjF0p[e,f]ProjFPara[-e,-f,a,c]FPara[-a,-c]]]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{FPara1p[-n,-m],Evaluate[
@@ -293,7 +293,7 @@ DefTensor[FPerp1m[-a],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`
 DefTensor[APerp1p[-a,-b],M4,Antisymmetric[{-a,-b}],PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`APerpSymb,xAct`PSALTer`Private`Spin1p],OrthogonalTo->{V[a],V[b]},Dagger->Complex];
 DefTensor[APerp1m[-a],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`APerpSymb,xAct`PSALTer`Private`Spin1m],OrthogonalTo->{V[a]},Dagger->Complex];
 
-xAct`PSALTer`PGT`Private`FAPerpJPToFA=Join[
+xAct`PSALTer`PGT`Private`FAPerpSpinParityToFA=Join[
 	MakeRule[{FPerp0p[],Scalar[Evaluate[
 		V[a]FPerp[-a]]]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{FPerp1m[-n],Evaluate[
@@ -311,7 +311,7 @@ xAct`PSALTer`PGT`Private`FAPerpJPToFA=Join[
 	MakeRule[{Evaluate@Dagger@APerp1m[-n],Evaluate[Dagger@(
 		ProjPara[-n,a]V[b]APerp[-a,-b])]},MetricOn->All,ContractMetrics->True]];
 
-xAct`PSALTer`PGT`Private`TauSigmaParaJPToTauSigma=Join[
+xAct`PSALTer`PGT`Private`TauSigmaParaSpinParityToTauSigma=Join[
 	MakeRule[{TauPara0p[],Scalar[Evaluate[
 		ProjF0p[e,f]ProjFPara[-e,-f,a,c]TauPara[-a,-c]]]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{TauPara1p[-n,-m],Evaluate[
@@ -358,7 +358,7 @@ DefTensor[TauPerp1m[-a],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTe
 DefTensor[SigmaPerp1p[-a,-b],M4,Antisymmetric[{-a,-b}],PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`SigmaPerpSymb,xAct`PSALTer`Private`Spin1p],OrthogonalTo->{V[a],V[b]},Dagger->Complex];
 DefTensor[SigmaPerp1m[-a],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`SigmaPerpSymb,xAct`PSALTer`Private`Spin1m],OrthogonalTo->{V[a]},Dagger->Complex];
 
-xAct`PSALTer`PGT`Private`TauSigmaPerpJPToTauSigma=Join[
+xAct`PSALTer`PGT`Private`TauSigmaPerpSpinParityToTauSigma=Join[
 	MakeRule[{TauPerp0p[],Scalar[Evaluate[
 		V[a]TauPerp[-a]]]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{TauPerp1m[-n],Evaluate[
@@ -380,65 +380,65 @@ xAct`PSALTer`PGT`Private`TauSigmaPerpJPToTauSigma=Join[
 (*  Decompositions  *)
 (*==================*)
 
-xAct`PSALTer`PGT`Private`FAParaToFAParaJP=Join[
+xAct`PSALTer`PGT`Private`FAParaToFAParaSpinParity=Join[
 	MakeRule[{FPara[-n,-m],Evaluate[
 		((1/3)ProjPara[-n,-m]FPara0p[]+
 		FPara1p[-n,-m]+
 		FPara2p[-n,-m]+
-		V[-n]FPara1m[-m])/.xAct`PSALTer`PGT`Private`ProjFAJPToVG/.xAct`PSALTer`PGT`Private`ProjPerpParaToVG//xAct`PSALTer`Private`ToNewCanonical]},MetricOn->All,ContractMetrics->True],
+		V[-n]FPara1m[-m])/.xAct`PSALTer`PGT`Private`ProjFASpinParityToVG/.xAct`PSALTer`PGT`Private`ProjPerpParaToVG//xAct`PSALTer`Private`ToNewCanonical]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{APara[-n,-m,-o],Evaluate[
 		(Antisymmetrize[2Antisymmetrize[V[-n](1/3)ProjPara[-m,-o]APara0p[],{-n,-m}]+
 		2Antisymmetrize[V[-n]APara1p[-m,-o],{-n,-m}]+
 		2Antisymmetrize[V[-n]APara2p[-m,-o],{-n,-m}]+
 		(-1/6)ProjA0m[-n,-m,-o]APara0m[]+
 		Antisymmetrize[-ProjPara[-m,-o]APara1m[-n],{-m,-n}]+
-		(4/3)APara2m[-n,-m,-o],{-n,-m}])/.xAct`PSALTer`PGT`Private`ProjFAJPToVG/.xAct`PSALTer`PGT`Private`ProjPerpParaToVG//xAct`PSALTer`Private`ToNewCanonical]},MetricOn->All,ContractMetrics->True],
+		(4/3)APara2m[-n,-m,-o],{-n,-m}])/.xAct`PSALTer`PGT`Private`ProjFASpinParityToVG/.xAct`PSALTer`PGT`Private`ProjPerpParaToVG//xAct`PSALTer`Private`ToNewCanonical]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{Evaluate@Dagger@FPara[-n,-m],Evaluate[Dagger@(
 		((1/3)ProjPara[-n,-m]FPara0p[]+
 		FPara1p[-n,-m]+
 		FPara2p[-n,-m]+
-		V[-n]FPara1m[-m])/.xAct`PSALTer`PGT`Private`ProjFAJPToVG/.xAct`PSALTer`PGT`Private`ProjPerpParaToVG//xAct`PSALTer`Private`ToNewCanonical)]},MetricOn->All,ContractMetrics->True],
+		V[-n]FPara1m[-m])/.xAct`PSALTer`PGT`Private`ProjFASpinParityToVG/.xAct`PSALTer`PGT`Private`ProjPerpParaToVG//xAct`PSALTer`Private`ToNewCanonical)]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{Evaluate@Dagger@APara[-n,-m,-o],Evaluate[Dagger@(
 		(Antisymmetrize[2Antisymmetrize[V[-n](1/3)ProjPara[-m,-o]APara0p[],{-n,-m}]+
 		2Antisymmetrize[V[-n]APara1p[-m,-o],{-n,-m}]+
 		2Antisymmetrize[V[-n]APara2p[-m,-o],{-n,-m}]+
 		(-1/6)ProjA0m[-n,-m,-o]APara0m[]+
 		Antisymmetrize[-ProjPara[-m,-o]APara1m[-n],{-m,-n}]+
-		(4/3)APara2m[-n,-m,-o],{-n,-m}])/.xAct`PSALTer`PGT`Private`ProjFAJPToVG/.xAct`PSALTer`PGT`Private`ProjPerpParaToVG//xAct`PSALTer`Private`ToNewCanonical)]},MetricOn->All,ContractMetrics->True]];
+		(4/3)APara2m[-n,-m,-o],{-n,-m}])/.xAct`PSALTer`PGT`Private`ProjFASpinParityToVG/.xAct`PSALTer`PGT`Private`ProjPerpParaToVG//xAct`PSALTer`Private`ToNewCanonical)]},MetricOn->All,ContractMetrics->True]];
 
-xAct`PSALTer`PGT`Private`FAPerpToFAPerpJP=Join[
+xAct`PSALTer`PGT`Private`FAPerpToFAPerpSpinParity=Join[
 	MakeRule[{FPerp[-n],Evaluate[FPerp0p[]V[-n]+FPerp1m[-n]]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{APerp[-n,-m],Evaluate[APerp1p[-n,-m]+2Antisymmetrize[V[-m]APerp1m[-n],{-n,-m}]]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{Evaluate@Dagger@FPerp[-n],Evaluate[Dagger@(FPerp0p[]V[-n]+FPerp1m[-n])]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{Evaluate@Dagger@APerp[-n,-m],Evaluate[Dagger@(APerp1p[-n,-m]+2Antisymmetrize[V[-m]APerp1m[-n],{-n,-m}])]},MetricOn->All,ContractMetrics->True]];
 
-xAct`PSALTer`PGT`Private`TauSigmaParaToTauSigmaParaJP=Join[
+xAct`PSALTer`PGT`Private`TauSigmaParaToTauSigmaParaSpinParity=Join[
 	MakeRule[{TauPara[-n,-m],Evaluate[
 		((1/3)ProjPara[-n,-m]TauPara0p[]+
 		TauPara1p[-n,-m]+
 		TauPara2p[-n,-m]+
-		V[-n]TauPara1m[-m])/.xAct`PSALTer`PGT`Private`ProjFAJPToVG/.xAct`PSALTer`PGT`Private`ProjPerpParaToVG//xAct`PSALTer`Private`ToNewCanonical]},MetricOn->All,ContractMetrics->True],
+		V[-n]TauPara1m[-m])/.xAct`PSALTer`PGT`Private`ProjFASpinParityToVG/.xAct`PSALTer`PGT`Private`ProjPerpParaToVG//xAct`PSALTer`Private`ToNewCanonical]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{SigmaPara[-o,-n,-m],Evaluate[
 		(Antisymmetrize[2Antisymmetrize[V[-n](1/3)ProjPara[-m,-o]SigmaPara0p[],{-n,-m}]+
 		2Antisymmetrize[V[-n]SigmaPara1p[-m,-o],{-n,-m}]+
 		2Antisymmetrize[V[-n]SigmaPara2p[-m,-o],{-n,-m}]+
 		(-1/6)ProjA0m[-n,-m,-o]SigmaPara0m[]+
 		Antisymmetrize[-ProjPara[-m,-o]SigmaPara1m[-n],{-m,-n}]+
-		(4/3)SigmaPara2m[-n,-m,-o],{-n,-m}])/.xAct`PSALTer`PGT`Private`ProjFAJPToVG/.xAct`PSALTer`PGT`Private`ProjPerpParaToVG//xAct`PSALTer`Private`ToNewCanonical]},MetricOn->All,ContractMetrics->True],
+		(4/3)SigmaPara2m[-n,-m,-o],{-n,-m}])/.xAct`PSALTer`PGT`Private`ProjFASpinParityToVG/.xAct`PSALTer`PGT`Private`ProjPerpParaToVG//xAct`PSALTer`Private`ToNewCanonical]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{Evaluate@Dagger@TauPara[-n,-m],Evaluate[Dagger@(
 		((1/3)ProjPara[-n,-m]TauPara0p[]+
 		TauPara1p[-n,-m]+
 		TauPara2p[-n,-m]+
-		V[-n]TauPara1m[-m])/.xAct`PSALTer`PGT`Private`ProjFAJPToVG/.xAct`PSALTer`PGT`Private`ProjPerpParaToVG//xAct`PSALTer`Private`ToNewCanonical)]},MetricOn->All,ContractMetrics->True],
+		V[-n]TauPara1m[-m])/.xAct`PSALTer`PGT`Private`ProjFASpinParityToVG/.xAct`PSALTer`PGT`Private`ProjPerpParaToVG//xAct`PSALTer`Private`ToNewCanonical)]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{Evaluate@Dagger@SigmaPara[-o,-n,-m],Evaluate[Dagger@(
 		(Antisymmetrize[2Antisymmetrize[V[-n](1/3)ProjPara[-m,-o]SigmaPara0p[],{-n,-m}]+
 		2Antisymmetrize[V[-n]SigmaPara1p[-m,-o],{-n,-m}]+
 		2Antisymmetrize[V[-n]SigmaPara2p[-m,-o],{-n,-m}]+
 		(-1/6)ProjA0m[-n,-m,-o]SigmaPara0m[]+
 		Antisymmetrize[-ProjPara[-m,-o]SigmaPara1m[-n],{-m,-n}]+
-		(4/3)SigmaPara2m[-n,-m,-o],{-n,-m}])/.xAct`PSALTer`PGT`Private`ProjFAJPToVG/.xAct`PSALTer`PGT`Private`ProjPerpParaToVG//xAct`PSALTer`Private`ToNewCanonical)]},MetricOn->All,ContractMetrics->True]];
+		(4/3)SigmaPara2m[-n,-m,-o],{-n,-m}])/.xAct`PSALTer`PGT`Private`ProjFASpinParityToVG/.xAct`PSALTer`PGT`Private`ProjPerpParaToVG//xAct`PSALTer`Private`ToNewCanonical)]},MetricOn->All,ContractMetrics->True]];
 
-xAct`PSALTer`PGT`Private`TauSigmaPerpToTauSigmaPerpJP=Join[
+xAct`PSALTer`PGT`Private`TauSigmaPerpToTauSigmaPerpSpinParity=Join[
 	MakeRule[{TauPerp[-n],Evaluate[TauPerp0p[]V[-n]+TauPerp1m[-n]]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{SigmaPerp[-n,-m],Evaluate[SigmaPerp1p[-n,-m]+2Antisymmetrize[V[-m]SigmaPerp1m[-n],{-n,-m}]]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{Evaluate@Dagger@TauPerp[-n],Evaluate[Dagger@(TauPerp0p[]V[-n]+TauPerp1m[-n])]},MetricOn->All,ContractMetrics->True],
@@ -509,7 +509,7 @@ xAct`PSALTer`PGT`Private`RTToHBACDBCDA=Join[
 
 Begin["xAct`PSALTer`PGT`Private`"];
 
-FieldSpinParityTensorHeadsPGT=<|
+FieldSpinParityTensorHeads=<|
 		A-><|
 			0-><|Even->{APara0p},Odd->{APara0m}|>,
 			1-><|Even->{APara1p,APerp1p},Odd->{APara1m,APerp1m}|>,
@@ -522,7 +522,7 @@ FieldSpinParityTensorHeadsPGT=<|
 		|>
 |>;
 
-SourceSpinParityTensorHeadsPGT=<|
+SourceSpinParityTensorHeads=<|
 		Sigma-><|
 			0-><|Even->{SigmaPara0p},Odd->{SigmaPara0m}|>,
 			1-><|Even->{SigmaPara1p,SigmaPerp1p},Odd->{SigmaPara1m,SigmaPerp1m}|>,
@@ -535,96 +535,56 @@ SourceSpinParityTensorHeadsPGT=<|
 		|>
 |>;
 
-EngineeringDimensionsPGT=<|
+SourceEngineeringDimensions=<|
 		Sigma->0,
 		Tau->1
 |>;
 
-(*================*)
-(*  Expand gauge  *)
-(*================*)
-
-DecomposeFieldsPGT[InputExpr_]:=Module[{Expr=InputExpr},
-	Expr=Expr/.xAct`PSALTer`PGT`Private`FAParaJPToFA;
+ExpandFields[InputExpr_]:=Module[{Expr=InputExpr},
+	Expr=Expr/.xAct`PSALTer`PGT`Private`FAParaSpinParityToFA;
 	Expr//=xAct`PSALTer`Private`ToNewCanonical;
-	Expr=Expr/.xAct`PSALTer`PGT`Private`FAPerpJPToFA;
+	Expr=Expr/.xAct`PSALTer`PGT`Private`FAPerpSpinParityToFA;
 	Expr//=xAct`PSALTer`Private`ToNewCanonical;
 	Expr=Expr/.xAct`PSALTer`PGT`Private`ProjFAPerpParaToVG;
 	Expr//=xAct`PSALTer`Private`ToNewCanonical;
-	Expr=Expr/.xAct`PSALTer`PGT`Private`ProjFAJPToVG;
+	Expr=Expr/.xAct`PSALTer`PGT`Private`ProjFASpinParityToVG;
 	Expr//=xAct`PSALTer`Private`ToNewCanonical;
 	Expr=Expr/.xAct`PSALTer`PGT`Private`ProjPerpParaToVG;
-	Expr//=xAct`PSALTer`Private`ToNewCanonical;
 	Expr//=xAct`PSALTer`Private`ToNewCanonical;
 	Expr=Expr/.xAct`PSALTer`PGT`Private`FAPerpParaToFA;
 	Expr//=xAct`PSALTer`Private`ToNewCanonical;
 	Expr//=CollectTensors;
 Expr];
 
-(*===================*)
-(*  Decompose gauge  *)
-(*===================*)
+ExpandSources[InputExpr_]:=Module[{Expr=InputExpr},
+	Expr=Expr/.xAct`PSALTer`PGT`Private`TauSigmaParaSpinParityToTauSigma;
+	Expr//=xAct`PSALTer`Private`ToNewCanonical;
+	Expr=Expr/.xAct`PSALTer`PGT`Private`TauSigmaPerpSpinParityToTauSigma;
+	Expr//=xAct`PSALTer`Private`ToNewCanonical;
+	Expr=Expr/.xAct`PSALTer`PGT`Private`ProjFAPerpParaToVG;
+	Expr//=xAct`PSALTer`Private`ToNewCanonical;
+	Expr=Expr/.xAct`PSALTer`PGT`Private`ProjFASpinParityToVG;
+	Expr//=xAct`PSALTer`Private`ToNewCanonical;
+	Expr=Expr/.xAct`PSALTer`PGT`Private`ProjPerpParaToVG;
+	Expr//=xAct`PSALTer`Private`ToNewCanonical;
+	Expr=Expr/.xAct`PSALTer`PGT`Private`TauSigmaPerpParaToTauSigma;
+	Expr//=xAct`PSALTer`Private`ToNewCanonical;
+Expr];
 
-FourierDecomposePGT[InputExpr_]:=Module[{Expr=InputExpr},
+DecomposeFields[InputExpr_]:=Module[{Expr=InputExpr},
 	Expr//=xAct`PSALTer`Private`ToNewCanonical;
 	Expr=Expr/.xAct`PSALTer`PGT`Private`FAToFAPerpPara;
 	Expr//=xAct`PSALTer`Private`ToNewCanonical;
-	Expr=Expr/.xAct`PSALTer`PGT`Private`FAParaToFAParaJP;
-	Expr=Expr/.xAct`PSALTer`PGT`Private`FAPerpToFAPerpJP;
+	Expr=Expr/.xAct`PSALTer`PGT`Private`FAParaToFAParaSpinParity;
+	Expr//=xAct`PSALTer`Private`ToNewCanonical;
+	Expr=Expr/.xAct`PSALTer`PGT`Private`FAPerpToFAPerpSpinParity;
 	Expr//=xAct`PSALTer`Private`ToNewCanonical;
 	Expr//=CollectTensors;
 	Expr=Expr/.xAct`PSALTer`PGT`Private`Patch2m;
 	Expr=Expr/.xAct`PSALTer`PGT`Private`ManualAll;
-	Expr=Expr/.xAct`PSALTer`PGT`Private`ManualAll;
 	Expr//=xAct`PSALTer`Private`ToNewCanonical;
 	Expr//=CollectTensors;
 Expr];
-
-(*=================*)
-(*  Expand source  *)
-(*=================*)
-
-FirstSpeciousFunctionPGT[InputExpr_]:=Module[{Constraint=InputExpr},
-	Constraint=Constraint/.xAct`PSALTer`PGT`Private`TauSigmaParaJPToTauSigma;
-	Constraint=Constraint/.xAct`PSALTer`PGT`Private`TauSigmaPerpJPToTauSigma;
-	Constraint=Constraint/.xAct`PSALTer`PGT`Private`ProjFAPerpParaToVG;
-	Constraint=Constraint/.xAct`PSALTer`PGT`Private`ProjFAJPToVG;
-	Constraint=Constraint/.xAct`PSALTer`PGT`Private`ProjPerpParaToVG;
-	Constraint=Constraint/.xAct`PSALTer`PGT`Private`TauSigmaPerpParaToTauSigma;
-	Constraint=Constraint/.xAct`PSALTer`PGT`Private`TauSigmaPerpParaToTauSigma;
-Constraint];
-
-(*=================*)
-(*  Expand source  *)
-(*=================*)
-
-SecondSpeciousFunctionPGT[InputExpr_]:=Module[{Constraint=InputExpr},
-	Constraint=Constraint/.xAct`PSALTer`PGT`Private`TauSigmaPerpParaToTauSigma;
-Constraint];
-
-(*=================*)
-(*  Expand source  *)
-(*=================*)
-
-ThirdSpeciousFunctionPGT[InputExpr_]:=Module[{Sector=InputExpr},
-	Sector//=NoScalar;
-	Sector=Sector/.xAct`PSALTer`PGT`Private`TauSigmaParaJPToTauSigma;
-	Sector//=NoScalar;
-	Sector//=xAct`PSALTer`Private`ToNewCanonical;
-	Sector=Sector/.xAct`PSALTer`PGT`Private`TauSigmaPerpJPToTauSigma;
-	Sector//=NoScalar;
-	Sector//=xAct`PSALTer`Private`ToNewCanonical;
-	Sector=Sector/.xAct`PSALTer`PGT`Private`ProjFAPerpParaToVG;
-	Sector//=NoScalar;
-	Sector//=xAct`PSALTer`Private`ToNewCanonical;
-	Sector=Sector/.xAct`PSALTer`PGT`Private`ProjFAJPToVG;
-	Sector//=NoScalar;
-	Sector//=xAct`PSALTer`Private`ToNewCanonical;
-	Sector=Sector/.xAct`PSALTer`PGT`Private`ProjPerpParaToVG;
-	Sector//=NoScalar;
-	Sector//=xAct`PSALTer`Private`ToNewCanonical;
-	Sector=Sector/.xAct`PSALTer`PGT`Private`TauSigmaPerpParaToTauSigma;
-Sector];
 
 End[];
 
@@ -636,12 +596,10 @@ EndPackage[];
 
 DefClass[
 	"PGT",
-	xAct`PSALTer`PGT`Private`FieldSpinParityTensorHeadsPGT,
-	xAct`PSALTer`PGT`Private`SourceSpinParityTensorHeadsPGT,
-	xAct`PSALTer`PGT`Private`EngineeringDimensionsPGT,
-	xAct`PSALTer`PGT`Private`DecomposeFieldsPGT,
-	xAct`PSALTer`PGT`Private`FourierDecomposePGT,
-	xAct`PSALTer`PGT`Private`FirstSpeciousFunctionPGT,
-	xAct`PSALTer`PGT`Private`SecondSpeciousFunctionPGT,
-	xAct`PSALTer`PGT`Private`ThirdSpeciousFunctionPGT,
+	xAct`PSALTer`PGT`Private`FieldSpinParityTensorHeads,
+	xAct`PSALTer`PGT`Private`SourceSpinParityTensorHeads,
+	xAct`PSALTer`PGT`Private`SourceEngineeringDimensions,
+	xAct`PSALTer`PGT`Private`ExpandFields,
+	xAct`PSALTer`PGT`Private`DecomposeFields,
+	xAct`PSALTer`PGT`Private`ExpandSources,
 ExportClass->True];

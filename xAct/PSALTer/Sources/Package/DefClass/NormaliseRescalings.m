@@ -19,7 +19,7 @@ NormaliseRescalings[ClassName_?StringQ]:=Module[{
 	Expr-=Total@OriginalTerms;
 	Expr=Expr/.Class@SpinParityRescalingRules;
 
-	Expr//=Class@DecomposeFields;
+	Expr//=Class@ExpandFields;
 
 	SystemOfEquations=Expr==0//ToConstantSymbolEquations;
 	SolutionsToEquations=Solve@SystemOfEquations;

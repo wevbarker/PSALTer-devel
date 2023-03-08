@@ -8,13 +8,9 @@ ConstraintComponentToLightcone[ClassName_?StringQ,ConstraintComponent_]:=Module[
 
 	Class=Evaluate@Symbol@ClassName;
 
-	Constraint//=Class@FirstSpeciousFunction;
-(*
-	Constraint//=xAct`xCoba`SeparateBasis[AIndex];
-	Constraint//=NoScalar;
-	Constraint=Constraint/.ToP;
-	Constraint//=Class@SecondSpeciousFunction;
-*)
+	Block[{NoScalar=#&,xAct`PSALTer`Private`ToNewCanonical=#&},
+		Constraint//=Class@ExpandSources;
+	];
 
 	Constraint//=xAct`xCoba`SeparateBasis[AIndex];
 	Constraint//=NoScalar;

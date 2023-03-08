@@ -20,12 +20,10 @@ Options[DefClass]={
 DefClass[ClassName_?StringQ,
 	FieldSpinParityTensorHeadsInput_?AssociationQ,
 	SourceSpinParityTensorHeadsInput_?AssociationQ,
-	EngineeringDimensionsInput_?AssociationQ,
+	SourceEngineeringDimensionsInput_?AssociationQ,
+	ExpandFieldsInput_,
 	DecomposeFieldsInput_,
-	FourierDecomposeInput_,
-	FirstSpeciousFunctionInput_,
-	SecondSpeciousFunctionInput_,
-	ThirdSpeciousFunctionInput_,
+	ExpandSourcesInput_,
 	OptionsPattern[]]:=Module[{},
 
 	(*Firstly we remove all definitions which might be associated with a class already*)
@@ -40,12 +38,10 @@ DefClass[ClassName_?StringQ,
 
 		UpdateClassAssociation[ClassName,FieldSpinParityTensorHeads,FieldSpinParityTensorHeadsInput];
 		UpdateClassAssociation[ClassName,SourceSpinParityTensorHeads,SourceSpinParityTensorHeadsInput];
+		UpdateClassAssociation[ClassName,ExpandFields,ExpandFieldsInput];
 		UpdateClassAssociation[ClassName,DecomposeFields,DecomposeFieldsInput];
-		UpdateClassAssociation[ClassName,FourierDecompose,FourierDecomposeInput];
-		UpdateClassAssociation[ClassName,FirstSpeciousFunction,FirstSpeciousFunctionInput];
-		UpdateClassAssociation[ClassName,SecondSpeciousFunction,SecondSpeciousFunctionInput];
-		UpdateClassAssociation[ClassName,ThirdSpeciousFunction,ThirdSpeciousFunctionInput];
-		UpdateClassAssociation[ClassName,EngineeringDimensions,EngineeringDimensionsInput];
+		UpdateClassAssociation[ClassName,ExpandSources,ExpandSourcesInput];
+		UpdateClassAssociation[ClassName,SourceEngineeringDimensions,SourceEngineeringDimensionsInput];
 
 		(*--------------------------------------------*)
 		(*  These functions do much of the hard work  *)
