@@ -26,6 +26,7 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 	MatrixPropagator,
 	InverseBMatricesValues,
 	SaturatedPropagator,
+	BlockMassSigns,
 	PrintVariable},
 
 	PrintVariable={};
@@ -168,6 +169,7 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 	Diagnostic@(MatrixForm/@MatrixPropagator);
 
 	MaskMatrixValue=Class@MaskMatrix;
+	Diagnostic@(MatrixForm/@MaskMatrixValue);
 	MaskedMatrixPropagator=MapThread[
 			MapThread[Times,{#1,#2}]&,
 			{MaskMatrixValue,
@@ -175,11 +177,12 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 	Diagnostic@(MatrixForm/@MaskedMatrixPropagator);
 
 	AntiMaskMatrixValue=Class@AntiMaskMatrix;
+	Diagnostic@(MatrixForm/@AntiMaskMatrixValue);
 	MatrixPropagator=MapThread[
 			({MapThread[Times,{#1@Even,#2}],MapThread[Times,{#1@Odd,#2}]})&,
 			{AntiMaskMatrixValue,
 			MatrixPropagator}];
-	Diagnostic@(MatrixForm/@MatrixPropagator);
+	Diagnostic@(Map[MatrixForm,MatrixPropagator,{2}]);
 
 	(*saturated form of the propagator*)
 	(*SaturatedPropagator=MapThread[#1 . #2 . #3&,*)
@@ -190,8 +193,19 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 	Diagnostic@(MatrixForm/@SaturatedPropagator);
 	SaturatedPropagator=ToNewCanonical/@SaturatedPropagator;
 	SaturatedPropagator=CollectTensors/@SaturatedPropagator;
-	Diagnostic@(MatrixForm/@SaturatedPropagator);
+	Diagnostic@(SaturatedPropagator);
+	Diagnostic@(Map[MatrixForm,SaturatedPropagator,{2}]);
+
+	Diagnostic@(Flatten[Values@SaturatedPropagator,{1,2}]);
+	Diagnostic@(First/@Flatten[Values@SaturatedPropagator,{1,2}]);
+	Diagnostic@(Flatten[Values@BMatricesValues,{1,2}]);
+	Diagnostic@(First/@Flatten[Values@BMatricesValues,{1,2}]);
+
+	BlockMassSigns=Table[-(-1)^n,{n,1,2*Length@SaturatedPropagator}];
+	Diagnostic@BlockMassSigns;
+
+	(*Throw@"silly!";*)
 
 	NotebookDelete@PrintVariable;
 			(*{SourceConstraints,Values@SaturatedPropagator,Values@BMatricesValues,Values@InverseBMatricesValues}];*)
-{SourceConstraints,First/@Flatten[Values@SaturatedPropagator,{1,2}],First/@Flatten[Values@BMatricesValues,{1,2}],First/@Flatten[Values@InverseBMatricesValues,{1,2}]}];
+{SourceConstraints,Flatten[Values@SaturatedPropagator,{1,2}],Flatten[Values@BMatricesValues,{1,2}],Flatten[Values@InverseBMatricesValues,{1,2}],BlockMassSigns}];

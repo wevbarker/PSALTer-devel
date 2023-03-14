@@ -109,12 +109,12 @@ BuildPSALTerPackage[];
 ContextList={	
 	"xAct`PSALTer`",
 	"xAct`PSALTer`Private`",
+	"xAct`PSALTer`KG`",
+	"xAct`PSALTer`KG`Private`",
 	"xAct`PSALTer`Proca`",
 	"xAct`PSALTer`Proca`Private`",
-(*
 	"xAct`PSALTer`PGT`",
 	"xAct`PSALTer`PGT`Private`",
-*)
 	"xAct`xTensor`",
 	"xAct`xTensor`Private`",
 	"TangentM4`",

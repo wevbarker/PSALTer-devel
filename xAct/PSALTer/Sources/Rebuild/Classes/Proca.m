@@ -89,13 +89,10 @@ xAct`PSALTer`Proca`Private`JToJSpinParity=Join[
 (*  Basic definitions of the Lagrangian coupling constants  *)
 (*==========================================================*)
 
-xAct`PSALTer`Proca`Private`KineticSymb="\[Alpha]";
-DefConstantSymbol[Kinetic1,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`Proca`Private`KineticSymb,xAct`PSALTer`Private`dSO1,IsConstantSymbol->True]];
-DefConstantSymbol[Kinetic2,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`Proca`Private`KineticSymb,xAct`PSALTer`Private`dSO2,IsConstantSymbol->True]];
-DefConstantSymbol[Kinetic3,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`Proca`Private`KineticSymb,xAct`PSALTer`Private`dSO3,IsConstantSymbol->True]];
-
-xAct`PSALTer`Proca`Private`MassSymb="\[ScriptM]";
-DefConstantSymbol[Mass,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`Proca`Private`MassSymb,IsConstantSymbol->True]];
+xAct`PSALTer`Proca`Private`CouplingSymb="\[Alpha]";
+DefConstantSymbol[Coupling1,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`Proca`Private`CouplingSymb,xAct`PSALTer`Private`dSO1,xAct`PSALTer`Private`IsConstantSymbol->True]];
+DefConstantSymbol[Coupling2,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`Proca`Private`CouplingSymb,xAct`PSALTer`Private`dSO2,xAct`PSALTer`Private`IsConstantSymbol->True]];
+DefConstantSymbol[Coupling3,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`Proca`Private`CouplingSymb,xAct`PSALTer`Private`dSO3,xAct`PSALTer`Private`IsConstantSymbol->True]];
 
 (*================================================*)
 (*  Some infrastructure for linearising theories  *)
@@ -160,5 +157,3 @@ DefClass[
 	xAct`PSALTer`Proca`Private`DecomposeFields,
 	xAct`PSALTer`Proca`Private`ExpandSources,
 ExportClass->True];
-
-Print@Proca;

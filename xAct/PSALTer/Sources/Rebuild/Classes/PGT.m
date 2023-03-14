@@ -459,21 +459,21 @@ AutomaticRules[Evaluate[Dagger@APara2m],MakeRule[{Evaluate[Dagger@APara2m[-a,-c,
 
 xAct`PSALTer`PGT`Private`kRSymb="\[ScriptR]";
 xAct`PSALTer`PGT`Private`kLambdaSymb="\[Lambda]";
-DefConstantSymbol[kLambda,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kLambdaSymb,xAct`PSALTer`Private`dSOX,IsConstantSymbol->True]];
-DefConstantSymbol[kR1,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kRSymb,xAct`PSALTer`Private`dSO1,IsConstantSymbol->True]];
-DefConstantSymbol[kR2,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kRSymb,xAct`PSALTer`Private`dSO2,IsConstantSymbol->True]];
-DefConstantSymbol[kR3,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kRSymb,xAct`PSALTer`Private`dSO3,IsConstantSymbol->True]];
-DefConstantSymbol[kR4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kRSymb,xAct`PSALTer`Private`dSO4,IsConstantSymbol->True]];
-DefConstantSymbol[kR5,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kRSymb,xAct`PSALTer`Private`dSO5,IsConstantSymbol->True]];
-DefConstantSymbol[kR6,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kRSymb,xAct`PSALTer`Private`dSO6,IsConstantSymbol->True]];
+DefConstantSymbol[kLambda,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kLambdaSymb,xAct`PSALTer`Private`dSOX,xAct`PSALTer`Private`IsConstantSymbol->True]];
+DefConstantSymbol[kR1,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kRSymb,xAct`PSALTer`Private`dSO1,xAct`PSALTer`Private`IsConstantSymbol->True]];
+DefConstantSymbol[kR2,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kRSymb,xAct`PSALTer`Private`dSO2,xAct`PSALTer`Private`IsConstantSymbol->True]];
+DefConstantSymbol[kR3,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kRSymb,xAct`PSALTer`Private`dSO3,xAct`PSALTer`Private`IsConstantSymbol->True]];
+DefConstantSymbol[kR4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kRSymb,xAct`PSALTer`Private`dSO4,xAct`PSALTer`Private`IsConstantSymbol->True]];
+DefConstantSymbol[kR5,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kRSymb,xAct`PSALTer`Private`dSO5,xAct`PSALTer`Private`IsConstantSymbol->True]];
+DefConstantSymbol[kR6,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kRSymb,xAct`PSALTer`Private`dSO6,xAct`PSALTer`Private`IsConstantSymbol->True]];
 
 xAct`PSALTer`PGT`Private`kTSymb="\[ScriptT]";
-DefConstantSymbol[kT1,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kTSymb,xAct`PSALTer`Private`dSO1,IsConstantSymbol->True]];
-DefConstantSymbol[kT2,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kTSymb,xAct`PSALTer`Private`dSO2,IsConstantSymbol->True]];
-DefConstantSymbol[kT3,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kTSymb,xAct`PSALTer`Private`dSO3,IsConstantSymbol->True]];
-DefConstantSymbol[kT4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kTSymb,xAct`PSALTer`Private`dSO4,IsConstantSymbol->True]];
-DefConstantSymbol[kT5,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kTSymb,xAct`PSALTer`Private`dSO5,IsConstantSymbol->True]];
-DefConstantSymbol[kT6,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kTSymb,xAct`PSALTer`Private`dSO6,IsConstantSymbol->True]];
+DefConstantSymbol[kT1,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kTSymb,xAct`PSALTer`Private`dSO1,xAct`PSALTer`Private`IsConstantSymbol->True]];
+DefConstantSymbol[kT2,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kTSymb,xAct`PSALTer`Private`dSO2,xAct`PSALTer`Private`IsConstantSymbol->True]];
+DefConstantSymbol[kT3,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kTSymb,xAct`PSALTer`Private`dSO3,xAct`PSALTer`Private`IsConstantSymbol->True]];
+DefConstantSymbol[kT4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kTSymb,xAct`PSALTer`Private`dSO4,xAct`PSALTer`Private`IsConstantSymbol->True]];
+DefConstantSymbol[kT5,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kTSymb,xAct`PSALTer`Private`dSO5,xAct`PSALTer`Private`IsConstantSymbol->True]];
+DefConstantSymbol[kT6,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PGT`Private`kTSymb,xAct`PSALTer`Private`dSO6,xAct`PSALTer`Private`IsConstantSymbol->True]];
 
 (*================================================*)
 (*  Some infrastructure for linearising theories  *)

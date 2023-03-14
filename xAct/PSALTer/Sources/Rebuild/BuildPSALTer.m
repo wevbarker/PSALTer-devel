@@ -10,5 +10,6 @@ xAct`PSALTer`Private`BuildRebuild@"Lightcone.m";
 (*  Import theory classes  *)
 (*=========================*)
 
+xAct`PSALTer`Private`BuildRebuild@"Classes/KG.m";
 xAct`PSALTer`Private`BuildRebuild@"Classes/Proca.m";
-(*xAct`PSALTer`Private`BuildRebuild@"Classes/PGT.m";*)
+xAct`PSALTer`Private`BuildRebuild@"Classes/PGT.m";

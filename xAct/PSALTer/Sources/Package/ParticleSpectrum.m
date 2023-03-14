@@ -127,8 +127,7 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 
 	(*Throw["ReachedEval"];*)
 
-		(*SignedInverseBMatrices=Times~MapThread~{(SaturatedPropagator[[4]]),{1,-1,1,-1,1,-1}};*)
-	SignedInverseBMatrices=Times~MapThread~{(SaturatedPropagator[[4]]),{1,1,1}};
+	SignedInverseBMatrices=Times~MapThread~{(SaturatedPropagator[[4]]),(SaturatedPropagator[[5]])};
 
 	MassiveGhostAnalysis=MapThread[
 		(xAct`PSALTer`Private`PSALTerParallelSubmit@(MassiveGhost[#1,#2]))&,
