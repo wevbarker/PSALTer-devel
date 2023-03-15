@@ -3,7 +3,7 @@
 
 ## License
 
-Copyright © 2022 Will E. V. Barker
+Copyright © 2022 Will E. V. Barker, Claire Rigouzzo and Cillian Rew
 
 PSALTer is distributed as free software under the [GNU General Public License (GPL)](https://www.gnu.org/licenses/gpl-3.0.en.html).
 
@@ -16,14 +16,15 @@ PSALTer is an (unofficial) part of the [xAct bundle](http://www.xact.es/). The c
 ## Installation
 
 #### Requirements 
+
 PSALTer has been tested in the following environment(s):
-- Linux x86 (64-bit), specifically Manjaro
+- Linux x86 (64-bit), specifically Manjaro and Arch
 - Mathematica v 13.1.0.0
 - xAct v 1.2.0
-- HiGGS v 2.0.0-developer
+
 #### Install 
+
 1. Make sure you have [installed xAct](http://www.xact.es/download.html).
-1. Make sure you have also [installed the developer version of HiGGS](https://github.com/wevbarker/HiGGS-devel).
 2. Download PSALTer:
 	```bash, git
 	git clone https://github.com/wevbarker/PSALTer-devel
@@ -35,7 +36,7 @@ PSALTer has been tested in the following environment(s):
 	```
 ## Quickstart 
 
-The current example calculation is given in the `Calibration.nb` notebook, this is still the only theory for which I have tried running the computation. In the near future I will generate more examples.
+The current example calculation is given in the `Calibration.nb` notebook. In the near future I will generate more examples.
 
 ## Contribute
 
