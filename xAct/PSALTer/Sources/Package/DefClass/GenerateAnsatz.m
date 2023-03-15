@@ -175,16 +175,30 @@ GenerateAnsatz[ClassName_?StringQ]:=Catch@Module[{
 	OddOddAntiMask//=DeleteCases[#,{}]&;
 	
 	If[Length@DeleteCases[{EvenEven,EvenOdd,OddEven,OddOdd},{}]===1,
-		InvariantMatrixValue[Spin]=ArrayFlatten@DeleteCases[{EvenEven,EvenOdd,OddEven,OddOdd},{}];
-		Diagnostic@MatrixForm@InvariantMatrixValue[Spin];
+		If[Dimensions@DeleteCases[{EvenEven,EvenOdd,OddEven,OddOdd},{}]==={1,1,1},
+			InvariantMatrixValue[Spin]=ArrayFlatten@DeleteCases[{EvenEven,EvenOdd,OddEven,OddOdd},{}];
+			Diagnostic@MatrixForm@InvariantMatrixValue[Spin];
 
-		MaskMatrixValue[Spin]=Flatten@DeleteCases[{EvenEvenAntiMask,EvenOddAntiMask,OddEvenAntiMask,OddOddAntiMask},{}];
-		Diagnostic@MatrixForm@MaskMatrixValue[Spin];
+			MaskMatrixValue[Spin]=Flatten@DeleteCases[{EvenEvenAntiMask,EvenOddAntiMask,OddEvenAntiMask,OddOddAntiMask},{}];
+			Diagnostic@MatrixForm@MaskMatrixValue[Spin];
 
-		AntiMaskMatrixValue[Spin]=<||>;
-		AntiMaskMatrixValue[Spin][Even]=Flatten@DeleteCases[{EvenEvenAntiMask,EvenOddAntiMask,OddEvenAntiMask,OddOddMask},{}];
-		AntiMaskMatrixValue[Spin][Odd]=Flatten@DeleteCases[{EvenEvenMask,EvenOddAntiMask,OddEvenAntiMask,OddOddAntiMask},{}];
-		Diagnostic@MatrixForm@AntiMaskMatrixValue[Spin];
+			AntiMaskMatrixValue[Spin]=<||>;
+			AntiMaskMatrixValue[Spin][Even]=Flatten@DeleteCases[{EvenEvenAntiMask,EvenOddAntiMask,OddEvenAntiMask,OddOddMask},{}];
+			AntiMaskMatrixValue[Spin][Odd]=Flatten@DeleteCases[{EvenEvenMask,EvenOddAntiMask,OddEvenAntiMask,OddOddAntiMask},{}];
+			Diagnostic@MatrixForm@AntiMaskMatrixValue[Spin];
+		,
+			InvariantMatrixValue[Spin]=First@ArrayFlatten@DeleteCases[{EvenEven,EvenOdd,OddEven,OddOdd},{}];
+			Diagnostic@MatrixForm@InvariantMatrixValue[Spin];
+
+			MaskMatrixValue[Spin]=First@DeleteCases[{EvenEvenAntiMask,EvenOddAntiMask,OddEvenAntiMask,OddOddAntiMask},{}];
+			Diagnostic@MatrixForm@MaskMatrixValue[Spin];
+
+			AntiMaskMatrixValue[Spin]=<||>;
+			AntiMaskMatrixValue[Spin][Even]=First@DeleteCases[{EvenEvenAntiMask,EvenOddAntiMask,OddEvenAntiMask,OddOddMask},{}];
+			AntiMaskMatrixValue[Spin][Odd]=First@DeleteCases[{EvenEvenMask,EvenOddAntiMask,OddEvenAntiMask,OddOddAntiMask},{}];
+			Diagnostic@MatrixForm@AntiMaskMatrixValue[Spin];
+		];
+
 		,
 	
 		InvariantMatrixValue[Spin]=ArrayFlatten@{{EvenEven,EvenOdd},{OddEven,OddOdd}};
@@ -196,7 +210,7 @@ GenerateAnsatz[ClassName_?StringQ]:=Catch@Module[{
 		AntiMaskMatrixValue[Spin]=<||>;
 		AntiMaskMatrixValue[Spin][Even]=ArrayFlatten@{{EvenEvenAntiMask,EvenOddAntiMask},{OddEvenAntiMask,OddOddMask}};
 		AntiMaskMatrixValue[Spin][Odd]=ArrayFlatten@{{EvenEvenMask,EvenOddAntiMask},{OddEvenAntiMask,OddOddAntiMask}};
-		Diagnostic@MatrixForm@MaskMatrixValue[Spin];
+		Diagnostic@MatrixForm@AntiMaskMatrixValue[Spin];
 	];
 
 

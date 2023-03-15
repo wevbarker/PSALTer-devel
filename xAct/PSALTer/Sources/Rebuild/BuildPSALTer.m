@@ -10,6 +10,9 @@ xAct`PSALTer`Private`BuildRebuild@"Lightcone.m";
 (*  Import theory classes  *)
 (*=========================*)
 
-xAct`PSALTer`Private`BuildRebuild@"Classes/KG.m";
-xAct`PSALTer`Private`BuildRebuild@"Classes/Proca.m";
-xAct`PSALTer`Private`BuildRebuild@"Classes/PGT.m";
+Off[General::shdw];
+xAct`PSALTer`Private`BuildRebuild@"Classes/ScalarTheory.m";
+xAct`PSALTer`Private`BuildRebuild@"Classes/VectorTheory.m";
+xAct`PSALTer`Private`BuildRebuild@"Classes/TensorTheory.m";
+xAct`PSALTer`Private`BuildRebuild@"Classes/PoincareGaugeTheory.m";
+On[General::shdw];

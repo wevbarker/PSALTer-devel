@@ -204,8 +204,6 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 	BlockMassSigns=Table[-(-1)^n,{n,1,2*Length@SaturatedPropagator}];
 	Diagnostic@BlockMassSigns;
 
-	(*Throw@"silly!";*)
-
 	NotebookDelete@PrintVariable;
-			(*{SourceConstraints,Values@SaturatedPropagator,Values@BMatricesValues,Values@InverseBMatricesValues}];*)
+
 {SourceConstraints,Flatten[Values@SaturatedPropagator,{1,2}],Flatten[Values@BMatricesValues,{1,2}],Flatten[Values@InverseBMatricesValues,{1,2}],BlockMassSigns}];

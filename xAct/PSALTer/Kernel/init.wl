@@ -3,6 +3,7 @@
 (*====================*)
 
 Get["xAct/PSALTer/PSALTer.m"]
-Get["xAct/PSALTer/KG.m"]
-Get["xAct/PSALTer/Proca.m"]
-Get["xAct/PSALTer/PGT.m"]
+Get["xAct/PSALTer/ScalarTheory.m"]
+Get["xAct/PSALTer/VectorTheory.m"]
+Get["xAct/PSALTer/TensorTheory.m"]
+Get["xAct/PSALTer/PoincareGaugeTheory.m"]
