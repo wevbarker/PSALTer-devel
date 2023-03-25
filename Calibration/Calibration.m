@@ -14,11 +14,11 @@ Comment@"...okay, that's better, from now on any commentary written inside this 
 
 <<xAct`PSALTer`;
 
-Comment@"Do we want diagnostic mode?";
-
-$DiagnosticMode=False;
+$DiagnosticMode=True;
+$DefaultKernels=4;
 
 Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","ScalarTheory.m"};
+Quiet@Throw@"Hold my beer!";
 Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","VectorTheory.m"};
 Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","TensorTheory.m"};
 Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","PoincareGaugeTheory.m"};

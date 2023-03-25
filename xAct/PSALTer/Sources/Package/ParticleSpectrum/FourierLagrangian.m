@@ -20,6 +20,10 @@ FourierLagrangian[ClassName_?StringQ,Expr_,Tensors_]:=Module[{
 
 	CrossingRules={};(*start off without any rules*)
 
+	(*----------------------------------------*)
+	(*  Terms where surface terms are needed  *)
+	(*----------------------------------------*)
+
 	(*first the double derivatives*)
 	Table[(CrossingRules=CrossingRules~Join~
 	MakeRule[{Evaluate[CD[-q]@Tensor1 CD[-p]@Tensor2],Evaluate[Dagger@Tensor1 P[-p]P[-q]Tensor2]},MetricOn->All,ContractMetrics->True]),
@@ -34,6 +38,11 @@ FourierLagrangian[ClassName_?StringQ,Expr_,Tensors_]:=Module[{
 	Table[(CrossingRules=CrossingRules~Join~
 	MakeRule[{Evaluate[Tensor1 Tensor2],Evaluate[Dagger@Tensor1 Tensor2]},MetricOn->All,ContractMetrics->True]),
 	{Tensor1,Tensors1},{Tensor2,Tensors2}];
+
+	(*-------------------------------------------*)
+	(*  Terms where no surface terms are needed  *)
+	(*-------------------------------------------*)
+
 
 	Diagnostic@CrossingRules;
 

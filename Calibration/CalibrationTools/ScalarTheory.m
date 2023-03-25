@@ -10,7 +10,8 @@ Title@"Massless scalar (shift-symmetric field)";
 
 Comment@"Let's begin by looking at a massless scalar field theory.";
 
-LinearisedLagrangian=Coupling1*CD[-a]@xAct`PSALTer`ScalarTheory`Phi[]CD[a]@xAct`PSALTer`ScalarTheory`Phi[];
+LinearisedLagrangian=Coupling1*CD[-a]@xAct`PSALTer`ScalarTheory`Phi[]CD[a]@xAct`PSALTer`ScalarTheory`Phi[]+Coupling2*xAct`PSALTer`ScalarTheory`Phi[]*V[-a]CD[a]@xAct`PSALTer`ScalarTheory`Phi[];
+(*LinearisedLagrangian=Coupling1*CD[-a]@xAct`PSALTer`ScalarTheory`Phi[]CD[a]@xAct`PSALTer`ScalarTheory`Phi[];*)
 Print@LinearisedLagrangian;
 
 Comment@"Now we shove the Lagrangian into PSALTer.";
