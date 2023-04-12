@@ -50,6 +50,7 @@ DefClass[ClassName_?StringQ,
 		BasicInformation[ClassName];
 		GetTensorComponents[ClassName];
 		GenerateAnsatz[ClassName];
+		Diagnostic@"hi there";
 		NormaliseRescalings[ClassName];
 	];
 

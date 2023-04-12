@@ -8,11 +8,16 @@
 
 Print@"First we import some formatting...";
 
-Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","VimFormat.m"};
+(*Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","VimFormat.m"};*)
+<<VimFormat`;
 
 Comment@"...okay, that's better, from now on any commentary written inside this Calibration.m wrapper will present as blue text (i.e. this text is not part of PSALTer, it is just a use-case). Next we load the PSALTer package:";
 
 <<xAct`PSALTer`;
+
+Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","MetricAffineGaugeTheory.m"};
+
+Quit[];
 
 Comment@"Do we want diagnostic mode?";
 

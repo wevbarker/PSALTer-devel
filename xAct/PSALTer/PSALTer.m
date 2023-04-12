@@ -42,7 +42,7 @@ Quiet@If[NotebookDirectory[]==$Failed,$WorkingDirectory=Directory[];,$WorkingDir
 $Path~AppendTo~$WorkingDirectory;
 $PSALTerInstallDirectory=Select[FileNameJoin[{#,"xAct/PSALTer"}]&/@$Path,DirectoryQ][[1]];
 
-$DiagnosticMode=False;
+$DiagnosticMode=True;
 
 (*--------------*)
 (*  Disclaimer  *)
@@ -117,6 +117,8 @@ ContextList={
 	"xAct`PSALTer`TensorTheory`Private`",
 	"xAct`PSALTer`PoincareGaugeTheory`",
 	"xAct`PSALTer`PoincareGaugeTheory`Private`",
+	"xAct`PSALTer`MetricAffineGaugeTheory`",
+	"xAct`PSALTer`MetricAffineGaugeTheory`Private`",
 	"xAct`xTensor`",
 	"xAct`xTensor`Private`",
 	"TangentM4`",

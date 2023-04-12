@@ -226,7 +226,6 @@ GenerateAnsatz[ClassName_?StringQ]:=Catch@Module[{
 
 	)~Table~{Spin,Class@Spins};
 
-
 	UpdateClassAssociation[ClassName,InvariantMatrix,InvariantMatrixValue];
 	UpdateClassAssociation[ClassName,MaskMatrix,MaskMatrixValue];
 	UpdateClassAssociation[ClassName,AntiMaskMatrix,AntiMaskMatrixValue];
