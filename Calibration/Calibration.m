@@ -16,11 +16,13 @@ Comment@"...okay, that's better, from now on any commentary written inside this 
 
 $DiagnosticMode=True;
 $DefaultKernels=4;
-
+Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","RemoveVFromLagrangian.m"};
+(*
 Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","ScalarTheory.m"};
-Quiet@Throw@"Hold my beer!";
 Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","VectorTheory.m"};
+*)
 Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","TensorTheory.m"};
+Quiet@Throw@"Hold my beer!";
 Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","PoincareGaugeTheory.m"};
 
 Quiet@Throw@"Hold my beer!";

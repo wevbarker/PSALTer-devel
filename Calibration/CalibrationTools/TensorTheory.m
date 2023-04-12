@@ -6,6 +6,56 @@
 (*  Fierz-Pauli (linear gravity)  *)
 (*================================*)
 
+Title@"Fierz-Pauli in de Sitter";
+
+DefTensor[ScaleFactor[],M4,PrintAs->"\[ScriptA]"];
+DefConstantSymbol[HubbleNumber,PrintAs->"\[ScriptCapitalH]"];
+AutomaticRules[ScaleFactor,MakeRule[{CD[-a]@ScaleFactor[],HubbleNumber*ScaleFactor[]^2*V[-a]},MetricOn->All,ContractMetrics->True]]
+
+AutomaticRules[V,MakeRule[{CD[-a]@V[b],0},MetricOn->All,ContractMetrics->True]];
+
+Print@"attempting import";
+
+Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","CurvedFierzPauli.mx"};
+
+Print@ExportLagrangian;
+
+LinearisedLagrangian=ToExpression@ExportLagrangian;
+LinearisedLagrangian=LinearisedLagrangian/.{EinsteinConstant->1/Coupling1};
+
+Print@LinearisedLagrangian;
+
+
+(*LinearisedLagrangian-=(-CD[-c]@(HubbleNumber*ScaleFactor[]*V[a]*LinearMetric[b,-b]*LinearMetric[-a,c]));*)
+LinearisedLagrangian//=ToCanonical;
+LinearisedLagrangian//=CollectTensors;
+Print@LinearisedLagrangian;
+
+
+(*LinearisedLagrangian=RemoveVFromLagrangian[LinearisedLagrangian,{LinearMetric},{}];*)
+LinearisedLagrangian//=ToCanonical;
+LinearisedLagrangian//=CollectTensors;
+LinearisedLagrangian=LinearisedLagrangian/.{ScaleFactor[]->HubbleScale/HubbleNumber};
+LinearisedLagrangian//=ToCanonical;
+LinearisedLagrangian//=CollectTensors;
+LinearisedLagrangian//=ToCanonical;
+LinearisedLagrangian//=CollectTensors;
+Print@LinearisedLagrangian;
+
+Comment@"Here we go...";
+
+ParticleSpectrum[
+	"TensorTheory",
+	"FierzPauli",
+	LinearisedLagrangian,
+	TensorFields->{LinearMetric},
+	CouplingConstants->{Coupling1,Coupling2},
+	ExportTheory->True
+];
+
+
+Throw@"Stop here again";
+
 Title@"Fierz-Pauli (linear gravity)";
 
 Comment@"The natural theory to check will be the Fierz-Pauli theory.";

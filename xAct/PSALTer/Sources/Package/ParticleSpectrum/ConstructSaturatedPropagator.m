@@ -101,8 +101,14 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 	)~Table~{Spin,Class@Spins};
 	Diagnostic@(MatrixForm/@MatrixLagrangian);
 
+	(*matrix form of the propagator*)
+	CouplingAssumptions=(#~Element~Reals)&/@Couplings;
+	CouplingAssumptions~AppendTo~(xAct`PSALTer`Def~Element~Reals);
+
+	Diagnostic@CouplingAssumptions;
+
 	(*Hermitian versions of coefficient matrices*)
-	MatrixLagrangian=GetHermitianPart/@MatrixLagrangian;
+	MatrixLagrangian=GetHermitianPart[#,CouplingAssumptions]&/@MatrixLagrangian;
 	Diagnostic@(MatrixForm/@MatrixLagrangian);
 
 	(*rescaled versions of matrices*)
@@ -141,10 +147,6 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 		],0,Infinity]/.Class@RescalingSolutions;
 	SourceConstraints=Numerator@Together[#/Sqrt[2^5*3^5*5^5*7^5]]&/@SourceConstraints;
 	Diagnostic@SourceConstraints;
-
-	(*matrix form of the propagator*)
-	CouplingAssumptions=(#~Element~Reals)&/@Couplings;
-	CouplingAssumptions~AppendTo~(xAct`PSALTer`Def~Element~Reals);
 
 	(*So we use the Moore-Penrose inverse*)
 	MatrixPropagator=Assuming[CouplingAssumptions,((PseudoInverse@#))&/@MatrixLagrangian];

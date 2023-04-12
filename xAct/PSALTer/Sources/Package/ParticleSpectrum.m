@@ -26,7 +26,7 @@ Options@ParticleSpectrum={
 
 ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 	Tensors=OptionValue@TensorFields,
-	Couplings=OptionValue@CouplingConstants,
+	Couplings=(OptionValue@CouplingConstants~Join~{HubbleScale}),
 	PrintVariable,
 	DecomposeFieldsdLagrangian,
 	SaturatedPropagator,

@@ -16,3 +16,6 @@ DefTensor[P[i],M4,PrintAs->xAct`PSALTer`Private`PSymb];
 AutomaticRules[P,MakeRule[{CD[-a][P[-b]],0},MetricOn->All,ContractMetrics->True]];
 xAct`PSALTer`Private`ToV=MakeRule[{P[-i],Def V[-i]},MetricOn->All,ContractMetrics->True];
 xAct`PSALTer`Private`ToP=MakeRule[{V[-i],P[-i]/Def},MetricOn->All,ContractMetrics->True];
+
+xAct`PSALTer`Private`HubbleScaleSymb="\[ScriptCapitalH]";
+DefConstantSymbol[HubbleScale,PrintAs->xAct`PSALTer`Private`SymbolBuild@xAct`PSALTer`Private`HubbleScaleSymb];
