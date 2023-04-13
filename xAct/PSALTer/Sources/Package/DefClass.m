@@ -4,6 +4,7 @@
 
 BuildPackage@"DefClass/BasicInformation.m";
 BuildPackage@"DefClass/GetTensorComponents.m";
+BuildPackage@"DefClass/ValidateModes.m";
 BuildPackage@"DefClass/GenerateAnsatz.m";
 BuildPackage@"DefClass/NormaliseRescalings.m";
 
@@ -49,8 +50,8 @@ DefClass[ClassName_?StringQ,
 
 		BasicInformation[ClassName];
 		GetTensorComponents[ClassName];
+		ValidateModes[ClassName];
 		GenerateAnsatz[ClassName];
-		Diagnostic@"hi there";
 		NormaliseRescalings[ClassName];
 	];
 

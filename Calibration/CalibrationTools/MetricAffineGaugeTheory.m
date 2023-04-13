@@ -47,7 +47,7 @@ DisplayExpression@Expr;
 Comment@"Now we move on to computing the (conventional) Ricci scalar in Equation (2.5) on page 5 of arXiv:1912.01023. This time we need to be careful to retain contributions up to second order in smallness, since this is the only invariant which appears on its own.";
 
 DefTensor[MetricAffineRicciScalar[],M4,PrintAs->"\[ScriptCapitalF]"];
-MetricAffineRicciScalarToConnection=MakeRule[{MetricAffineRicciScalar[],MetricAffineCurvature[-m,-n,r,-s]*G[m,-r]*(G[n,s]-LinearMetric[n,s])},MetricOn->All,ContractMetrics->True];
+MetricAffineRicciScalarToConnection=MakeRule[{MetricAffineRicciScalar[],MetricAffineCurvature[-m,-n,r,-s]*(G[m,-r]-LinearMetric[m,-r])*(G[n,s]-LinearMetric[n,s])},MetricOn->All,ContractMetrics->True];
 
 Expr=MetricAffineRicciScalar[];
 DisplayExpression@Expr;
@@ -92,6 +92,42 @@ LinearLagrangian=-(1/2)*A0*Measure*MetricAffineRicciScalar[];
 DisplayExpression@LinearLagrangian;
 LinearLagrangian//=LineariseLagrangian;
 DisplayExpression@LinearLagrangian;
+
+
+DecomposeAndExpandFields[InputExpr_]:=Module[{Expr=InputExpr},
+	DisplayExpression@Expr;
+	Expr//=xAct`PSALTer`MetricAffineGaugeTheory`Private`DecomposeFields;
+	DisplayExpression@Expr;
+	Expr//=xAct`PSALTer`MetricAffineGaugeTheory`Private`ExpandFields;
+	DisplayExpression@Expr;
+];
+
+ExpandAndDecomposeFields[InputExpr_]:=Module[{Expr=InputExpr},
+	Print[" ** DefClass: expanding reduced-index mode into fundamental field and decomposing fundamental field back into reduced-index modes (should return original)."];
+	DisplayExpression@Expr;
+	Expr//=xAct`PSALTer`MetricAffineGaugeTheory`Private`ExpandFields;
+	DisplayExpression@Expr;
+	Expr//=xAct`PSALTer`MetricAffineGaugeTheory`Private`DecomposeFields;
+	DisplayExpression@Expr;
+];
+
+Expr=MetricAffineGaugeTheory@xAct`PSALTer`Private`FieldSpinParityTensorHeads;
+Expr=Values@(Values/@(Values/@Expr));
+Expr//=Flatten;
+Expr=ToIndexFree/@Expr;
+Expr=FromIndexFree/@Expr;
+DisplayExpression@Expr;
+
+ExpandAndDecomposeFields/@Expr;
+
+
+Throw@"Hold my sherry.";
+
+
+Expr=Connection[-a,-b,-c];
+DecomposeAndExpandFields
+
+(*Throw@"Hold my ale";*)
 
 ParticleSpectrum[
 	"MetricAffineGaugeTheory",

@@ -57,8 +57,8 @@ xAct`PSALTer`MetricAffineGaugeTheory`Private`ConnectionToAQ=Join[
 	MakeRule[{Evaluate@Dagger@Connection[-c,-a,-b],Evaluate@Dagger[A[-a,-b,-c]+Q[-a,-b,-c]]},MetricOn->All,ContractMetrics->True]];
 
 xAct`PSALTer`MetricAffineGaugeTheory`Private`DilatospinToYZ=Join[
-	MakeRule[{Dilatospin[-c,-a,-b],Evaluate[Y[-a,-b,-c]+Z[-a,-b,-c]]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@Dilatospin[-c,-a,-b],Evaluate@Dagger[Y[-a,-b,-c]+Z[-a,-b,-c]]},MetricOn->All,ContractMetrics->True]];
+	MakeRule[{Dilatospin[-c,-a,-b],Evaluate[Y[-c,-a,-b]+Z[-a,-b,-c]]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@Dilatospin[-c,-a,-b],Evaluate@Dagger[Y[-c,-a,-b]+Z[-a,-b,-c]]},MetricOn->All,ContractMetrics->True]];
 
 xAct`PSALTer`MetricAffineGaugeTheory`Private`AQToConnection=Join[
 	MakeRule[{A[-a,-b,-c],Evaluate[(1/2)*(Connection[-c,-a,-b]-Connection[-c,-b,-a])]},MetricOn->All,ContractMetrics->True],
@@ -67,9 +67,9 @@ xAct`PSALTer`MetricAffineGaugeTheory`Private`AQToConnection=Join[
 	MakeRule[{Evaluate@Dagger@Q[-a,-b,-c],Evaluate@Dagger[(1/2)*(Connection[-c,-a,-b]+Connection[-c,-b,-a])]},MetricOn->All,ContractMetrics->True]];
 
 xAct`PSALTer`MetricAffineGaugeTheory`Private`YZToDilatospin=Join[
-	MakeRule[{Y[-a,-b,-c],Evaluate[(1/2)*(Dilatospin[-c,-a,-b]-Dilatospin[-c,-b,-a])]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Y[-c,-a,-b],Evaluate[(1/2)*(Dilatospin[-c,-a,-b]-Dilatospin[-c,-b,-a])]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{Z[-a,-b,-c],Evaluate[(1/2)*(Dilatospin[-c,-a,-b]+Dilatospin[-c,-b,-a])]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@Y[-a,-b,-c],Evaluate@Dagger[(1/2)*(Dilatospin[-c,-a,-b]-Dilatospin[-c,-b,-a])]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@Y[-c,-a,-b],Evaluate@Dagger[(1/2)*(Dilatospin[-c,-a,-b]-Dilatospin[-c,-b,-a])]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{Evaluate@Dagger@Z[-a,-b,-c],Evaluate@Dagger[(1/2)*(Dilatospin[-c,-a,-b]+Dilatospin[-c,-b,-a])]},MetricOn->All,ContractMetrics->True]];
 
 (*==============*)

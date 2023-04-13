@@ -4,7 +4,7 @@
 
 DefManifold[M4,4,IndexRange[{a,z}]];
 
-Quiet@DefMetric[-1,G[-a,-c],CD,{",","\[PartialD]"},PrintAs->"\[Gamma]",FlatMetric->True,SymCovDQ->True];
+Quiet@DefMetric[-1,G[-a,-c],CD,{",","\[PartialD]"},PrintAs->"\[Eta]",FlatMetric->True,SymCovDQ->True];
 
 xAct`PSALTer`Private`StandardIndices=ToExpression/@Alphabet[];
 
