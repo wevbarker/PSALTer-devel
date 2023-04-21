@@ -20,7 +20,7 @@ Off@(Solve::fulldim);
 (*  xAct`PSALTer`  *)
 (*=================*)
 
-BeginPackage["xAct`PSALTer`",{"xAct`xTensor`","xAct`xPerm`","xAct`xCore`","xAct`xTras`","xAct`xCoba`"}];
+BeginPackage["xAct`PSALTer`",{"xAct`xTensor`","xAct`SymManipulator`","xAct`xPerm`","xAct`xCore`","xAct`xTras`","xAct`xCoba`"}];
 
 ParallelNeeds["xAct`PSALTer`"];
 
@@ -32,7 +32,7 @@ SetOptions[$FrontEndSession,EvaluationCompletionAction->"ScrollToOutput"];
 
 Print[xAct`xCore`Private`bars];
 Print["Package xAct`PSALTer` version ",$Version[[1]],", ",$Version[[2]]];
-Print["CopyRight \[Copyright] 2022, Will E. V. Barker, Claire Rigouzzo and Cillian Rew, under the General Public License."];
+Print["CopyRight \[Copyright] 2022, Will E. V. Barker, Zhiyuan Wei, Stephanie Buttigieg, Claire Rigouzzo and Cillian Rew, under the General Public License."];
 
 (*-------------------------------------------------------------------*)
 (*  Modify the path to accommodate notebook and install directories  *)
@@ -42,7 +42,7 @@ Quiet@If[NotebookDirectory[]==$Failed,$WorkingDirectory=Directory[];,$WorkingDir
 $Path~AppendTo~$WorkingDirectory;
 $PSALTerInstallDirectory=Select[FileNameJoin[{#,"xAct/PSALTer"}]&/@$Path,DirectoryQ][[1]];
 
-$DiagnosticMode=True;
+$DiagnosticMode=False;
 
 (*--------------*)
 (*  Disclaimer  *)
@@ -66,13 +66,27 @@ TensorFields::usage="TensorFields is an option for ParticleSpectrum which identi
 DefClass::usage="DefClass[FieldSpinParityTensorHeads,SourceSpinParityTensorHeads] defines a class of models.";
 ExportClass::usage="ExportClass is an option for DefClass.";
 ImportClass::usage="ImportClass is an option for DefClass.";
+DefSpinParityMode::usage="DefSpinParityMode[FieldSpinParityName[Inds],SymmExpr] defines a reduced-index spin parity mdoe.";
+MultiTermSymmetries::usage="MultiTermSymmetries is an option for DefSpinParityMode.";
+Spin::usage="Spin is an option for DefSpinParityMode.";
+Parity::usage="Parity is an option for DefSpinParityMode.";
+FieldSymbol::usage="FieldSpinParitySymbol is an option for DefSpinParityMode.";
+SourceSymbol::usage="FieldSpinParitySymbol is an option for DefSpinParityMode.";
+DefLagrangianCoupling::usage="DefLagrangianCoupling[] defines a lagrangian coupling.";
+CouplingSymbol::usage="CouplingSymbol is an option for DefLagrangianCoupling.";
+CouplingIndex::usage="CouplingIndex is an option for DefLagrangianCoupling.";
 
+G::usage="G[-a,-b] is the Minkowski spacetime metric in rectilinear Cartesian coordinates, with the `West Coast' signature (1,-1,-1,-1).";
 V::usage="V[-a] is a unit timelike vector V[-a]V[a]=1, which is assumed to be proportional to the momentum P[-a], and which functions as the four-velocity of an observer in whose rest frame all massive particles in the spectrum are also taken to be at rest.";
 P::usage="P[-a] is the timelike momentum used in the massive particle analysis, which approaches the null cone in the limit of the massless analysis.";
+Def::usage="Def is the constant symbol which represents the positive square root of the norm of the timelike momentum.";
+En::usage="En is the constant symbol which represents the energy, i.e. the time component of the timelike momentum.";
+Mo::usage="Mo is the constant symbol which represents the relativistic momentum, i.e. the z-component of the timelike momentum.";
 
 Even::usage="Even is an association key which refers to even-parity spin states.";
 Odd::usage="Odd is an association key which refers to odd-parity spin states.";
 MomentumSpaceLagrangian::usage="MomentumSpaceLagrangian is an association key which refers to the quadratically expanded Lagrangian in momentum space.";
+SourceConstraints::usage="SourceConstraints is an association key which refers to the gauge constraints on the source currents.";
 BMatrices::usage="BMatrices is an association key which refers to the b-matrices.";
 InverseBMatrices::usage="InverseBMatrices is an association key which refers to the inverses of the b-matrices.";
 SourceConstraintComponents::usage="SourceConstraintComponents is an association key which refers to the list of components of source constraints.";
@@ -98,6 +112,8 @@ BuildPSALTerPackage[]:=BuildPackage/@{
 	"BuildPSALTer.m",
 	"ParticleSpectrum.m",
 	"ViewParticleSpectrum.m",
+	"DefSpinParityMode.m",
+	"DefLagrangianCoupling.m",
 	"DefClass.m",
 	"SymbolBuild.m",
 	"ToNewCanonical.m",
@@ -126,7 +142,7 @@ ContextList={
 };
 
 Begin["xAct`PSALTer`"];
-	xAct`PSALTer`Private`BuildPSALTer[xAct`PSALTer`Private`Recompile->True];
+	xAct`PSALTer`Private`BuildPSALTer[xAct`PSALTer`Private`Recompile->False];
 End[];
 
 End[];

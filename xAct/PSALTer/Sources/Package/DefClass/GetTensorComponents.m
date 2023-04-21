@@ -7,6 +7,8 @@ GetTensorComponents[ClassName_?StringQ]:=Module[{
 	TensorsWhoseComponentsWeNeed,
 	PrintVariable},
 
+	Print[" ** DefClass: pre-computing tensor components..."];
+
 	Class=Evaluate@Symbol@ClassName;
 
 	TensorsWhoseComponentsWeNeed=Flatten@Map[Values,Evaluate@(Class@SourceSpinParityTensorHeads),{0,2}];

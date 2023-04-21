@@ -6,6 +6,54 @@
 (*  Spin and Lorentz labels  *)
 (*===========================*)
 
+CouplingIndexSuffices=<|
+	None->"\!\(\*UnderscriptBox[\(.\), \(.\)]\)",
+	0->"\!\(\*UnderscriptBox[\(.\), \(0\)]\)",
+	1->"\!\(\*UnderscriptBox[\(.\), \(1\)]\)",
+	2->"\!\(\*UnderscriptBox[\(.\), \(2\)]\)",
+	3->"\!\(\*UnderscriptBox[\(.\), \(3\)]\)",
+	4->"\!\(\*UnderscriptBox[\(.\), \(4\)]\)",
+	5->"\!\(\*UnderscriptBox[\(.\), \(5\)]\)",
+	6->"\!\(\*UnderscriptBox[\(.\), \(6\)]\)",
+	7->"\!\(\*UnderscriptBox[\(.\), \(7\)]\)",
+	8->"\!\(\*UnderscriptBox[\(.\), \(8\)]\)",
+	9->"\!\(\*UnderscriptBox[\(.\), \(9\)]\)",
+	10->"\!\(\*UnderscriptBox[\(.\), \(10\)]\)",
+	11->"\!\(\*UnderscriptBox[\(.\), \(11\)]\)",
+	12->"\!\(\*UnderscriptBox[\(.\), \(12\)]\)",
+	13->"\!\(\*UnderscriptBox[\(.\), \(13\)]\)",
+	14->"\!\(\*UnderscriptBox[\(.\), \(14\)]\)",
+	15->"\!\(\*UnderscriptBox[\(.\), \(15\)]\)",
+	16->"\!\(\*UnderscriptBox[\(.\), \(16\)]\)"
+|>;
+
+SpinParityPreffices=<|
+	0-><|
+		Even->"\!\(\*OverscriptBox[\(.\), SuperscriptBox[\(0\), \(+\)]]\)",
+		Odd->"\!\(\*OverscriptBox[\(.\), SuperscriptBox[\(0\), \(-\)]]\)"
+	|>,
+	1-><|
+		Even->"\!\(\*OverscriptBox[\(.\), SuperscriptBox[\(1\), \(+\)]]\)",
+		Odd->"\!\(\*OverscriptBox[\(.\), SuperscriptBox[\(1\), \(-\)]]\)"
+	|>,
+	2-><|
+		Even->"\!\(\*OverscriptBox[\(.\), SuperscriptBox[\(2\), \(+\)]]\)",
+		Odd->"\!\(\*OverscriptBox[\(.\), SuperscriptBox[\(2\), \(-\)]]\)"
+	|>,
+	3-><|
+		Even->"\!\(\*OverscriptBox[\(.\), SuperscriptBox[\(3\), \(+\)]]\)",
+		Odd->"\!\(\*OverscriptBox[\(.\), SuperscriptBox[\(3\), \(-\)]]\)"
+	|>,
+	4-><|
+		Even->"\!\(\*OverscriptBox[\(.\), SuperscriptBox[\(4\), \(+\)]]\)",
+		Odd->"\!\(\*OverscriptBox[\(.\), SuperscriptBox[\(4\), \(-\)]]\)"
+	|>,
+	5-><|
+		Even->"\!\(\*OverscriptBox[\(.\), SuperscriptBox[\(5\), \(+\)]]\)",
+		Odd->"\!\(\*OverscriptBox[\(.\), SuperscriptBox[\(5\), \(-\)]]\)"
+	|>
+|>;
+
 Spin0p="\!\(\*OverscriptBox[\(.\), SuperscriptBox[\(0\), \(+\)]]\)";
 Spin0m="\!\(\*OverscriptBox[\(.\), SuperscriptBox[\(0\), \(-\)]]\)";
 Spin1p="\!\(\*OverscriptBox[\(.\), SuperscriptBox[\(1\), \(+\)]]\)";

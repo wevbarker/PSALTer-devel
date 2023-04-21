@@ -2,6 +2,13 @@
 (*  ValidateModes  *)
 (*=================*)
 
+BuildPackage@"DefClass/ValidateModes/ValidateTraceless.m";
+BuildPackage@"DefClass/ValidateModes/ValidateSpatial.m";
+BuildPackage@"DefClass/ValidateModes/ValidateInverseField.m";
+BuildPackage@"DefClass/ValidateModes/ValidateSymmetryField.m";
+BuildPackage@"DefClass/ValidateModes/ValidateInverseMode.m";
+BuildPackage@"DefClass/ValidateModes/ValidateSymmetryMode.m";
+
 ValidateModes[ClassName_?StringQ]:=Catch@Module[{
 	Class,
 	FieldSpinParityTensorHeadsValue,
@@ -10,35 +17,51 @@ ValidateModes[ClassName_?StringQ]:=Catch@Module[{
 
 	Class=Evaluate@Symbol@ClassName;
 
-	DecomposeAndExpandFields[InputExpr_]:=Module[{Expr=InputExpr},
-		Print[" ** DefClass: expanding fundamental field "<>(ToString@Expr)<>" into reduced-index modes and decomposing reduced-index modes back into fundamental fields (should return original)."];
-		Expr//=ToIndexFree;
-		Expr//=FromIndexFree;
-		Print@Expr;
-		Expr//=(Class@DecomposeFields);
-		Print@Expr;
-		Expr//=(Class@ExpandFields);
-		Print@Expr;
+	DecomposeAndExpandFields[InputExpr_]:=Catch@Module[{
+		Fundamental=InputExpr,
+		Decomposed,
+		Expanded
+		},
+
+		Print[" ** DefClass: validating the fundamental field "<>(ToString@InputExpr)<>"..."];
+		Fundamental//=ToIndexFree;
+		Fundamental//=FromIndexFree;
+		Decomposed=Fundamental//(Class@DecomposeFields);
+		Expanded=Decomposed//(Class@ExpandFields);
+
+		ValidateInverseField[InputExpr,Expanded,Fundamental];
+		ValidateSymmetryField[InputExpr,Decomposed,Fundamental];
 	];
 
-	ExpandAndDecomposeFields[InputExpr_]:=Module[{Expr=InputExpr},
-		Print[" ** DefClass: expanding reduced-index mode "<>(ToString@Expr)<>" into fundamental field and decomposing fundamental field back into reduced-index modes (should return original)."];
-		Expr//=ToIndexFree;
-		Expr//=FromIndexFree;
-		Print@Expr;
-		Expr//=(Class@ExpandFields);
-		Print@Expr;
-		Expr//=(Class@DecomposeFields);
-		Print@Expr;
+	ExpandAndDecomposeFields[InputExpr_]:=Catch@Module[{
+		Reduced=InputExpr,
+		Decomposed,
+		Expanded
+		},
+
+		Print[" ** DefClass: validating the reduced-index mode "<>(ToString@InputExpr)<>"..."];
+		Reduced//=ToIndexFree;
+		Reduced//=FromIndexFree;
+		Expanded=Reduced//(Class@ExpandFields);
+		Decomposed=Expanded//(Class@DecomposeFields);
+
+		ValidateSpatial[InputExpr,Expanded];
+		ValidateTraceless[InputExpr,Expanded];
+		ValidateInverseMode[InputExpr,Decomposed,Reduced];
+		ValidateSymmetryMode[InputExpr,Expanded,Reduced];
 	];
 
 	FieldSpinParityTensorHeadsValue=Class@FieldSpinParityTensorHeads;
 	ListOfModes=Flatten/@(Values/@(Values/@FieldSpinParityTensorHeadsValue));
 
+	Off[General::stop];
+
 	(
 		DecomposeAndExpandFields@Tensor;
 		ExpandAndDecomposeFields/@(ListOfModes@Tensor);
 	)~Table~{Tensor,Class@Tensors};
+
+	On[General::stop];
 (*
 	SourceSpinParityTensorHeadsValue=Class@SourceSpinParityTensorHeads;
 	ListOfModes=Flatten/@(Values/@(Values/@SourceSpinParityTensorHeadsValue));

@@ -66,15 +66,26 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	SaturatedPropagator=ConstructSaturatedPropagator[ClassName,DecomposeFieldsdLagrangian,Couplings];
 	UpdateTheoryAssociation[TheoryName,BMatrices,SaturatedPropagator[[3]],ExportTheory->OptionValue@ExportTheory];
 	UpdateTheoryAssociation[TheoryName,InverseBMatrices,SaturatedPropagator[[4]],ExportTheory->OptionValue@ExportTheory];
+	UpdateTheoryAssociation[TheoryName,SourceConstraints,SaturatedPropagator[[1]],ExportTheory->OptionValue@ExportTheory];
 
 	Print@"The (possibly singular) \[ScriptA]-matrices associated with the Lagrangian, as defined below Eq. (18) of arXiv:1812.02675:";
-	Print@(MatrixForm/@(SaturatedPropagator[[3]]));
+	(*Print@(MatrixForm/@(SaturatedPropagator[[3]]));*)
+	(
+		Print@("Matrix for spin-"<>ToString@First@First@((((Plus@@#)&/@Partition[SaturatedPropagator[[3]],2])~Position~#)-1)<>" sector:");
+		Print@MatrixForm@#
+	)&/@((Plus@@#)&/@Partition[SaturatedPropagator[[3]],2]);
 
 	Print@"Gauge constraints on source currents:";
-	Print@(((Simplify@(#==0))&)/@(SaturatedPropagator[[1]]));
+	Print/@(((Simplify@(#==0))&)/@(SaturatedPropagator[[1]]));
+
+	(*Throw@"hold my sillary";*)
 
 	Print@"The Drazin (Moore-Penrose) inverses of these \[ScriptA]-matrices, which are functionally analogous to the inverse \[ScriptB]-matrices described below Eq. (21) of arXiv:1812.02675:";
-	Print@(MatrixForm/@(SaturatedPropagator[[4]]));
+	(*Print@(MatrixForm/@(SaturatedPropagator[[4]]));*)
+	(
+		Print@("Matrix for spin-"<>ToString@First@First@((((Plus@@#)&/@Partition[SaturatedPropagator[[4]],2])~Position~#)-1)<>" sector:");
+		Print@MatrixForm@#
+	)&/@((Plus@@#)&/@Partition[SaturatedPropagator[[4]],2]);
 
 	(*======================*)
 	(*  Source constraints  *)
@@ -85,9 +96,12 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	ConstraintComponentList=xAct`xCoba`SeparateBasis[AIndex][#]&/@ConstraintComponentList;
 	Diagnostic@ConstraintComponentList;
 
+	(*ConstraintComponentList=((ConstraintComponentToLightcone[ClassName,#]))&/@ConstraintComponentList;*)
+(**)
 	ConstraintComponentList=(xAct`PSALTer`Private`PSALTerParallelSubmit@(ConstraintComponentToLightcone[ClassName,#]))&/@ConstraintComponentList;
 	PrintVariable=PrintTemporary@ConstraintComponentList;
 	ConstraintComponentList=WaitAll@ConstraintComponentList;
+	(**)
 	NotebookDelete@PrintVariable;
 	Diagnostic@ConstraintComponentList;
 

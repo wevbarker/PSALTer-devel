@@ -49,8 +49,8 @@ DefClass[ClassName_?StringQ,
 		(*--------------------------------------------*)
 
 		BasicInformation[ClassName];
-		GetTensorComponents[ClassName];
 		ValidateModes[ClassName];
+		GetTensorComponents[ClassName];
 		GenerateAnsatz[ClassName];
 		NormaliseRescalings[ClassName];
 	];
