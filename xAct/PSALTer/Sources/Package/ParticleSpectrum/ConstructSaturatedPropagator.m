@@ -135,7 +135,7 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 (*
 	NullSpaces=NullSpace[Transpose[#],Method->"OneStepRowReduction"]&/@MatrixLagrangian;
 *)
-	NullSpaces=Assuming[CouplingAssumptions,NullSpace[Transpose[#]]&/@(MatrixLagrangian/.xAct`PSALTer`Def->1)];
+	NullSpaces=Assuming[CouplingAssumptions,NullSpace[Transpose[#]]&/@(MatrixLagrangian)];
 	Diagnostic@NullSpaces;
 	NullSpaces=((#)~FullSimplify~CouplingAssumptions)&/@NullSpaces;
 	Diagnostic@NullSpaces;
