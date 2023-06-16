@@ -13,9 +13,11 @@ MasslessAnalysisOfTotal[RawMasslessPropagaorResidue_List,NullSpace_List]:=Module
 	PrintVariable={};
 	PrintVariable=PrintVariable~Append~PrintTemporary@" ** MasslessAnalysisOfTotal...";
 
+	Diagnostic@MasslessPropagaorResidue;
 	MasslessPropagaorResidue//=Flatten;
 	MasslessPropagaorResidue//=Total;
 	MasslessPropagaorResidue//=Simplify;
+	Diagnostic@MasslessPropagaorResidue;
 
 	If[!(MasslessPropagaorResidue===0),
 		NullSpaceDimension=(Dimensions@NullSpace)[[1]];

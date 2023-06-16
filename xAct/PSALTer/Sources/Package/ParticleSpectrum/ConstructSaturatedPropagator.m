@@ -28,6 +28,9 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 	SaturatedPropagator,
 	BlockMassSigns,
 	PrintVariable},
+	
+	CouplingAssumptions=(#~Element~Reals)&/@Couplings;
+	CouplingAssumptions~AppendTo~(xAct`PSALTer`Def~Element~Reals);
 
 	PrintVariable={};
 	PrintVariable=PrintVariable~Append~PrintTemporary@" ** ConstructSaturatedPropagator...";
@@ -115,6 +118,9 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 	MatrixLagrangian=MatrixLagrangian/.Class@RescalingSolutions;
 	Diagnostic@(MatrixForm/@MatrixLagrangian);
 
+	MatrixLagrangian=((#)~FullSimplify~CouplingAssumptions)&/@MatrixLagrangian;
+	Diagnostic@(MatrixForm/@MatrixLagrangian);
+
 	BMatricesValues=MatrixLagrangian;
 
 	AntiMaskMatrixValue=Class@AntiMaskMatrix;
@@ -125,9 +131,21 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 	Diagnostic@(MatrixForm/@BMatricesValues);
 	Diagnostic@(Flatten[Values@BMatricesValues,{1,2}]);
 
-
 	(*null spaces*)
-	NullSpaces=NullSpace@Transpose[#]&/@MatrixLagrangian;
+(*
+	NullSpaces=NullSpace[Transpose[#],Method->"OneStepRowReduction"]&/@MatrixLagrangian;
+*)
+	NullSpaces=Assuming[CouplingAssumptions,NullSpace[Transpose[#]]&/@(MatrixLagrangian/.xAct`PSALTer`Def->1)];
+	Diagnostic@NullSpaces;
+	NullSpaces=((#)~FullSimplify~CouplingAssumptions)&/@NullSpaces;
+	Diagnostic@NullSpaces;
+
+(*
+	(*verify determinants*)
+	Dets=Det@Transpose[#]&/@MatrixLagrangian;
+	Dets=((#)~FullSimplify~CouplingAssumptions)&/@Dets;
+	Diagnostic@Dets;
+*)
 
 	(*source constraints*)
 	SourceConstraints=Quiet@DeleteCases[
@@ -141,10 +159,6 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 		],0,Infinity]/.Class@RescalingSolutions;
 	SourceConstraints=Numerator@Together[#/Sqrt[2^5*3^5*5^5*7^5]]&/@SourceConstraints;
 	Diagnostic@SourceConstraints;
-
-	(*matrix form of the propagator*)
-	CouplingAssumptions=(#~Element~Reals)&/@Couplings;
-	CouplingAssumptions~AppendTo~(xAct`PSALTer`Def~Element~Reals);
 
 	(*So we use the Moore-Penrose inverse*)
 	MatrixPropagator=Assuming[CouplingAssumptions,((PseudoInverse@#))&/@MatrixLagrangian];
