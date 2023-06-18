@@ -2,16 +2,20 @@
 (*  ScalarTheory  *)
 (*================*)
 
+Title@"Scalar field theory";
+
+Supercomment@"We will test the ScalarTheory module.";
+
 (*===========================================*)
 (*  Massless scalar (shift-symmetric field)  *)
 (*===========================================*)
 
-Title@"Massless scalar (shift-symmetric field)";
+Section@"Massless scalar (shift-symmetric field)";
 
 Comment@"Let's begin by looking at a massless scalar field theory.";
 
 LinearisedLagrangian=Coupling1*CD[-a]@xAct`PSALTer`ScalarTheory`Phi[]CD[a]@xAct`PSALTer`ScalarTheory`Phi[];
-Print@LinearisedLagrangian;
+DisplayExpression@LinearisedLagrangian;
 
 Comment@"Now we shove the Lagrangian into PSALTer.";
 
@@ -30,12 +34,12 @@ Comment@"The result is much as you would expect. There is one massless polarisat
 (*  Massive scalar (Higgs field, pions)  *)
 (*=======================================*)
 
-Title@"Massive scalar (Higgs field, pions)";
+Section@"Massive scalar (Higgs field, pions)";
 
 Comment@"Now for the massive case.";
 
 LinearisedLagrangian=Coupling1*CD[-a]@xAct`PSALTer`ScalarTheory`Phi[]CD[a]@xAct`PSALTer`ScalarTheory`Phi[]-Coupling2*Phi[]*Phi[];
-Print@LinearisedLagrangian;
+DisplayExpression@LinearisedLagrangian;
 
 Comment@"We apply PSALTer again.";
 

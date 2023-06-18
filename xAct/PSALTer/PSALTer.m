@@ -1,7 +1,6 @@
 (*===========*)
 (*  PSALTer  *)
 (*===========*)
-
 (*------------------------------*)
 (*  Change version number here  *)
 (*------------------------------*)
@@ -20,7 +19,7 @@ Off@(Solve::fulldim);
 (*  xAct`PSALTer`  *)
 (*=================*)
 
-BeginPackage["xAct`PSALTer`",{"xAct`xTensor`","xAct`SymManipulator`","xAct`xPerm`","xAct`xCore`","xAct`xTras`","xAct`xCoba`"}];
+BeginPackage["xAct`PSALTer`",{"xAct`xTensor`","xAct`SymManipulator`","xAct`xPerm`","xAct`xCore`","xAct`xTras`","xAct`xCoba`","MaTeX`"}];
 
 ParallelNeeds["xAct`PSALTer`"];
 

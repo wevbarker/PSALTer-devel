@@ -18,6 +18,7 @@ BuildPackage@"ParticleSpectrum/MasslessAnalysisOfTotal.m";
 BuildPackage@"ParticleSpectrum/ParticleSpectrumSummary.m";
 BuildPackage@"ParticleSpectrum/Unitarity.m";
 BuildPackage@"ParticleSpectrum/PSALTerParallelSubmit.m";
+BuildPackage@"ParticleSpectrum/PrintSpectrum.m";
 
 Options@ParticleSpectrum={
 	TensorFields->{},
@@ -139,8 +140,6 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	Print@"Square masses:";
 	Print@MassiveAnalysis;
 
-	(*Throw["ReachedEval"];*)
-
 	SignedInverseBMatrices=Times~MapThread~{(SaturatedPropagator[[4]]),(SaturatedPropagator[[5]])};
 
 	MassiveGhostAnalysis=MapThread[
@@ -153,6 +152,8 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 
 	Print@"Massive pole residues:";
 	Print@MassiveGhostAnalysis;
+
+	(*PrintMassiveSpectrum[MassiveAnalysis,MassiveGhostAnalysis];*)
 
 	UpdateTheoryAssociation[TheoryName,SquareMasses,MassiveAnalysis,ExportTheory->OptionValue@ExportTheory];
 
@@ -194,15 +195,15 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	Print@"Massless eigenvalues:";
 	Print@MasslessAnalysisValue;
 
+	(*PrintMasslessSpectrum[MasslessAnalysisValue];*)
+
 	(*================================*)
 	(*  Summary of particle spectrum  *)
 	(*================================*)
 
-(*
-	CillianArgument=ParticleSpectrumSummary[MassiveAnalysis,MassiveGhostAnalysis,MasslessAnalysisValue];	
-	Print@"FeynArts representation of particle spectrum:";
-	Print@CillianArgument;
-*)
+	Print@"Overall particle spectrum:";
+	PrintSpectrum[MassiveAnalysis,MassiveGhostAnalysis,MasslessAnalysisValue];
+
 	(*=============*)
 	(*  Unitarity  *)
 	(*=============*)

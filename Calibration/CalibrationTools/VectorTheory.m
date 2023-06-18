@@ -2,22 +2,26 @@
 (*  VectorTheory  *)
 (*================*)
 
+Title@"Vector field theory";
+
+Supercomment@"We will test the VectorTheory module.";
+
 (*===========================================*)
 (*  Maxwell field (quantum electrodynamics)  *)
 (*===========================================*)
 
-Title@"Maxwell field (quantum electrodynamics)";
+Section@"Maxwell field (quantum electrodynamics)";
 
 Comment@"The first pure 1-form theory we might think to try is due to Maxwell. We know from kindergarten that if we contract the square of the Maxwell tensor, we get a viable kinetic term which propagates the two massless photon polarisations. Let's try this out.";
 
 LinearisedLagrangian=Coupling1*(CD[-a]@xAct`PSALTer`VectorTheory`B[-b]-CD[-b]@xAct`PSALTer`VectorTheory`B[-a])*(CD[a]@xAct`PSALTer`VectorTheory`B[b]-CD[b]@xAct`PSALTer`VectorTheory`B[a]);
-Print@LinearisedLagrangian;
+DisplayExpression@LinearisedLagrangian;
 
 Comment@"We need to expand the brackets before passing to PSALTer.";
 
 LinearisedLagrangian//=ToCanonical;
 LinearisedLagrangian//=CollectTensors;
-Print@LinearisedLagrangian;
+DisplayExpression@LinearisedLagrangian;
 
 Comment@"Now we shove the Lagrangian into PSALTer.";
 
@@ -36,42 +40,42 @@ Comment@"The output above makes sense. There are no mass terms in our Lagrangian
 (*  VectorTheory field (electroweak bosons)  *)
 (*===========================================*)
 
-Title@"VectorTheory field (electroweak bosons)";
+Section@"Proca field (electroweak bosons)";
 
-Comment@"Having investigated the massless theory, we keep the same kinetic setup but just add a mass term. This is of course the VectorTheory theory, which finds a place higher up in the standard model.";
+Comment@"Having investigated the massless theory, we keep the same kinetic setup but just add a mass term. This is of course the Proca theory, which finds a place higher up in the standard model.";
 
 LinearisedLagrangian=Coupling1*(CD[-a]@xAct`PSALTer`VectorTheory`B[-b]-CD[-b]@xAct`PSALTer`VectorTheory`B[-a])*(CD[a]@xAct`PSALTer`VectorTheory`B[b]-CD[b]@xAct`PSALTer`VectorTheory`B[a])+Coupling3*xAct`PSALTer`VectorTheory`B[-a]*xAct`PSALTer`VectorTheory`B[a];
-Print@LinearisedLagrangian;
+DisplayExpression@LinearisedLagrangian;
 
 Comment@"Again we just need to expand those brackets before passing to PSALTer.";
 
 LinearisedLagrangian//=ToCanonical;
 LinearisedLagrangian//=CollectTensors;
-Print@LinearisedLagrangian;
+DisplayExpression@LinearisedLagrangian;
 
 Comment@"Now we shove the Lagrangian into PSALTer.";
 
 ParticleSpectrum[
 	"VectorTheory",
-	"BasicVectorTheory",
+	"BasicProca",
 	LinearisedLagrangian,
 	TensorFields->{xAct`PSALTer`VectorTheory`B},
 	CouplingConstants->{Coupling1,Coupling3},
 	ExportTheory->True
 ];
 
-Comment@"Once again, the result makes sense. If you write out the VectorTheory equation of motion and take the divergence, you see that the presence of the mass term restricts the 1-form to be divergence-free, which is another way of saying that the helicity-0 mode vanishes on shell. This is not a gauge condition (evidenced by the fact that the Lagrangian operator matrices are non-singular), but it does mean that in common with Maxwell's theory, we are stuck with the parity-odd vector mode. What is this mode doing? The theory is now massive, and so there is a massive pole in the propagator. There are now two unitarity conditions: the original no-ghost condition of QED and a new no-tachyon condition which protects the VectorTheory mass from becoming imaginary.";
+Comment@"Once again, the result makes sense. If you write out the Proca equation of motion and take the divergence, you see that the presence of the mass term restricts the 1-form to be divergence-free, which is another way of saying that the helicity-0 mode vanishes on shell. This is not a gauge condition (evidenced by the fact that the Lagrangian operator matrices are non-singular), but it does mean that in common with Maxwell's theory, we are stuck with the parity-odd vector mode. What is this mode doing? The theory is now massive, and so there is a massive pole in the propagator. There are now two unitarity conditions: the original no-ghost condition of QED and a new no-tachyon condition which protects the Proca mass from becoming imaginary.";
 
 (*==================================*)
 (*  Sickly quantum electrodynamics  *)
 (*==================================*)
 
-Title@"Sickly quantum electrodynamics";
+Section@"Sickly quantum electrodynamics";
 
 Comment@"Now let's try something a bit more ambitious. What if we didn't have the QED Lagrangian as inspiration, but we wanted to construct a general (and not necessarily gauge-invariant) 1-form theory? In the first instance, we'll take the case without any masses. Up to surface terms, there are two kinetic terms we could try which are consistent with the basic requirement of Lorentz invariance.";
 
 LinearisedLagrangian=Coupling1*CD[-a]@xAct`PSALTer`VectorTheory`B[-b]*CD[a]@xAct`PSALTer`VectorTheory`B[b]+Coupling2*CD[-a]@xAct`PSALTer`VectorTheory`B[a]*CD[-b]@xAct`PSALTer`VectorTheory`B[b];
-Print@LinearisedLagrangian;
+DisplayExpression@LinearisedLagrangian;
 
 Commen@"We know that the two couplings we've used to parameteise this model must be equal in magnitude and opposite in sign in order for QED to emerge. When they are not assumed to be so, it is well known tha t we will generically get a sick theory. Let's try.";
 
@@ -93,12 +97,12 @@ Comment@"Notice the suspicious appearance of two extra massless eigenvalues, alo
 (*  Sickly Proca field  *)
 (*======================*)
 
-Title@"Sickly Proca field";
+Section@"Sickly Proca field";
 
 Comment@"For completeness, it behoves us to look at the general massive case.";
 
 LinearisedLagrangian=Coupling1*CD[-a]@xAct`PSALTer`VectorTheory`B[-b]*CD[a]@xAct`PSALTer`VectorTheory`B[b]+Coupling2*CD[-a]@xAct`PSALTer`VectorTheory`B[a]*CD[-b]@xAct`PSALTer`VectorTheory`B[b]+Coupling3*xAct`PSALTer`VectorTheory`B[-a]*xAct`PSALTer`VectorTheory`B[a];
-Print@LinearisedLagrangian;
+DisplayExpression@LinearisedLagrangian;
 
 Comment@"We enter this into PSALTer.";
 
