@@ -5,6 +5,7 @@
 BuildPackage@"ParticleSpectrum/UpdateTheoryAssociation.m";
 BuildPackage@"ParticleSpectrum/FourierLagrangian.m";
 BuildPackage@"ParticleSpectrum/ConstructSaturatedPropagator.m";
+BuildPackage@"ParticleSpectrum/WignerGrid.m";
 BuildPackage@"ParticleSpectrum/MakeConstraintComponentList.m";
 BuildPackage@"ParticleSpectrum/ConstraintComponentToLightcone.m";
 BuildPackage@"ParticleSpectrum/AllIndependentComponents.m";
@@ -71,10 +72,13 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 
 	Print@"The (possibly singular) \[ScriptA]-matrices associated with the Lagrangian, as defined below Eq. (18) of arXiv:1812.02675:";
 	(*Print@(MatrixForm/@(SaturatedPropagator[[3]]));*)
+(*
 	(
 		Print@("Matrix for spin-"<>ToString@First@First@((((Plus@@#)&/@Partition[SaturatedPropagator[[3]],2])~Position~#)-1)<>" sector:");
 		Print@MatrixForm@#
 	)&/@((Plus@@#)&/@Partition[SaturatedPropagator[[3]],2]);
+*)
+	Print@WignerGrid[((Plus@@#)&/@Partition[SaturatedPropagator[[3]],2]),SaturatedPropagator[[6]],SaturatedPropagator[[7]]];
 
 	Print@"Gauge constraints on source currents:";
 	Print/@(((Simplify@(#==0))&)/@(SaturatedPropagator[[1]]));
@@ -82,11 +86,14 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	(*Throw@"hold my sillary";*)
 
 	Print@"The Drazin (Moore-Penrose) inverses of these \[ScriptA]-matrices, which are functionally analogous to the inverse \[ScriptB]-matrices described below Eq. (21) of arXiv:1812.02675:";
+(*
 	(*Print@(MatrixForm/@(SaturatedPropagator[[4]]));*)
 	(
 		Print@("Matrix for spin-"<>ToString@First@First@((((Plus@@#)&/@Partition[SaturatedPropagator[[4]],2])~Position~#)-1)<>" sector:");
 		Print@MatrixForm@#
 	)&/@((Plus@@#)&/@Partition[SaturatedPropagator[[4]],2]);
+*)
+	Print@WignerGrid[((Plus@@#)&/@Partition[SaturatedPropagator[[4]],2]),SaturatedPropagator[[6]],SaturatedPropagator[[7]]];
 
 	(*======================*)
 	(*  Source constraints  *)
@@ -136,10 +143,10 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	PrintVariable=PrintTemporary@MassiveAnalysis;
 	MassiveAnalysis=WaitAll@MassiveAnalysis;
 	NotebookDelete@PrintVariable;
-
+(*
 	Print@"Square masses:";
 	Print@MassiveAnalysis;
-
+*)
 	SignedInverseBMatrices=Times~MapThread~{(SaturatedPropagator[[4]]),(SaturatedPropagator[[5]])};
 
 	MassiveGhostAnalysis=MapThread[
@@ -149,10 +156,10 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	PrintVariable=PrintTemporary@MassiveGhostAnalysis;
 	MassiveGhostAnalysis=WaitAll@MassiveGhostAnalysis;
 	NotebookDelete@PrintVariable;
-
+(*
 	Print@"Massive pole residues:";
 	Print@MassiveGhostAnalysis;
-
+*)
 	(*PrintMassiveSpectrum[MassiveAnalysis,MassiveGhostAnalysis];*)
 
 	UpdateTheoryAssociation[TheoryName,SquareMasses,MassiveAnalysis,ExportTheory->OptionValue@ExportTheory];
@@ -191,10 +198,10 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	MasslessAnalysisValue=MasslessAnalysis[[2]];
 
 	UpdateTheoryAssociation[TheoryName,MasslessEigenvalues,MasslessAnalysisValue,ExportTheory->OptionValue@ExportTheory];
-
+(*
 	Print@"Massless eigenvalues:";
 	Print@MasslessAnalysisValue;
-
+*)
 	(*PrintMasslessSpectrum[MasslessAnalysisValue];*)
 
 	(*================================*)

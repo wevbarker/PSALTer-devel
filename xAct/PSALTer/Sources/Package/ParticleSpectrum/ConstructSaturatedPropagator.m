@@ -27,6 +27,9 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 	InverseBMatricesValues,
 	SaturatedPropagator,
 	BlockMassSigns,
+	Sizes,
+	TheSpins,
+	CombinedSectors,
 	PrintVariable},
 	
 	CouplingAssumptions=(#~Element~Reals)&/@Couplings;
@@ -220,4 +223,8 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 
 	NotebookDelete@PrintVariable;
 
-{SourceConstraints,Flatten[Values@SaturatedPropagator,{1,2}],Flatten[Values@BMatricesValues,{1,2}],Flatten[Values@InverseBMatricesValues,{1,2}],BlockMassSigns}];
+	CombinedSectors=Map[Flatten,Merge[#,Identity]&/@Merge[Values@FieldSpinParityTensorHeadsValue,Identity],{2}];
+	Sizes=Map[Length,Values@(Values/@(CombinedSectors)),{2}];
+	TheSpins=Keys@CombinedSectors;
+
+{SourceConstraints,Flatten[Values@SaturatedPropagator,{1,2}],Flatten[Values@BMatricesValues,{1,2}],Flatten[Values@InverseBMatricesValues,{1,2}],BlockMassSigns,Sizes,TheSpins}];
