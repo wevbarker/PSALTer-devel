@@ -2,20 +2,6 @@
 (*  Test  *)
 (*========*)
 
-Print@MatrixForm@{{a}};
-
-Spin0={{a,b,0},{c,d,0},{0,0,g}};
-Spin1={{a,0},{0,d}};
-Spin2={{d,0},{0,g}};
-Spin3={{d}};
-Spin4={{d}};
-Spin5={{a,b,0},{c,d,0},{0,0,g}};
-Spin6=Table[1,{i,1,20},{j,1,20}];
-
-AllMatrices={Spin0,Spin1,Spin2,Spin3,Spin4,Spin5,Spin6};
-Sizes={{2,1},{1,1},{1,1},{0,1},{1,0},{3,0},{10,10}};
-Spins={0,1,2,3,5,5,8};
-
 WignerGrid[AllMatrices_,Sizes_,Spins_]:=Module[{
 SpinParities,
 Mask,
@@ -35,9 +21,9 @@ AllElements=Normal@BlockDiagonalMatrix@AllMatrices;
 AllElements=ArrayPad[AllElements,{{1,0},{1,0}}];
 AllElements=MapThread[If[#2,#1,Null]&,{AllElements,Mask},2];
 
-ParityEvenColor=RGBColor[255/255,255/255,204/255];
-ParityOddColor=RGBColor[204/255,255/255,255/255];
-ParityMixColor=RGBColor[204/255,255/255,204/255];
+ParityEvenColor=RGBColor[255/255,200/255,200/255];
+ParityOddColor=RGBColor[200/255,220/255,255/255];
+ParityMixColor=RGBColor[225/255,230/255,245/255];
 
 EndCells=(Accumulate@Flatten@Sizes)~Partition~2;
 StartCells=EndCells-(Sizes/.{0->1});
@@ -102,18 +88,73 @@ Which[
 )&,
 {StartCells,EndCells,Sizes}
 ];
-Cols//=Flatten;
+	Cols//=Flatten;
 
-GraphicsGrid[AllElements,Background->{None,None,Cols},Frame->{None,None,Frames},ImageSize->Full]];
+Grid[AllElements,Background->{None,None,Cols},Frame->{None,None,Frames},ItemSize->All]];
 
-Print@WignerGrid[AllMatrices,Sizes,Spins];
+MyRaggedBlock[SomeList_,SomeWidth_]:=Module[{DataArray,PaddedArray,FrameRules},
+	DataArray=SomeList~Partition~(UpTo@SomeWidth);
+	FrameRules=DeleteCases[Flatten@Map[((First@Evaluate@Position[Evaluate@DataArray,#])->True)&,DataArray,{2}],Null];
+	TextGrid[DataArray,Frame->{None,None,FrameRules}]];
 
-Grid1=WignerGrid[AllMatrices,Sizes,Spins];
-Grid2=Grid1;
+SummariseResults[WaveOperator_,Propagator_,SourceConstraints_,Spectrum_]:=Module[{
+	Computing,
+	TheWaveOperator,
+	ThePropagator,
+	TheSourceConstraints,
+	TheSpectrum,
+	SummaryOfResults
+	},
 
-Output=GraphicsRow[{Show[Grid1],Show@Grid2}]
-Print@Output;
+	Computing=Magnify["(Computing...)",450/First@Rasterize["(Computing...)","RasterSize"]];
+	If[WaveOperator===Null,
+		TheWaveOperator=Computing,
+		TheWaveOperator=Magnify[WaveOperator,450/First@Rasterize[WaveOperator,"RasterSize"]]];
+	If[Propagator===Null,
+		ThePropagator=Computing,
+		ThePropagator=Magnify[Propagator,450/First@Rasterize[Propagator,"RasterSize"]]];
+	If[SourceConstraints===Null,
+		TheSourceConstraints=Computing,
+		TheSourceConstraints=Magnify[SourceConstraints,450/First@Rasterize[SourceConstraints,"RasterSize"]]];
+	If[Spectrum===Null,
+		TheSpectrum=Computing,
+		TheSpectrum=Magnify[Spectrum,450/First@Rasterize[Spectrum,"RasterSize"]]];
 
+	SummaryOfResults=GraphicsGrid[{
+		{Labeled[TheWaveOperator,"Wave operator",Top,LabelStyle->Large],
+		Labeled[ThePropagator,"Propagator",Top,LabelStyle->Large]},
+		{Labeled[TheSourceConstraints,"Source constraints",Top,LabelStyle->Large],
+		Labeled[TheSpectrum,"Spectrum",Top,LabelStyle->Large]}},ImageSize->Full,Frame->All];
+SummaryOfResults];
 
+(*=================*)
+(*  Small example  *)
+(*=================*)
 
+Spin0={{a,b,0},{c,d,0},{0,0,g}};
+Spin1={{a,0},{0,d}};
+Spin2={{d,0},{0,g}};
+Spin3={{d}};
+Spin4={{d}};
+Spin5={{a,b,0},{c,d,0},{0,0,g}};
+Spin6=Table[1,{i,1,20},{j,1,20}];
 
+AllMatrices={Spin0,Spin1,Spin2,Spin3,Spin4,Spin5,Spin6};
+Sizes={{2,1},{1,1},{1,1},{0,1},{1,0},{3,0},{10,10}};
+Spins={0,1,2,3,5,5,8};
+
+Print@SummariseResults[WignerGrid[AllMatrices,Sizes,Spins],Null,Null,Null];
+
+AllMatrices={Spin0};
+Sizes={{2,1}};
+Spins={0};
+
+Print@SummariseResults[WignerGrid[AllMatrices,Sizes,Spins],Null,Null,Null];
+
+AllMatrices={Spin3};
+Sizes={{0,1}};
+Spins={8};
+SourceConstraints={a,b,c,d,e,r,f,t};
+Expr=MyRaggedBlock[SourceConstraints,5];
+
+Print@SummariseResults[WignerGrid[AllMatrices,Sizes,Spins],WignerGrid[AllMatrices,Sizes,Spins],Expr,Null];
