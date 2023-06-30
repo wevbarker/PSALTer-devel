@@ -6,6 +6,8 @@ BuildPackage@"ParticleSpectrum/UpdateTheoryAssociation.m";
 BuildPackage@"ParticleSpectrum/FourierLagrangian.m";
 BuildPackage@"ParticleSpectrum/ConstructSaturatedPropagator.m";
 BuildPackage@"ParticleSpectrum/WignerGrid.m";
+BuildPackage@"ParticleSpectrum/RaggedBlock.m";
+BuildPackage@"ParticleSpectrum/SummariseResults.m";
 BuildPackage@"ParticleSpectrum/MakeConstraintComponentList.m";
 BuildPackage@"ParticleSpectrum/ConstraintComponentToLightcone.m";
 BuildPackage@"ParticleSpectrum/AllIndependentComponents.m";
@@ -30,6 +32,7 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	Tensors=OptionValue@TensorFields,
 	Couplings=OptionValue@CouplingConstants,
 	PrintVariable,
+	SummaryOfResults,
 	DecomposeFieldsdLagrangian,
 	SaturatedPropagator,
 	SaturatedPropagatorArray,
@@ -47,7 +50,12 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	MasslessEigenvaluesValues,
 	MasslessAnalysisValue,
 	PositiveSystem,
-	PositiveSystemValue},
+	PositiveSystemValue,
+	TheWaveOperator,
+	ThePropagator,
+	TheSourceConstraints,
+	TheSpectrum
+},
 
 	PrintVariable={};
 	PrintVariable=PrintVariable~Append~PrintTemporary@" ** ParticleSpectrum...";
@@ -69,8 +77,9 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	UpdateTheoryAssociation[TheoryName,BMatrices,SaturatedPropagator[[3]],ExportTheory->OptionValue@ExportTheory];
 	UpdateTheoryAssociation[TheoryName,InverseBMatrices,SaturatedPropagator[[4]],ExportTheory->OptionValue@ExportTheory];
 	UpdateTheoryAssociation[TheoryName,SourceConstraints,SaturatedPropagator[[1]],ExportTheory->OptionValue@ExportTheory];
-
+(*
 	Print@"The (possibly singular) \[ScriptA]-matrices associated with the Lagrangian, as defined below Eq. (18) of arXiv:1812.02675:";
+*)
 	(*Print@(MatrixForm/@(SaturatedPropagator[[3]]));*)
 (*
 	(
@@ -78,14 +87,20 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 		Print@MatrixForm@#
 	)&/@((Plus@@#)&/@Partition[SaturatedPropagator[[3]],2]);
 *)
-	Print@WignerGrid[((Plus@@#)&/@Partition[SaturatedPropagator[[3]],2]),SaturatedPropagator[[6]],SaturatedPropagator[[7]]];
-
+	TheWaveOperator=WignerGrid[((Plus@@#)&/@Partition[SaturatedPropagator[[3]],2]),SaturatedPropagator[[6]],SaturatedPropagator[[7]],SaturatedPropagator[[8]],SaturatedPropagator[[9]]];
+(*
 	Print@"Gauge constraints on source currents:";
 	Print/@(((Simplify@(#==0))&)/@(SaturatedPropagator[[1]]));
+*)
+	TheSourceConstraints=RaggedBlock[(((Simplify@(#==0))&)/@(SaturatedPropagator[[1]])),2];
+
+	NotebookDelete@SummaryOfResults;
+	SummaryOfResults=PrintTemporary@SummariseResults[TheWaveOperator,Null,TheSourceConstraints,Null,Null];
 
 	(*Throw@"hold my sillary";*)
-
+(*
 	Print@"The Drazin (Moore-Penrose) inverses of these \[ScriptA]-matrices, which are functionally analogous to the inverse \[ScriptB]-matrices described below Eq. (21) of arXiv:1812.02675:";
+*)
 (*
 	(*Print@(MatrixForm/@(SaturatedPropagator[[4]]));*)
 	(
@@ -93,7 +108,10 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 		Print@MatrixForm@#
 	)&/@((Plus@@#)&/@Partition[SaturatedPropagator[[4]],2]);
 *)
-	Print@WignerGrid[((Plus@@#)&/@Partition[SaturatedPropagator[[4]],2]),SaturatedPropagator[[6]],SaturatedPropagator[[7]]];
+	ThePropagator=WignerGrid[((Plus@@#)&/@Partition[SaturatedPropagator[[4]],2]),SaturatedPropagator[[6]],SaturatedPropagator[[7]],SaturatedPropagator[[10]],SaturatedPropagator[[11]]];
+
+	NotebookDelete@SummaryOfResults;
+	SummaryOfResults=PrintTemporary@SummariseResults[TheWaveOperator,ThePropagator,TheSourceConstraints,Null,Null];
 
 	(*======================*)
 	(*  Source constraints  *)
@@ -208,8 +226,13 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	(*  Summary of particle spectrum  *)
 	(*================================*)
 
+(*
 	Print@"Overall particle spectrum:";
-	PrintSpectrum[MassiveAnalysis,MassiveGhostAnalysis,MasslessAnalysisValue];
+*)
+	TheSpectrum=PrintSpectrum[MassiveAnalysis,MassiveGhostAnalysis,MasslessAnalysisValue];
+
+	NotebookDelete@SummaryOfResults;
+	SummaryOfResults=PrintTemporary@SummariseResults[TheWaveOperator,ThePropagator,TheSourceConstraints,TheSpectrum,Null];
 
 	(*=============*)
 	(*  Unitarity  *)
@@ -217,11 +240,15 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 
 	PositiveSystemValue=Unitarity[
 		MassiveAnalysis,MassiveGhostAnalysis,MasslessAnalysisValue,Couplings];
-
+(*
 	Print@"Overall unitarity conditions:";
 	Print@PositiveSystemValue;
+*)
+	NotebookDelete@SummaryOfResults;
+	SummaryOfResults=Print@SummariseResults[TheWaveOperator,ThePropagator,TheSourceConstraints,TheSpectrum,PositiveSystemValue];
 
 	UpdateTheoryAssociation[TheoryName,PositiveSystem,PositiveSystemValue,ExportTheory->OptionValue@ExportTheory];
 
 	NotebookDelete@PrintVariable;
+	NotebookDelete/@PrintVariable;
 ];

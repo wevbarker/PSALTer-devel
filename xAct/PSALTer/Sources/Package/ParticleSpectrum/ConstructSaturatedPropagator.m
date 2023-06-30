@@ -15,6 +15,12 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 	Rescalings,
 	RaisedIndexSources,
 	LoweredIndexSources,
+	RaisedIndexFields,
+	LoweredIndexFields,
+	FieldsLeft,
+	FieldsTop,
+	SourcesLeft,
+	SourcesTop,
 	SpinParityConstantSymbols,
 	SpinParityRescalingSymbols,
 	MatrixLagrangian,
@@ -91,6 +97,29 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 		];
 	)~Table~{Spin,Class@Spins};
 	Diagnostic@LoweredIndexSources;
+
+	RaisedIndexFields=<||>;
+	(
+		RaisedIndexFields[Spin]=((FromIndexFree@ToIndexFree@#)/.{SomeIndex_?TangentM4`Q->-SomeIndex})&@Flatten@Join[
+			FieldSpinParityTensorHeadsValue[Field][Spin][Even]~Table~{Field,Class@Tensors},
+			FieldSpinParityTensorHeadsValue[Field][Spin][Odd]~Table~{Field,Class@Tensors}
+		];
+	)~Table~{Spin,Class@Spins};
+	Diagnostic@RaisedIndexFields;
+
+	LoweredIndexFields=<||>;
+	(
+		LoweredIndexFields[Spin]=((FromIndexFree@ToIndexFree@#)/.{SomeIndex_?TangentM4`Q->SomeIndex})&@Flatten@Join[
+			FieldSpinParityTensorHeadsValue[Field][Spin][Even]~Table~{Field,Class@Tensors},
+			FieldSpinParityTensorHeadsValue[Field][Spin][Odd]~Table~{Field,Class@Tensors}
+		];
+	)~Table~{Spin,Class@Spins};
+	Diagnostic@LoweredIndexFields;
+
+	FieldsLeft=Dagger/@Values@RaisedIndexFields;
+	FieldsTop=Values@LoweredIndexFields;
+	SourcesLeft=Dagger/@Values@RaisedIndexSources;
+	SourcesTop=Values@LoweredIndexSources;
 
 	(*------------------------*)
 	(*  Coefficient matrices  *)
@@ -227,4 +256,4 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 	Sizes=Map[Length,Values@(Values/@(CombinedSectors)),{2}];
 	TheSpins=Keys@CombinedSectors;
 
-{SourceConstraints,Flatten[Values@SaturatedPropagator,{1,2}],Flatten[Values@BMatricesValues,{1,2}],Flatten[Values@InverseBMatricesValues,{1,2}],BlockMassSigns,Sizes,TheSpins}];
+{SourceConstraints,Flatten[Values@SaturatedPropagator,{1,2}],Flatten[Values@BMatricesValues,{1,2}],Flatten[Values@InverseBMatricesValues,{1,2}],BlockMassSigns,Sizes,TheSpins,FieldsLeft,FieldsTop,SourcesLeft,SourcesTop}];	

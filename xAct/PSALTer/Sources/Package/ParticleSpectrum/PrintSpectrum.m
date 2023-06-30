@@ -86,7 +86,7 @@ Expr];
 
 PrintMasslessSpectrum[MasslessEigenvalues_]:=Print@Row@(PrintParticle[First@#,0,0,0,Length@#]&/@Gather@(StripFactors/@MasslessEigenvalues));
 
-PrintSpectrum[SquareMasses_,MassivePropagatorResidues_,MasslessEigenvalues_]:=Print@Row[
+PrintSpectrum[SquareMasses_,MassivePropagatorResidues_,MasslessEigenvalues_]:=Row[
 (
 (MapThread[If[!(#1==={}),
 			PrintParticle[First@#1,First@#2,#4,#3,2*#4+1],

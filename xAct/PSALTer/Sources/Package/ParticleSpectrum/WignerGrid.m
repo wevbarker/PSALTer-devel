@@ -2,7 +2,7 @@
 (*  WignerGrid  *)
 (*==============*)
 
-WignerGrid[AllMatrices_,Sizes_,Spins_]:=Module[{
+WignerGrid[AllMatrices_,Sizes_,Spins_,Sides_,Tops_]:=Module[{
 SpinParities,
 Mask,
 AllElements,
@@ -16,36 +16,44 @@ Cols
 },
 
 SpinParities=Table[Superscript[ToString@i,j],{i,Spins},{j,{"+","-"}}]~Take~Length@Spins;
+TheSides=Sides~Take~Length@Spins;
+TheTops=Tops~Take~Length@Spins;
 Mask=ArrayPad[Normal@BlockDiagonalMatrix@Map[(True)&,AllMatrices,{3}],{{1,0},{1,0}}]/.{0->False};
 AllElements=Normal@BlockDiagonalMatrix@AllMatrices;
 AllElements=ArrayPad[AllElements,{{1,0},{1,0}}];
 AllElements=MapThread[If[#2,#1,Null]&,{AllElements,Mask},2];
 
-ParityEvenColor=RGBColor[255/255,255/255,204/255];
-ParityOddColor=RGBColor[204/255,255/255,255/255];
-ParityMixColor=RGBColor[204/255,255/255,204/255];
+ParityEvenColor=RGBColor[255/255,255/255,153/255];
+ParityOddColor=RGBColor[200/255,255/255,255/255];
+ParityMixColor=RGBColor[153/255,255/255,153/255];
 
 EndCells=(Accumulate@Flatten@Sizes)~Partition~2;
 StartCells=EndCells-(Sizes/.{0->1});
 StartCells=Map[(#+1)&,StartCells,{2}];
 
+Alignments={};
+
 MapThread[
 (
 Which[
 #4[[1]]==0,
-	AllElements[[#1[[2]]+1,#1[[1]]+1]]=#3[[2]];
-	AllElements[[#1[[1]]+1,#1[[2]]+1]]=#3[[2]];,
+	Table[Alignments=Alignments~Join~{{#1[[2]]+j,#1[[1]]+1}->{Right,Center}},{j,Length@#5}];
+	Table[Alignments=Alignments~Join~{{#1[[1]]+1,#1[[2]]+j}->{Center,Bottom}},{j,Length@#5}];
+	Table[AllElements[[#1[[2]]+j,#1[[1]]+1]]=#5[[j]],{j,Length@#5}];
+	Table[AllElements[[#1[[1]]+1,#1[[2]]+j]]=#6[[j]],{j,Length@#6}];,
 #4[[2]]==0,
-	AllElements[[#1[[1]]+1,#1[[1]]]]=#3[[1]];
-	AllElements[[#1[[1]],#1[[1]]+1]]=#3[[1]];,
+	Table[Alignments=Alignments~Join~{{#1[[1]]+j,#1[[1]]}->{Right,Center}},{j,Length@#5}];
+	Table[Alignments=Alignments~Join~{{#1[[1]],#1[[1]]+j}->{Center,Bottom}},{j,Length@#5}];
+	Table[AllElements[[#1[[1]]+j,#1[[1]]]]=#5[[j]],{j,Length@#5}];
+	Table[AllElements[[#1[[1]],#1[[1]]+j]]=#6[[j]],{j,Length@#6}];,
 (!(#4[[1]]==0))&&(!(#4[[2]]==0)),
-	AllElements[[#1[[1]]+1,#1[[1]]]]=#3[[1]];
-	AllElements[[#1[[2]]+1,#1[[1]]]]=#3[[2]];
-	AllElements[[#1[[1]],#1[[1]]+1]]=#3[[1]];
-	AllElements[[#1[[1]],#1[[2]]+1]]=#3[[2]];
+	Table[Alignments=Alignments~Join~{{#1[[1]]+j,#1[[1]]}->{Right,Center}},{j,Length@#5}];
+	Table[Alignments=Alignments~Join~{{#1[[1]],#1[[1]]+j}->{Center,Bottom}},{j,Length@#5}];
+	Table[AllElements[[#1[[1]]+j,#1[[1]]]]=#5[[j]],{j,Length@#5}];
+	Table[AllElements[[#1[[1]],#1[[1]]+j]]=#6[[j]],{j,Length@#6}];
 ];
 )&,
-{StartCells,EndCells,SpinParities,Sizes}];
+{StartCells,EndCells,SpinParities,Sizes,TheSides,TheTops},1];
 
 Frames=MapThread[
 (
@@ -88,7 +96,6 @@ Which[
 )&,
 {StartCells,EndCells,Sizes}
 ];
-Cols//=Flatten;
+	Cols//=Flatten;
 (*,ItemSize->All*)
-
-Grid[AllElements,Background->{None,None,Cols},Frame->{None,None,Frames}]];
+Grid[AllElements,Background->{None,None,Cols},Frame->{None,None,Frames},Alignment->{Center,Center,Alignments},ItemSize->Full]];
