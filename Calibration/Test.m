@@ -127,42 +127,45 @@ SummariseResults[WaveOperator_,Propagator_,SourceConstraints_,Spectrum_,OverallU
 	SummaryOfResults
 	},
 
+	Computing=HoldForm@(DynamicModule[{StartTime=AbsoluteTime[]},Dynamic@Refresh[ProgressIndicator@Tanh[N@(AbsoluteTime[]-StartTime)/100],UpdateInterval->1]]);
+
 	FullWidth=First@Rasterize[Show[Graphics[Circle[]],ImageSize->Full],"RasterSize"];
 
 	MakeLabel[SomeString_]:=Style[SomeString,Large];
 
 	If[WaveOperator===Null,
-		TheWaveOperator=MakeLabel["(Computing...)"],
+		TheWaveOperator=Computing,
 		TheWaveOperator=ReMagnify[WaveOperator]];
 	If[Propagator===Null,
-		ThePropagator=MakeLabel["(Computing...)"],
+		ThePropagator=Computing,
 		ThePropagator=ReMagnify[Propagator]];
 	If[SourceConstraints===Null,
-		TheSourceConstraints=MakeLabel["(Computing...)"],
+		TheSourceConstraints=Computing,
 		If[SourceConstraints==={},
 			TheSourceConstraints=MakeLabel["(None)"],
 			TheSourceConstraints=ReMagnify[SourceConstraints]];
 		];
 	If[Spectrum===Null,
-		TheSpectrum=MakeLabel["(Computing...)"],
+		TheSpectrum=Computing,
 		TheSpectrum=ReMagnify[Spectrum]];
 	If[OverallUnitarity===Null,
-		TheOverallUnitarity=MakeLabel["(Computing...)"],
+		TheOverallUnitarity=Computing,
 		If[OverallUnitarity===False,
 			TheOverallUnitarity=MakeLabel["(Unitarity is impossible)"],
 			TheOverallUnitarity=ReMagnify[OverallUnitarity]];
 	];
 
 	SummaryOfResults=Grid[{
+		{MakeLabel["PSALTer results panel"],SpanFromLeft},
 		{MakeLabel["Wave operator"],
-		MakeLabel["Propagator"]},
+		MakeLabel["Saturated propagator"]},
 		{TheWaveOperator,
 		ThePropagator},
 		{MakeLabel["Source constraints"],
-		MakeLabel["Spectrum"]},
+		MakeLabel["Particle spectrum"]},
 		{TheSourceConstraints,
 		TheSpectrum},
-		{MakeLabel["Overall unitarity conditions"],SpanFromLeft},
+		{MakeLabel["Unitarity conditions"],SpanFromLeft},
 		{TheOverallUnitarity,SpanFromLeft}
 		},Spacings->{2,2},Frame->True,Background->RGBColor[240/255,240/255,240/255]];
 SummaryOfResults];
