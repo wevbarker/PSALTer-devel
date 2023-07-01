@@ -29,7 +29,7 @@ Options@ParticleSpectrum={
 	ExportTheory->False};
 
 ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
-	Tensors=OptionValue@TensorFields,
+	TheTensors=OptionValue@TensorFields,
 	Couplings=OptionValue@CouplingConstants,
 	PrintVariable,
 	SummaryOfResults,
@@ -54,10 +54,22 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	TheWaveOperator,
 	ThePropagator,
 	TheSourceConstraints,
-	TheSpectrum
+	TheSpectrum,
+	FullAction,
+	Class
 },
 
-	SummaryOfResults=PrintTemporary@SummariseResults[Null,Null,Null,Null,Null];
+	Class=Evaluate@Symbol@ClassName;
+	TheTensors=Class@Tensors;
+	FullAction=Module[{Class,TensorList,SourceCoupling},	
+		Class=Evaluate@Symbol@ClassName;
+		TensorList=(FromIndexFree@ToIndexFree@#)&/@(Class@Tensors);
+		SourceCoupling=MapThread[((#1@@(-List@@#2))*#2)&,{Class@Sources,TensorList}];
+		SourceCoupling//=Total;
+		SourceCoupling//=ToNewCanonical;
+		Expr+SourceCoupling];
+
+	SummaryOfResults=PrintTemporary@SummariseResults[Null,Null,Null,Null,Null,FullAction];
 
 	PrintVariable={};
 	PrintVariable=PrintVariable~Append~PrintTemporary@" ** ParticleSpectrum...";
@@ -66,7 +78,7 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	(*  Fourier decomposition  *)
 	(*=========================*)
 
-	DecomposeFieldsdLagrangian=FourierLagrangian[ClassName,Expr,Tensors];
+	DecomposeFieldsdLagrangian=FourierLagrangian[ClassName,Expr,TheTensors];
 	Diagnostic@DecomposeFieldsdLagrangian;
 
 	UpdateTheoryAssociation[TheoryName,MomentumSpaceLagrangian,DecomposeFieldsdLagrangian,ExportTheory->OptionValue@ExportTheory];
@@ -84,12 +96,12 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	TheSourceConstraints=RaggedBlock[(((Simplify@(#==0))&)/@(SaturatedPropagator[[1]])),2];
 
 	NotebookDelete@SummaryOfResults;
-	SummaryOfResults=PrintTemporary@SummariseResults[TheWaveOperator,Null,TheSourceConstraints,Null,Null];
+	SummaryOfResults=PrintTemporary@SummariseResults[TheWaveOperator,Null,TheSourceConstraints,Null,Null,FullAction];
 
 	ThePropagator=WignerGrid[((Plus@@#)&/@Partition[SaturatedPropagator[[4]],2]),SaturatedPropagator[[6]],SaturatedPropagator[[7]],SaturatedPropagator[[10]],SaturatedPropagator[[11]]];
 
 	NotebookDelete@SummaryOfResults;
-	SummaryOfResults=PrintTemporary@SummariseResults[TheWaveOperator,ThePropagator,TheSourceConstraints,Null,Null];
+	SummaryOfResults=PrintTemporary@SummariseResults[TheWaveOperator,ThePropagator,TheSourceConstraints,Null,Null,FullAction];
 
 	(*======================*)
 	(*  Source constraints  *)
@@ -192,7 +204,7 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	TheSpectrum=PrintSpectrum[MassiveAnalysis,MassiveGhostAnalysis,MasslessAnalysisValue];
 
 	NotebookDelete@SummaryOfResults;
-	SummaryOfResults=PrintTemporary@SummariseResults[TheWaveOperator,ThePropagator,TheSourceConstraints,TheSpectrum,Null];
+	SummaryOfResults=PrintTemporary@SummariseResults[TheWaveOperator,ThePropagator,TheSourceConstraints,TheSpectrum,Null,FullAction];
 
 	(*=============*)
 	(*  Unitarity  *)
@@ -202,7 +214,7 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 		MassiveAnalysis,MassiveGhostAnalysis,MasslessAnalysisValue,Couplings];
 
 	NotebookDelete@SummaryOfResults;
-	SummaryOfResults=Print@SummariseResults[TheWaveOperator,ThePropagator,TheSourceConstraints,TheSpectrum,PositiveSystemValue];
+	SummaryOfResults=Print@SummariseResults[TheWaveOperator,ThePropagator,TheSourceConstraints,TheSpectrum,PositiveSystemValue,FullAction];
 
 	UpdateTheoryAssociation[TheoryName,PositiveSystem,PositiveSystemValue,ExportTheory->OptionValue@ExportTheory];
 

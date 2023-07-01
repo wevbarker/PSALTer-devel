@@ -23,12 +23,14 @@ Comment@"Great, so PSALTer is now loaded and we can start to do some science.";
 Comment@"Do we want diagnostic mode?";
 *)
 $DiagnosticMode=False;
-
+(*
 Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","ScalarTheory.m"};
 Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","VectorTheory.m"};
 Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","TensorTheory.m"};
 Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","PoincareGaugeTheory.m"};
-(*Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","MetricAffineGaugeTheory.m"};*)
+*)
+Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","MetricAffineGaugeTheory.m"};
+Throw@"We want to play from this point...";
 
 Supercomment@"We have now reached the end of the PSALTer calibration script.";
 

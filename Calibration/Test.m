@@ -117,7 +117,10 @@ ActualWidth=First@Rasterize[Object,"RasterSize"];
 RequiredMagnification=Piecewise[{{1,ActualWidth<=DesiredWidth},{DesiredWidth/ActualWidth,ActualWidth>DesiredWidth}}];
 Magnify[Object,RequiredMagnification]];
 
-SummariseResults[WaveOperator_,Propagator_,SourceConstraints_,Spectrum_,OverallUnitarity_]:=Module[{
+
+SummariseTheory[Theory_]:=(Action==Integrate@@({(Theory)@@#}~Join~(#[[1;;4]]))&@{t,x,y,z});
+
+SummariseResults[WaveOperator_,Propagator_,SourceConstraints_,Spectrum_,OverallUnitarity_,SummaryOfTheory_]:=Module[{
 	Computing,
 	TheWaveOperator,
 	ThePropagator,
@@ -157,6 +160,7 @@ SummariseResults[WaveOperator_,Propagator_,SourceConstraints_,Spectrum_,OverallU
 
 	SummaryOfResults=Grid[{
 		{MakeLabel["PSALTer results panel"],SpanFromLeft},
+		{SummariseTheory[SummaryOfTheory],SpanFromLeft},
 		{MakeLabel["Wave operator"],
 		MakeLabel["Saturated propagator"]},
 		{TheWaveOperator,
@@ -188,14 +192,14 @@ Sizes={{2,1},{1,1},{1,1},{0,1},{1,0},{3,0},{10,10}};
 Spins={0,1,2,3,5,5,8};
 Fields={{a,a,a},{a,a},{a,a},{a},{a},{a,a,a},{a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a}};
 
-Print@SummariseResults[WignerGrid[AllMatrices,Sizes,Spins,Fields,Fields],Null,Null,Null,Null];
+Print@SummariseResults[WignerGrid[AllMatrices,Sizes,Spins,Fields,Fields],Null,Null,Null,Null,Some];
 
 AllMatrices={Spin0};
 Sizes={{2,1}};
 Spins={0};
 Fields={{a,a,a}};
 
-Print@SummariseResults[WignerGrid[AllMatrices,Sizes,Spins,Fields,Fields],Null,Null,Null,Null];
+Print@SummariseResults[WignerGrid[AllMatrices,Sizes,Spins,Fields,Fields],Null,Null,Null,Null,g];
 
 AllMatrices={Spin3};
 Sizes={{0,1}};
@@ -205,7 +209,7 @@ Fields={{a}};
 SourceConstraints={a,b,c,d,e,r,f,t};
 Expr=MyRaggedBlock[SourceConstraints,5];
 
-Print@SummariseResults[WignerGrid[AllMatrices,Sizes,Spins,Fields,Fields],WignerGrid[AllMatrices,Sizes,Spins,Fields,Fields],Expr,Null,False];
+Print@SummariseResults[WignerGrid[AllMatrices,Sizes,Spins,Fields,Fields],WignerGrid[AllMatrices,Sizes,Spins,Fields,Fields],Expr,Null,False,g];
 
 Expr=<|0->{a,a,a},1->{a,a}|>;
 Print@Values@Expr;

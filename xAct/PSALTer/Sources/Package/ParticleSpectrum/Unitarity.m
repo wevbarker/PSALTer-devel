@@ -16,6 +16,7 @@ Unitarity[MassiveAnalysis_,MassiveGhostAnalysis_,MasslessAnalysisValue_,Coupling
 	Diagnostic@PositiveSystem;
 	PositiveSystem=(#>0)&/@PositiveSystem;
 	Diagnostic@PositiveSystem;
+	PositiveSystem=PositiveSystem/.{Mo->1,En->1,Def->1};
 	(*Quiet wrapper used since there are some PrintAs warnings*)
 	PositiveSystem//=Quiet@Assuming[CouplingAssumptions,Reduce[#,Couplings]]&;
 	Diagnostic@PositiveSystem;
