@@ -130,7 +130,8 @@ SummariseResults[WaveOperator_,Propagator_,SourceConstraints_,Spectrum_,OverallU
 	SummaryOfResults
 	},
 
-	Computing=HoldForm@(DynamicModule[{StartTime=AbsoluteTime[]},Dynamic@Refresh[ProgressIndicator@Tanh[N@(AbsoluteTime[]-StartTime)/100],UpdateInterval->1]]);
+(*Computing=HoldForm@(DynamicModule[{StartTime=AbsoluteTime[]},Dynamic@Refresh[ProgressIndicator[Tanh[N@(AbsoluteTime[]-StartTime)/100],Appearance->"Necklace"],UpdateInterval->1]]);*)
+	Computing=ProgressIndicator[Appearance->"Necklace",ImageSize->Large];
 
 	FullWidth=First@Rasterize[Show[Graphics[Circle[]],ImageSize->Full],"RasterSize"];
 

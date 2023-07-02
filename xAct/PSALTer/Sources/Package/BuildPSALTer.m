@@ -27,7 +27,10 @@ LoadPSALTer[]:=Catch@Module[{PrintVariable,InitialMemory,Progress},
 
 	PrintVariable=PrintTemporary[" ** BuildPSALTer: loading binary definitions..."];
 	InitialMemory=MemoryInUse[];
+(*
 	Progress=PrintTemporary@ProgressIndicator[Dynamic[N[(Refresh[MemoryInUse[],UpdateInterval->0.1]-InitialMemory)/10^8]],Appearance->"Percolate"];
+*)
+	Progress=PrintTemporary@ProgressIndicator[Appearance->"Necklace",ImageSize->Large];
 	LoadBinaryContext/@ContextList;
 	NotebookDelete@PrintVariable;	
 	NotebookDelete@Progress;
