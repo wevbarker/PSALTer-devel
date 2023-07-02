@@ -12,11 +12,11 @@ BeginPackage["xAct`PSALTer`MetricAffineGaugeTheory`",{"xAct`xTensor`","xAct`xPer
 (*  Will: Basic definitions of the symmetric metric perturbation and its conjugate source, the stress-energy tensor  *)
 (*-------------------------------------------------------------------------------------------------------------------*)
 
-xAct`PSALTer`MetricAffineGaugeTheory`Private`LinearMetricSymb="\[ScriptH]";
-DefTensor[LinearMetric[-a,-b],M4,Symmetric[{-a,-b}],PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`MetricAffineGaugeTheory`Private`LinearMetricSymb],Dagger->Complex];
+xAct`PSALTer`MetricAffineGaugeTheory`Private`MetricPerturbationSymb="\[ScriptH]";
+DefTensor[MetricPerturbation[-a,-b],M4,Symmetric[{-a,-b}],PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`MetricAffineGaugeTheory`Private`MetricPerturbationSymb],Dagger->Complex];
 
-xAct`PSALTer`MetricAffineGaugeTheory`Private`ConjugateSourceLinearMetricSymb="\[ScriptCapitalT]";
-DefTensor[ConjugateSourceLinearMetric[-a,-b],M4,Symmetric[{-a,-b}],PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`MetricAffineGaugeTheory`Private`ConjugateSourceLinearMetricSymb],Dagger->Complex];
+xAct`PSALTer`MetricAffineGaugeTheory`Private`ConjugateSourceMetricPerturbationSymb="\[ScriptCapitalT]";
+DefTensor[ConjugateSourceMetricPerturbation[-a,-b],M4,Symmetric[{-a,-b}],PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`MetricAffineGaugeTheory`Private`ConjugateSourceMetricPerturbationSymb],Dagger->Complex];
 
 (*-----------------------------------------------------------------------------------------------------------------------------------------*)
 (*  Will: Basic definitions of the asymmetric connection and its conjugate source "dilatospin", a portmanteau of dilaton current and spin  *)
@@ -268,25 +268,25 @@ xAct`PSALTer`MetricAffineGaugeTheory`Private`ExpandConnectionSymmConjugateSource
 (*  Will: definition of metric perturbation reduced-index spin components  *)
 (*-------------------------------------------------------------------------*)
 
-xAct`PSALTer`MetricAffineGaugeTheory`Private`LinearMetricPerpSymb="\!\(\*SuperscriptBox[\(\[ScriptH]\),\(\[UpTee]\)]\)";
-xAct`PSALTer`MetricAffineGaugeTheory`Private`ConjugateSourceLinearMetricPerpSymb="\!\(\*SuperscriptBox[\(\[ScriptCapitalT]\),\(\[UpTee]\)]\)";
+xAct`PSALTer`MetricAffineGaugeTheory`Private`MetricPerturbationPerpSymb="\!\(\*SuperscriptBox[\(\[ScriptH]\),\(\[UpTee]\)]\)";
+xAct`PSALTer`MetricAffineGaugeTheory`Private`ConjugateSourceMetricPerturbationPerpSymb="\!\(\*SuperscriptBox[\(\[ScriptCapitalT]\),\(\[UpTee]\)]\)";
 
-DefSpinParityMode[LinearMetricPerp0p[],Spin->0,Parity->Even,
-	FieldSymbol->xAct`PSALTer`MetricAffineGaugeTheory`Private`LinearMetricPerpSymb,
-	SourceSymbol->xAct`PSALTer`MetricAffineGaugeTheory`Private`ConjugateSourceLinearMetricPerpSymb];
-DefSpinParityMode[LinearMetricPerp1m[-a],Spin->1,Parity->Odd,
-	FieldSymbol->xAct`PSALTer`MetricAffineGaugeTheory`Private`LinearMetricPerpSymb,
-	SourceSymbol->xAct`PSALTer`MetricAffineGaugeTheory`Private`ConjugateSourceLinearMetricPerpSymb];
+DefSpinParityMode[MetricPerturbationPerp0p[],Spin->0,Parity->Even,
+	FieldSymbol->xAct`PSALTer`MetricAffineGaugeTheory`Private`MetricPerturbationPerpSymb,
+	SourceSymbol->xAct`PSALTer`MetricAffineGaugeTheory`Private`ConjugateSourceMetricPerturbationPerpSymb];
+DefSpinParityMode[MetricPerturbationPerp1m[-a],Spin->1,Parity->Odd,
+	FieldSymbol->xAct`PSALTer`MetricAffineGaugeTheory`Private`MetricPerturbationPerpSymb,
+	SourceSymbol->xAct`PSALTer`MetricAffineGaugeTheory`Private`ConjugateSourceMetricPerturbationPerpSymb];
 
-xAct`PSALTer`MetricAffineGaugeTheory`Private`LinearMetricParaSymb="\!\(\*SuperscriptBox[\(\[ScriptH]\),\(\[DoubleVerticalBar]\)]\)";
-xAct`PSALTer`MetricAffineGaugeTheory`Private`ConjugateSourceLinearMetricParaSymb="\!\(\*SuperscriptBox[\(\[ScriptCapitalT]\),\(\[DoubleVerticalBar]\)]\)";
+xAct`PSALTer`MetricAffineGaugeTheory`Private`MetricPerturbationParaSymb="\!\(\*SuperscriptBox[\(\[ScriptH]\),\(\[DoubleVerticalBar]\)]\)";
+xAct`PSALTer`MetricAffineGaugeTheory`Private`ConjugateSourceMetricPerturbationParaSymb="\!\(\*SuperscriptBox[\(\[ScriptCapitalT]\),\(\[DoubleVerticalBar]\)]\)";
 
-DefSpinParityMode[LinearMetricPara0p[],Spin->0,Parity->Even,
-	FieldSymbol->xAct`PSALTer`MetricAffineGaugeTheory`Private`LinearMetricParaSymb,
-	SourceSymbol->xAct`PSALTer`MetricAffineGaugeTheory`Private`ConjugateSourceLinearMetricParaSymb];
-DefSpinParityMode[LinearMetricPara2p[-a,-b],Symmetric[{-a,-b}],Spin->2,Parity->Even,
-	FieldSymbol->xAct`PSALTer`MetricAffineGaugeTheory`Private`LinearMetricParaSymb,
-	SourceSymbol->xAct`PSALTer`MetricAffineGaugeTheory`Private`ConjugateSourceLinearMetricParaSymb];
+DefSpinParityMode[MetricPerturbationPara0p[],Spin->0,Parity->Even,
+	FieldSymbol->xAct`PSALTer`MetricAffineGaugeTheory`Private`MetricPerturbationParaSymb,
+	SourceSymbol->xAct`PSALTer`MetricAffineGaugeTheory`Private`ConjugateSourceMetricPerturbationParaSymb];
+DefSpinParityMode[MetricPerturbationPara2p[-a,-b],Symmetric[{-a,-b}],Spin->2,Parity->Even,
+	FieldSymbol->xAct`PSALTer`MetricAffineGaugeTheory`Private`MetricPerturbationParaSymb,
+	SourceSymbol->xAct`PSALTer`MetricAffineGaugeTheory`Private`ConjugateSourceMetricPerturbationParaSymb];
 
 (*-------------------------------------------------------------------*)
 (*  Will: definition of antisymmetric reduced-index spin components  *)
@@ -379,41 +379,41 @@ DefSpinParityMode[ConnectionSymmPara2m[-i,-j,-a],Symmetric[{-i,-j}],MultiTermSym
 (*  Will: metric perturbation expansions  *)
 (*----------------------------------------*)
 
-xAct`PSALTer`MetricAffineGaugeTheory`Private`LinearMetricSpinParityToLinearMetric=Join[
-	MakeRule[{LinearMetricPerp0p[],Evaluate[
-		ProjPerp[a,b]LinearMetric[-a,-b]//ToCanonical]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{LinearMetricPerp1m[-a],Evaluate[
-		V[b]ProjPara[-a,c]LinearMetric[-c,-b]//ToCanonical]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{LinearMetricPara0p[],Evaluate[
-		ProjPara[a,b]LinearMetric[-a,-b]//ToCanonical]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{LinearMetricPara2p[-a,-b],Evaluate[
-		(ProjPara[-a,c]ProjPara[-b,d]-(1/3)*ProjPara[-a,-b]ProjPara[c,d])*LinearMetric[-c,-d]//ToCanonical]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@LinearMetricPerp0p[],Evaluate@Dagger[
-		ProjPerp[a,b]LinearMetric[-a,-b]//ToCanonical]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@LinearMetricPerp1m[-a],Evaluate@Dagger[
-		V[b]ProjPara[-a,c]LinearMetric[-c,-b]//ToCanonical]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@LinearMetricPara0p[],Evaluate@Dagger[
-		ProjPara[a,b]LinearMetric[-a,-b]//ToCanonical]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@LinearMetricPara2p[-a,-b],Evaluate@Dagger[
-		(ProjPara[-a,c]ProjPara[-b,d]-(1/3)*ProjPara[-a,-b]ProjPara[c,d])*LinearMetric[-c,-d]//ToCanonical]},MetricOn->All,ContractMetrics->True]];
+xAct`PSALTer`MetricAffineGaugeTheory`Private`MetricPerturbationSpinParityToMetricPerturbation=Join[
+	MakeRule[{MetricPerturbationPerp0p[],Evaluate[
+		ProjPerp[a,b]MetricPerturbation[-a,-b]//ToCanonical]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{MetricPerturbationPerp1m[-a],Evaluate[
+		V[b]ProjPara[-a,c]MetricPerturbation[-c,-b]//ToCanonical]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{MetricPerturbationPara0p[],Evaluate[
+		ProjPara[a,b]MetricPerturbation[-a,-b]//ToCanonical]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{MetricPerturbationPara2p[-a,-b],Evaluate[
+		(ProjPara[-a,c]ProjPara[-b,d]-(1/3)*ProjPara[-a,-b]ProjPara[c,d])*MetricPerturbation[-c,-d]//ToCanonical]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@MetricPerturbationPerp0p[],Evaluate@Dagger[
+		ProjPerp[a,b]MetricPerturbation[-a,-b]//ToCanonical]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@MetricPerturbationPerp1m[-a],Evaluate@Dagger[
+		V[b]ProjPara[-a,c]MetricPerturbation[-c,-b]//ToCanonical]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@MetricPerturbationPara0p[],Evaluate@Dagger[
+		ProjPara[a,b]MetricPerturbation[-a,-b]//ToCanonical]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@MetricPerturbationPara2p[-a,-b],Evaluate@Dagger[
+		(ProjPara[-a,c]ProjPara[-b,d]-(1/3)*ProjPara[-a,-b]ProjPara[c,d])*MetricPerturbation[-c,-d]//ToCanonical]},MetricOn->All,ContractMetrics->True]];
 
-xAct`PSALTer`MetricAffineGaugeTheory`Private`ConjugateSourceLinearMetricSpinParityToConjugateSourceLinearMetric=Join[
-	MakeRule[{ConjugateSourceLinearMetricPerp0p[],Evaluate[
-		ProjPerp[a,b]ConjugateSourceLinearMetric[-a,-b]//ToCanonical]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{ConjugateSourceLinearMetricPerp1m[-a],Evaluate[
-		V[b]ProjPara[-a,c]ConjugateSourceLinearMetric[-c,-b]//ToCanonical]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{ConjugateSourceLinearMetricPara0p[],Evaluate[
-		ProjPara[a,b]ConjugateSourceLinearMetric[-a,-b]//ToCanonical]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{ConjugateSourceLinearMetricPara2p[-a,-b],Evaluate[
-		(ProjPara[-a,c]ProjPara[-b,d]-(1/3)*ProjPara[-a,-b]ProjPara[c,d])*ConjugateSourceLinearMetric[-c,-d]//ToCanonical]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@ConjugateSourceLinearMetricPerp0p[],Evaluate@Dagger[
-		ProjPerp[a,b]ConjugateSourceLinearMetric[-a,-b]//ToCanonical]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@ConjugateSourceLinearMetricPerp1m[-a],Evaluate@Dagger[
-		V[b]ProjPara[-a,c]ConjugateSourceLinearMetric[-c,-b]//ToCanonical]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@ConjugateSourceLinearMetricPara0p[],Evaluate@Dagger[
-		ProjPara[a,b]ConjugateSourceLinearMetric[-a,-b]//ToCanonical]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@ConjugateSourceLinearMetricPara2p[-a,-b],Evaluate@Dagger[
-		(ProjPara[-a,c]ProjPara[-b,d]-(1/3)*ProjPara[-a,-b]ProjPara[c,d])*ConjugateSourceLinearMetric[-c,-d]//ToCanonical]},MetricOn->All,ContractMetrics->True]];
+xAct`PSALTer`MetricAffineGaugeTheory`Private`ConjugateSourceMetricPerturbationSpinParityToConjugateSourceMetricPerturbation=Join[
+	MakeRule[{ConjugateSourceMetricPerturbationPerp0p[],Evaluate[
+		ProjPerp[a,b]ConjugateSourceMetricPerturbation[-a,-b]//ToCanonical]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{ConjugateSourceMetricPerturbationPerp1m[-a],Evaluate[
+		V[b]ProjPara[-a,c]ConjugateSourceMetricPerturbation[-c,-b]//ToCanonical]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{ConjugateSourceMetricPerturbationPara0p[],Evaluate[
+		ProjPara[a,b]ConjugateSourceMetricPerturbation[-a,-b]//ToCanonical]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{ConjugateSourceMetricPerturbationPara2p[-a,-b],Evaluate[
+		(ProjPara[-a,c]ProjPara[-b,d]-(1/3)*ProjPara[-a,-b]ProjPara[c,d])*ConjugateSourceMetricPerturbation[-c,-d]//ToCanonical]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@ConjugateSourceMetricPerturbationPerp0p[],Evaluate@Dagger[
+		ProjPerp[a,b]ConjugateSourceMetricPerturbation[-a,-b]//ToCanonical]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@ConjugateSourceMetricPerturbationPerp1m[-a],Evaluate@Dagger[
+		V[b]ProjPara[-a,c]ConjugateSourceMetricPerturbation[-c,-b]//ToCanonical]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@ConjugateSourceMetricPerturbationPara0p[],Evaluate@Dagger[
+		ProjPara[a,b]ConjugateSourceMetricPerturbation[-a,-b]//ToCanonical]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@ConjugateSourceMetricPerturbationPara2p[-a,-b],Evaluate@Dagger[
+		(ProjPara[-a,c]ProjPara[-b,d]-(1/3)*ProjPara[-a,-b]ProjPara[c,d])*ConjugateSourceMetricPerturbation[-c,-d]//ToCanonical]},MetricOn->All,ContractMetrics->True]];
 
 (*--------------------------*)
 (*  Will: other expansions  *)
@@ -579,43 +579,43 @@ xAct`PSALTer`MetricAffineGaugeTheory`Private`ExpandConjugateSourceConnectionSymm
 (*  Will: metric perturbation decompositions  *)
 (*--------------------------------------------*)
 
-xAct`PSALTer`MetricAffineGaugeTheory`Private`LinearMetricToLinearMetricSpinParity=Join[
-	MakeRule[{LinearMetric[-a,-b],Evaluate[
+xAct`PSALTer`MetricAffineGaugeTheory`Private`MetricPerturbationToMetricPerturbationSpinParity=Join[
+	MakeRule[{MetricPerturbation[-a,-b],Evaluate[
 		(
-			LinearMetricPerp0p[]V[-a]V[-b]
-			+LinearMetricPerp1m[-a]V[-b]
-			+LinearMetricPerp1m[-b]V[-a]
-			+(1/3)*LinearMetricPara0p[]ProjPara[-a,-b]
-			+LinearMetricPara2p[-a,-b]
+			MetricPerturbationPerp0p[]V[-a]V[-b]
+			+MetricPerturbationPerp1m[-a]V[-b]
+			+MetricPerturbationPerp1m[-b]V[-a]
+			+(1/3)*MetricPerturbationPara0p[]ProjPara[-a,-b]
+			+MetricPerturbationPara2p[-a,-b]
 		)//ToCanonical
 	]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@LinearMetric[-a,-b],Evaluate@Dagger[
+	MakeRule[{Evaluate@Dagger@MetricPerturbation[-a,-b],Evaluate@Dagger[
 		(
-			LinearMetricPerp0p[]V[-a]V[-b]
-			+LinearMetricPerp1m[-a]V[-b]
-			+LinearMetricPerp1m[-b]V[-a]
-			+(1/3)*LinearMetricPara0p[]ProjPara[-a,-b]
-			+LinearMetricPara2p[-a,-b]
+			MetricPerturbationPerp0p[]V[-a]V[-b]
+			+MetricPerturbationPerp1m[-a]V[-b]
+			+MetricPerturbationPerp1m[-b]V[-a]
+			+(1/3)*MetricPerturbationPara0p[]ProjPara[-a,-b]
+			+MetricPerturbationPara2p[-a,-b]
 		)//ToCanonical
 	]},MetricOn->All,ContractMetrics->True]];
 
-xAct`PSALTer`MetricAffineGaugeTheory`Private`ConjugateSourceLinearMetricToConjugateSourceLinearMetricSpinParity=Join[
-	MakeRule[{ConjugateSourceLinearMetric[-a,-b],Evaluate[
+xAct`PSALTer`MetricAffineGaugeTheory`Private`ConjugateSourceMetricPerturbationToConjugateSourceMetricPerturbationSpinParity=Join[
+	MakeRule[{ConjugateSourceMetricPerturbation[-a,-b],Evaluate[
 		(
-			ConjugateSourceLinearMetricPerp0p[]V[-a]V[-b]
-			+ConjugateSourceLinearMetricPerp1m[-a]V[-b]
-			+ConjugateSourceLinearMetricPerp1m[-b]V[-a]
-			+(1/3)*ConjugateSourceLinearMetricPara0p[]ProjPara[-a,-b]
-			+ConjugateSourceLinearMetricPara2p[-a,-b]
+			ConjugateSourceMetricPerturbationPerp0p[]V[-a]V[-b]
+			+ConjugateSourceMetricPerturbationPerp1m[-a]V[-b]
+			+ConjugateSourceMetricPerturbationPerp1m[-b]V[-a]
+			+(1/3)*ConjugateSourceMetricPerturbationPara0p[]ProjPara[-a,-b]
+			+ConjugateSourceMetricPerturbationPara2p[-a,-b]
 		)//ToCanonical
 	]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@ConjugateSourceLinearMetric[-a,-b],Evaluate@Dagger[
+	MakeRule[{Evaluate@Dagger@ConjugateSourceMetricPerturbation[-a,-b],Evaluate@Dagger[
 		(
-			ConjugateSourceLinearMetricPerp0p[]V[-a]V[-b]
-			+ConjugateSourceLinearMetricPerp1m[-a]V[-b]
-			+ConjugateSourceLinearMetricPerp1m[-b]V[-a]
-			+(1/3)*ConjugateSourceLinearMetricPara0p[]ProjPara[-a,-b]
-			+ConjugateSourceLinearMetricPara2p[-a,-b]
+			ConjugateSourceMetricPerturbationPerp0p[]V[-a]V[-b]
+			+ConjugateSourceMetricPerturbationPerp1m[-a]V[-b]
+			+ConjugateSourceMetricPerturbationPerp1m[-b]V[-a]
+			+(1/3)*ConjugateSourceMetricPerturbationPara0p[]ProjPara[-a,-b]
+			+ConjugateSourceMetricPerturbationPara2p[-a,-b]
 		)//ToCanonical
 	]},MetricOn->All,ContractMetrics->True]];
 
@@ -799,10 +799,10 @@ DefLagrangianCoupling[C16,CouplingSymbol->xAct`PSALTer`MetricAffineGaugeTheory`P
 Begin["xAct`PSALTer`MetricAffineGaugeTheory`Private`"];
 
 FieldSpinParityTensorHeads=<|
-		LinearMetric-><|
-			0-><|Even->{LinearMetricPerp0p,LinearMetricPara0p},Odd->{}|>,
-			1-><|Even->{},Odd->{LinearMetricPerp1m}|>,
-			2-><|Even->{LinearMetricPara2p},Odd->{}|>,
+		MetricPerturbation-><|
+			0-><|Even->{MetricPerturbationPerp0p,MetricPerturbationPara0p},Odd->{}|>,
+			1-><|Even->{},Odd->{MetricPerturbationPerp1m}|>,
+			2-><|Even->{MetricPerturbationPara2p},Odd->{}|>,
 			3-><|Even->{},Odd->{}|>
 		|>,
 		Connection-><|
@@ -814,10 +814,10 @@ FieldSpinParityTensorHeads=<|
 |>;
 
 SourceSpinParityTensorHeads=<|
-		ConjugateSourceLinearMetric-><|
-			0-><|Even->{ConjugateSourceLinearMetricPerp0p,ConjugateSourceLinearMetricPara0p},Odd->{}|>,
-			1-><|Even->{},Odd->{ConjugateSourceLinearMetricPerp1m}|>,
-			2-><|Even->{ConjugateSourceLinearMetricPara2p},Odd->{}|>,
+		ConjugateSourceMetricPerturbation-><|
+			0-><|Even->{ConjugateSourceMetricPerturbationPerp0p,ConjugateSourceMetricPerturbationPara0p},Odd->{}|>,
+			1-><|Even->{},Odd->{ConjugateSourceMetricPerturbationPerp1m}|>,
+			2-><|Even->{ConjugateSourceMetricPerturbationPara2p},Odd->{}|>,
 			3-><|Even->{},Odd->{}|>
 		|>,
 		Dilatospin-><|
@@ -830,11 +830,11 @@ SourceSpinParityTensorHeads=<|
 
 SourceEngineeringDimensions=<|
 		Dilatospin->0,
-		ConjugateSourceLinearMetric->1
+		ConjugateSourceMetricPerturbation->1
 |>;
 
 ExpandFields[InputExpr_]:=Module[{Expr=InputExpr},
-	Expr=Expr/.xAct`PSALTer`MetricAffineGaugeTheory`Private`LinearMetricSpinParityToLinearMetric;
+	Expr=Expr/.xAct`PSALTer`MetricAffineGaugeTheory`Private`MetricPerturbationSpinParityToMetricPerturbation;
 	Expr//=xAct`PSALTer`Private`ToNewCanonical;
 	Expr//=CollectTensors;
 
@@ -864,7 +864,7 @@ ExpandFields[InputExpr_]:=Module[{Expr=InputExpr},
 Expr];
 
 ExpandSources[InputExpr_]:=Module[{Expr=InputExpr},
-	Expr=Expr/.xAct`PSALTer`MetricAffineGaugeTheory`Private`ConjugateSourceLinearMetricSpinParityToConjugateSourceLinearMetric;
+	Expr=Expr/.xAct`PSALTer`MetricAffineGaugeTheory`Private`ConjugateSourceMetricPerturbationSpinParityToConjugateSourceMetricPerturbation;
 	Expr//=xAct`PSALTer`Private`ToNewCanonical;
 
 	(*ConjugateSourceConnectionSymm reduced then back to ConjugateSourceConnectionSymm*)
@@ -893,7 +893,7 @@ Expr];
 
 DecomposeFields[InputExpr_]:=Module[{Expr=InputExpr},
 	Expr//=xAct`PSALTer`Private`ToNewCanonical;
-	Expr=Expr/.xAct`PSALTer`MetricAffineGaugeTheory`Private`LinearMetricToLinearMetricSpinParity;
+	Expr=Expr/.xAct`PSALTer`MetricAffineGaugeTheory`Private`MetricPerturbationToMetricPerturbationSpinParity;
 	Expr//=xAct`PSALTer`Private`ToNewCanonical;
 	Expr//=CollectTensors;
 

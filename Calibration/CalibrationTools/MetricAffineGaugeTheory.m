@@ -35,7 +35,7 @@ DisplayExpression@Expr;
 Comment@"And finally the non-metricity in Equation (2.3) on page 5 of arXiv:1912.01023. Watch out for the trivial misprint in the trace valence. Also, since the non-metricity only appears via quadratic invariants we don't need to bother about perturbing the metric here.";
 
 DefTensor[MetricAffineNonMetricity[-l,-m,-n],M4,Symmetric[{-m,-n}],PrintAs->"\[ScriptCapitalQ]"];
-MetricAffineNonMetricityToPerturbed=MakeRule[{MetricAffineNonMetricity[-l,-m,-n],-CD[-l]@LinearMetric[-m,-n]+Connection[-l,t,-m]*G[-t,-n]-Connection[-l,t,-n]*G[-m,-t]},MetricOn->All,ContractMetrics->True];
+MetricAffineNonMetricityToPerturbed=MakeRule[{MetricAffineNonMetricity[-l,-m,-n],-CD[-l]@MetricPerturbation[-m,-n]+Connection[-l,t,-m]*G[-t,-n]-Connection[-l,t,-n]*G[-m,-t]},MetricOn->All,ContractMetrics->True];
 
 Expr=MetricAffineNonMetricity[-l,-m,-n];
 DisplayExpression@Expr;
@@ -115,7 +115,7 @@ DisplayExpression@Expr;
 Comment@"Now we move on to computing the (conventional) Ricci scalar. This time we need to be careful to retain contributions up to second order in smallness, since this is the only invariant which appears on its own.";
 
 DefTensor[MetricAffineRicciScalar[],M4,PrintAs->"\[ScriptCapitalF]"];
-MetricAffineRicciScalarToPerturbed=MakeRule[{MetricAffineRicciScalar[],Scalar[MetricAffineCurvature[-m,-n,r,-s]*(G[m,-r])*(G[n,s]-LinearMetric[n,s])]},MetricOn->All,ContractMetrics->True];
+MetricAffineRicciScalarToPerturbed=MakeRule[{MetricAffineRicciScalar[],Scalar[MetricAffineCurvature[-m,-n,r,-s]*(G[m,-r])*(G[n,s]-MetricPerturbation[n,s])]},MetricOn->All,ContractMetrics->True];
 
 Expr=MetricAffineRicciScalar[];
 DisplayExpression@Expr;
@@ -193,7 +193,7 @@ DisplayExpression@NonlinearLagrangian;
 
 Comment@"This general Lagrangian is something that we must linearize. First, we need the linearized measure, otherwise the Einstein--Hilbert term (which has first-order perturbed contributions) won't have the right linearization.";
 
-Measure=1+(1/2)*LinearMetric[a,-a];
+Measure=1+(1/2)*MetricPerturbation[a,-a];
 DisplayExpression@Measure;
 
 
@@ -202,8 +202,8 @@ DefConstantSymbol[PerturbativeParameter,PrintAs->"\[Epsilon]"];
 On[ValidateSymbol::used];
 
 ToOrderConnection=MakeRule[{Connection[-a,-b,-c],PerturbativeParameter*Connection[-a,-b,-c]},MetricOn->All,ContractMetrics->True];
-ToOrderLinearMetric=MakeRule[{LinearMetric[-a,-b],PerturbativeParameter*LinearMetric[-a,-b]},MetricOn->All,ContractMetrics->True];
-ToOrder=Join[ToOrderConnection,ToOrderLinearMetric];
+ToOrderMetricPerturbation=MakeRule[{MetricPerturbation[-a,-b],PerturbativeParameter*MetricPerturbation[-a,-b]},MetricOn->All,ContractMetrics->True];
+ToOrder=Join[ToOrderConnection,ToOrderMetricPerturbation];
 
 LineariseLagrangian[NonlinearLagrangian_]:=Module[{
 	LinearLagrangian=NonlinearLagrangian,
@@ -296,7 +296,7 @@ ParticleSpectrum[
 	"MetricAffineGaugeTheory",
 	"EinsteinHilbertTheory",
 	LinearLagrangian,
-	TensorFields->{LinearMetric,Connection},
+	TensorFields->{MetricPerturbation,Connection},
 	CouplingConstants->{A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11,C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13,C14,C15,C16},
 	ExportTheory->True
 ];
@@ -358,11 +358,11 @@ DefTensor[DiffPhi[-a],M4,PrintAs->"\[Xi]"];
 DefConstantSymbol[Pert,PrintAs->"\[Epsilon]"];
 
 ToPerturb=Join[
-	MakeRule[{LinearMetric[-a,-b],LinearMetric[-a,-b]+Pert*CD[-a]@DiffPhi[-b]+Pert*CD[-b]@DiffPhi[-a]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{MetricPerturbation[-a,-b],MetricPerturbation[-a,-b]+Pert*CD[-a]@DiffPhi[-b]+Pert*CD[-b]@DiffPhi[-a]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{Connection[-a,-b,-c],Connection[-a,-b,-c]+Pert*CD[-a]@CD[-c]@DiffPhi[-b]},MetricOn->All,ContractMetrics->True]
 ];
 
-Expr={LinearMetric[-a,-b],Connection[-a,-b,-c]};
+Expr={MetricPerturbation[-a,-b],Connection[-a,-b,-c]};
 DisplayExpression@Expr;
 Expr=Expr/.ToPerturb;
 Expr=ToCanonical/@Expr;
@@ -390,7 +390,7 @@ DefTensor[ProjPhi[-a],M4,PrintAs->"\[Lambda]"];
 
 ToPerturb=MakeRule[{Connection[-m,r,-n],Connection[-m,r,-n]+Pert*ProjPhi[-m]*G[r,-n]},MetricOn->All,ContractMetrics->True];
 
-Expr={LinearMetric[-a,-b],Connection[-a,-b,-c]};
+Expr={MetricPerturbation[-a,-b],Connection[-a,-b,-c]};
 DisplayExpression@Expr;
 Expr=Expr/.ToPerturb;
 Expr=ToCanonical/@Expr;

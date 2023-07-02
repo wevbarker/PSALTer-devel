@@ -160,7 +160,7 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 			({MapThread[Times,{#1@Even,#2}],MapThread[Times,{#1@Odd,#2}]})&,
 			{AntiMaskMatrixValue,
 			BMatricesValues}];
-	Diagnostic@(MatrixForm/@BMatricesValues);
+	Diagnostic@(BMatricesValues);
 	Diagnostic@(Flatten[Values@BMatricesValues,{1,2}]);
 
 	(*null spaces*)
@@ -193,7 +193,28 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 	Diagnostic@SourceConstraints;
 
 	(*So we use the Moore-Penrose inverse*)
+	Print@"About to try prop";
+			(*MatrixLagrangian=MatrixLagrangian/.{Def->1};*)
+(*
+	JNF=Assuming[CouplingAssumptions,((JordanDecomposition@#))&/@MatrixLagrangian];
+	Diagnostic@((MatrixForm@Second@#)&/@JNF);
+*)
+	Diagnostic@(MatrixForm/@MatrixLagrangian);
+(*
+	MatrixPropagator=Assuming[CouplingAssumptions,((PseudoInverse@#))&/@BMatricesValues];
+*)
+
+
+	Diagnostic@Map[({CouplingAssumptions,#})&,BMatricesValues,{2}];
+
+	MatrixPropagatord=Map[(xAct`PSALTer`Private`PSALTerParallelSubmit@(Assuming[Evaluate[#[[1]]],PseudoInverse@Evaluate@(#[[2]])]))&,Map[({CouplingAssumptions,#})&,BMatricesValues,{2}],{2}];
+	Print@MatrixPropagatord;
+	MatrixPropagator=WaitAll@MatrixPropagatord;
+	Diagnostic@(Map[MatrixForm,MatrixPropagator,2]);
+	MatrixPropagator=(#[[1]]+#[[2]])&/@MatrixPropagator;
+(*	
 	MatrixPropagator=Assuming[CouplingAssumptions,((PseudoInverse@#))&/@MatrixLagrangian];
+*)
 	MatrixPropagator=((#)~FullSimplify~CouplingAssumptions)&/@MatrixPropagator;
 	Diagnostic@(MatrixForm/@MatrixPropagator);
 

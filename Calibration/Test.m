@@ -2,6 +2,7 @@
 (*  Test  *)
 (*========*)
 
+
 WignerGrid[AllMatrices_,Sizes_,Spins_,Sides_,Tops_]:=Module[{
 SpinParities,
 Mask,
@@ -175,6 +176,8 @@ SummariseResults[WaveOperator_,Propagator_,SourceConstraints_,Spectrum_,OverallU
 		},Spacings->{2,2},Frame->True,Background->RGBColor[240/255,240/255,240/255]];
 SummaryOfResults];
 
+ParallelGrid[Expr_]:=If[{Expr}==={},Null,Grid[((#~Partition~(Ceiling@(0.5*Sqrt@Length@#)))&@Flatten@{Expr}),Frame->All]];
+
 
 (*=================*)
 (*  Small example  *)
@@ -212,5 +215,21 @@ Expr=MyRaggedBlock[SourceConstraints,5];
 
 Print@SummariseResults[WignerGrid[AllMatrices,Sizes,Spins,Fields,Fields],WignerGrid[AllMatrices,Sizes,Spins,Fields,Fields],Expr,Null,False,g];
 
-Expr=<|0->{a,a,a},1->{a,a}|>;
-Print@Values@Expr;
+
+Print@ParallelGrid@Null;
+Print@ParallelGrid@a;
+Print@ParallelGrid@{a};
+Print@ParallelGrid@{a,b,c,d,e};
+Print@ParallelGrid@{{a,b},{c,d},{e,f}};
+
+Throw@"soybean";
+(*
+Expr=Table[ParallelSubmit[{i},Total[FactorList[x^(i+900)+1][[2;;,2]]]],{i,15,90}];
+*)
+Expr=3;
+Print@Dynamic@SummariseResults[WignerGrid[AllMatrices,Sizes,Spins,Fields,Fields],WignerGrid[AllMatrices,Sizes,Spins,Fields,Fields],Null,ParallelGrid@Expr,False,g];
+
+WaitAll@Expr;
+NotebookDelete@Expr;
+
+

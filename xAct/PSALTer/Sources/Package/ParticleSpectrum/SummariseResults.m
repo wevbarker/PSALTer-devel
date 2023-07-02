@@ -2,6 +2,8 @@
 (*  SummariseResults  *)
 (*====================*)
 
+ParallelGrid[Expr_]:=Quiet@Check[Grid[((#~Partition~(Ceiling@(0.5*Sqrt@Length@#)))&@Flatten@{Expr}),Frame->All],Null];
+
 ReMagnify[Object_]:=Module[{
 	FullWidth,
 	DesiredWidth,
@@ -14,7 +16,7 @@ ActualWidth=First@Rasterize[Object,"RasterSize"];
 RequiredMagnification=Piecewise[{{1,ActualWidth<=DesiredWidth},{DesiredWidth/ActualWidth,ActualWidth>DesiredWidth}}];
 Magnify[Object,RequiredMagnification]];
 
-SummariseTheory[Theory_]:=(Action==Integrate@@({(Theory)@@#}~Join~(#[[1;;4]]))&@{TCoordinate,XCoordinate,YCoordinate,ZCoordinate});
+SummariseTheory[Theory_]:=(Action==Integrate@@({((CollectConstants@Theory))@@#}~Join~(#[[1;;4]]))&@{TCoordinate,XCoordinate,YCoordinate,ZCoordinate});
 
 SummariseResults[WaveOperator_,Propagator_,SourceConstraints_,Spectrum_,OverallUnitarity_,SummaryOfTheory_]:=Module[{
 	Computing,
@@ -70,7 +72,7 @@ SummariseResults[WaveOperator_,Propagator_,SourceConstraints_,Spectrum_,OverallU
 		SpanFromAbove},
 		{MakeLabel["(Not yet implemented)"],
 		SpanFromAbove},
-		{MakeLabel["Unitarity conditions"],SpanFromLeft},
-		{TheOverallUnitarity,SpanFromLeft}
-		},Spacings->{2,2},Frame->True,Background->RGBColor[240/255,240/255,240/255]];
+		{MakeLabel["Unitarity conditions"],MakeLabel["Assumptions"]},
+		{TheOverallUnitarity,MakeLabel["(Not yet implemented)"]}
+		},Spacings->{2,2},Frame->True,Background->RGBColor[240/255,240/255,240/255],Alignment->{Center,Center}];
 SummaryOfResults];

@@ -23,6 +23,28 @@ Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","PoincareGaugeTheory","
 (*  Einstein-Cartan theory  *)
 (*==========================*)
 
+Section@"Most general PGT";
+
+Comment@"We first want to study the most general PGT.";
+
+DisplayExpression@CollectTensors@ToCanonical[NonlinearLagrangian];
+
+Comment@"To use PSALTer, you have to first linearise this Lagrangian to second order around the desired vacuum:";
+
+LinearisedLagrangian=LineariseLagrangian[NonlinearLagrangian];
+DisplayExpression@CollectTensors@LinearisedLagrangian;
+
+Comment@"Now we pass this theory into the PSALTer package, which computes the particle spectrum:";
+
+ParticleSpectrum[
+	"PoincareGaugeTheory",
+	"GeneralPGT",
+	LinearisedLagrangian,
+	TensorFields->{F,A},
+	CouplingConstants->{kR1,kR2,kR3,kR4,kR5,kR6,kT1,kT2,kT3,kLambda},
+	ExportTheory->True
+];
+
 Section@"Einstein-Cartan theory (ECT)";
 
 Comment@"Now we would like to check the basic Einstein-Cartan theory. Here is the full nonlinear Lagrangian:";

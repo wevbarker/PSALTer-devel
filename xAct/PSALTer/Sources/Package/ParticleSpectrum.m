@@ -113,10 +113,12 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	Diagnostic@ConstraintComponentList;
 
 	ConstraintComponentList=(xAct`PSALTer`Private`PSALTerParallelSubmit@(ConstraintComponentToLightcone[ClassName,#]))&/@ConstraintComponentList;
-	PrintVariable=PrintTemporary@ConstraintComponentList;
-	ConstraintComponentList=WaitAll@ConstraintComponentList;
 
-	NotebookDelete@PrintVariable;
+	NotebookDelete@SummaryOfResults;
+	SummaryOfResults=PrintTemporary@SummariseResults[TheWaveOperator,ThePropagator,TheSourceConstraints,ParallelGrid@ConstraintComponentList,Null,FullAction];
+	ConstraintComponentList=WaitAll@ConstraintComponentList;
+	NotebookDelete@SummaryOfResults;
+	SummaryOfResults=PrintTemporary@SummariseResults[TheWaveOperator,ThePropagator,TheSourceConstraints,Null,Null,FullAction];
 	Diagnostic@ConstraintComponentList;
 
 	ConstraintComponentList=DeleteCases[ConstraintComponentList,True];
@@ -146,9 +148,11 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 		(xAct`PSALTer`Private`PSALTerParallelSubmit@(MassiveAnalysisOfSector[#1,#2]))&,
 		{(SaturatedPropagator[[2]]),
 		Couplings~ConstantArray~(Length@(SaturatedPropagator[[2]]))}];
-	PrintVariable=PrintTemporary@MassiveAnalysis;
+	NotebookDelete@SummaryOfResults;
+	SummaryOfResults=PrintTemporary@SummariseResults[TheWaveOperator,ThePropagator,TheSourceConstraints,ParallelGrid@MassiveAnalysis,Null,FullAction];
 	MassiveAnalysis=WaitAll@MassiveAnalysis;
-	NotebookDelete@PrintVariable;
+	NotebookDelete@SummaryOfResults;
+	SummaryOfResults=PrintTemporary@SummariseResults[TheWaveOperator,ThePropagator,TheSourceConstraints,Null,Null,FullAction];
 
 	SignedInverseBMatrices=Times~MapThread~{(SaturatedPropagator[[4]]),(SaturatedPropagator[[5]])};
 
@@ -156,9 +160,11 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 		(xAct`PSALTer`Private`PSALTerParallelSubmit@(MassiveGhost[#1,#2]))&,
 		{SignedInverseBMatrices,
 		MassiveAnalysis}];
-	PrintVariable=PrintTemporary@MassiveGhostAnalysis;
+	NotebookDelete@SummaryOfResults;
+	SummaryOfResults=PrintTemporary@SummariseResults[TheWaveOperator,ThePropagator,TheSourceConstraints,ParallelGrid@MassiveGhostAnalysis,Null,FullAction];
 	MassiveGhostAnalysis=WaitAll@MassiveGhostAnalysis;
-	NotebookDelete@PrintVariable;
+	NotebookDelete@SummaryOfResults;
+	SummaryOfResults=PrintTemporary@SummariseResults[TheWaveOperator,ThePropagator,TheSourceConstraints,Null,Null,FullAction];
 
 	UpdateTheoryAssociation[TheoryName,SquareMasses,MassiveAnalysis,ExportTheory->OptionValue@ExportTheory];
 
@@ -172,13 +178,19 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	SaturatedPropagatorArray//=(#~PadRight~{Length@#,First@((Length/@#)~TakeLargest~1)})&;
 	Diagnostic@SaturatedPropagatorArray;
 
+	PrintVariable=PrintTemporary@LightconePropagator;
+	NotebookDelete@PrintVariable;
+
 	LightconePropagator=MapThread[
 		(xAct`PSALTer`Private`PSALTerParallelSubmit@(ExpressInLightcone[ClassName,#1,#2]))&,
 		{SaturatedPropagatorArray,
 		Map[((SourceComponentsToFreeSourceVariables)&),SaturatedPropagatorArray,{2}]},2];
-	PrintVariable=PrintTemporary@LightconePropagator;
+	NotebookDelete@SummaryOfResults;
+	SummaryOfResults=PrintTemporary@SummariseResults[TheWaveOperator,ThePropagator,TheSourceConstraints,ParallelGrid@LightconePropagator,Null,FullAction];
 	LightconePropagator=WaitAll@LightconePropagator;
-	NotebookDelete@PrintVariable;
+	NotebookDelete@SummaryOfResults;
+	SummaryOfResults=PrintTemporary@SummariseResults[TheWaveOperator,ThePropagator,TheSourceConstraints,Null,Null,FullAction];
+
 	Diagnostic@LightconePropagator;
 
 	(*=====================*)
@@ -186,9 +198,12 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	(*=====================*)
 
 	MasslessPropagatorResidue=Map[(xAct`PSALTer`Private`PSALTerParallelSubmit@(NullResidue@#))&,LightconePropagator,{2}];
-	PrintVariable=PrintTemporary@MasslessPropagatorResidue;
+	NotebookDelete@SummaryOfResults;
+	SummaryOfResults=PrintTemporary@SummariseResults[TheWaveOperator,ThePropagator,TheSourceConstraints,ParallelGrid@MasslessPropagatorResidue,Null,FullAction];
 	MasslessPropagatorResidue=WaitAll@MasslessPropagatorResidue;
-	NotebookDelete@PrintVariable;
+	NotebookDelete@SummaryOfResults;
+	SummaryOfResults=PrintTemporary@SummariseResults[TheWaveOperator,ThePropagator,TheSourceConstraints,Null,Null,FullAction];
+
 	Diagnostic@MasslessPropagatorResidue;
 
 	MasslessAnalysis=MasslessAnalysisOfTotal[MasslessPropagatorResidue,UnscaledNullSpace];

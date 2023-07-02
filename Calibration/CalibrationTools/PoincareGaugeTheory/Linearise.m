@@ -12,6 +12,7 @@ ToOrderF = MakeRule[{F[-a, -b], PerturbativeParameter F[-a, -b]},
 ToOrder = Join[ToOrderA, ToOrderF];
 
 LineariseLagrangian[NonlinearLagrangian_]:=Module[{LinearLagrangian=NonlinearLagrangian},	
+	LinearLagrangian*=(1-F[z,-z]);
 	LinearLagrangian=LinearLagrangian/.xAct`PSALTer`PoincareGaugeTheory`Private`RTToHBACDBCDA;
 	LinearLagrangian=LinearLagrangian/.xAct`PSALTer`PoincareGaugeTheory`Private`HBToGF;
 	LinearLagrangian=LinearLagrangian/.ToOrder;
