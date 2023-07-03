@@ -215,7 +215,7 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 
 	Print@"shortcut method";
 	GiveInv[Mat_]:=Module[{Expz},
-		Expz=Assuming[CouplingAssumptions,PseudoInverse@Mat];
+		Expz=Assuming[CouplingAssumptions,DrazinInverse@Mat];
 		Print@MatrixForm@Expz;
 		Expz];
 	GiveInv/@(Flatten[Values@BMatricesValues,{1,2}]);
