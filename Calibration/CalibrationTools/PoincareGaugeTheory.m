@@ -9,8 +9,9 @@ Supercomment@"We will test the PoincareGaugeTheory module.";
 Comment@"Now we set up the general Lagrangian:";
 
 Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","PoincareGaugeTheory","LagrangianKarananasCouplings.m"};
-(*Get@FileNameJoin@{Directory[],"LagrangianHayashiShirafujiCouplings.m"};*)
-
+(*
+Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","PoincareGaugeTheory","LagrangianHayashiShirafujiCouplings.m"};
+*)
 DisplayExpression@NonlinearLagrangian;
 (*
 Comment@"We also knock up some simple tools to linearise the Lagrangian:";
@@ -44,6 +45,8 @@ ParticleSpectrum[
 	CouplingConstants->{kR1,kR2,kR3,kR4,kR5,kR6,kT1,kT2,kT3,kLambda},
 	ExportTheory->True
 ];
+
+Comment@"These results should be compared with the Hayashi and Shirafuji papers.";
 
 Section@"Einstein-Cartan theory (ECT)";
 

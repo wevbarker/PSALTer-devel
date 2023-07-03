@@ -169,7 +169,9 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 *)
 	NullSpaces=Assuming[CouplingAssumptions,NullSpace[Transpose[#]]&/@(MatrixLagrangian)];
 	Diagnostic@NullSpaces;
+(*
 	NullSpaces=((#)~FullSimplify~CouplingAssumptions)&/@NullSpaces;
+*)
 	Diagnostic@NullSpaces;
 
 (*
@@ -180,6 +182,7 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 *)
 
 	(*source constraints*)
+(*
 	SourceConstraints=Quiet@DeleteCases[
 		Flatten@Values@MapThread[(#1~NonTrivialDot~#2)&,
 			{NullSpaces,
@@ -191,9 +194,8 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 		],0,Infinity]/.Class@RescalingSolutions;
 	SourceConstraints=Numerator@Together[#/Sqrt[2^5*3^5*5^5*7^5]]&/@SourceConstraints;
 	Diagnostic@SourceConstraints;
-
+*)
 	(*So we use the Moore-Penrose inverse*)
-	Print@"About to try prop";
 			(*MatrixLagrangian=MatrixLagrangian/.{Def->1};*)
 (*
 	JNF=Assuming[CouplingAssumptions,((JordanDecomposition@#))&/@MatrixLagrangian];
@@ -205,11 +207,27 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 *)
 
 
-	Diagnostic@Map[({CouplingAssumptions,#})&,BMatricesValues,{2}];
+	Diagnostic@((CouplingAssumptions)&/@BMatricesValues);
 
-	MatrixPropagatord=Map[(xAct`PSALTer`Private`PSALTerParallelSubmit@(Assuming[Evaluate[#[[1]]],PseudoInverse@Evaluate@(#[[2]])]))&,Map[({CouplingAssumptions,#})&,BMatricesValues,{2}],{2}];
-	Print@MatrixPropagatord;
-	MatrixPropagator=WaitAll@MatrixPropagatord;
+
+	InvertWithAssumptions[InputAssumptions_,InputMatrix_]:=Assuming[InputAssumptions,PseudoInverse@InputMatrix];
+
+
+	Print@"shortcut method";
+	GiveInv[Mat_]:=Module[{Expz},
+		Expz=Assuming[CouplingAssumptions,PseudoInverse@Mat];
+		Print@MatrixForm@Expz;
+		Expz];
+	GiveInv/@(Flatten[Values@BMatricesValues,{1,2}]);
+	Print@"end of shortcut";
+
+	(*(xAct`PSALTer`Private`PSALTerParallelSubmit@)*)
+	MatrixPropagator=MapThread[	
+			((InvertWithAssumptions[#1,#2]))&,
+			{({CouplingAssumptions,CouplingAssumptions})&/@BMatricesValues,
+			BMatricesValues},2];
+	(*Print@MatrixPropagator;*)
+	MatrixPropagator=WaitAll@MatrixPropagator;
 	Diagnostic@(Map[MatrixForm,MatrixPropagator,2]);
 	MatrixPropagator=(#[[1]]+#[[2]])&/@MatrixPropagator;
 (*	

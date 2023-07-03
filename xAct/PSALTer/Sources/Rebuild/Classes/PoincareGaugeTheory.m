@@ -487,7 +487,7 @@ DefTensor[B[a,-c],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`Poin
 
 xAct`PSALTer`PoincareGaugeTheory`Private`HBToGF=Join[
 	MakeRule[{H[-i,-j],G[-i,-j]+F[-i,-j]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{B[-i,-j],G[-i,-j]-F[-i,-j]+F[-i,-m]F[m,-j]},MetricOn->All,ContractMetrics->True]
+	MakeRule[{B[-i,-j],G[-i,-j]-F[-j,-i]+F[-i,-m]F[m,-j]},MetricOn->All,ContractMetrics->True]
 ];
 
 AutomaticRules[H,MakeRule[{H[-a,i]B[a,-j],G[i,-j]},MetricOn->All,ContractMetrics->True]];

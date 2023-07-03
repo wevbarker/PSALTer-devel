@@ -35,7 +35,7 @@ DisplayExpression@Expr;
 Comment@"And finally the non-metricity in Equation (2.3) on page 5 of arXiv:1912.01023. Watch out for the trivial misprint in the trace valence. Also, since the non-metricity only appears via quadratic invariants we don't need to bother about perturbing the metric here.";
 
 DefTensor[MetricAffineNonMetricity[-l,-m,-n],M4,Symmetric[{-m,-n}],PrintAs->"\[ScriptCapitalQ]"];
-MetricAffineNonMetricityToPerturbed=MakeRule[{MetricAffineNonMetricity[-l,-m,-n],-CD[-l]@MetricPerturbation[-m,-n]+Connection[-l,t,-m]*G[-t,-n]-Connection[-l,t,-n]*G[-m,-t]},MetricOn->All,ContractMetrics->True];
+MetricAffineNonMetricityToPerturbed=MakeRule[{MetricAffineNonMetricity[-l,-m,-n],-CD[-l]@MetricPerturbation[-m,-n]+Connection[-l,t,-m]*G[-t,-n]+Connection[-l,t,-n]*G[-m,-t]},MetricOn->All,ContractMetrics->True];
 
 Expr=MetricAffineNonMetricity[-l,-m,-n];
 DisplayExpression@Expr;
@@ -169,7 +169,7 @@ NonlinearLagrangian=-(1/2)*(
 		+C14*MetricAffineRicciTensor13[-m,-n]
 		+C15*MetricAffineRicciTensor14[-m,-n]
 	)
-	-C16*MetricAffineRicciScalar[]*MetricAffineRicciScalar[]
+	+C16*MetricAffineRicciScalar[]*MetricAffineRicciScalar[]
 	+MetricAffineTorsion[m,r,n]*(
 		A1*MetricAffineTorsion[-m,-r,-n]
 		+A2*MetricAffineTorsion[-m,-n,-r]
@@ -279,8 +279,10 @@ Comment@"That deals with all the preliminaries. We can now transition to some sp
 Subsection@"Einstein-Hilbert theory";
 
 Comment@"The first theory we will look at is the simple Einstein-Hilbert case.";
-
+(*
 EinsteinHilbertLagrangian=Measure*NonlinearLagrangian/.{A1->0,A2->0,A3->0,A4->0,A5->0,A6->0,A7->0,A8->0,A9->0,A10->0,A11->0,C1->0,C2->0,C3->0,C4->0,C5->0,C6->0,C7->0,C8->0,C9->0,C10->0,C11->0,C12->0,C13->0,C14->0,C15->0,C16->0};
+*)
+EinsteinHilbertLagrangian=Measure*NonlinearLagrangian;
 DisplayExpression@EinsteinHilbertLagrangian;
 
 Comment@"Now we linearize it.";
@@ -297,7 +299,7 @@ ParticleSpectrum[
 	"EinsteinHilbertTheory",
 	LinearLagrangian,
 	TensorFields->{MetricPerturbation,Connection},
-	CouplingConstants->{A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11,C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13,C14,C15,C16},
+	CouplingConstants->{A0,A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11,C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13,C14,C15,C16},
 	ExportTheory->True
 ];
 (**)

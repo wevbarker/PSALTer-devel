@@ -27,8 +27,8 @@ $DiagnosticMode=True;
 Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","ScalarTheory.m"};
 Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","VectorTheory.m"};
 Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","TensorTheory.m"};
-*)
 Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","PoincareGaugeTheory.m"};
+*)
 Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","MetricAffineGaugeTheory.m"};
 Throw@"We want to play from this point...";
 

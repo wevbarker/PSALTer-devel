@@ -4,6 +4,7 @@
 
 NonlinearLagrangian=(
 	-kLambda*R[i,j,-i,-j]
+	(*+(kR6)*R[i,k,-i,-k]*R[j,l,-j,-l]*)
 	+(kR4+kR5)*R[i,k,j,-k]*R[-i,l,-j,-l]
 	+(kR4-kR5)*R[i,k,j,-k]*R[-j,l,-i,-l]
 	+(kR1/3+kR2/6)*R[i,j,k,l]*R[-i,-j,-k,-l]

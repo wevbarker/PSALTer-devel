@@ -2,6 +2,14 @@
 (*  Test  *)
 (*========*)
 
+Expr={{3*xAct`PSALTer`C1*xAct`PSALTer`C16^3,I*xAct`PSALTer`A3},{-I*xAct`PSALTer`A3,Sqrt[2/3]}};
+Print@MatrixForm@Expr;
+Expr//=InputForm;
+Expr//=ToString;
+WriteString[FileNameJoin@{NotebookDirectory[],"StringStore.mpl"},Expr~StringReplace~{"xAct`PSALTer`"->"","{"->"[","}"->"]","Sqrt"->"sqrt","["->"(","]"->")"}];
+
+Quit[];
+
 
 WignerGrid[AllMatrices_,Sizes_,Spins_,Sides_,Tops_]:=Module[{
 SpinParities,
@@ -227,7 +235,9 @@ Throw@"soybean";
 Expr=Table[ParallelSubmit[{i},Total[FactorList[x^(i+900)+1][[2;;,2]]]],{i,15,90}];
 *)
 Expr=3;
-Print@Dynamic@SummariseResults[WignerGrid[AllMatrices,Sizes,Spins,Fields,Fields],WignerGrid[AllMatrices,Sizes,Spins,Fields,Fields],Null,ParallelGrid@Expr,False,g];
+Print@Dynamic@TheOutput;
+
+SummariseResults[WignerGrid[AllMatrices,Sizes,Spins,Fields,Fields],WignerGrid[AllMatrices,Sizes,Spins,Fields,Fields],Null,ParallelGrid@Expr,False,g];
 
 WaitAll@Expr;
 NotebookDelete@Expr;
