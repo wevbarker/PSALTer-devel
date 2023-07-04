@@ -212,13 +212,25 @@ ConstructSaturatedPropagator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 
 	InvertWithAssumptions[InputAssumptions_,InputMatrix_]:=Assuming[InputAssumptions,PseudoInverse@InputMatrix];
 
+ExportMatrixToMaple[InputExpr_,InputName_?StringQ]:=Module[{
+	ExportString=InputExpr},
+	Print@MatrixForm@ExportString;
+	ExportString//=InputForm;
+	ExportString//=ToString;
+	WriteLine[FileNameJoin@{NotebookDirectory[],"StringStore.mpl"},(InputName<>":=Matrix("<>ExportString<>");")~StringReplace~{"xAct`PSALTer`"->"","{"->"[","}"->"]","Sqrt"->"sqrt","["->"(","]"->")"}];
+];
 
 	Print@"shortcut method";
 	GiveInv[Mat_]:=Module[{Expz},
 		Expz=Assuming[CouplingAssumptions,DrazinInverse@Mat];
 		Print@MatrixForm@Expz;
 		Expz];
-	GiveInv/@(Flatten[Values@BMatricesValues,{1,2}]);
+	MapThread[ExportMatrixToMaple[#1,"MatrixNo"<>(ToString@#2)]&,
+		{(Flatten[Values@BMatricesValues,{1,2}]),Table[i,{i,8}]}];
+	AllMatrices=(Flatten[Values@BMatricesValues,{1,2}]);
+	DumpSave[FileNameJoin@{NotebookDirectory[],"AllMatrices.mx"},{AllMatrices}];
+Quit[];
+	(*GiveInv/@(Flatten[Values@BMatricesValues,{1,2}]);*)
 	Print@"end of shortcut";
 
 	(*(xAct`PSALTer`Private`PSALTerParallelSubmit@)*)

@@ -1,0 +1,46 @@
+with(LinearAlgebra):
+with(Student[LinearAlgebra]):
+
+print("hi there!");
+read "StringStore.mpl";
+
+MatrixInverse(MatrixNo1) assuming real;
+Pseudoinverse(MatrixNo1) assuming real;
+Pseudoinverse(MatrixNo2) assuming real;
+Pseudoinverse(MatrixNo3) assuming real;
+Pseudoinverse(MatrixNo4) assuming real;
+Pseudoinverse(MatrixNo5) assuming real;
+Pseudoinverse(MatrixNo6) assuming real;
+Pseudoinverse(MatrixNo7) assuming real;
+Pseudoinverse(MatrixNo8) assuming real;
+
+quit
+
+#	some code stored below here for inspiration
+
+Kollaborate:=module()
+
+description "Kollaborate provides the kollaborate procedure, which should allow Anthony to produce some pseudo-python syntax within his .map scripts that Will B can then plot to publication standard";
+option package;
+export kollaborate;
+
+kollaborate:=proc(filename::string,descr::string,variables::string,expr)::NULL;
+	local converted_expr,dirname,str;
+	description "kollaborate(filename::string,descr::string,variables::string,expr) given a self-contained maple expression expr referring ONLY to the arguments in variables, such as x,y (as a string tuple with no spaces or braces), and a description descr which conveys all useful information about expr, produces a python module at ./kollaborate/filename.py";
+	dirname:=FileTools:-JoinPath([currentdir(),"/kollaborate"]);
+	FileTools[MakeDirectory](dirname,recurse=true);
+	converted_expr:=StringTools[SubstituteAll](convert(expr,string),"^","**");
+	print("You provided the following expression: "||converted_expr);
+	print("You provided the following description: "||descr);
+	print("You provided the following file name: "||filename);
+	map(str->writeline("kollaborate/"||filename||".py",str),[
+		"'''",
+		"Dear Colleague, this file has been generated automatically by my Maple program. It contains an expression in the python syntax.",
+		"Description of quantity: "||descr,
+		"'''",
+		"def provided_function("||variables||"):",
+		"	return "||converted_expr]);
+	return NULL;
+end proc;
+
+end module;

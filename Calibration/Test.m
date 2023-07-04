@@ -2,11 +2,28 @@
 (*  Test  *)
 (*========*)
 
+<<xAct`PSALTer`;
+
+Get@FileNameJoin@{NotebookDirectory[],"AllMatrices.mx"};
+
+Print@"Hi there";
+
+Print/@xAct`PSALTer`Private`AllMatrices;
+
+Throw@"the javelin";
+
 Expr={{3*xAct`PSALTer`C1*xAct`PSALTer`C16^3,I*xAct`PSALTer`A3},{-I*xAct`PSALTer`A3,Sqrt[2/3]}};
-Print@MatrixForm@Expr;
-Expr//=InputForm;
-Expr//=ToString;
-WriteString[FileNameJoin@{NotebookDirectory[],"StringStore.mpl"},Expr~StringReplace~{"xAct`PSALTer`"->"","{"->"[","}"->"]","Sqrt"->"sqrt","["->"(","]"->")"}];
+
+ExportMatrixToMaple[InputExpr_,InputName_?StringQ]:=Module[{
+	ExportString=InputExpr},
+	Print@MatrixForm@ExportString;
+	ExportString//=InputForm;
+	ExportString//=ToString;
+	WriteLine[FileNameJoin@{NotebookDirectory[],"StringStore.mpl"},(InputName<>":=Matrix("<>ExportString<>");")~StringReplace~{"xAct`PSALTer`"->"","{"->"[","}"->"]","Sqrt"->"sqrt","["->"(","]"->")"}];
+];
+
+ExportMatrixToMaple[Expr,"var3"];
+ExportMatrixToMaple[Expr,"var2"];
 
 Quit[];
 
