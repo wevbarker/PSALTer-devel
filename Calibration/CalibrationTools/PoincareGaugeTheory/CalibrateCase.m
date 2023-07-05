@@ -13,12 +13,7 @@ CalibrateCase[CaseNumber_,CaseRules_List,CaseConditions_List]:=Module[{
 
 	DisplayExpression@CollectTensors@ToCanonical[NonlinearLagrangian/.CaseRules];
 
-	Comment@"To use PSALTer, you have to first linearise this Lagrangian to second order around the desired vacuum:";
-
 	LinearisedLagrangian=LineariseLagrangian[NonlinearLagrangian/.CaseRules];
-	DisplayExpression@CollectTensors@LinearisedLagrangian;
-
-	Comment@"Now we pass this theory into the PSALTer package, which computes the particle spectrum:";
 
 	ParticleSpectrum[
 		"PoincareGaugeTheory",

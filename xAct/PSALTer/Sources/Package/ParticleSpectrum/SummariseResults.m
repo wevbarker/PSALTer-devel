@@ -16,7 +16,14 @@ ActualWidth=First@Rasterize[Object,"RasterSize"];
 RequiredMagnification=Piecewise[{{1,ActualWidth<=DesiredWidth},{DesiredWidth/ActualWidth,ActualWidth>DesiredWidth}}];
 Magnify[Object,RequiredMagnification]];
 
-SummariseTheory[Theory_]:=(Action==Integrate@@({((CollectConstants@Theory))@@#}~Join~(#[[1;;4]]))&@{TCoordinate,XCoordinate,YCoordinate,ZCoordinate});
+SummariseTheory[Theory_?StringQ]:=Theory;
+
+NotStringQ[InputExpr_]:=!StringQ@InputExpr;
+
+SummariseTheory[Theory_?NotStringQ]:=Module[{DisplayVersion},
+	DisplayVersion=(Action==Integrate@@({((CollectConstants@Theory))@@#}~Join~(#[[1;;4]]))&@{TCoordinate,XCoordinate,YCoordinate,ZCoordinate});
+	DisplayVersion//=Evaluate;
+DisplayVersion];
 
 SummariseResults[WaveOperator_,Propagator_,SourceConstraints_,Spectrum_,OverallUnitarity_,SummaryOfTheory_]:=Module[{
 	Computing,
@@ -29,11 +36,10 @@ SummariseResults[WaveOperator_,Propagator_,SourceConstraints_,Spectrum_,OverallU
 	},
 
 (*Computing=HoldForm@(DynamicModule[{StartTime=AbsoluteTime[]},Dynamic@Refresh[ProgressIndicator[Tanh[N@(AbsoluteTime[]-StartTime)/100],Appearance->"Necklace"],UpdateInterval->1]]);*)
-	Computing=ProgressIndicator[Appearance->"Necklace",ImageSize->Large];
-
-	FullWidth=First@Rasterize[Show[Graphics[Circle[]],ImageSize->Full],"RasterSize"];
 
 	MakeLabel[SomeString_]:=Style[SomeString,Large];
+	Computing=Row[{ProgressIndicator[Appearance->"Necklace",ImageSize->Large],MakeLabel@"Pending..."},Invisible@MakeLabel@"  ",Alignment->{Left,Center}];
+	FullWidth=First@Rasterize[Show[Graphics[Circle[]],ImageSize->Full],"RasterSize"];
 
 	If[WaveOperator===Null,
 		TheWaveOperator=Computing,

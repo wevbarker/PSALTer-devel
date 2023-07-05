@@ -3,15 +3,13 @@
 (*===========================*)
 
 MasslessAnalysisOfTotal[RawMasslessPropagaorResidue_List,NullSpace_List]:=Module[{
-	PrintVariable,
 	MasslessPropagaorResidue=RawMasslessPropagaorResidue,
 	NullSpaceDimension,
 	FreeSourceVariables,
 	NumeratorFreeSourceCoefficientMatrix,
 	NumeratorFreeSourceEigenvalues},
 
-	PrintVariable={};
-	PrintVariable=PrintVariable~Append~PrintTemporary@" ** MasslessAnalysisOfTotal...";
+	LocalSpectrum=" ** MasslessAnalysisOfTotal...";
 
 	Diagnostic@MasslessPropagaorResidue;
 	MasslessPropagaorResidue//=Flatten;
@@ -31,5 +29,4 @@ MasslessAnalysisOfTotal[RawMasslessPropagaorResidue_List,NullSpace_List]:=Module
 		NumeratorFreeSourceEigenvalues={};
 	];
 
-	NotebookDelete@PrintVariable;
 {MasslessPropagaorResidue,NumeratorFreeSourceEigenvalues}];

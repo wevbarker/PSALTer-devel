@@ -4,13 +4,11 @@
 
 ExpressInLightcone[ClassName_?StringQ,RawSector_,SourceComponentsToFreeSourceVariables_List]:=Module[{
 	Class,
-	PrintVariable,
 	Sector=RawSector},
 
 	Class=Evaluate@Symbol@ClassName;
 
-	PrintVariable={};
-	PrintVariable=PrintVariable~Append~PrintTemporary@" ** MassiveAnalysisOfSector...";
+	LocalSpectrum=" ** MassiveAnalysisOfSector...";
 
 	Sector//=Class@ExpandSources;
 
@@ -27,19 +25,19 @@ ExpressInLightcone[ClassName_?StringQ,RawSector_,SourceComponentsToFreeSourceVar
 	Sector//=ToNewCanonical;
 	Sector//=NoScalar;
 
-	PrintVariable=PrintVariable~Append~PrintTemporary[" ** SeparateMetric..."];
+	LocalSpectrum=" ** SeparateMetric...";
 	Sector=SeparateMetric[G][Evaluate@Sector];
 
-	PrintVariable=PrintVariable~Append~PrintTemporary[" ** SeparateBasis..."];
+	LocalSpectrum=" ** SeparateBasis...";
 	Sector//=xAct`xCoba`SeparateBasis[cartesian];
 
-	PrintVariable=PrintVariable~Append~PrintTemporary[" ** ContractBasis..."];
+	LocalSpectrum=" ** ContractBasis...";
 	Sector//=xAct`xCoba`ContractBasis;
 
-	PrintVariable=PrintVariable~Append~PrintTemporary[" ** TraceBasisDummy..."];
+	LocalSpectrum=" ** TraceBasisDummy...";
 	Sector//=xAct`xCoba`TraceBasisDummy;
 
-	PrintVariable=PrintVariable~Append~PrintTemporary[" ** TensorValues..."];
+	LocalSpectrum=" ** TensorValues...";
 	Sector=Sector/.xAct`xCoba`TensorValues[P];
 	Sector=Sector/.xAct`xCoba`TensorValues[G];
 
@@ -49,10 +47,8 @@ ExpressInLightcone[ClassName_?StringQ,RawSector_,SourceComponentsToFreeSourceVar
 	Sector=Sector/.{Def->Sqrt[En^2-Mo^2]};
 	Sector//=Together;
 
-	PrintVariable=PrintVariable~Append~PrintTemporary[" ** Imposing conserved sources..."];
+	LocalSpectrum=" ** Imposing conserved sources...";
 	Sector=Sector/.SourceComponentsToFreeSourceVariables;
 	Sector//=Together;
-
-	NotebookDelete@PrintVariable;
 
 Sector];

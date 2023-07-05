@@ -17,13 +17,8 @@ Comment@"The first pure 1-form theory we might think to try is due to Maxwell. W
 LinearisedLagrangian=Coupling1*(CD[-a]@xAct`PSALTer`VectorTheory`B[-b]-CD[-b]@xAct`PSALTer`VectorTheory`B[-a])*(CD[a]@xAct`PSALTer`VectorTheory`B[b]-CD[b]@xAct`PSALTer`VectorTheory`B[a]);
 DisplayExpression@LinearisedLagrangian;
 
-Comment@"We need to expand the brackets before passing to PSALTer.";
-
 LinearisedLagrangian//=ToCanonical;
 LinearisedLagrangian//=CollectTensors;
-DisplayExpression@LinearisedLagrangian;
-
-Comment@"Now we shove the Lagrangian into PSALTer.";
 
 ParticleSpectrum[
 	"VectorTheory",
@@ -47,13 +42,8 @@ Comment@"Having investigated the massless theory, we keep the same kinetic setup
 LinearisedLagrangian=Coupling1*(CD[-a]@xAct`PSALTer`VectorTheory`B[-b]-CD[-b]@xAct`PSALTer`VectorTheory`B[-a])*(CD[a]@xAct`PSALTer`VectorTheory`B[b]-CD[b]@xAct`PSALTer`VectorTheory`B[a])+Coupling3*xAct`PSALTer`VectorTheory`B[-a]*xAct`PSALTer`VectorTheory`B[a];
 DisplayExpression@LinearisedLagrangian;
 
-Comment@"Again we just need to expand those brackets before passing to PSALTer.";
-
 LinearisedLagrangian//=ToCanonical;
 LinearisedLagrangian//=CollectTensors;
-DisplayExpression@LinearisedLagrangian;
-
-Comment@"Now we shove the Lagrangian into PSALTer.";
 
 ParticleSpectrum[
 	"VectorTheory",
@@ -103,8 +93,6 @@ Comment@"For completeness, it behoves us to look at the general massive case.";
 
 LinearisedLagrangian=Coupling1*CD[-a]@xAct`PSALTer`VectorTheory`B[-b]*CD[a]@xAct`PSALTer`VectorTheory`B[b]+Coupling2*CD[-a]@xAct`PSALTer`VectorTheory`B[a]*CD[-b]@xAct`PSALTer`VectorTheory`B[b]+Coupling3*xAct`PSALTer`VectorTheory`B[-a]*xAct`PSALTer`VectorTheory`B[a];
 DisplayExpression@LinearisedLagrangian;
-
-Comment@"We enter this into PSALTer.";
 
 LinearisedLagrangian//=ToCanonical;
 LinearisedLagrangian//=CollectTensors;

@@ -50,6 +50,7 @@ LinearisedLagrangian=xAct`PSALTer`TensorTheory`Coupling1*(
 	-(1/2)*CD[-c]@LinearMetric[a,b]*CD[c]@LinearMetric[-a,-b]
 	+CD[-b]@LinearMetric[a,b]*CD[c]@LinearMetric[-a,-c]
 )+xAct`PSALTer`TensorTheory`Coupling2*(LinearMetric[-a,-b]*LinearMetric[a,b]-LinearMetric[a,-a]*LinearMetric[b,-b]);
+DisplayExpression@LinearisedLagrangian;
 
 LinearisedLagrangian//=ToCanonical;
 LinearisedLagrangian//=CollectTensors;

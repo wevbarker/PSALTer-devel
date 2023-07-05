@@ -3,8 +3,6 @@
 (*====================*)
 
 BuildPackage@"ParticleSpectrum/UpdateTheoryAssociation.m";
-BuildPackage@"ParticleSpectrum/FourierLagrangian.m";
-BuildPackage@"ParticleSpectrum/ConstructSaturatedPropagator.m";
 BuildPackage@"ParticleSpectrum/WignerGrid.m";
 BuildPackage@"ParticleSpectrum/RaggedBlock.m";
 BuildPackage@"ParticleSpectrum/SummariseResults.m";
@@ -23,18 +21,22 @@ BuildPackage@"ParticleSpectrum/Unitarity.m";
 BuildPackage@"ParticleSpectrum/PSALTerParallelSubmit.m";
 BuildPackage@"ParticleSpectrum/PrintSpectrum.m";
 
+BuildPackage@"ParticleSpectrum/ConstructLinearAction.m";
+BuildPackage@"ParticleSpectrum/ConstructWaveOperator.m";
+BuildPackage@"ParticleSpectrum/ConstructSourceConstraints.m";
+BuildPackage@"ParticleSpectrum/ConstructSaturatedPropagator.m";
+
 Options@ParticleSpectrum={
 	TensorFields->{},
 	CouplingConstants->{},
 	ExportTheory->False};
 
 ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
+	SummariseResultsOngoing,
 	TheTensors=OptionValue@TensorFields,
 	Couplings=OptionValue@CouplingConstants,
-	PrintVariable,
-	SummaryOfResults,
 	DecomposeFieldsdLagrangian,
-	SaturatedPropagator,
+	(*SaturatedPropagator,*)
 	SaturatedPropagatorArray,
 	ConstraintComponentList,
 	SourceComponents,
@@ -51,57 +53,46 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	MasslessAnalysisValue,
 	PositiveSystem,
 	PositiveSystemValue,
-	TheWaveOperator,
-	ThePropagator,
-	TheSourceConstraints,
-	TheSpectrum,
-	FullAction,
 	Class
 },
 
-	Class=Evaluate@Symbol@ClassName;
-	TheTensors=Class@Tensors;
-	FullAction=Module[{Class,TensorList,SourceCoupling},	
-		Class=Evaluate@Symbol@ClassName;
-		TensorList=(FromIndexFree@ToIndexFree@#)&/@(Class@Tensors);
-		SourceCoupling=MapThread[((#1@@(-List@@#2))*#2)&,{Class@Sources,TensorList}];
-		SourceCoupling//=Total;
-		SourceCoupling//=ToNewCanonical;
-		Expr+SourceCoupling];
+	LocalWaveOperator=Null;
+	LocalPropagator=Null;
+	LocalSourceConstraints=Null;
+	LocalSpectrum=Null;
+	LocalOverallUnitarity=Null;
+	LocalSummaryOfTheory=Null;
 
-	SummaryOfResults=PrintTemporary@SummariseResults[Null,Null,Null,Null,Null,FullAction];
+	SummariseResultsOngoing=PrintTemporary@Dynamic[Refresh[SummariseResults[
+			LocalWaveOperator,
+			LocalPropagator,
+			LocalSourceConstraints,
+			LocalSpectrum,
+			LocalOverallUnitarity,
+			LocalSummaryOfTheory],
+		TrackedSymbols->{
+			LocalWaveOperator,
+			LocalPropagator,
+			LocalSourceConstraints,
+			LocalSpectrum,
+			LocalOverallUnitarity,
+			LocalSummaryOfTheory}]];
 
-	PrintVariable={};
-	PrintVariable=PrintVariable~Append~PrintTemporary@" ** ParticleSpectrum...";
-
-	(*=========================*)
-	(*  Fourier decomposition  *)
-	(*=========================*)
-
-	DecomposeFieldsdLagrangian=FourierLagrangian[ClassName,Expr,TheTensors];
-	Diagnostic@DecomposeFieldsdLagrangian;
+	ConstructLinearAction[ClassName,Expr];
+	ConstructWaveOperator[ClassName,Expr,Couplings];
+	ConstructSourceConstraints[ClassName,CouplingAssumptions,Rescalings,RaisedIndexSources,MatrixLagrangian];
+	ConstructSaturatedPropagator[ClassName,MatrixLagrangian,CouplingAssumptions,BMatricesValues,RaisedIndexSources,LoweredIndexSources,FieldSpinParityTensorHeadsValue,SourceConstraints,FieldsLeft,FieldsTop,SourcesLeft,SourcesTop];
+	(*ConstructParticleSpectrum[];*)
+	(*ConstructUnitarityConditions[];*)
 
 	UpdateTheoryAssociation[TheoryName,MomentumSpaceLagrangian,DecomposeFieldsdLagrangian,ExportTheory->OptionValue@ExportTheory];
-
-	(*========================*)
-	(*  Saturated propagator  *)
-	(*========================*)
-
-	SaturatedPropagator=ConstructSaturatedPropagator[ClassName,DecomposeFieldsdLagrangian,Couplings];
 	UpdateTheoryAssociation[TheoryName,BMatrices,SaturatedPropagator[[3]],ExportTheory->OptionValue@ExportTheory];
 	UpdateTheoryAssociation[TheoryName,InverseBMatrices,SaturatedPropagator[[4]],ExportTheory->OptionValue@ExportTheory];
 	UpdateTheoryAssociation[TheoryName,SourceConstraints,SaturatedPropagator[[1]],ExportTheory->OptionValue@ExportTheory];
 
-	TheWaveOperator=WignerGrid[((Plus@@#)&/@Partition[SaturatedPropagator[[3]],2]),SaturatedPropagator[[6]],SaturatedPropagator[[7]],SaturatedPropagator[[8]],SaturatedPropagator[[9]]];
-	TheSourceConstraints=RaggedBlock[(((Simplify@(#==0))&)/@(SaturatedPropagator[[1]])),2];
-
-	NotebookDelete@SummaryOfResults;
-	SummaryOfResults=PrintTemporary@SummariseResults[TheWaveOperator,Null,TheSourceConstraints,Null,Null,FullAction];
-
-	ThePropagator=WignerGrid[((Plus@@#)&/@Partition[SaturatedPropagator[[4]],2]),SaturatedPropagator[[6]],SaturatedPropagator[[7]],SaturatedPropagator[[10]],SaturatedPropagator[[11]]];
-
-	NotebookDelete@SummaryOfResults;
-	SummaryOfResults=PrintTemporary@SummariseResults[TheWaveOperator,ThePropagator,TheSourceConstraints,Null,Null,FullAction];
+	LocalWaveOperator=WignerGrid[((Plus@@#)&/@Partition[SaturatedPropagator[[3]],2]),SaturatedPropagator[[6]],SaturatedPropagator[[7]],SaturatedPropagator[[8]],SaturatedPropagator[[9]]];
+	LocalSourceConstraints=RaggedBlock[(((Simplify@(#==0))&)/@(SaturatedPropagator[[1]])),2];
+	LocalPropagator=WignerGrid[((Plus@@#)&/@Partition[SaturatedPropagator[[4]],2]),SaturatedPropagator[[6]],SaturatedPropagator[[7]],SaturatedPropagator[[10]],SaturatedPropagator[[11]]];
 
 	(*======================*)
 	(*  Source constraints  *)
@@ -113,12 +104,7 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	Diagnostic@ConstraintComponentList;
 
 	ConstraintComponentList=(xAct`PSALTer`Private`PSALTerParallelSubmit@(ConstraintComponentToLightcone[ClassName,#]))&/@ConstraintComponentList;
-
-	NotebookDelete@SummaryOfResults;
-	SummaryOfResults=PrintTemporary@SummariseResults[TheWaveOperator,ThePropagator,TheSourceConstraints,ParallelGrid@ConstraintComponentList,Null,FullAction];
 	ConstraintComponentList=WaitAll@ConstraintComponentList;
-	NotebookDelete@SummaryOfResults;
-	SummaryOfResults=PrintTemporary@SummariseResults[TheWaveOperator,ThePropagator,TheSourceConstraints,Null,Null,FullAction];
 	Diagnostic@ConstraintComponentList;
 
 	ConstraintComponentList=DeleteCases[ConstraintComponentList,True];
@@ -148,11 +134,7 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 		(xAct`PSALTer`Private`PSALTerParallelSubmit@(MassiveAnalysisOfSector[#1,#2]))&,
 		{(SaturatedPropagator[[2]]),
 		Couplings~ConstantArray~(Length@(SaturatedPropagator[[2]]))}];
-	NotebookDelete@SummaryOfResults;
-	SummaryOfResults=PrintTemporary@SummariseResults[TheWaveOperator,ThePropagator,TheSourceConstraints,ParallelGrid@MassiveAnalysis,Null,FullAction];
 	MassiveAnalysis=WaitAll@MassiveAnalysis;
-	NotebookDelete@SummaryOfResults;
-	SummaryOfResults=PrintTemporary@SummariseResults[TheWaveOperator,ThePropagator,TheSourceConstraints,Null,Null,FullAction];
 
 	SignedInverseBMatrices=Times~MapThread~{(SaturatedPropagator[[4]]),(SaturatedPropagator[[5]])};
 
@@ -160,11 +142,7 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 		(xAct`PSALTer`Private`PSALTerParallelSubmit@(MassiveGhost[#1,#2]))&,
 		{SignedInverseBMatrices,
 		MassiveAnalysis}];
-	NotebookDelete@SummaryOfResults;
-	SummaryOfResults=PrintTemporary@SummariseResults[TheWaveOperator,ThePropagator,TheSourceConstraints,ParallelGrid@MassiveGhostAnalysis,Null,FullAction];
 	MassiveGhostAnalysis=WaitAll@MassiveGhostAnalysis;
-	NotebookDelete@SummaryOfResults;
-	SummaryOfResults=PrintTemporary@SummariseResults[TheWaveOperator,ThePropagator,TheSourceConstraints,Null,Null,FullAction];
 
 	UpdateTheoryAssociation[TheoryName,SquareMasses,MassiveAnalysis,ExportTheory->OptionValue@ExportTheory];
 
@@ -178,19 +156,11 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	SaturatedPropagatorArray//=(#~PadRight~{Length@#,First@((Length/@#)~TakeLargest~1)})&;
 	Diagnostic@SaturatedPropagatorArray;
 
-	PrintVariable=PrintTemporary@LightconePropagator;
-	NotebookDelete@PrintVariable;
-
 	LightconePropagator=MapThread[
 		(xAct`PSALTer`Private`PSALTerParallelSubmit@(ExpressInLightcone[ClassName,#1,#2]))&,
 		{SaturatedPropagatorArray,
 		Map[((SourceComponentsToFreeSourceVariables)&),SaturatedPropagatorArray,{2}]},2];
-	NotebookDelete@SummaryOfResults;
-	SummaryOfResults=PrintTemporary@SummariseResults[TheWaveOperator,ThePropagator,TheSourceConstraints,ParallelGrid@LightconePropagator,Null,FullAction];
 	LightconePropagator=WaitAll@LightconePropagator;
-	NotebookDelete@SummaryOfResults;
-	SummaryOfResults=PrintTemporary@SummariseResults[TheWaveOperator,ThePropagator,TheSourceConstraints,Null,Null,FullAction];
-
 	Diagnostic@LightconePropagator;
 
 	(*=====================*)
@@ -198,12 +168,7 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	(*=====================*)
 
 	MasslessPropagatorResidue=Map[(xAct`PSALTer`Private`PSALTerParallelSubmit@(NullResidue@#))&,LightconePropagator,{2}];
-	NotebookDelete@SummaryOfResults;
-	SummaryOfResults=PrintTemporary@SummariseResults[TheWaveOperator,ThePropagator,TheSourceConstraints,ParallelGrid@MasslessPropagatorResidue,Null,FullAction];
 	MasslessPropagatorResidue=WaitAll@MasslessPropagatorResidue;
-	NotebookDelete@SummaryOfResults;
-	SummaryOfResults=PrintTemporary@SummariseResults[TheWaveOperator,ThePropagator,TheSourceConstraints,Null,Null,FullAction];
-
 	Diagnostic@MasslessPropagatorResidue;
 
 	MasslessAnalysis=MasslessAnalysisOfTotal[MasslessPropagatorResidue,UnscaledNullSpace];
@@ -216,23 +181,24 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	(*  Summary of particle spectrum  *)
 	(*================================*)
 
-	TheSpectrum=PrintSpectrum[MassiveAnalysis,MassiveGhostAnalysis,MasslessAnalysisValue];
-
-	NotebookDelete@SummaryOfResults;
-	SummaryOfResults=PrintTemporary@SummariseResults[TheWaveOperator,ThePropagator,TheSourceConstraints,TheSpectrum,Null,FullAction];
+	LocalSpectrum=PrintSpectrum[MassiveAnalysis,MassiveGhostAnalysis,MasslessAnalysisValue];
 
 	(*=============*)
 	(*  Unitarity  *)
 	(*=============*)
 
-	PositiveSystemValue=Unitarity[
+	LocalOverallUnitarity=Unitarity[
 		MassiveAnalysis,MassiveGhostAnalysis,MasslessAnalysisValue,Couplings];
-
-	NotebookDelete@SummaryOfResults;
-	SummaryOfResults=Print@SummariseResults[TheWaveOperator,ThePropagator,TheSourceConstraints,TheSpectrum,PositiveSystemValue,FullAction];
 
 	UpdateTheoryAssociation[TheoryName,PositiveSystem,PositiveSystemValue,ExportTheory->OptionValue@ExportTheory];
 
-	NotebookDelete@PrintVariable;
-	NotebookDelete/@PrintVariable;
+	FinishDynamic[];
+	NotebookDelete@SummariseResultsOngoing;
+	Print@SummariseResults[
+		LocalWaveOperator,
+		LocalPropagator,
+		LocalSourceConstraints,
+		LocalSpectrum,
+		LocalOverallUnitarity,
+		LocalSummaryOfTheory];
 ];

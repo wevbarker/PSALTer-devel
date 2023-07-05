@@ -1,7 +1,7 @@
 (*========*)
 (*  Test  *)
 (*========*)
-
+(*
 <<xAct`PSALTer`;
 
 Get@FileNameJoin@{NotebookDirectory[],"AllMatrices.mx"};
@@ -26,7 +26,7 @@ ExportMatrixToMaple[Expr,"var3"];
 ExportMatrixToMaple[Expr,"var2"];
 
 Quit[];
-
+*)
 
 WignerGrid[AllMatrices_,Sizes_,Spins_,Sides_,Tops_]:=Module[{
 SpinParities,
@@ -126,10 +126,16 @@ Which[
 (*,ItemSize->All*)
 Grid[AllElements,Background->{None,None,Cols},Frame->{None,None,Frames},Alignment->{Center,Center,Alignments},ItemSize->Full]];
 
-MyRaggedBlock[SomeList_,SomeWidth_]:=Module[{DataArray,PaddedArray,FrameRules},
+RaggedBlock[SomeList_,SomeWidth_]:=Module[{DataArray,PaddedArray,FrameRules,Expr},
+	If[SomeList==={},
+	Expr={},
 	DataArray=SomeList~Partition~(UpTo@SomeWidth);
 	FrameRules=DeleteCases[Flatten@Map[((First@Evaluate@Position[Evaluate@DataArray,#])->True)&,DataArray,{2}],Null];
-	TextGrid[DataArray,Frame->{None,None,FrameRules}]];
+	Expr=TextGrid[DataArray,Frame->{None,None,FrameRules}];	
+	];
+Expr];
+
+ParallelGrid[Expr_]:=Quiet@Check[Grid[((#~Partition~(Ceiling@(0.5*Sqrt@Length@#)))&@Flatten@{Expr}),Frame->All],Null];
 
 ReMagnify[Object_]:=Module[{
 	FullWidth,
@@ -143,8 +149,7 @@ ActualWidth=First@Rasterize[Object,"RasterSize"];
 RequiredMagnification=Piecewise[{{1,ActualWidth<=DesiredWidth},{DesiredWidth/ActualWidth,ActualWidth>DesiredWidth}}];
 Magnify[Object,RequiredMagnification]];
 
-
-SummariseTheory[Theory_]:=(Action==Integrate@@({(Theory)@@#}~Join~(#[[1;;4]]))&@{t,x,y,z});
+SummariseTheory[Theory_]:=(Action==Integrate@@({((CollectConstants@Theory))@@#}~Join~(#[[1;;4]]))&@{TCoordinate,XCoordinate,YCoordinate,ZCoordinate});
 
 SummariseResults[WaveOperator_,Propagator_,SourceConstraints_,Spectrum_,OverallUnitarity_,SummaryOfTheory_]:=Module[{
 	Computing,
@@ -157,11 +162,10 @@ SummariseResults[WaveOperator_,Propagator_,SourceConstraints_,Spectrum_,OverallU
 	},
 
 (*Computing=HoldForm@(DynamicModule[{StartTime=AbsoluteTime[]},Dynamic@Refresh[ProgressIndicator[Tanh[N@(AbsoluteTime[]-StartTime)/100],Appearance->"Necklace"],UpdateInterval->1]]);*)
-	Computing=ProgressIndicator[Appearance->"Necklace",ImageSize->Large];
-
-	FullWidth=First@Rasterize[Show[Graphics[Circle[]],ImageSize->Full],"RasterSize"];
 
 	MakeLabel[SomeString_]:=Style[SomeString,Large];
+	Computing=Row[{ProgressIndicator[Appearance->"Necklace",ImageSize->Large],MakeLabel@"Pending..."},Invisible@MakeLabel@"  ",Alignment->{Left,Center}];
+	FullWidth=First@Rasterize[Show[Graphics[Circle[]],ImageSize->Full],"RasterSize"];
 
 	If[WaveOperator===Null,
 		TheWaveOperator=Computing,
@@ -181,7 +185,7 @@ SummariseResults[WaveOperator_,Propagator_,SourceConstraints_,Spectrum_,OverallU
 	If[OverallUnitarity===Null,
 		TheOverallUnitarity=Computing,
 		If[OverallUnitarity===False,
-			TheOverallUnitarity=MakeLabel["(Unitarity is impossible)"],
+			TheOverallUnitarity=MakeLabel["(Impossible)"],
 			TheOverallUnitarity=ReMagnify[OverallUnitarity]];
 	];
 
@@ -196,12 +200,14 @@ SummariseResults[WaveOperator_,Propagator_,SourceConstraints_,Spectrum_,OverallU
 		MakeLabel["Particle spectrum"]},
 		{TheSourceConstraints,
 		TheSpectrum},
-		{MakeLabel["Unitarity conditions"],SpanFromLeft},
-		{TheOverallUnitarity,SpanFromLeft}
-		},Spacings->{2,2},Frame->True,Background->RGBColor[240/255,240/255,240/255]];
+		{MakeLabel["Gauge symmetries"],
+		SpanFromAbove},
+		{MakeLabel["(Not yet implemented)"],
+		SpanFromAbove},
+		{MakeLabel["Unitarity conditions"],MakeLabel["Assumptions"]},
+		{TheOverallUnitarity,MakeLabel["(Not yet implemented)"]}
+		},Spacings->{2,2},Frame->True,Background->RGBColor[240/255,240/255,240/255],Alignment->{Center,Center}];
 SummaryOfResults];
-
-ParallelGrid[Expr_]:=If[{Expr}==={},Null,Grid[((#~Partition~(Ceiling@(0.5*Sqrt@Length@#)))&@Flatten@{Expr}),Frame->All]];
 
 
 (*=================*)
@@ -221,8 +227,65 @@ Sizes={{2,1},{1,1},{1,1},{0,1},{1,0},{3,0},{10,10}};
 Spins={0,1,2,3,5,5,8};
 Fields={{a,a,a},{a,a},{a,a},{a},{a},{a,a,a},{a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a}};
 
-Print@SummariseResults[WignerGrid[AllMatrices,Sizes,Spins,Fields,Fields],Null,Null,Null,Null,Some];
+ParticleSpectrum[]:=Module[{
+(*
+LocalWaveOperator=Null,
+LocalPropagator=Null,
+LocalSourceConstraints=Null,
+LocalSpectrum=Null,
+LocalOverallUnitarity=Null,
+LocalSummaryOfTheory=Null,
+*)
+	Expr
+	},
 
+LocalWaveOperator=Null;
+LocalPropagator=Null;
+LocalSourceConstraints=Null;
+LocalSpectrum=Null;
+LocalOverallUnitarity=Null;
+LocalSummaryOfTheory=Null;
+
+OngoingEval=PrintTemporary@Dynamic[Refresh[SummariseResults[LocalWaveOperator,LocalPropagator,LocalSourceConstraints,LocalSpectrum,LocalOverallUnitarity,LocalSummaryOfTheory],TrackedSymbols->{LocalWaveOperator,LocalPropagator,LocalSourceConstraints,LocalSpectrum,LocalOverallUnitarity,LocalSummaryOfTheory}]];
+LocalWaveOperator=WignerGrid[AllMatrices,Sizes,Spins,Fields,Fields];
+Expr=Table[ParallelSubmit[{i},Total[FactorList[x^(i+150)+1][[2;;,2]]]],{i,15,90}];
+WaitAll@Expr;
+LocalPropagator=WignerGrid[AllMatrices,Sizes,Spins,Fields,Fields];
+Expr=Table[ParallelSubmit[{i},Total[FactorList[x^(i+150)+1][[2;;,2]]]],{i,15,90}];
+WaitAll@Expr;
+LocalSourceConstraints=3563456;
+Expr=Table[ParallelSubmit[{i},Total[FactorList[x^(i+150)+1][[2;;,2]]]],{i,15,90}];
+WaitAll@Expr;
+LocalSpectrum=34523456;
+LocalSummaryOfTheory=34523456;
+LocalOverallUnitarity=90480567349;
+
+FinishDynamic[];
+NotebookDelete@OngoingEval;
+Print@SummariseResults[LocalWaveOperator,LocalPropagator,LocalSourceConstraints,LocalSpectrum,LocalOverallUnitarity,LocalSummaryOfTheory];
+];
+
+
+ParticleSpectrum[];
+ParticleSpectrum[];
+ParticleSpectrum[];
+
+Quit[];
+
+(*
+Expr=Table[ParallelSubmit[{i},Total[FactorList[x^(i+900)+1][[2;;,2]]]],{i,15,90}];
+(*
+LocalPropagator=ParallelGrid@Expr;
+*)
+WaitAll@Expr;
+*)
+(*
+Pause@2;
+xv=1;
+SmallPrint=Module[{tmp},tmp=Dynamic[xv+1];{Dynamic@xv,tmp}];
+Print@SmallPrint;
+*)
+(*
 AllMatrices={Spin0};
 Sizes={{2,1}};
 Spins={0};
@@ -259,4 +322,4 @@ SummariseResults[WignerGrid[AllMatrices,Sizes,Spins,Fields,Fields],WignerGrid[Al
 WaitAll@Expr;
 NotebookDelete@Expr;
 
-
+*)

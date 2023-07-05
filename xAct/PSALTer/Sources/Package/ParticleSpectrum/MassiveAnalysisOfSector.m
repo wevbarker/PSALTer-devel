@@ -5,18 +5,15 @@
 BuildPackage@"ParticleSpectrum/MassiveAnalysisOfSector/PoleToSquareMass.m";
 
 MassiveAnalysisOfSector[RawSector_,Couplings_]:=Module[{
-	PrintVariable,
 	Sector=RawSector,
 	CouplingAssumptions,
 	Poles,
 	Singularities,
 	SquareMassesValues},
 
-	PrintVariable={};
-	PrintVariable=PrintVariable~Append~PrintTemporary@" ** MassiveAnalysisOfSector...";
+	LocalSpectrum=" ** MassiveAnalysisOfSector...";
 
 	Sector//=Together;
-
 
 	CouplingAssumptions=(#~Element~Reals)&/@Couplings;
 	Poles=Sector~FunctionPoles~xAct`PSALTer`Def;

@@ -30,12 +30,7 @@ Comment@"We first want to study the most general PGT.";
 
 DisplayExpression@CollectTensors@ToCanonical[NonlinearLagrangian];
 
-Comment@"To use PSALTer, you have to first linearise this Lagrangian to second order around the desired vacuum:";
-
 LinearisedLagrangian=LineariseLagrangian[NonlinearLagrangian];
-DisplayExpression@CollectTensors@LinearisedLagrangian;
-
-Comment@"Now we pass this theory into the PSALTer package, which computes the particle spectrum:";
 
 ParticleSpectrum[
 	"PoincareGaugeTheory",
@@ -58,12 +53,7 @@ On[Solve::svars];
 
 DisplayExpression@CollectTensors@ToCanonical[NonlinearLagrangian/.CaseRules];
 
-Comment@"To use PSALTer, you have to first linearise this Lagrangian to second order around the desired vacuum:";
-
 LinearisedLagrangian=LineariseLagrangian[NonlinearLagrangian/.CaseRules];
-DisplayExpression@CollectTensors@LinearisedLagrangian;
-
-Comment@"Now we pass this theory into the PSALTer package, which computes the particle spectrum:";
 
 ParticleSpectrum[
 	"PoincareGaugeTheory",
@@ -92,12 +82,7 @@ On[Solve::svars];
 
 DisplayExpression@CollectTensors@ToCanonical[NonlinearLagrangian/.CaseRules];
 
-Comment@"Here is the linearised theory:";
-
 LinearisedLagrangian=LineariseLagrangian[NonlinearLagrangian/.CaseRules];
-DisplayExpression@CollectTensors@LinearisedLagrangian;
-
-Comment@"Now we pass this theory into the PSALTer package, which computes the particle spectrum:";
 
 ParticleSpectrum[
 	"PoincareGaugeTheory",

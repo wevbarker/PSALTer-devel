@@ -7,11 +7,9 @@ FourierLagrangian[ClassName_?StringQ,Expr_,Tensors_]:=Module[{
 	CrossingRules,
 	ToMomentumExpr,
 	Tensors1,
-	Tensors2,
-	PrintVariable},
+	Tensors2},
 
-	PrintVariable={};
-	PrintVariable=PrintVariable~Append~PrintTemporary@" ** FourierLagrangian...";
+	LocalWaveOperator=" ** FourierLagrangian...";
 
 	Class=Evaluate@Symbol@ClassName;
 
@@ -55,5 +53,4 @@ FourierLagrangian[ClassName_?StringQ,Expr_,Tensors_]:=Module[{
 	ToMomentumExpr//=Class@DecomposeFields;
 	Diagnostic@ToMomentumExpr;
 
-	NotebookDelete@PrintVariable;
 ToMomentumExpr];

@@ -3,7 +3,6 @@
 (*===============*)
 
 NullResidue[LightconePropagator_]:=Module[{
-	PrintVariable,
 	MasslessPropagaor=LightconePropagator,
 	MasslessPropagaorResidue},
 
