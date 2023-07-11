@@ -36,7 +36,6 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	SummariseResultsOngoing,
 	TheTensors=OptionValue@TensorFields,
 	Couplings=OptionValue@CouplingConstants,
-	DecomposeFieldsdLagrangian,
 	SaturatedPropagatorArray,
 	ConstraintComponentList,
 	SourceComponents,
@@ -85,6 +84,12 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 				ClassName,
 				Expr,
 				Couplings];
+
+	UpdateTheoryAssociation[
+				TheoryName,
+				MomentumSpaceLagrangian,
+				DecomposeFieldsdLagrangian,
+				ExportTheory->OptionValue@ExportTheory];
 	ConstructSourceConstraints[
 				ClassName,
 				CouplingAssumptions,
@@ -92,6 +97,11 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 				RaisedIndexSources,
 				MatrixLagrangian,
 				Method->OptionValue@Method];
+	UpdateTheoryAssociation[
+				TheoryName,
+				SourceConstraints,
+				ValuesOfSourceConstraints,
+				ExportTheory->OptionValue@ExportTheory];
 	ConstructSaturatedPropagator[
 				ClassName,
 				MatrixLagrangian,
@@ -109,10 +119,8 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	(*ConstructParticleSpectrum[];*)
 	(*ConstructUnitarityConditions[];*)
 
-	UpdateTheoryAssociation[TheoryName,MomentumSpaceLagrangian,DecomposeFieldsdLagrangian,ExportTheory->OptionValue@ExportTheory];
 	UpdateTheoryAssociation[TheoryName,BMatrices,SaturatedPropagator[[3]],ExportTheory->OptionValue@ExportTheory];
 	UpdateTheoryAssociation[TheoryName,InverseBMatrices,SaturatedPropagator[[4]],ExportTheory->OptionValue@ExportTheory];
-	UpdateTheoryAssociation[TheoryName,SourceConstraints,ValuesOfSourceConstraints,ExportTheory->OptionValue@ExportTheory];
 
 	LocalWaveOperator=WignerGrid[((Plus@@#)&/@Partition[SaturatedPropagator[[3]],2]),SaturatedPropagator[[6]],SaturatedPropagator[[7]],SaturatedPropagator[[8]],SaturatedPropagator[[9]]];
 	LocalSourceConstraints=RaggedBlock[(((Simplify@(#==0))&)/@(ValuesOfSourceConstraints)),2];

@@ -6,7 +6,6 @@ BuildPackage@"ParticleSpectrum/ConstructWaveOperator/FourierLagrangian.m";
 BuildPackage@"ParticleSpectrum/ConstructWaveOperator/ConstructOperator.m";
 
 ConstructWaveOperator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
-	DecomposeFieldsdLagrangian,
 	Class,
 	TheTensors
 	},
