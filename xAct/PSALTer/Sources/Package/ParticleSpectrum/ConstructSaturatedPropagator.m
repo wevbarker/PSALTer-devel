@@ -8,7 +8,7 @@ BuildPackage@"ParticleSpectrum/ConstructSaturatedPropagator/CompareManualAutomat
 Options@ConstructSaturatedPropagator={
 	Method->"Careful"};
 
-ConstructSaturatedPropagator[ClassName_?StringQ,MatrixLagrangian_,CouplingAssumptions_,BMatricesValues_,RaisedIndexSources_,LoweredIndexSources_,FieldSpinParityTensorHeadsValue_,SourceConstraints_,FieldsLeft_,FieldsTop_,SourcesLeft_,SourcesTop_,Couplings_,OptionsPattern[]]:=Module[{
+ConstructSaturatedPropagator[ClassName_?StringQ,MatrixLagrangian_,CouplingAssumptions_,BMatricesValues_,RaisedIndexSources_,LoweredIndexSources_,FieldSpinParityTensorHeadsValue_,FieldsLeft_,FieldsTop_,SourcesLeft_,SourcesTop_,Couplings_,OptionsPattern[]]:=Module[{
 	SourceSpinParityTensorHeadsValue,
 	SymbolicLagrangian,
 	Symbols,
@@ -112,7 +112,7 @@ ConstructSaturatedPropagator[ClassName_?StringQ,MatrixLagrangian_,CouplingAssump
 	TheSpins=Keys@CombinedSectors;
 
 SaturatedPropagator={
-		SourceConstraints,
+		ValuesOfSourceConstraints,
 		Flatten[Values@SaturatedPropagator,{1,2}],
 		Flatten[Values@BMatricesValues,{1,2}],
 		Flatten[Values@InverseBMatricesValues,{1,2}],

@@ -35,7 +35,7 @@ ConstructSourceConstraints[ClassName_?StringQ,CouplingAssumptions_,Rescalings_,R
 	NullSpaces=((#)~FullSimplify~CouplingAssumptions)&/@NullSpaces;
 	Diagnostic@NullSpaces;
 
-	SourceConstraints=Quiet@DeleteCases[
+	ValuesOfSourceConstraints=Quiet@DeleteCases[
 		Flatten@Values@MapThread[(#1~NonTrivialDot~#2)&,
 			{NullSpaces,
 			MapThread[
@@ -44,6 +44,6 @@ ConstructSourceConstraints[ClassName_?StringQ,CouplingAssumptions_,Rescalings_,R
 					RaisedIndexSources}
 				]}
 		],0,Infinity]/.Class@RescalingSolutions;
-	SourceConstraints=Numerator@Together[#/Sqrt[2^5*3^5*5^5*7^5]]&/@SourceConstraints;
-	Diagnostic@SourceConstraints;
+	ValuesOfSourceConstraints=Numerator@Together[#/Sqrt[2^5*3^5*5^5*7^5]]&/@ValuesOfSourceConstraints;
+	Diagnostic@ValuesOfSourceConstraints;
 ];

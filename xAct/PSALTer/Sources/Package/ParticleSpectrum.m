@@ -100,7 +100,6 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 				RaisedIndexSources,
 				LoweredIndexSources,
 				FieldSpinParityTensorHeadsValue,
-				SourceConstraints,
 				FieldsLeft,
 				FieldsTop,
 				SourcesLeft,
@@ -113,17 +112,17 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	UpdateTheoryAssociation[TheoryName,MomentumSpaceLagrangian,DecomposeFieldsdLagrangian,ExportTheory->OptionValue@ExportTheory];
 	UpdateTheoryAssociation[TheoryName,BMatrices,SaturatedPropagator[[3]],ExportTheory->OptionValue@ExportTheory];
 	UpdateTheoryAssociation[TheoryName,InverseBMatrices,SaturatedPropagator[[4]],ExportTheory->OptionValue@ExportTheory];
-	UpdateTheoryAssociation[TheoryName,SourceConstraints,SaturatedPropagator[[1]],ExportTheory->OptionValue@ExportTheory];
+	UpdateTheoryAssociation[TheoryName,SourceConstraints,ValuesOfSourceConstraints,ExportTheory->OptionValue@ExportTheory];
 
 	LocalWaveOperator=WignerGrid[((Plus@@#)&/@Partition[SaturatedPropagator[[3]],2]),SaturatedPropagator[[6]],SaturatedPropagator[[7]],SaturatedPropagator[[8]],SaturatedPropagator[[9]]];
-	LocalSourceConstraints=RaggedBlock[(((Simplify@(#==0))&)/@(SaturatedPropagator[[1]])),2];
+	LocalSourceConstraints=RaggedBlock[(((Simplify@(#==0))&)/@(ValuesOfSourceConstraints)),2];
 	LocalPropagator=WignerGrid[((Plus@@#)&/@Partition[SaturatedPropagator[[4]],2]),SaturatedPropagator[[6]],SaturatedPropagator[[7]],SaturatedPropagator[[10]],SaturatedPropagator[[11]]];
 
 	(*======================*)
 	(*  Source constraints  *)
 	(*======================*)
 
-	ConstraintComponentList=MakeConstraintComponentList[ClassName,SaturatedPropagator[[1]]];
+	ConstraintComponentList=MakeConstraintComponentList[ClassName,ValuesOfSourceConstraints];
 	Diagnostic@ConstraintComponentList;
 	ConstraintComponentList=xAct`xCoba`SeparateBasis[AIndex][#]&/@ConstraintComponentList;
 	Diagnostic@ConstraintComponentList;
