@@ -78,10 +78,35 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 			LocalOverallUnitarity,
 			LocalSummaryOfTheory}]];
 
-	ConstructLinearAction[ClassName,Expr];
-	ConstructWaveOperator[ClassName,Expr,Couplings];
-	ConstructSourceConstraints[ClassName,CouplingAssumptions,Rescalings,RaisedIndexSources,MatrixLagrangian,Method->OptionValue@Method];
-	ConstructSaturatedPropagator[ClassName,MatrixLagrangian,CouplingAssumptions,BMatricesValues,RaisedIndexSources,LoweredIndexSources,FieldSpinParityTensorHeadsValue,SourceConstraints,FieldsLeft,FieldsTop,SourcesLeft,SourcesTop,Couplings,Method->OptionValue@Method];
+	ConstructLinearAction[
+				ClassName,
+				Expr];
+	ConstructWaveOperator[
+				ClassName,
+				Expr,
+				Couplings];
+	ConstructSourceConstraints[
+				ClassName,
+				CouplingAssumptions,
+				Rescalings,
+				RaisedIndexSources,
+				MatrixLagrangian,
+				Method->OptionValue@Method];
+	ConstructSaturatedPropagator[
+				ClassName,
+				MatrixLagrangian,
+				CouplingAssumptions,
+				BMatricesValues,
+				RaisedIndexSources,
+				LoweredIndexSources,
+				FieldSpinParityTensorHeadsValue,
+				SourceConstraints,
+				FieldsLeft,
+				FieldsTop,
+				SourcesLeft,
+				SourcesTop,
+				Couplings,
+				Method->OptionValue@Method];
 	(*ConstructParticleSpectrum[];*)
 	(*ConstructUnitarityConditions[];*)
 

@@ -111,5 +111,16 @@ ConstructSaturatedPropagator[ClassName_?StringQ,MatrixLagrangian_,CouplingAssump
 	Sizes=Map[Length,Values@(Values/@(CombinedSectors)),{2}];
 	TheSpins=Keys@CombinedSectors;
 
-SaturatedPropagator={SourceConstraints,Flatten[Values@SaturatedPropagator,{1,2}],Flatten[Values@BMatricesValues,{1,2}],Flatten[Values@InverseBMatricesValues,{1,2}],BlockMassSigns,Sizes,TheSpins,FieldsLeft,FieldsTop,SourcesLeft,SourcesTop};
+SaturatedPropagator={
+		SourceConstraints,
+		Flatten[Values@SaturatedPropagator,{1,2}],
+		Flatten[Values@BMatricesValues,{1,2}],
+		Flatten[Values@InverseBMatricesValues,{1,2}],
+		BlockMassSigns,
+		Sizes,
+		TheSpins,
+		FieldsLeft,
+		FieldsTop,
+		SourcesLeft,
+		SourcesTop};
 ];
