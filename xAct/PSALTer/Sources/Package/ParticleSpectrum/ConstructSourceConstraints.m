@@ -41,4 +41,5 @@ ConstructSourceConstraints[ClassName_?StringQ,CouplingAssumptions_,Rescalings_,R
 		],0,Infinity]/.Class@RescalingSolutions;
 	ValuesOfSourceConstraints=Numerator@Together[#/Sqrt[2^5*3^5*5^5*7^5]]&/@ValuesOfSourceConstraints;
 	Diagnostic@ValuesOfSourceConstraints;
+	LocalSourceConstraints=RaggedBlock[(((Simplify@(#==0))&)/@(ValuesOfSourceConstraints)),2];
 ];

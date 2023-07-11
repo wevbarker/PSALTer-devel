@@ -6,18 +6,7 @@ BuildPackage@"ParticleSpectrum/UpdateTheoryAssociation.m";
 BuildPackage@"ParticleSpectrum/WignerGrid.m";
 BuildPackage@"ParticleSpectrum/RaggedBlock.m";
 BuildPackage@"ParticleSpectrum/SummariseResults.m";
-BuildPackage@"ParticleSpectrum/MakeConstraintComponentList.m";
-BuildPackage@"ParticleSpectrum/ConstraintComponentToLightcone.m";
-BuildPackage@"ParticleSpectrum/AllIndependentComponents.m";
-BuildPackage@"ParticleSpectrum/RescaleNullVector.m";
-BuildPackage@"ParticleSpectrum/MakeFreeSourceVariables.m";
-BuildPackage@"ParticleSpectrum/MassiveAnalysisOfSector.m";
-BuildPackage@"ParticleSpectrum/MassiveGhost.m";
-BuildPackage@"ParticleSpectrum/ExpressInLightcone.m";
-BuildPackage@"ParticleSpectrum/NullResidue.m";
-BuildPackage@"ParticleSpectrum/MasslessAnalysisOfTotal.m";
 BuildPackage@"ParticleSpectrum/ParticleSpectrumSummary.m";
-BuildPackage@"ParticleSpectrum/Unitarity.m";
 BuildPackage@"ParticleSpectrum/PSALTerParallelSubmit.m";
 BuildPackage@"ParticleSpectrum/PrintSpectrum.m";
 
@@ -25,6 +14,9 @@ BuildPackage@"ParticleSpectrum/ConstructLinearAction.m";
 BuildPackage@"ParticleSpectrum/ConstructWaveOperator.m";
 BuildPackage@"ParticleSpectrum/ConstructSourceConstraints.m";
 BuildPackage@"ParticleSpectrum/ConstructSaturatedPropagator.m";
+BuildPackage@"ParticleSpectrum/ConstructMassiveAnalysis.m";
+BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis.m";
+BuildPackage@"ParticleSpectrum/ConstructUnitarityConditions.m";
 
 Options@ParticleSpectrum={
 	TensorFields->{},
@@ -34,22 +26,7 @@ Options@ParticleSpectrum={
 
 ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 	SummariseResultsOngoing,
-	TheTensors=OptionValue@TensorFields,
 	Couplings=OptionValue@CouplingConstants,
-	SaturatedPropagatorArray,
-	ConstraintComponentList,
-	SourceComponents,
-	UnscaledNullSpace,
-	LightconePropagator,
-	MassiveAnalysis,
-	SignedInverseBMatrices,
-	MassiveGhostAnalysis,
-	MasslessPropagatorResidue,
-	RescaledNullSpace,
-	SourceComponentsToFreeSourceVariables,
-	MasslessAnalysis,
-	MasslessEigenvaluesValues,
-	MasslessAnalysisValue,
 	PositiveSystem,
 	PositiveSystemValue,
 	Class
@@ -80,6 +57,8 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	ConstructLinearAction[
 				ClassName,
 				Expr];
+
+
 	ConstructWaveOperator[
 				ClassName,
 				Expr,
@@ -94,6 +73,8 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 				MomentumSpaceLagrangian,
 				DecomposeFieldsdLagrangian,
 				ExportTheory->OptionValue@ExportTheory];
+
+
 	ConstructSourceConstraints[
 				ClassName,
 				CouplingAssumptions,
@@ -106,6 +87,8 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 				SourceConstraints,
 				ValuesOfSourceConstraints,
 				ExportTheory->OptionValue@ExportTheory];
+
+
 	ConstructSaturatedPropagator[
 				ClassName,
 				MatrixLagrangian,
@@ -120,108 +103,47 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 				InverseBMatrices,
 				ValuesInverseBMatricesValues,
 				ExportTheory->OptionValue@ExportTheory];
-	(*ConstructParticleSpectrum[];*)
-	(*ConstructUnitarityConditions[];*)
 
-	LocalSourceConstraints=RaggedBlock[(((Simplify@(#==0))&)/@(ValuesOfSourceConstraints)),2];
 
-	(*======================*)
-	(*  Source constraints  *)
-	(*======================*)
+	ConstructMassiveAnalysis[
+				Couplings,
+				ValuesSaturatedPropagator,
+				ValuesInverseBMatricesValues,
+				BlockMassSigns];
+	UpdateTheoryAssociation[
+				TheoryName,
+				SquareMasses,
+				MassiveAnalysis,
+				ExportTheory->OptionValue@ExportTheory];
 
-	ConstraintComponentList=MakeConstraintComponentList[ClassName,ValuesOfSourceConstraints];
-	Diagnostic@ConstraintComponentList;
-	ConstraintComponentList=xAct`xCoba`SeparateBasis[AIndex][#]&/@ConstraintComponentList;
-	Diagnostic@ConstraintComponentList;
 
-	ConstraintComponentList=(xAct`PSALTer`Private`PSALTerParallelSubmit@(ConstraintComponentToLightcone[ClassName,#]))&/@ConstraintComponentList;
-	ConstraintComponentList=WaitAll@ConstraintComponentList;
-	Diagnostic@ConstraintComponentList;
+	ConstructMasslessAnalysis[
+				ClassName,
+				ValuesOfSourceConstraints,
+				ValuesSaturatedPropagator];
+	UpdateTheoryAssociation[
+				TheoryName,
+				MasslessEigenvalues,
+				MasslessAnalysisValue,
+				ExportTheory->OptionValue@ExportTheory];
+	UpdateTheoryAssociation[
+				TheoryName,
+				SourceConstraintComponents,
+				ConstraintComponentList,
+				ExportTheory->OptionValue@ExportTheory];
 
-	ConstraintComponentList=DeleteCases[ConstraintComponentList,True];
-	Diagnostic@ConstraintComponentList;
-	UpdateTheoryAssociation[TheoryName,SourceConstraintComponents,ConstraintComponentList,ExportTheory->OptionValue@ExportTheory];
 
-	SourceComponents=AllIndependentComponents[ClassName];
-	Diagnostic@SourceComponents;
+	ConstructUnitarityConditions[
+				MassiveAnalysis,
+				MassiveGhostAnalysis,
+				MasslessAnalysisValue,
+				Couplings];
+	UpdateTheoryAssociation[
+				TheoryName,
+				PositiveSystem,
+				PositiveSystemValue,
+				ExportTheory->OptionValue@ExportTheory];
 
-	If[ConstraintComponentList==={},	
-		UnscaledNullSpace=IdentityMatrix@Length@SourceComponents,
-		UnscaledNullSpace=NullSpace@Last@(ConstraintComponentList~CoefficientArrays~SourceComponents);
-	];
-	Diagnostic@UnscaledNullSpace;
-
-	RescaledNullSpace=RescaleNullVector[ClassName,SourceComponents,#]&/@UnscaledNullSpace;
-	Diagnostic@RescaledNullSpace;
-
-	SourceComponentsToFreeSourceVariables=MakeFreeSourceVariables[RescaledNullSpace,SourceComponents];
-	Diagnostic@SourceComponentsToFreeSourceVariables;
-
-	(*====================*)
-	(*  Massive analysis  *)
-	(*====================*)
-
-	MassiveAnalysis=MapThread[
-		(xAct`PSALTer`Private`PSALTerParallelSubmit@(MassiveAnalysisOfSector[#1,#2]))&,
-		{(ValuesSaturatedPropagator),
-		Couplings~ConstantArray~(Length@(ValuesSaturatedPropagator))}];
-	MassiveAnalysis=WaitAll@MassiveAnalysis;
-
-	SignedInverseBMatrices=Times~MapThread~{(ValuesInverseBMatricesValues),(BlockMassSigns)};
-
-	MassiveGhostAnalysis=MapThread[
-		(xAct`PSALTer`Private`PSALTerParallelSubmit@(MassiveGhost[#1,#2]))&,
-		{SignedInverseBMatrices,
-		MassiveAnalysis}];
-	MassiveGhostAnalysis=WaitAll@MassiveGhostAnalysis;
-
-	UpdateTheoryAssociation[TheoryName,SquareMasses,MassiveAnalysis,ExportTheory->OptionValue@ExportTheory];
-
-	(*=============*)
-	(*  Lightcone  *)
-	(*=============*)
-
-	SaturatedPropagatorArray=(If[Head@#===Plus,List@@#,List@#])&/@(ValuesSaturatedPropagator);
-	Diagnostic@SaturatedPropagatorArray;
-
-	SaturatedPropagatorArray//=(#~PadRight~{Length@#,First@((Length/@#)~TakeLargest~1)})&;
-	Diagnostic@SaturatedPropagatorArray;
-
-	LightconePropagator=MapThread[
-		(xAct`PSALTer`Private`PSALTerParallelSubmit@(ExpressInLightcone[ClassName,#1,#2]))&,
-		{SaturatedPropagatorArray,
-		Map[((SourceComponentsToFreeSourceVariables)&),SaturatedPropagatorArray,{2}]},2];
-	LightconePropagator=WaitAll@LightconePropagator;
-	Diagnostic@LightconePropagator;
-
-	(*=====================*)
-	(*  Massless analysis  *)
-	(*=====================*)
-
-	MasslessPropagatorResidue=Map[(xAct`PSALTer`Private`PSALTerParallelSubmit@(NullResidue@#))&,LightconePropagator,{2}];
-	MasslessPropagatorResidue=WaitAll@MasslessPropagatorResidue;
-	Diagnostic@MasslessPropagatorResidue;
-
-	MasslessAnalysis=MasslessAnalysisOfTotal[MasslessPropagatorResidue,UnscaledNullSpace];
-	Diagnostic@MasslessAnalysis;
-	MasslessAnalysisValue=MasslessAnalysis[[2]];
-
-	UpdateTheoryAssociation[TheoryName,MasslessEigenvalues,MasslessAnalysisValue,ExportTheory->OptionValue@ExportTheory];
-
-	(*================================*)
-	(*  Summary of particle spectrum  *)
-	(*================================*)
-
-	LocalSpectrum=PrintSpectrum[MassiveAnalysis,MassiveGhostAnalysis,MasslessAnalysisValue];
-
-	(*=============*)
-	(*  Unitarity  *)
-	(*=============*)
-
-	LocalOverallUnitarity=Unitarity[
-		MassiveAnalysis,MassiveGhostAnalysis,MasslessAnalysisValue,Couplings];
-
-	UpdateTheoryAssociation[TheoryName,PositiveSystem,PositiveSystemValue,ExportTheory->OptionValue@ExportTheory];
 
 	FinishDynamic[];
 	NotebookDelete@SummariseResultsOngoing;

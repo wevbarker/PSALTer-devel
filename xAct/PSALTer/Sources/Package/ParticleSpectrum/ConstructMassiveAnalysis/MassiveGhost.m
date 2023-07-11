@@ -7,6 +7,8 @@ MassiveGhost[InverseBMatrix_,SquareMassesValues_]:=Module[{
 	SquareDef,
 	TraceResidue},
 
+	LocalSpectrum=" ** MassiveGhost...";
+
 	If[!(Length@SquareMassesValues===0),
 		InverseBMatrixTrace=Tr@InverseBMatrix;
 		InverseBMatrixTrace//=Simplify;

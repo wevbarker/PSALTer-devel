@@ -2,7 +2,7 @@
 (*  AllIndependentComponents  *)
 (*============================*)
 
-BuildPackage@"ParticleSpectrum/IndependentComponents.m";
+BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConstructLightcone/IndependentComponents.m";
 
 AllIndependentComponents[ClassName_?StringQ]:=Module[{
 	Class,

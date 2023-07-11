@@ -1,11 +1,13 @@
-(*=============*)
-(*  Unitarity  *)
-(*=============*)
+(*================================*)
+(*  ConstructUnitarityConditions  *)
+(*================================*)
 
-Unitarity[MassiveAnalysis_,MassiveGhostAnalysis_,MasslessAnalysisValue_,Couplings_]:=Module[{
+ConstructUnitarityConditions[MassiveAnalysis_,MassiveGhostAnalysis_,MasslessAnalysisValue_,Couplings_]:=Module[{
 	PositiveSystem=Join[MassiveAnalysis,MassiveGhostAnalysis,MasslessAnalysisValue],
 	CouplingAssumptions
 	},
+
+	LocalOverallUnitarity=" ** ConstructUnitarityConditions...";
 	
 	CouplingAssumptions=(#~Element~Reals)&/@Couplings;
 	Diagnostic@CouplingAssumptions;
@@ -20,4 +22,6 @@ Unitarity[MassiveAnalysis_,MassiveGhostAnalysis_,MasslessAnalysisValue_,Coupling
 	(*Quiet wrapper used since there are some PrintAs warnings*)
 	PositiveSystem//=Quiet@Assuming[CouplingAssumptions,Reduce[#,Couplings]]&;
 	Diagnostic@PositiveSystem;
-PositiveSystem];
+	LocalOverallUnitarity=PositiveSystem;
+	PositiveSystemValue=PositiveSystem;
+];
