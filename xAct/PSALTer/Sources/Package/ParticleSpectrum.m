@@ -120,14 +120,17 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 				SourcesTop,
 				Couplings,
 				Method->OptionValue@Method];
+	UpdateTheoryAssociation[
+				TheoryName,
+				InverseBMatrices,
+				ValuesInverseBMatricesValues,
+				ExportTheory->OptionValue@ExportTheory];
 	(*ConstructParticleSpectrum[];*)
 	(*ConstructUnitarityConditions[];*)
 
-	UpdateTheoryAssociation[TheoryName,InverseBMatrices,ValuesInverseBMatricesValues,ExportTheory->OptionValue@ExportTheory];
-
-	LocalWaveOperator=WignerGrid[((Plus@@#)&/@Partition[ValuesAllMatrices,2]),SaturatedPropagator[[6]],SaturatedPropagator[[7]],SaturatedPropagator[[8]],SaturatedPropagator[[9]]];
+	LocalWaveOperator=WignerGrid[((Plus@@#)&/@Partition[ValuesAllMatrices,2]),Sizes,SaturatedPropagator[[7]],SaturatedPropagator[[8]],SaturatedPropagator[[9]]];
 	LocalSourceConstraints=RaggedBlock[(((Simplify@(#==0))&)/@(ValuesOfSourceConstraints)),2];
-	LocalPropagator=WignerGrid[((Plus@@#)&/@Partition[ValuesInverseBMatricesValues,2]),SaturatedPropagator[[6]],SaturatedPropagator[[7]],SaturatedPropagator[[10]],SaturatedPropagator[[11]]];
+	LocalPropagator=WignerGrid[((Plus@@#)&/@Partition[ValuesInverseBMatricesValues,2]),Sizes,SaturatedPropagator[[7]],SaturatedPropagator[[10]],SaturatedPropagator[[11]]];
 
 	(*======================*)
 	(*  Source constraints  *)
@@ -171,7 +174,7 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 		Couplings~ConstantArray~(Length@(ValuesSaturatedPropagator))}];
 	MassiveAnalysis=WaitAll@MassiveAnalysis;
 
-	SignedInverseBMatrices=Times~MapThread~{(ValuesInverseBMatricesValues),(SaturatedPropagator[[5]])};
+	SignedInverseBMatrices=Times~MapThread~{(ValuesInverseBMatricesValues),(BlockMassSigns)};
 
 	MassiveGhostAnalysis=MapThread[
 		(xAct`PSALTer`Private`PSALTerParallelSubmit@(MassiveGhost[#1,#2]))&,

@@ -23,8 +23,6 @@ ConstructSaturatedPropagator[ClassName_?StringQ,MatrixLagrangian_,CouplingAssump
 	ManualMatrixPropagator,
 	AutomaticMatrixPropagator,
 	InverseBMatricesValues,
-	BlockMassSigns,
-	Sizes,
 	TheSpins,
 	CombinedSectors,
 	Class},

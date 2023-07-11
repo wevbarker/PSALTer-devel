@@ -18,8 +18,6 @@ ConstructOperator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 	NullSpaces,
 	MatrixPropagator,
 	InverseBMatricesValues,
-	BlockMassSigns,
-	Sizes,
 	TheSpins,
 	CombinedSectors},
 

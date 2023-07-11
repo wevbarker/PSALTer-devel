@@ -19,8 +19,6 @@ ConstructSourceConstraints[ClassName_?StringQ,CouplingAssumptions_,Rescalings_,R
 	RealParts,
 	NullSpaces,
 	MatrixPropagator,
-	BlockMassSigns,
-	Sizes,
 	TheSpins,
 	CombinedSectors,
 	Class},
