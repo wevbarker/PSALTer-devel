@@ -101,8 +101,7 @@ ConstructSaturatedPropagator[ClassName_?StringQ,MatrixLagrangian_,CouplingAssump
 
 	Diagnostic@(Flatten[Values@SaturatedPropagator,{1,2}]);
 	Diagnostic@(First/@Flatten[Values@SaturatedPropagator,{1,2}]);
-	Diagnostic@(Flatten[Values@BMatricesValues,{1,2}]);
-	Diagnostic@(First/@Flatten[Values@BMatricesValues,{1,2}]);
+	Diagnostic@(ValuesAllMatrices);
 
 	BlockMassSigns=Table[-(-1)^n,{n,1,2*Length@SaturatedPropagator}];
 	Diagnostic@BlockMassSigns;
@@ -114,7 +113,7 @@ ConstructSaturatedPropagator[ClassName_?StringQ,MatrixLagrangian_,CouplingAssump
 SaturatedPropagator={
 		ValuesOfSourceConstraints,
 		Flatten[Values@SaturatedPropagator,{1,2}],
-		Flatten[Values@BMatricesValues,{1,2}],
+		ValuesAllMatrices,
 		Flatten[Values@InverseBMatricesValues,{1,2}],
 		BlockMassSigns,
 		Sizes,

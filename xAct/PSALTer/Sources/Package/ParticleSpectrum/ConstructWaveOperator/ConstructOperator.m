@@ -138,6 +138,6 @@ ConstructOperator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 			BMatricesValues}];
 	Diagnostic@(BMatricesValues);
 	Diagnostic@(Flatten[Values@BMatricesValues,{1,2}]);
-	AllMatrices=Flatten[Values@BMatricesValues,{1,2}];
-	DumpSave[FileNameJoin@{NotebookDirectory[],"AllMatrices.mx"},AllMatrices];
+	ValuesAllMatrices=Flatten[Values@BMatricesValues,{1,2}];
+	DumpSave[FileNameJoin@{NotebookDirectory[],"ValuesAllMatrices.mx"},ValuesAllMatrices];
 ];
