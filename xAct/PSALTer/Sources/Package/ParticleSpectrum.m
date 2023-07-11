@@ -113,11 +113,6 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 				BMatricesValues,
 				RaisedIndexSources,
 				LoweredIndexSources,
-				FieldSpinParityTensorHeadsValue,
-				FieldsLeft,
-				FieldsTop,
-				SourcesLeft,
-				SourcesTop,
 				Couplings,
 				Method->OptionValue@Method];
 	UpdateTheoryAssociation[
@@ -128,9 +123,7 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	(*ConstructParticleSpectrum[];*)
 	(*ConstructUnitarityConditions[];*)
 
-	LocalWaveOperator=WignerGrid[((Plus@@#)&/@Partition[ValuesAllMatrices,2]),Sizes,SaturatedPropagator[[7]],SaturatedPropagator[[8]],SaturatedPropagator[[9]]];
 	LocalSourceConstraints=RaggedBlock[(((Simplify@(#==0))&)/@(ValuesOfSourceConstraints)),2];
-	LocalPropagator=WignerGrid[((Plus@@#)&/@Partition[ValuesInverseBMatricesValues,2]),Sizes,SaturatedPropagator[[7]],SaturatedPropagator[[10]],SaturatedPropagator[[11]]];
 
 	(*======================*)
 	(*  Source constraints  *)

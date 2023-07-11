@@ -18,7 +18,6 @@ ConstructOperator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 	NullSpaces,
 	MatrixPropagator,
 	InverseBMatricesValues,
-	TheSpins,
 	CombinedSectors},
 
 	LocalWaveOperator=" ** ConstructOperator...";
@@ -138,4 +137,10 @@ ConstructOperator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 	Diagnostic@(Flatten[Values@BMatricesValues,{1,2}]);
 	ValuesAllMatrices=Flatten[Values@BMatricesValues,{1,2}];
 	DumpSave[FileNameJoin@{NotebookDirectory[],"ValuesAllMatrices.mx"},ValuesAllMatrices];
+
+	CombinedSectors=Map[Flatten,Merge[#,Identity]&/@Merge[Values@FieldSpinParityTensorHeadsValue,Identity],{2}];
+	Sizes=Map[Length,Values@(Values/@(CombinedSectors)),{2}];
+	TheSpins=Keys@CombinedSectors;
+
+	LocalWaveOperator=WignerGrid[((Plus@@#)&/@Partition[ValuesAllMatrices,2]),Sizes,TheSpins,FieldsLeft,FieldsTop];
 ];

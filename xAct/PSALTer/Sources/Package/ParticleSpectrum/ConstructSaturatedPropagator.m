@@ -8,7 +8,7 @@ BuildPackage@"ParticleSpectrum/ConstructSaturatedPropagator/CompareManualAutomat
 Options@ConstructSaturatedPropagator={
 	Method->"Careful"};
 
-ConstructSaturatedPropagator[ClassName_?StringQ,MatrixLagrangian_,CouplingAssumptions_,BMatricesValues_,RaisedIndexSources_,LoweredIndexSources_,FieldSpinParityTensorHeadsValue_,FieldsLeft_,FieldsTop_,SourcesLeft_,SourcesTop_,Couplings_,OptionsPattern[]]:=Module[{
+ConstructSaturatedPropagator[ClassName_?StringQ,MatrixLagrangian_,CouplingAssumptions_,BMatricesValues_,RaisedIndexSources_,LoweredIndexSources_,Couplings_,OptionsPattern[]]:=Module[{
 	SourceSpinParityTensorHeadsValue,
 	SymbolicLagrangian,
 	Symbols,
@@ -23,8 +23,6 @@ ConstructSaturatedPropagator[ClassName_?StringQ,MatrixLagrangian_,CouplingAssump
 	ManualMatrixPropagator,
 	AutomaticMatrixPropagator,
 	InverseBMatricesValues,
-	TheSpins,
-	CombinedSectors,
 	Class},
 
 	LocalSaturatedPropagator=" ** ConstructSaturatedPropagator...";
@@ -104,12 +102,11 @@ ConstructSaturatedPropagator[ClassName_?StringQ,MatrixLagrangian_,CouplingAssump
 	BlockMassSigns=Table[-(-1)^n,{n,1,2*Length@SaturatedPropagator}];
 	Diagnostic@BlockMassSigns;
 
-	CombinedSectors=Map[Flatten,Merge[#,Identity]&/@Merge[Values@FieldSpinParityTensorHeadsValue,Identity],{2}];
-	Sizes=Map[Length,Values@(Values/@(CombinedSectors)),{2}];
-	TheSpins=Keys@CombinedSectors;
 	ValuesSaturatedPropagator=Flatten[Values@SaturatedPropagator,{1,2}];
 	ValuesInverseBMatricesValues=Flatten[Values@InverseBMatricesValues,{1,2}];
 
+	LocalPropagator=WignerGrid[((Plus@@#)&/@Partition[ValuesInverseBMatricesValues,2]),Sizes,TheSpins,SourcesLeft,SourcesTop];
+(*
 SaturatedPropagator={
 		ValuesOfSourceConstraints,
 		ValuesSaturatedPropagator,
@@ -122,4 +119,5 @@ SaturatedPropagator={
 		FieldsTop,
 		SourcesLeft,
 		SourcesTop};
+*)
 ];

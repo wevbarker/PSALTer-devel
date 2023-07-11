@@ -19,8 +19,6 @@ ConstructSourceConstraints[ClassName_?StringQ,CouplingAssumptions_,Rescalings_,R
 	RealParts,
 	NullSpaces,
 	MatrixPropagator,
-	TheSpins,
-	CombinedSectors,
 	Class},
 
 	LocalSourceConstraints=" ** ConstructSourceConstraints...";
