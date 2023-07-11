@@ -123,11 +123,11 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	(*ConstructParticleSpectrum[];*)
 	(*ConstructUnitarityConditions[];*)
 
-	UpdateTheoryAssociation[TheoryName,InverseBMatrices,SaturatedPropagator[[4]],ExportTheory->OptionValue@ExportTheory];
+	UpdateTheoryAssociation[TheoryName,InverseBMatrices,ValuesInverseBMatricesValues,ExportTheory->OptionValue@ExportTheory];
 
 	LocalWaveOperator=WignerGrid[((Plus@@#)&/@Partition[ValuesAllMatrices,2]),SaturatedPropagator[[6]],SaturatedPropagator[[7]],SaturatedPropagator[[8]],SaturatedPropagator[[9]]];
 	LocalSourceConstraints=RaggedBlock[(((Simplify@(#==0))&)/@(ValuesOfSourceConstraints)),2];
-	LocalPropagator=WignerGrid[((Plus@@#)&/@Partition[SaturatedPropagator[[4]],2]),SaturatedPropagator[[6]],SaturatedPropagator[[7]],SaturatedPropagator[[10]],SaturatedPropagator[[11]]];
+	LocalPropagator=WignerGrid[((Plus@@#)&/@Partition[ValuesInverseBMatricesValues,2]),SaturatedPropagator[[6]],SaturatedPropagator[[7]],SaturatedPropagator[[10]],SaturatedPropagator[[11]]];
 
 	(*======================*)
 	(*  Source constraints  *)
@@ -167,11 +167,11 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 
 	MassiveAnalysis=MapThread[
 		(xAct`PSALTer`Private`PSALTerParallelSubmit@(MassiveAnalysisOfSector[#1,#2]))&,
-		{(SaturatedPropagator[[2]]),
-		Couplings~ConstantArray~(Length@(SaturatedPropagator[[2]]))}];
+		{(ValuesSaturatedPropagator),
+		Couplings~ConstantArray~(Length@(ValuesSaturatedPropagator))}];
 	MassiveAnalysis=WaitAll@MassiveAnalysis;
 
-	SignedInverseBMatrices=Times~MapThread~{(SaturatedPropagator[[4]]),(SaturatedPropagator[[5]])};
+	SignedInverseBMatrices=Times~MapThread~{(ValuesInverseBMatricesValues),(SaturatedPropagator[[5]])};
 
 	MassiveGhostAnalysis=MapThread[
 		(xAct`PSALTer`Private`PSALTerParallelSubmit@(MassiveGhost[#1,#2]))&,
@@ -185,7 +185,7 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 	(*  Lightcone  *)
 	(*=============*)
 
-	SaturatedPropagatorArray=(If[Head@#===Plus,List@@#,List@#])&/@(SaturatedPropagator[[2]]);
+	SaturatedPropagatorArray=(If[Head@#===Plus,List@@#,List@#])&/@(ValuesSaturatedPropagator);
 	Diagnostic@SaturatedPropagatorArray;
 
 	SaturatedPropagatorArray//=(#~PadRight~{Length@#,First@((Length/@#)~TakeLargest~1)})&;

@@ -109,12 +109,14 @@ ConstructSaturatedPropagator[ClassName_?StringQ,MatrixLagrangian_,CouplingAssump
 	CombinedSectors=Map[Flatten,Merge[#,Identity]&/@Merge[Values@FieldSpinParityTensorHeadsValue,Identity],{2}];
 	Sizes=Map[Length,Values@(Values/@(CombinedSectors)),{2}];
 	TheSpins=Keys@CombinedSectors;
+	ValuesSaturatedPropagator=Flatten[Values@SaturatedPropagator,{1,2}];
+	ValuesInverseBMatricesValues=Flatten[Values@InverseBMatricesValues,{1,2}];
 
 SaturatedPropagator={
 		ValuesOfSourceConstraints,
-		Flatten[Values@SaturatedPropagator,{1,2}],
+		ValuesSaturatedPropagator,
 		ValuesAllMatrices,
-		Flatten[Values@InverseBMatricesValues,{1,2}],
+		ValuesInverseBMatricesValues,
 		BlockMassSigns,
 		Sizes,
 		TheSpins,
