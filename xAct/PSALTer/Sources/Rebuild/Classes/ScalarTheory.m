@@ -11,8 +11,8 @@ BeginPackage["xAct`PSALTer`ScalarTheory`",{"xAct`xTensor`","xAct`xPerm`","xAct`x
 xAct`PSALTer`ScalarTheory`Private`PhiSymb="\[CurlyPhi]";
 DefTensor[Phi[],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`ScalarTheory`Private`PhiSymb],Dagger->Complex];
 
-xAct`PSALTer`ScalarTheory`Private`RhoSymb="\[Rho]";
-DefTensor[Rho[],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`ScalarTheory`Private`RhoSymb],Dagger->Complex];
+xAct`PSALTer`ScalarTheory`Private`ConjugateSourcePhiSymb="\[Rho]";
+DefTensor[ConjugateSourcePhi[],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`ScalarTheory`Private`ConjugateSourcePhiSymb],Dagger->Complex];
 
 (*==============*)
 (*  Projectors  *)
@@ -36,9 +36,9 @@ DefTensor[Rho[],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`Scalar
 (*  Tensor definitions  *)
 (*======================*)
 
-DefTensor[Phi0p[],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`ScalarTheory`Private`PhiSymb,xAct`PSALTer`Private`Spin0p],Dagger->Complex];
-
-DefTensor[Rho0p[],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`ScalarTheory`Private`RhoSymb,xAct`PSALTer`Private`Spin0p],Dagger->Complex];
+DefSpinParityMode[Phi0p[],Spin->0,Parity->Even,
+	FieldSymbol->xAct`PSALTer`ScalarTheory`Private`PhiSymb,
+	SourceSymbol->xAct`PSALTer`ScalarTheory`Private`ConjugateSourcePhiSymb];
 
 (*==============*)
 (*  Expansions  *)
@@ -48,9 +48,9 @@ xAct`PSALTer`ScalarTheory`Private`PhiSpinParityToPhi=Join[
 	MakeRule[{Phi0p[],Phi[]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{Evaluate@Dagger@Phi0p[],Evaluate@Dagger[Phi[]]},MetricOn->All,ContractMetrics->True]];
 
-xAct`PSALTer`ScalarTheory`Private`RhoSpinParityToRho=Join[
-	MakeRule[{Rho0p[],Rho[]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@Rho0p[],Evaluate@Dagger[Rho[]]},MetricOn->All,ContractMetrics->True]];
+xAct`PSALTer`ScalarTheory`Private`ConjugateSourcePhiSpinParityToConjugateSourcePhi=Join[
+	MakeRule[{ConjugateSourcePhi0p[],ConjugateSourcePhi[]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@ConjugateSourcePhi0p[],Evaluate@Dagger[ConjugateSourcePhi[]]},MetricOn->All,ContractMetrics->True]];
 
 (*==================*)
 (*  Decompositions  *)
@@ -60,18 +60,21 @@ xAct`PSALTer`ScalarTheory`Private`PhiToPhiSpinParity=Join[
 	MakeRule[{Phi[],Phi0p[]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{Evaluate@Dagger@Phi[],Evaluate@Dagger[Phi0p[]]},MetricOn->All,ContractMetrics->True]];
 
-xAct`PSALTer`ScalarTheory`Private`RhoToRhoSpinParity=Join[
-	MakeRule[{Rho[],Rho0p[]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@Rho[],Evaluate@Dagger[Rho0p[]]},MetricOn->All,ContractMetrics->True]];
+xAct`PSALTer`ScalarTheory`Private`ConjugateSourcePhiToConjugateSourcePhiSpinParity=Join[
+	MakeRule[{ConjugateSourcePhi[],ConjugateSourcePhi0p[]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@ConjugateSourcePhi[],Evaluate@Dagger[ConjugateSourcePhi0p[]]},MetricOn->All,ContractMetrics->True]];
 
 (*==========================================================*)
 (*  Basic definitions of the Lagrangian coupling constants  *)
 (*==========================================================*)
 
 xAct`PSALTer`ScalarTheory`Private`CouplingSymb="\[Alpha]";
-DefConstantSymbol[Coupling1,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`ScalarTheory`Private`CouplingSymb,xAct`PSALTer`Private`dSO1,xAct`PSALTer`Private`IsConstantSymbol->True]];
-DefConstantSymbol[Coupling2,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`ScalarTheory`Private`CouplingSymb,xAct`PSALTer`Private`dSO2,xAct`PSALTer`Private`IsConstantSymbol->True]];
-DefConstantSymbol[Coupling3,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`ScalarTheory`Private`CouplingSymb,xAct`PSALTer`Private`dSO3,xAct`PSALTer`Private`IsConstantSymbol->True]];
+DefLagrangianCoupling[Coupling1,
+	CouplingSymbol->xAct`PSALTer`ScalarTheory`Private`CouplingSymb,CouplingIndex->1];
+DefLagrangianCoupling[Coupling2,
+	CouplingSymbol->xAct`PSALTer`ScalarTheory`Private`CouplingSymb,CouplingIndex->2];
+DefLagrangianCoupling[Coupling3,
+	CouplingSymbol->xAct`PSALTer`ScalarTheory`Private`CouplingSymb,CouplingIndex->3];
 
 (*================================================*)
 (*  Some infrastructure for linearising theories  *)
@@ -90,13 +93,13 @@ FieldSpinParityTensorHeads=<|
 |>;
 
 SourceSpinParityTensorHeads=<|
-		Rho-><|
-			0-><|Even->{Rho0p},Odd->{}|>
+		ConjugateSourcePhi-><|
+			0-><|Even->{ConjugateSourcePhi0p},Odd->{}|>
 		|>
 |>;
 
 SourceEngineeringDimensions=<|
-		Rho->0
+		ConjugateSourcePhi->0
 |>;
 
 ExpandFields[InputExpr_]:=Module[{Expr=InputExpr},
@@ -106,7 +109,7 @@ ExpandFields[InputExpr_]:=Module[{Expr=InputExpr},
 Expr];
 
 ExpandSources[InputExpr_]:=Module[{Expr=InputExpr},
-	Expr=Expr/.xAct`PSALTer`ScalarTheory`Private`RhoSpinParityToRho;
+	Expr=Expr/.xAct`PSALTer`ScalarTheory`Private`ConjugateSourcePhiSpinParityToConjugateSourcePhi;
 	Expr//=xAct`PSALTer`Private`ToNewCanonical;
 Expr];
 

@@ -13,8 +13,8 @@ ToOrder = Join[ToOrderA, ToOrderF];
 
 LineariseLagrangian[NonlinearLagrangian_]:=Module[{LinearLagrangian=NonlinearLagrangian},	
 	LinearLagrangian*=(1-F[z,-z]);
-	LinearLagrangian=LinearLagrangian/.xAct`PSALTer`PoincareGaugeTheory`Private`RTToHBACDBCDA;
-	LinearLagrangian=LinearLagrangian/.xAct`PSALTer`PoincareGaugeTheory`Private`HBToGF;
+	LinearLagrangian=LinearLagrangian/.RTToHBFieldACDBFieldCDA;
+	LinearLagrangian=LinearLagrangian/.HBFieldToGF;
 	LinearLagrangian=LinearLagrangian/.ToOrder;
 	LinearLagrangian//=Series[#,{PerturbativeParameter,0,2}]&;
 	LinearLagrangian//=Normal;

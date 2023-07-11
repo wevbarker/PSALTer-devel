@@ -1,7 +1,8 @@
 (*========*)
 (*  Test  *)
 (*========*)
-(*
+
+(**)
 <<xAct`PSALTer`;
 
 Get@FileNameJoin@{NotebookDirectory[],"AllMatrices.mx"};
@@ -26,7 +27,7 @@ ExportMatrixToMaple[Expr,"var3"];
 ExportMatrixToMaple[Expr,"var2"];
 
 Quit[];
-*)
+	(**)
 
 WignerGrid[AllMatrices_,Sizes_,Spins_,Sides_,Tops_]:=Module[{
 SpinParities,

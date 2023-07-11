@@ -22,3 +22,20 @@ DefConstantSymbol[
 		<>ColorString[ToString@#,RGBColor[1.,0.,1.]]<>"\)]\)",
 	Dagger->Complex
 ]&/@Table[i,{i,100}];
+
+DefConstantSymbol[
+	Symbol["l"<>ToString@#],
+	PrintAs->"\!\(\*SubscriptBox[\(\[ScriptL]\), \("
+		<>ColorString[ToString@#,RGBColor[1.,0.,1.]]<>"\)]\)",
+	Dagger->Complex
+]&/@Table[i,{i,100}];
+
+Table[DefConstantSymbol[
+	Quiet@Symbol["r"<>ToString@i<>ToString@j],
+	PrintAs->"\!\(\*SubscriptBox[\(\[ScriptR]\), \("<>ColorString[ToString@i<>ToString@j,RGBColor[1.,0.,1.]]<>"\)]\)",
+	Dagger->Complex],{i,20},{j,20}];
+
+Table[DefConstantSymbol[
+	Quiet@Symbol["i"<>ToString@i<>ToString@j],
+	PrintAs->"\!\(\*SubscriptBox[\(\[ScriptI]\), \("<>ColorString[ToString@i<>ToString@j,RGBColor[1.,0.,1.]]<>"\)]\)",
+	Dagger->Complex],{i,20},{j,20}];

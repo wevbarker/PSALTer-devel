@@ -45,10 +45,15 @@ xAct`PSALTer`TensorTheory`Private`ProjPerpParaToVG=Join[
 
 xAct`PSALTer`TensorTheory`Private`LinearMetricPerpSymb="\!\(\*SuperscriptBox[\(\[ScriptH]\),\(\[UpTee]\)]\)";
 DefTensor[LinearMetricPerp0p[],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`TensorTheory`Private`LinearMetricPerpSymb,xAct`PSALTer`Private`Spin0p],Dagger->Complex];
+
 DefTensor[LinearMetricPerp1m[-a],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`TensorTheory`Private`LinearMetricPerpSymb,xAct`PSALTer`Private`Spin1m],OrthogonalTo->{V[a]},Dagger->Complex];
+
 xAct`PSALTer`TensorTheory`Private`LinearMetricParaSymb="\!\(\*SuperscriptBox[\(\[ScriptH]\),\(\[DoubleVerticalBar]\)]\)";
+
 DefTensor[LinearMetricPara0p[],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`TensorTheory`Private`LinearMetricParaSymb,xAct`PSALTer`Private`Spin0p],Dagger->Complex];
+
 DefTensor[LinearMetricPara2p[-a,-b],M4,Symmetric[{-a,-b}],PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`TensorTheory`Private`LinearMetricParaSymb,xAct`PSALTer`Private`Spin2p],OrthogonalTo->{V[a],V[b]},Dagger->Complex];
+
 
 AutomaticRules[LinearMetricPara2p,MakeRule[{Evaluate@Dagger@LinearMetricPara2p[a,-a],0},MetricOn->All,ContractMetrics->True]];
 AutomaticRules[LinearMetricPara2p,MakeRule[{LinearMetricPara2p[a,-a],0},MetricOn->All,ContractMetrics->True]];
@@ -152,9 +157,12 @@ xAct`PSALTer`TensorTheory`Private`StressEnergyToStressEnergySpinParity=Join[
 (*==========================================================*)
 
 xAct`PSALTer`TensorTheory`Private`CouplingSymb="\[Alpha]";
-DefConstantSymbol[Coupling1,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`TensorTheory`Private`CouplingSymb,xAct`PSALTer`Private`dSO1,xAct`PSALTer`Private`IsConstantSymbol->True]];
-DefConstantSymbol[Coupling2,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`TensorTheory`Private`CouplingSymb,xAct`PSALTer`Private`dSO2,xAct`PSALTer`Private`IsConstantSymbol->True]];
-DefConstantSymbol[Coupling3,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`TensorTheory`Private`CouplingSymb,xAct`PSALTer`Private`dSO3,xAct`PSALTer`Private`IsConstantSymbol->True]];
+DefLagrangianCoupling[Coupling1,
+	CouplingSymbol->xAct`PSALTer`TensorTheory`Private`CouplingSymb,CouplingIndex->1];
+DefLagrangianCoupling[Coupling2,
+	CouplingSymbol->xAct`PSALTer`TensorTheory`Private`CouplingSymb,CouplingIndex->2];
+DefLagrangianCoupling[Coupling3,
+	CouplingSymbol->xAct`PSALTer`TensorTheory`Private`CouplingSymb,CouplingIndex->3];
 
 (*================================================*)
 (*  Some infrastructure for linearising theories  *)

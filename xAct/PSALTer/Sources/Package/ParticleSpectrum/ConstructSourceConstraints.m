@@ -4,7 +4,10 @@
 
 BuildPackage@"ParticleSpectrum/ConstructSourceConstraints/NonTrivialDot.m";
 
-ConstructSourceConstraints[ClassName_?StringQ,CouplingAssumptions_,Rescalings_,RaisedIndexSources_,MatrixLagrangian_]:=Module[{
+Options@ConstructSourceConstraints={
+	Method->"Careful"};
+
+ConstructSourceConstraints[ClassName_?StringQ,CouplingAssumptions_,Rescalings_,RaisedIndexSources_,MatrixLagrangian_,OptionsPattern[]]:=Module[{
 	SourceSpinParityTensorHeadsValue,
 	SymbolicLagrangian,
 	Symbols,

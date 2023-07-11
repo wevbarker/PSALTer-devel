@@ -1,0 +1,5 @@
+(*==========================*)
+(*  CompareManualAutomatic  *)
+(*==========================*)
+
+CompareManualAutomatic

@@ -11,8 +11,8 @@ BeginPackage["xAct`PSALTer`VectorTheory`",{"xAct`xTensor`","xAct`xPerm`","xAct`x
 xAct`PSALTer`VectorTheory`Private`BSymb="\[ScriptCapitalB]";
 DefTensor[B[-d],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`VectorTheory`Private`BSymb],Dagger->Complex];
 
-xAct`PSALTer`VectorTheory`Private`JSymb="\[ScriptCapitalJ]";
-DefTensor[J[-d],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`VectorTheory`Private`JSymb],Dagger->Complex];
+xAct`PSALTer`VectorTheory`Private`ConjugateSourceBSymb="\[ScriptCapitalJ]";
+DefTensor[ConjugateSourceB[-d],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`VectorTheory`Private`ConjugateSourceBSymb],Dagger->Complex];
 
 (*==============*)
 (*  Projectors  *)
@@ -43,11 +43,13 @@ xAct`PSALTer`VectorTheory`Private`ProjPerpParaToVG=Join[
 (*  Tensor definitions  *)
 (*======================*)
 
-DefTensor[B0p[],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`VectorTheory`Private`BSymb,xAct`PSALTer`Private`Spin0p],Dagger->Complex];
-DefTensor[B1m[-a],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`VectorTheory`Private`BSymb,xAct`PSALTer`Private`Spin1m],OrthogonalTo->{V[a]},Dagger->Complex];
+DefSpinParityMode[B0p[],Spin->0,Parity->Even,
+	FieldSymbol->xAct`PSALTer`VectorTheory`Private`BSymb,
+	SourceSymbol->xAct`PSALTer`VectorTheory`Private`ConjugateSourceBSymb];
 
-DefTensor[J0p[],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`VectorTheory`Private`JSymb,xAct`PSALTer`Private`Spin0p],Dagger->Complex];
-DefTensor[J1m[-a],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`VectorTheory`Private`JSymb,xAct`PSALTer`Private`Spin1m],OrthogonalTo->{V[a]},Dagger->Complex];
+DefSpinParityMode[B1m[-a],Spin->1,Parity->Odd,
+	FieldSymbol->xAct`PSALTer`VectorTheory`Private`BSymb,
+	SourceSymbol->xAct`PSALTer`VectorTheory`Private`ConjugateSourceBSymb];
 
 (*==============*)
 (*  Expansions  *)
@@ -61,13 +63,13 @@ xAct`PSALTer`VectorTheory`Private`BSpinParityToB=Join[
 	MakeRule[{Evaluate@Dagger@B1m[-a],Evaluate@Dagger[
 		ProjPara[-a,b]B[-b]/.xAct`PSALTer`VectorTheory`Private`ProjPerpParaToVG//ToCanonical]},MetricOn->All,ContractMetrics->True]];
 
-xAct`PSALTer`VectorTheory`Private`JSpinParityToJ=Join[
-	MakeRule[{J0p[],Evaluate[V[a]J[-a]]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{J1m[-a],Evaluate[
-		ProjPara[-a,b]J[-b]/.xAct`PSALTer`VectorTheory`Private`ProjPerpParaToVG//ToCanonical]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@J0p[],Evaluate@Dagger[V[a]J[-a]]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@J1m[-a],Evaluate@Dagger[
-		ProjPara[-a,b]J[-b]/.xAct`PSALTer`VectorTheory`Private`ProjPerpParaToVG//ToCanonical]},MetricOn->All,ContractMetrics->True]];
+xAct`PSALTer`VectorTheory`Private`ConjugateSourceBSpinParityToConjugateSourceB=Join[
+	MakeRule[{ConjugateSourceB0p[],Evaluate[V[a]ConjugateSourceB[-a]]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{ConjugateSourceB1m[-a],Evaluate[
+		ProjPara[-a,b]ConjugateSourceB[-b]/.xAct`PSALTer`VectorTheory`Private`ProjPerpParaToVG//ToCanonical]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@ConjugateSourceB0p[],Evaluate@Dagger[V[a]ConjugateSourceB[-a]]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@ConjugateSourceB1m[-a],Evaluate@Dagger[
+		ProjPara[-a,b]ConjugateSourceB[-b]/.xAct`PSALTer`VectorTheory`Private`ProjPerpParaToVG//ToCanonical]},MetricOn->All,ContractMetrics->True]];
 
 (*==================*)
 (*  Decompositions  *)
@@ -77,18 +79,21 @@ xAct`PSALTer`VectorTheory`Private`BToBSpinParity=Join[
 	MakeRule[{B[-a],Evaluate[V[-a]B0p[]+B1m[-a]]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{Evaluate@Dagger@B[-a],Evaluate@Dagger[V[-a]B0p[]+B1m[-a]]},MetricOn->All,ContractMetrics->True]];
 
-xAct`PSALTer`VectorTheory`Private`JToJSpinParity=Join[
-	MakeRule[{J[-a],Evaluate[V[-a]J0p[]+J1m[-a]]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@J[-a],Evaluate@Dagger[V[-a]J0p[]+J1m[-a]]},MetricOn->All,ContractMetrics->True]];
+xAct`PSALTer`VectorTheory`Private`ConjugateSourceBToConjugateSourceBSpinParity=Join[
+	MakeRule[{ConjugateSourceB[-a],Evaluate[V[-a]ConjugateSourceB0p[]+ConjugateSourceB1m[-a]]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@ConjugateSourceB[-a],Evaluate@Dagger[V[-a]ConjugateSourceB0p[]+ConjugateSourceB1m[-a]]},MetricOn->All,ContractMetrics->True]];
 
 (*==========================================================*)
 (*  Basic definitions of the Lagrangian coupling constants  *)
 (*==========================================================*)
 
 xAct`PSALTer`VectorTheory`Private`CouplingSymb="\[Alpha]";
-DefConstantSymbol[Coupling1,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`VectorTheory`Private`CouplingSymb,xAct`PSALTer`Private`dSO1,xAct`PSALTer`Private`IsConstantSymbol->True]];
-DefConstantSymbol[Coupling2,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`VectorTheory`Private`CouplingSymb,xAct`PSALTer`Private`dSO2,xAct`PSALTer`Private`IsConstantSymbol->True]];
-DefConstantSymbol[Coupling3,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`VectorTheory`Private`CouplingSymb,xAct`PSALTer`Private`dSO3,xAct`PSALTer`Private`IsConstantSymbol->True]];
+DefLagrangianCoupling[Coupling1,
+	CouplingSymbol->xAct`PSALTer`VectorTheory`Private`CouplingSymb,CouplingIndex->1];
+DefLagrangianCoupling[Coupling2,
+	CouplingSymbol->xAct`PSALTer`VectorTheory`Private`CouplingSymb,CouplingIndex->2];
+DefLagrangianCoupling[Coupling3,
+	CouplingSymbol->xAct`PSALTer`VectorTheory`Private`CouplingSymb,CouplingIndex->3];
 
 (*================================================*)
 (*  Some infrastructure for linearising theories  *)
@@ -108,14 +113,14 @@ FieldSpinParityTensorHeads=<|
 |>;
 
 SourceSpinParityTensorHeads=<|
-		J-><|
-			0-><|Even->{J0p},Odd->{}|>,
-			1-><|Even->{},Odd->{J1m}|>
+		ConjugateSourceB-><|
+			0-><|Even->{ConjugateSourceB0p},Odd->{}|>,
+			1-><|Even->{},Odd->{ConjugateSourceB1m}|>
 		|>
 |>;
 
 SourceEngineeringDimensions=<|
-		J->0
+		ConjugateSourceB->0
 |>;
 
 ExpandFields[InputExpr_]:=Module[{Expr=InputExpr},
@@ -125,7 +130,7 @@ ExpandFields[InputExpr_]:=Module[{Expr=InputExpr},
 Expr];
 
 ExpandSources[InputExpr_]:=Module[{Expr=InputExpr},
-	Expr=Expr/.xAct`PSALTer`VectorTheory`Private`JSpinParityToJ;
+	Expr=Expr/.xAct`PSALTer`VectorTheory`Private`ConjugateSourceBSpinParityToConjugateSourceB;
 	Expr//=xAct`PSALTer`Private`ToNewCanonical;
 Expr];
 

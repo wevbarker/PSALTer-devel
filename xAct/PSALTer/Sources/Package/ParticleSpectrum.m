@@ -29,14 +29,14 @@ BuildPackage@"ParticleSpectrum/ConstructSaturatedPropagator.m";
 Options@ParticleSpectrum={
 	TensorFields->{},
 	CouplingConstants->{},
-	ExportTheory->False};
+	ExportTheory->False,
+	Method->"Careful"};
 
 ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
 	SummariseResultsOngoing,
 	TheTensors=OptionValue@TensorFields,
 	Couplings=OptionValue@CouplingConstants,
 	DecomposeFieldsdLagrangian,
-	(*SaturatedPropagator,*)
 	SaturatedPropagatorArray,
 	ConstraintComponentList,
 	SourceComponents,
@@ -80,8 +80,8 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 
 	ConstructLinearAction[ClassName,Expr];
 	ConstructWaveOperator[ClassName,Expr,Couplings];
-	ConstructSourceConstraints[ClassName,CouplingAssumptions,Rescalings,RaisedIndexSources,MatrixLagrangian];
-	ConstructSaturatedPropagator[ClassName,MatrixLagrangian,CouplingAssumptions,BMatricesValues,RaisedIndexSources,LoweredIndexSources,FieldSpinParityTensorHeadsValue,SourceConstraints,FieldsLeft,FieldsTop,SourcesLeft,SourcesTop];
+	ConstructSourceConstraints[ClassName,CouplingAssumptions,Rescalings,RaisedIndexSources,MatrixLagrangian,Method->OptionValue@Method];
+	ConstructSaturatedPropagator[ClassName,MatrixLagrangian,CouplingAssumptions,BMatricesValues,RaisedIndexSources,LoweredIndexSources,FieldSpinParityTensorHeadsValue,SourceConstraints,FieldsLeft,FieldsTop,SourcesLeft,SourcesTop,Couplings,Method->OptionValue@Method];
 	(*ConstructParticleSpectrum[];*)
 	(*ConstructUnitarityConditions[];*)
 

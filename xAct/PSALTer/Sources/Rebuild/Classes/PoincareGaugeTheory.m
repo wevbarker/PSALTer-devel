@@ -453,51 +453,62 @@ AutomaticRules[Evaluate[Dagger@APara2m],MakeRule[{Evaluate[Dagger@APara2m[-a,-c,
 (*  Basic definitions of the Lagrangian coupling constants  *)
 (*==========================================================*)
 
-xAct`PSALTer`PoincareGaugeTheory`Private`kRSymb="\[ScriptR]";
+(*=======================*)
+(*  Karananas couplings  *)
+(*=======================*)
+
 xAct`PSALTer`PoincareGaugeTheory`Private`kLambdaSymb="\[Lambda]";
-DefConstantSymbol[kLambda,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PoincareGaugeTheory`Private`kLambdaSymb,xAct`PSALTer`Private`dSOX,xAct`PSALTer`Private`IsConstantSymbol->True]];
-DefConstantSymbol[kR1,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PoincareGaugeTheory`Private`kRSymb,xAct`PSALTer`Private`dSO1,xAct`PSALTer`Private`IsConstantSymbol->True]];
-DefConstantSymbol[kR2,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PoincareGaugeTheory`Private`kRSymb,xAct`PSALTer`Private`dSO2,xAct`PSALTer`Private`IsConstantSymbol->True]];
-DefConstantSymbol[kR3,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PoincareGaugeTheory`Private`kRSymb,xAct`PSALTer`Private`dSO3,xAct`PSALTer`Private`IsConstantSymbol->True]];
-DefConstantSymbol[kR4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PoincareGaugeTheory`Private`kRSymb,xAct`PSALTer`Private`dSO4,xAct`PSALTer`Private`IsConstantSymbol->True]];
-DefConstantSymbol[kR5,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PoincareGaugeTheory`Private`kRSymb,xAct`PSALTer`Private`dSO5,xAct`PSALTer`Private`IsConstantSymbol->True]];
-DefConstantSymbol[kR6,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PoincareGaugeTheory`Private`kRSymb,xAct`PSALTer`Private`dSO6,xAct`PSALTer`Private`IsConstantSymbol->True]];
+DefLagrangianCoupling[kLambda,CouplingSymbol->xAct`PSALTer`PoincareGaugeTheory`Private`kLambdaSymb];
+
+xAct`PSALTer`PoincareGaugeTheory`Private`kRSymb="\[ScriptR]";
+DefLagrangianCoupling[kR1,
+	CouplingSymbol->xAct`PSALTer`PoincareGaugeTheory`Private`kRSymb,CouplingIndex->1];
+DefLagrangianCoupling[kR2,
+	CouplingSymbol->xAct`PSALTer`PoincareGaugeTheory`Private`kRSymb,CouplingIndex->2];
+DefLagrangianCoupling[kR3,
+	CouplingSymbol->xAct`PSALTer`PoincareGaugeTheory`Private`kRSymb,CouplingIndex->3];
+DefLagrangianCoupling[kR4,
+	CouplingSymbol->xAct`PSALTer`PoincareGaugeTheory`Private`kRSymb,CouplingIndex->4];
+DefLagrangianCoupling[kR5,
+	CouplingSymbol->xAct`PSALTer`PoincareGaugeTheory`Private`kRSymb,CouplingIndex->5];
+DefLagrangianCoupling[kR6,
+	CouplingSymbol->xAct`PSALTer`PoincareGaugeTheory`Private`kRSymb,CouplingIndex->6];
 
 xAct`PSALTer`PoincareGaugeTheory`Private`kTSymb="\[ScriptT]";
-DefConstantSymbol[kT1,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PoincareGaugeTheory`Private`kTSymb,xAct`PSALTer`Private`dSO1,xAct`PSALTer`Private`IsConstantSymbol->True]];
-DefConstantSymbol[kT2,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PoincareGaugeTheory`Private`kTSymb,xAct`PSALTer`Private`dSO2,xAct`PSALTer`Private`IsConstantSymbol->True]];
-DefConstantSymbol[kT3,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PoincareGaugeTheory`Private`kTSymb,xAct`PSALTer`Private`dSO3,xAct`PSALTer`Private`IsConstantSymbol->True]];
-DefConstantSymbol[kT4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PoincareGaugeTheory`Private`kTSymb,xAct`PSALTer`Private`dSO4,xAct`PSALTer`Private`IsConstantSymbol->True]];
-DefConstantSymbol[kT5,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PoincareGaugeTheory`Private`kTSymb,xAct`PSALTer`Private`dSO5,xAct`PSALTer`Private`IsConstantSymbol->True]];
-DefConstantSymbol[kT6,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PoincareGaugeTheory`Private`kTSymb,xAct`PSALTer`Private`dSO6,xAct`PSALTer`Private`IsConstantSymbol->True]];
+DefLagrangianCoupling[kT1,
+	CouplingSymbol->xAct`PSALTer`PoincareGaugeTheory`Private`kTSymb,CouplingIndex->1];
+DefLagrangianCoupling[kT2,
+	CouplingSymbol->xAct`PSALTer`PoincareGaugeTheory`Private`kTSymb,CouplingIndex->2];
+DefLagrangianCoupling[kT3,
+	CouplingSymbol->xAct`PSALTer`PoincareGaugeTheory`Private`kTSymb,CouplingIndex->3];
 
-(*================================================*)
-(*  Some infrastructure for linearising theories  *)
-(*================================================*)
+(*================================*)
+(*  Hayasahi-Shirafuji couplings  *)
+(*================================*)
 
-xAct`PSALTer`PoincareGaugeTheory`Private`RSymb="\[ScriptCapitalR]";
-DefTensor[R[a, b, -d, -e], M4, {Antisymmetric[{a, b}], Antisymmetric[{-d, -e}]},PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PoincareGaugeTheory`Private`RSymb]]; 
-xAct`PSALTer`PoincareGaugeTheory`Private`TSymb="\[ScriptCapitalT]";
-DefTensor[T[a, -b, -c], M4, Antisymmetric[{-b, -c}],PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PoincareGaugeTheory`Private`TSymb]]; 
+xAct`PSALTer`PoincareGaugeTheory`Private`AlpSymb="\[Alpha]";
+DefLagrangianCoupling[Alp0,
+	CouplingSymbol->xAct`PSALTer`PoincareGaugeTheory`Private`AlpSymb,CouplingIndex->0];
+DefLagrangianCoupling[Alp1,
+	CouplingSymbol->xAct`PSALTer`PoincareGaugeTheory`Private`AlpSymb,CouplingIndex->1];
+DefLagrangianCoupling[Alp2,
+	CouplingSymbol->xAct`PSALTer`PoincareGaugeTheory`Private`AlpSymb,CouplingIndex->2];
+DefLagrangianCoupling[Alp3,
+	CouplingSymbol->xAct`PSALTer`PoincareGaugeTheory`Private`AlpSymb,CouplingIndex->3];
+DefLagrangianCoupling[Alp4,
+	CouplingSymbol->xAct`PSALTer`PoincareGaugeTheory`Private`AlpSymb,CouplingIndex->4];
+DefLagrangianCoupling[Alp5,
+	CouplingSymbol->xAct`PSALTer`PoincareGaugeTheory`Private`AlpSymb,CouplingIndex->5];
+DefLagrangianCoupling[Alp6,
+	CouplingSymbol->xAct`PSALTer`PoincareGaugeTheory`Private`AlpSymb,CouplingIndex->6];
 
-xAct`PSALTer`PoincareGaugeTheory`Private`HSymb="\[ScriptH]";
-DefTensor[H[-a,c],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PoincareGaugeTheory`Private`HSymb]];
-xAct`PSALTer`PoincareGaugeTheory`Private`BSymb="\[ScriptB]";
-DefTensor[B[a,-c],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`PoincareGaugeTheory`Private`BSymb]];
-
-xAct`PSALTer`PoincareGaugeTheory`Private`HBToGF=Join[
-	MakeRule[{H[-i,-j],G[-i,-j]+F[-i,-j]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{B[-i,-j],G[-i,-j]-F[-j,-i]+F[-i,-m]F[m,-j]},MetricOn->All,ContractMetrics->True]
-];
-
-AutomaticRules[H,MakeRule[{H[-a,i]B[a,-j],G[i,-j]},MetricOn->All,ContractMetrics->True]];
-AutomaticRules[H,MakeRule[{H[-a,i]B[c,-i],G[-a,c]},MetricOn->All,ContractMetrics->True]];
-AutomaticRules[H,MakeRule[{CD[-a][H[-j,n]],Evaluate[-H[-i,n]H[-j,m]CD[-a][B[i,-m]]]},MetricOn->All,ContractMetrics->True]];
-
-xAct`PSALTer`PoincareGaugeTheory`Private`RTToHBACDBCDA=Join[	
-	MakeRule[{R[a,b,-d,-e],H[-d,i]H[-e,j](CD[-i][A[a,b,-j]]-CD[-j][A[a,b,-i]]+A[a,-k,-i]A[k,b,-j]-A[a,-k,-j]A[k,b,-i])},MetricOn->All,ContractMetrics->True],
-	MakeRule[{T[a,-b,-c],H[-b,i]H[-c,j](CD[-i][B[a,-j]]-CD[-j][B[a,-i]]+A[a,-k,-i]B[k,-j]-A[a,-k,-j]B[k,-i])},MetricOn->All,ContractMetrics->True]
-];
+xAct`PSALTer`PoincareGaugeTheory`Private`BetSymb="\[Beta]";
+DefLagrangianCoupling[Bet1,
+	CouplingSymbol->xAct`PSALTer`PoincareGaugeTheory`Private`BetSymb,CouplingIndex->1];
+DefLagrangianCoupling[Bet2,
+	CouplingSymbol->xAct`PSALTer`PoincareGaugeTheory`Private`BetSymb,CouplingIndex->2];
+DefLagrangianCoupling[Bet3,
+	CouplingSymbol->xAct`PSALTer`PoincareGaugeTheory`Private`BetSymb,CouplingIndex->3];
 
 (*===================*)
 (*  Private context  *)

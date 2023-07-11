@@ -2,7 +2,13 @@
 (*  ConstructSaturatedPropagator  *)
 (*================================*)
 
-ConstructSaturatedPropagator[ClassName_?StringQ,MatrixLagrangian_,CouplingAssumptions_,BMatricesValues_,RaisedIndexSources_,LoweredIndexSources_,FieldSpinParityTensorHeadsValue_,SourceConstraints_,FieldsLeft_,FieldsTop_,SourcesLeft_,SourcesTop_]:=Module[{
+BuildPackage@"ParticleSpectrum/ConstructSaturatedPropagator/ConjectureInverse.m";
+BuildPackage@"ParticleSpectrum/ConstructSaturatedPropagator/CompareManualAutomatic.m";
+
+Options@ConstructSaturatedPropagator={
+	Method->"Careful"};
+
+ConstructSaturatedPropagator[ClassName_?StringQ,MatrixLagrangian_,CouplingAssumptions_,BMatricesValues_,RaisedIndexSources_,LoweredIndexSources_,FieldSpinParityTensorHeadsValue_,SourceConstraints_,FieldsLeft_,FieldsTop_,SourcesLeft_,SourcesTop_,Couplings_,OptionsPattern[]]:=Module[{
 	SourceSpinParityTensorHeadsValue,
 	SymbolicLagrangian,
 	Symbols,
@@ -14,6 +20,8 @@ ConstructSaturatedPropagator[ClassName_?StringQ,MatrixLagrangian_,CouplingAssump
 	RealParts,
 	NullSpaces,
 	MatrixPropagator,
+	ManualMatrixPropagator,
+	AutomaticMatrixPropagator,
 	InverseBMatricesValues,
 	BlockMassSigns,
 	Sizes,
@@ -26,12 +34,28 @@ ConstructSaturatedPropagator[ClassName_?StringQ,MatrixLagrangian_,CouplingAssump
 	Class=Evaluate@Symbol@ClassName;
 
 	Diagnostic@(MatrixForm/@MatrixLagrangian);
-	Diagnostic@((CouplingAssumptions)&/@BMatricesValues);
+	Diagnostic@(BMatricesValues);
 
-	MatrixPropagator=Assuming[CouplingAssumptions,((PseudoInverse@#))&/@MatrixLagrangian];
+	ManualMatrixPropagator=Map[ConjectureInverse[#,
+					Couplings,
+					CouplingAssumptions]&,
+					BMatricesValues,{2}];
+	ManualMatrixPropagator=(#[[1]]+#[[2]])&/@ManualMatrixPropagator;
+	Diagnostic@(MatrixForm/@ManualMatrixPropagator);
 
-	MatrixPropagator=((#)~FullSimplify~CouplingAssumptions)&/@MatrixPropagator;
-	Diagnostic@(MatrixForm/@MatrixPropagator);
+	Switch[OptionValue@Method,
+		"Careful",
+		(
+		AutomaticMatrixPropagator=Assuming[CouplingAssumptions,
+					((PseudoInverse@#))&/@MatrixLagrangian];
+		AutomaticMatrixPropagator=
+			((#)~FullSimplify~CouplingAssumptions)&/@AutomaticMatrixPropagator;
+		Diagnostic@(MatrixForm/@AutomaticMatrixPropagator);
+		MatrixPropagator=ManualMatrixPropagator;
+		),
+		"Careless",
+		MatrixPropagator=ManualMatrixPropagator;
+	];
 
 	InverseBMatricesValues=MatrixPropagator;
 

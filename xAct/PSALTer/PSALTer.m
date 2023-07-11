@@ -31,7 +31,7 @@ SetOptions[$FrontEndSession,EvaluationCompletionAction->"ScrollToOutput"];
 
 Print[xAct`xCore`Private`bars];
 Print["Package xAct`PSALTer` version ",$Version[[1]],", ",$Version[[2]]];
-Print["CopyRight \[Copyright] 2022, Will E. V. Barker, Zhiyuan Wei, Stephanie Buttigieg, Claire Rigouzzo and Cillian Rew, under the General Public License."];
+Print["CopyRight \[Copyright] 2022, Will E. V. Barker, Stephanie Buttigieg, Cillian Rew, Claire Rigouzzo and Zhiyuan Wei, under the General Public License."];
 
 (*-------------------------------------------------------------------*)
 (*  Modify the path to accommodate notebook and install directories  *)
@@ -132,6 +132,8 @@ ContextList={
 	"xAct`PSALTer`TensorTheory`Private`",
 	"xAct`PSALTer`PoincareGaugeTheory`",
 	"xAct`PSALTer`PoincareGaugeTheory`Private`",
+	"xAct`PSALTer`WeylGaugeTheory`",
+	"xAct`PSALTer`WeylGaugeTheory`Private`",
 	"xAct`PSALTer`MetricAffineGaugeTheory`",
 	"xAct`PSALTer`MetricAffineGaugeTheory`Private`",
 	"xAct`xTensor`",
