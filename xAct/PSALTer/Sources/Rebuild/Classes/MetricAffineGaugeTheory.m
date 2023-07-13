@@ -798,6 +798,8 @@ DefLagrangianCoupling[C16,CouplingSymbol->xAct`PSALTer`MetricAffineGaugeTheory`P
 
 Begin["xAct`PSALTer`MetricAffineGaugeTheory`Private`"];
 
+LagrangianCouplings={A0,A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11,C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13,C14,C15,C16};
+
 FieldSpinParityTensorHeads=<|
 		MetricPerturbation-><|
 			0-><|Even->{MetricPerturbationPerp0p,MetricPerturbationPara0p},Odd->{}|>,
@@ -928,6 +930,7 @@ EndPackage[];
 
 DefClass[
 	"MetricAffineGaugeTheory",
+	xAct`PSALTer`MetricAffineGaugeTheory`Private`LagrangianCouplings,
 	xAct`PSALTer`MetricAffineGaugeTheory`Private`FieldSpinParityTensorHeads,
 	xAct`PSALTer`MetricAffineGaugeTheory`Private`SourceSpinParityTensorHeads,
 	xAct`PSALTer`MetricAffineGaugeTheory`Private`SourceEngineeringDimensions,

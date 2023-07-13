@@ -80,5 +80,5 @@ SummariseResults[WaveOperator_,Propagator_,SourceConstraints_,Spectrum_,OverallU
 		SpanFromAbove},
 		{MakeLabel["Unitarity conditions"],MakeLabel["Assumptions"]},
 		{TheOverallUnitarity,MakeLabel["(Not yet implemented)"]}
-		},Spacings->{2,2},Frame->True,Background->RGBColor[240/255,240/255,240/255],Alignment->{Center,Center}];
+		},Spacings->{2,2},Frame->True,Background->RGBColor[250/255,250/255,250/255],Alignment->{Center,Center}];
 SummaryOfResults];

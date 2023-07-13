@@ -8,7 +8,8 @@ BuildPackage@"ParticleSpectrum/ConstructSaturatedPropagator/CompareManualAutomat
 Options@ConstructSaturatedPropagator={
 	Method->"Careful"};
 
-ConstructSaturatedPropagator[ClassName_?StringQ,MatrixLagrangian_,CouplingAssumptions_,BMatricesValues_,RaisedIndexSources_,LoweredIndexSources_,Couplings_,OptionsPattern[]]:=Module[{
+ConstructSaturatedPropagator[ClassName_?StringQ,MatrixLagrangian_,CouplingAssumptions_,BMatricesValues_,RaisedIndexSources_,LoweredIndexSources_,OptionsPattern[]]:=Module[{
+	Couplings,
 	SourceSpinParityTensorHeadsValue,
 	SymbolicLagrangian,
 	Symbols,
@@ -28,6 +29,7 @@ ConstructSaturatedPropagator[ClassName_?StringQ,MatrixLagrangian_,CouplingAssump
 	LocalSaturatedPropagator=" ** ConstructSaturatedPropagator...";
 
 	Class=Evaluate@Symbol@ClassName;
+	Couplings=Class@LagrangianCouplings;
 
 	Diagnostic@(MatrixForm/@MatrixLagrangian);
 	Diagnostic@(BMatricesValues);

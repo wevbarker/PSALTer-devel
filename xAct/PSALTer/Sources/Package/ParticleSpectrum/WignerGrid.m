@@ -23,9 +23,9 @@ AllElements=Normal@BlockDiagonalMatrix@AllMatrices;
 AllElements=ArrayPad[AllElements,{{1,0},{1,0}}];
 AllElements=MapThread[If[#2,#1,Null]&,{AllElements,Mask},2];
 
-ParityEvenColor=RGBColor[255/255,255/255,153/255];
-ParityOddColor=RGBColor[200/255,255/255,255/255];
-ParityMixColor=RGBColor[153/255,255/255,153/255];
+ParityEvenColor=RGBColor[255/255,153/255,153/255];
+ParityOddColor=RGBColor[153/255,204/255,255/255];
+ParityMixColor=RGBColor[255/255,153/255,255/255];
 
 EndCells=(Accumulate@Flatten@Sizes)~Partition~2;
 StartCells=EndCells-(Sizes/.{0->1});

@@ -105,6 +105,8 @@ DefLagrangianCoupling[Coupling3,
 
 Begin["xAct`PSALTer`VectorTheory`Private`"];
 
+LagrangianCouplings={Coupling1,Coupling2,Coupling3};
+
 FieldSpinParityTensorHeads=<|
 		B-><|
 			0-><|Even->{B0p},Odd->{}|>,
@@ -147,6 +149,7 @@ EndPackage[];
 
 DefClass[
 	"VectorTheory",
+	xAct`PSALTer`VectorTheory`Private`LagrangianCouplings,
 	xAct`PSALTer`VectorTheory`Private`FieldSpinParityTensorHeads,
 	xAct`PSALTer`VectorTheory`Private`SourceSpinParityTensorHeads,
 	xAct`PSALTer`VectorTheory`Private`SourceEngineeringDimensions,

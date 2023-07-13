@@ -16,12 +16,11 @@ CalibrateCase[CaseNumber_,CaseRules_List,CaseConditions_List]:=Module[{
 	LinearisedLagrangian=LineariseLagrangian[NonlinearLagrangian/.CaseRules];
 
 	ParticleSpectrum[
-		"PoincareGaugeTheory",
-		"Case"<>ToString@CaseNumber,
 		LinearisedLagrangian,
-		TensorFields->{F,A},
-		CouplingConstants->Couplings,
-		ExportTheory->True
+		ClassName->"PoincareGaugeTheory",
+		TheoryName->("Case"<>ToString@CaseNumber),
+		Method->"Careless",
+		MaxLaurentDepth->3
 	];
 
 	Comment@"So, that's the end of the PSALTer output for this theory. You can check the particle content against TABLE IV. in arXiv:1910.14197. If you take the overall unitarity conditions from the final column in TABLE V., and decompose them using Mathematica's Reduce function, you get the following (to be compared with the PSALTer conditions above):";

@@ -2,8 +2,8 @@
 (*  MasslessAnalysisOfTotal  *)
 (*===========================*)
 
-MasslessAnalysisOfTotal[RawMasslessPropagaorResidue_List,NullSpace_List]:=Module[{
-	MasslessPropagaorResidue=RawMasslessPropagaorResidue,
+MasslessAnalysisOfTotal[RawMasslessPropagatorResidue_List,NullSpace_List]:=Module[{
+	MasslessPropagatorResidue=RawMasslessPropagatorResidue,
 	NullSpaceDimension,
 	FreeSourceVariables,
 	NumeratorFreeSourceCoefficientMatrix,
@@ -11,17 +11,17 @@ MasslessAnalysisOfTotal[RawMasslessPropagaorResidue_List,NullSpace_List]:=Module
 
 	LocalSpectrum=" ** MasslessAnalysisOfTotal...";
 
-	Diagnostic@MasslessPropagaorResidue;
-	MasslessPropagaorResidue//=Flatten;
-	MasslessPropagaorResidue//=Total;
-	MasslessPropagaorResidue//=Simplify;
-	Diagnostic@MasslessPropagaorResidue;
+	Diagnostic@MasslessPropagatorResidue;
+	MasslessPropagatorResidue//=Flatten;
+	MasslessPropagatorResidue//=Total;
+	MasslessPropagatorResidue//=Simplify;
+	Diagnostic@MasslessPropagatorResidue;
 
-	If[!(MasslessPropagaorResidue===0),
+	If[!(MasslessPropagatorResidue===0),
 		NullSpaceDimension=(Dimensions@NullSpace)[[1]];
 		FreeSourceVariables=Table[Symbol["X"<>ToString@i],{i,NullSpaceDimension}];
 
-		NumeratorFreeSourceCoefficientMatrix=Last@CoefficientArrays[MasslessPropagaorResidue,FreeSourceVariables~Join~(Evaluate@Dagger[FreeSourceVariables]),"Symmetric"->False];
+		NumeratorFreeSourceCoefficientMatrix=Last@CoefficientArrays[MasslessPropagatorResidue,FreeSourceVariables~Join~(Evaluate@Dagger[FreeSourceVariables]),"Symmetric"->False];
 		NumeratorFreeSourceCoefficientMatrix=NumeratorFreeSourceCoefficientMatrix[[1;;(1/2)Length@#,(1/2)Length@#+1;;Length@#]]&@NumeratorFreeSourceCoefficientMatrix;
 		NumeratorFreeSourceEigenvalues=Eigenvalues@NumeratorFreeSourceCoefficientMatrix;
 		NumeratorFreeSourceEigenvalues//=DeleteCases[#,0,Infinity]&;,
@@ -29,4 +29,4 @@ MasslessAnalysisOfTotal[RawMasslessPropagaorResidue_List,NullSpace_List]:=Module
 		NumeratorFreeSourceEigenvalues={};
 	];
 
-{MasslessPropagaorResidue,NumeratorFreeSourceEigenvalues}];
+{MasslessPropagatorResidue,NumeratorFreeSourceEigenvalues}];

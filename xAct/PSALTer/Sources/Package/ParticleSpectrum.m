@@ -19,18 +19,45 @@ BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis.m";
 BuildPackage@"ParticleSpectrum/ConstructUnitarityConditions.m";
 
 Options@ParticleSpectrum={
-	TensorFields->{},
-	CouplingConstants->{},
-	ExportTheory->False,
-	Method->"Careful"};
+	ClassName->False,
+	TheoryName->False,
+	Method->"Careful",
+	MaxLaurentDepth->1
+	};
 
-ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:=Module[{
+ParticleSpectrum::WrongClassName="You must pass a string to the option ClassName, from the list of defined classes `1`.";
+ValidateClassName[ClassNameValue_,ClassNames_]:=If[!(ClassNames~MemberQ~ClassNameValue),
+			Throw@Message[ParticleSpectrum::WrongClassName,ClassNames]
+			];
+ParticleSpectrum::WrongTheoryName="You must pass a string to the option TheoryName.";
+ValidateTheoryName[TheoryNameValue_]:=If[!(StringQ@TheoryNameValue),
+			Throw@Message[ParticleSpectrum::WrongTheoryName,TheoryNameValue]
+			];
+ParticleSpectrum::WrongMethod="The method `1` for evaluating the source constraints and matrix pseudoinverses appears not to be either of the strings Careful or Careless.";
+ValidateMethod[MethodValue_]:=If[!({"Careful","Careless"}~MemberQ~MethodValue),
+			Throw@Message[ParticleSpectrum::WrongMethod,MethodValue]
+			];
+ParticleSpectrum::WrongMaxLaurentDepth="The maximum requested depth n of the 1/k^(2n) residue n=`1` appears not to be a natural number 1, 2 or 3.";
+ValidateMaxLaurentDepth[MaxLaurentDepthValue_]:=If[!({1,2,3}~MemberQ~MaxLaurentDepthValue),
+			Throw@Message[ParticleSpectrum::WrongMaxLaurentDepth,MaxLaurentDepthValue]
+			];
+
+ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 	SummariseResultsOngoing,
-	Couplings=OptionValue@CouplingConstants,
-	PositiveSystem,
-	PositiveSystemValue,
-	Class
+	ClassNames
 },
+
+	ClassNames={"ScalarTheory",
+		"VectorTheory",
+		"TensorTheory",
+		"PoincareGaugeTheory",
+		"WeylGaugeTheory",
+		"MetricAffineGaugeTheory"};
+
+	ValidateClassName[OptionValue@ClassName,ClassNames];
+	ValidateTheoryName@OptionValue@TheoryName;
+	ValidateMethod@OptionValue@Method;
+	ValidateMaxLaurentDepth@OptionValue@MaxLaurentDepth;
 
 	LocalWaveOperator=Null;
 	LocalPropagator=Null;
@@ -55,94 +82,95 @@ ParticleSpectrum[ClassName_?StringQ,TheoryName_?StringQ,Expr_,OptionsPattern[]]:
 			LocalSummaryOfTheory}]];
 
 	ConstructLinearAction[
-				ClassName,
+				OptionValue@ClassName,
 				Expr];
 
 
 	ConstructWaveOperator[
-				ClassName,
-				Expr,
-				Couplings];
+				OptionValue@ClassName,
+				Expr];
 	UpdateTheoryAssociation[
-				TheoryName,
+				OptionValue@TheoryName,
 				BMatrices,
 				ValuesAllMatrices,
-				ExportTheory->OptionValue@ExportTheory];
+				ExportTheory->False];
 	UpdateTheoryAssociation[
-				TheoryName,
+				OptionValue@TheoryName,
 				MomentumSpaceLagrangian,
 				DecomposeFieldsdLagrangian,
-				ExportTheory->OptionValue@ExportTheory];
+				ExportTheory->False];
 
 
 	ConstructSourceConstraints[
-				ClassName,
+				OptionValue@ClassName,
 				CouplingAssumptions,
 				Rescalings,
 				RaisedIndexSources,
 				MatrixLagrangian,
 				Method->OptionValue@Method];
 	UpdateTheoryAssociation[
-				TheoryName,
+				OptionValue@TheoryName,
 				SourceConstraints,
 				ValuesOfSourceConstraints,
-				ExportTheory->OptionValue@ExportTheory];
+				ExportTheory->False];
 
 
 	ConstructSaturatedPropagator[
-				ClassName,
+				OptionValue@ClassName,
 				MatrixLagrangian,
 				CouplingAssumptions,
 				BMatricesValues,
 				RaisedIndexSources,
 				LoweredIndexSources,
-				Couplings,
 				Method->OptionValue@Method];
 	UpdateTheoryAssociation[
-				TheoryName,
+				OptionValue@TheoryName,
 				InverseBMatrices,
 				ValuesInverseBMatricesValues,
-				ExportTheory->OptionValue@ExportTheory];
+				ExportTheory->False];
 
 
 	ConstructMassiveAnalysis[
-				Couplings,
+				OptionValue@ClassName,
 				ValuesSaturatedPropagator,
 				ValuesInverseBMatricesValues,
 				BlockMassSigns];
 	UpdateTheoryAssociation[
-				TheoryName,
+				OptionValue@TheoryName,
 				SquareMasses,
 				MassiveAnalysis,
-				ExportTheory->OptionValue@ExportTheory];
+				ExportTheory->False];
 
 
 	ConstructMasslessAnalysis[
-				ClassName,
+				OptionValue@ClassName,
 				ValuesOfSourceConstraints,
-				ValuesSaturatedPropagator];
+				ValuesSaturatedPropagator,
+				MaxLaurentDepth->OptionValue@MaxLaurentDepth];
 	UpdateTheoryAssociation[
-				TheoryName,
+				OptionValue@TheoryName,
 				MasslessEigenvalues,
 				MasslessAnalysisValue,
-				ExportTheory->OptionValue@ExportTheory];
+				ExportTheory->False];
 	UpdateTheoryAssociation[
-				TheoryName,
+				OptionValue@TheoryName,
 				SourceConstraintComponents,
 				ConstraintComponentList,
-				ExportTheory->OptionValue@ExportTheory];
+				ExportTheory->False];
 
 
 	ConstructUnitarityConditions[
+				OptionValue@ClassName,
 				MassiveAnalysis,
 				MassiveGhostAnalysis,
 				MasslessAnalysisValue,
-				Couplings];
+				QuarticAnalysisValue,
+				HexicAnalysisValue];
 	UpdateTheoryAssociation[
-				TheoryName,
+				OptionValue@TheoryName,
 				PositiveSystem,
 				PositiveSystemValue,
-				ExportTheory->OptionValue@ExportTheory];
+				ExportTheory->False];
 
 
 	FinishDynamic[];

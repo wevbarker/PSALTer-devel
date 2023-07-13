@@ -19,6 +19,7 @@ Options[DefClass]={
 	ImportClass->False};
 
 DefClass[ClassName_?StringQ,
+	LagrangianCouplingsInput_?ListQ,
 	FieldSpinParityTensorHeadsInput_?AssociationQ,
 	SourceSpinParityTensorHeadsInput_?AssociationQ,
 	SourceEngineeringDimensionsInput_?AssociationQ,
@@ -37,6 +38,7 @@ DefClass[ClassName_?StringQ,
 
 		Print["** DefClass: The information presented below will be stored in the association ",ClassName,", so you will be able to recover it later in your session by typing \"",ClassName,"[<--some_association_key-->]\"."];
 
+		UpdateClassAssociation[ClassName,LagrangianCouplings,LagrangianCouplingsInput];
 		UpdateClassAssociation[ClassName,FieldSpinParityTensorHeads,FieldSpinParityTensorHeadsInput];
 		UpdateClassAssociation[ClassName,SourceSpinParityTensorHeads,SourceSpinParityTensorHeadsInput];
 		UpdateClassAssociation[ClassName,ExpandFields,ExpandFieldsInput];
@@ -59,4 +61,5 @@ DefClass[ClassName_?StringQ,
 		Print[" ** DefClass: Exporting the binary at "<>ClassName<>".cla.mx"];
 		DumpSave[FileNameJoin@{$WorkingDirectory,ClassName<>".cla.mx"},{ClassName}];
 	];
+	ToExpression@("xAct`PSALTer`Private`ClassNames~AppendTo~"<>ClassName);
 ];

@@ -516,6 +516,8 @@ DefLagrangianCoupling[Bet3,
 
 Begin["xAct`PSALTer`PoincareGaugeTheory`Private`"];
 
+LagrangianCouplings={Alp0,Alp1,Alp2,Alp3,Alp4,Alp5,Alp6,Bet1,Bet2,Bet3,kLambda,kR1,kR2,kR3,kR4,kR5,kR6,kT1,kT2,kT3};
+
 FieldSpinParityTensorHeads=<|
 		A-><|
 			0-><|Even->{APara0p},Odd->{APara0m}|>,
@@ -599,6 +601,7 @@ EndPackage[];
 
 DefClass[
 	"PoincareGaugeTheory",
+	xAct`PSALTer`PoincareGaugeTheory`Private`LagrangianCouplings,
 	xAct`PSALTer`PoincareGaugeTheory`Private`FieldSpinParityTensorHeads,
 	xAct`PSALTer`PoincareGaugeTheory`Private`SourceSpinParityTensorHeads,
 	xAct`PSALTer`PoincareGaugeTheory`Private`SourceEngineeringDimensions,
