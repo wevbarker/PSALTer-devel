@@ -269,19 +269,6 @@ DisplayExpression@LinearLagrangian;
 
 Comment@"We see that there is not a great degree of degeneracy among the coupling constants, but bear in mind that we may only see such patterns when surface terms are used to extract the wave operator.";
 
-PartIIIProject@"Now we are basically ready to try some spectral analysis, but first we will present the matrices of particle interactions stored in the current MAGT implementation in PSALTer. These are just for reference: when the ParticleSpectrum function is used, much of the output is in the form of matrices, and it can be useful to know which element corresponds to which interaction. The symbols used for the different spin-parity modes are currently a bit cryptic (except for the metric perturbation, which is fairly clear), but the logic is basically as follows. The general connection A is decomposed into parts which are symmetric (denoted Q) and antisymmetric (denoted A again, confusingly) in the second and third indices. These parts are further decomposed into invariant subspaces under the action of the group of spatial rotations. These parts are given with reduced numbers of indices where convenient, and are labelled by spin and parity but also by a cryptic series of superscripts denoting from which Young tableau the mode descends. Zhiyuan is really the expert on decoding these (since he constructed them), but all the modes appear schematically in Table 2, on page 11 of arXiv:1912.01023. So, here are the matrices.";
-
-Comment@"The spin-0 sector. It is pretty big.";
-DisplayExpression@(MatrixForm@((MetricAffineGaugeTheory@xAct`PSALTer`Private`InvariantMatrix)@0));
-Comment@"The spin-1 sector. It is vast.";
-DisplayExpression@(MatrixForm@((MetricAffineGaugeTheory@xAct`PSALTer`Private`InvariantMatrix)@1));
-Comment@"The spin-2 sector. It is not too bad.";
-DisplayExpression@(MatrixForm@((MetricAffineGaugeTheory@xAct`PSALTer`Private`InvariantMatrix)@2));
-Comment@"The spin-3 sector. Yes, despite well-known theorems by Weinberg, Witten etc., there is a higher-spin sector at play! I suppose one must be careful that it does not propagate?";
-DisplayExpression@(MatrixForm@((MetricAffineGaugeTheory@xAct`PSALTer`Private`InvariantMatrix)@3));
-
-Comment@"That deals with all the preliminaries. We can now transition to some spectral analyses.";
-
 Subsection@"Einstein-Hilbert theory";
 
 Comment@"The first theory we will look at is the simple Einstein-Hilbert case.";
@@ -304,6 +291,86 @@ Comment@"Now we linearize it.";
 
 LinearLagrangian=EinsteinHilbertLagrangian//LineariseLagrangian;
 DisplayExpression@LinearLagrangian;
+
+ACouplings={A0,A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11};
+CCouplings={C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13,C14,C15,C16};
+
+ProbeNumbers=Table[0,{i,(Length@(CCouplings)+1)},{j,(Length@(ACouplings)+1)}];
+Print@MatrixForm@ProbeNumbers;
+TimingData=Table[0,{i,(Length@(CCouplings)+1)},{j,(Length@(ACouplings)+1)}];
+Print@MatrixForm@TimingData;
+
+
+
+(**)
+(*SpecRules={A1->0,A2->0,A3->0,A4->0,A5->0,A6->0,A7->0,A8->0,A9->0,A10->0,A11->0,C6->0,C8->0,C9->0,C10->0};*)
+SpecRules={A1->0,A2->0,A3->0,A4->0,A5->0,A6->0,A7->0,A8->0,A9->0,A10->0,A11->0};
+(*SpecRules={A1->0,A2->0,A3->0,A4->0,A5->0,A6->0,A7->0,A8->0,A9->0,A10->0,A11->0,C6->0,C8->0,C9->0,C10->0,C11->0,C12->0};*)
+
+(*SpecRules={A1->0,A2->0,A3->0,A4->0,A5->0,A6->0,A7->0,A8->0,A9->0,A10->0,A11->0,C1->0,C2->0,C3->0,C4->0,C5->0,C6->0,C7->0,C8->0,C9->0,C10->0,C11->0,C12->0,C13->0,C14->0,C15->0,C16->0};*)
+NewLinearLagrangian=LinearLagrangian/.SpecRules;
+ParticleSpectrum[NewLinearLagrangian,
+		ClassName->"MetricAffineGaugeTheory",
+		TheoryName->"JustHavingALook",	
+		Method->"Careless",
+		MaxLaurentDepth->1];
+(**)
+
+Throw@"stop here please.";
+
+TimingData=Table[0,{i,(Length@(CCouplings)+1)}];
+ACouplings={A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11};
+ProbeNumber=1;
+ProbeSpectrum[iii_]:=Module[{
+		CaseRules,
+		TimingDatum,
+		NewLinearLagrangian,
+		NewNonlinearLagrangian},
+	CaseRules=(#->0)&/@(ACouplings~Join~Drop[CCouplings,(iii-1)]);
+	ProbeNumber+=1;
+	NewLinearLagrangian=LinearLagrangian/.CaseRules;
+	NewNonlinearLagrangian=NonlinearLagrangian/.CaseRules;
+	DisplayExpression@NewNonlinearLagrangian;
+	TimingDatum=AbsoluteTiming@ParticleSpectrum[NewLinearLagrangian,
+				ClassName->"MetricAffineGaugeTheory",
+				TheoryName->"MetricAffine"<>ToString@ProbeNumber,
+				Method->"Careless",
+				MaxLaurentDepth->1];
+	TimingData[[iii]]=TimingDatum;
+	Print@TimingData;
+];
+
+Table[ProbeSpectrum[iii],{iii,8,50}];
+
+Throw@"end of survey";
+
+Table[Table[ProbeSpectrum[kkk,iii],{iii,kkk}],{kkk,2,50}];
+
+
+ProbeNumber=1;
+ProbeSpectrum[kkk_,iii_]:=Module[{CaseRules,TimingDatum,NewLinearLagrangian},
+	If[iii<=(Length@(CCouplings)+1)&&(kkk-iii+1)<=(Length@(ACouplings)+1),
+		CaseRules=(#->0)&/@(Drop[ACouplings,(kkk-iii+1-1)]~Join~Drop[CCouplings,(iii-1)]);
+		ProbeNumbers[[iii,kkk-iii+1]]=ProbeNumber;
+		ProbeNumber+=1;
+		NewLinearLagrangian=LinearLagrangian/.CaseRules;
+		DisplayExpression@NewLinearLagrangian;
+		TimingDatum=AbsoluteTiming@ParticleSpectrum[NewLinearLagrangian,
+					ClassName->"MetricAffineGaugeTheory",
+					TheoryName->"MetricAffine",	
+					Method->"Careless",
+					MaxLaurentDepth->1];
+		TimingData[[iii,kkk-iii+1]]=TimingDatum;
+		Print@Row@{MatrixForm@ProbeNumbers,MatrixForm@TimingData};
+	]
+];
+
+Table[Table[ProbeSpectrum[kkk,iii],{iii,kkk}],{kkk,2,50}];
+
+Print@MatrixForm@ProbeNumbers;
+Print@MatrixForm@TimingData;
+
+
 
 Comment@"Now we feed the linearized Lagrangian into PSALTer. This is done with a single call to the ParticleSpectrum function where the linearized Lagrangian above is passed as the input, and it takes 10-15 minutes on my Dutch machine. As usual, the computation of the wave operator matrices and their inverses is basically instantaneous, and almost all of this time is spent in component-value calculations, computing pole residues in the limit of the lightcone.";
 

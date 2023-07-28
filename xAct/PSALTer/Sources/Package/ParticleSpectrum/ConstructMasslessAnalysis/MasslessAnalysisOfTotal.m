@@ -9,7 +9,7 @@ MasslessAnalysisOfTotal[RawMasslessPropagatorResidue_List,NullSpace_List]:=Modul
 	NumeratorFreeSourceCoefficientMatrix,
 	NumeratorFreeSourceEigenvalues},
 
-	LocalSpectrum=" ** MasslessAnalysisOfTotal...";
+	LocalMasslessSpectrum=" ** MasslessAnalysisOfTotal...";
 
 	Diagnostic@MasslessPropagatorResidue;
 	MasslessPropagatorResidue//=Flatten;

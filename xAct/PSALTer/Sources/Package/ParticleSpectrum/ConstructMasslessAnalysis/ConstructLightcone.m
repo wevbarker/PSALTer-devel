@@ -13,7 +13,7 @@ ConstructLightcone[ClassName_?StringQ,ValuesOfSourceConstraints_]:=Module[{
 	RescaledNullSpace
 	},
 	
-	LocalSpectrum=" ** ConstructLightcone...";
+	LocalMasslessSpectrum=" ** ConstructLightcone...";
 
 	ConstraintComponentList=MakeConstraintComponentList[ClassName,ValuesOfSourceConstraints];
 	Diagnostic@ConstraintComponentList;
@@ -21,7 +21,7 @@ ConstructLightcone[ClassName_?StringQ,ValuesOfSourceConstraints_]:=Module[{
 	Diagnostic@ConstraintComponentList;
 
 	ConstraintComponentList=(xAct`PSALTer`Private`PSALTerParallelSubmit@(ConstraintComponentToLightcone[ClassName,#]))&/@ConstraintComponentList;
-	ConstraintComponentList=WaitAll@ConstraintComponentList;
+	ConstraintComponentList=MonitorParallel@ConstraintComponentList;
 	Diagnostic@ConstraintComponentList;
 
 	ConstraintComponentList=DeleteCases[ConstraintComponentList,True];

@@ -93,9 +93,9 @@ dGB="\!\(\*UnderscriptBox[\(.\), \(GB\)]\)";
 (*  Colour settings  *)
 (*===================*)
 
-$CouplingColour=RGBColor[1,0,0];
+$CouplingColour=RGBColor[0,0,0];
 $TensorColour=RGBColor[0,0,0];
-$IrrepColour=RGBColor[0,0,1];
+$IrrepColour=RGBColor[0,0,0];
 
 Options[SymbolBuild]={IsConstantSymbol->False};
 SymbolBuild[TensorSymbol_,IrrepSymbol:_?StringQ:"",OptionsPattern[]]:=Module[{FullSymbol},

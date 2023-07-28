@@ -2,17 +2,21 @@
 (*  UnmakeSymbolic  *)
 (*==================*)
 
-BuildPackage@"ParticleSpectrum/ConstructSaturatedPropagator/UnmakeSymbolicElement.m";
+BuildPackage@"ParticleSpectrum/ConstructSaturatedPropagator/UnmakeSymbolic/InitialExpand.m";
+BuildPackage@"ParticleSpectrum/ConstructSaturatedPropagator/UnmakeSymbolic/GradualExpandSubTask.m";
+BuildPackage@"ParticleSpectrum/ConstructSaturatedPropagator/UnmakeSymbolic/ConsolidateUnmakeSymbolic.m";
 
 UnmakeSymbolic[InverseSymbolicMatrix_,
 	ReduceFirstIntermediateSymbols_,
 	FirstIntermediateSymbolsToSecondIntermediateSymbols_,
-	SecondIntermediateSymbolsToCouplingConstants_]:=Module[{
+	SecondIntermediateSymbolsToCouplingConstants_,
+	CouplingAssumptions_]:=Module[{
 		RankOfMatrix,
+		SubTaskFileNames,
+		GraduallyExpandedSubTasks,
 		InverseMatrix,
 		CombinedRules,
-		TheInverseSymbolicMatrix,
-		DistributedCombinedRules},
+		TheInverseSymbolicMatrix},
 
 	LocalPropagator=" ** UnmakeSymbolic...";
 
@@ -22,7 +26,7 @@ UnmakeSymbolic[InverseSymbolicMatrix_,
 
 	MatrixElementFileNames=Table[0,{i,RankOfMatrix},{j,RankOfMatrix}];
 	Table[
-		MatrixElement=Evaluate@(InverseSymbolicMatrix[[i,j]]);
+		MatrixElement={CouplingAssumptions,Evaluate@(InverseSymbolicMatrix[[i,j]])};
 		MatrixElementFileName=FileNameJoin@{NotebookDirectory[],
 				"tmp",
 				"MatrixElement"<>ToString@i<>ToString@j<>".mx"};
@@ -32,12 +36,30 @@ UnmakeSymbolic[InverseSymbolicMatrix_,
 		MatrixElementFileName="";,
 	{i,RankOfMatrix},{j,RankOfMatrix}];
 
-	(Diagnostic@#)&@MatrixForm@MatrixElementFileNames;
+	Diagnostic@MatrixElementFileNames;
 
-	CombinedRules={ReduceFirstIntermediateSymbols,FirstIntermediateSymbolsToSecondIntermediateSymbols,SecondIntermediateSymbolsToCouplingConstants};
+	CombinedRules={ReduceFirstIntermediateSymbols,
+			FirstIntermediateSymbolsToSecondIntermediateSymbols,
+			SecondIntermediateSymbolsToCouplingConstants};
 
-	InverseMatrix=MapThread[(xAct`PSALTer`Private`PSALTerParallelSubmit@(UnmakeSymbolicElement[#1,#2]))&,{Map[(CombinedRules)&,MatrixElementFileNames,{2}],MatrixElementFileNames},2];
+	LocalPropagator=" ** InitialExpand...";
+	SubTaskFileNames=MapThread[
+		(xAct`PSALTer`Private`PSALTerParallelSubmit@(InitialExpand[#1,#2]))&,
+		{Map[(CombinedRules)&,MatrixElementFileNames,{2}],
+		MatrixElementFileNames},2];
+	SubTaskFileNames=MonitorParallel@SubTaskFileNames;
+	Diagnostic@SubTaskFileNames;
 
-	(Diagnostic@#)&@InverseMatrix;
-	InverseMatrix=WaitAll@InverseMatrix;
+	LocalPropagator=" ** GradualExpandSubTask...";
+	MonitorParallel@Map[
+		(xAct`PSALTer`Private`PSALTerParallelSubmit@(GradualExpandSubTask[#1]))&,
+		SubTaskFileNames,{4}];
+
+	LocalPropagator=" ** ConsolidateUnmakeSymbolic...";
+	InverseMatrix=Map[
+		(xAct`PSALTer`Private`PSALTerParallelSubmit@(ConsolidateUnmakeSymbolic[#1]))&,
+		SubTaskFileNames,{2}];
+	InverseMatrix=MonitorParallel@InverseMatrix;
+	Diagnostic@InverseMatrix;
+
 InverseMatrix];

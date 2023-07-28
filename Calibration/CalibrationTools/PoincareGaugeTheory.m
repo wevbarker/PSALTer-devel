@@ -56,10 +56,10 @@ Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","PoincareGaugeTheory","
 Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","PoincareGaugeTheory","CriticalCases.m"};
 Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","PoincareGaugeTheory","Unitarity.m"};
 
-(*==========================*)
-(*  Einstein-Cartan theory  *)
-(*==========================*)
-(*
+(*====================*)
+(*  Most general PGT  *)
+(*====================*)
+
 Section@"Most general PGT";
 
 Comment@{"We first want to study the most general PGT. We will do this using the general coupling coefficients defined in",Cref@"CleanHayashiShirafuji","."};
@@ -77,9 +77,8 @@ ParticleSpectrum[
 ];
 
 Supercomment@"These results should be compared with the Hayashi and Shirafuji papers, in particular Eqs. (4.11) in Prog. Theor. Phys. 64 (1980) 2222.";
-*)
-(*
-Section@"The case Carlo was asking about";
+
+Section@"Carlo's clearing-the-air theory";
 
 Comment@{"Let's target the case Carlo is talking about, which is `the metric case, which for me is eq. 5.2 of 1912.01023. To study the Ricci models, g1,g3,g4,b1,b2,b3 are set to zero'. Okay, so recycling some coupling symbols for ease (i.e. these won't have the same interpretation as those in",Cref@"CleanHayashiShirafuji","), we think this is the following nonlinear Lagrangian."};
 
@@ -100,7 +99,8 @@ ParticleSpectrum[
 ];
 
 Supercomment@"Cool okay so, the claim is `What I found, in a general survey with all the other operators allowed,is that...nothing but the graviton propagates.' -- clearly this matches the above output. So I think we are good here.";
-*)
+
+
 Section@"Melichev-Percacci gravity";
 
 Comment@{"Next we want to study the new theory put forward in Eq. (2.17) of 2307.02336. Okay, so recycling some coupling symbols for ease (i.e. these won't have the same interpretation as those in",Cref@"CleanHayashiShirafuji","), we think this is the following nonlinear Lagrangian."};
@@ -123,7 +123,7 @@ ParticleSpectrum[
 
 Supercomment@{"Okay, quite a bit to unpack here. Firstly, due the vanishing of the EH term, I think this model falls into the category of unstudied PGT spectra, since it has vanishing tordion (not a typo: tordion is a torsion particle) masses. To check that, we'd have to look at Hayashi and Shirafuji again, but I think it is true. There are lots of papers where the authors explicitly refuse to consider such scenarios, due to their complexity. However PSALTer can handle vanishing masses, and we do indeed get a spectrum. This spectrum has some features that actually point towards parts of PSALTer that need improvement, so this is a really cool theory to talk about. Let's start with the massive sector. We see scalar, vector and tensor species all running around. It makes dimensional sense that all the square masses are proportional to",Inline@(Bet1/Alp1)," of course. Think about the first two particles: a pseudoscalar and a parity-even vector. For the pseudoscalar to be neither a ghost nor a tachyon, we need",Inline@(Alp1<0)," and",Inline@(Bet1>0),". These conditions stop the parity-even vector mode from being a tachyon, but they then absolutely force it to be a ghost. I believe that these are grounds enough to say that the Melichev-Percacci theory must be thrown out. However we continue... Next, to finish off the massive sector, notice that the parity-odd vector and the parity-odd tensor are both unitary under the conditions just discussed. That sounds great, but I have to caution here that PSALTer is telling us that they share the square mass",Inline@(-Bet1/(2Alp1)),". So what? Well actually this is quite dangerous, because in such cases the mode does not really have a definite spin, and properly one should take the joint residue of both spin sectors when evaluating the unitarity. That is trivial to go and do, but it isn't implemented in PSALTer yet (it would just be a few lines of code to make the system robust against such contingencies, but followed but a bunch of careful tests) -- thus I'm not 100% confident in the validity of this part of the spectrum. Finally, let's discuss the massless sector. This is obviously a train wreck, for starters the condition",Inline@(Alp1<0)," from earlier would seem to imply that the first two polarisations are `ghosts in both the soft and hard limits', if that notion is even well defined. Next, we have some complex structure of three plus three polarisations, evidently associated with a quadratic secular equation, which are difficult to untangle. I am very uncomfortable about such scenarios, I don't know where a group of three polarisations could come from (help? Sebastian, do you know of such things?). Anyway, the final point to say about the massless sector, is that things look bad but they might be even worse under the hood. When the massless spectrum is this rich, it is often because there is a non-simple null pole. You can intuitively understand this as follows: the massless propagator structure is the saturated eigenspace of the",Inline@(Def^2)," residue. But in general the saturated propagator is a Laurent series, with each successive term naturally becoming more and more complicated. If there is only a",Inline@(Def^2)," pole, then this is the first term and you expect a small little residue with simple unitarity conditions. But that reasoning works in reverse, so if you have complicated conditions and many eigenvectors, it is probably because the",Inline@(Def^2)," residue was not the first term, i.e. you have a ",Inline@(Def^4),"residue or worse... Heisenberg tells us that such higher-order poles are always ghosts under a limit of partial fractions. Now, PSALTer won't check for such higher-order ghosts (again, super easy to implement), but I just want to observe that we might suspect their presence here."};
 
-(*
+
 Section@"Einstein-Cartan theory (ECT)";
 
 Comment@"Now we would like to check the basic Einstein-Cartan theory. Here is the full nonlinear Lagrangian:";
@@ -173,11 +173,11 @@ ParticleSpectrum[
 ];
 
 Comment@"Thus, the conclusions are the same, as expected.";
-*)
+
 (*=============================*)
 (*  Yun Cherng Lin's 58 cases  *)
 (*=============================*)
-(*
+
 Section@"Performing the grand PGT survey";
 
 Off[Solve::svars];
@@ -203,4 +203,3 @@ Comment@"Okay, that's all the cases. You can see from the timing below (in secon
 DisplayExpression@CalibrationTimingData;
 
 DumpSave[FileNameJoin@{NotebookDirectory[],"CalibrationTimingData.mx"},{CalibrationTimingData}];
-*)

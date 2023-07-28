@@ -16,38 +16,33 @@ FourierLagrangian[ClassName_?StringQ,Expr_,Tensors_]:=Module[{
 	Tensors1=(#@@(ToExpression/@Alphabet[][[1;;(Length@SlotsOfTensor@#)]]))&/@(Tensors);
 	Tensors2=(#@@(ToExpression/@Alphabet[][[-(Length@SlotsOfTensor@#);;-1]]))&/@(Tensors);
 
-	CrossingRules={};(*start off without any rules*)
+	CrossingRules={};
 
-	(*first the double derivatives*)
 	Table[(CrossingRules=CrossingRules~Join~
 	MakeRule[{Evaluate[CD[-q]@Tensor1 CD[-p]@Tensor2],Evaluate[Dagger@Tensor1 P[-p]P[-q]Tensor2]},MetricOn->All,ContractMetrics->True]),
 	{Tensor1,Tensors1},{Tensor2,Tensors2}];
 
-	(*then single derivatives*)
 	Table[(CrossingRules=CrossingRules~Join~
 	MakeRule[{Evaluate[Tensor1 CD[-p]@Tensor2],Evaluate[-I Dagger@Tensor1 P[-p]Tensor2]},MetricOn->All,ContractMetrics->True]),
 	{Tensor1,Tensors1},{Tensor2,Tensors2}];
 
-	(*and finally algebraic products*)
 	Table[(CrossingRules=CrossingRules~Join~
 	MakeRule[{Evaluate[Tensor1 Tensor2],Evaluate[Dagger@Tensor1 Tensor2]},MetricOn->All,ContractMetrics->True]),
 	{Tensor1,Tensors1},{Tensor2,Tensors2}];
 
 	Diagnostic@CrossingRules;
 
-	Diagnostic@Expr;
 	ToMomentumExpr=Expr;
 	ToMomentumExpr//=ToNewCanonical;
 	ToMomentumExpr//=CollectTensors;
 
-	ToMomentumExpr=ToMomentumExpr/.CrossingRules;(*now impose these rules to obtain Fourier space version*)
+	ToMomentumExpr=ToMomentumExpr/.CrossingRules;
 	Diagnostic@ToMomentumExpr;
-	ToMomentumExpr=ToMomentumExpr/.CrossingRules;(*now impose these rules to obtain Fourier space version*)
+	ToMomentumExpr=ToMomentumExpr/.CrossingRules;
 	Diagnostic@ToMomentumExpr;
 	ToMomentumExpr//=ToNewCanonical;
 	Diagnostic@ToMomentumExpr;
 
-	(*now move over to SO(3) decomposition*)
 	ToMomentumExpr=ToMomentumExpr/.ToV;
 
 	ToMomentumExpr//=Class@DecomposeFields;

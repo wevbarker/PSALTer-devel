@@ -2,6 +2,157 @@
 (*  Test2  *)
 (*=========*)
 
+Expr=Total@(ToExpression/@Alphabet[])+
+Total@((ToExpression@(#<>"2")&)/@Alphabet[])+
+Total@((ToExpression@(#<>"3")&)/@Alphabet[])+
+Total@((ToExpression@(#<>"4")&)/@Alphabet[])+
+Total@((ToExpression@(#<>"5")&)/@Alphabet[])+
+Total@((ToExpression@(#<>"6")&)/@Alphabet[]);
+Print@Expr;
+
+MaxCores=16;
+
+Expr=Expr/.{Plus->List};
+Expr//=Partition[#,UpTo[Floor[(Length@#)/MaxCores]]]&;
+(*Expr//=Partition[#,UpTo[Ceiling[(Length@#)/MaxCores]]]&;*)
+Print@Expr;
+Print@Length@Expr;
+
+Throw@"a rock";
+
+BatchExpanded[InputExpr_,Prefix_,MatrixElementFileName_]:=Module[{
+	Expr=InputExpr,
+	NumberOfSubTasks,
+	NewFileNames,
+	MatrixElementSubTaskFileName},
+
+	Expr//=Expand;
+	Expr=Expr/.{Plus->List};
+	Expr//=Partition[#,UpTo[Floor[(Length@#)/MaxCores]]]&;
+	Expr=Total/@Expr;
+	Expr=Expand/@Expr;
+	NumberOfSubTasks=Length@Expr;
+
+	Quiet@CreateDirectory[FileNameJoin@{NotebookDirectory[],"tmp"}];
+	NewFileNames=Table[
+		Drop[MatrixElementFileName,-3]<>Prefix<>ToString@SubTask<>".mx",
+				{SubTask,NumberOfSubTasks}];
+	Table[
+		MatrixElementSubTask=Evaluate@Expr[[SubTask]];
+		MatrixElementSubTaskFileName=Evaluate@NewFileNames[[SubTask]];
+		DumpSave[MatrixElementSubTaskFileName,MatrixElementSubTask];
+		MatrixElementSubTask=0;
+		MatrixElementSubTaskFileName="";,
+				{SubTask,NumberOfSubTasks}];
+NewFileNames];
+
+GradualExpandSubTask[SymbolicRules_,MatrixElementSubTaskFileName_]:=Module[{
+		SubTaskExpr		
+	},
+
+	Get@MatrixElementSubTaskFileName;
+	SubTaskExpr=ToExpression@"xAct`PSALTer`Private`MatrixElementSubTask";
+	
+	{ReduceFirstIntermediateSymbols,FirstIntermediateSymbolsToSecondIntermediateSymbols,SecondIntermediateSymbolsToCouplingConstants}=SymbolicRules;
+
+	SubTaskExpr=GradualExpand[SubTaskExpr,ReduceFirstIntermediateSymbols];
+	SubTaskExpr=GradualExpand[SubTaskExpr,FirstIntermediateSymbolsToSecondIntermediateSymbols];
+	SubTaskExpr=GradualExpand[SubTaskExpr,SecondIntermediateSymbolsToCouplingConstants];
+	MatrixElementSubTask=SubTaskExpr;
+	DumpSave[MatrixElementSubTaskFileName,MatrixElementSubTask];
+];
+
+GrabExpression[MatrixElementSubTaskFileName_]:=Module[{SubTaskExpr},
+	Get@MatrixElementSubTaskFileName;
+	SubTaskExpr=ToExpression@"xAct`PSALTer`Private`MatrixElementSubTask";	
+SubTaskExpr];
+
+ConsolidateUnmakeSymbolic[ListOfFileNames_]:=Module[{
+	ListOfNumeratorFileNames,
+	ListOfDenominatorFileNames,
+	FullElement,
+	ReducedNumerator,
+	ReducedDenominator},
+
+	{ListOfNumeratorFileNames,ListOfDenominatorFileNames}=ListOfFileNames;
+	ReducedNumerator=GrabExpression/@ListOfNumeratorFileNames;
+	ReducedNumerator//=Total;
+	ReducedNumerator//=Expand;
+	ReducedNumerator//=FullSimplify;
+
+	ReducedDenominator=GrabExpression/@ListOfDenominatorFileNames;
+	ReducedDenominator//=Total;
+	ReducedDenominator//=Expand;
+	ReducedDenominator//=FullSimplify;
+
+	FullElement=ReducedNumerator/ReducedDenominator;
+	FullElement//=FullSimplify;
+	
+FullElement];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Couplings={xAct`PSALTer`MetricAffineGaugeTheory`A0,xAct`PSALTer`MetricAffineGaugeTheory`A1,xAct`PSALTer`MetricAffineGaugeTheory`A2,xAct`PSALTer`MetricAffineGaugeTheory`A3,xAct`PSALTer`MetricAffineGaugeTheory`A4,xAct`PSALTer`MetricAffineGaugeTheory`A5,xAct`PSALTer`MetricAffineGaugeTheory`A6,xAct`PSALTer`MetricAffineGaugeTheory`A7,xAct`PSALTer`MetricAffineGaugeTheory`A8,xAct`PSALTer`MetricAffineGaugeTheory`A9,xAct`PSALTer`MetricAffineGaugeTheory`A10,xAct`PSALTer`MetricAffineGaugeTheory`A11,xAct`PSALTer`MetricAffineGaugeTheory`C1,xAct`PSALTer`MetricAffineGaugeTheory`C2,xAct`PSALTer`MetricAffineGaugeTheory`C3,xAct`PSALTer`MetricAffineGaugeTheory`C4,xAct`PSALTer`MetricAffineGaugeTheory`C5,xAct`PSALTer`MetricAffineGaugeTheory`C6,xAct`PSALTer`MetricAffineGaugeTheory`C7,xAct`PSALTer`MetricAffineGaugeTheory`C8,xAct`PSALTer`MetricAffineGaugeTheory`C9,xAct`PSALTer`MetricAffineGaugeTheory`C10,xAct`PSALTer`MetricAffineGaugeTheory`C11,xAct`PSALTer`MetricAffineGaugeTheory`C12,xAct`PSALTer`MetricAffineGaugeTheory`C13,xAct`PSALTer`MetricAffineGaugeTheory`C14,xAct`PSALTer`MetricAffineGaugeTheory`C15,xAct`PSALTer`MetricAffineGaugeTheory`C16};
+CouplingAssumptions=(#~Element~Reals)&/@Couplings;
+(*CouplingAssumptions~AppendTo~(xAct`PSALTer`Def~Element~Reals);*)
+
+
+Quiet[DefConstantSymbol[xAct`PSALTer`Private`DefSquared,PrintAs->"\[ScriptX]"]];
+Print@CouplingAssumptions;
+
+Options@SimplifyMasses={
+	Method->"Careful"};
+SimplifyMasses[InputRoot_,Couplings_,OptionsPattern[]]:=Module[{
+	CouplingAssumptions,
+	RootValue=InputRoot},
+
+	CouplingAssumptions=(#~Element~Reals)&/@Couplings;
+	RootValue=Assuming[CouplingAssumptions,Simplify@RootValue];
+
+	Switch[OptionValue@Method,
+		"Careful",
+		(
+		RootValue//=FullSimplify;
+		),
+		"Careless",
+		(
+		Null;
+		)
+	];
+RootValue];
+
+IsolatePoles[InputDenominator_,CouplingAssumptions_]:=Module[{Poly=InputDenominator},
+	Poly=Poly/.{Def->Sqrt@xAct`PSALTer`Private`DefSquared};
+	ListOfRoots=Assuming[CouplingAssumptions,Roots[Poly==0,xAct`PSALTer`Private`DefSquared]];
+	ListOfRoots=ListOfRoots/.{Or->List};
+	ListOfRoots=(xAct`PSALTer`Private`DefSquared/.First@Solve[#,xAct`PSALTer`Private`DefSquared])&/@ListOfRoots;
+	ListOfRoots//=DeleteDuplicates;
+	ListOfRoots//=DeleteCases[#,0,Infinity]&;
+	ListOfRoots//=DeleteCases[#,_?NumberQ]&;
+ListOfRoots];
+
+Print/@ListOfRoots;
+
+ListOfRoots=SimplifyMasses/@ListOfRoots;
+
+
+IsolatePoles@Expr;
+
+Throw@"a really big strop!";
+
 (Print@#)&/@(MatrixForm/@xAct`PSALTer`Private`AllMatrices);
 
 (Print@#)&@"The aim here is to try some symbolic equivalent of the matrices";

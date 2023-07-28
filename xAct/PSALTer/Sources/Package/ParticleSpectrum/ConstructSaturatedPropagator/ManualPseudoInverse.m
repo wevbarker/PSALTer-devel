@@ -23,31 +23,28 @@ ManualPseudoInverse[TheInputMatrix_List?MatrixQ/;Precision[TheInputMatrix]===Inf
 		OriginalNullSpace=FullSimplify@Orthogonalize@OriginalNullSpace];
 
 	ColumnNullSpace=Transpose@OriginalNullSpace;
-	RowNullSpace=Conjugate@OriginalNullSpace;
+	Assuming[xAct`PSALTer`Def>0,RowNullSpace=Conjugate@OriginalNullSpace];
 
-
-	(Diagnostic@#)&@"Checking orthonormality";
-	(Diagnostic@#)&@(MatrixForm@Assuming[xAct`PSALTer`Def>0,
+	(MatrixForm@Assuming[xAct`PSALTer`Def>0,
 			FullSimplify@(RowNullSpace.ColumnNullSpace)]);
 
 	CompensatorMatrix=ColumnNullSpace.RowNullSpace;
 	Assuming[xAct`PSALTer`Def>0,CompensatorMatrix//=FullSimplify];
-	(Diagnostic@#)&@(MatrixForm@CompensatorMatrix);
+	Diagnostic@@CompensatorMatrix;
 
 	Similarity=(IdentityMatrix@DimensionsOfMatrix)-CompensatorMatrix;
 
-	(Diagnostic@#)&@"Checking annihilation";
-	(Diagnostic@#)&@(MatrixForm@Assuming[xAct`PSALTer`Def>0,
+	(MatrixForm@Assuming[xAct`PSALTer`Def>0,
 			FullSimplify@(Similarity.ColumnNullSpace)]);
 
-	PseudoInverseMatrix=Inverse[TheInputMatrix+CompensatorMatrix];
-	(*Assuming[xAct`PSALTer`Def>0,PseudoInverseMatrix//=FullSimplify];*)
+	PseudoInverseMatrix=Assuming[xAct`PSALTer`Def>0,
+				Inverse[TheInputMatrix+CompensatorMatrix]];
 
-	PseudoInverseMatrix=PseudoInverseMatrix.Similarity;
-	(*Assuming[xAct`PSALTer`Def>0,PseudoInverseMatrix//=FullSimplify];*)
+	PseudoInverseMatrix=Assuming[xAct`PSALTer`Def>0,
+				PseudoInverseMatrix.Similarity];
 
-	PseudoInverseMatrix=(ConjugateTranspose@Similarity).PseudoInverseMatrix;
-	(*Assuming[xAct`PSALTer`Def>0,PseudoInverseMatrix//=FullSimplify];*)
+	PseudoInverseMatrix=Assuming[xAct`PSALTer`Def>0,
+				(ConjugateTranspose@Similarity).PseudoInverseMatrix];
 
 	(*PseudoInverseMatrix=Inverse[(ConjugateTranspose@TheInputMatrix).TheInputMatrix+(ConjugateTranspose@CompensatorMatrix).CompensatorMatrix].(ConjugateTranspose@TheInputMatrix);*)
 (*

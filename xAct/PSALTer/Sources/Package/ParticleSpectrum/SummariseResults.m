@@ -2,19 +2,15 @@
 (*  SummariseResults  *)
 (*====================*)
 
-ParallelGrid[Expr_]:=Quiet@Check[Grid[((#~Partition~(Ceiling@(0.5*Sqrt@Length@#)))&@Flatten@{Expr}),Frame->All],Null];
-
-ReMagnify[Object_]:=Module[{
-	FullWidth,
-	DesiredWidth,
-	ActualWidth,
-	RequiredMagnification},
-
-FullWidth=First@Rasterize[Show[Graphics[Circle[]],ImageSize->Full],"RasterSize"];
-DesiredWidth=0.4*FullWidth;
-ActualWidth=First@Rasterize[Object,"RasterSize"];
-RequiredMagnification=Piecewise[{{1,ActualWidth<=DesiredWidth},{DesiredWidth/ActualWidth,ActualWidth>DesiredWidth}}];
-Magnify[Object,RequiredMagnification]];
+BuildPackage@"ParticleSpectrum/SummariseResults/ShowIfSmall.m";
+BuildPackage@"ParticleSpectrum/SummariseResults/Colours.m";
+BuildPackage@"ParticleSpectrum/SummariseResults/MakeLabel.m";
+BuildPackage@"ParticleSpectrum/SummariseResults/WignerGrid.m";
+BuildPackage@"ParticleSpectrum/SummariseResults/RaggedBlock.m";
+BuildPackage@"ParticleSpectrum/SummariseResults/PrintSourceConstraints.m";
+BuildPackage@"ParticleSpectrum/SummariseResults/ReMagnify.m";
+BuildPackage@"ParticleSpectrum/SummariseResults/ParallelGrid.m";
+BuildPackage@"ParticleSpectrum/SummariseResults/MonitorParallel.m";
 
 SummariseTheory[Theory_?StringQ]:=Theory;
 
@@ -25,60 +21,69 @@ SummariseTheory[Theory_?NotStringQ]:=Module[{DisplayVersion},
 	DisplayVersion//=Evaluate;
 DisplayVersion];
 
-SummariseResults[WaveOperator_,Propagator_,SourceConstraints_,Spectrum_,OverallUnitarity_,SummaryOfTheory_]:=Module[{
+SummariseResults[WaveOperator_,Propagator_,SourceConstraints_,Spectrum_,MasslessSpectrum_,OverallUnitarity_,SummaryOfTheory_]:=Module[{
 	Computing,
 	TheWaveOperator,
 	ThePropagator,
 	TheSourceConstraints,
 	TheSpectrum,
+	TheMasslessSpectrum,
 	TheOverallUnitarity,
 	SummaryOfResults
 	},
 
-(*Computing=HoldForm@(DynamicModule[{StartTime=AbsoluteTime[]},Dynamic@Refresh[ProgressIndicator[Tanh[N@(AbsoluteTime[]-StartTime)/100],Appearance->"Necklace"],UpdateInterval->1]]);*)
-
-	MakeLabel[SomeString_]:=Style[SomeString,Large];
-	Computing=Row[{ProgressIndicator[Appearance->"Necklace",ImageSize->Large],MakeLabel@"Pending..."},Invisible@MakeLabel@"  ",Alignment->{Left,Center}];
+	Computing=Row[{ProgressIndicator[Appearance->"Necklace",ImageSize->Small],"Pending..."},Invisible@MakeLabel@"  ",Alignment->{Left,Center}];
 	FullWidth=First@Rasterize[Show[Graphics[Circle[]],ImageSize->Full],"RasterSize"];
 
 	If[WaveOperator===Null,
 		TheWaveOperator=Computing,
-		TheWaveOperator=ReMagnify[WaveOperator]];
+		(*TheWaveOperator=ReMagnify[WaveOperator]];*)
+		TheWaveOperator=WaveOperator];
 	If[Propagator===Null,
 		ThePropagator=Computing,
-		ThePropagator=ReMagnify[Propagator]];
+		(*ThePropagator=ReMagnify[Propagator]];*)
+		ThePropagator=Propagator];
 	If[SourceConstraints===Null,
 		TheSourceConstraints=Computing,
 		If[SourceConstraints==={},
-			TheSourceConstraints=MakeLabel["(None)"],
-			TheSourceConstraints=ReMagnify[SourceConstraints]];
+			TheSourceConstraints="(None)",
+			(*TheSourceConstraints=ReMagnify[SourceConstraints]];*)
+			TheSourceConstraints=SourceConstraints];
 		];
 	If[Spectrum===Null,
 		TheSpectrum=Computing,
-		TheSpectrum=ReMagnify[Spectrum]];
+		(*TheSpectrum=ReMagnify[Spectrum]];*)
+		TheSpectrum=Spectrum];
+	If[MasslessSpectrum===Null,
+		TheMasslessSpectrum=Computing,
+		(*TheMasslessSpectrum=ReMagnify[MasslessSpectrum]];*)
+		TheMasslessSpectrum=MasslessSpectrum];
 	If[OverallUnitarity===Null,
 		TheOverallUnitarity=Computing,
 		If[OverallUnitarity===False,
-			TheOverallUnitarity=MakeLabel["(Impossible)"],
-			TheOverallUnitarity=ReMagnify[OverallUnitarity]];
+			TheOverallUnitarity="(Unitarity is demonstrably impossible)",
+			(*TheOverallUnitarity=ReMagnify[OverallUnitarity]];*)
+			TheOverallUnitarity=OverallUnitarity];
 	];
 
-	SummaryOfResults=Grid[{
-		{MakeLabel["PSALTer results panel"],SpanFromLeft},
-		{SummariseTheory[SummaryOfTheory],SpanFromLeft},
-		{MakeLabel["Wave operator"],
-		MakeLabel["Saturated propagator"]},
-		{TheWaveOperator,
-		ThePropagator},
-		{MakeLabel["Source constraints"],
-		MakeLabel["Particle spectrum"]},
-		{TheSourceConstraints,
-		TheSpectrum},
-		{MakeLabel["Gauge symmetries"],
-		SpanFromAbove},
-		{MakeLabel["(Not yet implemented)"],
-		SpanFromAbove},
-		{MakeLabel["Unitarity conditions"],MakeLabel["Assumptions"]},
-		{TheOverallUnitarity,MakeLabel["(Not yet implemented)"]}
-		},Spacings->{2,2},Frame->True,Background->RGBColor[250/255,250/255,250/255],Alignment->{Center,Center}];
+	SummaryOfResults=Column[{
+		MakeLabel@"PSALTer results panel",
+		SummariseTheory@SummaryOfTheory,
+		MakeLabel@"Wave operator",
+		TheWaveOperator,
+		MakeLabel@"Saturated propagator",
+		ThePropagator,
+		MakeLabel@"Source constraints",
+		TheSourceConstraints,
+		MakeLabel@"Massive spectrum",
+		TheSpectrum,
+		MakeLabel@"Massless spectrum",
+		TheMasslessSpectrum,
+		MakeLabel@"Gauge symmetries",
+		"(Not yet implemented in PSALTer)",
+		MakeLabel@"Unitarity conditions",
+		TheOverallUnitarity,
+		MakeLabel@"Validity assumptions",
+		"(Not yet implemented in PSALTer)"
+		},Spacings->{2,2},Frame->True,Background->PanelColor,Alignment->{Left,Center}];
 SummaryOfResults];

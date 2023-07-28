@@ -3,11 +3,10 @@
 (*====================*)
 
 BuildPackage@"ParticleSpectrum/UpdateTheoryAssociation.m";
-BuildPackage@"ParticleSpectrum/WignerGrid.m";
-BuildPackage@"ParticleSpectrum/RaggedBlock.m";
+BuildPackage@"ParticleSpectrum/PSALTerParallelSubmit.m";
+
 BuildPackage@"ParticleSpectrum/SummariseResults.m";
 BuildPackage@"ParticleSpectrum/ParticleSpectrumSummary.m";
-BuildPackage@"ParticleSpectrum/PSALTerParallelSubmit.m";
 BuildPackage@"ParticleSpectrum/PrintSpectrum.m";
 
 BuildPackage@"ParticleSpectrum/ConstructLinearAction.m";
@@ -63,6 +62,7 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 	LocalPropagator=Null;
 	LocalSourceConstraints=Null;
 	LocalSpectrum=Null;
+	LocalMasslessSpectrum=Null;
 	LocalOverallUnitarity=Null;
 	LocalSummaryOfTheory=Null;
 
@@ -71,6 +71,7 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 			LocalPropagator,
 			LocalSourceConstraints,
 			LocalSpectrum,
+			LocalMasslessSpectrum,
 			LocalOverallUnitarity,
 			LocalSummaryOfTheory],
 		TrackedSymbols->{
@@ -78,6 +79,7 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 			LocalPropagator,
 			LocalSourceConstraints,
 			LocalSpectrum,
+			LocalMasslessSpectrum,
 			LocalOverallUnitarity,
 			LocalSummaryOfTheory}]];
 
@@ -134,7 +136,8 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 				OptionValue@ClassName,
 				ValuesSaturatedPropagator,
 				ValuesInverseBMatricesValues,
-				BlockMassSigns];
+				BlockMassSigns,
+				Method->OptionValue@Method];
 	UpdateTheoryAssociation[
 				OptionValue@TheoryName,
 				SquareMasses,
@@ -180,6 +183,7 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 		LocalPropagator,
 		LocalSourceConstraints,
 		LocalSpectrum,
+		LocalMasslessSpectrum,
 		LocalOverallUnitarity,
 		LocalSummaryOfTheory];
 ];

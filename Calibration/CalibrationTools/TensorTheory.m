@@ -26,12 +26,11 @@ LinearisedLagrangian//=ToCanonical;
 LinearisedLagrangian//=CollectTensors;
 
 ParticleSpectrum[
-	"TensorTheory",
-	"FierzPauli",
 	LinearisedLagrangian,
-	TensorFields->{LinearMetric},
-	CouplingConstants->{xAct`PSALTer`TensorTheory`Coupling1},
-	ExportTheory->True
+	ClassName->"TensorTheory",
+	TheoryName->"FierzPauli",	
+	Method->"Careless",
+	MaxLaurentDepth->3
 ];
 
 Comment@"The Fierz-Pauli theory thus propagates two massless polarisations, and the no-ghost condition is consistent with a positive Einstein or Newton-Cavendish constant, or a positive square Planck mass. The diffeomorphism invariance of the theory is manifest as a gauge symmetry, whose constraints on the source currents are commensurate with the conservation of the matter stress-energy tensor.";
@@ -56,12 +55,11 @@ LinearisedLagrangian//=ToCanonical;
 LinearisedLagrangian//=CollectTensors;
 
 ParticleSpectrum[
-	"TensorTheory",
-	"MassiveGravity",
 	LinearisedLagrangian,
-	TensorFields->{LinearMetric},
-	CouplingConstants->{xAct`PSALTer`TensorTheory`Coupling1,xAct`PSALTer`TensorTheory`Coupling2},
-	ExportTheory->True
+	ClassName->"TensorTheory",
+	TheoryName->"MassiveGravity",	
+	Method->"Careless",
+	MaxLaurentDepth->3
 ];
 
 Comment@"There is no massless sector. The propagator develops a massive pole in the positive-parity tensor sector. The no-ghost condition is as before, but now a no-tachyon condition protects the graviton mess.";
@@ -86,12 +84,11 @@ LinearisedLagrangian//=ToCanonical;
 LinearisedLagrangian//=CollectTensors;
 
 ParticleSpectrum[
-	"TensorTheory",
-	"FirstSickFierzPauli",
 	LinearisedLagrangian,
-	TensorFields->{LinearMetric},
-	CouplingConstants->{xAct`PSALTer`TensorTheory`Coupling1,xAct`PSALTer`TensorTheory`Coupling2},
-	ExportTheory->True
+	ClassName->"TensorTheory",
+	TheoryName->"FirstSickFierzPauli",	
+	Method->"Careless",
+	MaxLaurentDepth->3
 ];
 
 Comment@"So this variation has no gauge symmetries, too many propagating species and no hope of unitarity.";
@@ -112,12 +109,11 @@ LinearisedLagrangian//=ToCanonical;
 LinearisedLagrangian//=CollectTensors;
 
 ParticleSpectrum[
-	"TensorTheory",
-	"SecondSickFierzPauli",
 	LinearisedLagrangian,
-	TensorFields->{LinearMetric},
-	CouplingConstants->{xAct`PSALTer`TensorTheory`Coupling1,xAct`PSALTer`TensorTheory`Coupling2},
-	ExportTheory->True
+	ClassName->"TensorTheory",
+	TheoryName->"SecondSickFierzPauli",	
+	Method->"Careless",
+	MaxLaurentDepth->3
 ];
 
 Comment@"Again this variation has no gauge symmetries, too many propagating species and no hope of unitarity.";
@@ -138,12 +134,11 @@ LinearisedLagrangian//=ToCanonical;
 LinearisedLagrangian//=CollectTensors;
 
 ParticleSpectrum[
-	"TensorTheory",
-	"ThirdSickFierzPauli",
 	LinearisedLagrangian,
-	TensorFields->{LinearMetric},
-	CouplingConstants->{xAct`PSALTer`TensorTheory`Coupling1,xAct`PSALTer`TensorTheory`Coupling2},
-	ExportTheory->True
+	ClassName->"TensorTheory",
+	TheoryName->"ThirdSickFierzPauli",	
+	Method->"Careless",
+	MaxLaurentDepth->3
 ];
 
 Comment@"This time we have what looks to be a viable theory with an extra massless scalar. However the diffeomorphism gauge symmetry has been lost, and the stress-energy tensor is not conserved.";
@@ -164,12 +159,11 @@ LinearisedLagrangian//=ToCanonical;
 LinearisedLagrangian//=CollectTensors;
 
 ParticleSpectrum[
-	"TensorTheory",
-	"FourthSickFierzPauli",
 	LinearisedLagrangian,
-	TensorFields->{LinearMetric},
-	CouplingConstants->{xAct`PSALTer`TensorTheory`Coupling1,xAct`PSALTer`TensorTheory`Coupling2},
-	ExportTheory->True
+	ClassName->"TensorTheory",
+	TheoryName->"FourthSickFierzPauli",	
+	Method->"Careless",
+	MaxLaurentDepth->3
 ];
 
 Comment@"Another case with a partial gauge symmetry and an extra scalar mode.";
@@ -195,12 +189,11 @@ LinearisedLagrangian//=ToCanonical;
 LinearisedLagrangian//=CollectTensors;
 
 ParticleSpectrum[
-	"TensorTheory",
-	"MassiveGravity",
 	LinearisedLagrangian,
-	TensorFields->{LinearMetric},
-	CouplingConstants->{xAct`PSALTer`TensorTheory`Coupling1,xAct`PSALTer`TensorTheory`Coupling2,xAct`PSALTer`TensorTheory`Coupling3},
-	ExportTheory->True
+	ClassName->"TensorTheory",
+	TheoryName->"SickMassiveGravity",	
+	Method->"Careless",
+	MaxLaurentDepth->3
 ];
 
 Comment@"The consequence is seen in the positive-parity scalar sector, which develops a massive pole. This is the Boulware-Deser ghost, which always spoils the unitarity of the theory.";

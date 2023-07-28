@@ -16,18 +16,16 @@ ConstructMasslessAnalysis[ClassName_?StringQ,ValuesOfSourceConstraints_,ValuesSa
 	MasslessAnalysis
 	},
 
-	LocalSpectrum=" ** ConstructMasslessAnalysis...";
+	LocalMasslessSpectrum=" ** ConstructMasslessAnalysis...";
 
 	ConstructLightcone[ClassName,ValuesOfSourceConstraints];
 	ConvertLightcone[ClassName,ValuesSaturatedPropagator];
-
-	(*MasslessPropagatorResidue=Map[(xAct`PSALTer`Private`PSALTerParallelSubmit@(NullResidue@#))&,LightconePropagator,{2}];*)
 
 	MasslessPropagatorResidue=MapThread[(xAct`PSALTer`Private`PSALTerParallelSubmit@(NullResidue[#1,#2]))&,
 	{LightconePropagator,
 	Map[(1)&,LightconePropagator,{2}]},
 	2];
-	MasslessPropagatorResidue=WaitAll@MasslessPropagatorResidue;
+	MasslessPropagatorResidue=MonitorParallel@MasslessPropagatorResidue;
 	Diagnostic@MasslessPropagatorResidue;
 	MasslessAnalysis=MasslessAnalysisOfTotal[MasslessPropagatorResidue,UnscaledNullSpace];
 	Diagnostic@MasslessAnalysis;
@@ -38,7 +36,7 @@ ConstructMasslessAnalysis[ClassName_?StringQ,ValuesOfSourceConstraints_,ValuesSa
 	{LightconePropagator,
 	Map[(2)&,LightconePropagator,{2}]},
 	2];
-	MasslessPropagatorResidue=WaitAll@MasslessPropagatorResidue;
+	MasslessPropagatorResidue=MonitorParallel@MasslessPropagatorResidue;
 	Diagnostic@MasslessPropagatorResidue;
 	MasslessAnalysis=MasslessAnalysisOfTotal[MasslessPropagatorResidue,UnscaledNullSpace];
 	Diagnostic@MasslessAnalysis;
@@ -51,7 +49,7 @@ ConstructMasslessAnalysis[ClassName_?StringQ,ValuesOfSourceConstraints_,ValuesSa
 	{LightconePropagator,
 	Map[(3)&,LightconePropagator,{2}]},
 	2];
-	MasslessPropagatorResidue=WaitAll@MasslessPropagatorResidue;
+	MasslessPropagatorResidue=MonitorParallel@MasslessPropagatorResidue;
 	Diagnostic@MasslessPropagatorResidue;
 	MasslessAnalysis=MasslessAnalysisOfTotal[MasslessPropagatorResidue,UnscaledNullSpace];
 	Diagnostic@MasslessAnalysis;
@@ -59,5 +57,5 @@ ConstructMasslessAnalysis[ClassName_?StringQ,ValuesOfSourceConstraints_,ValuesSa
 	HexicAnalysisValue={};
 	];
 
-	LocalSpectrum=PrintSpectrum[MassiveAnalysis,MassiveGhostAnalysis,MasslessAnalysisValue,QuarticAnalysisValue,HexicAnalysisValue];
+	LocalMasslessSpectrum=PrintSpectrum[{},{},MasslessAnalysisValue,QuarticAnalysisValue,HexicAnalysisValue];
 ];

@@ -2,7 +2,6 @@
 (*  ConjectureInverse  *)
 (*=====================*)
 
-BuildPackage@"ParticleSpectrum/ConstructSourceConstraints/ConjectureNullSpace.m";
 BuildPackage@"ParticleSpectrum/ConstructSaturatedPropagator/MakeSymbolic.m";
 BuildPackage@"ParticleSpectrum/ConstructSaturatedPropagator/IntermediateRules.m";
 BuildPackage@"ParticleSpectrum/ConstructSaturatedPropagator/ManualPseudoInverse.m";
@@ -20,21 +19,19 @@ ConjectureInverse[InputMatrix_,Couplings_,CouplingAssumptions_]:=Module[{
 
 	LocalPropagator=" ** ConjectureInverse...";
 
-	(Diagnostic@#)&@(MatrixForm@InputMatrix);
-
 	ConjecturedNullSpace=ConjectureNullSpace[TheInputMatrix,Couplings,CouplingAssumptions];
-	(Diagnostic@#)&@(MatrixForm@ConjecturedNullSpace);
+	Diagnostic@ConjecturedNullSpace;
 	{SymbolicMatrix,FirstIntermediateSymbolsToCouplingConstants}=MakeSymbolic[TheInputMatrix,CouplingAssumptions];
-	(Diagnostic@#)&@(MatrixForm@SymbolicMatrix);
+	Diagnostic@SymbolicMatrix;
 	{ReduceFirstIntermediateSymbols,FirstIntermediateSymbolsToSecondIntermediateSymbols,SecondIntermediateSymbolsToCouplingConstants}=IntermediateRules[FirstIntermediateSymbolsToCouplingConstants,Couplings];
-	(Diagnostic@#)&@ReduceFirstIntermediateSymbols;
-	(Diagnostic@#)&@FirstIntermediateSymbolsToSecondIntermediateSymbols;
-	(Diagnostic@#)&@SecondIntermediateSymbolsToCouplingConstants;
+	Diagnostic@ReduceFirstIntermediateSymbols;
+	Diagnostic@FirstIntermediateSymbolsToSecondIntermediateSymbols;
+	Diagnostic@SecondIntermediateSymbolsToCouplingConstants;
 
 	InverseSymbolicMatrix=ManualPseudoInverse[SymbolicMatrix,ConjecturedNullSpace];
 
-	InverseMatrix=UnmakeSymbolic[InverseSymbolicMatrix,ReduceFirstIntermediateSymbols,FirstIntermediateSymbolsToSecondIntermediateSymbols,SecondIntermediateSymbolsToCouplingConstants];	
-	InverseMatrix=((#)~FullSimplify~CouplingAssumptions)&@InverseMatrix;
-	(Diagnostic@#)&@(MatrixForm@InverseMatrix);
+	InverseMatrix=UnmakeSymbolic[InverseSymbolicMatrix,ReduceFirstIntermediateSymbols,FirstIntermediateSymbolsToSecondIntermediateSymbols,SecondIntermediateSymbolsToCouplingConstants,CouplingAssumptions];
+	(*InverseMatrix=((#)~FullSimplify~CouplingAssumptions)&@InverseMatrix;*)
+	Diagnostic@InverseMatrix;
 
 InverseMatrix];

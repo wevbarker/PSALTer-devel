@@ -26,9 +26,9 @@ PrintParticle[MassivePoleResidue_,SquareMass_,Spin_,Parity_,Polarisations_,Optio
 	OpenDiagram="
 			\\tikzfeynmanset{every vertex/.style={large}}
 			\\feynmandiagram[medium,horizontal=a to b]{
-			i1[particle=\(j\),gray!50] --[thick,gray!50] a [crossed dot, thick,gray!50],
+			i1[particle=\(?\),gray!50] --[thick,gray!50] a [crossed dot, thick,gray!50],
 
-			i2[particle=\(j\),gray!50] --[thick,gray!50] a,
+			i2[particle=\(?\),gray!50] --[thick,gray!50] a,
 			a ";
 	If[SquareMass===0,
 
@@ -37,34 +37,34 @@ PrintParticle[MassivePoleResidue_,SquareMass_,Spin_,Parity_,Polarisations_,Optio
 		(
 		CloseDiagram=" b[crossed dot, thick,gray!50],
 				a --[draw=none, momentum={\\tiny{\(k^{\mu}=(p,0,0,p)\)}}] b,
-				b --[thick,gray!50] f1[particle=\(j\),gray!50],
-				b --[thick,gray!50] f2[particle=\(j\),gray!50],
-				b --[thick,gray!50] f3[particle=\(j\),gray!50]};";	
+				b --[thick,gray!50] f1[particle=\(?\),gray!50],
+				b --[thick,gray!50] f2[particle=\(?\),gray!50],
+				b --[thick,gray!50] f3[particle=\(?\),gray!50]};";	
 		TempGraphics=Column[{
 			Labeled[MaTeX[TikzSet<>OpenDiagram<>"--[thick]"<>CloseDiagram,Magnification->1.3],"Massless particle"],
 			Grid[
 			{
-				{Text@"Pole residue: ",Text@(MassivePoleResidue>0)},
-				{Text@"Polarisations: ",Text@(Polarisations)}
+				{Text@"Pole residue: ",Text@ShowIfSmall@(MassivePoleResidue>0)},
+				{Text@"Polarisations: ",Text@ShowIfSmall@(Polarisations)}
 			},
-			Frame->All,Alignment->Left,Background->RGBColor@{230/255,230/255,230/255}]
+			Frame->All,Alignment->Left,Background->DetailColor]
 		},Alignment->Center];
 		),
 		2,
 		(
 		CloseDiagram=" b[crossed dot, thick,gray!50],
 				b --[ghost, thick, half left, looseness=1.3, momentum={[arrow shorten=0.3]\\tiny{\(k^{\mu}=(\\mathcal{E},0,0,p)\)}}] a,
-				b --[thick,gray!50] f1[particle=\(j\),gray!50],
-				b --[thick,gray!50] f2[particle=\(j\),gray!50],
-				b --[thick,gray!50] f3[particle=\(j\),gray!50]};";	
+				b --[thick,gray!50] f1[particle=\(?\),gray!50],
+				b --[thick,gray!50] f2[particle=\(?\),gray!50],
+				b --[thick,gray!50] f3[particle=\(?\),gray!50]};";	
 		TempGraphics=Column[{
 			Labeled[MaTeX[TikzSet<>OpenDiagram<>"--[thick, half left, looseness=1.3,momentum={[arrow shorten=0.3]\\tiny{\(k^{\mu}=(p,0,0,p)\)}}]"<>CloseDiagram,Magnification->1.3],"Quartic pole"],
 			Grid[
 			{
-				{Text@"Pole residue: ",Text@(0<MassivePoleResidue>0)},
-				{Text@"Polarisations: ",Text@(Polarisations)}
+				{Text@"Pole residue: ",Text@ShowIfSmall@(0<MassivePoleResidue>0)},
+				{Text@"Polarisations: ",Text@ShowIfSmall@(Polarisations)}
 			},
-			Frame->All,Alignment->Left,Background->RGBColor@{230/255,230/255,230/255}]
+			Frame->All,Alignment->Left,Background->DetailColor]
 		},Alignment->Center];
 		),
 		3,
@@ -73,17 +73,17 @@ PrintParticle[MassivePoleResidue_,SquareMass_,Spin_,Parity_,Polarisations_,Optio
 				b --[ghost, thick, half left, looseness=1.8, momentum={[arrow shorten=0.3]\\tiny{\(k^{\mu}=(\\mathcal{E},0,0,p)\)}}] a,
 				b --[ghost, thick, half left, looseness=0.9,momentum'={[arrow shorten=0.35]}] a,
 				a --[thick, half left, looseness=0.9,momentum'={[arrow shorten=0.35]}] b,
-				b --[thick,gray!50] f1[particle=\(j\),gray!50],
-				b --[thick,gray!50] f2[particle=\(j\),gray!50],
-				b --[thick,gray!50] f3[particle=\(j\),gray!50]};";	
+				b --[thick,gray!50] f1[particle=\(?\),gray!50],
+				b --[thick,gray!50] f2[particle=\(?\),gray!50],
+				b --[thick,gray!50] f3[particle=\(?\),gray!50]};";	
 		TempGraphics=Column[{
 			Labeled[MaTeX[TikzSet<>OpenDiagram<>"--[thick, half left, looseness=1.8,momentum={[arrow shorten=0.3]\\tiny{\(k^{\mu}=(p,0,0,p)\)}}]"<>CloseDiagram,Magnification->1.3],"Hexic pole"],
 			Grid[
 			{
-				{Text@"Pole residue: ",Text@(0<MassivePoleResidue>0)},
-				{Text@"Polarisations: ",Text@(Polarisations)}
+				{Text@"Pole residue: ",Text@ShowIfSmall@(0<MassivePoleResidue>0)},
+				{Text@"Polarisations: ",Text@ShowIfSmall@(Polarisations)}
 			},
-			Frame->All,Alignment->Left,Background->RGBColor@{230/255,230/255,230/255}]
+			Frame->All,Alignment->Left,Background->DetailColor]
 		},Alignment->Center];
 		)
 	];
@@ -93,34 +93,39 @@ PrintParticle[MassivePoleResidue_,SquareMass_,Spin_,Parity_,Polarisations_,Optio
 	CloseDiagram=" b[crossed dot, thick,gray!50],
 			a --[draw=none,"<>ParityColour<>",  momentum'={[arrow style="<>ParityColour<>"]\\tiny{\(k^{\mu}=(\\mathcal{E},0,0,p)\)}}] b,
 			a --[draw=none,"<>ParityColour<>", half left, looseness=0.3,  edge label = {\\scriptsize{\(J^{P}="<>ToString@Spin<>"^{"<>ToString@Evaluate@ToParity@Parity<>"}\)}\\vspace{1cm}}] b,
-			b --[thick,gray!50] f1[particle=\(j\),gray!50],
-			b --[thick,gray!50] f2[particle=\(j\),gray!50],
-			b --[thick,gray!50] f3[particle=\(j\),gray!50]};";	
+			b --[thick,gray!50] f1[particle=\(?\),gray!50],
+			b --[thick,gray!50] f2[particle=\(?\),gray!50],
+			b --[thick,gray!50] f3[particle=\(?\),gray!50]};";	
 	TempGraphics=Column[{
 		Labeled[MaTeX[TikzSet<>OpenDiagram<>"--["<>ParityColour<>", "<>SpinStyle<>", thick]"<>CloseDiagram,Magnification->1.3],"Massive particle"],
 		Grid[
 		{
-			{Text@"Pole residue: ",Text@(MassivePoleResidue>0)},
-			{Text@"Square mass: ",Text@(SquareMass>0)},
+			{Text@"Pole residue: ",Text@ShowIfSmall@(MassivePoleResidue>0)},
+			{Text@"Square mass: ",Text@ShowIfSmall@(SquareMass>0)},
 			{Text@"Spin: ",Text@(Spin)},
 			{Text@"Parity: ",Text@(Parity)}
 		},
-		Frame->All,Alignment->Left,Background->RGBColor@{230/255,230/255,230/255}]
+		Frame->All,Alignment->Left,Background->DetailColor]
 	},Alignment->Center];
 
 	];
 
 TempGraphics];
 
-PrintMassiveSpectrum[SquareMasses_,MassivePropagatorResidues_]:=Print@Row@(MapThread[If[!(#1==={}),
-			PrintParticle[First@#1,First@#2,#4,#3,2*#4+1],
+PrintMassiveSpectrum[SquareMasses_,MassivePropagatorResidues_]:=Print@Column@(Flatten[MapThread[If[!(PossibleZeroQ@#1),
+			PrintParticle[#1,#2,#4,#3,2*#4+1],
 			0
-	]&,{
+	]&,
+	PadRight[#,{Length@#,Max@(Length/@#)}]&/@{
 		MassivePropagatorResidues,
 		SquareMasses,
-		{Even,Odd,Even,Odd,Even,Odd,Even,Odd}~Take~Length@SquareMasses,
-		{0,0,1,1,2,2,3,3}~Take~Length@SquareMasses
-	}]~DeleteCases~0);
+		MapThread[ConstantArray[#1,Length@#2]&,
+				{{Even,Odd,Even,Odd,Even,Odd,Even,Odd}~Take~Length@SquareMasses,
+				SquareMasses},1],
+		MapThread[ConstantArray[#1,Length@#2]&,
+				{{0,0,1,1,2,2,3,3}~Take~Length@SquareMasses,
+				SquareMasses},1]
+	},2],{1,2}]~DeleteCases~0);
 
 StripFactors[MasslessEigenvalue_]:=Module[{Expr,
 	MasslessEigenvalueNumerator=Numerator@Normal@MasslessEigenvalue,
@@ -135,9 +140,9 @@ StripFactors[MasslessEigenvalue_]:=Module[{Expr,
 	Expr//=FullSimplify;
 Expr];
 
-PrintMasslessSpectrum[MasslessEigenvalues_]:=Print@Row@(PrintParticle[First@#,0,0,0,Length@#]&/@Gather@(StripFactors/@MasslessEigenvalues));
+PrintMasslessSpectrum[MasslessEigenvalues_]:=Print@Column@(PrintParticle[First@#,0,0,0,Length@#]&/@Gather@(StripFactors/@MasslessEigenvalues));
 
-PrintSpectrum[SquareMasses_,MassivePropagatorResidues_,MasslessEigenvalues_,QuarticAnalysisValue_,HexicAnalysisValue_]:=Row[
+PrintSpectrum[SquareMasses_,MassivePropagatorResidues_,MasslessEigenvalues_,QuarticAnalysisValue_,HexicAnalysisValue_]:=Column[
 (
 (MapThread[If[!(#1==={}),
 			PrintParticle[First@#1,First@#2,#4,#3,2*#4+1],

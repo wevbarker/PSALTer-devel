@@ -22,7 +22,7 @@ LinearisedLagrangian//=CollectTensors;
 
 ParticleSpectrum[
 	LinearisedLagrangian,
-	ClassName->"PoincareGaugeTheory",
+	ClassName->"VectorTheory",
 	TheoryName->"MaxwellTheory",	
 	Method->"Careless",
 	MaxLaurentDepth->3
@@ -46,7 +46,7 @@ LinearisedLagrangian//=CollectTensors;
 
 ParticleSpectrum[
 	LinearisedLagrangian,
-	ClassName->"PoincareGaugeTheory",
+	ClassName->"VectorTheory",
 	TheoryName->"ProcaTheory",	
 	Method->"Careless",
 	MaxLaurentDepth->3
@@ -72,7 +72,7 @@ LinearisedLagrangian//=CollectTensors;
 
 ParticleSpectrum[
 	LinearisedLagrangian,
-	ClassName->"PoincareGaugeTheory",
+	ClassName->"VectorTheory",
 	TheoryName->"SickMaxwellTheory",	
 	Method->"Careless",
 	MaxLaurentDepth->3
@@ -96,7 +96,7 @@ LinearisedLagrangian//=CollectTensors;
 
 ParticleSpectrum[
 	LinearisedLagrangian,
-	ClassName->"PoincareGaugeTheory",
+	ClassName->"VectorTheory",
 	TheoryName->"SickProcaTheory",	
 	Method->"Careless",
 	MaxLaurentDepth->3

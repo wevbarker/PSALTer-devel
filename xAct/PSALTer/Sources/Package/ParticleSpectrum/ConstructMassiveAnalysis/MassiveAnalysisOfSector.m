@@ -2,10 +2,14 @@
 (*  MassiveAnalysisOfSector  *)
 (*===========================*)
 
-BuildPackage@"ParticleSpectrum/MassiveAnalysisOfSector/PoleToSquareMass.m";
+BuildPackage@"ParticleSpectrum/ConstructMassiveAnalysis/PoleToSquareMass.m";
+BuildPackage@"ParticleSpectrum/ConstructMassiveAnalysis/MassiveAnalysisOfSector/IsolatePoles.m";
 
-MassiveAnalysisOfSector[RawSector_,Couplings_]:=Module[{
-	Sector=RawSector,
+Options@MassiveAnalysisOfSector={
+	Method->"Careful"};
+MassiveAnalysisOfSector[SpinParitySectorFileName_,Couplings_,OptionsPattern[]]:=Module[{
+	Sector,
+	InputDenominator,
 	CouplingAssumptions,
 	Poles,
 	Singularities,
@@ -13,24 +17,35 @@ MassiveAnalysisOfSector[RawSector_,Couplings_]:=Module[{
 
 	LocalSpectrum=" ** MassiveAnalysisOfSector...";
 
+	Get@SpinParitySectorFileName;
+	Sector=ToExpression@"xAct`PSALTer`Private`SpinParitySector";
 	Sector//=Together;
 
+	InputDenominator=Denominator@Sector;
 	CouplingAssumptions=(#~Element~Reals)&/@Couplings;
-	Poles=Sector~FunctionPoles~xAct`PSALTer`Def;
-	(*Singularities=Assuming[CouplingAssumptions,Sector~FunctionSingularities~xAct`PSALTer`En];*)
+	SquareMassesValues=IsolatePoles[InputDenominator,CouplingAssumptions];
 
-	SquareMassesValues=(
-		First/@(
-				(PoleToSquareMass/@Poles)~Cases~
-				(
-					Except@(_?((Variables@First@#~MemberQ~xAct`PSALTer`Mo)&))
+	Switch[OptionValue@Method,
+		"Careful",
+		(
+		Sector=(1/InputDenominator);
+		Poles=Sector~FunctionPoles~xAct`PSALTer`Def;
+		SquareMassesValues=(
+			First/@(
+					(PoleToSquareMass/@Poles)~Cases~
+					(
+						Except@(_?((Variables@First@#~MemberQ~xAct`PSALTer`Mo)&))
+					)
 				)
-			)
-		);
-
-	SquareMassesValues//=DeleteDuplicates;
-	SquareMassesValues//=DeleteCases[#,0,Infinity]&;
-	SquareMassesValues//=DeleteCases[#,_?NumberQ]&;
-	SquareMassesValues=FullSimplify/@SquareMassesValues;
-
+			);
+		SquareMassesValues//=DeleteDuplicates;
+		SquareMassesValues//=DeleteCases[#,0,Infinity]&;
+		SquareMassesValues//=DeleteCases[#,_?NumberQ]&;
+		SquareMassesValues=FullSimplify/@SquareMassesValues;
+		),
+		"Careless",
+		(
+		Null;
+		)
+	];
 SquareMassesValues];

@@ -2,7 +2,9 @@
 (*  ConstructSourceConstraints  *)
 (*==============================*)
 
+BuildPackage@"ParticleSpectrum/ConstructSourceConstraints/ConjectureNullSpace.m";
 BuildPackage@"ParticleSpectrum/ConstructSourceConstraints/NonTrivialDot.m";
+BuildPackage@"ParticleSpectrum/ConstructSourceConstraints/ToCovariantForm.m";
 
 Options@ConstructSourceConstraints={
 	Method->"Careful"};
@@ -24,22 +26,62 @@ ConstructSourceConstraints[ClassName_?StringQ,CouplingAssumptions_,Rescalings_,R
 	LocalSourceConstraints=" ** ConstructSourceConstraints...";
 
 	Class=Evaluate@Symbol@ClassName;
+	SourceSpinParityTensorHeadsValue=Class@SourceSpinParityTensorHeads;
+	Couplings=Class@LagrangianCouplings;
 
-	NullSpaces=Assuming[CouplingAssumptions,NullSpace[Transpose[#]]&/@(MatrixLagrangian)];
-	Diagnostic@NullSpaces;
+	NullSpaces=ConjectureNullSpace[Transpose[#],
+				Couplings,
+				CouplingAssumptions]&/@(MatrixLagrangian);
+
+	Switch[OptionValue@Method,
+		"Careful",
+		(
+		NullSpaces=Assuming[CouplingAssumptions,
+					NullSpace[Transpose[#]]&/@(MatrixLagrangian)];
+		Diagnostic@NullSpaces;
+		),
+		"Careless",
+		Diagnostic@NullSpaces;
+	];
+
 	NullSpaces=((#)~FullSimplify~CouplingAssumptions)&/@NullSpaces;
 	Diagnostic@NullSpaces;
 
-	ValuesOfSourceConstraints=Quiet@DeleteCases[
-		Flatten@Values@MapThread[(#1~NonTrivialDot~#2)&,
-			{NullSpaces,
-			MapThread[
-				MapThread[(#2/#1)&,{#1,#2}]&,
-					{Rescalings,
-					RaisedIndexSources}
-				]}
-		],0,Infinity]/.Class@RescalingSolutions;
-	ValuesOfSourceConstraints=Numerator@Together[#/Sqrt[2^5*3^5*5^5*7^5]]&/@ValuesOfSourceConstraints;
-	Diagnostic@ValuesOfSourceConstraints;
-	LocalSourceConstraints=RaggedBlock[(((Simplify@(#==0))&)/@(ValuesOfSourceConstraints)),2];
+	If[(Length@Flatten@Values@NullSpaces)==0,
+		ValuesOfSourceConstraints={};
+		NewValuesOfSourceConstraints={};,
+
+		ValuesOfSourceConstraints=Quiet@DeleteCases[
+			Flatten@Values@MapThread[(#1~NonTrivialDot~#2)&,
+				{NullSpaces,
+				MapThread[
+					MapThread[(#2/#1)&,{#1,#2}]&,
+						{Rescalings,
+						RaisedIndexSources}
+					]}
+			],0,Infinity]/.Class@RescalingSolutions;
+		ValuesOfSourceConstraints=Numerator@Together[#/Sqrt[2^5*3^5*5^5*7^5]]&/@ValuesOfSourceConstraints;
+		Diagnostic@ValuesOfSourceConstraints;
+
+		NewValuesOfSourceConstraints=Quiet@DeleteCases[
+			MapThread[(#1~NonTrivialDot~#2)&,
+				{NullSpaces,
+				MapThread[
+					MapThread[(#2/#1)&,{#1,#2}]&,
+						{Rescalings,
+						RaisedIndexSources}
+					]}
+			],0,Infinity]/.Class@RescalingSolutions;
+		NewValuesOfSourceConstraints=Map[Numerator@Together[#/Sqrt[2^5*3^5*5^5*7^5]]&,NewValuesOfSourceConstraints,{2}];
+
+		NewValuesOfSourceConstraints=Table[{((Simplify@(#==0))&)@#,((Simplify@(#==0))&)@ToCovariantForm[ClassName,#,SourceSpinParityTensorHeadsValue],2*Spin+1}&/@NewValuesOfSourceConstraints@Spin,{Spin,(Keys@NewValuesOfSourceConstraints)}];
+		NewValuesOfSourceConstraints=Transpose@Flatten[NewValuesOfSourceConstraints,{1,2}];
+
+	];
+
+	Diagnostic@NewValuesOfSourceConstraints;
+	If[(Length@NewValuesOfSourceConstraints)==0,
+		LocalSourceConstraints="(None)";,
+		LocalSourceConstraints=PrintSourceConstraints@@NewValuesOfSourceConstraints;
+	];
 ];

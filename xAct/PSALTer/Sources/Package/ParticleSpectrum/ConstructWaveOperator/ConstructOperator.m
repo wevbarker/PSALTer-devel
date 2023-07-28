@@ -109,22 +109,22 @@ ConstructOperator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 			SparseArray@ConstantArray[0,{Length@#,Length@#}]
 		]&@Symbols@Spin;
 	)~Table~{Spin,Class@Spins};
-	Diagnostic@(MatrixForm/@MatrixLagrangian);
+	Diagnostic@MatrixLagrangian;
 
 	MatrixLagrangian=GetHermitianPart/@MatrixLagrangian;
-	Diagnostic@(MatrixForm/@MatrixLagrangian);
+	Diagnostic@MatrixLagrangian;
 
 	MatrixLagrangian=MapThread[
 		MapThread[(#1*#2)&,{#1,#2}]&,
 			{MatrixLagrangian,
 			Class@InverseRescalingMatrix}
 	];
-	Diagnostic@(MatrixForm/@MatrixLagrangian);
+	Diagnostic@MatrixLagrangian;
 	MatrixLagrangian=MatrixLagrangian/.Class@RescalingSolutions;
-	Diagnostic@(MatrixForm/@MatrixLagrangian);
+	Diagnostic@MatrixLagrangian;
 
 	MatrixLagrangian=((#)~FullSimplify~CouplingAssumptions)&/@MatrixLagrangian;
-	Diagnostic@(MatrixForm/@MatrixLagrangian);
+	Diagnostic@MatrixLagrangian;
 
 	BMatricesValues=MatrixLagrangian;
 
@@ -133,8 +133,7 @@ ConstructOperator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 			({MapThread[Times,{#1@Even,#2}],MapThread[Times,{#1@Odd,#2}]})&,
 			{AntiMaskMatrixValue,
 			BMatricesValues}];
-	Diagnostic@(BMatricesValues);
-	Diagnostic@(Flatten[Values@BMatricesValues,{1,2}]);
+	Diagnostic@BMatricesValues;
 	ValuesAllMatrices=Flatten[Values@BMatricesValues,{1,2}];
 	DumpSave[FileNameJoin@{NotebookDirectory[],"ValuesAllMatrices.mx"},ValuesAllMatrices];
 

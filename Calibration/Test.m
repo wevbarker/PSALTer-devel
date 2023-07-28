@@ -2,6 +2,113 @@
 (*  Test  *)
 (*========*)
 
+<<xAct`xPlain`;
+<<xAct`PSALTer`;
+
+Throw@"the boomerang";
+
+
+ACouplings={A1,A2,A3,A4,A5};
+CCouplings={C1,C2,C3,C4,C5,C6,C7,C8,C9,C10};
+
+ProbeNumbers=Table[0,{i,(Length@(CCouplings)+1)},{j,(Length@(ACouplings)+1)}];
+Print@MatrixForm@ProbeNumbers;
+TimingData=Table[0,{i,(Length@(CCouplings)+1)},{j,(Length@(ACouplings)+1)}];
+Print@MatrixForm@TimingData;
+
+ProbeNumber=1;
+
+ProbeSpectrum[k_,i_]:=Module[{CaseRules,TimingDatum},
+	If[i<=(Length@(CCouplings)+1)&&(k-i+1)<=(Length@(ACouplings)+1),
+		CaseRules=(#->0)&/@(Drop[ACouplings,-(k-i+1-1)]~Join~Drop[CCouplings,-(i-1)]);
+		ProbeNumbers[[i,k-i+1]]=ProbeNumber;
+		ProbeNumber+=1;
+		TimingDatum=First@AbsoluteTiming@(1+3);
+		TimingData[[i,k-i+1]]=TimingDatum;
+		Print@ProbeNumbers;
+		Print@TimingData;
+	]
+];
+
+Table[Table[ProbeSpectrum[k,i],{i,k}],{k,2,50}];
+
+
+Print@MatrixForm@ProbeNumbers;
+Print@MatrixForm@TimingData;
+
+Throw@"the vase";
+
+(*
+ListDivergences[SourceHead_]:=Module[{
+	SourceRank,
+	ListOfContractions,
+	TotalListOfContractions
+	},
+	
+	SourceRank=Length@SlotsOfTensor@SourceHead;
+	TotalListOfContractions=Table[
+	(
+	ListOfContractions=(IndexFree@(SourceHead*P^(SourceRank-Frees)))~AllContractions~(IndexList@@({a,b,c,d,e,f,g}~Take~Frees));
+	ListOfContractions=ListOfContractions/.xAct`PSALTer`Private`ToV;
+	ListOfContractions=ListOfContractions/.xAct`PSALTer`Private`ToP;
+	ListOfContractions=ListOfContractions/.{Def->0};
+	ListOfContractions=DeleteCases[ListOfContractions,0,Infinity];
+	ListOfContractions
+	),
+	{Frees,0,SourceRank}];
+	TotalListOfContractions//=Flatten;
+TotalListOfContractions];
+
+Expr=ListDivergences@Tau;
+Print@Expr;
+*)
+
+(**)
+
+
+NewRules=(P[Ind_]*#[OtherInds___]->-I*CD[Ind]@#[OtherInds])&/@(Keys@(xAct`PSALTer`PoincareGaugeTheory@xAct`PSALTer`Private`SourceSpinParityTensorHeads));
+NewRules=NewRules~Join~{P[Ind_]*CD[OtherInds_]@Anything_->-I*CD[Ind]@CD[OtherInds]@Anything};
+Print@NewRules;
+
+Expr=MelichevPercacciTheory@SourceConstraints;
+Expr=xAct`PSALTer`PoincareGaugeTheory@xAct`PSALTer`Private`ExpandSources/@Expr;
+Expr=Expr/.xAct`PSALTer`Private`ToP;
+Expr=Numerator@Together@(#/(2*3*5*7*11*Def^2)^9)&/@Expr;
+Expr=ToCanonical/@Expr;
+Print/@Expr;
+
+Expr=Expr/.{Def^2->Scalar[P[-a]P[a]]};
+Expr=NoScalar/@Expr;
+Expr=ToCanonical/@Expr;
+Expr=Expr/.{Def^4->Scalar[P[-a]P[a]]^2};
+Expr=NoScalar/@Expr;
+Expr=ToCanonical/@Expr;
+Expr=Expr/.{Def^6->Scalar[P[-a]P[a]]^3};
+Expr=NoScalar/@Expr;
+Expr=ToCanonical/@Expr;
+
+
+
+Expr=ScreenDollarIndices/@Expr;
+Expr=Expr/.NewRules;
+Expr=ToCanonical/@Expr;
+Expr=Expr/.NewRules;
+Expr=ToCanonical/@Expr;
+Expr=Expr/.NewRules;
+Expr=ToCanonical/@Expr;
+Expr=Expr/.NewRules;
+Expr=ToCanonical/@Expr;
+Expr=Numerator@Together@(#/(I*2*3*5*7*11*Def^2)^9)&/@Expr;
+Expr=Expr/.{I->1};
+Expr=Expr/.{I->1};
+Expr=ToCanonical/@Expr;
+Expr=SortCovDs/@Expr;
+Expr=ToCanonical/@Expr;
+Print/@Expr;
+(**)
+Throw@"an even worse tantrum!";
+
+
 <<MaTeX`;
 
 ConfigureMaTeX["pdfLaTeX" -> "/usr/bin/lualatex", "Ghostscript" -> "/usr/bin/gs"];

@@ -11,6 +11,7 @@ DefTensor[Eps[-a,-b,-c],M4,Antisymmetric[{-a,-b,-c}],OrthogonalTo->{V[a],V[b],V[
 
 xAct`PSALTer`Private`PSymb="\[ScriptK]";
 DefConstantSymbol[Def,PrintAs->xAct`PSALTer`Private`PSymb];
+DefConstantSymbol[xAct`PSALTer`Private`DefSquared,PrintAs->"\[ScriptX]"];
 
 xAct`PSALTer`Private`SSymb="\[ScriptCapitalS]";
 DefConstantSymbol[Action,PrintAs->xAct`PSALTer`Private`SSymb];

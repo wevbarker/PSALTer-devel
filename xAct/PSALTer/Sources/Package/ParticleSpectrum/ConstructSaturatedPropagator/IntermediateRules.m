@@ -26,9 +26,7 @@ IntermediateRules[FirstIntermediateSymbolsToCouplingConstants_,Couplings_]:=Modu
 				Expr=Coefficient[FirstIntermediateSymbol/.FirstIntermediateSymbolsToCouplingConstants,xAct`PSALTer`Def,j];
 				If[!(Expr===0),
 					SecondIntermediateSymbolsToCouplingConstants=SecondIntermediateSymbolsToCouplingConstants~Join~{Symbol["l"<>ToString@NewIndex]->Expr};
-					(*(Diagnostic@#)&@SecondIntermediateSymbolsToCouplingConstants;*)
 					TotalExpr+=Symbol["l"<>ToString@NewIndex]*xAct`PSALTer`Def^j;
-					(*(Diagnostic@#)&@TotalExpr;*)
 					NewIndex+=1;
 				];
 			];,

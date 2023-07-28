@@ -3,7 +3,7 @@
 
 ## License
 
-Copyright © 2022 Will E. V. Barker, Claire Rigouzzo and Cillian Rew
+Copyright © 2022 Will E. V. Barker, Stephanie Buttigieg, Cillian Rew, Claire Rigouzzo and Zhiyuan Wei
 
 PSALTer is distributed as free software under the [GNU General Public License (GPL)](https://www.gnu.org/licenses/gpl-3.0.en.html).
 
@@ -11,7 +11,7 @@ PSALTer is provided without warranty, or the implied warranty of merchantibility
 
 ## About
 
-PSALTer is an (unofficial) part of the [xAct bundle](http://www.xact.es/). The current version is designed to compute the particle spectrum of parity-preserving Poincaré gauge theories, and as such it is currently dependent on HiGGS. In the longer term, I see no reason why the PSALTer programme cannot be extended to any tensor lagrangian (hence the name), ranging from electromagnetism to higher-derivative models.
+PSALTer is an (unofficial) part of the [xAct bundle](http://www.xact.es/). 
 
 ## Installation
 
@@ -21,16 +21,18 @@ PSALTer has been tested in the following environment(s):
 - Linux x86 (64-bit), specifically Manjaro and Arch
 - Mathematica v 13.1.0.0
 - xAct v 1.2.0
+- MaTeX v 1.7.9
 
 #### Install 
 
 1. Make sure you have [installed xAct](http://www.xact.es/download.html).
-2. Download PSALTer:
+2. Make sure you have [installed MaTeX](http://szhorvat.net/pelican/latex-typesetting-in-mathematica.html).
+3. Download PSALTer:
 	```bash, git
 	git clone https://github.com/wevbarker/PSALTer-devel
 	cd PSALTer-devel 
 	```
-3. Place the `./xAct/PSALTer` directory relative to your xAct install. A global install might have ended up at: 
+4. Place the `./xAct/PSALTer` directory relative to your xAct install. A global install might have ended up at: 
 	```bash
 	/usr/share/Mathematica/Applications/xAct
 	```

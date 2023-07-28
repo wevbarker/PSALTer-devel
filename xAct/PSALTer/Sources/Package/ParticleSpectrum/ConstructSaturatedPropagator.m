@@ -3,12 +3,12 @@
 (*================================*)
 
 BuildPackage@"ParticleSpectrum/ConstructSaturatedPropagator/ConjectureInverse.m";
-BuildPackage@"ParticleSpectrum/ConstructSaturatedPropagator/CompareManualAutomatic.m";
 
 Options@ConstructSaturatedPropagator={
 	Method->"Careful"};
 
 ConstructSaturatedPropagator[ClassName_?StringQ,MatrixLagrangian_,CouplingAssumptions_,BMatricesValues_,RaisedIndexSources_,LoweredIndexSources_,OptionsPattern[]]:=Module[{
+	NewCouplingAssumptions,
 	Couplings,
 	SourceSpinParityTensorHeadsValue,
 	SymbolicLagrangian,
@@ -26,29 +26,28 @@ ConstructSaturatedPropagator[ClassName_?StringQ,MatrixLagrangian_,CouplingAssump
 	InverseBMatricesValues,
 	Class},
 
+	NewCouplingAssumptions=CouplingAssumptions~Join~{(xAct`PSALTer`Def~Element~Reals)};
+
 	LocalSaturatedPropagator=" ** ConstructSaturatedPropagator...";
 
 	Class=Evaluate@Symbol@ClassName;
 	Couplings=Class@LagrangianCouplings;
 
-	Diagnostic@(MatrixForm/@MatrixLagrangian);
-	Diagnostic@(BMatricesValues);
-
 	ManualMatrixPropagator=Map[ConjectureInverse[#,
 					Couplings,
-					CouplingAssumptions]&,
+					NewCouplingAssumptions]&,
 					BMatricesValues,{2}];
 	ManualMatrixPropagator=(#[[1]]+#[[2]])&/@ManualMatrixPropagator;
-	Diagnostic@(MatrixForm/@ManualMatrixPropagator);
+	Diagnostic@ManualMatrixPropagator;
 
 	Switch[OptionValue@Method,
 		"Careful",
 		(
-		AutomaticMatrixPropagator=Assuming[CouplingAssumptions,
+		AutomaticMatrixPropagator=Assuming[NewCouplingAssumptions,
 					((PseudoInverse@#))&/@MatrixLagrangian];
 		AutomaticMatrixPropagator=
-			((#)~FullSimplify~CouplingAssumptions)&/@AutomaticMatrixPropagator;
-		Diagnostic@(MatrixForm/@AutomaticMatrixPropagator);
+			((#)~FullSimplify~NewCouplingAssumptions)&/@AutomaticMatrixPropagator;
+		Diagnostic@AutomaticMatrixPropagator;
 		MatrixPropagator=ManualMatrixPropagator;
 		),
 		"Careless",
@@ -62,44 +61,41 @@ ConstructSaturatedPropagator[ClassName_?StringQ,MatrixLagrangian_,CouplingAssump
 			({MapThread[Times,{#1@Even,#2}],MapThread[Times,{#1@Odd,#2}]})&,
 			{AntiMaskMatrixValue,
 			InverseBMatricesValues}];
-	Diagnostic@(MatrixForm/@InverseBMatricesValues);
+	Diagnostic@InverseBMatricesValues;
 
 	MatrixPropagator=MapThread[
 		MapThread[(#1*#2)&,{#1,#2}]&,
 			{MatrixPropagator,
 			Class@RescalingMatrix}
 	]/.Class@RescalingSolutions;
-	Diagnostic@(MatrixForm/@MatrixPropagator);
+	Diagnostic@MatrixPropagator;
 
 	MaskMatrixValue=Class@MaskMatrix;
-	Diagnostic@(MatrixForm/@MaskMatrixValue);
+	Diagnostic@MaskMatrixValue;
 	MaskedMatrixPropagator=MapThread[
 			MapThread[Times,{#1,#2}]&,
 			{MaskMatrixValue,
 			MatrixPropagator}];
-	Diagnostic@(MatrixForm/@MaskedMatrixPropagator);
+	Diagnostic@MaskedMatrixPropagator;
 
 	AntiMaskMatrixValue=Class@AntiMaskMatrix;
-	Diagnostic@(MatrixForm/@AntiMaskMatrixValue);
+	Diagnostic@AntiMaskMatrixValue;
 	MatrixPropagator=MapThread[
 			({MapThread[Times,{#1@Even,#2}],MapThread[Times,{#1@Odd,#2}]})&,
 			{AntiMaskMatrixValue,
 			MatrixPropagator}];
-	Diagnostic@(Map[MatrixForm,MatrixPropagator,{2}]);
+	Diagnostic@MatrixPropagator;
 
 	SaturatedPropagator=MapThread[{#1 . #2[[1]] . #3,#1 . #2[[2]] . #3}&,
 			{Dagger/@RaisedIndexSources,
 			MatrixPropagator,
 			LoweredIndexSources}];
-	Diagnostic@(MatrixForm/@SaturatedPropagator);
+	Diagnostic@SaturatedPropagator;
 	SaturatedPropagator=ToNewCanonical/@SaturatedPropagator;
 	SaturatedPropagator=CollectTensors/@SaturatedPropagator;
-	Diagnostic@(SaturatedPropagator);
-	Diagnostic@(Map[MatrixForm,SaturatedPropagator,{2}]);
+	Diagnostic@SaturatedPropagator;
 
-	Diagnostic@(Flatten[Values@SaturatedPropagator,{1,2}]);
-	Diagnostic@(First/@Flatten[Values@SaturatedPropagator,{1,2}]);
-	Diagnostic@(ValuesAllMatrices);
+	Diagnostic@ValuesAllMatrices;
 
 	BlockMassSigns=Table[-(-1)^n,{n,1,2*Length@SaturatedPropagator}];
 	Diagnostic@BlockMassSigns;

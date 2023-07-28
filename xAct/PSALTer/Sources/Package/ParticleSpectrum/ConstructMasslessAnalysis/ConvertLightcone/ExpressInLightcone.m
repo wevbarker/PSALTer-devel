@@ -8,7 +8,7 @@ ExpressInLightcone[ClassName_?StringQ,RawSector_,SourceComponentsToFreeSourceVar
 
 	Class=Evaluate@Symbol@ClassName;
 
-	LocalSpectrum=" ** MassiveAnalysisOfSector...";
+	LocalMasslessSpectrum=" ** MassiveAnalysisOfSector...";
 
 	Sector//=Class@ExpandSources;
 
@@ -25,19 +25,19 @@ ExpressInLightcone[ClassName_?StringQ,RawSector_,SourceComponentsToFreeSourceVar
 	Sector//=ToNewCanonical;
 	Sector//=NoScalar;
 
-	LocalSpectrum=" ** SeparateMetric...";
+	LocalMasslessSpectrum=" ** SeparateMetric...";
 	Sector=SeparateMetric[G][Evaluate@Sector];
 
-	LocalSpectrum=" ** SeparateBasis...";
+	LocalMasslessSpectrum=" ** SeparateBasis...";
 	Sector//=xAct`xCoba`SeparateBasis[cartesian];
 
-	LocalSpectrum=" ** ContractBasis...";
+	LocalMasslessSpectrum=" ** ContractBasis...";
 	Sector//=xAct`xCoba`ContractBasis;
 
-	LocalSpectrum=" ** TraceBasisDummy...";
+	LocalMasslessSpectrum=" ** TraceBasisDummy...";
 	Sector//=xAct`xCoba`TraceBasisDummy;
 
-	LocalSpectrum=" ** TensorValues...";
+	LocalMasslessSpectrum=" ** TensorValues...";
 	Sector=Sector/.xAct`xCoba`TensorValues[P];
 	Sector=Sector/.xAct`xCoba`TensorValues[G];
 
@@ -47,7 +47,7 @@ ExpressInLightcone[ClassName_?StringQ,RawSector_,SourceComponentsToFreeSourceVar
 	Sector=Sector/.{Def->Sqrt[En^2-Mo^2]};
 	Sector//=Together;
 
-	LocalSpectrum=" ** Imposing conserved sources...";
+	LocalMasslessSpectrum=" ** Imposing conserved sources...";
 	Sector=Sector/.SourceComponentsToFreeSourceVariables;
 	Sector//=Together;
 

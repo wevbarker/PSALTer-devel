@@ -21,7 +21,7 @@ Comment@"Now we shove the Lagrangian into PSALTer.";
 
 ParticleSpectrum[
 	LinearisedLagrangian,
-	ClassName->"PoincareGaugeTheory",
+	ClassName->"ScalarTheory",
 	TheoryName->"MasslessScalar",	
 	Method->"Careless",
 	MaxLaurentDepth->3
@@ -44,7 +44,7 @@ Comment@"We apply PSALTer again.";
 
 ParticleSpectrum[
 	LinearisedLagrangian,
-	ClassName->"PoincareGaugeTheory",
+	ClassName->"ScalarTheory",
 	TheoryName->"MassiveScalar",	
 	Method->"Careless",
 	MaxLaurentDepth->3
