@@ -31,7 +31,7 @@ SetOptions[$FrontEndSession,EvaluationCompletionAction->"ScrollToOutput"];
 
 Print[xAct`xCore`Private`bars];
 Print["Package xAct`PSALTer` version ",$Version[[1]],", ",$Version[[2]]];
-Print["CopyRight \[Copyright] 2022, Will E. V. Barker, Stephanie Buttigieg, Carlo Marzo, Cillian Rew, Claire Rigouzzo, David Yallup and Zhiyuan Wei, under the General Public License."];
+Print["CopyRight \[Copyright] 2022, Will E. V. Barker, Stephanie Buttigieg, Carlo Marzo, Cillian Rew, Claire Rigouzzo, Zhiyuan Wei and David Yallup, under the General Public License."];
 
 (*-------------------------------------------------------------------*)
 (*  Modify the path to accommodate notebook and install directories  *)
@@ -42,6 +42,7 @@ $Path~AppendTo~$WorkingDirectory;
 $PSALTerInstallDirectory=Select[FileNameJoin[{#,"xAct/PSALTer"}]&/@$Path,DirectoryQ][[1]];
 
 $DiagnosticMode=False;
+$MonitorParallel=False;
 
 (*--------------*)
 (*  Disclaimer  *)

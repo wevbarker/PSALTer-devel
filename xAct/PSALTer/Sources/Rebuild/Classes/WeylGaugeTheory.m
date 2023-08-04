@@ -23,13 +23,13 @@ DefTensor[ConjugateSourceCompensator[],M4,PrintAs->xAct`PSALTer`Private`SymbolBu
 xAct`PSALTer`WeylGaugeTheory`Private`WeylRotationalGaugeFieldSymb="\[ScriptCapitalA]";
 DefTensor[WeylRotationalGaugeField[a,c,-d],M4,Antisymmetric[{a,c}],PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`WeylGaugeTheory`Private`WeylRotationalGaugeFieldSymb],Dagger->Complex];
 
-xAct`PSALTer`WeylGaugeTheory`Private`ConjugateSourceWeylRotationalGaugeFieldSymb="\[ConjugateSourceWeylRotationalGaugeField]";
+xAct`PSALTer`WeylGaugeTheory`Private`ConjugateSourceWeylRotationalGaugeFieldSymb="\[Sigma]";
 DefTensor[ConjugateSourceWeylRotationalGaugeField[-i,-j,-k],M4,Antisymmetric[{-j,-k}],PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`WeylGaugeTheory`Private`ConjugateSourceWeylRotationalGaugeFieldSymb],Dagger->Complex];
 
 xAct`PSALTer`WeylGaugeTheory`Private`WeylTranslationalGaugeFieldPerturbationSymb="\[ScriptF]";
 DefTensor[WeylTranslationalGaugeFieldPerturbation[-i,-j],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`WeylGaugeTheory`Private`WeylTranslationalGaugeFieldPerturbationSymb],Dagger->Complex];
 
-xAct`PSALTer`WeylGaugeTheory`Private`ConjugateSourceWeylTranslationalGaugeFieldPerturbationSymb="\[ConjugateSourceWeylTranslationalGaugeFieldPerturbation](\[CapitalDelta]+\[ScriptCapitalK])";
+xAct`PSALTer`WeylGaugeTheory`Private`ConjugateSourceWeylTranslationalGaugeFieldPerturbationSymb="\[ScriptCapitalJ]";
 DefTensor[ConjugateSourceWeylTranslationalGaugeFieldPerturbation[-i,-j],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`WeylGaugeTheory`Private`ConjugateSourceWeylTranslationalGaugeFieldPerturbationSymb],Dagger->Complex];
 
 (*==============*)
@@ -149,13 +149,13 @@ xAct`PSALTer`WeylGaugeTheory`Private`WeylTranslationalGaugeFieldPerturbationWeyl
 	MakeRule[{Evaluate@Dagger@WeylRotationalGaugeFieldPerp[-a,-e],Evaluate[Dagger@(
 		V[c]WeylRotationalGaugeField[-a,-e,-c])]},MetricOn->All,ContractMetrics->True]];
 
-xAct`PSALTer`WeylGaugeTheory`Private`ConjugateSourceWeylTranslationalGaugeFieldPerturbationParaSymb="\!\(\*SuperscriptBox[\(\[ConjugateSourceWeylTranslationalGaugeFieldPerturbation]\),\(\[DoubleVerticalBar]\)]\)";
+xAct`PSALTer`WeylGaugeTheory`Private`ConjugateSourceWeylTranslationalGaugeFieldPerturbationParaSymb="\!\(\*SuperscriptBox[\(\[Tau]\),\(\[DoubleVerticalBar]\)]\)";
 DefTensor[ConjugateSourceWeylTranslationalGaugeFieldPerturbationPara[-a,-b],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`WeylGaugeTheory`Private`ConjugateSourceWeylTranslationalGaugeFieldPerturbationParaSymb],OrthogonalTo->{V[b]},Dagger->Complex];
-xAct`PSALTer`WeylGaugeTheory`Private`ConjugateSourceWeylRotationalGaugeFieldParaSymb="\!\(\*SuperscriptBox[\(\[ConjugateSourceWeylRotationalGaugeField]\),\(\[DoubleVerticalBar]\)]\)";
+xAct`PSALTer`WeylGaugeTheory`Private`ConjugateSourceWeylRotationalGaugeFieldParaSymb="\!\(\*SuperscriptBox[\(\[Sigma]\),\(\[DoubleVerticalBar]\)]\)";
 DefTensor[ConjugateSourceWeylRotationalGaugeFieldPara[-c,-a,-b],M4,Antisymmetric[{-a,-b}],PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`WeylGaugeTheory`Private`ConjugateSourceWeylRotationalGaugeFieldParaSymb],OrthogonalTo->{V[c]},Dagger->Complex];
-xAct`PSALTer`WeylGaugeTheory`Private`ConjugateSourceWeylTranslationalGaugeFieldPerturbationPerpSymb="\!\(\*SuperscriptBox[\(\[ConjugateSourceWeylTranslationalGaugeFieldPerturbation]\),\(\[UpTee]\)]\)";
+xAct`PSALTer`WeylGaugeTheory`Private`ConjugateSourceWeylTranslationalGaugeFieldPerturbationPerpSymb="\!\(\*SuperscriptBox[\(\[Tau]\),\(\[UpTee]\)]\)";
 DefTensor[ConjugateSourceWeylTranslationalGaugeFieldPerturbationPerp[-a],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`WeylGaugeTheory`Private`ConjugateSourceWeylTranslationalGaugeFieldPerturbationPerpSymb],Dagger->Complex];
-xAct`PSALTer`WeylGaugeTheory`Private`ConjugateSourceWeylRotationalGaugeFieldPerpSymb="\!\(\*SuperscriptBox[\(\[ConjugateSourceWeylRotationalGaugeField]\),\(\[UpTee]\)]\)";
+xAct`PSALTer`WeylGaugeTheory`Private`ConjugateSourceWeylRotationalGaugeFieldPerpSymb="\!\(\*SuperscriptBox[\(\[Sigma]\),\(\[UpTee]\)]\)";
 DefTensor[ConjugateSourceWeylRotationalGaugeFieldPerp[-a,-b],M4,Antisymmetric[{-a,-b}],PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`WeylGaugeTheory`Private`ConjugateSourceWeylRotationalGaugeFieldPerpSymb],Dagger->Complex];
 
 xAct`PSALTer`WeylGaugeTheory`Private`ConjugateSourceWeylTranslationalGaugeFieldPerturbationConjugateSourceWeylRotationalGaugeFieldToConjugateSourceWeylTranslationalGaugeFieldPerturbationConjugateSourceWeylRotationalGaugeFieldPerpPara=Join[

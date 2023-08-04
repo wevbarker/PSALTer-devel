@@ -173,7 +173,7 @@ ParticleSpectrum[
 ];
 
 Comment@"Thus, the conclusions are the same, as expected.";
-
+(*
 (*=============================*)
 (*  Yun Cherng Lin's 58 cases  *)
 (*=============================*)
@@ -203,3 +203,4 @@ Comment@"Okay, that's all the cases. You can see from the timing below (in secon
 DisplayExpression@CalibrationTimingData;
 
 DumpSave[FileNameJoin@{NotebookDirectory[],"CalibrationTimingData.mx"},{CalibrationTimingData}];
+*)

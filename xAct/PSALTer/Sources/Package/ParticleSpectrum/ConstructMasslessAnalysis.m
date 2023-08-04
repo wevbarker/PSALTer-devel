@@ -13,7 +13,8 @@ Options@ConstructMasslessAnalysis={
 
 ConstructMasslessAnalysis[ClassName_?StringQ,ValuesOfSourceConstraints_,ValuesSaturatedPropagator_,OptionsPattern[]]:=Module[{	
 	MasslessPropagatorResidue,
-	MasslessAnalysis
+	MasslessAnalysis,
+	PrintedSpectrum
 	},
 
 	LocalMasslessSpectrum=" ** ConstructMasslessAnalysis...";
@@ -57,5 +58,10 @@ ConstructMasslessAnalysis[ClassName_?StringQ,ValuesOfSourceConstraints_,ValuesSa
 	HexicAnalysisValue={};
 	];
 
-	LocalMasslessSpectrum=PrintSpectrum[{},{},MasslessAnalysisValue,QuarticAnalysisValue,HexicAnalysisValue];
+	PrintedSpectrum=PrintSpectrum[{},{},MasslessAnalysisValue,QuarticAnalysisValue,HexicAnalysisValue];
+
+	If[(Length@PrintedSpectrum)==0,
+		LocalMasslessSpectrum="(There are no massless particles)";,
+		LocalMasslessSpectrum=PrintedSpectrum;
+	];
 ];
