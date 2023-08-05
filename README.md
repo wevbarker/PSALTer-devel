@@ -1,3 +1,5 @@
+<img src="Logo/MainLogo.png" width="1000">
+
 # Particle Spectrum for Any Lagrangian with Tensors (PSALTer)
 ## Version 1.0.0-developer
 
