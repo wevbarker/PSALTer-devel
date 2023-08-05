@@ -6,7 +6,7 @@ BuildPackage@"ParticleSpectrum/ConstructMassiveAnalysis/PoleToSquareMass.m";
 BuildPackage@"ParticleSpectrum/ConstructMassiveAnalysis/MassiveAnalysisOfSector/IsolatePoles.m";
 
 Options@MassiveAnalysisOfSector={
-	Method->"Careful"};
+	Method->"Easy"};
 MassiveAnalysisOfSector[SpinParitySectorFileName_,Couplings_,OptionsPattern[]]:=Module[{
 	Sector,
 	InputDenominator,
@@ -23,29 +23,32 @@ MassiveAnalysisOfSector[SpinParitySectorFileName_,Couplings_,OptionsPattern[]]:=
 
 	InputDenominator=Denominator@Sector;
 	CouplingAssumptions=(#~Element~Reals)&/@Couplings;
-	SquareMassesValues=IsolatePoles[InputDenominator,CouplingAssumptions];
 
 	Switch[OptionValue@Method,
-		"Careful",
+		"Easy",
 		(
-		Sector=(1/InputDenominator);
-		Poles=Sector~FunctionPoles~xAct`PSALTer`Def;
-		SquareMassesValues=(
-			First/@(
-					(PoleToSquareMass/@Poles)~Cases~
-					(
-						Except@(_?((Variables@First@#~MemberQ~xAct`PSALTer`Mo)&))
+			Sector=(1/InputDenominator);
+			Poles=Sector~FunctionPoles~xAct`PSALTer`Def;
+			SquareMassesValues=(
+				First/@(
+						(PoleToSquareMass/@Poles)~Cases~
+						(
+							Except@(_?((Variables@First@#~MemberQ~xAct`PSALTer`Mo)&))
+						)
 					)
-				)
-			);
-		SquareMassesValues//=DeleteDuplicates;
-		SquareMassesValues//=DeleteCases[#,0,Infinity]&;
-		SquareMassesValues//=DeleteCases[#,_?NumberQ]&;
-		SquareMassesValues=FullSimplify/@SquareMassesValues;
+				);
+			SquareMassesValues//=DeleteDuplicates;
+			SquareMassesValues//=DeleteCases[#,0,Infinity]&;
+			SquareMassesValues//=DeleteCases[#,_?NumberQ]&;
+			SquareMassesValues=FullSimplify/@SquareMassesValues;
 		),
-		"Careless",
+		"Hard",
 		(
-		Null;
+			SquareMassesValues=IsolatePoles[InputDenominator,CouplingAssumptions];
+		),
+		"Both",
+		(
+			Print@Null;
 		)
 	];
 SquareMassesValues];

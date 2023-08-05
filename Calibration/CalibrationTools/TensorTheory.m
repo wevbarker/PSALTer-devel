@@ -29,7 +29,7 @@ ParticleSpectrum[
 	LinearisedLagrangian,
 	ClassName->"TensorTheory",
 	TheoryName->"FierzPauli",	
-	Method->"Careless",
+	Method->"Easy",
 	MaxLaurentDepth->3
 ];
 
@@ -58,7 +58,7 @@ ParticleSpectrum[
 	LinearisedLagrangian,
 	ClassName->"TensorTheory",
 	TheoryName->"MassiveGravity",	
-	Method->"Careless",
+	Method->"Easy",
 	MaxLaurentDepth->3
 ];
 
@@ -87,7 +87,7 @@ ParticleSpectrum[
 	LinearisedLagrangian,
 	ClassName->"TensorTheory",
 	TheoryName->"FirstSickFierzPauli",	
-	Method->"Careless",
+	Method->"Easy",
 	MaxLaurentDepth->3
 ];
 
@@ -112,7 +112,7 @@ ParticleSpectrum[
 	LinearisedLagrangian,
 	ClassName->"TensorTheory",
 	TheoryName->"SecondSickFierzPauli",	
-	Method->"Careless",
+	Method->"Easy",
 	MaxLaurentDepth->3
 ];
 
@@ -137,7 +137,7 @@ ParticleSpectrum[
 	LinearisedLagrangian,
 	ClassName->"TensorTheory",
 	TheoryName->"ThirdSickFierzPauli",	
-	Method->"Careless",
+	Method->"Easy",
 	MaxLaurentDepth->3
 ];
 
@@ -162,7 +162,7 @@ ParticleSpectrum[
 	LinearisedLagrangian,
 	ClassName->"TensorTheory",
 	TheoryName->"FourthSickFierzPauli",	
-	Method->"Careless",
+	Method->"Easy",
 	MaxLaurentDepth->3
 ];
 
@@ -192,7 +192,7 @@ ParticleSpectrum[
 	LinearisedLagrangian,
 	ClassName->"TensorTheory",
 	TheoryName->"SickMassiveGravity",	
-	Method->"Careless",
+	Method->"Easy",
 	MaxLaurentDepth->3
 ];
 

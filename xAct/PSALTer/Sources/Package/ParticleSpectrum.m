@@ -20,7 +20,7 @@ BuildPackage@"ParticleSpectrum/ConstructUnitarityConditions.m";
 Options@ParticleSpectrum={
 	ClassName->False,
 	TheoryName->False,
-	Method->"Careful",
+	Method->"Easy",
 	MaxLaurentDepth->1
 	};
 
@@ -32,8 +32,8 @@ ParticleSpectrum::WrongTheoryName="You must pass a string to the option TheoryNa
 ValidateTheoryName[TheoryNameValue_]:=If[!(StringQ@TheoryNameValue),
 			Throw@Message[ParticleSpectrum::WrongTheoryName,TheoryNameValue]
 			];
-ParticleSpectrum::WrongMethod="The method `1` for evaluating the source constraints and matrix pseudoinverses appears not to be either of the strings Careful or Careless.";
-ValidateMethod[MethodValue_]:=If[!({"Careful","Careless"}~MemberQ~MethodValue),
+ParticleSpectrum::WrongMethod="The method `1` for evaluating the source constraints and matrix pseudoinverses appears not to be either of the strings Easy, Hard or Both.";
+ValidateMethod[MethodValue_]:=If[!({"Easy","Hard","Both"}~MemberQ~MethodValue),
 			Throw@Message[ParticleSpectrum::WrongMethod,MethodValue]
 			];
 ParticleSpectrum::WrongMaxLaurentDepth="The maximum requested depth n of the 1/k^(2n) residue n=`1` appears not to be a natural number 1, 2 or 3.";

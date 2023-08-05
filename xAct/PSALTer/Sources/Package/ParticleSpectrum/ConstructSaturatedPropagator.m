@@ -5,7 +5,7 @@
 BuildPackage@"ParticleSpectrum/ConstructSaturatedPropagator/ConjectureInverse.m";
 
 Options@ConstructSaturatedPropagator={
-	Method->"Careful"};
+	Method->"Easy"};
 
 ConstructSaturatedPropagator[ClassName_?StringQ,MatrixLagrangian_,CouplingAssumptions_,BMatricesValues_,RaisedIndexSources_,LoweredIndexSources_,OptionsPattern[]]:=Module[{
 	NewCouplingAssumptions,
@@ -33,25 +33,30 @@ ConstructSaturatedPropagator[ClassName_?StringQ,MatrixLagrangian_,CouplingAssump
 	Class=Evaluate@Symbol@ClassName;
 	Couplings=Class@LagrangianCouplings;
 
-	ManualMatrixPropagator=Map[ConjectureInverse[#,
-					Couplings,
-					NewCouplingAssumptions]&,
-					BMatricesValues,{2}];
-	ManualMatrixPropagator=(#[[1]]+#[[2]])&/@ManualMatrixPropagator;
-	Diagnostic@ManualMatrixPropagator;
-
 	Switch[OptionValue@Method,
-		"Careful",
+		"Easy",
 		(
-		AutomaticMatrixPropagator=Assuming[NewCouplingAssumptions,
-					((PseudoInverse@#))&/@MatrixLagrangian];
-		AutomaticMatrixPropagator=
-			((#)~FullSimplify~NewCouplingAssumptions)&/@AutomaticMatrixPropagator;
-		Diagnostic@AutomaticMatrixPropagator;
-		MatrixPropagator=ManualMatrixPropagator;
+			AutomaticMatrixPropagator=Assuming[NewCouplingAssumptions,
+						((PseudoInverse@#))&/@MatrixLagrangian];
+			AutomaticMatrixPropagator=
+				((#)~FullSimplify~NewCouplingAssumptions)&/@AutomaticMatrixPropagator;
+			Diagnostic@AutomaticMatrixPropagator;
+			MatrixPropagator=AutomaticMatrixPropagator;
 		),
-		"Careless",
-		MatrixPropagator=ManualMatrixPropagator;
+		"Hard",
+		(
+			ManualMatrixPropagator=Map[ConjectureInverse[#,
+							Couplings,
+							NewCouplingAssumptions]&,
+							BMatricesValues,{2}];
+			ManualMatrixPropagator=(#[[1]]+#[[2]])&/@ManualMatrixPropagator;
+			Diagnostic@ManualMatrixPropagator;
+			MatrixPropagator=ManualMatrixPropagator;
+		),
+		"Both",
+		(
+			Print@Null;
+		)
 	];
 
 	InverseBMatricesValues=MatrixPropagator;

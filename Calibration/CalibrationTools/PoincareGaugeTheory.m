@@ -72,15 +72,15 @@ ParticleSpectrum[
 	LinearisedLagrangian,
 	ClassName->"PoincareGaugeTheory",
 	TheoryName->"GeneralPGT",	
-	Method->"Careless",
+	Method->"Hard",
 	MaxLaurentDepth->3
 ];
 
 Supercomment@"These results should be compared with the Hayashi and Shirafuji papers, in particular Eqs. (4.11) in Prog. Theor. Phys. 64 (1980) 2222.";
 
-Section@"Carlo's clearing-the-air theory";
+Section@"Marzo gravity";
 
-Comment@{"Let's target the case Carlo is talking about, which is `the metric case, which for me is eq. 5.2 of 1912.01023. To study the Ricci models, g1,g3,g4,b1,b2,b3 are set to zero'. Okay, so recycling some coupling symbols for ease (i.e. these won't have the same interpretation as those in",Cref@"CleanHayashiShirafuji","), we think this is the following nonlinear Lagrangian."};
+Comment@{"Let's target the case Carlo is talking about. Okay, so recycling some coupling symbols for ease (i.e. these won't have the same interpretation as those in",Cref@"CleanHayashiShirafuji","), we think this is the following nonlinear Lagrangian."};
 
 HSNonlinearLagrangian2=-(1/2)*Alp0*R[a,b,-a,-b]+R[a,c,b,-c]*(Alp1*R[-a,d,-b,-d]+Alp2*R[-b,d,-a,-d])+Alp3*R[a,b,-a,-b]*R[c,d,-c,-d];
 
@@ -94,12 +94,11 @@ ParticleSpectrum[
 	LinearisedLagrangian,
 	ClassName->"PoincareGaugeTheory",
 	TheoryName->"MarzoTheory",	
-	Method->"Careless",
+	Method->"Hard",
 	MaxLaurentDepth->3
 ];
 
 Supercomment@"Cool okay so, the claim is `What I found, in a general survey with all the other operators allowed,is that...nothing but the graviton propagates.' -- clearly this matches the above output. So I think we are good here.";
-
 
 Section@"Melichev-Percacci gravity";
 
@@ -117,7 +116,7 @@ ParticleSpectrum[
 	LinearisedLagrangian,
 	ClassName->"PoincareGaugeTheory",
 	TheoryName->"MelichevPercacciTheory",	
-	Method->"Careless",
+	Method->"Hard",
 	MaxLaurentDepth->3
 ];
 
@@ -140,13 +139,11 @@ ParticleSpectrum[
 	LinearisedLagrangian,
 	ClassName->"PoincareGaugeTheory",
 	TheoryName->"EinsteinCartanTheory",	
-	Method->"Careless",
+	Method->"Easy",
 	MaxLaurentDepth->3
 ];
 
 Comment@"Okay, so that is the end of the PSALTer output for Einstein-Cartan gravity. What we find are no propagating massive modes, but instead two degrees of freedom in the massive sector. The no-ghost conditions on these massless d.o.f restrict the sign in front of the Einstein-Hilbert term to be negative (which is what we expect for our conventions).";
-
-(*Throw@"Hold more of my beer!";*)
 
 (*======================*)
 (*  General relativity  *)
@@ -168,17 +165,17 @@ ParticleSpectrum[
 	LinearisedLagrangian,
 	ClassName->"PoincareGaugeTheory",
 	TheoryName->"GeneralRelativity",	
-	Method->"Careless",
+	Method->"Easy",
 	MaxLaurentDepth->3
 ];
 
 Comment@"Thus, the conclusions are the same, as expected.";
-(*
+
 (*=============================*)
 (*  Yun Cherng Lin's 58 cases  *)
 (*=============================*)
 
-Section@"Performing the grand PGT survey";
+Section@"Power-counting renormalisable and unitary catalogue";
 
 Off[Solve::svars];
 CriticalCasesSolutions=First/@(Solve[#,{kR1,kR2,kR3,kR4,kR5,kT1,kT2,kT3,kLambda}]&/@CriticalCases);
@@ -201,6 +198,3 @@ Section@"How long did this take?";
 Comment@"Okay, that's all the cases. You can see from the timing below (in seconds) that each theory takes about a minute to process:";
 
 DisplayExpression@CalibrationTimingData;
-
-DumpSave[FileNameJoin@{NotebookDirectory[],"CalibrationTimingData.mx"},{CalibrationTimingData}];
-*)

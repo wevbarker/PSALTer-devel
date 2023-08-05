@@ -24,7 +24,7 @@ ParticleSpectrum[
 	LinearisedLagrangian,
 	ClassName->"VectorTheory",
 	TheoryName->"MaxwellTheory",	
-	Method->"Careless",
+	Method->"Easy",
 	MaxLaurentDepth->3
 ];
 
@@ -48,7 +48,7 @@ ParticleSpectrum[
 	LinearisedLagrangian,
 	ClassName->"VectorTheory",
 	TheoryName->"ProcaTheory",	
-	Method->"Careless",
+	Method->"Easy",
 	MaxLaurentDepth->3
 ];
 
@@ -74,7 +74,7 @@ ParticleSpectrum[
 	LinearisedLagrangian,
 	ClassName->"VectorTheory",
 	TheoryName->"SickMaxwellTheory",	
-	Method->"Careless",
+	Method->"Easy",
 	MaxLaurentDepth->3
 ];
 
@@ -98,7 +98,7 @@ ParticleSpectrum[
 	LinearisedLagrangian,
 	ClassName->"VectorTheory",
 	TheoryName->"SickProcaTheory",	
-	Method->"Careless",
+	Method->"Easy",
 	MaxLaurentDepth->3
 ];
 

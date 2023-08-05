@@ -23,7 +23,7 @@ ParticleSpectrum[
 	LinearisedLagrangian,
 	ClassName->"ScalarTheory",
 	TheoryName->"MasslessScalar",	
-	Method->"Careless",
+	Method->"Easy",
 	MaxLaurentDepth->3
 ];
 
@@ -46,7 +46,7 @@ ParticleSpectrum[
 	LinearisedLagrangian,
 	ClassName->"ScalarTheory",
 	TheoryName->"MassiveScalar",	
-	Method->"Careless",
+	Method->"Easy",
 	MaxLaurentDepth->3
 ];
 

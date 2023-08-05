@@ -7,7 +7,7 @@ BuildPackage@"ParticleSpectrum/ConstructMassiveAnalysis/SimplifyMasses.m";
 BuildPackage@"ParticleSpectrum/ConstructMassiveAnalysis/MassiveGhost.m";
 
 Options@ConstructMassiveAnalysis={
-	Method->"Careful"};
+	Method->"Easy"};
 ConstructMassiveAnalysis[ClassName_?StringQ,ValuesSaturatedPropagator_,ValuesInverseBMatricesValues_,BlockMassSigns_,OptionsPattern[]]:=Module[{	
 	Couplings,
 	Class,

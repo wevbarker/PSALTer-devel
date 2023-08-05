@@ -7,7 +7,7 @@ BuildPackage@"ParticleSpectrum/ConstructSourceConstraints/NonTrivialDot.m";
 BuildPackage@"ParticleSpectrum/ConstructSourceConstraints/ToCovariantForm.m";
 
 Options@ConstructSourceConstraints={
-	Method->"Careful"};
+	Method->"Easy"};
 
 ConstructSourceConstraints[ClassName_?StringQ,CouplingAssumptions_,Rescalings_,RaisedIndexSources_,MatrixLagrangian_,OptionsPattern[]]:=Module[{
 	SourceSpinParityTensorHeadsValue,
@@ -29,19 +29,24 @@ ConstructSourceConstraints[ClassName_?StringQ,CouplingAssumptions_,Rescalings_,R
 	SourceSpinParityTensorHeadsValue=Class@SourceSpinParityTensorHeads;
 	Couplings=Class@LagrangianCouplings;
 
-	NullSpaces=ConjectureNullSpace[Transpose[#],
-				Couplings,
-				CouplingAssumptions]&/@(MatrixLagrangian);
-
 	Switch[OptionValue@Method,
-		"Careful",
+		"Easy",
 		(
-		NullSpaces=Assuming[CouplingAssumptions,
-					NullSpace[Transpose[#]]&/@(MatrixLagrangian)];
-		Diagnostic@NullSpaces;
+			NullSpaces=Assuming[CouplingAssumptions,
+						NullSpace[Transpose[#]]&/@(MatrixLagrangian)];
+			Diagnostic@NullSpaces;
 		),
-		"Careless",
-		Diagnostic@NullSpaces;
+		"Hard",
+		(
+			NullSpaces=ConjectureNullSpace[Transpose[#],
+						Couplings,
+						CouplingAssumptions]&/@(MatrixLagrangian);
+			Diagnostic@NullSpaces;
+		),
+		"Both",
+		(
+			Print@Null;
+		)
 	];
 
 	NullSpaces=((#)~FullSimplify~CouplingAssumptions)&/@NullSpaces;

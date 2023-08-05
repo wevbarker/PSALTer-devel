@@ -19,7 +19,7 @@ CalibrateCase[CaseNumber_,CaseRules_List,CaseConditions_List]:=Module[{
 		LinearisedLagrangian,
 		ClassName->"PoincareGaugeTheory",
 		TheoryName->("Case"<>ToString@CaseNumber),
-		Method->"Careless",
+		Method->"Easy",
 		MaxLaurentDepth->3
 	];
 

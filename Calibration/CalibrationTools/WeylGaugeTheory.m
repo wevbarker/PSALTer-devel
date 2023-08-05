@@ -17,6 +17,6 @@ ParticleSpectrum[
 	LinearisedLagrangian,
 	ClassName->"WeylGaugeTheory",
 	TheoryName->"SillyExample",	
-	Method->"Careless",
+	Method->"Easy",
 	MaxLaurentDepth->3
 ];
