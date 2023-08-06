@@ -1,6 +1,6 @@
 <img src="xAct/PSALTer/Documentation/Logo/GitHubLogo.png" width="1000">
 
-# Particle Spectrum for Any Lagrangian with Tensors (PSALTer)
+# Particle Spectrum for Any Tensor Lagrangian (PSALTer)
 ## Version 1.0.0-developer
 
 ## License
