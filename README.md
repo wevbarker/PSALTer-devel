@@ -1,4 +1,4 @@
-<img src="xAct/PSALTer/Logo/GitHubLogo.png" width="1000">
+<img src="xAct/PSALTer/Documentation/Logo/GitHubLogo.png" width="1000">
 
 # Particle Spectrum for Any Lagrangian with Tensors (PSALTer)
 ## Version 1.0.0-developer

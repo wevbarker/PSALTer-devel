@@ -45,16 +45,16 @@ DisplayExpression[Expr];
 
 Comment@"Now we set up the general Lagrangian. In the first instance we will do this with some coupling constants which are proportional to those used by Hayashi and Shirafuji in Prog. Theor. Phys. 64 (1980) 2222. The normalisations are not absolutely identical, but this should not be a problem.";
 
-Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","PoincareGaugeTheory","LagrangianHayashiShirafujiCouplings.m"};
+Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory","LagrangianHayashiShirafujiCouplings.m"};
 
 Comment@"We can also use a different set of coupling coefficients, as developed by Karananas.";
 
-Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","PoincareGaugeTheory","LagrangianKarananasCouplings.m"};
+Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory","LagrangianKarananasCouplings.m"};
 DisplayExpression@NonlinearLagrangian;
 
-Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","PoincareGaugeTheory","Linearise.m"};
-Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","PoincareGaugeTheory","CriticalCases.m"};
-Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","PoincareGaugeTheory","Unitarity.m"};
+Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory","Linearise.m"};
+Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory","CriticalCases.m"};
+Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory","Unitarity.m"};
 
 (*====================*)
 (*  Most general PGT  *)
@@ -183,7 +183,7 @@ On[Solve::svars];
 
 Comment@"We are now ready to check that PSALTer is getting the physics right by running it on the 58 theories in arXiv:1910.14197.";
 
-Get@FileNameJoin@{NotebookDirectory[],"CalibrationTools","PoincareGaugeTheory","CalibrateCase.m"};
+Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory","CalibrateCase.m"};
 
 CalibrationTimingData=MapThread[
 		AbsoluteTiming@CalibrateCase[#1,#2,#3]&,
