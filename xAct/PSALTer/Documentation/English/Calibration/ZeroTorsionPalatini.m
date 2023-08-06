@@ -1,9 +1,9 @@
-(*===========================*)
-(*  MetricAffineGaugeTheory  *)
-(*===========================*)
+(*=======================*)
+(*  ZeroTorsionPalatini  *)
+(*=======================*)
 
-Section@"Metric affine gauge theory";
-
+Section@"Zero-torsion Palatini gravity";
+(*
 Subsection@"Field strength tensors";
 
 PartIIIProject@"In this section we will try our analysis of the metric affine gauge theory (MAGT). Our attempt closely follows the very wonderful paper arXiv:1912.01023 which was first brought to my attention by Claire Rigouzzo. The current MAGT implementation in PSALTer follows (to the letter) the conventions established in this paper. We will attempt to recover some key results in this paper, but we will also later look at arXiv:2110.14788, which was brought to my attention by Sebastian Zell.";
@@ -310,7 +310,7 @@ SpecRules={A1->0,A2->0,A3->0,A4->0,A5->0,A6->0,A7->0,A8->0,A9->0,A10->0,A11->0};
 (*SpecRules={A1->0,A2->0,A3->0,A4->0,A5->0,A6->0,A7->0,A8->0,A9->0,A10->0,A11->0,C1->0,C2->0,C3->0,C4->0,C5->0,C6->0,C7->0,C8->0,C9->0,C10->0,C11->0,C12->0,C13->0,C14->0,C15->0,C16->0};*)
 NewLinearLagrangian=LinearLagrangian/.SpecRules;
 ParticleSpectrum[NewLinearLagrangian,
-		ClassName->"MetricAffineGaugeTheory",
+		ClassName->"MetricAffineGravity",
 		TheoryName->"JustHavingALook",	
 		Method->"Careless",
 		MaxLaurentDepth->1];
@@ -332,7 +332,7 @@ ProbeSpectrum[iii_]:=Module[{
 	NewNonlinearLagrangian=NonlinearLagrangian/.CaseRules;
 	DisplayExpression@NewNonlinearLagrangian;
 	TimingDatum=AbsoluteTiming@ParticleSpectrum[NewLinearLagrangian,
-				ClassName->"MetricAffineGaugeTheory",
+				ClassName->"MetricAffineGravity",
 				TheoryName->"MetricAffine"<>ToString@ProbeNumber,
 				Method->"Careless",
 				MaxLaurentDepth->1];
@@ -356,7 +356,7 @@ ProbeSpectrum[kkk_,iii_]:=Module[{CaseRules,TimingDatum,NewLinearLagrangian},
 		NewLinearLagrangian=LinearLagrangian/.CaseRules;
 		DisplayExpression@NewLinearLagrangian;
 		TimingDatum=AbsoluteTiming@ParticleSpectrum[NewLinearLagrangian,
-					ClassName->"MetricAffineGaugeTheory",
+					ClassName->"MetricAffineGravity",
 					TheoryName->"MetricAffine",	
 					Method->"Careless",
 					MaxLaurentDepth->1];
@@ -377,7 +377,7 @@ Comment@"Now we feed the linearized Lagrangian into PSALTer. This is done with a
 (*Throw@"Pause calculation please!";*)
 (**)
 ParticleSpectrum[
-	"MetricAffineGaugeTheory",
+	"MetricAffineGravity",
 	"EinsteinHilbertTheory",
 	LinearLagrangian,
 	TensorFields->{MetricPerturbation,Connection},
@@ -397,7 +397,7 @@ DisplayEquation/@DecomposedSourceConstraints;
 
 Comment@"Let's expand these in terms of the original source currents which are conjugate to the metric (Einstein stress-energy tensor) and the asymmetric connection (a nameless three-index source which is a combination of the matter spin tensor and the matter dilaton current), both contracted with the momentum in various places.";
 
-DecomposedSourceConstraints=(MetricAffineGaugeTheory@xAct`PSALTer`Private`ExpandSources)/@DecomposedSourceConstraints;
+DecomposedSourceConstraints=(MetricAffineGravity@xAct`PSALTer`Private`ExpandSources)/@DecomposedSourceConstraints;
 DecomposedSourceConstraints=DecomposedSourceConstraints/.xAct`PSALTer`Private`ToP;
 DecomposedSourceConstraints=(ToCanonical)/@DecomposedSourceConstraints;
 DecomposedSourceConstraints=(ScreenDollarIndices)/@DecomposedSourceConstraints;
@@ -501,3 +501,4 @@ Comment@"These results are quite satisfying, and hopefully illustrate how easy i
 Comment@"Let's pause the calculations here.";
 
 Throw@"Pause calculation please!";
+*)

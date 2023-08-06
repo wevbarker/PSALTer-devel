@@ -227,4 +227,4 @@ DefClass[
 	xAct`PSALTer`TensorTheory`Private`ExpandFields,
 	xAct`PSALTer`TensorTheory`Private`DecomposeFields,
 	xAct`PSALTer`TensorTheory`Private`ExpandSources,
-ExportClass->True];
+ExportClass->False];

@@ -156,4 +156,4 @@ DefClass[
 	xAct`PSALTer`VectorTheory`Private`ExpandFields,
 	xAct`PSALTer`VectorTheory`Private`DecomposeFields,
 	xAct`PSALTer`VectorTheory`Private`ExpandSources,
-ExportClass->True];
+ExportClass->False];

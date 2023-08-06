@@ -51,7 +51,8 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 		"TensorTheory",
 		"PoincareGaugeTheory",
 		"WeylGaugeTheory",
-		"MetricAffineGaugeTheory"};
+		"MetricAffineGravity",
+		"ZeroTorsionPalatini"};
 
 	ValidateClassName[OptionValue@ClassName,ClassNames];
 	ValidateTheoryName@OptionValue@TheoryName;

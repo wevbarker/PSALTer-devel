@@ -23,7 +23,7 @@ LoadBinaryContext[Context_String]:=Module[{PrintVariable},
 
 LoadPSALTer[]:=Catch@Module[{PrintVariable,InitialMemory,Progress},
 
-	<<xAct`PSALTer`PoincareGaugeTheory`;
+	(*<<xAct`PSALTer`PoincareGaugeTheory`;*)
 
 	PrintVariable=PrintTemporary[" ** BuildPSALTer: loading binary definitions..."];
 	InitialMemory=MemoryInUse[];

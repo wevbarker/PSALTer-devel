@@ -3,9 +3,10 @@
 (*====================*)
 
 Get["xAct/PSALTer/PSALTer.m"]
-Get["xAct/PSALTer/ScalarTheory.m"]
-Get["xAct/PSALTer/VectorTheory.m"]
-Get["xAct/PSALTer/TensorTheory.m"]
-Get["xAct/PSALTer/PoincareGaugeTheory.m"]
-Get["xAct/PSALTer/WeylGaugeTheory.m"]
-Get["xAct/PSALTer/MetricAffineGaugeTheory.m"]
+Get["xAct/PSALTer/Classes/ScalarTheory.m"]
+Get["xAct/PSALTer/Classes/VectorTheory.m"]
+Get["xAct/PSALTer/Classes/TensorTheory.m"]
+Get["xAct/PSALTer/Classes/PoincareGaugeTheory.m"]
+Get["xAct/PSALTer/Classes/WeylGaugeTheory.m"]
+Get["xAct/PSALTer/Classes/MetricAffineGravity.m"]
+Get["xAct/PSALTer/Classes/ZeroTorsionPalatini.m"]

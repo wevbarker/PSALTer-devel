@@ -135,4 +135,4 @@ DefClass[
 	xAct`PSALTer`ScalarTheory`Private`ExpandFields,
 	xAct`PSALTer`ScalarTheory`Private`DecomposeFields,
 	xAct`PSALTer`ScalarTheory`Private`ExpandSources,
-ExportClass->True];
+ExportClass->False];
