@@ -1,3 +1,3 @@
 #!/bin/bash
 
-convert -density 500 GitLabLogo.pdf -transparent white GitLabLogo.png
+convert -density 300 GitLabLogo.pdf -transparent white GitLabLogo.png
