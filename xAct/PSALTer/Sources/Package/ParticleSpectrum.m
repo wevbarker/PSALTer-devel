@@ -188,3 +188,5 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 		LocalOverallUnitarity,
 		LocalSummaryOfTheory];
 ];
+
+Protect@ParticleSpectrum;
