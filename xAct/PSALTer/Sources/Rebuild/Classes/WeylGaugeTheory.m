@@ -680,4 +680,4 @@ DefClass[
 	xAct`PSALTer`WeylGaugeTheory`Private`ExpandFields,
 	xAct`PSALTer`WeylGaugeTheory`Private`DecomposeFields,
 	xAct`PSALTer`WeylGaugeTheory`Private`ExpandSources,
-ExportClass->True];
+ExportClass->False];

@@ -608,4 +608,4 @@ DefClass[
 	xAct`PSALTer`PoincareGaugeTheory`Private`ExpandFields,
 	xAct`PSALTer`PoincareGaugeTheory`Private`DecomposeFields,
 	xAct`PSALTer`PoincareGaugeTheory`Private`ExpandSources,
-ExportClass->True];
+ExportClass->False];

@@ -2,7 +2,7 @@
 (*  WeylGaugeTheory  *)
 (*===================*)
 
-Title@"Weyl gauge theory (PGT)";
+Title@"Weyl gauge theory (WGT)";
 
 Supercomment@"We will test the WeylGaugeTheory module.";
 
