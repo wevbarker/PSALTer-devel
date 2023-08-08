@@ -2,9 +2,9 @@
 (*  FieldStrengthTensors  *)
 (*========================*)
 
-Section@"Field strength tensors";
+Subsection@"Field strength tensors";
 
-Supercomment@"In this section we will restrict our MAG implementation to the zero-torsion case, as detailed in Section 6 of arXiv:1912.01023.";
+Supercomment@"In this section we will restrict our earlier MAG implementation to the zero-torsion case, as detailed in Subsection 6 of arXiv:1912.01023.";
 
 Comment@"First we write out rules which define the field strength tensors.";
 
@@ -94,16 +94,44 @@ Expr=Expr/.ZeroTorsionRicciScalarToPerturbed;
 Expr//=ScreenDollarIndices;
 DisplayExpression@Expr;
 
+Comment@{"Now we compute the analogue of",Cref@{"MetricAffineRicciTensorTri","MetricAffineRicciTensorTriPerturbed"},"."};
+DefTensor[ZeroTorsionRicciTensorTri[-m,-n],M4,PrintAs->"\!\(\*OverscriptBox[\(\[ScriptCapitalF]\), \(\[CapitalDelta]\)]\)"];
+ZeroTorsionRicciTensorTriToPerturbed=MakeRule[{ZeroTorsionRicciTensorTri[-m,-n],
+	Evaluate[
+	(1/2)*(ZeroTorsionRicciTensor13[-m,-n]
+	+ZeroTorsionRicciTensor14[-m,-n])/.ZeroTorsionRicciTensor13ToPerturbed/.ZeroTorsionRicciTensor14ToPerturbed]},MetricOn->All,ContractMetrics->True];
+Expr=ZeroTorsionRicciTensorTri[-m,-n];
+DisplayExpression[Expr,EqnLabel->"ZeroTorsionRicciTensorTri"];
+Expr=Expr/.ZeroTorsionRicciTensorTriToPerturbed;
+Expr//=ScreenDollarIndices;
+DisplayExpression[Expr,EqnLabel->"ZeroTorsionRicciTensorTriPerturbed"];
+
+Comment@{"Now we compute the analogue of",Cref@{"MetricAffineRicciTensorTri","MetricAffineRicciTensorTriPerturbed"},"."};
+DefTensor[ZeroTorsionRicciTensorP[-m,-n],M4,PrintAs->"\!\(\*OverscriptBox[\(\[ScriptCapitalF]\), \(P\)]\)"];
+ZeroTorsionRicciTensorPToPerturbed=MakeRule[{ZeroTorsionRicciTensorP[-m,-n],
+	Evaluate[
+	(1/2)*(
+	ZeroTorsionRicciTensor13[-m,-n]
+	-ZeroTorsionRicciTensor13[-n,-m]
+	-ZeroTorsionRicciTensorTri[-m,-n]
+	+ZeroTorsionRicciTensorTri[-n,-m]
+	)/.ZeroTorsionRicciTensor13ToPerturbed/.ZeroTorsionRicciTensorTriToPerturbed]},
+		MetricOn->All,
+		ContractMetrics->True];
+Expr=ZeroTorsionRicciTensorP[-m,-n];
+DisplayExpression[Expr,EqnLabel->"ZeroTorsionRicciTensorP"];
+Expr=Expr/.ZeroTorsionRicciTensorPToPerturbed;
+Expr//=ScreenDollarIndices;
+DisplayExpression[Expr,EqnLabel->"ZeroTorsionRicciTensorPPerturbed"];
 
 ToPerturbed=Join[
 ZeroTorsionCurvatureToPerturbed,
-ZeroTorsionTorsionToPerturbed,
 ZeroTorsionNonMetricityToPerturbed,
-ZeroTorsionTorsionContractionToPerturbed,
 ZeroTorsionNonMetricityContractionToPerturbed,
 ZeroTorsionNonMetricityContractionTildeToPerturbed,
-ZeroTorsionRicciTensorToPerturbed,
 ZeroTorsionRicciTensor14ToPerturbed,
 ZeroTorsionRicciTensor13ToPerturbed,
-ZeroTorsionRicciScalarToPerturbed
+ZeroTorsionRicciScalarToPerturbed,
+ZeroTorsionRicciTensorTriToPerturbed,
+ZeroTorsionRicciTensorPToPerturbed
 ];

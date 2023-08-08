@@ -2,9 +2,9 @@
 (*  NonlinearLagrangian  *)
 (*=======================*)
 
-Section@"The general parity-preserving Lagrangian";
+Subsection@"The general parity-preserving Lagrangian";
 
-Comment@"Now all the generally-covariant contractions of the field strength tensors have been defined, so we construct the general, parity-preserving Lagrangian proposed in Equation (2.4) on page 5 of arXiv:1912.01023. This is just an exercise in data entry.";
+Comment@"Now all the generally-covariant contractions of the field strength tensors have been defined, so we construct the general, parity-preserving Lagrangian proposed in Equation (2.4) on page 5 of arXiv:1912.01023.";
 
 NonlinearLagrangian=-(1/2)*(
 	-A0*MetricAffineRicciScalar[]
@@ -53,12 +53,12 @@ NonlinearLagrangian=-(1/2)*(
 	)
 );
 
-DisplayExpression@NonlinearLagrangian;
+DisplayExpression[NonlinearLagrangian,EqnLabel->"MetricAffineNonlinearLagrangian"];
 
 Comment@"This general Lagrangian is something that we must linearize. First, we need the linearized measure, otherwise the Einstein--Hilbert term (which has first-order perturbed contributions) won't have the right linearization.";
 
 Measure=1+(1/2)*MetricPerturbation[a,-a];
-DisplayExpression@Measure;
+DisplayExpression[Measure,EqnLabel->"Measure"];
 
 
 Off[ValidateSymbol::used];
@@ -129,6 +129,6 @@ LinearLagrangian];
 Comment@"Now we attempt the linearization.";
 
 LinearLagrangian=Measure*NonlinearLagrangian//LineariseLagrangian;
-DisplayExpression@LinearLagrangian;
+DisplayExpression[LinearLagrangian,EqnLabel->"MetricAffineLinearLagrangian"];
 
-Comment@"We see that there is not a great degree of degeneracy among the coupling constants, but bear in mind that we may only see such patterns when surface terms are used to extract the wave operator.";
+Comment@{"We see that",Cref@"MetricAffineLinearLagrangian"," is generically quite a heavy expression, and there is not a very high degree of degeneracy among the coupling constants."};
