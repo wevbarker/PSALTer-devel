@@ -65,7 +65,7 @@ Expr=Expr/.MetricAffineNonMetricityContractionTildeToPerturbed;
 Expr//=ScreenDollarIndices;
 DisplayExpression[Expr,EqnLabel->"MetricAffineNonMetricityContractionTildePerturbed"];
 
-Comment@"Next the (conventional) Ricci tensor.";
+Comment@"Next the homothetic curvature.";
 DefTensor[MetricAffineRicciTensor[-m,-n],M4,PrintAs->"\[ScriptCapitalF]"];
 MetricAffineRicciTensorToPerturbed=MakeRule[{MetricAffineRicciTensor[-m,-n],MetricAffineCurvature[-m,-n,-l,l]},MetricOn->All,ContractMetrics->True];
 Expr=MetricAffineRicciTensor[-m,-n];
@@ -185,5 +185,7 @@ MetricAffineNonMetricityContractionTildeToPerturbed,
 MetricAffineRicciTensorToPerturbed,
 MetricAffineRicciTensor14ToPerturbed,
 MetricAffineRicciTensor13ToPerturbed,
-MetricAffineRicciScalarToPerturbed
+MetricAffineRicciScalarToPerturbed,
+MetricAffineRicciTensorTriToPerturbed,
+MetricAffineRicciTensorPToPerturbed
 ];

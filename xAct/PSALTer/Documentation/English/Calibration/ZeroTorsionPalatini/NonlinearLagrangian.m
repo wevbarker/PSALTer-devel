@@ -133,7 +133,7 @@ Comment@{"Now we linearize",Cref@"ZeroTorsionARNonlinearLagrangian","."};
 ARLinearLagrangian=Measure*ARNonlinearLagrangian//LineariseLagrangian;
 DisplayExpression[ARLinearLagrangian,EqnLabel->"ZeroTorsionARLinearLagrangian"];
 
-Section@"Annala-Räsänen row 1";
+Section@"Annala-Räsänen column 3 row 1";
 
 LinearLagrangian=ARLinearLagrangian/.{H2->0,H3->0,H4->0};
 ParticleSpectrum[LinearLagrangian,
@@ -142,7 +142,7 @@ ParticleSpectrum[LinearLagrangian,
 		Method->"Easy",
 		MaxLaurentDepth->1];
 
-Section@"Annala-Räsänen row 2";
+Section@"Annala-Räsänen column 3 row 2";
 
 LinearLagrangian=ARLinearLagrangian/.{H1->0,H3->0,H4->0};
 ParticleSpectrum[LinearLagrangian,
@@ -151,7 +151,7 @@ ParticleSpectrum[LinearLagrangian,
 		Method->"Easy",
 		MaxLaurentDepth->1];
 
-Section@"Annala-Räsänen row 3";
+Section@"Annala-Räsänen column 3 row 3";
 
 LinearLagrangian=ARLinearLagrangian/.{H1->0,H2->0,H4->0};
 ParticleSpectrum[LinearLagrangian,
@@ -160,7 +160,7 @@ ParticleSpectrum[LinearLagrangian,
 		Method->"Easy",
 		MaxLaurentDepth->1];
 
-Section@"Annala-Räsänen row 4";
+Section@"Annala-Räsänen column 3 row 4";
 
 LinearLagrangian=ARLinearLagrangian/.{H1->0,H2->0,H3->0};
 ParticleSpectrum[LinearLagrangian,
