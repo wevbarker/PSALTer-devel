@@ -12,7 +12,7 @@ Get@FileNameJoin@{NotebookDirectory[],"Calibration","MetricAffineGravity","Nonli
 (*============================*)
 (*  Einstein-Hilbert theory   *)
 (*============================*)
-
+(*
 Section@"Einstein-Hilbert theory";
 
 Comment@"The first theory we will look at is the simple Einstein-Hilbert case.";
@@ -25,6 +25,7 @@ Comment@"Now we linearize it.";
 
 LinearLagrangian//=LineariseLagrangian;
 DisplayExpression@LinearLagrangian;
+*)
 (*
 ParticleSpectrum[NewLinearLagrangian,
 		ClassName->"MetricAffineGravity",
@@ -171,45 +172,65 @@ DisplayExpression[ARLinearLagrangian,EqnLabel->"MetricAffineARLinearLagrangian"]
 
 Section@"Annala-Räsänen column 1 row 1";
 
+Comment@"Here is our `minimal model' Lagrangian.";
+Col1Row1=ARNonlinearLagrangian/.{C2->0,C3->0,C4->0,C5->0};
+DisplayExpression@Col1Row1;
 LinearLagrangian=ARLinearLagrangian/.{C2->0,C3->0,C4->0,C5->0};
 ParticleSpectrum[LinearLagrangian,
 		ClassName->"MetricAffineGravity",
 		TheoryName->"AnnalaRasanenRow1",	
 		Method->"Easy",
 		MaxLaurentDepth->1];
+Supercomment@"Looks good, no new d.o.fs.";
 
 Section@"Annala-Räsänen column 1 row 2";
 
+Comment@"Here is our `minimal model' Lagrangian.";
+Col1Row2=ARNonlinearLagrangian/.{C1->0,C3->0,C4->0,C5->0};
+DisplayExpression@Col1Row2;
 LinearLagrangian=ARLinearLagrangian/.{C1->0,C3->0,C4->0,C5->0};
 ParticleSpectrum[LinearLagrangian,
 		ClassName->"MetricAffineGravity",
 		TheoryName->"AnnalaRasanenRow2",	
 		Method->"Easy",
 		MaxLaurentDepth->1];
+Supercomment@"Looks good, ghosts.";
 
 Section@"Annala-Räsänen column 1 row 3";
 
+Comment@"Here is our `minimal model' Lagrangian.";
+Col1Row3=ARNonlinearLagrangian/.{C1->0,C2->0,C4->0,C5->0};
+DisplayExpression@Col1Row3;
 LinearLagrangian=ARLinearLagrangian/.{C1->0,C2->0,C4->0,C5->0};
 ParticleSpectrum[LinearLagrangian,
 		ClassName->"MetricAffineGravity",
 		TheoryName->"AnnalaRasanenRow3",	
 		Method->"Easy",
 		MaxLaurentDepth->1];
+Supercomment@"Needs checking, looks like ghosts?";
 
 Section@"Annala-Räsänen column 1 row 4";
 
+Comment@"Here is our `minimal model' Lagrangian.";
+Col1Row4=ARNonlinearLagrangian/.{C1->0,C2->0,C3->0,C5->0};
+DisplayExpression@Col1Row4;
 LinearLagrangian=ARLinearLagrangian/.{C1->0,C2->0,C3->0,C5->0};
 ParticleSpectrum[LinearLagrangian,
 		ClassName->"MetricAffineGravity",
 		TheoryName->"AnnalaRasanenRow4",	
 		Method->"Easy",
 		MaxLaurentDepth->1];
+Supercomment@"Looks good, no new d.o.fs.";
 
 Section@"Annala-Räsänen column 1 row 5";
 
+Comment@"Here is our `minimal model' Lagrangian.";
+Col1Row5=ARNonlinearLagrangian/.{C1->0,C2->0,C3->0,C4->0};
+DisplayExpression@Col1Row5;
 LinearLagrangian=ARLinearLagrangian/.{C1->0,C2->0,C3->0,C4->0};
 ParticleSpectrum[LinearLagrangian,
 		ClassName->"MetricAffineGravity",
 		TheoryName->"AnnalaRasanenRow5",	
 		Method->"Easy",
 		MaxLaurentDepth->1];
+Supercomment@"Needs checking, looks like a healthy vector?";

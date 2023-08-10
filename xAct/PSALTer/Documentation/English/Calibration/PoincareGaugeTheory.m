@@ -59,7 +59,7 @@ Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory","Unita
 (*====================*)
 (*  Most general PGT  *)
 (*====================*)
-
+(*
 Section@"Most general PGT";
 
 Comment@{"We first want to study the most general PGT. We will do this using the general coupling coefficients defined in",Cref@"CleanHayashiShirafuji","."};
@@ -77,19 +77,13 @@ ParticleSpectrum[
 ];
 
 Supercomment@"These results should be compared with the Hayashi and Shirafuji papers, in particular Eqs. (4.11) in Prog. Theor. Phys. 64 (1980) 2222.";
+*)
+Section@"Annala-Räsänen column 4 rows 1 and 2";
 
-Section@"Marzo gravity";
-
-Comment@{"Let's target the case Carlo is talking about. Okay, so recycling some coupling symbols for ease (i.e. these won't have the same interpretation as those in",Cref@"CleanHayashiShirafuji","), we think this is the following nonlinear Lagrangian."};
-
+Comment@{"We will target a fairly ambitious configuration, with the aim of covering all the zero non-metricity Palatini results in arXiv:2212.09820. Recycling some coupling symbols for ease (i.e. these won't have the same interpretation as those in",Cref@"CleanHayashiShirafuji","), we think this is the following nonlinear Lagrangian."};
 HSNonlinearLagrangian2=-(1/2)*Alp0*R[a,b,-a,-b]+R[a,c,b,-c]*(Alp1*R[-a,d,-b,-d]+Alp2*R[-b,d,-a,-d])+Alp3*R[a,b,-a,-b]*R[c,d,-c,-d];
-
 DisplayExpression[CollectTensors@ToCanonical[HSNonlinearLagrangian2],EqnLabel->"Carlo"];
-
-Comment@{"Okay, so let's see what PSALTer has to say about",Cref@"Carlo","."};
-
 LinearisedLagrangian=LineariseLagrangian[HSNonlinearLagrangian2];
-
 ParticleSpectrum[
 	LinearisedLagrangian,
 	ClassName->"PoincareGaugeTheory",
@@ -97,9 +91,8 @@ ParticleSpectrum[
 	Method->"Hard",
 	MaxLaurentDepth->3
 ];
-
-Supercomment@"Cool okay so, the claim is `What I found, in a general survey with all the other operators allowed,is that...nothing but the graviton propagates.' -- clearly this matches the above output. So I think we are good here.";
-
+Supercomment@"The conclusion is that even this quite general configuration propagates nothing. Note that this is quite an interesting feature of torsion gravity by itself!";
+(*
 Section@"Melichev-Percacci gravity";
 
 Comment@{"Next we want to study the new theory put forward in Eq. (2.17) of 2307.02336. Okay, so recycling some coupling symbols for ease (i.e. these won't have the same interpretation as those in",Cref@"CleanHayashiShirafuji","), we think this is the following nonlinear Lagrangian."};
@@ -198,3 +191,4 @@ Section@"How long did this take?";
 Comment@"Okay, that's all the cases. You can see from the timing below (in seconds) that each theory takes about a minute to process:";
 
 DisplayExpression@CalibrationTimingData;
+*)
