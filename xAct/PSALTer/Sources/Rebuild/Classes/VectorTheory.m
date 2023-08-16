@@ -122,7 +122,7 @@ SourceSpinParityTensorHeads=<|
 |>;
 
 SourceEngineeringDimensions=<|
-		ConjugateSourceB->0
+		ConjugateSourceB->1
 |>;
 
 ExpandFields[InputExpr_]:=Module[{Expr=InputExpr},
