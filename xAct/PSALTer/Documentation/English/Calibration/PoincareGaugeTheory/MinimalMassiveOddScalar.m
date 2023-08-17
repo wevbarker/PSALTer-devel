@@ -1,0 +1,21 @@
+(*===========================*)
+(*  MinimalMassiveOddScalar  *)
+(*===========================*)
+
+Section@"Minimal massive odd-parity scalar model";
+
+Comment@{"We will study the minimal model set out in Eq. (4.25) of arXiv:9902032. We will do this using the general coupling coefficients defined in",Cref@"CleanHayashiShirafuji","."};
+
+NonlinearLagrangian=HSNonlinearLagrangian/.{Alp1->0,Alp2->0,Alp4->0,Alp5->0,Alp6->0,Bet2->-2*Bet1,Bet3->-Bet1/2};
+DisplayExpression@CollectTensors@ToCanonical[NonlinearLagrangian];
+LinearisedLagrangian=LineariseLagrangian[NonlinearLagrangian];
+
+ParticleSpectrum[
+	LinearisedLagrangian,
+	ClassName->"PoincareGaugeTheory",
+	TheoryName->"MinimalMassiveOddScalar",	
+	Method->"Hard",
+	MaxLaurentDepth->3
+];
+
+Supercomment@"Thus we see that only the even-parity scalar mode is moving with a mass, as claimed.";
