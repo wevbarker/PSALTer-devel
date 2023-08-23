@@ -44,9 +44,9 @@ $MonitorParallel=False;
 Comment@"Great, so PSALTer is now loaded and we can start to do some science.";
 
 (*Get@FileNameJoin@{NotebookDirectory[],"Calibration","ScalarTheory.m"};*)
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","VectorTheory.m"};
+(*Get@FileNameJoin@{NotebookDirectory[],"Calibration","VectorTheory.m"};*)
 (*Get@FileNameJoin@{NotebookDirectory[],"Calibration","TensorTheory.m"};*)
-(*Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory.m"};*)
+Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory.m"};
 (*Get@FileNameJoin@{NotebookDirectory[],"Calibration","WeylGaugeTheory.m"};*)
 (*Get@FileNameJoin@{NotebookDirectory[],"Calibration","MetricAffineGravity.m"};*)
 (*Get@FileNameJoin@{NotebookDirectory[],"Calibration","ZeroTorsionPalatini.m"};*)

@@ -18,4 +18,4 @@ ParticleSpectrum[
 	MaxLaurentDepth->3
 ];
 
-Supercomment@"Thus we see that only the odd-parity scalar mode is moving without a mass, as claimed.";
+Supercomment@"Thus we see that only the Einstein graviton is moving, with no extra species whatever. This might seem strange, since we have taken the massless limit of the pseudoscalar mode, but the fact that the spectrum empties discontinuously in this scenario is already predicted in the Hamiltonian analysis, see the second paragraph on page 20 of arXiv:9902032.";

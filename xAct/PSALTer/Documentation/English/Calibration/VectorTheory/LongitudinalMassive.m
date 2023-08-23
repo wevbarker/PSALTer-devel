@@ -2,7 +2,7 @@
 (*  LongitudinalMassive  *)
 (*=======================*)
 
-Section@"Pure longutudinal massive";
+Section@"Pure longitudinal massive";
 
 Comment@"Add a mass term, this makes the theory identical to that studied by Sebastian in his email of last week.";
 
@@ -20,4 +20,4 @@ ParticleSpectrum[
 	MaxLaurentDepth->3
 ];
 
-Comment@"Comment.";
+Comment@"The theory propagates a single, healthy massive scalar.";

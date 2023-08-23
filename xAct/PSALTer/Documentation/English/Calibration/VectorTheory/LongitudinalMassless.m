@@ -2,7 +2,7 @@
 (*  LongitudinalMassless  *)
 (*========================*)
 
-Section@"Pure longutudinal massless";
+Section@"Pure longitudinal massless";
 
 Comment@"Now we try working purely with the longitudinal theory.";
 
@@ -20,4 +20,4 @@ ParticleSpectrum[
 	MaxLaurentDepth->3
 ];
 
-Comment@"Comment.";
+Comment@"The spectrum is entirely empty.";
