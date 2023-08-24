@@ -19,6 +19,10 @@ FourierLagrangian[ClassName_?StringQ,Expr_,Tensors_]:=Module[{
 	CrossingRules={};
 
 	Table[(CrossingRules=CrossingRules~Join~
+	MakeRule[{Evaluate[CD[-u]@CD[-q]@Tensor1 CD[-v]@CD[-p]@Tensor2],Evaluate[Dagger@Tensor1 P[-u]P[-v]P[-p]P[-q]Tensor2]},MetricOn->All,ContractMetrics->True]),
+	{Tensor1,Tensors1},{Tensor2,Tensors2}];
+
+	Table[(CrossingRules=CrossingRules~Join~
 	MakeRule[{Evaluate[CD[-q]@Tensor1 CD[-p]@Tensor2],Evaluate[Dagger@Tensor1 P[-p]P[-q]Tensor2]},MetricOn->All,ContractMetrics->True]),
 	{Tensor1,Tensors1},{Tensor2,Tensors2}];
 

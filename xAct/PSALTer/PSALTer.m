@@ -132,6 +132,8 @@ ContextList={
 	"xAct`PSALTer`VectorTheory`Private`",
 	"xAct`PSALTer`TensorTheory`",
 	"xAct`PSALTer`TensorTheory`Private`",
+	"xAct`PSALTer`ScalarTensorTheory`",
+	"xAct`PSALTer`ScalarTensorTheory`Private`",
 	"xAct`PSALTer`PoincareGaugeTheory`",
 	"xAct`PSALTer`PoincareGaugeTheory`Private`",
 	"xAct`PSALTer`WeylGaugeTheory`",

@@ -49,6 +49,7 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 	ClassNames={"ScalarTheory",
 		"VectorTheory",
 		"TensorTheory",
+		"ScalarTensorTheory",
 		"PoincareGaugeTheory",
 		"WeylGaugeTheory",
 		"MetricAffineGravity",
