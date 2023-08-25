@@ -1,11 +1,11 @@
 (*==================*)
-(*  GeneralLambda1  *)
+(*  GeneralLambda3  *)
 (*==================*)
 
-Subsection@"PECT parameter is 1";
+Subsection@"PECT parameter is 3";
 
-Comment@{"Let's use a linear PECT transformation in",Cref@"QuoteGeneralCase","."};
-LinearisedLagrangian=GeneralLinearisedLagrangian/.{Pw->1};
+Comment@{"Let's use a cubic PECT transformation in",Cref@"QuoteGeneralCase","."};
+LinearisedLagrangian=GeneralLinearisedLagrangian/.{Pw->3};
 LinearisedLagrangian//=ToCanonical;
 LinearisedLagrangian//=CollectTensors;
 DisplayExpression@LinearisedLagrangian;
@@ -13,7 +13,7 @@ DisplayExpression@LinearisedLagrangian;
 ParticleSpectrum[
 	LinearisedLagrangian,
 	ClassName->"ScalarTensorTheory",
-	TheoryName->"GeneralLambda1",
+	TheoryName->"GeneralLambda3",
 	Method->"Easy",
 	MaxLaurentDepth->3
 ];
