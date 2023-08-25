@@ -1,18 +1,8 @@
-(*=======================*)
-(*  MetricAffineGravity  *)
-(*=======================*)
+(*=========================*)
+(*  AnnalaRasanenTheories  *)
+(*=========================*)
 
-Title@"Metric affine gravity (MAG)";
-
-Supercomment@"We will test the MetricAffineGravity module.";
-
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","MetricAffineGravity","FieldStrengthTensors.m"};
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","MetricAffineGravity","NonlinearLagrangian.m"};
-
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","MetricAffineGravity",
-					"MetricAffineEinsteinHilbertTheory.m"};
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","MetricAffineGravity",
-					"AnnalaRasanenTheories.m"};
+Section@"Annala-Räsänen theories";
 
 Comment@"Now we need to extend to a representative Lagrangian which will cover the whole of the fourth column of Table 1 on page 14 of arXiv:2212.09820.";
 
@@ -38,7 +28,7 @@ Comment@{"Now we linearize",Cref@"MetricAffineARNonlinearLagrangian","."};
 ARLinearLagrangian=Measure*ARNonlinearLagrangian//LineariseLagrangian;
 DisplayExpression[ARLinearLagrangian,EqnLabel->"MetricAffineARLinearLagrangian"];
 
-Section@"Annala-Räsänen column 1 row 1";
+Subsection@"Annala-Räsänen column 1 row 1";
 
 Comment@"Here is our `minimal model' Lagrangian.";
 Col1Row1=ARNonlinearLagrangian/.{C2->0,C3->0,C4->0,C5->0};
@@ -51,7 +41,7 @@ ParticleSpectrum[LinearLagrangian,
 		MaxLaurentDepth->1];
 Supercomment@"Looks good, no new d.o.fs.";
 
-Section@"Annala-Räsänen column 1 row 2";
+Subsection@"Annala-Räsänen column 1 row 2";
 
 Comment@"Here is our `minimal model' Lagrangian.";
 Col1Row2=ARNonlinearLagrangian/.{C1->0,C3->0,C4->0,C5->0};
@@ -64,7 +54,7 @@ ParticleSpectrum[LinearLagrangian,
 		MaxLaurentDepth->1];
 Supercomment@"Looks good, ghosts.";
 
-Section@"Annala-Räsänen column 1 row 3";
+Subsection@"Annala-Räsänen column 1 row 3";
 
 Comment@"Here is our `minimal model' Lagrangian.";
 Col1Row3=ARNonlinearLagrangian/.{C1->0,C2->0,C4->0,C5->0};
@@ -77,7 +67,7 @@ ParticleSpectrum[LinearLagrangian,
 		MaxLaurentDepth->1];
 Supercomment@"Needs checking, looks like ghosts?";
 
-Section@"Annala-Räsänen column 1 row 4";
+Subsection@"Annala-Räsänen column 1 row 4";
 
 Comment@"Here is our `minimal model' Lagrangian.";
 Col1Row4=ARNonlinearLagrangian/.{C1->0,C2->0,C3->0,C5->0};
@@ -90,7 +80,7 @@ ParticleSpectrum[LinearLagrangian,
 		MaxLaurentDepth->1];
 Supercomment@"Looks good, no new d.o.fs.";
 
-Section@"Annala-Räsänen column 1 row 5";
+Subsection@"Annala-Räsänen column 1 row 5";
 
 Comment@"Here is our `minimal model' Lagrangian.";
 Col1Row5=ARNonlinearLagrangian/.{C1->0,C2->0,C3->0,C4->0};
