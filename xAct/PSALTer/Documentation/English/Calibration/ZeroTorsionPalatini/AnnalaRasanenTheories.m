@@ -7,37 +7,34 @@ Section@"Annala-Räsänen theories";
 Comment@"Now we need to extend to a representative Lagrangian which will cover the whole of the fourth column of Table 1 on page 14 of arXiv:2212.09820.";
 
 ARNonlinearLagrangian=-(1/2)*(
-	-xAct`PSALTer`MetricAffineGravity`A0*MetricAffineRicciScalar[]
-	+(1/2)*C1*MetricAffineRicciTensor13[m,n]*(
-		MetricAffineRicciTensor13[-m,-n]
-		+MetricAffineRicciTensor13[-n,-m]
+	-xAct`PSALTer`ZeroTorsionPalatini`A0*ZeroTorsionRicciScalar[]
+	+(1/2)*H1*ZeroTorsionRicciTensor13[m,n]*(
+		ZeroTorsionRicciTensor13[-m,-n]
+		+ZeroTorsionRicciTensor13[-n,-m]
 	)
-	+(1/2)*C2*MetricAffineRicciTensor13[m,n]*(
-		MetricAffineRicciTensor13[-m,-n]
-		-MetricAffineRicciTensor13[-n,-m]
+	+(1/2)*H2*ZeroTorsionRicciTensor13[m,n]*(
+		ZeroTorsionRicciTensor13[-m,-n]
+		-ZeroTorsionRicciTensor13[-n,-m]
 	)
-	+C3*MetricAffineRicciTensorTri[m,n]*MetricAffineRicciTensorTri[-m,-n]
-	+C4*MetricAffineRicciTensorP[m,n]*MetricAffineRicciTensorP[-m,-n]
-	+C5*MetricAffineRicciTensor[m,n]*MetricAffineRicciTensor[-m,-n]
+	+H3*ZeroTorsionRicciTensorTri[m,n]*ZeroTorsionRicciTensorTri[-m,-n]
+	+H4*ZeroTorsionRicciTensorP[m,n]*ZeroTorsionRicciTensorP[-m,-n]
 );
 
-DisplayExpression[ARNonlinearLagrangian,EqnLabel->"MetricAffineARNonlinearLagrangian"];
+DisplayExpression[ARNonlinearLagrangian,EqnLabel->"ZeroTorsionARNonlinearLagrangian"];
 
-Comment@{"Now we linearize",Cref@"MetricAffineARNonlinearLagrangian","."};
+Comment@{"Now we linearize",Cref@"ZeroTorsionARNonlinearLagrangian","."};
 
 ARLinearLagrangian=Measure*ARNonlinearLagrangian//LineariseLagrangian;
-DisplayExpression[ARLinearLagrangian,EqnLabel->"MetricAffineARLinearLagrangian"];
+DisplayExpression[ARLinearLagrangian,EqnLabel->"ZeroTorsionARLinearLagrangian"];
 
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","MetricAffineGravity","AnnalaRasanenTheories",
-					"AnnalaRasanenCol1Row1.m"};
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","MetricAffineGravity","AnnalaRasanenTheories",
-					"AnnalaRasanenCol1Row2.m"};
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","MetricAffineGravity","AnnalaRasanenTheories",
-					"AnnalaRasanenCol1Row3.m"};
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","MetricAffineGravity","AnnalaRasanenTheories",
-					"AnnalaRasanenCol1Row4.m"};
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","MetricAffineGravity","AnnalaRasanenTheories",
-					"AnnalaRasanenCol1Row5.m"};
+Get@FileNameJoin@{NotebookDirectory[],"Calibration","ZeroTorsionPalatini","AnnalaRasanenTheories",
+					"AnnalaRasanenCol3Row1.m"};
+Get@FileNameJoin@{NotebookDirectory[],"Calibration","ZeroTorsionPalatini","AnnalaRasanenTheories",
+					"AnnalaRasanenCol3Row2.m"};
+Get@FileNameJoin@{NotebookDirectory[],"Calibration","ZeroTorsionPalatini","AnnalaRasanenTheories",
+					"AnnalaRasanenCol3Row3.m"};
+Get@FileNameJoin@{NotebookDirectory[],"Calibration","ZeroTorsionPalatini","AnnalaRasanenTheories",
+					"AnnalaRasanenCol3Row4.m"};
 
 Title@"Summary of results.";
 

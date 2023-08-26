@@ -25,11 +25,11 @@ Comment@"The first step is to load the PSALTer package.";
 <<xAct`PSALTer`;
 
 (*For when we want to only run the commentary part of the script*)
-(*
+(**)
 Unprotect@xAct`PSALTer`ParticleSpectrum;
-xAct`PSALTer`ParticleSpectrum=.;
+ClearAll@xAct`PSALTer`ParticleSpectrum;
 Protect@xAct`PSALTer`ParticleSpectrum;
-*)
+(**)
 
 (*Global settings for xAct*)
 $DefInfoQ=False;
@@ -43,15 +43,15 @@ $MonitorParallel=False;
 
 Comment@"Great, so PSALTer is now loaded and we can start to do some science.";
 
-(*Get@FileNameJoin@{NotebookDirectory[],"Calibration","ScalarTheory.m"};*)
-(*Get@FileNameJoin@{NotebookDirectory[],"Calibration","VectorTheory.m"};*)
-(*Get@FileNameJoin@{NotebookDirectory[],"Calibration","TensorTheory.m"};*)
+Get@FileNameJoin@{NotebookDirectory[],"Calibration","ScalarTheory.m"};
+Get@FileNameJoin@{NotebookDirectory[],"Calibration","VectorTheory.m"};
+Get@FileNameJoin@{NotebookDirectory[],"Calibration","TensorTheory.m"};
 Get@FileNameJoin@{NotebookDirectory[],"Calibration","ScalarTensorTheory.m"};
-(*Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory.m"};*)
+Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory.m"};
 (*Get@FileNameJoin@{NotebookDirectory[],"Calibration","WeylGaugeTheory.m"};*)
-(*Get@FileNameJoin@{NotebookDirectory[],"Calibration","MetricAffineGravity.m"};*)
-(*Get@FileNameJoin@{NotebookDirectory[],"Calibration","ZeroTorsionPalatini.m"};*)
-(*Get@FileNameJoin@{NotebookDirectory[],"Calibration","ErrorMessages.m"};*)
+Get@FileNameJoin@{NotebookDirectory[],"Calibration","MetricAffineGravity.m"};
+Get@FileNameJoin@{NotebookDirectory[],"Calibration","ZeroTorsionPalatini.m"};
+Get@FileNameJoin@{NotebookDirectory[],"Calibration","ErrorMessages.m"};
 
 Supercomment@"We have now reached the end of the PSALTer calibration script.";
 

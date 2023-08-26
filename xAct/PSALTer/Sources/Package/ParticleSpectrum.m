@@ -17,6 +17,8 @@ BuildPackage@"ParticleSpectrum/ConstructMassiveAnalysis.m";
 BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis.m";
 BuildPackage@"ParticleSpectrum/ConstructUnitarityConditions.m";
 
+Off[Set::write];
+Off[SetDelayed::write];
 Options@ParticleSpectrum={
 	ClassName->False,
 	TheoryName->False,
@@ -189,5 +191,6 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 		LocalOverallUnitarity,
 		LocalSummaryOfTheory];
 ];
-
+On[Set::write];
+On[SetDelayed::write];
 Protect@ParticleSpectrum;

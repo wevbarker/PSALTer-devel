@@ -63,4 +63,4 @@ Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory","Annal
 Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory","MelichevPercacciTheory.m"};
 Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory","EinsteinCartanTheory.m"};
 Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory","GeneralRelativity.m"};
-(*Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory","LinHobsonLasenbyTheories.m"};*)
+Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory","LinHobsonLasenbyTheories.m"};

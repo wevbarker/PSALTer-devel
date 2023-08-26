@@ -13,7 +13,7 @@ DisplayExpression@LinearLagrangian;
 LinearLagrangian//=LineariseLagrangian;
 DisplayExpression@LinearLagrangian;
 
-ParticleSpectrum[NewLinearLagrangian,
+ParticleSpectrum[LinearLagrangian,
 		ClassName->"MetricAffineGravity",
 		TheoryName->"MetricAffineEinsteinHilbertTheory",	
 		Method->"Easy",
