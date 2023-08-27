@@ -18,5 +18,4 @@ ParticleSpectrum[
 	Method->"Easy",
 	MaxLaurentDepth->3
 ];
-
-Comment@"Spectrum is healthy, seemingly similar to massless Einstein-Klein-Gordon.";
+Comment@{"Spectrum is healthy, seemingly similar to massless Einstein-Klein-Gordon in",Cref@"ScalarFierzPauliTheory","."};

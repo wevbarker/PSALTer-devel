@@ -4,10 +4,9 @@
 
 Section@"Massive scalar (Higgs field, pions)";
 
-Comment@"Now for the massive case.";
-LinearisedLagrangian=Coupling1*CD[-a]@xAct`PSALTer`ScalarTheory`Phi[]CD[a]@xAct`PSALTer`ScalarTheory`Phi[]-Coupling2*Phi[]*Phi[];
+Comment@"A massive scalar field theory.";
+LinearisedLagrangian=xAct`PSALTer`ScalarTheory`Coupling1*CD[-a]@xAct`PSALTer`ScalarTheory`Phi[]CD[a]@xAct`PSALTer`ScalarTheory`Phi[]-xAct`PSALTer`ScalarTheory`Coupling2*Phi[]*Phi[];
 DisplayExpression@LinearisedLagrangian;
-Comment@"We apply PSALTer again.";
 ParticleSpectrum[
 	LinearisedLagrangian,
 	ClassName->"ScalarTheory",

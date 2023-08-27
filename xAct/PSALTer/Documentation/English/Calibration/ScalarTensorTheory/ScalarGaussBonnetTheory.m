@@ -2,7 +2,7 @@
 (*  ScalarGaussBonnetTheory  *)
 (*===========================*)
 
-Section@"Scalar-Gauss-Bonnet theor}y";
+Section@"Scalar-Gauss-Bonnet theory";
 
 Comment@"Here is the PECT parameter.";
 DefConstantSymbol[Pw,PrintAs->"\[Lambda]"];
@@ -43,7 +43,7 @@ Get@FileNameJoin@{NotebookDirectory[],"Calibration","ScalarTensorTheory",
 Get@FileNameJoin@{NotebookDirectory[],"Calibration","ScalarTensorTheory",
 				"ScalarGaussBonnetTheory","GeneralLambda3.m"};
 
-Supercomment@"So if we change the PECT parameter, we change the formulae for masses and residues, but the physics of the spectrum is unchanged. That looks promising. The point here is that without tuning the quadratic sector to be GB, the spectrum is not good.";
+Comment@"So if we change the PECT parameter, we change the formulae for masses and residues, but the physics of the spectrum is unchanged. That looks promising. The point here is that without tuning the quadratic sector to be GB, the spectrum is not good.";
 
 Comment@"Here are the rules which we will use to impose the scalar-Gauss-Bonnet theory.";
 ImposeGaussBonnet={
@@ -62,4 +62,4 @@ Get@FileNameJoin@{NotebookDirectory[],"Calibration","ScalarTensorTheory",
 Get@FileNameJoin@{NotebookDirectory[],"Calibration","ScalarTensorTheory",
 				"ScalarGaussBonnetTheory","SpecialLambda3.m"};
 
-Supercomment@"So with GB tuning the spectrum is healthy, up to some nuances over the couplings. I don't have time to translate these back from alphas into the original constants, but I suspect it will be possible to track down the precise form of the unitarity conditions in terms of the PECT parameter.";
+Comment@"So with GB tuning the spectrum is healthy, up to some nuances over the couplings. I don't have time to translate these back from alphas into the original constants, but I suspect it will be possible to track down the precise form of the unitarity conditions in terms of the PECT parameter.";

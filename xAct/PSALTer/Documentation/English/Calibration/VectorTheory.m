@@ -4,7 +4,7 @@
 
 Title@"Vector field theory";
 
-Supercomment@"We will test the VectorTheory module.";
+Supercomment@"We will test the [VectorTheory] module.";
 
 Get@FileNameJoin@{NotebookDirectory[],"Calibration","VectorTheory","MaxwellTheory.m"};
 Get@FileNameJoin@{NotebookDirectory[],"Calibration","VectorTheory","ProcaTheory.m"};

@@ -4,7 +4,7 @@
 
 Title@"Scalar tensor theory";
 
-Supercomment@"We will test the ScalarTensorTheory module.";
+Supercomment@"We will test the [ScalarTensorTheory] module.";
 
 Get@FileNameJoin@{NotebookDirectory[],"Calibration","ScalarTensorTheory",
 					"ScalarFierzPauliTheory.m"};

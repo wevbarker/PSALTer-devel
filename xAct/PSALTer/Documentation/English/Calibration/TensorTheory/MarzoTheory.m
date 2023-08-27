@@ -4,19 +4,15 @@
 
 Section@"Marzo theory";
 
-Comment@"On the 21st of August, Carlo emailed to me, the following gravity. (This nearly rhymes)";
-
+Comment@{"There is a specific deformation of",Cref@"FierzPauliTheory",", which also appears to constitute a viable linear model. This model was first proposed by Carlo Marzo in unpublished correspondence."};
 LinearisedLagrangian=-xAct`PSALTer`TensorTheory`Coupling1*(
 	2*CD[-c]@LinearMetric[a,b]*CD[-b]@LinearMetric[-a,c]
 	-CD[-c]@LinearMetric[a,b]*CD[c]@LinearMetric[-a,-b]
 	-CD[-c]@LinearMetric[a,-a]*CD[c]@LinearMetric[b,-b]
 );
-
-DisplayExpression@LinearisedLagrangian;
-
+DisplayExpression[LinearisedLagrangian,EqnLabel->"MarzoTheory"];
 LinearisedLagrangian//=ToCanonical;
 LinearisedLagrangian//=CollectTensors;
-
 ParticleSpectrum[
 	LinearisedLagrangian,
 	ClassName->"TensorTheory",
@@ -24,5 +20,4 @@ ParticleSpectrum[
 	Method->"Easy",
 	MaxLaurentDepth->3
 ];
-
-Comment@"What do we see?";
+Comment@{"As with",Cref@{"ThirdSickFierzPauliTheory","FourthSickFierzPauliTheory"},", this model appears to be viable."};

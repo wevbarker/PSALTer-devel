@@ -9,7 +9,6 @@ LinearisedLagrangian=GeneralLinearisedLagrangian/.{Pw->3};
 LinearisedLagrangian//=ToCanonical;
 LinearisedLagrangian//=CollectTensors;
 DisplayExpression@LinearisedLagrangian;
-
 ParticleSpectrum[
 	LinearisedLagrangian,
 	ClassName->"ScalarTensorTheory",
@@ -17,5 +16,4 @@ ParticleSpectrum[
 	Method->"Easy",
 	MaxLaurentDepth->3
 ];
-
-Comment@"Spectrum is deadly chaos.";
+Comment@"Spectrum is unacceptable.";

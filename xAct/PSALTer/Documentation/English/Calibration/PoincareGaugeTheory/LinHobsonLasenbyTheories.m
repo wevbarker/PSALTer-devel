@@ -4,13 +4,19 @@
 
 Section@"Power-counting renormalisable and unitary catalogue";
 
+Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory",
+					"LinHobsonLasenbyTheories","CriticalCases.m"};
+Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory",
+					"LinHobsonLasenbyTheories","Unitarity.m"};
+
 Off[Solve::svars];
 CriticalCasesSolutions=First/@(Solve[#,{kR1,kR2,kR3,kR4,kR5,kT1,kT2,kT3,kLambda}]&/@CriticalCases);
 On[Solve::svars];
 
 Comment@"We are now ready to check that PSALTer is getting the physics right by running it on the 58 theories in arXiv:1910.14197.";
 
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory","CalibrateCase.m"};
+Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory",
+					"LinHobsonLasenbyTheories","CalibrateCase.m"};
 
 CalibrationTimingData=MapThread[
 		AbsoluteTiming@CalibrateCase[#1,#2,#3]&,

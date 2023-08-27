@@ -4,19 +4,15 @@
 
 Section@"Sick Fierz-Pauli (third variation)";
 
-Comment@"This time let's wiggle the second term.";
-
+Comment@{"We allow the second term in",Cref@"FierzPauliTheory"," to float."};
 LinearisedLagrangian=xAct`PSALTer`TensorTheory`Coupling1*(
 	(1/2)*CD[-b]@LinearMetric[a,-a]*CD[b]@LinearMetric[c,-c]
 	-(1/2)*CD[-c]@LinearMetric[a,b]*CD[c]@LinearMetric[-a,-b]
 	+CD[-b]@LinearMetric[a,b]*CD[c]@LinearMetric[-a,-c]
 )-xAct`PSALTer`TensorTheory`Coupling2*CD[a]@LinearMetric[-a,-b]*CD[b]@LinearMetric[c,-c];
-
-DisplayExpression@LinearisedLagrangian;
-
+DisplayExpression[LinearisedLagrangian,EqnLabel->"ThirdSickFierzPauliTheory"];
 LinearisedLagrangian//=ToCanonical;
 LinearisedLagrangian//=CollectTensors;
-
 ParticleSpectrum[
 	LinearisedLagrangian,
 	ClassName->"TensorTheory",
@@ -24,5 +20,4 @@ ParticleSpectrum[
 	Method->"Easy",
 	MaxLaurentDepth->3
 ];
-
-Comment@"This time we have what looks to be a viable theory with an extra massless scalar. However the diffeomorphism gauge symmetry has been lost, and the stress-energy tensor is not conserved.";
+Comment@{"Contrary to",Cref@{"FirstSickFierzPauliTheory","SecondSickFierzPauliTheory"},", there is now a viable theory with an extra massless scalar. However the diffeomorphism gauge symmetry has been lost, and the stress-energy tensor is not conserved."};
