@@ -43,6 +43,7 @@ $PSALTerInstallDirectory=Select[FileNameJoin[{#,"xAct/PSALTer"}]&/@$Path,Directo
 
 $DiagnosticMode=False;
 $MonitorParallel=False;
+$ExportPDF=False;
 
 (*--------------*)
 (*  Disclaimer  *)

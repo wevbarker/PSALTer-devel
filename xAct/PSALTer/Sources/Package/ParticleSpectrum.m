@@ -182,7 +182,7 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 
 	FinishDynamic[];
 	NotebookDelete@SummariseResultsOngoing;
-	Print@SummariseResults[
+	SummaryOfResults=SummariseResults[
 		LocalWaveOperator,
 		LocalPropagator,
 		LocalSourceConstraints,
@@ -190,6 +190,11 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 		LocalMasslessSpectrum,
 		LocalOverallUnitarity,
 		LocalSummaryOfTheory];
+	Print@SummaryOfResults;
+	If[$ExportPDF,
+		Export[FileNameJoin@{$WorkingDirectory,OptionValue@TheoryName<>".pdf"},
+					SummaryOfResults]
+	];
 ];
 On[Set::write];
 On[SetDelayed::write];
