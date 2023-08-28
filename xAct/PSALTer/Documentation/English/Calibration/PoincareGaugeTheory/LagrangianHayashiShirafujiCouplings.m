@@ -75,15 +75,13 @@ NonlinearLagrangian=(
 
 DisplayExpression[NonlinearLagrangian,EqnLabel->"WithProjectors"];
 
-Comment@{"In",Cref@"WithProjectors"," we are using projectors to extract the Lorentz irreps of the fields. Next we will expand these."};
+Comment@{"In",Cref@"WithProjectors"," we are using projectors to extract the Lorentz irreducible representations of the fields. Next we will expand these."};
 
 NonlinearLagrangian=NonlinearLagrangian/.PActivate;
 NonlinearLagrangian//=ToCanonical;
 NonlinearLagrangian//=ContractMetric;
 NonlinearLagrangian//=ScreenDollarIndices;
 NonlinearLagrangian//=CollectTensors;
-
-Comment@"So with the projectors expanded we have the following nonlinear Lagrangian.";
 
 DisplayExpression[NonlinearLagrangian,EqnLabel->"CleanHayashiShirafuji"];
 HSNonlinearLagrangian=NonlinearLagrangian;

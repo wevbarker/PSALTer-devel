@@ -43,16 +43,14 @@ Expr//=ToCanonical;
 Expr//=ScreenDollarIndices;
 DisplayExpression[Expr];
 
-Comment@"Now we set up the general Lagrangian. In the first instance we will do this with some coupling constants which are proportional to those used by Hayashi and Shirafuji in Prog. Theor. Phys. 64 (1980) 2222. The normalisations are not absolutely identical, but this should not be a problem.";
+Comment@"Now we set up the general Lagrangian. In the first instance we will do this with some coupling constants which are proportional to those used by Hayashi and Shirafuji in Prog. Theor. Phys. 64 (1980) 2222, and identical to those used in arXiv:2205.13534 and (up to re-labelling) arXiv:gr-qc/9902032.";
 
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory","LagrangianHayashiShirafujiCouplings.m"};
-
-Comment@"We can also use a different set of coupling coefficients, as developed by Karananas.";
-
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory","LagrangianKarananasCouplings.m"};
-DisplayExpression@NonlinearLagrangian;
-
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory","Linearise.m"};
+Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory",
+					"LagrangianHayashiShirafujiCouplings.m"};
+Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory",
+					"LagrangianKarananasCouplings.m"};
+Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory",
+					"Linearise.m"};
 
 BasicCriticalCases={
 	kR1==kR2==kR3==kR4==kR5==kLambda/4+kT1/3+kT2/12==-kLambda/2-kT1/3+kT2/6==-kLambda-kT1/3+2*kT3/3==0,
