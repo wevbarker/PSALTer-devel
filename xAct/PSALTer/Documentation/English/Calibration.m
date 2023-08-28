@@ -25,11 +25,11 @@ Comment@"The first step is to load the PSALTer package.";
 <<xAct`PSALTer`;
 
 (*For when we want to only run the commentary part of the script*)
-(**)
+(*
 Unprotect@xAct`PSALTer`ParticleSpectrum;
 ClearAll@xAct`PSALTer`ParticleSpectrum;
 Protect@xAct`PSALTer`ParticleSpectrum;
-(**)
+*)
 
 (*Global settings for xAct*)
 $DefInfoQ=False;

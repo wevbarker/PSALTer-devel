@@ -13,4 +13,4 @@ ParticleSpectrum[LinearLagrangian,
 		TheoryName->"AnnalaRasanenCol1Row5",
 		Method->"Easy",
 		MaxLaurentDepth->1];
-Supercomment@"Needs checking, looks like a healthy vector?";
+Comment@"Needs checking, looks like a healthy vector?";

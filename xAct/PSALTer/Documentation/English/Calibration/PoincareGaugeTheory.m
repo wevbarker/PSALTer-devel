@@ -4,7 +4,7 @@
 
 Title@"Poincaré gauge theory (PGT)";
 
-Supercomment@"We will test the PoincareGaugeTheory module.";
+Supercomment@"We will test the [PoincareGaugeTheory] module.";
 
 Comment@"Here is the inverse translational gauge field, or tetrad.";
 DefTensor[H[-a,c],M4,PrintAs->"\[ScriptH]"];
@@ -60,18 +60,14 @@ BasicCriticalCases={
 Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory",
 					"GeneralPGT.m"};
 Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory",
-					"MinimalEvenScalar.m"};
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory",
-					"MinimalMassiveOddScalar.m"};
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory",
-					"MinimalMasslessOddScalar.m"};
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory",
-					"AnnalaRasanenTheory.m"};
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory",
-					"MelichevPercacciTheory.m"};
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory",
 					"EinsteinCartanTheory.m"};
 Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory",
 					"GeneralRelativity.m"};
+Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory",
+					"MelichevPercacciTheory.m"};
+Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory",
+					"YoNesterTheories.m"};
+Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory",
+					"AnnalaRasanenTheory.m"};
 Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory",
 					"LinHobsonLasenbyTheories.m"};

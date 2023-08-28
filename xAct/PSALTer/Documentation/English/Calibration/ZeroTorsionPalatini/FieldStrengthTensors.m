@@ -4,7 +4,7 @@
 
 Subsection@"Field strength tensors";
 
-Supercomment@"In this section we will restrict our earlier MAG implementation to the zero-torsion case, as detailed in Subsection 6 of arXiv:1912.01023.";
+Comment@"In this section we will restrict our earlier MAG implementation to the zero-torsion case, as detailed in Subsection 6 of arXiv:1912.01023.";
 
 Comment@"First we write out rules which define the field strength tensors.";
 

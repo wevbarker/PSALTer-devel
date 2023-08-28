@@ -4,7 +4,7 @@
 
 Section@"Percacci-Sezgin theory";
 
-Comment@"We first define the three constants which are set out in Eq. (6.16) on page 23 of arXiv:1912.01023.";
+Comment@"We define the three constants which are set out in Eq. (6.16) on page 23 of arXiv:1912.01023.";
 
 PercacciRules={};
 DefConstantSymbol[PercacciA,PrintAs->"\[ScriptCapitalA]"];
@@ -80,4 +80,4 @@ ParticleSpectrum[PercacciLinearLagrangian,
 		TheoryName->"PercacciSezginTheory",	
 		Method->"Easy",
 		MaxLaurentDepth->1];
-Supercomment@"Some comment.";
+Comment@"Some comment.";

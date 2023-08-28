@@ -16,3 +16,4 @@ NonlinearLagrangian=(
 	+(-kLambda-kT1/3+2*kT3/3)*T[-i,j,i]*T[-k,-j,k]
 );
 DisplayExpression[NonlinearLagrangian,EqnLabel->"CleanKarananas"];
+KNonlinearLagrangian=NonlinearLagrangian;

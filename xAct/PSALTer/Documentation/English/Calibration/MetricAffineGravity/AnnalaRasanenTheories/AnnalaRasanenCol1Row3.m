@@ -13,4 +13,4 @@ ParticleSpectrum[LinearLagrangian,
 		TheoryName->"AnnalaRasanenCol1Row3",	
 		Method->"Easy",
 		MaxLaurentDepth->1];
-Supercomment@"Needs checking, looks like ghosts?";
+Comment@"Needs checking, looks like ghosts?";

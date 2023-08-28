@@ -13,4 +13,4 @@ ParticleSpectrum[LinearLagrangian,
 		TheoryName->"AnnalaRasanenCol3Row1",	
 		Method->"Easy",
 		MaxLaurentDepth->1];
-Supercomment@"Looks good, no new d.o.fs.";
+Comment@"Looks good, no new d.o.fs.";

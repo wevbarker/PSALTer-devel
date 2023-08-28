@@ -13,4 +13,4 @@ ParticleSpectrum[LinearLagrangian,
 		TheoryName->"AnnalaRasanenCol3Row3",	
 		Method->"Easy",
 		MaxLaurentDepth->1];
-Supercomment@"Looks good, ghosts.";
+Comment@"Looks good, ghosts.";

@@ -4,7 +4,7 @@
 
 Subsection@"Field strength tensors";
 
-Supercomment@"In this section we analyse metric affine gravity (MAG). Our conventions closely follow arXiv:1912.01023, and also arXiv:2110.14788.";
+Comment@"In this section we analyse metric affine gravity (MAG). Our conventions closely follow arXiv:1912.01023, and also arXiv:2110.14788.";
 
 Comment@"First we write out rules which define the field strength tensors.";
 
