@@ -141,5 +141,5 @@ ConstructOperator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 	Sizes=Map[Length,Values@(Values/@(CombinedSectors)),{2}];
 	TheSpins=Keys@CombinedSectors;
 
-	LocalWaveOperator=WignerGrid[((Plus@@#)&/@Partition[ValuesAllMatrices,2]),Sizes,TheSpins,FieldsLeft,FieldsTop];
+	LocalWaveOperator={((Plus@@#)&/@Partition[ValuesAllMatrices,2]),Sizes,TheSpins,FieldsLeft,FieldsTop};
 ];

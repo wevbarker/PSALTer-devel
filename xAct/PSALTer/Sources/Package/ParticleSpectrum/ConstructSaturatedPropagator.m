@@ -108,5 +108,5 @@ ConstructSaturatedPropagator[ClassName_?StringQ,MatrixLagrangian_,CouplingAssump
 	ValuesSaturatedPropagator=Flatten[Values@SaturatedPropagator,{1,2}];
 	ValuesInverseBMatricesValues=Flatten[Values@InverseBMatricesValues,{1,2}];
 
-	LocalPropagator=WignerGrid[((Plus@@#)&/@Partition[ValuesInverseBMatricesValues,2]),Sizes,TheSpins,SourcesLeft,SourcesTop];
+	LocalPropagator={((Plus@@#)&/@Partition[ValuesInverseBMatricesValues,2]),Sizes,TheSpins,SourcesLeft,SourcesTop};
 ];

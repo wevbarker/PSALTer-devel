@@ -85,8 +85,5 @@ ConstructSourceConstraints[ClassName_?StringQ,CouplingAssumptions_,Rescalings_,R
 	];
 
 	Diagnostic@NewValuesOfSourceConstraints;
-	If[(Length@NewValuesOfSourceConstraints)==0,
-		LocalSourceConstraints="(There are no source constraints and no gauge symmetries)";,
-		LocalSourceConstraints=PrintSourceConstraints@@NewValuesOfSourceConstraints;
-	];
+	LocalSourceConstraints=NewValuesOfSourceConstraints;
 ];

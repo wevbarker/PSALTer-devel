@@ -38,4 +38,12 @@ ConstructUnitarityConditions[ClassName_?StringQ,MassiveAnalysis_,MassiveGhostAna
 	Diagnostic@PositiveSystem;
 	LocalOverallUnitarity=PositiveSystem;
 	PositiveSystemValue=PositiveSystem;
+
+	If[PositiveSystem===False,
+		LocalOverallUnitarity=Text@"(Demonstrably impossible)";
+		PositiveSystemValue=Text@"(Demonstrably impossible)";
+		,
+		LocalOverallUnitarity={PositiveSystem};
+		PositiveSystemValue={PositiveSystem};
+	];
 ];

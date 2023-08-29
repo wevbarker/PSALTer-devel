@@ -11,8 +11,7 @@ Options@ConstructMassiveAnalysis={
 ConstructMassiveAnalysis[ClassName_?StringQ,ValuesSaturatedPropagator_,ValuesInverseBMatricesValues_,BlockMassSigns_,OptionsPattern[]]:=Module[{	
 	Couplings,
 	Class,
-	SignedInverseBMatrices,
-	PrintedSpectrum
+	SignedInverseBMatrices
 	},
 
 	LocalSpectrum=" ** ConstructMassiveAnalysis...";
@@ -82,10 +81,5 @@ ConstructMassiveAnalysis[ClassName_?StringQ,ValuesSaturatedPropagator_,ValuesInv
 
 	Diagnostic@MassiveAnalysis;
 
-	PrintedSpectrum=PrintSpectrum[MassiveAnalysis,MassiveGhostAnalysis,{},{},{}];
-
-	If[(Length@PrintedSpectrum)==0,
-		LocalSpectrum="(There are no massive particles)";,
-		LocalSpectrum=PrintedSpectrum;
-	];
+	LocalSpectrum={MassiveAnalysis,MassiveGhostAnalysis,{},{},{}};
 ];
