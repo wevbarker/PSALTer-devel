@@ -31,7 +31,7 @@ SummariseResults[WaveOperator_,Propagator_,SourceConstraints_,Spectrum_,Massless
 	Computing=Row[{ProgressIndicator[Appearance->"Necklace",ImageSize->Small],"Pending..."},Invisible@MakeLabel@"  ",Alignment->{Left,Center}];
 	FullWidth=First@Rasterize[Show[Graphics[Circle[]],ImageSize->Full],"RasterSize"];
 
-	TheSummaryOfTheory=DetailCell@SummariseTheory@SummaryOfTheory;
+	TheSummaryOfTheory=SummariseTheory@SummaryOfTheory;
 	If[WaveOperator===Null,
 		TheWaveOperator=Computing,
 		TheWaveOperator=WignerGrid@@WaveOperator];

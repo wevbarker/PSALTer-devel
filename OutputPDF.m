@@ -3,32 +3,19 @@
 (*=============*)
 
 Print@"hi";
-<<xAct`xPlain`;
+
 
 DetailColor=LightGreen;
-Print@"hi";
-Print@"hi";
-Print@"hi";
+DetailCell[InputExpr_]:=Grid[{{Text@InputExpr}},
+			Background->DetailColor,
+			ItemSize->3*Floor@Sqrt@(Length@(Expand@InputExpr/.{Plus->List}))];
 
-Exprr=x^2;
-DisplayExpression[Exprr];
-DisplayExpression[Exprr];
-
-(*DisplayExpression2[Expr_]:=CellPrint@ExpressionCell[Expr,Background->LightGreen,"DisplayFormula"];*)
-Print@"hi";
-DisplayExpression2[Expr_]:=TraditionalForm[Expr];
-Print@"hi";
-Print@DisplayExpression2[x^2];
-Print@"hi";
-DetailCell[InputExpr_]:=Framed[Grid[{{InputExpr}},Background->DetailColor],Background->DetailColor,FrameStyle->Directive[DetailColor,Thickness[4]]];
-
-Intu=x^2
-Argu=DisplayExpression2@Intu;
-Expr=DetailCell[Argu];
-Print@Expr;
-
-Expr=DetailCell[Intu];
-Print@Expr;
+Table[		
+	Theory=Total@Table[x^i,{i,0,NumTerms}];
+	Print@Theory;
+	Print@DetailCell[Theory];			
+			,
+	{NumTerms,1,100}];
 
 Quit[];
 
