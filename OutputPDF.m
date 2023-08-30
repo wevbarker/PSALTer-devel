@@ -2,7 +2,35 @@
 (*  OutputPDF  *)
 (*=============*)
 
+Print@"hi";
 <<xAct`xPlain`;
+
+DetailColor=LightGreen;
+Print@"hi";
+Print@"hi";
+Print@"hi";
+
+Exprr=x^2;
+DisplayExpression[Exprr];
+DisplayExpression[Exprr];
+
+(*DisplayExpression2[Expr_]:=CellPrint@ExpressionCell[Expr,Background->LightGreen,"DisplayFormula"];*)
+Print@"hi";
+DisplayExpression2[Expr_]:=TraditionalForm[Expr];
+Print@"hi";
+Print@DisplayExpression2[x^2];
+Print@"hi";
+DetailCell[InputExpr_]:=Framed[Grid[{{InputExpr}},Background->DetailColor],Background->DetailColor,FrameStyle->Directive[DetailColor,Thickness[4]]];
+
+Intu=x^2
+Argu=DisplayExpression2@Intu;
+Expr=DetailCell[Argu];
+Print@Expr;
+
+Expr=DetailCell[Intu];
+Print@Expr;
+
+Quit[];
 
 TFunc[]:=xx;
 TFunc[a_,b_]:=a*b;

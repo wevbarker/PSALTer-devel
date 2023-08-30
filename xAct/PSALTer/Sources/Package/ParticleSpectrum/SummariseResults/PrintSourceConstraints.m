@@ -9,11 +9,11 @@ PrintSourceConstraints[SpinParitySourceConstraints_,
 	FinalGrid=Framed[Grid[
 		(
 		{{Text@"Spin-parity form",Text@"Covariant form",Text@"Multiplicities"}}~Join~
-		MapThread[{#1,#2,#3}&,{SpinParitySourceConstraints,
-					CovariantSourceConstraints,
-					Multiplicities}]
+		MapThread[{#1,#2,#3}&,{Text/@SpinParitySourceConstraints,
+					Text/@CovariantSourceConstraints,
+					Text/@Multiplicities}]
 		)~Join~
-		{{Text@"Total expected gauge generators:",SpanFromLeft,Total@Multiplicities}},
+		{{Text@"Total expected gauge generators:",SpanFromLeft,Text/@(Total@Multiplicities)}},
 			Dividers->Center,
 			Alignment->Left,
 			Background->DetailColor],Background->DetailColor,FrameStyle->Directive[DetailColor,Thickness[4]]];

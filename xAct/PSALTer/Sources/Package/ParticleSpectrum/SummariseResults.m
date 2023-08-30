@@ -14,6 +14,7 @@ BuildPackage@"ParticleSpectrum/SummariseResults/ParallelGrid.m";
 BuildPackage@"ParticleSpectrum/SummariseResults/MonitorParallel.m";
 BuildPackage@"ParticleSpectrum/SummariseResults/SummariseTheory.m";
 BuildPackage@"ParticleSpectrum/SummariseResults/PrintSpectrum.m";
+BuildPackage@"ParticleSpectrum/SummariseResults/PrintUnitarityConditions.m";
 
 SummariseResults[WaveOperator_,Propagator_,SourceConstraints_,Spectrum_,MasslessSpectrum_,OverallUnitarity_,SummaryOfTheory_]:=Module[{
 	Computing,
@@ -48,7 +49,7 @@ SummariseResults[WaveOperator_,Propagator_,SourceConstraints_,Spectrum_,Massless
 		TheMasslessSpectrum=PrintSpectrum@@MasslessSpectrum];
 	If[OverallUnitarity===Null,
 		TheOverallUnitarity=Computing,
-		TheOverallUnitarity=DetailCell@@OverallUnitarity];
+		TheOverallUnitarity=DetailCell@@(PrintUnitarityConditions@OverallUnitarity)];
 
 	SummaryOfResults=Column[{
 		MakeLabel@"PSALTer results panel",
