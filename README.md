@@ -5,7 +5,7 @@
 
 ## License
 
-Copyright © 2022 Will E. V. Barker, Stephanie Buttigieg, Cillian Rew, Claire Rigouzzo and Zhiyuan Wei
+Copyright © 2022 Will E. V. Barker
 
 PSALTer is distributed as free software under the [GNU General Public License (GPL)](https://www.gnu.org/licenses/gpl-3.0.en.html).
 
@@ -40,7 +40,11 @@ PSALTer has been tested in the following environment(s):
 	```
 ## Quickstart 
 
-The current example calculation is given in the `Calibration.nb` notebook. In the near future I will generate more examples.
+1. In the cloned PSALTer repository, open the example notebook at `./xAct/PSALTer/Documentation/English/Calibration.nb`, scroll through *without running* to understand the capabilities and scope of PSALTer.
+2. Make sure you have [installed xPlain](https://github.com/wevbarker/xPlain) if you want to run `Calibration.nb`, then simply execute the single line of code in the first (and only) input cell (you should first delete all the output using `Cell -> Delete All Output` in the Mathematica front-end).
+3. The first time you run `Calibration.nb` after a fresh install, PSALTer will rebuild certain binary files. This may take some time, especially on Windows machines.
+4. After the install completes successfully, delete the build output cells as before, and re-run the first input cell.
+5. To see how the examples are implemented, and to test your own theories, go to the Wolfram Language file at `./xAct/PSALTer/Documentation/English/Calibration.m`, and all the various sub-files referred to therein under `./xAct/PSALTer/Documentation/English/Calibration/`.
 
 ## Contribute
 
