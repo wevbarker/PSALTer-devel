@@ -15,6 +15,9 @@ PSALTer is provided without warranty, or the implied warranty of merchantibility
 
 PSALTer is an (unofficial) part of the [xAct bundle](http://www.xact.es/). 
 
+PSALTer is designed to predict the propagating quantum particle states in any tensorial field theory, including (but not limited to) just about any theory of gravity.
+
+As a demonstration, let's say our Lagrangian is the Kretschmann curvature scalar, plus the square of the torsion tensor. We simply linearise the theory near Minkowski spacetime (in terms of the connection and tetrad perturbation), plug it into PSALTer and voilà:
 <img src="xAct/PSALTer/Documentation/English/MelichevPercacciTheory.png" width="1000">
 
 ## Installation
