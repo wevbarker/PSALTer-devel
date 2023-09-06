@@ -1,7 +1,7 @@
 <img src="xAct/PSALTer/Documentation/Logo/GitHubLogo.png" width="1000">
 
 # Particle Spectrum for Any Tensor Lagrangian (PSALTer)
-## Version 1.0.0-developer
+## Version 0.0.0-developer
 
 - Pre-release version, pending completion of preprint and docs.
 - Functionality for Weyl gauge theory and metric affine gravity removed due to ongoing collaborations with Tallinn and Tartu.
@@ -32,7 +32,7 @@ PSALTer has been tested in the following environment(s):
 - Mathematica v 13.1.0.0
 - xAct v 1.2.0
 - MaTeX v 1.7.9
-- xPlain v 1.0.0-developer (if running the Calibration notebook)
+- xPlain v 0.0.0-developer (if running the Calibration notebook)
 
 #### Install 
 
@@ -62,5 +62,9 @@ Please do! I'm always responsive to emails (about science), so be sure to reach 
 ## Acknowledgements
 
 This work was performed using resources provided by the Cambridge Service for Data Driven Discovery (CSD3) operated by the University of Cambridge Research Computing Service ([www.csd3.cam.ac.uk](www.csd3.cam.ac.uk)), provided by Dell EMC and Intel using Tier-2 funding from the Engineering and Physical Sciences Research Council (capital grant EP/T022159/1), and DiRAC funding from the Science and Technology Facilities Council ([www.dirac.ac.uk](www.dirac.ac.uk)).
+
+This work was also performed using the Newton server, access to which was provisioned by Will Handley.
+
+PSALTer was improved by many useful discussions with Jaakko Annala, Stephanie Buttigieg, Mike Hobson, Manuel Hohmann, Damianos Iosifidis, Georgios Karananas, Anthony Lasenby, Yun-Cherng Lin, Carlo Marzo, Vijay Nenmeli, Roberto Percacci, Syksy Räsänen, Cillian Rew, Claire Rigouzzo, Zhiyuan Wei, David Yallup, and Sebastian Zell.
 
 I am grateful for the kind hospitality of Leiden University and the [Lorentz Institute](https://www.lorentz.leidenuniv.nl/), and am supported by [Girton College, Cambridge](https://www.girton.cam.ac.uk/).
