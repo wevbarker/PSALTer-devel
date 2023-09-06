@@ -15,7 +15,7 @@ PSALTer is provided without warranty, or the implied warranty of merchantibility
 
 PSALTer is an (unofficial) part of the [xAct bundle](http://www.xact.es/). 
 
-<img src="xAct/PSALTer/Documentation/English/Calibration/MelichevPercacci.png" width="1000">
+<img src="xAct/PSALTer/Documentation/English/Calibration/MelichevPercacciTheory.png" width="1000">
 
 ## Installation
 
