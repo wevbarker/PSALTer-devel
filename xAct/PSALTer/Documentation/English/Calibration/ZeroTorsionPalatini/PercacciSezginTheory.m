@@ -78,6 +78,6 @@ DisplayExpression[PercacciLinearLagrangian,EqnLabel->"ZeroTorsionPercacciLinearL
 ParticleSpectrum[PercacciLinearLagrangian,
 		ClassName->"ZeroTorsionPalatini",
 		TheoryName->"PercacciSezginTheory",	
-		Method->"Easy",
+		Method->"Hard",
 		MaxLaurentDepth->1];
 Comment@"Some comment.";
