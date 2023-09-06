@@ -3,6 +3,9 @@
 # Particle Spectrum for Any Tensor Lagrangian (PSALTer)
 ## Version 1.0.0-developer
 
+- Pre-release version, pending completion of preprint and docs.
+- Functionality for Weyl gauge theory and metric affine gravity removed due to ongoing collaborations with Tallinn and Tartu.
+
 ## License
 
 Copyright © 2022 Will E. V. Barker
