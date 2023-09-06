@@ -15,15 +15,18 @@ PSALTer is provided without warranty, or the implied warranty of merchantibility
 
 PSALTer is an (unofficial) part of the [xAct bundle](http://www.xact.es/). 
 
+<img src="xAct/PSALTer/Documentation/English/Calibration/MelichevPercacci.png" width="1000">
+
 ## Installation
 
 #### Requirements 
 
 PSALTer has been tested in the following environment(s):
-- Linux x86 (64-bit), specifically Manjaro and Arch
+- Linux x86 (64-bit) (specifically Manjaro and Arch)
 - Mathematica v 13.1.0.0
 - xAct v 1.2.0
 - MaTeX v 1.7.9
+- xPlain v 1.0.0-developer (if running the Calibration notebook)
 
 #### Install 
 
@@ -44,7 +47,7 @@ PSALTer has been tested in the following environment(s):
 2. Make sure you have [installed xPlain](https://github.com/wevbarker/xPlain) if you want to run `Calibration.nb`, then simply execute the single line of code in the first (and only) input cell (you should first delete all the output using `Cell -> Delete All Output` in the Mathematica front-end).
 3. The first time you run `Calibration.nb` after a fresh install, PSALTer will rebuild certain binary files. This may take some time, especially on Windows machines.
 4. After the install completes successfully, delete the build output cells as before, and re-run the first input cell.
-5. To see how the examples are implemented, and to test your own theories, go to the Wolfram Language file at `./xAct/PSALTer/Documentation/English/Calibration.m`, and all the various sub-files referred to therein under `./xAct/PSALTer/Documentation/English/Calibration/`.
+5. To see how the examples are implemented, and to test your own theories, go to the Wolfram Language file at `./xAct/PSALTer/Documentation/English/Calibration.m`, and all the various sub-files referred to therein under the path `./xAct/PSALTer/Documentation/English/Calibration/`.
 
 ## Contribute
 
