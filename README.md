@@ -71,14 +71,19 @@ I am grateful for the kind hospitality of Leiden University and the [Lorentz Ins
 
 ## Annala-Räsänen column one row one
 <img src="xAct/PSALTer/Documentation/English/AnnalaRasanenCol1Row1.pdf.png" width="1000">
+
 ## Annala-Räsänen column one row two
 <img src="xAct/PSALTer/Documentation/English/AnnalaRasanenCol1Row2.pdf.png" width="1000">
+
 ## Annala-Räsänen column one row three
 <img src="xAct/PSALTer/Documentation/English/AnnalaRasanenCol1Row3.pdf.png" width="1000">
+
 ## Annala-Räsänen column one row four
 <img src="xAct/PSALTer/Documentation/English/AnnalaRasanenCol1Row4.pdf.png" width="1000">
+
 ## Annala-Räsänen column one row five
 <img src="xAct/PSALTer/Documentation/English/AnnalaRasanenCol1Row5.pdf.png" width="1000">
+
 ## Annala-Räsänen column three row one
 <img src="xAct/PSALTer/Documentation/English/AnnalaRasanenCol3Row1.pdf.png" width="1000">
 ## Annala-Räsänen column three row two
