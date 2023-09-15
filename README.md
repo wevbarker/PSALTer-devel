@@ -68,7 +68,14 @@ The following _theory modules_ are available:
 
 |Module name|Fields|Coupling constants|
 |---|---|---|
-|`"ScalarTheory"`|`Phi[]`|`Alpha1`|
+|`"ScalarTheory"`|
+```mathematica
+Phi[]
+```|
+```mathematica
+Alpha1
+Alpha2
+```|
 
 ## Installation
 
