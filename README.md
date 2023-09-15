@@ -60,6 +60,7 @@ To summarise the physical information that is automatically computed:
 - *Source constraints:* The null spaces of the wave operator blocks encode gauge symmetries of the theory, corresponding to conservation laws satisfied by the source currents, these are quoted.
 - *Massive spectrum:* There is listed the spectrum of massive states in the theory, with information about the square mass, pole residue, spin and parity of each state.
 - *Massless spectrum:* There is listed the spectrum of massless propagating polarisations. Also, the spectrum of (pathological) higher-order poles is computed, up to a depth specified by `MaxLaurentDepth`.
+- *Unitarity conditions:* From the requirement of positivity of the pole residues, and of the square masses, the inequality conditions on the parameters `Alp1` and `Bet1` needed to ensure unitarity of the S-matrix are computed (if the theory can be made to be unitary at all).
 
 ## Installation
 
