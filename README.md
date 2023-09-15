@@ -24,7 +24,7 @@ $$S_{\text{F}},$$
 
 $$S_{\text{F}}=\int\mathrm{d}^4x$$
 
-$$S_{\text{F}}=\int\mathrm{d}^4x\ \sum_X\zeta_{{\mu}_{X}}\Big[\sum_Y{{\mathcal{O}}^{{\mu}_{X}}}$$
+$$S_{\text{F}}=\int\mathrm{d}^4x\ \sum_X\zeta_{{\mu}_{X}}\Big[\sum_Y{{\mathcal{O}}^{{\mu}{X}}}$$
 
 $$S_{\text{F}}=\int\mathrm{d}^4x\ \sum_X\zeta_{{\mu}_{X}}\Big[\sum_Y\mathcal{O}^{\mu_{X}}_{\nu_{Y}}\zeta^{\nu_{Y}}-j^{\nu_{Y}}\Big],$$
 
