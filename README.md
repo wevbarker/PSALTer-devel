@@ -20,6 +20,15 @@ PSALTer is an (unofficial) part of the [xAct bundle](http://www.xact.es/).
 
 PSALTer is designed to predict the propagating quantum particle states in any tensorial field theory, including (but not limited to) just about any theory of gravity.
 
+$$ 
+	S_{\text{F}}=\int\mathrm{d}^4x\ 
+	\sum_X
+\zeta_{{\mu}_{X}}
+	\Big[
+		\sum_Y\mathcal{O}^{\mu_{X}}_{\nu_{Y}}\zeta^{\nu_{Y}}
+	-j^{\nu_{Y}}\Big],
+$$
+
 As a demonstration, let's say our Lagrangian is the Kretschmann curvature scalar, plus the square of the torsion tensor. We simply linearise the theory near Minkowski spacetime (in terms of the connection and tetrad perturbation), plug it into PSALTer and voilà:
 <img src="xAct/PSALTer/Documentation/English/MelichevPercacciTheory.pdf.png" width="1000">
 
@@ -204,6 +213,30 @@ I am grateful for the kind hospitality of Leiden University and the [Lorentz Ins
 ### Annala-Räsänen column four 
 <img src="xAct/PSALTer/Documentation/English/AnnalaRasanenColumn4.pdf.png" width="1000">
 
+### Lin-Hobson-Lasenby case 1
+<img src="xAct/PSALTer/Documentation/English/Case1.pdf.png" width="1000">
+
+### Lin-Hobson-Lasenby case 2
+<img src="xAct/PSALTer/Documentation/English/Case2.pdf.png" width="1000">
+
+### Lin-Hobson-Lasenby case 3
+<img src="xAct/PSALTer/Documentation/English/Case3.pdf.png" width="1000">
+
+### Lin-Hobson-Lasenby case 4
+<img src="xAct/PSALTer/Documentation/English/Case4.pdf.png" width="1000">
+
+### Lin-Hobson-Lasenby case 6
+<img src="xAct/PSALTer/Documentation/English/Case6.pdf.png" width="1000">
+
+### Lin-Hobson-Lasenby case 7
+<img src="xAct/PSALTer/Documentation/English/Case7.pdf.png" width="1000">
+
+### Lin-Hobson-Lasenby case 8
+<img src="xAct/PSALTer/Documentation/English/Case8.pdf.png" width="1000">
+
+### Lin-Hobson-Lasenby case 9
+<img src="xAct/PSALTer/Documentation/English/Case9.pdf.png" width="1000">
+
 ### Lin-Hobson-Lasenby case 10
 <img src="xAct/PSALTer/Documentation/English/Case10.pdf.png" width="1000">
 
@@ -233,9 +266,6 @@ I am grateful for the kind hospitality of Leiden University and the [Lorentz Ins
 
 ### Lin-Hobson-Lasenby case 19
 <img src="xAct/PSALTer/Documentation/English/Case19.pdf.png" width="1000">
-
-### Lin-Hobson-Lasenby case 1
-<img src="xAct/PSALTer/Documentation/English/Case1.pdf.png" width="1000">
 
 ### Lin-Hobson-Lasenby case 20
 <img src="xAct/PSALTer/Documentation/English/Case20.pdf.png" width="1000">
@@ -267,9 +297,6 @@ I am grateful for the kind hospitality of Leiden University and the [Lorentz Ins
 ### Lin-Hobson-Lasenby case 29
 <img src="xAct/PSALTer/Documentation/English/Case29.pdf.png" width="1000">
 
-### Lin-Hobson-Lasenby case 2
-<img src="xAct/PSALTer/Documentation/English/Case2.pdf.png" width="1000">
-
 ### Lin-Hobson-Lasenby case 30
 <img src="xAct/PSALTer/Documentation/English/Case30.pdf.png" width="1000">
 
@@ -299,9 +326,6 @@ I am grateful for the kind hospitality of Leiden University and the [Lorentz Ins
 
 ### Lin-Hobson-Lasenby case 39
 <img src="xAct/PSALTer/Documentation/English/Case39.pdf.png" width="1000">
-
-### Lin-Hobson-Lasenby case 3
-<img src="xAct/PSALTer/Documentation/English/Case3.pdf.png" width="1000">
 
 ### Lin-Hobson-Lasenby case 40
 <img src="xAct/PSALTer/Documentation/English/Case40.pdf.png" width="1000">
@@ -333,9 +357,6 @@ I am grateful for the kind hospitality of Leiden University and the [Lorentz Ins
 ### Lin-Hobson-Lasenby case 49
 <img src="xAct/PSALTer/Documentation/English/Case49.pdf.png" width="1000">
 
-### Lin-Hobson-Lasenby case 4
-<img src="xAct/PSALTer/Documentation/English/Case4.pdf.png" width="1000">
-
 ### Lin-Hobson-Lasenby case 50
 <img src="xAct/PSALTer/Documentation/English/Case50.pdf.png" width="1000">
 
@@ -365,15 +386,3 @@ I am grateful for the kind hospitality of Leiden University and the [Lorentz Ins
 
 ### Lin-Hobson-Lasenby case 59
 <img src="xAct/PSALTer/Documentation/English/Case5.pdf.png" width="1000">
-
-### Lin-Hobson-Lasenby case 6
-<img src="xAct/PSALTer/Documentation/English/Case6.pdf.png" width="1000">
-
-### Lin-Hobson-Lasenby case 7
-<img src="xAct/PSALTer/Documentation/English/Case7.pdf.png" width="1000">
-
-### Lin-Hobson-Lasenby case 8
-<img src="xAct/PSALTer/Documentation/English/Case8.pdf.png" width="1000">
-
-### Lin-Hobson-Lasenby case 9
-<img src="xAct/PSALTer/Documentation/English/Case9.pdf.png" width="1000">
