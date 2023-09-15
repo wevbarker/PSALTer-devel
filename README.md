@@ -30,7 +30,9 @@ For theories of this form, the _spin-projection operator_ (SPO) algorithm applie
 ### Example: Melichev-Percacci theory
 
 As a demonstration, let's say our Lagrangian is the Kretschmann curvature scalar, plus the square of the torsion tensor
-$$L_{\text{F}}=\alpha_1\mathcal{R}^{\mu\nu\sigma\tau}\mathcal{R}_{\mu\nu\sigma\tau}+\alpha_1\mathcal{T}^{\mu\nu\sigma}\mathcal{T}_{\mu\nu\sigma}$$
+```math
+L_{\text{F}}=\alpha_1\mathcal{R}^{\mu\nu\sigma\tau}\mathcal{R}_{\mu\nu\sigma\tau}+\alpha_1\mathcal{T}^{\mu\nu\sigma}\mathcal{T}_{\mu\nu\sigma}
+```
 We simply linearise the theory near Minkowski spacetime (in terms of the connection and tetrad perturbation), plug it into PSALTer and voilà:
 
 <img src="xAct/PSALTer/Documentation/English/MelichevPercacciTheory.pdf.png" width="1000">
