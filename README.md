@@ -71,7 +71,7 @@ Five _theory modules_ (also called _theory classes_) are available, and these _m
 |`"ScalarTheory"`|``xAct`PSALTer`ScalarTheory`Phi[]``|$\phi$|``xAct`PSALTer`ScalarTheory`Coupling1``|$\alpha_1$|
 ||||``xAct`PSALTer`ScalarTheory`Coupling2``|$\alpha_2$|
 ||||``xAct`PSALTer`ScalarTheory`Coupling3``|$\alpha_3$|
-|`"VectorTheory"`|``B[-m]``|$B_{\mu}$|``xAct`PSALTer`VectorTheory`Coupling1``|$\alpha_1$|
+|`"VectorTheory"`|``xAct`PSALTer`VectorTheory`B[-m]``|$B_{\mu}$|``xAct`PSALTer`VectorTheory`Coupling1``|$\alpha_1$|
 ||||``xAct`PSALTer`VectorTheory`Coupling2``|$\alpha_2$|
 ||||``xAct`PSALTer`VectorTheory`Coupling3``|$\alpha_3$|
 |`"TensorTheory"`|``xAct`PSALTer`TensorTheory`LinearMetric[-m,-n]``|$h_{\mu\nu}$|``xAct`PSALTer`TensorTheory`Coupling1``|$\alpha_1$|
