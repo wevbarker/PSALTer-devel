@@ -78,11 +78,11 @@ ParticleSpectrum[
 ];
 ```
 and the arguments and options are as follows:
-- `QuadraticLagrangian_` must be a valid linearised Lagrangian
-- `Classname_` must be a pre-defined string
-- `TheoryName_` can be any string
-- `Method_` can be `"Easy"` (default) or `"Hard"` (experimental, uses home-brewed implementations of the symbolic Moore-Penrose inverse and other innovations)
-- `MaxLaurentDepth_` can be `1`, `2` or `3`
+- `QuadraticLagrangian_` must be a valid linearised Lagrangian.
+- `Classname_` must be a pre-defined string.
+- `TheoryName_` can be any string.
+- `Method_` can be `"Easy"` (default) or `"Hard"` (experimental, uses home-brewed implementations of the symbolic Moore-Penrose inverse and other innovations).
+- `MaxLaurentDepth_` can be `1`, `2` or `3`.
 
 For details about `QuadraticLagrangian_` and `Classname_`, keep reading.
 
