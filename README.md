@@ -78,8 +78,7 @@ Five _theory modules_ (also called _theory classes_) are available, and these _m
 ||||``xAct`PSALTer`TensorTheory`Coupling2``|$\alpha_2$|
 ||||``xAct`PSALTer`TensorTheory`Coupling3``|$\alpha_3$|
 |`"ScalarTensorTheory"`|``xAct`PSALTer`ScalarTensorTheory`LinearMetric[-m,-n]``|$h_{\mu\nu}$|``xAct`PSALTer`ScalarTensorTheory`Coupling1``|$\alpha_1$|
-||``xAct`PSALTer`ScalarTensorTheory`Phi[]``|$\phi$|``xAct`PSALTer`ScalarTensorTheory`Coupling2``|$\alpha_2$|
-||||...|...|
+||``xAct`PSALTer`ScalarTensorTheory`Phi[]``|$\phi$|...|...|
 ||||``xAct`PSALTer`PoincareGaugeTheory`Coupling10``|$\alpha_{10}$|
 |`"PoincareGaugeTheory"`|``xAct`PSALTer`PoincareGaugeTheory`F[-m,-n]``|$f_{\mu\nu}$|``xAct`PSALTer`PoincareGaugeTheory`kLambda``|$\lambda$|
 ||``xAct`PSALTer`PoincareGaugeTheory`A[-m,-n,-s]``|$A_{\mu\nu\sigma}$|``xAct`PSALTer`PoincareGaugeTheory`kR1``|$r_1$|
