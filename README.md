@@ -77,6 +77,10 @@ The following _theory modules_ are available:
 |`"TensorTheory"`|``xAct`PSALTer`TensorTheory`LinearMetric[-m,-n]``|$h_{\mu\nu}$|``xAct`PSALTer`TensorTheory`Coupling1``|$\alpha_1$|
 ||||``xAct`PSALTer`TensorTheory`Coupling2``|$\alpha_2$|
 ||||``xAct`PSALTer`TensorTheory`Coupling3``|$\alpha_3$|
+|`"ScalarTensorTheory"`|``xAct`PSALTer`ScalarTensorTheory`LinearMetric[-m,-n]``|$h_{\mu\nu}$|``xAct`PSALTer`ScalarTensorTheory`Coupling1``|$\alpha_1$|
+||``xAct`PSALTer`ScalarTensorTheory`Phi[]``|$\phi$|``xAct`PSALTer`ScalarTensorTheory`Coupling2``|$\alpha_2$|
+||||...|...|
+||||``xAct`PSALTer`ScalarTensorTheory`Coupling10``|$\alpha_{10}$|
 
 ## Installation
 
