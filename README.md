@@ -22,6 +22,13 @@ PSALTer is designed to predict the propagating quantum particle states in any te
 
 $$S_{\text{F}}=\int\mathrm{d}^4x\ \sum_X\zeta_{{\mu}{X}}\Big[\sum_Y\mathcal{O}^{\mu{X}}_{\nu{Y}}\zeta^{\nu{Y}}-j^{\nu{Y}}\Big],$$
 
+where this contains the following ingredients:
+- The dynamical fields $\zeta_{{\mu}{X}}$ are real tensors. Distinct fields are labelled by the index $X$, and each field has some collection of spacetime indices ${\mu}X$, perhaps with some symmetry among the indices. 
+- The wave operator $\mathcal{O}^{\mu{X}}_{\nu{Y}}$ is a real, second-order (Ostrogradsky's theorem discourages higher-derivative operators, but even if it did not we note that the apparent order may always be lowered by the introduction of extra fields) differential operator constructed from $\eta_{\mu\nu}$ and $\partial_{\mu}$ (but \emph{not} the totally antisymmetric $\epsilon_{\mu\nu\sigma\lambda}$ tensor), linearly parameterised by a collection of coupling coefficients.
+- The source currents $j^{\nu{Y}}$ are conjugate to the fields $\zeta_{{\mu}{X}}$. They encode all external interactions to second order in fields, whilst keeping the external dynamics completely anonymous.
+
+For theories of this form, the SPO algorithm applies and the PSALTer package may be used. Of course, spectra can also be obtained for more exotic theories, but these require the algorithm to be modified beyond its minimal form.
+
 As a demonstration, let's say our Lagrangian is the Kretschmann curvature scalar, plus the square of the torsion tensor. We simply linearise the theory near Minkowski spacetime (in terms of the connection and tetrad perturbation), plug it into PSALTer and voilà:
 <img src="xAct/PSALTer/Documentation/English/MelichevPercacciTheory.pdf.png" width="1000">
 
