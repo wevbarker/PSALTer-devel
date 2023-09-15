@@ -22,6 +22,10 @@ PSALTer is designed to predict the propagating quantum particle states in any te
 
 $$S_{\text{F}},$$
 
+$$S_{\text{F}}=\int\mathrm{d}^4x$$
+
+$$S_{\text{F}}=\int\mathrm{d}^4x\ \sum_X\zeta_{{\mu}_{X}}$$
+
 $$S_{\text{F}}=\int\mathrm{d}^4x\ \sum_X\zeta_{{\mu}_{X}}\Big[\sum_Y\mathcal{O}^{\mu_{X}}_{\nu_{Y}}\zeta^{\nu_{Y}}-j^{\nu_{Y}}\Big],$$
 
 As a demonstration, let's say our Lagrangian is the Kretschmann curvature scalar, plus the square of the torsion tensor. We simply linearise the theory near Minkowski spacetime (in terms of the connection and tetrad perturbation), plug it into PSALTer and voilà:
