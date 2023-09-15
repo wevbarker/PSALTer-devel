@@ -74,6 +74,9 @@ The following _theory modules_ are available:
 |`"VectorTheory"`|`B[-m]`|$B_{\mu}$|`Coupling1`|$\alpha_1$|
 ||||`Coupling2`|$\alpha_2$|
 ||||`Coupling3`|$\alpha_3$|
+|`"TensorTheory"`|`LinearMetric[-m,-n]`|$\eta_{\mu\nu}$|`Coupling1`|$\alpha_1$|
+||||`Coupling2`|$\alpha_2$|
+||||`Coupling3`|$\alpha_3$|
 
 ## Installation
 
