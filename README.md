@@ -95,9 +95,9 @@ PSALTer pre-defines a flat, Minkowskian manifold with the following ingredients:
 |`G[-m,-n]`|$\eta_{\mu\nu}$|
 |`CD[-m]@`|$\partial_{\mu}$|
 
-#### Theory modules, fields and couplings
+#### Theory classes, fields and couplings
 
-Five _theory modules_ (also called _theory classes_) are available, and these _must_ be passed to `ParticleSpectrum` via the option `ClassName-><some string>`. For each module, you are only permitted to pass linearised Lagrangia which refer to the collection of fields and coupling constants defined by that module, as listed in the following table:
+Five _theory classes_ (also called _theory modules_) are available, and these _must_ be passed to `ParticleSpectrum` via the option `ClassName-><some string>`. For each module, you are only permitted to pass linearised Lagrangia which refer to the collection of fields and coupling constants defined by that module, as listed in the following table:
 
 |Class name|Fields|LaTeX|Coupling constants|LaTeX|
 |---|---|---|---|---|
