@@ -55,7 +55,7 @@ and execute the cell. Ten minutes later, and voilà:
 
 To summarise the physical information that is automatically computed:
 - *PSALTer results pannel:* The free action is quoted back to you.
-- *Wave operator:* The wave operator is presented as a hermitian matrtix in $k$-space, block-decomposed over the sectors of definite spin $J$ and parity $P$.
+- *Wave operator:* The wave operator is presented as a hermitian matrix in $k$-space, block-decomposed over the $J^P$ sectors of definite spin $J$ and parity $P$.
 - *Saturated propagator:* The Moore-Penrose pseudoinverse of the wave operator is computed, and sandwiched between conserved source currents.
 - *Source constraints:* The null spaces of the wave operator blocks encode gauge symmetries of the theory, corresponding to conservation laws satisfied by the source currents, these are quoted.
 - *Massive spectrum:* There is listed the spectrum of massive states in the theory, with information about the square mass, pole residue, spin and parity of each state.
