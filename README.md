@@ -82,7 +82,20 @@ The following _theory modules_ are available:
 ||||...|...|
 ||||``xAct`PSALTer`PoincareGaugeTheory`Coupling10``|$\alpha_{10}$|
 |`"PoincareGaugeTheory"`|``xAct`PSALTer`PoincareGaugeTheory`F[-m,-n]``|$f_{\mu\nu}$|``xAct`PSALTer`PoincareGaugeTheory`Coupling1``|$\alpha_1$|
-||``xAct`PSALTer`PoincareGaugeTheory`A[-m,-n,-s]``|$A_{\mu\nu\sigma}$|``xAct`PSALTer`PoincareGaugeTheory`Coupling1``|$\alpha_1$|
+||``xAct`PSALTer`PoincareGaugeTheory`A[-m,-n,-s]``|$A_{\mu\nu\sigma}$|``xAct`PSALTer`PoincareGaugeTheory`kLambda``|$\lambda$|
+||||``xAct`PSALTer`PoincareGaugeTheory`kR1``|$r_1$|
+||||...|...|
+||||``xAct`PSALTer`PoincareGaugeTheory`kR6``|$r_6$|
+||||``xAct`PSALTer`PoincareGaugeTheory`kT1``|$t_1$|
+||||``xAct`PSALTer`PoincareGaugeTheory`kT2``|$t_2$|
+||||``xAct`PSALTer`PoincareGaugeTheory`kT3``|$t_3$|
+
+||||``xAct`PSALTer`PoincareGaugeTheory`Alp0``|$\alpha_0$|
+||||...|...|
+||||``xAct`PSALTer`PoincareGaugeTheory`Alp6``|$\alpha_6$|
+||||``xAct`PSALTer`PoincareGaugeTheory`Bet1``|$\beta_1$|
+||||``xAct`PSALTer`PoincareGaugeTheory`Bet2``|$\beta_2$|
+||||``xAct`PSALTer`PoincareGaugeTheory`Bet3``|$\beta_3$|
 
 ## Installation
 
