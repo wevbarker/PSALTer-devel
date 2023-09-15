@@ -24,7 +24,7 @@ $$S_{\text{F}}=\int\mathrm{d}^4x\ \zeta\cdot\Big[\mathcal{O}\cdot\zeta-j\Big],$$
 
 where this contains the following ingredients:
 - The dynamical fields $\zeta$ are real tensors, which may be a collection of distinct fields, each field having some collection of spacetime indices, perhaps with some symmetry among the indices. 
-- The wave operator $\mathcal{O}$ is a real, second-order (Ostrogradsky's theorem discourages higher-derivative operators, but even if it did not we note that the apparent order may always be lowered by the introduction of extra fields) differential operator constructed from ${\eta}_{\mu\nu}$ and ${\partial}_{\mu}$ (but _not_ the totally antisymmetric ${\epsilon}_{\mu\nu\sigma\lambda}$ tensor), linearly parameterised by a collection of coupling coefficients.
+- The wave operator $\mathcal{O}$ is a real, second-order (Ostrogradsky's theorem discourages higher-derivative operators, but even if it did not we note that the apparent order may always be lowered by the introduction of extra fields) differential operator constructed from the flat-space metric $\eta$ and partial derivative $\partial$ (but _not_ the totally antisymmetric $\epsilon$ tensor), linearly parameterised by a collection of coupling coefficients.
 - The source currents $j$ are conjugate to the fields $\zeta$. They encode all external interactions to second order in fields, whilst keeping the external dynamics completely anonymous.
 
 For theories of this form, the SPO algorithm applies and the PSALTer package may be used. Of course, spectra can also be obtained for more exotic theories, but these require the algorithm to be modified beyond its minimal form.
