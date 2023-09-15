@@ -18,16 +18,16 @@ PSALTer is provided without warranty, or the implied warranty of merchantibility
 
 PSALTer is an (unofficial) part of the [xAct bundle](http://www.xact.es/). 
 
-PSALTer is designed to predict the propagating quantum particle states in any tensorial field theory, including (but not limited to) just about any theory of gravity.
-
+PSALTer is designed to predict the propagating quantum particle states in any tensorial field theory, including (but not limited to) just about any theory of gravity. The theory must have the structure
 $$S_{\text{F}}=\int\mathrm{d}^4x\ \zeta(x)^{\text{T}}\cdot\Big[\mathcal{O}(\partial)\cdot\zeta(x)-j(x)\Big],$$
-
-where this contains the following ingredients:
+where the ingredients are:
 - The dynamical fields $\zeta$ are real tensors, which may be a collection of distinct fields, each field having some collection of spacetime indices, perhaps with some symmetry among the indices. 
 - The wave operator $\mathcal{O}$ is a real, second-order (Ostrogradsky's theorem discourages higher-derivative operators, but even if it did not we note that the apparent order may always be lowered by the introduction of extra fields) differential operator constructed from the flat-space metric $\eta$ and partial derivative $\partial$ (but _not_ the totally antisymmetric $\epsilon$ tensor), linearly parameterised by a collection of coupling coefficients.
 - The source currents $j$ are conjugate to the fields $\zeta$. They encode all external interactions to second order in fields, whilst keeping the external dynamics completely anonymous.
 
-For theories of this form, the SPO algorithm applies and the PSALTer package may be used. Of course, spectra can also be obtained for more exotic theories, but these require the algorithm to be modified beyond its minimal form.
+For theories of this form, the _spin-projection operator_ algorithm applies and the PSALTer package may be used. Of course, spectra can also be obtained for more exotic theories, but these require the algorithm to be modified beyond its minimal form.
+
+### Example: Melichev-Percacci theory
 
 As a demonstration, let's say our Lagrangian is the Kretschmann curvature scalar, plus the square of the torsion tensor. We simply linearise the theory near Minkowski spacetime (in terms of the connection and tetrad perturbation), plug it into PSALTer and voilà:
 <img src="xAct/PSALTer/Documentation/English/MelichevPercacciTheory.pdf.png" width="1000">
