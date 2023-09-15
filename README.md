@@ -66,16 +66,9 @@ To summarise the physical information that is automatically computed:
 
 The following _theory modules_ are available:
 
-|Module name|Fields|Coupling constants|
-|---|---|---|
-|`"ScalarTheory"`|
-```mathematica
-Phi[]
-```|
-```mathematica
-Alpha1
-Alpha2
-```|
+|Module name|Fields|LaTeX|Coupling constants|LaTeX|
+|---|---|---|---|---|
+|`"ScalarTheory"`|`Phi[]`|$\phi$|`Alpha1`|$\alpha_1$|
 
 ## Installation
 
