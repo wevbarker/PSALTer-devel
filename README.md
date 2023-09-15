@@ -64,7 +64,7 @@ To summarise the physical information that is automatically computed:
 
 ### General use 
 
-#### Syntax 
+#### Function syntax 
 
 PSALTer defines _only one_ function:
 
@@ -97,7 +97,7 @@ PSALTer pre-defines a flat, Minkowskian manifold with the following ingredients:
 
 #### Theory classes, fields and couplings
 
-Five _theory classes_ (also called _theory modules_) are available, and these _must_ be passed to `ParticleSpectrum` via the option `ClassName-><some string>`. For each module, you are only permitted to pass linearised Lagrangia which refer to the collection of fields and coupling constants defined by that module, as listed in the following table:
+Five _theory classes_ (also called _theory modules_) are available, and these _must_ be passed to `ParticleSpectrum` via the option `ClassName`. For each module, you are only permitted to pass linearised Lagrangia which refer to the collection of fields and coupling constants defined by that module, as listed in the following table:
 
 |Class name|Fields|LaTeX|Coupling constants|LaTeX|
 |---|---|---|---|---|
@@ -129,7 +129,7 @@ Five _theory classes_ (also called _theory modules_) are available, and these _m
 
 ## Installation
 
-#### Requirements 
+### Requirements 
 
 PSALTer has been tested in the following environment(s):
 - Linux x86 (64-bit) (specifically Manjaro and Arch)
@@ -138,7 +138,7 @@ PSALTer has been tested in the following environment(s):
 - MaTeX v 1.7.9
 - xPlain v 0.0.0-developer (if running the Calibration notebook)
 
-#### Install 
+### Install 
 
 1. Make sure you have [installed xAct](http://www.xact.es/download.html).
 2. Make sure you have [installed MaTeX](http://szhorvat.net/pelican/latex-typesetting-in-mathematica.html).
@@ -174,6 +174,8 @@ PSALTer was improved by many useful discussions with Jaakko Annala, Stephanie Bu
 I am grateful for the kind hospitality of Leiden University and the [Lorentz Institute](https://www.lorentz.leidenuniv.nl/), and am supported by [Girton College, Cambridge](https://www.girton.cam.ac.uk/).
 
 ## Examples
+
+The theories which are tested in `./xAct/PSALTer/Documentation/English/Calibration.nb`, alongside a few other theories, are listed below. To understand the physical motivations, please refer to the notebook.
 
 ### Metric-affine gravity
 
