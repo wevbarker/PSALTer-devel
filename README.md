@@ -36,7 +36,7 @@ As a demonstration, let's say our Lagrangian is the Kretschmann curvature scalar
 S_{\text{F}}=\int\mathrm{d}^4x\ \Big[\alpha_1\mathcal{R}^{\mu\nu\sigma\tau}\mathcal{R}_{\mu\nu\sigma\tau}+\beta_1\mathcal{T}^{\mu\nu\sigma}\mathcal{T}_{\mu\nu\sigma}+L_{\text{M}}\Big],
 ```
 where $L_{\text{M}}$ is the matter Lagrangian, and $\alpha_1$ and $\beta_1$ are coupling coefficients. The _free_ theory is the _linearisation_ of this action near Minkowski spacetime. Taking the perturbation of the tetrad field $f_{\mu\nu}$ to be an _asymmetric_ rank-two tensor, and the perturbation of the independent connection field $A_{\mu\nu\sigma}$ to be a rank-three tensor _antisymmetric_ in the first two indices, we can expand the theory to quadratic order, and plug it into PSALTer 
-```
+```mathematica
 ParticleSpectrum[
     Alp1*A[-a,-b,-c]*CD[c]*F[a,b]+<many more terms>,
     ClassName->"PoincareGaugeTheory",
