@@ -64,9 +64,9 @@ To summarise the physical information that is automatically computed:
 
 ### Scope
 
-The following _theory modules_ are available:
+Five _theory modules_ (also called _theory classes_) are available, and these _must_ be passed to `ParticleSpectrum` via the option `ClassName-><some string>`. For each module, you are only permitted to pass linearised Lagrangia which refer to the collection of fields and coupling constants defined by that module, as listed in the following table:
 
-|Module name|Fields|LaTeX|Coupling constants|LaTeX|
+|Class name|Fields|LaTeX|Coupling constants|LaTeX|
 |---|---|---|---|---|
 |`"ScalarTheory"`|``xAct`PSALTer`ScalarTheory`Phi[]``|$\phi$|``xAct`PSALTer`ScalarTheory`Coupling1``|$\alpha_1$|
 ||||``xAct`PSALTer`ScalarTheory`Coupling2``|$\alpha_2$|
