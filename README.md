@@ -20,12 +20,12 @@ PSALTer is an (unofficial) part of the [xAct bundle](http://www.xact.es/).
 
 PSALTer is designed to predict the propagating quantum particle states in any tensorial field theory, including (but not limited to) just about any theory of gravity.
 
-$$S_{\text{F}}=\int\mathrm{d}^4x\ \sum_X\zeta_{{\mu}{X}}\Big[\sum_Y\mathcal{O}^{\mu{X}}_{\nu{Y}}\zeta^{\nu{Y}}-j^{\nu{Y}}\Big],$$
+$$S_{\text{F}}=\int\mathrm{d}^4x\ \zeta\cdot\Big[\mathcal{O}\cdot\zeta-j\Big],$$
 
 where this contains the following ingredients:
-- The dynamical fields $\zeta_{{\mu}{X}}$ are real tensors. Distinct fields are labelled by the index $X$, and each field has some collection of spacetime indices ${\mu}X$, perhaps with some symmetry among the indices. 
-- The wave operator ${{{\mathcal{O}}^{{X}}}_{{Y}}}$ is a real, second-order (Ostrogradsky's theorem discourages higher-derivative operators, but even if it did not we note that the apparent order may always be lowered by the introduction of extra fields) differential operator constructed from $\eta_{\mu\nu}$ and $\partial_{\mu}$ (but \emph{not} the totally antisymmetric $\epsilon_{\mu\nu\sigma\lambda}$ tensor), linearly parameterised by a collection of coupling coefficients.
-- The source currents $j^{\nu{Y}}$ are conjugate to the fields $\zeta_{{\mu}{X}}$. They encode all external interactions to second order in fields, whilst keeping the external dynamics completely anonymous.
+- The dynamical fields $\zeta$ are real tensors, which may be a collection of distinct fields, each field having some collection of spacetime indices, perhaps with some symmetry among the indices. 
+- The wave operator $\mathcal{O}$ is a real, second-order (Ostrogradsky's theorem discourages higher-derivative operators, but even if it did not we note that the apparent order may always be lowered by the introduction of extra fields) differential operator constructed from ${\eta}_{\mu\nu}$ and ${\partial}_{\mu}$ (but _not_ the totally antisymmetric ${\epsilon}_{\mu\nu\sigma\lambda}$ tensor), linearly parameterised by a collection of coupling coefficients.
+- The source currents $j$ are conjugate to the fields $\zeta$. They encode all external interactions to second order in fields, whilst keeping the external dynamics completely anonymous.
 
 For theories of this form, the SPO algorithm applies and the PSALTer package may be used. Of course, spectra can also be obtained for more exotic theories, but these require the algorithm to be modified beyond its minimal form.
 
