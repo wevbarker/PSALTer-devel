@@ -69,206 +69,299 @@ PSALTer was improved by many useful discussions with Jaakko Annala, Stephanie Bu
 
 I am grateful for the kind hospitality of Leiden University and the [Lorentz Institute](https://www.lorentz.leidenuniv.nl/), and am supported by [Girton College, Cambridge](https://www.girton.cam.ac.uk/).
 
-## Annala-Räsänen column one row one
+### Annala-Räsänen column one row one
 <img src="xAct/PSALTer/Documentation/English/AnnalaRasanenCol1Row1.pdf.png" width="1000">
 
-## Annala-Räsänen column one row two
+### Annala-Räsänen column one row two
 <img src="xAct/PSALTer/Documentation/English/AnnalaRasanenCol1Row2.pdf.png" width="1000">
 
-## Annala-Räsänen column one row three
+### Annala-Räsänen column one row three
 <img src="xAct/PSALTer/Documentation/English/AnnalaRasanenCol1Row3.pdf.png" width="1000">
 
-## Annala-Räsänen column one row four
+### Annala-Räsänen column one row four
 <img src="xAct/PSALTer/Documentation/English/AnnalaRasanenCol1Row4.pdf.png" width="1000">
 
-## Annala-Räsänen column one row five
+### Annala-Räsänen column one row five
 <img src="xAct/PSALTer/Documentation/English/AnnalaRasanenCol1Row5.pdf.png" width="1000">
 
-## Annala-Räsänen column three row one
+### Annala-Räsänen column three row one
 <img src="xAct/PSALTer/Documentation/English/AnnalaRasanenCol3Row1.pdf.png" width="1000">
-## Annala-Räsänen column three row two
+
+### Annala-Räsänen column three row two
 <img src="xAct/PSALTer/Documentation/English/AnnalaRasanenCol3Row2.pdf.png" width="1000">
-## Annala-Räsänen column three row two
+
+### Annala-Räsänen column three row two
 <img src="xAct/PSALTer/Documentation/English/AnnalaRasanenCol3Row3.pdf.png" width="1000">
-## Annala-Räsänen column three row four
+
+### Annala-Räsänen column three row four
 <img src="xAct/PSALTer/Documentation/English/AnnalaRasanenCol3Row4.pdf.png" width="1000">
-## Annala-Räsänen column four 
+
+### Annala-Räsänen column four 
 <img src="xAct/PSALTer/Documentation/English/AnnalaRasanenColumn4.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 10
+
+### Lin-Hobson-Lasenby case 10
 <img src="xAct/PSALTer/Documentation/English/Case10.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 12
+
+### Lin-Hobson-Lasenby case 12
 <img src="xAct/PSALTer/Documentation/English/Case11.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 13
+
+### Lin-Hobson-Lasenby case 13
 <img src="xAct/PSALTer/Documentation/English/Case12.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 13
+
+### Lin-Hobson-Lasenby case 13
 <img src="xAct/PSALTer/Documentation/English/Case13.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 14
+
+### Lin-Hobson-Lasenby case 14
 <img src="xAct/PSALTer/Documentation/English/Case14.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 15
+
+### Lin-Hobson-Lasenby case 15
 <img src="xAct/PSALTer/Documentation/English/Case15.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 16
+
+### Lin-Hobson-Lasenby case 16
 <img src="xAct/PSALTer/Documentation/English/Case16.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 17
+
+### Lin-Hobson-Lasenby case 17
 <img src="xAct/PSALTer/Documentation/English/Case17.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 18
+
+### Lin-Hobson-Lasenby case 18
 <img src="xAct/PSALTer/Documentation/English/Case18.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 19
+
+### Lin-Hobson-Lasenby case 19
 <img src="xAct/PSALTer/Documentation/English/Case19.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 1
+
+### Lin-Hobson-Lasenby case 1
 <img src="xAct/PSALTer/Documentation/English/Case1.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 20
+
+### Lin-Hobson-Lasenby case 20
 <img src="xAct/PSALTer/Documentation/English/Case20.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 21
+
+### Lin-Hobson-Lasenby case 21
 <img src="xAct/PSALTer/Documentation/English/Case21.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 22
+
+### Lin-Hobson-Lasenby case 22
 <img src="xAct/PSALTer/Documentation/English/Case22.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 23
+
+### Lin-Hobson-Lasenby case 23
 <img src="xAct/PSALTer/Documentation/English/Case23.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 24
+
+### Lin-Hobson-Lasenby case 24
 <img src="xAct/PSALTer/Documentation/English/Case24.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 25
+
+### Lin-Hobson-Lasenby case 25
 <img src="xAct/PSALTer/Documentation/English/Case25.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 26
+
+### Lin-Hobson-Lasenby case 26
 <img src="xAct/PSALTer/Documentation/English/Case26.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 27
+
+### Lin-Hobson-Lasenby case 27
 <img src="xAct/PSALTer/Documentation/English/Case27.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 28
+
+### Lin-Hobson-Lasenby case 28
 <img src="xAct/PSALTer/Documentation/English/Case28.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 29
+
+### Lin-Hobson-Lasenby case 29
 <img src="xAct/PSALTer/Documentation/English/Case29.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 2
+
+### Lin-Hobson-Lasenby case 2
 <img src="xAct/PSALTer/Documentation/English/Case2.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 30
+
+### Lin-Hobson-Lasenby case 30
 <img src="xAct/PSALTer/Documentation/English/Case30.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 31
+
+### Lin-Hobson-Lasenby case 31
 <img src="xAct/PSALTer/Documentation/English/Case31.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 32
+
+### Lin-Hobson-Lasenby case 32
 <img src="xAct/PSALTer/Documentation/English/Case32.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 33
+
+### Lin-Hobson-Lasenby case 33
 <img src="xAct/PSALTer/Documentation/English/Case33.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 34
+
+### Lin-Hobson-Lasenby case 34
 <img src="xAct/PSALTer/Documentation/English/Case34.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 35
+
+### Lin-Hobson-Lasenby case 35
 <img src="xAct/PSALTer/Documentation/English/Case35.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 36
+
+### Lin-Hobson-Lasenby case 36
 <img src="xAct/PSALTer/Documentation/English/Case36.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 37
+
+### Lin-Hobson-Lasenby case 37
 <img src="xAct/PSALTer/Documentation/English/Case37.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 38
+
+### Lin-Hobson-Lasenby case 38
 <img src="xAct/PSALTer/Documentation/English/Case38.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 39
+
+### Lin-Hobson-Lasenby case 39
 <img src="xAct/PSALTer/Documentation/English/Case39.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 3
+
+### Lin-Hobson-Lasenby case 3
 <img src="xAct/PSALTer/Documentation/English/Case3.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 40
+
+### Lin-Hobson-Lasenby case 40
 <img src="xAct/PSALTer/Documentation/English/Case40.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 41
+
+### Lin-Hobson-Lasenby case 41
 <img src="xAct/PSALTer/Documentation/English/Case41.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 42
+
+### Lin-Hobson-Lasenby case 42
 <img src="xAct/PSALTer/Documentation/English/Case42.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 43
+
+### Lin-Hobson-Lasenby case 43
 <img src="xAct/PSALTer/Documentation/English/Case43.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 44
+
+### Lin-Hobson-Lasenby case 44
 <img src="xAct/PSALTer/Documentation/English/Case44.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 45
+
+### Lin-Hobson-Lasenby case 45
 <img src="xAct/PSALTer/Documentation/English/Case45.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 46
+
+### Lin-Hobson-Lasenby case 46
 <img src="xAct/PSALTer/Documentation/English/Case46.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 47
+
+### Lin-Hobson-Lasenby case 47
 <img src="xAct/PSALTer/Documentation/English/Case47.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 48
+
+### Lin-Hobson-Lasenby case 48
 <img src="xAct/PSALTer/Documentation/English/Case48.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 49
+
+### Lin-Hobson-Lasenby case 49
 <img src="xAct/PSALTer/Documentation/English/Case49.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 4
+
+### Lin-Hobson-Lasenby case 4
 <img src="xAct/PSALTer/Documentation/English/Case4.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 50
+
+### Lin-Hobson-Lasenby case 50
 <img src="xAct/PSALTer/Documentation/English/Case50.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 51
+
+### Lin-Hobson-Lasenby case 51
 <img src="xAct/PSALTer/Documentation/English/Case51.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 52
+
+### Lin-Hobson-Lasenby case 52
 <img src="xAct/PSALTer/Documentation/English/Case52.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 53
+
+### Lin-Hobson-Lasenby case 53
 <img src="xAct/PSALTer/Documentation/English/Case53.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 54
+
+### Lin-Hobson-Lasenby case 54
 <img src="xAct/PSALTer/Documentation/English/Case54.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 55
+
+### Lin-Hobson-Lasenby case 55
 <img src="xAct/PSALTer/Documentation/English/Case55.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 56
+
+### Lin-Hobson-Lasenby case 56
 <img src="xAct/PSALTer/Documentation/English/Case56.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 57
+
+### Lin-Hobson-Lasenby case 57
 <img src="xAct/PSALTer/Documentation/English/Case57.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 58
+
+### Lin-Hobson-Lasenby case 58
 <img src="xAct/PSALTer/Documentation/English/Case58.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 59
+
+### Lin-Hobson-Lasenby case 59
 <img src="xAct/PSALTer/Documentation/English/Case5.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 6
+
+### Lin-Hobson-Lasenby case 6
 <img src="xAct/PSALTer/Documentation/English/Case6.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 7
+
+### Lin-Hobson-Lasenby case 7
 <img src="xAct/PSALTer/Documentation/English/Case7.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 8
+
+### Lin-Hobson-Lasenby case 8
 <img src="xAct/PSALTer/Documentation/English/Case8.pdf.png" width="1000">
-## Lin-Hobson-Lasenby case 9
+
+### Lin-Hobson-Lasenby case 9
 <img src="xAct/PSALTer/Documentation/English/Case9.pdf.png" width="1000">
-## Einstein-Cartan theory 
+
+### Einstein-Cartan theory 
 <img src="xAct/PSALTer/Documentation/English/EinsteinCartanTheory.pdf.png" width="1000">
-## Massless Fierz-Pauli theory
+
+### Massless Fierz-Pauli theory
 <img src="xAct/PSALTer/Documentation/English/FierzPauliTheory.pdf.png" width="1000">
-## Sick massless Fierz-Pauli theory
+
+### Sick massless Fierz-Pauli theory
 <img src="xAct/PSALTer/Documentation/English/FirstSickFierzPauliTheory.pdf.png" width="1000">
-## Sick massless Fierz-Pauli theory
+
+### Sick massless Fierz-Pauli theory
 <img src="xAct/PSALTer/Documentation/English/FourthSickFierzPauliTheory.pdf.png" width="1000">
-## Scalar-Einstein-Gauss-Bonnet theory
+
+### Scalar-Einstein-Gauss-Bonnet theory
 <img src="xAct/PSALTer/Documentation/English/GeneralLambda1.pdf.png" width="1000">
-## Scalar-Einstein-Gauss-Bonnet theory
+
+### Scalar-Einstein-Gauss-Bonnet theory
 <img src="xAct/PSALTer/Documentation/English/GeneralLambda2.pdf.png" width="1000">
-## Scalar-Einstein-Gauss-Bonnet theory
+
+### Scalar-Einstein-Gauss-Bonnet theory
 <img src="xAct/PSALTer/Documentation/English/GeneralLambda3.pdf.png" width="1000">
-## General Poincaré gauge theory
+
+### General Poincaré gauge theory
 <img src="xAct/PSALTer/Documentation/English/GeneralPGT.pdf.png" width="1000">
-## General relativity 
+
+### General relativity 
 <img src="xAct/PSALTer/Documentation/English/GeneralRelativity.pdf.png" width="1000">
-## Longitudinal massive vector
+
+### Longitudinal massive vector
 <img src="xAct/PSALTer/Documentation/English/LongitudinalMassive.pdf.png" width="1000">
-## Longitudinal massless vector
+
+### Longitudinal massless vector
 <img src="xAct/PSALTer/Documentation/English/LongitudinalMassless.pdf.png" width="1000">
-## Marzo theory 
+
+### Marzo theory 
 <img src="xAct/PSALTer/Documentation/English/MarzoTheory.pdf.png" width="1000">
-## Massive Fierz-Pauli theory 
+
+### Massive Fierz-Pauli theory 
 <img src="xAct/PSALTer/Documentation/English/MassiveGravity.pdf.png" width="1000">
-## Massive Klein-Gordon theory 
+
+### Massive Klein-Gordon theory 
 <img src="xAct/PSALTer/Documentation/English/MassiveScalarTheory.pdf.png" width="1000">
-## Massless Klein-Gordon theory 
+
+### Massless Klein-Gordon theory 
 <img src="xAct/PSALTer/Documentation/English/MasslessScalarTheory.pdf.png" width="1000">
-## Maxwell theory 
+
+### Maxwell theory 
 <img src="xAct/PSALTer/Documentation/English/MaxwellTheory.pdf.png" width="1000">
-## Melichev-Percacci theory 
+
+### Melichev-Percacci theory 
 <img src="xAct/PSALTer/Documentation/English/MelichevPercacciTheory.pdf.png" width="1000">
-## Metric-affine Einstein-Hilbert theory 
+
+### Metric-affine Einstein-Hilbert theory 
 <img src="xAct/PSALTer/Documentation/English/MetricAffineEinsteinHilbertTheory.pdf.png" width="1000">
-## Poincaré gauge theory with massless even scalar
+
+### Poincaré gauge theory with massless even scalar
 <img src="xAct/PSALTer/Documentation/English/MinimalEvenScalar.pdf.png" width="1000">
-## Poincaré gauge theory with massive odd scalar
+
+### Poincaré gauge theory with massive odd scalar
 <img src="xAct/PSALTer/Documentation/English/MinimalMassiveOddScalar.pdf.png" width="1000">
-## Poincaré gauge theory with massless odd scalar
+
+### Poincaré gauge theory with massless odd scalar
 <img src="xAct/PSALTer/Documentation/English/MinimalMasslessOddScalar.pdf.png" width="1000">
-## Proca theory
+
+### Proca theory
 <img src="xAct/PSALTer/Documentation/English/ProcaTheory.pdf.png" width="1000">
-## Scalar-Fierz-Pauli theory
+
+### Scalar-Fierz-Pauli theory
 <img src="xAct/PSALTer/Documentation/English/ScalarFierzPauliTheory.pdf.png" width="1000">
-## Sick massless Fierz-Pauli theory
+
+### Sick massless Fierz-Pauli theory
 <img src="xAct/PSALTer/Documentation/English/SecondSickFierzPauliTheory.pdf.png" width="1000">
-## Sick massive Fierz-Pauli theory
+
+### Sick massive Fierz-Pauli theory
 <img src="xAct/PSALTer/Documentation/English/SickMassiveGravity.pdf.png" width="1000">
-## Sick Maxwell theory
+
+### Sick Maxwell theory
 <img src="xAct/PSALTer/Documentation/English/SickMaxwellTheory.pdf.png" width="1000">
-## Sick Proca theory
+
+### Sick Proca theory
 <img src="xAct/PSALTer/Documentation/English/SickProcaTheory.pdf.png" width="1000">
-## Scalar-Einstein-Gauss-Bonnet theory
+
+### Scalar-Einstein-Gauss-Bonnet theory
 <img src="xAct/PSALTer/Documentation/English/SpecialLambda1.pdf.png" width="1000">
-## Scalar-Einstein-Gauss-Bonnet theory
+
+### Scalar-Einstein-Gauss-Bonnet theory
 <img src="xAct/PSALTer/Documentation/English/SpecialLambda2.pdf.png" width="1000">
-## Scalar-Einstein-Gauss-Bonnet theory
+
+### Scalar-Einstein-Gauss-Bonnet theory
 <img src="xAct/PSALTer/Documentation/English/SpecialLambda3.pdf.png" width="1000">
-## Sick massless Fierz-Pauli theory
+
+### Sick massless Fierz-Pauli theory
 <img src="xAct/PSALTer/Documentation/English/ThirdSickFierzPauliTheory.pdf.png" width="1000">
