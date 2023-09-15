@@ -68,9 +68,9 @@ The following _theory modules_ are available:
 
 |Module name|Fields|LaTeX|Coupling constants|LaTeX|
 |---|---|---|---|---|
-|`"ScalarTheory"`|`xAct\`PSALTer\`ScalarTheory\`Phi[]`|$\phi$|`Coupling1`|$\alpha_1$|
-||||`Coupling2`|$\alpha_2$|
-||||`Coupling3`|$\alpha_3$|
+|`"ScalarTheory"`|`xAct``PSALTer``ScalarTheory``Phi[]`|$\phi$|`xAct``PSALTer``ScalarTheory``Coupling1`|$\alpha_1$|
+||||`xAct``PSALTer``ScalarTheory``Coupling2`|$\alpha_2$|
+||||`xAct``PSALTer``ScalarTheory``Coupling3`|$\alpha_3$|
 |`"VectorTheory"`|`B[-m]`|$B_{\mu}$|`Coupling1`|$\alpha_1$|
 ||||`Coupling2`|$\alpha_2$|
 ||||`Coupling3`|$\alpha_3$|
