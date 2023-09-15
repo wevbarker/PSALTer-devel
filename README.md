@@ -20,7 +20,7 @@ PSALTer is an (unofficial) part of the [xAct bundle](http://www.xact.es/).
 
 PSALTer is designed to predict the propagating quantum particle states in any tensorial field theory, including (but not limited to) just about any theory of gravity.
 
-$$S_{\text{F}}=\int\mathrm{d}^4x\ \zeta\cdot\Big[\mathcal{O}\cdot\zeta-j\Big],$$
+$$S_{\text{F}}=\int\mathrm{d}^4x\ \zeta(x)\cdot\Big[\mathcal{O}(\partial)\cdot\zeta(x)-j(x)\Big],$$
 
 where this contains the following ingredients:
 - The dynamical fields $\zeta$ are real tensors, which may be a collection of distinct fields, each field having some collection of spacetime indices, perhaps with some symmetry among the indices. 
