@@ -69,6 +69,7 @@ The following _theory modules_ are available:
 |Module name|Fields|LaTeX|Coupling constants|LaTeX|
 |---|---|---|---|---|
 |`"ScalarTheory"`|`Phi[]`|$\phi$|`Alpha1`|$\alpha_1$|
+||||`Alpha2`|$\alpha_2$|
 
 ## Installation
 
