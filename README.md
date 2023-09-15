@@ -3,7 +3,7 @@
 # Particle Spectrum for Any Tensor Lagrangian (PSALTer)
 ## Version 0.0.0-developer
 
-- Pre-release version, pending completion of preprint and docs.
+- Pre-release version, pending completion of pre-print and docs.
 - Functionality for Weyl gauge theory and metric affine gravity removed due to ongoing collaborations with Tallinn and Tartu.
 
 ## License
@@ -35,7 +35,7 @@ As a demonstration, let's say our Lagrangian is the Kretschmann curvature scalar
 ```math
 S_{\text{F}}=\int\mathrm{d}^4x\ \Big[\alpha_1\mathcal{R}^{\mu\nu\sigma\tau}\mathcal{R}_{\mu\nu\sigma\tau}+\beta_1\mathcal{T}^{\mu\nu\sigma}\mathcal{T}_{\mu\nu\sigma}+L_{\text{M}}\Big],
 ```
-where $L_{\text{M}}$ is the matter Lagrangian, and $\alpha_1$ (type `Alp1`) and $\beta_1$ (type `Bet1`) are coupling coefficients. The _free_ theory is the _linearisation_ of this action near Minkowski spacetime. Taking the perturbation of the tetrad field $f_{\mu\nu}$ (type `F[-m,-n]`) to be an _asymmetric_ rank-two tensor, and the perturbation of the independent connection field $A_{\mu\nu\sigma}$ (type `A[-m,-n,-s]`) to be a rank-three tensor _antisymmetric_ in the first two indices, we can expand the theory to quadratic order, with partial derivative `CD[-m]`. Now in a notebook, load the package:
+where $L_{\text{M}}$ is the matter Lagrangian, and $\alpha_1$ (type `Alp1`) and $\beta_1$ (type `Bet1`) are coupling coefficients. The _free_ theory is the _linearisation_ of this action near Minkowski spacetime. Taking the perturbation of the tetrad field $f_{\mu\nu}$ (type `F[-m,-n]`) to be an _asymmetric_ rank-two tensor, and the perturbation of the independent connection field $A_{\mu\nu\sigma}$ (type `A[-m,-n,-s]`) to be a rank-three tensor _antisymmetric_ in the first two indices, we can expand the theory to quadratic order, with partial derivative `CD[-m]@`. Now in a notebook, load the package:
 ```
 <<xAct`PSALTer`;
 ```
@@ -62,7 +62,29 @@ To summarise the physical information that is automatically computed:
 - *Massless spectrum:* There is listed the spectrum of massless propagating polarisations. Also, the spectrum of (pathological) higher-order poles is computed, up to a depth specified by `MaxLaurentDepth`.
 - *Unitarity conditions:* From the requirement of positivity of the pole residues, and of the square masses, the inequality conditions on the parameters `Alp1` and `Bet1` needed to ensure unitarity of the S-matrix are computed (if the theory can be made to be unitary at all).
 
-### Scope
+### General use 
+
+#### Syntax 
+
+PSALTer defines _only one_ function:
+
+```mathematica
+ParticleSpectrum[
+    QuadraticLagrangian_,
+    ClassName->Classname_,
+    TheoryName->TheoryName_,
+    Method->Method_,
+    MaxLaurentDepth->MaxLaurentDepth_
+];
+```
+and the arguments and options are as follows:
+- `QuadraticLagrangian_` must be a valid linearised Lagrangian
+- `Classname_` must be a pre-defined string
+- `TheoryName_` can be any string
+- `Method_` can be `"Easy"` (default) or `"Hard"` (experimental, uses home-brewed implementations of the symbolic Moore-Penrose inverse and other innovations)
+- `MaxLaurentDepth_` can be `1`, `2` or `3`
+
+For details about `QuadraticLagrangian_` and `Classname_`, keep reading.
 
 #### Basic geometry
 
@@ -73,7 +95,7 @@ PSALTer pre-defines a flat, Minkowskian manifold with the following ingredients:
 |`G[-m,-n]`|$\eta_{\mu\nu}$|
 |`CD[-m]@`|$\partial_{\mu}$|
 
-#### Theory modules
+#### Theory modules, fields and couplings
 
 Five _theory modules_ (also called _theory classes_) are available, and these _must_ be passed to `ParticleSpectrum` via the option `ClassName-><some string>`. For each module, you are only permitted to pass linearised Lagrangia which refer to the collection of fields and coupling constants defined by that module, as listed in the following table:
 
