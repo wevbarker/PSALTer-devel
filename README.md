@@ -42,7 +42,7 @@ where $L_{\text{M}}$ is the matter Lagrangian, and $\alpha_1$ (type `Alp1`) and 
 and plug the quadratic expansion directly into PSALTer:
 ```mathematica
 ParticleSpectrum[
-    Alp1*A[-a,-b,-c]*CD[c]*F[a,b]+<many more terms>,
+    Alp1*A[-a,-b,-c]*CD[c]@F[a,b]+<many more terms>,
     ClassName->"PoincareGaugeTheory",
     TheoryName->"MelichevPercacciTheory",	
     Method->"Hard",
