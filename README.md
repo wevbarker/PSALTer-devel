@@ -51,7 +51,7 @@ ParticleSpectrum[
 ```
 and execute the cell. Ten minutes later, and voilà:
 
-<img src="xAct/PSALTer/Documentation/English/MelichevPercacciTheory.pdf.png" width="1000">
+<img src="xAct/PSALTer/Documentation/English/MelichevPercacciTheory.png" width="1000">
 
 To summarise the physical information that is automatically computed:
 - *PSALTer results pannel:* The free action is quoted back to you.
