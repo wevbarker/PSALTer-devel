@@ -18,7 +18,7 @@ UnitarityLinWeyl={
 	{lT2>0,lR2<0},(*10*)
 	{lT2>0,lR2<0},(*11*)
 	{lT2>0,lR2<0},(*12*)
-	{lT2>0,lR2<0},(*13*)
+	{lT2>0,lR2<0}(*,(*13*)
 (*Cases 14-36 from table III, need to set torsion T* to 0!*)
 	{lT2>0,lR2<0,lR3*(2*lR3+lR5)*(lR3+2*lR5)<0},(*1-1*)
 	{lT2>0,lR2<0,lR3*(2*lR3+lR5)*(lR3+2*lR5)<0},(*1-2*)			
@@ -49,5 +49,5 @@ UnitarityLinWeyl={
 	{lT2>0,lR2<0,lR3*(2*lR3+lR5)*(lR3+2*lR5)<0},(*1-3*)
 	{lR3*(2*lR3+lR5)*(lR3+2*lR5)<0},(*3-1*)
 	{lR3*(2*lR3+lR5)*(lR3+2*lR5)<0},(*3-2*)	
-	{lR3*(2*lR3+lR5)*(lR3+2*lR5)<0}(*3-3*)
+	{lR3*(2*lR3+lR5)*(lR3+2*lR5)<0}(*3-3*)*)
 };

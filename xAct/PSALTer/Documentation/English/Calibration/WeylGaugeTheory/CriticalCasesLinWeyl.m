@@ -24,7 +24,7 @@ CriticalCasesLinWeyl={
 	lR1==lR3==lR4==lT1==lLambda==0,(*10*)
 	lR1-lR3==lR4==2lR1+lR5==lT1==lLambda==0,(*11*)
 	lR1==lR3/2-lR4==2lR3+lR5==lT1==lLambda==0,(*12*)
-	lR1==lR3/2-lR4==lR3/2+lR5==lT1==lLambda==0,(*13*)
+	lR1==lR3/2-lR4==lR3/2+lR5==lT1==lLambda==0(*,(*13*)
 (*Cases 14-36 from table III, need to set torsion T* to 0!*)	
 	lT1==lT2==lT3==lR1==lR3/2-lR4==lT1==lLambda==lNu==0,(*1-1*)
 	lT1==lT2==lT3==lR1==lR3/2-lR4==lT1==lLambda==lR1-lR3+2lR4==0,(*1-2*)
@@ -55,5 +55,5 @@ CriticalCasesLinWeyl={
 	{expr/.A -> Zero, lR1==lR3/2-lR4==lT1==lLambda==lT1+lT3==lXi==0},(*1-3*)
 	{expr/.A -> Zero, lR1==lR2==lR3/2-lR4==lT1==lT2==lLambda==lXi==0},(*3-1*)
 	{expr/.A -> Zero, lR1==lR2==lR3/2-lR4==lT1==lT2==lLambda==lT1+lT3==0},(*3-2*)
-	{expr/.A -> Zero, lR1==lR2==lR3/2-lR4==lT1==lT2==lLambda==lT1+lT3==lXi==0}(*3-3*)
+	{expr/.A -> Zero, lR1==lR2==lR3/2-lR4==lT1==lT2==lLambda==lT1+lT3==lXi==0}(*3-3*)*)
 };
