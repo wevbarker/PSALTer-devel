@@ -1,3 +1,5 @@
+(* ::Package:: *)
+
 (*===================*)
 (*  WeylGaugeTheory  *)
 (*===================*)
@@ -23,6 +25,7 @@ DefTensor[ConjugateSourceCompensator[],M4,PrintAs->xAct`PSALTer`Private`SymbolBu
 xAct`PSALTer`WeylGaugeTheory`Private`WeylRotationalGaugeFieldSymb="\[ScriptCapitalA]";
 DefTensor[WeylRotationalGaugeField[a,c,-d],M4,Antisymmetric[{a,c}],PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`WeylGaugeTheory`Private`WeylRotationalGaugeFieldSymb],Dagger->Complex];
 
+(*Is there something wrong with the Conjugate Rotational Gauge field index symmetry?*)
 xAct`PSALTer`WeylGaugeTheory`Private`ConjugateSourceWeylRotationalGaugeFieldSymb="\[Sigma]";
 DefTensor[ConjugateSourceWeylRotationalGaugeField[-i,-j,-k],M4,Antisymmetric[{-j,-k}],PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`WeylGaugeTheory`Private`ConjugateSourceWeylRotationalGaugeFieldSymb],Dagger->Complex];
 
@@ -517,36 +520,42 @@ AutomaticRules[Evaluate[Dagger@WeylRotationalGaugeFieldPara2m],MakeRule[{Evaluat
 (*  Basic definitions of the Lagrangian coupling constants  *)
 (*==========================================================*)
 
-xAct`PSALTer`WeylGaugeTheory`Private`kLambdaSymb="\[Lambda]";
-DefLagrangianCoupling[kLambda,CouplingSymbol->xAct`PSALTer`WeylGaugeTheory`Private`kLambdaSymb];
+xAct`PSALTer`WeylGaugeTheory`Private`lLambdaSymb="\[Lambda]";
+DefLagrangianCoupling[lLambda,CouplingSymbol->xAct`PSALTer`WeylGaugeTheory`Private`lLambdaSymb];
 
-xAct`PSALTer`WeylGaugeTheory`Private`kRSymb="\[ScriptR]";
-DefLagrangianCoupling[kR1,
-	CouplingSymbol->xAct`PSALTer`WeylGaugeTheory`Private`kRSymb,CouplingIndex->1];
-DefLagrangianCoupling[kR2,
-	CouplingSymbol->xAct`PSALTer`WeylGaugeTheory`Private`kRSymb,CouplingIndex->2];
-DefLagrangianCoupling[kR3,
-	CouplingSymbol->xAct`PSALTer`WeylGaugeTheory`Private`kRSymb,CouplingIndex->3];
-DefLagrangianCoupling[kR4,
-	CouplingSymbol->xAct`PSALTer`WeylGaugeTheory`Private`kRSymb,CouplingIndex->4];
-DefLagrangianCoupling[kR5,
-	CouplingSymbol->xAct`PSALTer`WeylGaugeTheory`Private`kRSymb,CouplingIndex->5];
-DefLagrangianCoupling[kR6,
-	CouplingSymbol->xAct`PSALTer`WeylGaugeTheory`Private`kRSymb,CouplingIndex->6];
+xAct`PSALTer`WeylGaugeTheory`Private`lRSymb="\[ScriptR]";
+DefLagrangianCoupling[lR1,
+	CouplingSymbol->xAct`PSALTer`WeylGaugeTheory`Private`lRSymb,CouplingIndex->1];
+DefLagrangianCoupling[lR2,
+	CouplingSymbol->xAct`PSALTer`WeylGaugeTheory`Private`lRSymb,CouplingIndex->2];
+DefLagrangianCoupling[lR3,
+	CouplingSymbol->xAct`PSALTer`WeylGaugeTheory`Private`lRSymb,CouplingIndex->3];
+DefLagrangianCoupling[lR4,
+	CouplingSymbol->xAct`PSALTer`WeylGaugeTheory`Private`lRSymb,CouplingIndex->4];
+DefLagrangianCoupling[lR5,
+	CouplingSymbol->xAct`PSALTer`WeylGaugeTheory`Private`lRSymb,CouplingIndex->5];
 
-xAct`PSALTer`WeylGaugeTheory`Private`kTSymb="\[ScriptT]";
-DefLagrangianCoupling[kT1,
-	CouplingSymbol->xAct`PSALTer`WeylGaugeTheory`Private`kTSymb,CouplingIndex->1];
-DefLagrangianCoupling[kT2,
-	CouplingSymbol->xAct`PSALTer`WeylGaugeTheory`Private`kTSymb,CouplingIndex->2];
-DefLagrangianCoupling[kT3,
-	CouplingSymbol->xAct`PSALTer`WeylGaugeTheory`Private`kTSymb,CouplingIndex->3];
+xAct`PSALTer`WeylGaugeTheory`Private`lCSymb="\[ScriptC]";
+DefLagrangianCoupling[lC1,
+	CouplingSymbol->xAct`PSALTer`WeylGaugeTheory`Private`lCSymb,CouplingIndex->1];
 
-xAct`PSALTer`WeylGaugeTheory`Private`kXiSymb="\[Xi]";
-DefLagrangianCoupling[kXi,CouplingSymbol->xAct`PSALTer`WeylGaugeTheory`Private`kXiSymb];
+xAct`PSALTer`WeylGaugeTheory`Private`lTSymb="\[ScriptT]";
+DefLagrangianCoupling[lT1,
+	CouplingSymbol->xAct`PSALTer`WeylGaugeTheory`Private`lTSymb,CouplingIndex->1];
+DefLagrangianCoupling[lT2,
+	CouplingSymbol->xAct`PSALTer`WeylGaugeTheory`Private`lTSymb,CouplingIndex->2];
+DefLagrangianCoupling[lT3,
+	CouplingSymbol->xAct`PSALTer`WeylGaugeTheory`Private`lTSymb,CouplingIndex->3];
 
-xAct`PSALTer`WeylGaugeTheory`Private`kNuSymb="\[Nu]";
-DefLagrangianCoupling[kNu,CouplingSymbol->xAct`PSALTer`WeylGaugeTheory`Private`kNuSymb];
+xAct`PSALTer`WeylGaugeTheory`Private`lXiSymb="\[Xi]";
+DefLagrangianCoupling[lXi,CouplingSymbol->xAct`PSALTer`WeylGaugeTheory`Private`lXiSymb];
+
+xAct`PSALTer`WeylGaugeTheory`Private`lNuSymb="\[Nu]";
+DefLagrangianCoupling[lNu,CouplingSymbol->xAct`PSALTer`WeylGaugeTheory`Private`lNuSymb];
+
+(*Here is the Einstein Gauge for the compensator field*)
+DefLagrangianCoupling[lPhi0,
+	CouplingSymbol->xAct`PSALTer`WeylGaugeTheory`Private`CompensatorSymb,CouplingIndex->0];
 
 (*===================*)
 (*  Private context  *)
@@ -554,7 +563,7 @@ DefLagrangianCoupling[kNu,CouplingSymbol->xAct`PSALTer`WeylGaugeTheory`Private`k
 
 Begin["xAct`PSALTer`WeylGaugeTheory`Private`"];
 
-LagrangianCouplings={kLambda,kR1,kR2,kR3,kR4,kR5,kR6,kT1,kT2,kT3,kXi,kNu};
+LagrangianCouplings={lLambda,lR1,lR2,lR3,lR4,lR5,lC1,lT1,lT2,lT3,lXi,lNu,lPhi0};
 
 FieldSpinParityTensorHeads=<|
 		WeylVector-><|
