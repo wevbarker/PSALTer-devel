@@ -91,4 +91,4 @@ Which[
 ];
 	Cols//=Flatten;
 (*,ItemSize->All*)
-Grid[AllElements,Background->{None,None,Cols},Frame->{None,None,Frames},Alignment->{Center,Center,Alignments},ItemSize->Full]];
+Grid[Map[If[#==Null,Null,Text@#,Text@#]&,AllElements,{2}],Background->{None,None,Cols},Frame->{None,None,Frames},Alignment->{Center,Center,Alignments},ItemSize->Full]];

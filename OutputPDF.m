@@ -2,8 +2,50 @@
 (*  OutputPDF  *)
 (*=============*)
 
-<<xAct`xPlain`;
+Print@"hi";
 
+
+DetailColor=LightGreen;
+DetailCell[InputExpr_]:=Grid[{{Text@InputExpr}},
+			Background->DetailColor,
+			ItemSize->3*Floor@Sqrt@(Length@(Expand@InputExpr/.{Plus->List}))];
+
+Table[		
+	Theory=Total@Table[x^i,{i,0,NumTerms}];
+	Print@Theory;
+	Print@DetailCell[Theory];			
+			,
+	{NumTerms,1,100}];
+
+Quit[];
+
+TFunc[]:=xx;
+TFunc[a_,b_]:=a*b;
+
+Expr=TFunc[{}];
+Expr=TFunc@@{};
+Print@Expr;
+Expr=TFunc[2,4];
+Print@Expr;
+
+TestList={a,b,c,d,e,f,g};
+Print@TestList;
+TestList=Partition[TestList,UpTo@2];
+Print@TestList;
+TestList=Framed[Grid[{{a,b},{c,d}},Alignment->{Center,Top},	
+		Dividers->Center,
+		Background->LightBlue],Background->LightBlue,FrameStyle->Directive[LightBlue,Thickness[10]]];
+Print@TestList;
+Labl=Text@Style["Massive spectrum",FontSize->20,Bold];
+Print@Labl
+Labl=Text@Style["Massive spectrum",Large,Bold];
+Print@Labl
+
+TExpr="hereis some text";
+Expr=UnknownFunct@@TExpr;
+Print@Expr;
+
+Quit[];
 Comment@"We try to export a pdf of the output panel.";
 
 ParityEvenColor=RGBColor[255/255,204/255,204/255];

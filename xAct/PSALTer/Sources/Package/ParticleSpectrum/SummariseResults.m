@@ -4,6 +4,7 @@
 
 BuildPackage@"ParticleSpectrum/SummariseResults/ShowIfSmall.m";
 BuildPackage@"ParticleSpectrum/SummariseResults/Colours.m";
+BuildPackage@"ParticleSpectrum/SummariseResults/DetailCell.m";
 BuildPackage@"ParticleSpectrum/SummariseResults/MakeLabel.m";
 BuildPackage@"ParticleSpectrum/SummariseResults/WignerGrid.m";
 BuildPackage@"ParticleSpectrum/SummariseResults/RaggedBlock.m";
@@ -11,18 +12,13 @@ BuildPackage@"ParticleSpectrum/SummariseResults/PrintSourceConstraints.m";
 BuildPackage@"ParticleSpectrum/SummariseResults/ReMagnify.m";
 BuildPackage@"ParticleSpectrum/SummariseResults/ParallelGrid.m";
 BuildPackage@"ParticleSpectrum/SummariseResults/MonitorParallel.m";
-
-SummariseTheory[Theory_?StringQ]:=Theory;
-
-NotStringQ[InputExpr_]:=!StringQ@InputExpr;
-
-SummariseTheory[Theory_?NotStringQ]:=Module[{DisplayVersion},
-	DisplayVersion=(Action==Integrate@@({((CollectConstants@Theory))@@#}~Join~(#[[1;;4]]))&@{TCoordinate,XCoordinate,YCoordinate,ZCoordinate});
-	DisplayVersion//=Evaluate;
-DisplayVersion];
+BuildPackage@"ParticleSpectrum/SummariseResults/SummariseTheory.m";
+BuildPackage@"ParticleSpectrum/SummariseResults/PrintSpectrum.m";
+BuildPackage@"ParticleSpectrum/SummariseResults/PrintUnitarityConditions.m";
 
 SummariseResults[WaveOperator_,Propagator_,SourceConstraints_,Spectrum_,MasslessSpectrum_,OverallUnitarity_,SummaryOfTheory_]:=Module[{
 	Computing,
+	TheSummaryOfTheory,
 	TheWaveOperator,
 	ThePropagator,
 	TheSourceConstraints,
@@ -35,40 +31,29 @@ SummariseResults[WaveOperator_,Propagator_,SourceConstraints_,Spectrum_,Massless
 	Computing=Row[{ProgressIndicator[Appearance->"Necklace",ImageSize->Small],"Pending..."},Invisible@MakeLabel@"  ",Alignment->{Left,Center}];
 	FullWidth=First@Rasterize[Show[Graphics[Circle[]],ImageSize->Full],"RasterSize"];
 
+	TheSummaryOfTheory=SummariseTheory@SummaryOfTheory;
 	If[WaveOperator===Null,
 		TheWaveOperator=Computing,
-		(*TheWaveOperator=ReMagnify[WaveOperator]];*)
-		TheWaveOperator=WaveOperator];
+		TheWaveOperator=WignerGrid@@WaveOperator];
 	If[Propagator===Null,
 		ThePropagator=Computing,
-		(*ThePropagator=ReMagnify[Propagator]];*)
-		ThePropagator=Propagator];
+		ThePropagator=WignerGrid@@Propagator];
 	If[SourceConstraints===Null,
 		TheSourceConstraints=Computing,
-		If[SourceConstraints==={},
-			TheSourceConstraints="(None)",
-			(*TheSourceConstraints=ReMagnify[SourceConstraints]];*)
-			TheSourceConstraints=SourceConstraints];
-		];
+		TheSourceConstraints=PrintSourceConstraints@@SourceConstraints];
 	If[Spectrum===Null,
 		TheSpectrum=Computing,
-		(*TheSpectrum=ReMagnify[Spectrum]];*)
-		TheSpectrum=Spectrum];
+		TheSpectrum=PrintSpectrum@@Spectrum];
 	If[MasslessSpectrum===Null,
 		TheMasslessSpectrum=Computing,
-		(*TheMasslessSpectrum=ReMagnify[MasslessSpectrum]];*)
-		TheMasslessSpectrum=MasslessSpectrum];
+		TheMasslessSpectrum=PrintSpectrum@@MasslessSpectrum];
 	If[OverallUnitarity===Null,
 		TheOverallUnitarity=Computing,
-		If[OverallUnitarity===False,
-			TheOverallUnitarity="(Unitarity is demonstrably impossible)",
-			(*TheOverallUnitarity=ReMagnify[OverallUnitarity]];*)
-			TheOverallUnitarity=OverallUnitarity];
-	];
+		TheOverallUnitarity=DetailCell@@(PrintUnitarityConditions@OverallUnitarity)];
 
 	SummaryOfResults=Column[{
 		MakeLabel@"PSALTer results panel",
-		SummariseTheory@SummaryOfTheory,
+		TheSummaryOfTheory,
 		MakeLabel@"Wave operator",
 		TheWaveOperator,
 		MakeLabel@"Saturated propagator",
@@ -78,12 +63,12 @@ SummariseResults[WaveOperator_,Propagator_,SourceConstraints_,Spectrum_,Massless
 		MakeLabel@"Massive spectrum",
 		TheSpectrum,
 		MakeLabel@"Massless spectrum",
-		TheMasslessSpectrum,
+		TheMasslessSpectrum(*,
 		MakeLabel@"Gauge symmetries",
-		"(Not yet implemented in PSALTer)",
+		"(Not yet implemented in PSALTer)"*),
 		MakeLabel@"Unitarity conditions",
-		TheOverallUnitarity,
+		TheOverallUnitarity(*,
 		MakeLabel@"Validity assumptions",
-		"(Not yet implemented in PSALTer)"
-		},Spacings->{2,2},Frame->True,Background->PanelColor,Alignment->{Left,Center}];
+		"(Not yet implemented in PSALTer)"*)
+		},Spacings->{1,1},Frame->True,Background->PanelColor,Alignment->{Left,Center}];
 SummaryOfResults];

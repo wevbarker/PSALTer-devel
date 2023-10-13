@@ -46,25 +46,18 @@ BuildPSALTer[OptionsPattern[]]:=Module[{PrintVariable},
 			Print@" ** BuildPSALTer: A rebuild of the context binaries was requested by an edit to PSALTer.m...";
 			BuildRebuild["BuildPSALTer.m"];
 			SaveBinaryContexts[];
-			Print@" ** BuildPSALTer: The context binaries have been rebuilt, the kernel will
-			now quit. Please reload PSALTer.";
+			Print@" ** BuildPSALTer: The context binaries have been rebuilt, the kernel will now quit. Please reload PSALTer.";
 			Quit[];,
 
 			Check[
 
-				PrintVariable=PrintTemporary@" ** BuildPSALTer: Attempting to load PSALTer as usual
-				from context binaries...";
+				PrintVariable=PrintTemporary@" ** BuildPSALTer: Loading PSALTer from context binaries...";
 				LoadPSALTer[];,
 
-				Print@" ** BuildPSALTer: No suitable context binaries found, rebuilding them from
-				scratch. Don't worry: this should happen if it is your first time loading the
-				package from a fresh install! It is *very important* that PSALTer is installed to
-				a place where Mathematica has permissions to write files. For example on linux
-				this might be ~/.Mathematica/Applications/xAct/PSALTer/.";
+				Print@" ** BuildPSALTer: No suitable context binaries found, rebuilding them from scratch. Don't worry: this should happen if it is your first time loading the	package from a fresh install! It is *very important* that PSALTer is installed to a place where Mathematica has permissions to write files. For example on linux this might be ~/.Mathematica/Applications/xAct/PSALTer/.";
 				BuildRebuild["BuildPSALTer.m"];
 				SaveBinaryContexts[];
-				Print@" ** BuildPSALTer: The context binaries have been rebuilt, the kernel will
-				now quit. Please reload PSALTer.";
+				Print@" ** BuildPSALTer: The context binaries have been rebuilt, the kernel will now quit. Please reload PSALTer.";
 				Quit[];
 			];
 

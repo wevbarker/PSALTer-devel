@@ -4,10 +4,7 @@
 
 BuildPackage@"ParticleSpectrum/UpdateTheoryAssociation.m";
 BuildPackage@"ParticleSpectrum/PSALTerParallelSubmit.m";
-
 BuildPackage@"ParticleSpectrum/SummariseResults.m";
-BuildPackage@"ParticleSpectrum/ParticleSpectrumSummary.m";
-BuildPackage@"ParticleSpectrum/PrintSpectrum.m";
 
 BuildPackage@"ParticleSpectrum/ConstructLinearAction.m";
 BuildPackage@"ParticleSpectrum/ConstructWaveOperator.m";
