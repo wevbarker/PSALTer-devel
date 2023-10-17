@@ -613,7 +613,8 @@ SourceSpinParityTensorHeads=<|
 
 SourceEngineeringDimensions=<|
 		ConjugateSourceWeylVector->0,
-		ConjugateSourceCompensator->0,
+		(*This is 1 as we choose Einstein Gauge rescaling phi -> phi0(1+phi)*)
+		ConjugateSourceCompensator->1,
 		ConjugateSourceWeylRotationalGaugeField->0,
 		ConjugateSourceWeylTranslationalGaugeFieldPerturbation->1
 |>;
