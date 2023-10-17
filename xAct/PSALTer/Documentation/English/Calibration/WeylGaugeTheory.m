@@ -3,12 +3,14 @@
 (*===================*)
 (*  WeylGaugeTheory  *)
 (*===================*)
-
 Title@"Weyl gauge theory (WGT)";
-
 Supercomment@"We will test the WeylGaugeTheory module.";
-
 Supercomment@"This section is still under development by Zhiyuan.";
+
+(*====================================*)
+(*  Preamble: setting out the fields  *)
+(*====================================*)
+Section@"Preamble: setting out the fields";
 
 (*We will first load the tetrad and inverse tetrad.*)
 Comment@"We present the tetrad,";
@@ -41,11 +43,6 @@ WeylRTToHBFieldACDBFieldCDA=Join[
 	MakeRule[{WeylBaseT[a,-b,-c],(WeylTetrad[-b,i]WeylTetrad[-c,j])(CD[-i][WeylInvTetrad[a,-j]]-CD[-j][WeylInvTetrad[a,-i]]+WeylRotationalGaugeField[a,-k,-i]WeylInvTetrad[k,-j]-WeylRotationalGaugeField[a,-k,-j]WeylInvTetrad[k,-i])},MetricOn->All,ContractMetrics->True]
 ];
 
-(*====================*)
-(*  Most general WGT  *)
-(*====================*)
-Section@"Most general WGT";
-
 (*Here we load the files required to generate the Lagrangian*)
 Get@FileNameJoin@{NotebookDirectory[],"Calibration","WeylGaugeTheory","LagrangianLinWeylCouplings.m"};
 Get@FileNameJoin@{NotebookDirectory[],"Calibration","WeylGaugeTheory","LineariseLinWeyl.m"};
@@ -60,9 +57,14 @@ DisplayExpression[WeylH[-a,-b]/.xAct`PSALTer`LagrangianLinWeylCouplings`Private`
 Comment@"We expand the field strength CovD of Phi into the unstarred PGT quantities.";
 DisplayExpression[WeylCovariantDerivativeOnScalar[-i]/.xAct`PSALTer`LagrangianLinWeylCouplings`Private`WeylQuantitiesExpand//xAct`PSALTer`Private`ToNewCanonical//CollectTensors];
 
-(*Test case to see if problem is in my code or in PSALTer*)
-Comment@{"We see test case of the modified Einstein--Hilbert. This is because the PSALTer code does not seem to run. Here we directly use the E--H action instead of depending on Lin couplings. To check if issue is in Solve settings."};
+Supercomment@"Now we have defined all the fields we need.";
 
+(*============================*)
+(*  Test case 1: E--H action  *)
+(*============================*)
+Section@"Test case 1: E--H action.";
+(*
+(*Test case to check if issue was in Solve settings. *)
 TestEHLagrangian = (-lLambda*(Compensator[]^2)*WeylBaseR[a,b,-a,-b]);
 DisplayExpression@CollectTensors@ToCanonical[TestEHLagrangian];
 
@@ -76,23 +78,22 @@ Print@"Hi there, I'm sitting between Zhiyuan's code and Will's code! I use metho
 ParticleSpectrum[
 	LinearisedTestEHLagrangian,
 	ClassName->"WeylGaugeTheory",
-	TheoryName->"TestWGTwithEH",	
+	TheoryName->"TestWGTwithEHTestSolve",	
 	Method->"Hard",
 	MaxLaurentDepth->3
 ];
 
 Supercomment@"This marks the completion of the particle spectrum analysis for the modified E--H action. Here we directly use the E--H action instead of depending on Lin couplings.";
+*)
 
-(*Test case since the PSALTer code seems stuck.*)
-Comment@{"We see test case of the modified Einstein--Hilbert. This is because the PSALTer code does not seem to run."};
-
+Comment@"We test the case of the modified Einstein-Hilbert action, and the code will give only 2 propagating graviton modes.";
 TestCase={lR1==lR2==lR3==lR4==lR5==lC1==lXi==lNu==(lT1+lLambda)==(lT2-lLambda)==(lT3-lLambda)==0};
 Off[Solve::svars];
 TestCaseRules=First/@(Solve[#,{lLambda,lR1,lR2,lR3,lR4,lR5,lC1,lXi,lNu,lT1,lT2,lT3,lPhi0}]&/@TestCase);
 On[Solve::svars];
 
-DisplayExpression@CollectTensors@ToCanonical[(NonlinearLagrangianLinWeyl)/.TestCaseRules];
-LinearisedLagrangianLinWeyl=LineariseLagrangianLinWeyl[(NonlinearLagrangianLinWeyl)/.TestCaseRules];
+DisplayExpression@CollectTensors@ToCanonical[First@((NonlinearLagrangianLinWeyl)/.TestCaseRules)];
+LinearisedLagrangianLinWeyl=LineariseLagrangianLinWeyl[First@((NonlinearLagrangianLinWeyl)/.TestCaseRules)];
 
 Comment@{"Here is the linearised Lagrangian before feeding into ParticleSpectrum[]."};
 DisplayExpression@CollectTensors@ToCanonical[LinearisedLagrangianLinWeyl];
@@ -103,14 +104,75 @@ Print@"Hi there, I'm sitting between Zhiyuan's code and Will's code! I use metho
 ParticleSpectrum[
 	LinearisedLagrangianLinWeyl,
 	ClassName->"WeylGaugeTheory",
-	TheoryName->"TestWGTforF",	
+	TheoryName->"TestWGTwithEH",	
 	Method->"Hard",
 	MaxLaurentDepth->3
 ];
 
 Supercomment@"This marks the completion of the particle spectrum analysis for the modified E--H action.";
 
-(*
+(*=========================================================*)
+(*  Test case 2: E--H action with propagating compensator  *)
+(*=========================================================*)
+Section@"Test case 2: E--H action with propagating compensator.";
+Comment@"We test the case of the modified Einstein-Hilbert action, with propagating compensator.";
+
+TestCase2={lR1==lR2==lR3==lR4==lR5==lC1==lXi==(lT1+lLambda)==(lT2-lLambda)==(lT3-lLambda)==0};
+Off[Solve::svars];
+TestCase2Rules=First/@(Solve[#,{lLambda,lR1,lR2,lR3,lR4,lR5,lC1,lXi,lNu,lT1,lT2,lT3,lPhi0}]&/@TestCase2);
+On[Solve::svars];
+
+DisplayExpression@CollectTensors@ToCanonical[First@((NonlinearLagrangianLinWeyl)/.TestCase2Rules)];
+LinearisedLagrangianLinWeyl=LineariseLagrangianLinWeyl[First@((NonlinearLagrangianLinWeyl)/.TestCase2Rules)];
+Comment@{"Here is the linearised Lagrangian before feeding into ParticleSpectrum[]."};
+DisplayExpression@CollectTensors@ToCanonical[LinearisedLagrangianLinWeyl];
+
+(*Diagnostic line*)
+Print@"Hi there, I'm sitting between Zhiyuan's code and Will's code! I use method -> hard mode.";
+
+ParticleSpectrum[
+	LinearisedLagrangianLinWeyl,
+	ClassName->"WeylGaugeTheory",
+	TheoryName->"TestWGTwithEHwithPropagator",	
+	Method->"Hard",
+	MaxLaurentDepth->3
+];
+
+Supercomment@"This marks the completion of the particle spectrum analysis for the modified E--H action with propagating compensator.";
+
+(*=====================================================================*)
+(*  Test case 3: E--H action with propagating compensator and vector.  *)
+(*=====================================================================*)
+Section@"Test case 3: E--H action with propagating compensator and vector.";
+Comment@"We test the case of the modified Einstein-Hilbert action, with propagating compensator and vector B.";
+
+TestCase3={lR1==lR2==lR3==lR4==lR5==(lT1+lLambda)==(lT2-lLambda)==(lT3-lLambda)==0};
+Off[Solve::svars];
+TestCase3Rules=First/@(Solve[#,{lLambda,lR1,lR2,lR3,lR4,lR5,lC1,lXi,lNu,lT1,lT2,lT3,lPhi0}]&/@TestCase3);
+On[Solve::svars];
+
+DisplayExpression@CollectTensors@ToCanonical[First@((NonlinearLagrangianLinWeyl)/.TestCase3Rules)];
+LinearisedLagrangianLinWeyl=LineariseLagrangianLinWeyl[First@((NonlinearLagrangianLinWeyl)/.TestCase3Rules)];
+Comment@{"Here is the linearised Lagrangian before feeding into ParticleSpectrum[]."};
+DisplayExpression@CollectTensors@ToCanonical[LinearisedLagrangianLinWeyl];
+
+(*Diagnostic line*)
+Print@"Hi there, I'm sitting between Zhiyuan's code and Will's code! I use method -> hard mode.";
+
+ParticleSpectrum[
+	LinearisedLagrangianLinWeyl,
+	ClassName->"WeylGaugeTheory",
+	TheoryName->"TestWGTwithEHwithPropagatorVector",	
+	Method->"Hard",
+	MaxLaurentDepth->3
+];
+
+Supercomment@"This marks the completion of the particle spectrum analysis for the modified E--H action with propagating compensator and vector.";
+
+(*=====================*)
+(*  Most general WGT  *)
+(*=====================*)
+Section@"Most general WGT";
 Comment@{"We will study the most general WGT as defined in eqn 10 of Lin et. al. 2021, PHYS. REV. D 104, 024034."};
 
 DisplayExpression@CollectTensors@ToCanonical[NonlinearLagrangianLinWeyl];
@@ -120,22 +182,21 @@ Comment@{"Here is the linearised Lagrangian before feeding into ParticleSpectrum
 DisplayExpression@CollectTensors@ToCanonical[LinearisedLagrangianLinWeyl];
 
 (*Diagnostic line*)
-Print@"Hi there, I'm sitting between Zhiyuan's code and Will's code!";
+Print@"Hi there, I'm sitting between Zhiyuan's code and Will's code! Method -> Hard mode.";
 
 ParticleSpectrum[
 	LinearisedLagrangianLinWeyl,
 	ClassName->"WeylGaugeTheory",
 	TheoryName->"GeneralWGT",	
-	Method->"Easy",
+	Method->"Hard",
 	MaxLaurentDepth->3
 ];
 
 Supercomment@"This marks the completion of the particle spectrum analysis for the general WGT."
-*)
 
-(*=========================================*)
+(*=============================================*)
 (*  WGT critical cases from Lin et. al. 2021  *)
-(*=========================================*)
+(*=============================================*)
 
 (*
 Section@"Evaluating the critical cases of WGT";
