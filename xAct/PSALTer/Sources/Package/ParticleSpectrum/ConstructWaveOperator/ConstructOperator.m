@@ -23,6 +23,7 @@ ConstructOperator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 	LocalWaveOperator=" ** ConstructOperator...";
 	
 	CouplingAssumptions=(#~Element~Reals)&/@Couplings;
+	Diagnostic@CouplingAssumptions;
 	CouplingAssumptions~AppendTo~(xAct`PSALTer`Def~Element~Reals);
 
 	Class=Evaluate@Symbol@ClassName;
