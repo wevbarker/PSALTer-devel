@@ -38,8 +38,8 @@ Options[AutomaticRules]={Verbose->False};
 Protect@AutomaticRules;
 
 (*Global settings for PSALTer*)
-$DiagnosticMode=False;
-$MonitorParallel=False;
+$DiagnosticMode=True;
+$MonitorParallel=True;
 $ExportPDF=True;
 
 Comment@"Great, so PSALTer is now loaded and we can start to do some science.";
