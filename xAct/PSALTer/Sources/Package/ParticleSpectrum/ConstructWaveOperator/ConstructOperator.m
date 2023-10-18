@@ -24,6 +24,7 @@ ConstructOperator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 	
 	CouplingAssumptions=(#~Element~Reals)&/@Couplings;
 	Diagnostic@CouplingAssumptions;
+	Throw["h"];
 	CouplingAssumptions~AppendTo~(xAct`PSALTer`Def~Element~Reals);
 
 	Class=Evaluate@Symbol@ClassName;
