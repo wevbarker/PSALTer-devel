@@ -12,11 +12,6 @@ MasslessAnalysisOfTotal[RawMasslessPropagatorResidue,NullSpace_List]:=Module[{
 	LocalMasslessSpectrum=" ** MasslessAnalysisOfTotal...";
 
 	Diagnostic@MasslessPropagatorResidue;
-(*
-	MasslessPropagatorResidue//=Flatten;
-	MasslessPropagatorResidue//=Total;
-	MasslessPropagatorResidue//=Simplify;
-*)
 	MasslessPropagatorResidue//=Expand;
 	Diagnostic@MasslessPropagatorResidue;
 

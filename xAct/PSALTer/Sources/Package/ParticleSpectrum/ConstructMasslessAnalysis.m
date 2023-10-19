@@ -17,15 +17,13 @@ ConstructMasslessAnalysis[ClassName_?StringQ,ValuesOfSourceConstraints_,ValuesSa
 
 	LocalMasslessSpectrum=" ** ConstructMasslessAnalysis...";
 
-	Print@AbsoluteTime[];
-	ConstructLightconeTime=Timing@ConstructLightcone[ClassName,ValuesOfSourceConstraints];
-	Print@{"ConstructLightconeTime",First@ConstructLightconeTime};
+	Print@{"ConstructLightcone start",AbsoluteTime[]};
+	ConstructLightcone[ClassName,ValuesOfSourceConstraints];
+	Print@{"ConstructLightcone end",AbsoluteTime[]};
 
-	Print@AbsoluteTime[];
-	ConvertLightconeTime=Timing@ConvertLightcone[ClassName,ValuesSaturatedPropagator];
-	Print@{"ConvertLightconeTime",First@ConvertLightconeTime};
-
-	Print@AbsoluteTime[];
+	Print@{"ConvertLightcone start",AbsoluteTime[]};
+	ConvertLightcone[ClassName,ValuesSaturatedPropagator];
+	Print@{"ConvertLightcone end",AbsoluteTime[]};
 
 	MasslessPropagatorResidue=LightconePropagator;
 (*

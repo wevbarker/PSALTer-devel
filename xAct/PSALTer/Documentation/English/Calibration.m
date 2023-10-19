@@ -38,7 +38,7 @@ Options[AutomaticRules]={Verbose->False};
 Protect@AutomaticRules;
 
 (*Global settings for PSALTer*)
-$DiagnosticMode=False;
+$DiagnosticMode=True;
 $MonitorParallel=True;
 $ExportPDF=True;
 
