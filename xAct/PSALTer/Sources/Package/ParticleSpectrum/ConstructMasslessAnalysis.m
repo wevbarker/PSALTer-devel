@@ -28,13 +28,14 @@ ConstructMasslessAnalysis[ClassName_?StringQ,ValuesOfSourceConstraints_,ValuesSa
 	Print@AbsoluteTime[];
 
 	MasslessPropagatorResidue=LightconePropagator;
+(*
 	MasslessPropagatorResidue=MapThread[(xAct`PSALTer`Private`PSALTerParallelSubmit@(NullResidue[#1,#2]))&,
 	{LightconePropagator,
 	Map[(1)&,LightconePropagator,{2}]},
 	2];
 	MasslessPropagatorResidue=MonitorParallel@MasslessPropagatorResidue;
 	Diagnostic@MasslessPropagatorResidue;
-
+*)
 	MasslessAnalysis=MasslessAnalysisOfTotal[MasslessPropagatorResidue,UnscaledNullSpace];
 	Diagnostic@MasslessAnalysis;
 	MasslessAnalysisValue=MasslessAnalysis[[2]];	
