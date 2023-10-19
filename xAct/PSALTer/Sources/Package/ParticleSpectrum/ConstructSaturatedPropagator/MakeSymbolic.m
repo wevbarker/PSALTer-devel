@@ -14,7 +14,6 @@ MakeSymbolic[InputMatrix_,CouplingAssumptions_]:=Module[{
 	SymbolicMatrix=Table[0,{i,DimensionOfMatrix},{j,DimensionOfMatrix}];	
 	SymbolicRules={};
 
-	Print@"Here I am silly!";
 	Diagnostic@CouplingAssumptions;
 
 	ReplaceReal[i_,j_]:=Module[{RealPart,NewSymbol},	
