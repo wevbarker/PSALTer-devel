@@ -49,6 +49,6 @@ ExpressInLightcone[ClassName_?StringQ,RawSector_,SourceComponentsToFreeSourceVar
 	Sector//=Expand;
 
 	Sector=(If[Head@#===Plus,List@@#,List@#])&@(Sector);
-	Sector//=(#~PadRight~{Length@#,First@((Length/@#)~TakeLargest~1)})&;
+	Sector//=(#~PadRight~10000)&;
 
 Sector];
