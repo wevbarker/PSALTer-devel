@@ -48,7 +48,8 @@ ExpressInLightcone[ClassName_?StringQ,RawSector_,SourceComponentsToFreeSourceVar
 	Sector//=Together;
 
 	LocalMasslessSpectrum=" ** Imposing conserved sources...";
-	Sector=Sector/.SourceComponentsToFreeSourceVariables;
+	(*Sector=Sector/.SourceComponentsToFreeSourceVariables;*)
+	Sector=GradualExpand[CouplingAssumptions,Sector,SourceComponentsToFreeSourceVariables];
 	Sector//=Together;
 
 Sector];
