@@ -17,6 +17,8 @@ ConvertLightcone[ClassName_?StringQ,ValuesSaturatedPropagator_]:=Module[{
 	SaturatedPropagatorArray//=(#~PadRight~{Length@#,First@((Length/@#)~TakeLargest~1)})&;
 	Diagnostic@SaturatedPropagatorArray;
 
+	LocalMasslessSpectrum=" ** ExpressInLightcone...";
+
 	Print@{"ExpressInLightcone",AbsoluteTime[]};
 	LightconePropagator=MapThread[
 		(xAct`PSALTer`Private`PSALTerParallelSubmit@(ExpressInLightcone[ClassName,#1,#2]))&,
@@ -34,15 +36,19 @@ ConvertLightcone[ClassName_?StringQ,ValuesSaturatedPropagator_]:=Module[{
 	LightconePropagator//=Partition[#,UpTo@100]&;
 	LightconePropagator//=(Total/@#)&;
 
-	Print@{"MakeResidue",AbsoluteTime[]};
+	LocalMasslessSpectrum=" ** MakeResidue...";
+
+	Print@{"MakeResidue start",AbsoluteTime[]};
 	LightconePropagator=MapThread[
 		(xAct`PSALTer`Private`PSALTerParallelSubmit@(MakeResidue[ClassName,#1,#2]))&,
 		{LightconePropagator,
 		Map[((SourceComponentsToFreeSourceVariables)&),LightconePropagator]}];
 	LightconePropagator=MonitorParallel@LightconePropagator;
 	Diagnostic@LightconePropagator;
+	Print@{"MakeResidue end",AbsoluteTime[]};
 
-	Print@{"Total",AbsoluteTime[]};
+	Print@{"Total start",AbsoluteTime[]};
 	LightconePropagator//=Total;
 	LightconePropagator//=Expand;
+	Print@{"Total end",AbsoluteTime[]};
 ];
