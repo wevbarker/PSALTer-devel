@@ -45,10 +45,5 @@ ExpressInLightcone[ClassName_?StringQ,RawSector_,SourceComponentsToFreeSourceVar
 	(Sector=Sector/.xAct`xCoba`TensorValues[#])&/@(Dagger/@(Class@Sources));
 
 	Sector=Sector/.{Def->Sqrt[En^2-Mo^2]};
-	(*Sector//=Together;*)
 	Sector//=Expand;
-
-	Sector=(If[Head@#===Plus,List@@#,List@#])&@(Sector);
-	Sector//=(#~PadRight~10000)&;
-
 Sector];

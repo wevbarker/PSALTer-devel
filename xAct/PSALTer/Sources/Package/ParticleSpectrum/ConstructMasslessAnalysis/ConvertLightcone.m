@@ -3,7 +3,7 @@
 (*====================*)
 
 BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/ExpressInLightcone.m";
-BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/ConstrainInLightcone.m";
+BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/MakeResidue.m";
 
 ConvertLightcone[ClassName_?StringQ,ValuesSaturatedPropagator_]:=Module[{	
 	SaturatedPropagatorArray,
@@ -18,7 +18,6 @@ ConvertLightcone[ClassName_?StringQ,ValuesSaturatedPropagator_]:=Module[{
 	Diagnostic@SaturatedPropagatorArray;
 
 	Print@{"ExpressInLightcone",AbsoluteTime[]};
-
 	LightconePropagator=MapThread[
 		(xAct`PSALTer`Private`PSALTerParallelSubmit@(ExpressInLightcone[ClassName,#1,#2]))&,
 		{SaturatedPropagatorArray,
@@ -26,21 +25,24 @@ ConvertLightcone[ClassName_?StringQ,ValuesSaturatedPropagator_]:=Module[{
 	LightconePropagator=MonitorParallel@LightconePropagator;
 	Diagnostic@LightconePropagator;
 
-	Print@{"ConstrainInLightcone",AbsoluteTime[]};
+	Print@{"Flatten, Total, Expand",AbsoluteTime[]};
+	LightconePropagator//=Flatten;
+	LightconePropagator//=Total;
+	LightconePropagator//=Expand;
+	LightconePropagator=(If[Head@#===Plus,List@@#,List@#])&@(LightconePropagator);
+	Print["Length of the component form is:",Length@LightconePropagator];
+	LightconePropagator//=Partition[#,UpTo@100]&;
+	LightconePropagator//=(Total/@#)&;
 
+	Print@{"MakeResidue",AbsoluteTime[]};
 	LightconePropagator=MapThread[
-		(xAct`PSALTer`Private`PSALTerParallelSubmit@(ConstrainInLightcone[ClassName,#1,#2]))&,
+		(xAct`PSALTer`Private`PSALTerParallelSubmit@(MakeResidue[ClassName,#1,#2]))&,
 		{LightconePropagator,
-		Map[((SourceComponentsToFreeSourceVariables)&),LightconePropagator,{3}]},3];
+		Map[((SourceComponentsToFreeSourceVariables)&),LightconePropagator]}];
 	LightconePropagator=MonitorParallel@LightconePropagator;
 	Diagnostic@LightconePropagator;
 
 	Print@{"Total",AbsoluteTime[]};
-
-	LightconePropagator=MapThread[
-		(xAct`PSALTer`Private`PSALTerParallelSubmit@(Total[#1]))&,
-		{LightconePropagator,
-		Map[((SourceComponentsToFreeSourceVariables)&),LightconePropagator,{2}]},2];
-	LightconePropagator=MonitorParallel@LightconePropagator;
-	Diagnostic@LightconePropagator;
+	LightconePropagator//=Total;
+	LightconePropagator//=Expand;
 ];

@@ -7,9 +7,6 @@ ConstrainInLightcone[ClassName_?StringQ,RawSector_,SourceComponentsToFreeSourceV
 	Sector=RawSector},
 
 	LocalMasslessSpectrum=" ** Imposing conserved sources...";
-	(*Sector=Sector/.SourceComponentsToFreeSourceVariables;*)
-	Sector=GradualExpand[CouplingAssumptions,Sector,SourceComponentsToFreeSourceVariables];
-	(*Sector//=Together;*)
+	Sector//=GradualExpand[CouplingAssumptions,#,SourceComponentsToFreeSourceVariables]&;
 	Sector//=Expand;
-
 Sector];
