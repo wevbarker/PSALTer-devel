@@ -2,7 +2,7 @@
 (*  MasslessAnalysisOfTotal  *)
 (*===========================*)
 
-MasslessAnalysisOfTotal[RawMasslessPropagatorResidue_List,NullSpace_List]:=Module[{
+MasslessAnalysisOfTotal[RawMasslessPropagatorResidue,NullSpace_List]:=Module[{
 	MasslessPropagatorResidue=RawMasslessPropagatorResidue,
 	NullSpaceDimension,
 	FreeSourceVariables,
@@ -12,9 +12,12 @@ MasslessAnalysisOfTotal[RawMasslessPropagatorResidue_List,NullSpace_List]:=Modul
 	LocalMasslessSpectrum=" ** MasslessAnalysisOfTotal...";
 
 	Diagnostic@MasslessPropagatorResidue;
+(*
 	MasslessPropagatorResidue//=Flatten;
 	MasslessPropagatorResidue//=Total;
 	MasslessPropagatorResidue//=Simplify;
+*)
+	MasslessPropagatorResidue//=Expand;
 	Diagnostic@MasslessPropagatorResidue;
 
 	If[!(MasslessPropagatorResidue===0),
