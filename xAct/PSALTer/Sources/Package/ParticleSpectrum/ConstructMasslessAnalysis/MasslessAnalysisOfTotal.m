@@ -2,7 +2,7 @@
 (*  MasslessAnalysisOfTotal  *)
 (*===========================*)
 
-MasslessAnalysisOfTotal[RawMasslessPropagatorResidue,NullSpace_List]:=Module[{
+MasslessAnalysisOfTotal[RawMasslessPropagatorResidue_,NullSpace_List]:=Module[{
 	MasslessPropagatorResidue=RawMasslessPropagatorResidue,
 	NullSpaceDimension,
 	FreeSourceVariables,
