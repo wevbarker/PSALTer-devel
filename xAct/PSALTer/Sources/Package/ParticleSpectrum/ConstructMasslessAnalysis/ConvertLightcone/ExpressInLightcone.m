@@ -45,11 +45,13 @@ ExpressInLightcone[ClassName_?StringQ,RawSector_,SourceComponentsToFreeSourceVar
 	(Sector=Sector/.xAct`xCoba`TensorValues[#])&/@(Dagger/@(Class@Sources));
 
 	Sector=Sector/.{Def->Sqrt[En^2-Mo^2]};
-	Sector//=Together;
+	(*Sector//=Together;*)
+	Sector//=Expand;
 
 	LocalMasslessSpectrum=" ** Imposing conserved sources...";
 	(*Sector=Sector/.SourceComponentsToFreeSourceVariables;*)
 	Sector=GradualExpand[CouplingAssumptions,Sector,SourceComponentsToFreeSourceVariables];
-	Sector//=Together;
+	(*Sector//=Together;*)
+	Sector//=Expand;
 
 Sector];
