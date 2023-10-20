@@ -39,7 +39,7 @@ Protect@AutomaticRules;
 
 (*Global settings for PSALTer*)
 $DiagnosticMode=False;
-$MonitorParallel=True;
+$MonitorParallel=False;
 $ExportPDF=True;
 
 Comment@"Great, so PSALTer is now loaded and we can start to do some science.";
