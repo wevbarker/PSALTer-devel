@@ -14,7 +14,7 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{},
 	Print@Expr;
 ];
 
-CreateDirectory[FileNameJoin@{$WorkingDirectory,"tmp"}];
+CreateDirectory[FileNameJoin@{Directory[],"tmp"}];
 
 ParticleSpectrum[args,TheoryName->"ZTheory"];
 ParticleSpectrum[TheoryName->"ZTheory"];
