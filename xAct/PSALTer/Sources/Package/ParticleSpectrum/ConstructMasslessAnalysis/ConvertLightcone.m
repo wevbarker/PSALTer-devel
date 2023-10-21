@@ -20,7 +20,7 @@ ConvertLightcone[ClassName_?StringQ,ValuesSaturatedPropagator_]:=Module[{
 	SaturatedPropagatorArray//=(#~PadRight~{Length@#,First@((Length/@#)~TakeLargest~1)})&;
 	Diagnostic@SaturatedPropagatorArray;
 *)
-	LightconePropagator=SaturatedPropagatorArray;
+	LightconePropagator=ValuesSaturatedPropagator;
 
 	LocalMasslessSpectrum=" ** Repartition...";
 
