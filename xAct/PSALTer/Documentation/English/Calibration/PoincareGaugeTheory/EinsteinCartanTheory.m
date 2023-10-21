@@ -15,7 +15,7 @@ ParticleSpectrum[
 	LinearLagrangian,
 	ClassName->"PoincareGaugeTheory",
 	TheoryName->"EinsteinCartanTheory",	
-	Method->"Easy",
+	Method->"Hard",
 	MaxLaurentDepth->3
 ];
 Comment@{"What we find are no propagating massive modes, but instead two degrees of freedom in the massive sector. The no-ghost conditions on these massless d.o.f restrict the sign in front of the Einstein-Hilbert term to be negative (which is what we expect for our conventions). Note that this results is essentially the same as",Cref@"FierzPauliTheory","."};

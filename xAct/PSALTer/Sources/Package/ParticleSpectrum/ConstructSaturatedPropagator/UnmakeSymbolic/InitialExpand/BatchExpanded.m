@@ -20,7 +20,7 @@ BatchExpanded[InputExpr_,Prefix_,SymbolicRules_,MatrixElementFileName_]:=Module[
 	Expr={CouplingAssumptions,SymbolicRules,#}&/@Expr;
 	NumberOfSubTasks=Length@Expr;
 
-	Quiet@CreateDirectory[FileNameJoin@{NotebookDirectory[],"tmp"}];
+	Quiet@CreateDirectory[FileNameJoin@{$WorkingDirectory,"tmp"}];
 	NewFileNames=Table[
 		StringDrop[MatrixElementFileName,-3]<>Prefix<>ToString@SubTask<>".mx",
 				{SubTask,NumberOfSubTasks}];
