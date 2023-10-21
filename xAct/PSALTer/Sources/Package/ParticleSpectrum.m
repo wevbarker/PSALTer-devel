@@ -105,7 +105,7 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 			LocalOverallUnitarity,
 			LocalSummaryOfTheory}]];
 
-	Quiet@CreateDirectory[FileNameJoin@{$WorkingDirectory,"tmp"}];
+	Quiet@CreateDirectory@FileNameJoin@{$WorkingDirectory,"tmp"};
 
 	ConstructLinearAction[
 				OptionValue@ClassName,
@@ -199,7 +199,7 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 				PositiveSystemValue,
 				ExportTheory->False];
 
-	Quiet@DeleteDirectory[FileNameJoin@{$WorkingDirectory,"tmp"}];
+	Print@DeleteDirectory@FileNameJoin@{$WorkingDirectory,"tmp"};
 
 	FinishDynamic[];
 	NotebookDelete@SummariseResultsOngoing;
