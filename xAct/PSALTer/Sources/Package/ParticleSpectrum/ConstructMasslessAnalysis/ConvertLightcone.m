@@ -67,7 +67,7 @@ ConvertLightcone[ClassName_?StringQ,ValuesSaturatedPropagator_]:=Module[{
 	LocalMasslessSpectrum=" ** Repartition...";
 
 	Print@{"Repartition start",AbsoluteTime[]};
-	LightconePropagator//=Repartition[#,1000]&;
+	LightconePropagator//=Repartition[#,500]&;
 	Print@{"Repartition end",AbsoluteTime[]};
 
 	LocalMasslessSpectrum=" ** MakeResidue...";
