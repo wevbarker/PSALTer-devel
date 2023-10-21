@@ -192,6 +192,29 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 		Export[FileNameJoin@{$WorkingDirectory,OptionValue@TheoryName<>".pdf"},
 					SummaryOfResults]
 	];
+	MapThread[
+	UpdateTheoryAssociation[
+				OptionValue@TheoryName,
+				#1,
+				#2,
+				ExportTheory->False]&,
+	{{		
+		SavedWaveOperator,
+		SavedPropagator,
+		SavedSourceConstraints,
+		SavedSpectrum,
+		SavedMasslessSpectrum,
+		SavedOverallUnitarity,
+		SavedSummaryOfTheory},
+	{
+		LocalWaveOperator,
+		LocalPropagator,
+		LocalSourceConstraints,
+		LocalSpectrum,
+		LocalMasslessSpectrum,
+		LocalOverallUnitarity,
+		LocalSummaryOfTheory}}
+	];
 ];
 On[Set::write];
 On[SetDelayed::write];
