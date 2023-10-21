@@ -10,7 +10,7 @@ IntermediateRules[FirstIntermediateSymbolsToCouplingConstants_,Couplings_]:=Modu
 	SecondIntermediateSymbols,
 	SecondIntermediateSymbolsToCouplingConstants,
 	ReduceSecondIntermediateSymbols,
-	TotalExpr,
+	TotalExpr
 	},
 
 	LocalPropagator=" ** IntermediateRules...";

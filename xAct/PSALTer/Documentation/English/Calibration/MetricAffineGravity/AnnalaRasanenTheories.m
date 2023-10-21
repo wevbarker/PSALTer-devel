@@ -24,13 +24,13 @@ Comment@{"Now we linearize",Cref@"MetricAffineARNonlinearLagrangian","."};
 ARLinearLagrangian=Measure*ARNonlinearLagrangian//LineariseLagrangian;
 DisplayExpression[ARLinearLagrangian,EqnLabel->"MetricAffineARLinearLagrangian"];
 
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","MetricAffineGravity","AnnalaRasanenTheories",
+Get@FileNameJoin@{ThisDirectory[],"Calibration","MetricAffineGravity","AnnalaRasanenTheories",
 					"AnnalaRasanenCol1Row1.m"};
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","MetricAffineGravity","AnnalaRasanenTheories",
+Get@FileNameJoin@{ThisDirectory[],"Calibration","MetricAffineGravity","AnnalaRasanenTheories",
 					"AnnalaRasanenCol1Row2.m"};
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","MetricAffineGravity","AnnalaRasanenTheories",
+Get@FileNameJoin@{ThisDirectory[],"Calibration","MetricAffineGravity","AnnalaRasanenTheories",
 					"AnnalaRasanenCol1Row3.m"};
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","MetricAffineGravity","AnnalaRasanenTheories",
+Get@FileNameJoin@{ThisDirectory[],"Calibration","MetricAffineGravity","AnnalaRasanenTheories",
 					"AnnalaRasanenCol1Row4.m"};
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","MetricAffineGravity","AnnalaRasanenTheories",
+Get@FileNameJoin@{ThisDirectory[],"Calibration","MetricAffineGravity","AnnalaRasanenTheories",
 					"AnnalaRasanenCol1Row5.m"};

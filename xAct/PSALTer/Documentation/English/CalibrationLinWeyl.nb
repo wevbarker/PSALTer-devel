@@ -28,7 +28,7 @@ Cell[BoxData[{
    RowBox[{"FileNameJoin", "@", 
     RowBox[{"{", 
      RowBox[{
-      RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+      RowBox[{"ThisDirectory", "[", "]"}], ",", 
       "\"\<CalibrationLinWeyl.m\>\""}], "}"}]}]}], ";"}]}], "Input",
  CellChangeTimes->{{3.881335155853407*^9, 3.881335176405672*^9}, {
   3.8825943163826847`*^9, 3.882594319694297*^9}, {3.8860717540372334`*^9, 

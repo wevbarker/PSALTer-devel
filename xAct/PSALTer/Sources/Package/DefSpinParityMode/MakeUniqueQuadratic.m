@@ -8,7 +8,7 @@ MakeUniqueQuadratic[FieldSpinParityName_]:=Module[{
 	MultiTermSymmetry,
 	VanishingInvariant,
 	ReplacingExpression,
-	ReplacingWith,
+	ReplacingWith
 	},
 	If[!(MultiTermSymmetriesOf@FieldSpinParityName==={}),
 		MultiTermSymmetry=First@(MultiTermSymmetriesOf@FieldSpinParityName);

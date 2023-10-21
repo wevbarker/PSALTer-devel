@@ -4,9 +4,9 @@
 
 Section@"Power-counting renormalisable and unitary catalogue";
 
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory",
+Get@FileNameJoin@{ThisDirectory[],"Calibration","PoincareGaugeTheory",
 					"LinHobsonLasenbyTheories","CriticalCases.m"};
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory",
+Get@FileNameJoin@{ThisDirectory[],"Calibration","PoincareGaugeTheory",
 					"LinHobsonLasenbyTheories","Unitarity.m"};
 
 Off[Solve::svars];
@@ -15,7 +15,7 @@ On[Solve::svars];
 
 Comment@"We now evaluate the 58 theories in arXiv:1910.14197.";
 
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory",
+Get@FileNameJoin@{ThisDirectory[],"Calibration","PoincareGaugeTheory",
 					"LinHobsonLasenbyTheories","CalibrateCase.m"};
 
 CalibrationTimingData=MapThread[

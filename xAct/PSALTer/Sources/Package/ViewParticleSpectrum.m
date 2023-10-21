@@ -26,7 +26,7 @@ ViewParticleSpectrum[TheoryName_String,OptionsPattern[]]:=Module[{
 			Throw@Message[
 					ViewParticleSpectrum::nobin,
 					FileNameJoin@{$WorkingDirectory,TheoryName<>".thr.mx"}
-				];Quit[];];,
+				];Quit[];];
 	];
 
 	Theory=Evaluate@Symbol@TheoryName;
@@ -34,9 +34,10 @@ ViewParticleSpectrum[TheoryName_String,OptionsPattern[]]:=Module[{
 	(*-----------------------------------------------*)
 	(*  Present information about particle spectrum  *)
 	(*-----------------------------------------------*)
-
+(*
 	If[OptionValue[Literature],
 	];
+*)
 
 	Print@"The Lagrangian of the theory in momentum space, as described in
 	Eq. (18) of arXiv:1812.02675, with field operators linearised according to the

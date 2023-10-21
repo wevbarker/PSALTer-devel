@@ -6,7 +6,7 @@ BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/Expres
 BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/MakeResidue.m";
 
 ConvertLightcone[ClassName_?StringQ,ValuesSaturatedPropagator_]:=Module[{	
-	SaturatedPropagatorArray,
+	SaturatedPropagatorArray
 	},
 
 	LocalMasslessSpectrum=" ** ConvertLightcone...";
