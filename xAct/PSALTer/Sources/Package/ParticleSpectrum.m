@@ -106,6 +106,7 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 			LocalSummaryOfTheory}]];
 
 	CreateDirectory[FileNameJoin@{$WorkingDirectory,"tmp"}];
+	Print@FileNameJoin@{$WorkingDirectory,"tmp"};
 
 	ConstructLinearAction[
 				OptionValue@ClassName,
