@@ -37,9 +37,23 @@ Print["CopyRight \[Copyright] 2022, Will E. V. Barker, Stephanie Buttigieg, Carl
 (*  Modify the path to accommodate notebook and install directories  *)
 (*-------------------------------------------------------------------*)
 
-Quiet@If[NotebookDirectory[]==$Failed,$WorkingDirectory=Directory[];,$WorkingDirectory=NotebookDirectory[];,$WorkingDirectory=NotebookDirectory[];];
+Quiet@If[NotebookDirectory[]==$Failed,
+	$CLI=True,
+	$CLI=False,
+	$CLI=False];
+
+If[$CLI,
+	$WorkingDirectory=Directory[],
+	$WorkingDirectory=NotebookDirectory[]];
+
 $Path~AppendTo~$WorkingDirectory;
 $PSALTerInstallDirectory=Select[FileNameJoin[{#,"xAct/PSALTer"}]&/@$Path,DirectoryQ][[1]];
+
+If[$CLI,	
+	Print@Import@FileNameJoin@{$PSALTerInstallDirectory,
+				"Documentation","Logo","ASCIILogo.txt"},
+	Print@Magnify[Import@FileNameJoin@{$PSALTerInstallDirectory,
+				"Documentation","Logo","GitLabLogo.png"},0.3]];
 
 $DiagnosticMode=False;
 $MonitorParallel=False;
