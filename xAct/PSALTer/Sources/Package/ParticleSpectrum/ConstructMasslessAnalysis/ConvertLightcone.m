@@ -2,6 +2,9 @@
 (*  ConvertLightcone  *)
 (*====================*)
 
+BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/Repartition.m";
+BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/FullyExpandSources.m";
+BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/FullyCanonicalise.m";
 BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/ExpressInLightcone.m";
 BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/MakeResidue.m";
 
@@ -10,37 +13,74 @@ ConvertLightcone[ClassName_?StringQ,ValuesSaturatedPropagator_]:=Module[{
 	},
 
 	LocalMasslessSpectrum=" ** ConvertLightcone...";
-
+(*
 	SaturatedPropagatorArray=(If[Head@#===Plus,List@@#,List@#])&/@(ValuesSaturatedPropagator);
 	Diagnostic@SaturatedPropagatorArray;
 
 	SaturatedPropagatorArray//=(#~PadRight~{Length@#,First@((Length/@#)~TakeLargest~1)})&;
 	Diagnostic@SaturatedPropagatorArray;
+*)
+	LightconePropagator=SaturatedPropagatorArray;
+
+	LocalMasslessSpectrum=" ** Repartition...";
+
+	Print@{"Repartition start",AbsoluteTime[]};
+	LightconePropagator//=Repartition[#,1]&;
+	Print@{"Repartition end",AbsoluteTime[]};
+
+	LocalMasslessSpectrum=" ** FullyExpandSources...";
+
+	Print@{"FullyExpandSources start",AbsoluteTime[]};
+	LightconePropagator=Map[
+		(xAct`PSALTer`Private`PSALTerParallelSubmit@(FullyExpandSources[ClassName,#]))&,
+		LightconePropagator];
+	LightconePropagator=MonitorParallel@LightconePropagator;
+	Diagnostic@LightconePropagator;
+	Print@{"FullyExpandSources end",AbsoluteTime[]};
+
+	LocalMasslessSpectrum=" ** Repartition...";
+
+	Print@{"Repartition start",AbsoluteTime[]};
+	LightconePropagator//=Repartition[#,10]&;
+	Print@{"Repartition end",AbsoluteTime[]};
+
+	LocalMasslessSpectrum=" ** FullyCanonicalise...";
+
+	Print@{"FullyCanonicalise start",AbsoluteTime[]};
+	LightconePropagator=Map[
+		(xAct`PSALTer`Private`PSALTerParallelSubmit@(FullyCanonicalise[#]))&,
+		LightconePropagator];
+	LightconePropagator=MonitorParallel@LightconePropagator;
+	Diagnostic@LightconePropagator;
+	Print@{"FullyCanonicalise end",AbsoluteTime[]};
+
+	LocalMasslessSpectrum=" ** Repartition...";
+
+	Print@{"Repartition start",AbsoluteTime[]};
+	LightconePropagator//=Repartition[#,10]&;
+	Print@{"Repartition end",AbsoluteTime[]};
 
 	LocalMasslessSpectrum=" ** ExpressInLightcone...";
 
-	Print@{"ExpressInLightcone",AbsoluteTime[]};
-	LightconePropagator=MapThread[
-		(xAct`PSALTer`Private`PSALTerParallelSubmit@(ExpressInLightcone[ClassName,#1,#2]))&,
-		{SaturatedPropagatorArray,
-		Map[((SourceComponentsToFreeSourceVariables)&),SaturatedPropagatorArray,{2}]},2];
+	Print@{"ExpressInLightcone start",AbsoluteTime[]};
+	LightconePropagator=Map[
+		(xAct`PSALTer`Private`PSALTerParallelSubmit@(ExpressInLightcone[ClassName,#]))&,
+		LightconePropagator];
 	LightconePropagator=MonitorParallel@LightconePropagator;
 	Diagnostic@LightconePropagator;
+	Print@{"ExpressInLightcone end",AbsoluteTime[]};
 
-	Print@{"Flatten, Total, Expand",AbsoluteTime[]};
-	LightconePropagator//=Flatten;
-	LightconePropagator//=Total;
-	LightconePropagator//=Expand;
-	LightconePropagator=(If[Head@#===Plus,List@@#,List@#])&@(LightconePropagator);
-	Print["Length of the component form is:",Length@LightconePropagator];
-	LightconePropagator//=Partition[#,UpTo@100]&;
-	LightconePropagator//=(Total/@#)&;
+	LocalMasslessSpectrum=" ** Repartition...";
+
+	Print@{"Repartition start",AbsoluteTime[]};
+	LightconePropagator//=Repartition[#,30]&;
+	Print@{"Repartition end",AbsoluteTime[]};
 
 	LocalMasslessSpectrum=" ** MakeResidue...";
 
 	Print@{"MakeResidue start",AbsoluteTime[]};
 	LightconePropagator=MapThread[
-		(xAct`PSALTer`Private`PSALTerParallelSubmit@(MakeResidue[ClassName,#1,#2]))&,
+		(xAct`PSALTer`Private`PSALTerParallelSubmit@(MakeResidue[#1,#2]))&,
 		{LightconePropagator,
 		Map[((SourceComponentsToFreeSourceVariables)&),LightconePropagator]}];
 	LightconePropagator=MonitorParallel@LightconePropagator;
@@ -52,3 +92,13 @@ ConvertLightcone[ClassName_?StringQ,ValuesSaturatedPropagator_]:=Module[{
 	LightconePropagator//=Expand;
 	Print@{"Total end",AbsoluteTime[]};
 ];
+(*
+	Print@{"ExpressInLightcone start",AbsoluteTime[]};
+	LightconePropagator=MapThread[
+		(xAct`PSALTer`Private`PSALTerParallelSubmit@(ExpressInLightcone[ClassName,#1,#2]))&,
+		{SaturatedPropagatorArray,
+		Map[((SourceComponentsToFreeSourceVariables)&),SaturatedPropagatorArray,{2}]},2];
+	LightconePropagator=MonitorParallel@LightconePropagator;
+	Diagnostic@LightconePropagator;
+	Print@{"ExpressInLightcone end",AbsoluteTime[]};
+*)

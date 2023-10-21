@@ -2,11 +2,9 @@
 (*  ConstrainInLightcone  *)
 (*========================*)
 
-ConstrainInLightcone[ClassName_?StringQ,RawSector_,SourceComponentsToFreeSourceVariables_List]:=Module[{
-	Class,
+ConstrainInLightcone[RawSector_,SourceComponentsToFreeSourceVariables_List]:=Module[{
 	Sector=RawSector},
 
-	LocalMasslessSpectrum=" ** Imposing conserved sources...";
 	Sector//=GradualExpand[CouplingAssumptions,#,SourceComponentsToFreeSourceVariables]&;
 	Sector//=Expand;
 Sector];
