@@ -2,7 +2,7 @@
 (*  Calibration  *)
 (*===============*)
 
-$ThisDirectory=If[NotebookDirectory[]==$Failed,Directory[],NotebookDirectory[]];
+$ThisDirectory=If[NotebookDirectory[]==$Failed,Directory[],NotebookDirectory[],NotebookDirectory[]];
 
 <<xAct`xPlain`;
 
