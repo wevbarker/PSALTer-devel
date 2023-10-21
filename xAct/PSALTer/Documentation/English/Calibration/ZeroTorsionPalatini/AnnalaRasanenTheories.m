@@ -27,13 +27,13 @@ Comment@{"Now we linearize",Cref@"ZeroTorsionARNonlinearLagrangian","."};
 ARLinearLagrangian=Measure*ARNonlinearLagrangian//LineariseLagrangian;
 DisplayExpression[ARLinearLagrangian,EqnLabel->"ZeroTorsionARLinearLagrangian"];
 
-Get@FileNameJoin@{ThisDirectory[],"Calibration","ZeroTorsionPalatini","AnnalaRasanenTheories",
+Get@FileNameJoin@{$ThisDirectory,"Calibration","ZeroTorsionPalatini","AnnalaRasanenTheories",
 					"AnnalaRasanenCol3Row1.m"};
-Get@FileNameJoin@{ThisDirectory[],"Calibration","ZeroTorsionPalatini","AnnalaRasanenTheories",
+Get@FileNameJoin@{$ThisDirectory,"Calibration","ZeroTorsionPalatini","AnnalaRasanenTheories",
 					"AnnalaRasanenCol3Row2.m"};
-Get@FileNameJoin@{ThisDirectory[],"Calibration","ZeroTorsionPalatini","AnnalaRasanenTheories",
+Get@FileNameJoin@{$ThisDirectory,"Calibration","ZeroTorsionPalatini","AnnalaRasanenTheories",
 					"AnnalaRasanenCol3Row3.m"};
-Get@FileNameJoin@{ThisDirectory[],"Calibration","ZeroTorsionPalatini","AnnalaRasanenTheories",
+Get@FileNameJoin@{$ThisDirectory,"Calibration","ZeroTorsionPalatini","AnnalaRasanenTheories",
 					"AnnalaRasanenCol3Row4.m"};
 
 Title@"Summary of results.";

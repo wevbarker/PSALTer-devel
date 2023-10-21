@@ -44,8 +44,8 @@ WeylRTToHBFieldACDBFieldCDA=Join[
 ];
 
 (*Here we load the files required to generate the Lagrangian*)
-Get@FileNameJoin@{ThisDirectory[],"Calibration","WeylGaugeTheory","LagrangianLinWeylCouplings.m"};
-Get@FileNameJoin@{ThisDirectory[],"Calibration","WeylGaugeTheory","LineariseLinWeyl.m"};
+Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheory","LagrangianLinWeylCouplings.m"};
+Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheory","LineariseLinWeyl.m"};
 
 Comment@"We expand the field strength R into the unstarred PGT quantities.";
 DisplayExpression[WeylBaseR[a, b, -d, -e]/.WeylRTToHBFieldACDBFieldCDA//xAct`PSALTer`Private`ToNewCanonical//CollectTensors];
@@ -202,15 +202,15 @@ Supercomment@"This marks the completion of the particle spectrum analysis for th
 Section@"Evaluating the critical cases of WGT";
 
 (*Here we load the required files for the critical cases analysis*)
-Get@FileNameJoin@{ThisDirectory[],"Calibration","WeylGaugeTheory","CriticalCasesLinWeyl.m"};
-Get@FileNameJoin@{ThisDirectory[],"Calibration","WeylGaugeTheory","UnitarityLinWeyl.m"};
+Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheory","CriticalCasesLinWeyl.m"};
+Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheory","UnitarityLinWeyl.m"};
 
 Off[Solve::svars];
 CriticalCasesSolutionsLinWeyl=First/@(Solve[#,{lLambda,lR1,lR2,lR3,lR4,lR5,lC1,lXi,lNu,lT1,lT2,lT3,lPhi0}]&/@CriticalCasesLinWeyl);
 On[Solve::svars];
 
 Comment@"We are now ready to check that PSALTer is getting the physics right by running it on the WGT cases in Lin et. al. 2021. We are looking at cases 1-13 here.";
-Get@FileNameJoin@{ThisDirectory[],"Calibration","WeylGaugeTheory","CalibrateCaseLinWeyl.m"};
+Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheory","CalibrateCaseLinWeyl.m"};
 CalibrationTimingDataLinWeyl=MapThread[
 		AbsoluteTiming@CalibrateCaseLinWeyl[#1,#2,#3]&,
 		{
@@ -226,4 +226,4 @@ Comment@"Computation complete; all the cases have been evaluated. You can see fr
 DisplayExpression@CalibrationTimingDataLinWeyl;
 *)
 
-(*DumpSave[FileNameJoin@{ThisDirectory[],"CalibrationTimingDataLinWeyl.mx"},{CalibrationTimingDataLinWeyl}];*)
+(*DumpSave[FileNameJoin@{$ThisDirectory,"CalibrationTimingDataLinWeyl.mx"},{CalibrationTimingDataLinWeyl}];*)

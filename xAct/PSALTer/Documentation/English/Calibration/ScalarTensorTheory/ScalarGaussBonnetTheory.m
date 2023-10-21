@@ -30,17 +30,17 @@ Comment@"Finally a rescaling of the kinetic term coefficient of the scalar.";
 DisplayExpression[{xAct`PSALTer`ScalarTensorTheory`Coupling2->xAct`PSALTer`ScalarTensorTheory`Coupling2*Phi0^(-(Pw+2))},EqnLabel->"Phi0Rescale"];
 
 Comment@{"So in summary, if we impose",Cref@{"Coupling5Rescale","Coupling6Rescale","Coupling7Rescale","PhiRescale","Phi0Rescale"}," on the linearised lagrangian, we can get it into the following form."};
-LinearisedLagrangian=Get@FileNameJoin@{ThisDirectory[],"Calibration","ScalarTensorTheory","ScalarGaussBonnetTheory","GeneralLambda.txt"};
+LinearisedLagrangian=Get@FileNameJoin@{$ThisDirectory,"Calibration","ScalarTensorTheory","ScalarGaussBonnetTheory","GeneralLambda.txt"};
 LinearisedLagrangian//=ToCanonical;
 LinearisedLagrangian//=CollectTensors;
 DisplayExpression[LinearisedLagrangian,EqnLabel->"QuoteGeneralCase"];
 GeneralLinearisedLagrangian=LinearisedLagrangian;
 
-Get@FileNameJoin@{ThisDirectory[],"Calibration","ScalarTensorTheory",
+Get@FileNameJoin@{$ThisDirectory,"Calibration","ScalarTensorTheory",
 				"ScalarGaussBonnetTheory","GeneralLambda1.m"};
-Get@FileNameJoin@{ThisDirectory[],"Calibration","ScalarTensorTheory",
+Get@FileNameJoin@{$ThisDirectory,"Calibration","ScalarTensorTheory",
 				"ScalarGaussBonnetTheory","GeneralLambda2.m"};
-Get@FileNameJoin@{ThisDirectory[],"Calibration","ScalarTensorTheory",
+Get@FileNameJoin@{$ThisDirectory,"Calibration","ScalarTensorTheory",
 				"ScalarGaussBonnetTheory","GeneralLambda3.m"};
 
 Comment@"So if we change the PECT parameter, we change the formulae for masses and residues, but the physics of the spectrum is unchanged. That looks promising. The point here is that without tuning the quadratic sector to be GB, the spectrum is not good.";
@@ -55,11 +55,11 @@ ImposeGaussBonnet={
 		xAct`PSALTer`ScalarTensorTheory`Coupling5};
 DisplayExpression@ImposeGaussBonnet;
 
-Get@FileNameJoin@{ThisDirectory[],"Calibration","ScalarTensorTheory",
+Get@FileNameJoin@{$ThisDirectory,"Calibration","ScalarTensorTheory",
 				"ScalarGaussBonnetTheory","SpecialLambda1.m"};
-Get@FileNameJoin@{ThisDirectory[],"Calibration","ScalarTensorTheory",
+Get@FileNameJoin@{$ThisDirectory,"Calibration","ScalarTensorTheory",
 				"ScalarGaussBonnetTheory","SpecialLambda2.m"};
-Get@FileNameJoin@{ThisDirectory[],"Calibration","ScalarTensorTheory",
+Get@FileNameJoin@{$ThisDirectory,"Calibration","ScalarTensorTheory",
 				"ScalarGaussBonnetTheory","SpecialLambda3.m"};
 
 Comment@"So with GB tuning the spectrum is healthy, up to some nuances over the couplings. I don't have time to translate these back from alphas into the original constants, but I suspect it will be possible to track down the precise form of the unitarity conditions in terms of the PECT parameter.";

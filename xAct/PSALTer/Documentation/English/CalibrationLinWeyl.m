@@ -38,13 +38,13 @@ $MonitorParallel=False;
 
 Comment@"Great, so PSALTer is now loaded and we can start to do some science.";
 
-(*Get@FileNameJoin@{ThisDirectory[],"CalibrationTools","ScalarTheory.m"};
-Get@FileNameJoin@{ThisDirectory[],"CalibrationTools","VectorTheory.m"};
-Get@FileNameJoin@{ThisDirectory[],"CalibrationTools","TensorTheory.m"};
-Get@FileNameJoin@{ThisDirectory[],"CalibrationTools","PoincareGaugeTheory.m"};*)
-Get@FileNameJoin@{ThisDirectory[],"Calibration","WeylGaugeTheory.m"};
-(*Get@FileNameJoin@{ThisDirectory[],"CalibrationTools","MetricAffineGaugeTheory.m"};*)
-(*Get@FileNameJoin@{ThisDirectory[],"Calibration","ErrorMessages.m"};*)
+(*Get@FileNameJoin@{$ThisDirectory,"CalibrationTools","ScalarTheory.m"};
+Get@FileNameJoin@{$ThisDirectory,"CalibrationTools","VectorTheory.m"};
+Get@FileNameJoin@{$ThisDirectory,"CalibrationTools","TensorTheory.m"};
+Get@FileNameJoin@{$ThisDirectory,"CalibrationTools","PoincareGaugeTheory.m"};*)
+Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheory.m"};
+(*Get@FileNameJoin@{$ThisDirectory,"CalibrationTools","MetricAffineGaugeTheory.m"};*)
+(*Get@FileNameJoin@{$ThisDirectory,"Calibration","ErrorMessages.m"};*)
 
 Supercomment@"We have now reached the end of the PSALTer calibration script.";
 
