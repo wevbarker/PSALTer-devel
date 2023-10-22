@@ -92,7 +92,7 @@ ConvertLightcone[ClassName_?StringQ,ValuesSaturatedPropagator_]:=Module[{
 
 	Print@{"NullResidue start",AbsoluteTime[]};
 	LightconePropagator=Map[
-		(xAct`PSALTer`Private`PSALTerParallelSubmit@(NullResidue[#]))&,
+		(xAct`PSALTer`Private`PSALTerParallelSubmit@(NullResidue[#,1]))&,
 		LightconePropagator];
 	LightconePropagator=MonitorParallel@LightconePropagator;
 	Diagnostic@LightconePropagator;
