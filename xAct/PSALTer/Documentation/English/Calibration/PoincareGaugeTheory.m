@@ -60,8 +60,12 @@ BasicCriticalCases={
 Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory",
 					"GeneralPGT.m"};
 *)
+(*
 Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory",
 					"EinsteinCartanTheory.m"};
+*)
+Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory",
+					"AsymmetricPartanenTulkkiTheory.m"};
 (*
 Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory",
 					"GeneralRelativity.m"};
