@@ -6,7 +6,8 @@ BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/Repart
 BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/FullyExpandSources.m";
 BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/FullyCanonicalise.m";
 BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/ExpressInLightcone.m";
-BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/MakeResidue.m";
+BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/ConstrainInLightcone.m";
+BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/NullResidue.m";
 
 ConvertLightcone[ClassName_?StringQ,ValuesSaturatedPropagator_]:=Module[{	
 	SaturatedPropagatorArray
@@ -70,16 +71,32 @@ ConvertLightcone[ClassName_?StringQ,ValuesSaturatedPropagator_]:=Module[{
 	LightconePropagator//=Repartition[#,200]&;
 	Print@{"Repartition end",AbsoluteTime[]};
 
-	LocalMasslessSpectrum=" ** MakeResidue...";
+	LocalMasslessSpectrum=" ** ConstrainInLightcone...";
 
-	Print@{"MakeResidue start",AbsoluteTime[]};
+	Print@{"ConstrainInLightcone start",AbsoluteTime[]};
 	LightconePropagator=MapThread[
-		(xAct`PSALTer`Private`PSALTerParallelSubmit@(MakeResidue[#1,#2]))&,
+		(xAct`PSALTer`Private`PSALTerParallelSubmit@(ConstrainInLightcone[#1,#2]))&,
 		{LightconePropagator,
 		Map[((SourceComponentsToFreeSourceVariables)&),LightconePropagator]}];
 	LightconePropagator=MonitorParallel@LightconePropagator;
 	Diagnostic@LightconePropagator;
-	Print@{"MakeResidue end",AbsoluteTime[]};
+	Print@{"ConstrainInLightcone end",AbsoluteTime[]};
+
+	LocalMasslessSpectrum=" ** Repartition...";
+
+	Print@{"Repartition start",AbsoluteTime[]};
+	LightconePropagator//=Repartition[#,200]&;
+	Print@{"Repartition end",AbsoluteTime[]};
+
+	LocalMasslessSpectrum=" ** NullResidue...";
+
+	Print@{"NullResidue start",AbsoluteTime[]};
+	LightconePropagator=Map[
+		(xAct`PSALTer`Private`PSALTerParallelSubmit@(NullResidue[#]))&,
+		LightconePropagator];
+	LightconePropagator=MonitorParallel@LightconePropagator;
+	Diagnostic@LightconePropagator;
+	Print@{"NullResidue end",AbsoluteTime[]};
 
 	Print@{"Total start",AbsoluteTime[]};
 	LightconePropagator//=Total;
