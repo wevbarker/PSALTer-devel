@@ -16,6 +16,7 @@ MasslessAnalysisOfTotal[ValuesNumeratorFreeSourceCoefficientMatrix_]:=Module[{
 	If[LeafLength<=500,Expr=InputExpr,Expr="(Hidden for brevity)"];
 *)
 	SecularEquation=(Det@(#-PoleResidue*IdentityMatrix@Length@#))&@NumeratorFreeSourceCoefficientMatrix;
+	SecularEquation//=FullSimplify;
 	Print@SecularEquation;
 
 {NumeratorFreeSourceEigenvalues,SecularEquation}];
