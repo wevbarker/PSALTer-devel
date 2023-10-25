@@ -2,12 +2,16 @@
 (*  Repartition  *)
 (*===============*)
 
-Repartition[InputExpr_List,PartitionLength_Integer]:=Module[{
+Options@Repartition={
+	ExpandAll->True
+	};
+
+Repartition[InputExpr_List,PartitionLength_Integer,OptionsPattern[]]:=Module[{
 	Expr=InputExpr},
 
 	Expr//=Flatten;
 	Expr//=Total;
-	Expr//=Expand;
+	If[OptionValue@ExpandAll,Expr//=Expand];
 	Expr=(If[Head@#===Plus,List@@#,List@#])&@(Expr);
 	Expr//=Flatten;
 	Expr//=RandomSample;

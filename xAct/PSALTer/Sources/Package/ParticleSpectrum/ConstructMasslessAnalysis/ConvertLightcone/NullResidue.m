@@ -7,7 +7,7 @@ NullResidue[LightconePropagator_,LaurentDepth_]:=Module[{
 	MasslessPropagaorResidue},
 
 	MasslessPropagaor//=Together;
-	MasslessPropagaor//=Simplify;
+	(*MasslessPropagaor//=Simplify;*)
 	MasslessPropagaorResidue=((2*Mo)^LaurentDepth)*Residue[MasslessPropagaor*((En-Mo)^(LaurentDepth-1)),{En,Mo}]//Simplify;
 	MasslessPropagaorResidue//=Expand;
 MasslessPropagaorResidue];

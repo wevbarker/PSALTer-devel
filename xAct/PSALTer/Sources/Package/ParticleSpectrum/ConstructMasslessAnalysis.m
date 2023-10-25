@@ -4,7 +4,6 @@
 
 BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConstructLightcone.m";
 BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone.m";
-BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/MasslessAnalysisOfTotal.m";
 
 Options@ConstructMasslessAnalysis={
 	MaxLaurentDepth->1
@@ -22,10 +21,12 @@ ConstructMasslessAnalysis[ClassName_?StringQ,ValuesOfSourceConstraints_,ValuesSa
 	Print@{"ConstructLightcone end",AbsoluteTime[]};
 
 	Print@{"ConvertLightcone start",AbsoluteTime[]};
-	ConvertLightcone[ClassName,ValuesSaturatedPropagator];
+	ConvertLightcone[ClassName,ValuesSaturatedPropagator,UnscaledNullSpace];
 	Print@{"ConvertLightcone end",AbsoluteTime[]};
 
-	MasslessPropagatorResidue=LightconePropagator;
+	{MasslessAnalysisValue,SecularEquation}=LightconePropagator;
+	Diagnostic@MasslessAnalysisValue;
+	Diagnostic@SecularEquation;
 (*
 	MasslessPropagatorResidue=MapThread[(xAct`PSALTer`Private`PSALTerParallelSubmit@(NullResidue[#1,#2]))&,
 	{LightconePropagator,
@@ -34,10 +35,11 @@ ConstructMasslessAnalysis[ClassName_?StringQ,ValuesOfSourceConstraints_,ValuesSa
 	MasslessPropagatorResidue=MonitorParallel@MasslessPropagatorResidue;
 	Diagnostic@MasslessPropagatorResidue;
 *)
+(*
 	MasslessAnalysis=MasslessAnalysisOfTotal[MasslessPropagatorResidue,UnscaledNullSpace];
 	Diagnostic@MasslessAnalysis;
 	MasslessAnalysisValue=MasslessAnalysis[[2]];	
-
+*)
 (*
 	If[(OptionValue@MaxLaurentDepth)>1,
 	MasslessPropagatorResidue=MapThread[(xAct`PSALTer`Private`PSALTerParallelSubmit@(NullResidue[#1,#2]))&,
@@ -69,5 +71,9 @@ ConstructMasslessAnalysis[ClassName_?StringQ,ValuesOfSourceConstraints_,ValuesSa
 *)
 	QuarticAnalysisValue={};
 	HexicAnalysisValue={};
-	LocalMasslessSpectrum={{},{},MasslessAnalysisValue,QuarticAnalysisValue,HexicAnalysisValue};
+	LocalMasslessSpectrum={{},{},
+		First@MasslessAnalysisValue,
+		QuarticAnalysisValue,
+		HexicAnalysisValue,
+		{SecularEquation}};
 ];

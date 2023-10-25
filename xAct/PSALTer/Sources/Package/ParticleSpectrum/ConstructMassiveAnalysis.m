@@ -79,5 +79,6 @@ ConstructMassiveAnalysis[ClassName_?StringQ,ValuesSaturatedPropagator_,ValuesInv
 
 	Diagnostic@MassiveAnalysis;
 
-	LocalSpectrum={MassiveAnalysis,MassiveGhostAnalysis,{},{},{}};
+	LocalSpectrum={MassiveAnalysis,
+			MassiveGhostAnalysis,{},{},{},{}};
 ];

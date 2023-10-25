@@ -185,7 +185,7 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 				ConstraintComponentList,
 				ExportTheory->False];
 
-
+(*
 	ConstructUnitarityConditions[
 				OptionValue@ClassName,
 				MassiveAnalysis,
@@ -198,6 +198,7 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 				PositiveSystem,
 				PositiveSystemValue,
 				ExportTheory->False];
+*)
 
 	Print@DeleteDirectory[FileNameJoin@{$WorkingDirectory,"tmp"},DeleteContents->True];
 
@@ -212,10 +213,12 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 		LocalOverallUnitarity,
 		LocalSummaryOfTheory];
 	Print@SummaryOfResults;
+(*
 	If[$ExportPDF,
 		Export[FileNameJoin@{$WorkingDirectory,OptionValue@TheoryName<>".pdf"},
 					SummaryOfResults]
 	];
+*)
 	MapThread[
 	UpdateTheoryAssociation[
 				OptionValue@TheoryName,

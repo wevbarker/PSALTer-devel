@@ -75,7 +75,6 @@ Print[xAct`xCore`Private`bars]];
 
 ParticleSpectrum::usage="ParticleSpectrum[TheoryName,Expr,Tensor1,Tensor2,...,Options] performs the whole propagator analysis on a scalar Lagrangian Expr, which is quadratic in the given perturbed fields whose xTensor heads are Tensor1 and Tensor2 into its Fourier form. 
 Both Expr and at least one field must be provided. Do not include indices in the fields, just list the xTensor heads (i.e. the tensor names). If these names do not correspond to gauge field perturbations that are already known to PSALTer, an error will be thrown. The string TheoryName must not contain spaces, it will be converted to a symbol set to an association which contains the results of the analysis, and (if the option Export->True is passed) it will be used to construct the file \"TheoryName.thr.mx\".";
-ViewParticleSpectrum::usage="ViewParticleSpectrum[TheoryName] displays the results of the analysis.";
 ClassName::usage="ClassName is a mandatory option for ParticleSpectrum which identifies the theory class to which the linearised Lagrangian belongs. The option must be passed as the (string) name of a defined theory class.";
 TheoryName::usage="TheoryName is a mandatory option for ParticleSpectrum which associates a name with the linearised Lagrangian. The option must be passed as a (string) name of the new theory.";
 MaxLaurentDepth::usage="MaxLaurentDepth is an option for ParticleSpectrum which sets the maximum positive integer n for which the 1/k^(2n) null pole residues are requested. The default is 1, from which the massless spectrum can be obtained. Setting higher n naturally leads to longer runtimes, but also allows potential (pathological) higher-order/non-simple propagator poles to be identified, down to the requested depth.";
@@ -127,7 +126,6 @@ BuildRebuild[FileName_String]:=Get[FileNameJoin@{$PSALTerInstallDirectory,"Sourc
 BuildPSALTerPackage[]:=BuildPackage/@{
 	"BuildPSALTer.m",
 	"ParticleSpectrum.m",
-	"ViewParticleSpectrum.m",
 	"DefSpinParityMode.m",
 	"DefLagrangianCoupling.m",
 	"DefClass.m",
