@@ -1,0 +1,22 @@
+(*==================================*)
+(*  AsymmetricPartanenTulkkiTheory  *)
+(*==================================*)
+
+Section@"Partanen-Tulkki gravity";
+
+Comment@"We now examine the theory proposed in arXiv:2310.01460.";
+LinearisedLagrangian=-(1/(8*xAct`PSALTer`AsymmetricTensorTheory`EinsteinConstant))*(
+	(CD[-m]@LinearMetric[-r,-n]-CD[-n]@LinearMetric[-r,-m])*
+	(CD[m]@LinearMetric[r,n]-CD[n]@LinearMetric[r,m])
+);
+DisplayExpression[LinearisedLagrangian,EqnLabel->"AsymmetricPartanenTulkkiTheory"];
+LinearisedLagrangian//=ToCanonical;
+LinearisedLagrangian//=CollectTensors;
+ParticleSpectrum[
+	LinearisedLagrangian,
+	ClassName->"AsymmetricTensorTheory",
+	TheoryName->"AsymmetricPartanenTulkkiTheory",
+	Method->"Easy",
+	MaxLaurentDepth->3
+];
+Comment@{"Some comment about",Cref@"AsymmetricPartanenTulkkiTheory","."};
