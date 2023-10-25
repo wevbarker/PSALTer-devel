@@ -163,7 +163,7 @@ DefLagrangianCoupling[Coupling2,
 	CouplingSymbol->xAct`PSALTer`SymmetricTensorTheory`Private`CouplingSymb,CouplingIndex->2];
 DefLagrangianCoupling[Coupling3,
 	CouplingSymbol->xAct`PSALTer`SymmetricTensorTheory`Private`CouplingSymb,CouplingIndex->3];
-DefLagrangianCoupling[EinsteinConstant,
+DefLagrangianCoupling[xAct`PSALTer`SymmetricTensorTheory`EinsteinConstant,
 	CouplingSymbol->"\[Kappa]"];
 
 (*================================================*)

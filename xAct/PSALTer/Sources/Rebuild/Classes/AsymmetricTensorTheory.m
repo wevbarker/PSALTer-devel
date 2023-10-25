@@ -8,11 +8,11 @@ BeginPackage["xAct`PSALTer`AsymmetricTensorTheory`",{"xAct`xTensor`","xAct`xPerm
 (*  Basic definitions of gauge fields and their conjugate sources  *)
 (*=================================================================*)
 
-xAct`PSALTer`AsymmetricTensorTheory`Private`FSymb="\[Psi]";
-DefTensor[F[-i,-j],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`FSymb],Dagger->Complex];
+xAct`PSALTer`AsymmetricTensorTheory`Private`AsymmetricFSymb="\[Psi]";
+DefTensor[AsymmetricF[-i,-j],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`AsymmetricFSymb],Dagger->Complex];
 
-xAct`PSALTer`AsymmetricTensorTheory`Private`TauSymb="\[ScriptCapitalT]";
-DefTensor[Tau[-i,-j],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`TauSymb],Dagger->Complex];
+xAct`PSALTer`AsymmetricTensorTheory`Private`AsymmetricTauSymb="\[ScriptCapitalT]";
+DefTensor[AsymmetricTau[-i,-j],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`AsymmetricTauSymb],Dagger->Complex];
 
 (*==============*)
 (*  Projectors  *)
@@ -35,39 +35,33 @@ xAct`PSALTer`AsymmetricTensorTheory`Private`ProjPerpParaToVG=Join[
 (*  Field perpendicular and parallel  *)
 (*====================================*)
 
-DefTensor[ProjAPerp[-a,-b,d,e,f],M4];
-DefTensor[ProjAPara[-a,-b,-c,d,e,f],M4];
-DefTensor[ProjFPerp[-a,d,e],M4];
-DefTensor[ProjFPara[-a,-b,d,e],M4];
+DefTensor[ProjAsymmetricFPerp[-a,d,e],M4];
+DefTensor[ProjAsymmetricFPara[-a,-b,d,e],M4];
 
 xAct`PSALTer`AsymmetricTensorTheory`Private`ProjFAPerpParaToVG=Join[
-	MakeRule[{ProjAPerp[-a,-b,d,e,f],Evaluate[
-		V[d]ProjPara[-a,e]G[-b,f]/.xAct`PSALTer`AsymmetricTensorTheory`Private`ProjPerpParaToVG//ToCanonical]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{ProjAPara[-a,-b,-c,d,e,f],Evaluate[
-		ProjPara[-a,d]ProjPara[-b,e]G[-c,f]/.xAct`PSALTer`AsymmetricTensorTheory`Private`ProjPerpParaToVG//ToCanonical]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{ProjFPerp[-a,d,e],Evaluate[
+	MakeRule[{ProjAsymmetricFPerp[-a,d,e],Evaluate[
 		V[d]G[-a,e]/.xAct`PSALTer`AsymmetricTensorTheory`Private`ProjPerpParaToVG//ToCanonical]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{ProjFPara[-a,-b,d,e],Evaluate[
+	MakeRule[{ProjAsymmetricFPara[-a,-b,d,e],Evaluate[
 		ProjPara[-a,d]G[-b,e]/.xAct`PSALTer`AsymmetricTensorTheory`Private`ProjPerpParaToVG//ToCanonical]},MetricOn->All,ContractMetrics->True]];
 
 (*==============================*)
 (*  Spin-parity or SO(3) parts  *)
 (*==============================*)
 
-xAct`PSALTer`AsymmetricTensorTheory`Private`ProjFSymb="\!\(\*SubscriptBox[OverscriptBox[\(\[ScriptCapitalP]\),\(\[Hacek]\)],\(\[ScriptB]\)]\)";
-DefTensor[ProjF0p[c,d],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`ProjFSymb,xAct`PSALTer`Private`Spin0p]];
-DefTensor[ProjF1p[-a,-b,c,d],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`ProjFSymb,xAct`PSALTer`Private`Spin1p]];
-DefTensor[ProjF2p[-a,-b,c,d],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`ProjFSymb,xAct`PSALTer`Private`Spin2p]];
-DefTensor[ProjF1m[-a,d],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`ProjFSymb,xAct`PSALTer`Private`Spin1m]];
+xAct`PSALTer`AsymmetricTensorTheory`Private`ProjAsymmetricFSymb="\!\(\*SubscriptBox[OverscriptBox[\(\[ScriptCapitalP]\),\(\[Hacek]\)],\(\[ScriptB]\)]\)";
+DefTensor[ProjAsymmetricF0p[c,d],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`ProjAsymmetricFSymb,xAct`PSALTer`Private`Spin0p]];
+DefTensor[ProjAsymmetricF1p[-a,-b,c,d],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`ProjAsymmetricFSymb,xAct`PSALTer`Private`Spin1p]];
+DefTensor[ProjAsymmetricF2p[-a,-b,c,d],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`ProjAsymmetricFSymb,xAct`PSALTer`Private`Spin2p]];
+DefTensor[ProjAsymmetricF1m[-a,d],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`ProjAsymmetricFSymb,xAct`PSALTer`Private`Spin1m]];
 
 xAct`PSALTer`AsymmetricTensorTheory`Private`ProjFASpinParityToVG=Join[
-	MakeRule[{ProjF0p[c,d],Evaluate[
+	MakeRule[{ProjAsymmetricF0p[c,d],Evaluate[
 		ProjPara[c,-k]ProjPara[d,-l]G[k,l]/.xAct`PSALTer`AsymmetricTensorTheory`Private`ProjPerpParaToVG//ToCanonical]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{ProjF1p[-a,-b,c,d],Evaluate[
+	MakeRule[{ProjAsymmetricF1p[-a,-b,c,d],Evaluate[
 		ProjPara[-a,i]ProjPara[-b,j]ProjPara[c,-k]ProjPara[d,-l]Antisymmetrize[G[-i,k]G[-j,l],{-i,-j}]/.xAct`PSALTer`AsymmetricTensorTheory`Private`ProjPerpParaToVG//ToCanonical]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{ProjF1m[-a,d],Evaluate[
+	MakeRule[{ProjAsymmetricF1m[-a,d],Evaluate[
 		ProjPara[d,-j]ProjPara[-a,i]G[-i,j]/.xAct`PSALTer`AsymmetricTensorTheory`Private`ProjPerpParaToVG//ToCanonical]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{ProjF2p[-a,-b,c,d],Evaluate[
+	MakeRule[{ProjAsymmetricF2p[-a,-b,c,d],Evaluate[
 		ProjPara[-a,i]ProjPara[-b,j]ProjPara[c,-k]ProjPara[d,-l](Symmetrize[G[-i,k]G[-j,l],{-i,-j}]-(1/3)G[-i,-j]G[k,l])/.xAct`PSALTer`AsymmetricTensorTheory`Private`ProjPerpParaToVG//ToCanonical]},MetricOn->All,ContractMetrics->True]];
 
 (*==================*)
@@ -79,44 +73,44 @@ xAct`PSALTer`AsymmetricTensorTheory`Private`ProjFASpinParityToVG=Join[
 (*====================================*)
 
 xAct`PSALTer`AsymmetricTensorTheory`Private`FParaSymb="\!\(\*SuperscriptBox[\(\[Psi]\),\(\[DoubleVerticalBar]\)]\)";
-DefTensor[FPara[-a,-b],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`FParaSymb],OrthogonalTo->{V[b]},Dagger->Complex];
+DefTensor[AsymmetricFPara[-a,-b],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`FParaSymb],OrthogonalTo->{V[b]},Dagger->Complex];
 xAct`PSALTer`AsymmetricTensorTheory`Private`FPerpSymb="\!\(\*SuperscriptBox[\(\[Psi]\),\(\[UpTee]\)]\)";
-DefTensor[FPerp[-a],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`FPerpSymb],Dagger->Complex];
+DefTensor[AsymmetricFPerp[-a],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`FPerpSymb],Dagger->Complex];
 
 xAct`PSALTer`AsymmetricTensorTheory`Private`FAToFAPerpPara=Join[
-	MakeRule[{F[-a,-b],Evaluate[FPara[-a,-b]+V[-b]FPerp[-a]]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@F[-a,-b],Evaluate[Dagger@(FPara[-a,-b]+V[-b]FPerp[-a])]},MetricOn->All,ContractMetrics->True]];
+	MakeRule[{AsymmetricF[-a,-b],Evaluate[AsymmetricFPara[-a,-b]+V[-b]AsymmetricFPerp[-a]]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@AsymmetricF[-a,-b],Evaluate[Dagger@(AsymmetricFPara[-a,-b]+V[-b]AsymmetricFPerp[-a])]},MetricOn->All,ContractMetrics->True]];
 
 xAct`PSALTer`AsymmetricTensorTheory`Private`FAPerpParaToFA=Join[
-	MakeRule[{FPara[-a,-b],Evaluate[
-		ProjPara[-b,c]F[-a,-c]/.xAct`PSALTer`AsymmetricTensorTheory`Private`ProjPerpParaToVG]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{FPerp[-a],Evaluate[
-		V[c]F[-a,-c]]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@FPara[-a,-b],Evaluate[Dagger@(
-		ProjPara[-b,c]F[-a,-c]/.xAct`PSALTer`AsymmetricTensorTheory`Private`ProjPerpParaToVG)]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@FPerp[-a],Evaluate[Dagger@(
-		V[c]F[-a,-c])]},MetricOn->All,ContractMetrics->True]];
+	MakeRule[{AsymmetricFPara[-a,-b],Evaluate[
+		ProjPara[-b,c]AsymmetricF[-a,-c]/.xAct`PSALTer`AsymmetricTensorTheory`Private`ProjPerpParaToVG]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{AsymmetricFPerp[-a],Evaluate[
+		V[c]AsymmetricF[-a,-c]]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@AsymmetricFPara[-a,-b],Evaluate[Dagger@(
+		ProjPara[-b,c]AsymmetricF[-a,-c]/.xAct`PSALTer`AsymmetricTensorTheory`Private`ProjPerpParaToVG)]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@AsymmetricFPerp[-a],Evaluate[Dagger@(
+		V[c]AsymmetricF[-a,-c])]},MetricOn->All,ContractMetrics->True]];
 
-xAct`PSALTer`AsymmetricTensorTheory`Private`TauParaSymb="\!\(\*SuperscriptBox[\(\[ScriptCapitalT]\),\(\[DoubleVerticalBar]\)]\)";
-DefTensor[TauPara[-a,-b],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`TauParaSymb],OrthogonalTo->{V[b]},Dagger->Complex];
-xAct`PSALTer`AsymmetricTensorTheory`Private`TauPerpSymb="\!\(\*SuperscriptBox[\(\[ScriptCapitalT]\),\(\[UpTee]\)]\)";
-DefTensor[TauPerp[-a],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`TauPerpSymb],Dagger->Complex];
+xAct`PSALTer`AsymmetricTensorTheory`Private`AsymmetricTauParaSymb="\!\(\*SuperscriptBox[\(\[ScriptCapitalT]\),\(\[DoubleVerticalBar]\)]\)";
+DefTensor[AsymmetricTauPara[-a,-b],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`AsymmetricTauParaSymb],OrthogonalTo->{V[b]},Dagger->Complex];
+xAct`PSALTer`AsymmetricTensorTheory`Private`AsymmetricTauPerpSymb="\!\(\*SuperscriptBox[\(\[ScriptCapitalT]\),\(\[UpTee]\)]\)";
+DefTensor[AsymmetricTauPerp[-a],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`AsymmetricTauPerpSymb],Dagger->Complex];
 
-xAct`PSALTer`AsymmetricTensorTheory`Private`TauSigmaToTauSigmaPerpPara=Join[
-	MakeRule[{Tau[-a,-b],Evaluate[
-		TauPara[-a,-b]+V[-b]TauPerp[-a]]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@Tau[-a,-b],Evaluate[Dagger@(	
-		TauPara[-a,-b]+V[-b]TauPerp[-a])]},MetricOn->All,ContractMetrics->True]];
+xAct`PSALTer`AsymmetricTensorTheory`Private`AsymmetricTauSigmaToAsymmetricTauSigmaPerpPara=Join[
+	MakeRule[{AsymmetricTau[-a,-b],Evaluate[
+		AsymmetricTauPara[-a,-b]+V[-b]AsymmetricTauPerp[-a]]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@AsymmetricTau[-a,-b],Evaluate[Dagger@(	
+		AsymmetricTauPara[-a,-b]+V[-b]AsymmetricTauPerp[-a])]},MetricOn->All,ContractMetrics->True]];
 
-xAct`PSALTer`AsymmetricTensorTheory`Private`TauSigmaPerpParaToTauSigma=Join[
-	MakeRule[{TauPara[-a,-b],Evaluate[	
-		ProjPara[-b,c]Tau[-a,-c]/.xAct`PSALTer`AsymmetricTensorTheory`Private`ProjPerpParaToVG]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{TauPerp[-a],Evaluate[
-		V[c]Tau[-a,-c]]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@TauPara[-a,-b],Evaluate[Dagger@(
-		ProjPara[-b,c]Tau[-a,-c]/.xAct`PSALTer`AsymmetricTensorTheory`Private`ProjPerpParaToVG)]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@TauPerp[-a],Evaluate[Dagger@(
-		V[c]Tau[-a,-c])]},MetricOn->All,ContractMetrics->True]];
+xAct`PSALTer`AsymmetricTensorTheory`Private`AsymmetricTauSigmaPerpParaToAsymmetricTauSigma=Join[
+	MakeRule[{AsymmetricTauPara[-a,-b],Evaluate[	
+		ProjPara[-b,c]AsymmetricTau[-a,-c]/.xAct`PSALTer`AsymmetricTensorTheory`Private`ProjPerpParaToVG]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{AsymmetricTauPerp[-a],Evaluate[
+		V[c]AsymmetricTau[-a,-c]]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@AsymmetricTauPara[-a,-b],Evaluate[Dagger@(
+		ProjPara[-b,c]AsymmetricTau[-a,-c]/.xAct`PSALTer`AsymmetricTensorTheory`Private`ProjPerpParaToVG)]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@AsymmetricTauPerp[-a],Evaluate[Dagger@(
+		V[c]AsymmetricTau[-a,-c])]},MetricOn->All,ContractMetrics->True]];
 
 (*==============================*)
 (*  Spin-parity or SO(3) parts  *)
@@ -135,17 +129,17 @@ xAct`PSALTer`AsymmetricTensorTheory`Private`ManualAll=MakeRule[{Evaluate@Dagger@
 
 AutomaticRules[FPara2p,MakeRule[{FPara2p[a,-a],0},MetricOn->All,ContractMetrics->True]];
 
-DefTensor[TauPara0p[],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`TauParaSymb,xAct`PSALTer`Private`Spin0p],Dagger->Complex];
-DefTensor[TauPara1p[-a,-b],M4,Antisymmetric[{-a,-b}],PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`TauParaSymb,xAct`PSALTer`Private`Spin1p],OrthogonalTo->{V[a],V[b]},Dagger->Complex];
-DefTensor[TauPara1m[-a],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`TauParaSymb,xAct`PSALTer`Private`Spin1m],OrthogonalTo->{V[a]},Dagger->Complex];
-DefTensor[TauPara2p[-a,-b],M4,Symmetric[{-a,-b}],PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`TauParaSymb,xAct`PSALTer`Private`Spin2p],OrthogonalTo->{V[a],V[b]},Dagger->Complex];
+DefTensor[AsymmetricTauPara0p[],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`AsymmetricTauParaSymb,xAct`PSALTer`Private`Spin0p],Dagger->Complex];
+DefTensor[AsymmetricTauPara1p[-a,-b],M4,Antisymmetric[{-a,-b}],PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`AsymmetricTauParaSymb,xAct`PSALTer`Private`Spin1p],OrthogonalTo->{V[a],V[b]},Dagger->Complex];
+DefTensor[AsymmetricTauPara1m[-a],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`AsymmetricTauParaSymb,xAct`PSALTer`Private`Spin1m],OrthogonalTo->{V[a]},Dagger->Complex];
+DefTensor[AsymmetricTauPara2p[-a,-b],M4,Symmetric[{-a,-b}],PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`AsymmetricTauParaSymb,xAct`PSALTer`Private`Spin2p],OrthogonalTo->{V[a],V[b]},Dagger->Complex];
 
-AutomaticRules[TauPara2p,MakeRule[{Evaluate@Dagger@TauPara2p[a,-a],0},MetricOn->All,ContractMetrics->True]];
+AutomaticRules[AsymmetricTauPara2p,MakeRule[{Evaluate@Dagger@AsymmetricTauPara2p[a,-a],0},MetricOn->All,ContractMetrics->True]];
 
 xAct`PSALTer`AsymmetricTensorTheory`Private`ManualAll=Join[xAct`PSALTer`AsymmetricTensorTheory`Private`ManualAll,
-	MakeRule[{Evaluate@Dagger@TauPara2p[a,-a],0},MetricOn->All,ContractMetrics->True]];
+	MakeRule[{Evaluate@Dagger@AsymmetricTauPara2p[a,-a],0},MetricOn->All,ContractMetrics->True]];
 
-AutomaticRules[TauPara2p,MakeRule[{TauPara2p[a,-a],0},MetricOn->All,ContractMetrics->True]];
+AutomaticRules[AsymmetricTauPara2p,MakeRule[{AsymmetricTauPara2p[a,-a],0},MetricOn->All,ContractMetrics->True]];
 
 (*==============*)
 (*  Expansions  *)
@@ -153,101 +147,101 @@ AutomaticRules[TauPara2p,MakeRule[{TauPara2p[a,-a],0},MetricOn->All,ContractMetr
 
 xAct`PSALTer`AsymmetricTensorTheory`Private`FAParaSpinParityToFA=Join[
 	MakeRule[{FPara0p[],Scalar[Evaluate[
-		ProjF0p[e,f]ProjFPara[-e,-f,a,c]FPara[-a,-c]]]},MetricOn->All,ContractMetrics->True],
+		ProjAsymmetricF0p[e,f]ProjAsymmetricFPara[-e,-f,a,c]AsymmetricFPara[-a,-c]]]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{FPara1p[-n,-m],Evaluate[
-		ProjF1p[-n,-m,e,f]ProjFPara[-e,-f,a,c]FPara[-a,-c]]},MetricOn->All,ContractMetrics->True],
+		ProjAsymmetricF1p[-n,-m,e,f]ProjAsymmetricFPara[-e,-f,a,c]AsymmetricFPara[-a,-c]]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{FPara1m[-n],Evaluate[
-		ProjF1m[-n,f]ProjFPerp[-f,a,c]FPara[-a,-c]]},MetricOn->All,ContractMetrics->True],
+		ProjAsymmetricF1m[-n,f]ProjAsymmetricFPerp[-f,a,c]AsymmetricFPara[-a,-c]]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{FPara2p[-n,-m],Evaluate[
-		ProjF2p[-n,-m,e,f]ProjFPara[-e,-f,a,c]FPara[-a,-c]]},MetricOn->All,ContractMetrics->True],
+		ProjAsymmetricF2p[-n,-m,e,f]ProjAsymmetricFPara[-e,-f,a,c]AsymmetricFPara[-a,-c]]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{Evaluate@Dagger@FPara0p[],Scalar[Evaluate[Dagger@(
-		ProjF0p[e,f]ProjFPara[-e,-f,a,c]FPara[-a,-c])]]},MetricOn->All,ContractMetrics->True],
+		ProjAsymmetricF0p[e,f]ProjAsymmetricFPara[-e,-f,a,c]AsymmetricFPara[-a,-c])]]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{Evaluate@Dagger@FPara1p[-n,-m],Evaluate[Dagger@(
-		ProjF1p[-n,-m,e,f]ProjFPara[-e,-f,a,c]FPara[-a,-c])]},MetricOn->All,ContractMetrics->True],
+		ProjAsymmetricF1p[-n,-m,e,f]ProjAsymmetricFPara[-e,-f,a,c]AsymmetricFPara[-a,-c])]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{Evaluate@Dagger@FPara1m[-n],Evaluate[Dagger@(
-		ProjF1m[-n,f]ProjFPerp[-f,a,c]FPara[-a,-c])]},MetricOn->All,ContractMetrics->True],
+		ProjAsymmetricF1m[-n,f]ProjAsymmetricFPerp[-f,a,c]AsymmetricFPara[-a,-c])]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{Evaluate@Dagger@FPara2p[-n,-m],Evaluate[Dagger@(
-		ProjF2p[-n,-m,e,f]ProjFPara[-e,-f,a,c]FPara[-a,-c])]},MetricOn->All,ContractMetrics->True]];
+		ProjAsymmetricF2p[-n,-m,e,f]ProjAsymmetricFPara[-e,-f,a,c]AsymmetricFPara[-a,-c])]},MetricOn->All,ContractMetrics->True]];
 
 DefTensor[FPerp0p[],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`FPerpSymb,xAct`PSALTer`Private`Spin0p],Dagger->Complex];
 DefTensor[FPerp1m[-a],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`FPerpSymb,xAct`PSALTer`Private`Spin1m],OrthogonalTo->{V[a]},Dagger->Complex];
 
 xAct`PSALTer`AsymmetricTensorTheory`Private`FAPerpSpinParityToFA=Join[
 	MakeRule[{FPerp0p[],Scalar[Evaluate[
-		V[a]FPerp[-a]]]},MetricOn->All,ContractMetrics->True],
+		V[a]AsymmetricFPerp[-a]]]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{FPerp1m[-n],Evaluate[
-		ProjPara[-n,a]FPerp[-a]]},MetricOn->All,ContractMetrics->True],
+		ProjPara[-n,a]AsymmetricFPerp[-a]]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{Evaluate@Dagger@FPerp0p[],Scalar[Evaluate[Dagger@(
-		V[a]FPerp[-a])]]},MetricOn->All,ContractMetrics->True],
+		V[a]AsymmetricFPerp[-a])]]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{Evaluate@Dagger@FPerp1m[-n],Evaluate[Dagger@(
-		ProjPara[-n,a]FPerp[-a])]},MetricOn->All,ContractMetrics->True]];
+		ProjPara[-n,a]AsymmetricFPerp[-a])]},MetricOn->All,ContractMetrics->True]];
 
-xAct`PSALTer`AsymmetricTensorTheory`Private`TauSigmaParaSpinParityToTauSigma=Join[
-	MakeRule[{TauPara0p[],Scalar[Evaluate[
-		ProjF0p[e,f]ProjFPara[-e,-f,a,c]TauPara[-a,-c]]]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{TauPara1p[-n,-m],Evaluate[
-		ProjF1p[-n,-m,e,f]ProjFPara[-e,-f,a,c]TauPara[-a,-c]]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{TauPara1m[-n],Evaluate[
-		ProjF1m[-n,f]ProjFPerp[-f,a,c]TauPara[-a,-c]]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{TauPara2p[-n,-m],Evaluate[
-		ProjF2p[-n,-m,e,f]ProjFPara[-e,-f,a,c]TauPara[-a,-c]]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@TauPara0p[],Scalar[Evaluate[Dagger@(
-		ProjF0p[e,f]ProjFPara[-e,-f,a,c]TauPara[-a,-c])]]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@TauPara1p[-n,-m],Evaluate[Dagger@(
-		ProjF1p[-n,-m,e,f]ProjFPara[-e,-f,a,c]TauPara[-a,-c])]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@TauPara1m[-n],Evaluate[Dagger@(
-		ProjF1m[-n,f]ProjFPerp[-f,a,c]TauPara[-a,-c])]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@TauPara2p[-n,-m],Evaluate[Dagger@(
-		ProjF2p[-n,-m,e,f]ProjFPara[-e,-f,a,c]TauPara[-a,-c])]},MetricOn->All,ContractMetrics->True]];
+xAct`PSALTer`AsymmetricTensorTheory`Private`AsymmetricTauSigmaParaSpinParityToAsymmetricTauSigma=Join[
+	MakeRule[{AsymmetricTauPara0p[],Scalar[Evaluate[
+		ProjAsymmetricF0p[e,f]ProjAsymmetricFPara[-e,-f,a,c]AsymmetricTauPara[-a,-c]]]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{AsymmetricTauPara1p[-n,-m],Evaluate[
+		ProjAsymmetricF1p[-n,-m,e,f]ProjAsymmetricFPara[-e,-f,a,c]AsymmetricTauPara[-a,-c]]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{AsymmetricTauPara1m[-n],Evaluate[
+		ProjAsymmetricF1m[-n,f]ProjAsymmetricFPerp[-f,a,c]AsymmetricTauPara[-a,-c]]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{AsymmetricTauPara2p[-n,-m],Evaluate[
+		ProjAsymmetricF2p[-n,-m,e,f]ProjAsymmetricFPara[-e,-f,a,c]AsymmetricTauPara[-a,-c]]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@AsymmetricTauPara0p[],Scalar[Evaluate[Dagger@(
+		ProjAsymmetricF0p[e,f]ProjAsymmetricFPara[-e,-f,a,c]AsymmetricTauPara[-a,-c])]]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@AsymmetricTauPara1p[-n,-m],Evaluate[Dagger@(
+		ProjAsymmetricF1p[-n,-m,e,f]ProjAsymmetricFPara[-e,-f,a,c]AsymmetricTauPara[-a,-c])]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@AsymmetricTauPara1m[-n],Evaluate[Dagger@(
+		ProjAsymmetricF1m[-n,f]ProjAsymmetricFPerp[-f,a,c]AsymmetricTauPara[-a,-c])]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@AsymmetricTauPara2p[-n,-m],Evaluate[Dagger@(
+		ProjAsymmetricF2p[-n,-m,e,f]ProjAsymmetricFPara[-e,-f,a,c]AsymmetricTauPara[-a,-c])]},MetricOn->All,ContractMetrics->True]];
 
-DefTensor[TauPerp0p[],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`TauPerpSymb,xAct`PSALTer`Private`Spin0p],Dagger->Complex];
-DefTensor[TauPerp1m[-a],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`TauPerpSymb,xAct`PSALTer`Private`Spin1m],OrthogonalTo->{V[a]},Dagger->Complex];
+DefTensor[AsymmetricTauPerp0p[],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`AsymmetricTauPerpSymb,xAct`PSALTer`Private`Spin0p],Dagger->Complex];
+DefTensor[AsymmetricTauPerp1m[-a],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`AsymmetricTauPerpSymb,xAct`PSALTer`Private`Spin1m],OrthogonalTo->{V[a]},Dagger->Complex];
 
-xAct`PSALTer`AsymmetricTensorTheory`Private`TauSigmaPerpSpinParityToTauSigma=Join[
-	MakeRule[{TauPerp0p[],Scalar[Evaluate[
-		V[a]TauPerp[-a]]]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{TauPerp1m[-n],Evaluate[
-		ProjPara[-n,a]TauPerp[-a]]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@TauPerp0p[],Scalar[Evaluate[Dagger@(
-		V[a]TauPerp[-a])]]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@TauPerp1m[-n],Evaluate[Dagger@(
-		ProjPara[-n,a]TauPerp[-a])]},MetricOn->All,ContractMetrics->True]];
+xAct`PSALTer`AsymmetricTensorTheory`Private`AsymmetricTauSigmaPerpSpinParityToAsymmetricTauSigma=Join[
+	MakeRule[{AsymmetricTauPerp0p[],Scalar[Evaluate[
+		V[a]AsymmetricTauPerp[-a]]]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{AsymmetricTauPerp1m[-n],Evaluate[
+		ProjPara[-n,a]AsymmetricTauPerp[-a]]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@AsymmetricTauPerp0p[],Scalar[Evaluate[Dagger@(
+		V[a]AsymmetricTauPerp[-a])]]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@AsymmetricTauPerp1m[-n],Evaluate[Dagger@(
+		ProjPara[-n,a]AsymmetricTauPerp[-a])]},MetricOn->All,ContractMetrics->True]];
 
 (*==================*)
 (*  Decompositions  *)
 (*==================*)
 
 xAct`PSALTer`AsymmetricTensorTheory`Private`FAParaToFAParaSpinParity=Join[
-	MakeRule[{FPara[-n,-m],Evaluate[
+	MakeRule[{AsymmetricFPara[-n,-m],Evaluate[
 		((1/3)ProjPara[-n,-m]FPara0p[]+
 		FPara1p[-n,-m]+
 		FPara2p[-n,-m]+
 		V[-n]FPara1m[-m])/.xAct`PSALTer`AsymmetricTensorTheory`Private`ProjFASpinParityToVG/.xAct`PSALTer`AsymmetricTensorTheory`Private`ProjPerpParaToVG//xAct`PSALTer`Private`ToNewCanonical]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@FPara[-n,-m],Evaluate[Dagger@(
+	MakeRule[{Evaluate@Dagger@AsymmetricFPara[-n,-m],Evaluate[Dagger@(
 		((1/3)ProjPara[-n,-m]FPara0p[]+
 		FPara1p[-n,-m]+
 		FPara2p[-n,-m]+
 		V[-n]FPara1m[-m])/.xAct`PSALTer`AsymmetricTensorTheory`Private`ProjFASpinParityToVG/.xAct`PSALTer`AsymmetricTensorTheory`Private`ProjPerpParaToVG//xAct`PSALTer`Private`ToNewCanonical)]},MetricOn->All,ContractMetrics->True]];
 
 xAct`PSALTer`AsymmetricTensorTheory`Private`FAPerpToFAPerpSpinParity=Join[
-	MakeRule[{FPerp[-n],Evaluate[FPerp0p[]V[-n]+FPerp1m[-n]]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@FPerp[-n],Evaluate[Dagger@(FPerp0p[]V[-n]+FPerp1m[-n])]},MetricOn->All,ContractMetrics->True]];
+	MakeRule[{AsymmetricFPerp[-n],Evaluate[FPerp0p[]V[-n]+FPerp1m[-n]]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@AsymmetricFPerp[-n],Evaluate[Dagger@(FPerp0p[]V[-n]+FPerp1m[-n])]},MetricOn->All,ContractMetrics->True]];
 
-xAct`PSALTer`AsymmetricTensorTheory`Private`TauSigmaParaToTauSigmaParaSpinParity=Join[
-	MakeRule[{TauPara[-n,-m],Evaluate[
-		((1/3)ProjPara[-n,-m]TauPara0p[]+
-		TauPara1p[-n,-m]+
-		TauPara2p[-n,-m]+
-		V[-n]TauPara1m[-m])/.xAct`PSALTer`AsymmetricTensorTheory`Private`ProjFASpinParityToVG/.xAct`PSALTer`AsymmetricTensorTheory`Private`ProjPerpParaToVG//xAct`PSALTer`Private`ToNewCanonical]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@TauPara[-n,-m],Evaluate[Dagger@(
-		((1/3)ProjPara[-n,-m]TauPara0p[]+
-		TauPara1p[-n,-m]+
-		TauPara2p[-n,-m]+
-		V[-n]TauPara1m[-m])/.xAct`PSALTer`AsymmetricTensorTheory`Private`ProjFASpinParityToVG/.xAct`PSALTer`AsymmetricTensorTheory`Private`ProjPerpParaToVG//xAct`PSALTer`Private`ToNewCanonical)]},MetricOn->All,ContractMetrics->True]];
+xAct`PSALTer`AsymmetricTensorTheory`Private`AsymmetricTauSigmaParaToAsymmetricTauSigmaParaSpinParity=Join[
+	MakeRule[{AsymmetricTauPara[-n,-m],Evaluate[
+		((1/3)ProjPara[-n,-m]AsymmetricTauPara0p[]+
+		AsymmetricTauPara1p[-n,-m]+
+		AsymmetricTauPara2p[-n,-m]+
+		V[-n]AsymmetricTauPara1m[-m])/.xAct`PSALTer`AsymmetricTensorTheory`Private`ProjFASpinParityToVG/.xAct`PSALTer`AsymmetricTensorTheory`Private`ProjPerpParaToVG//xAct`PSALTer`Private`ToNewCanonical]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@AsymmetricTauPara[-n,-m],Evaluate[Dagger@(
+		((1/3)ProjPara[-n,-m]AsymmetricTauPara0p[]+
+		AsymmetricTauPara1p[-n,-m]+
+		AsymmetricTauPara2p[-n,-m]+
+		V[-n]AsymmetricTauPara1m[-m])/.xAct`PSALTer`AsymmetricTensorTheory`Private`ProjFASpinParityToVG/.xAct`PSALTer`AsymmetricTensorTheory`Private`ProjPerpParaToVG//xAct`PSALTer`Private`ToNewCanonical)]},MetricOn->All,ContractMetrics->True]];
 
-xAct`PSALTer`AsymmetricTensorTheory`Private`TauSigmaPerpToTauSigmaPerpSpinParity=Join[
-	MakeRule[{TauPerp[-n],Evaluate[TauPerp0p[]V[-n]+TauPerp1m[-n]]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@TauPerp[-n],Evaluate[Dagger@(TauPerp0p[]V[-n]+TauPerp1m[-n])]},MetricOn->All,ContractMetrics->True]];
+xAct`PSALTer`AsymmetricTensorTheory`Private`AsymmetricTauSigmaPerpToAsymmetricTauSigmaPerpSpinParity=Join[
+	MakeRule[{AsymmetricTauPerp[-n],Evaluate[AsymmetricTauPerp0p[]V[-n]+AsymmetricTauPerp1m[-n]]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@AsymmetricTauPerp[-n],Evaluate[Dagger@(AsymmetricTauPerp0p[]V[-n]+AsymmetricTauPerp1m[-n])]},MetricOn->All,ContractMetrics->True]];
 
 (*==========================================================*)
 (*  Basic definitions of the Lagrangian coupling constants  *)
@@ -282,7 +276,7 @@ DefLagrangianCoupling[kT2,
 DefLagrangianCoupling[kT3,
 	CouplingSymbol->xAct`PSALTer`AsymmetricTensorTheory`Private`kTSymb,CouplingIndex->3];
 
-DefLagrangianCoupling[EinsteinConstant,
+DefLagrangianCoupling[xAct`PSALTer`AsymmetricTensorTheory`EinsteinConstant,
 	CouplingSymbol->"\[Kappa]"];
 
 (*================================*)
@@ -330,15 +324,15 @@ FieldSpinParityTensorHeads=<|
 |>;
 
 SourceSpinParityTensorHeads=<|
-		Tau-><|
-			0-><|Even->{TauPara0p,TauPerp0p},Odd->{}|>,
-			1-><|Even->{TauPara1p},Odd->{TauPara1m,TauPerp1m}|>,
-			2-><|Even->{TauPara2p},Odd->{}|>
+		AsymmetricTau-><|
+			0-><|Even->{AsymmetricTauPara0p,AsymmetricTauPerp0p},Odd->{}|>,
+			1-><|Even->{AsymmetricTauPara1p},Odd->{AsymmetricTauPara1m,AsymmetricTauPerp1m}|>,
+			2-><|Even->{AsymmetricTauPara2p},Odd->{}|>
 		|>
 |>;
 
 SourceEngineeringDimensions=<|
-		Tau->1
+		AsymmetricTau->1
 |>;
 
 ExpandFields[InputExpr_]:=Module[{Expr=InputExpr},
@@ -358,9 +352,9 @@ ExpandFields[InputExpr_]:=Module[{Expr=InputExpr},
 Expr];
 
 ExpandSources[InputExpr_]:=Module[{Expr=InputExpr},
-	Expr=Expr/.xAct`PSALTer`AsymmetricTensorTheory`Private`TauSigmaParaSpinParityToTauSigma;
+	Expr=Expr/.xAct`PSALTer`AsymmetricTensorTheory`Private`AsymmetricTauSigmaParaSpinParityToAsymmetricTauSigma;
 	Expr//=xAct`PSALTer`Private`ToNewCanonical;
-	Expr=Expr/.xAct`PSALTer`AsymmetricTensorTheory`Private`TauSigmaPerpSpinParityToTauSigma;
+	Expr=Expr/.xAct`PSALTer`AsymmetricTensorTheory`Private`AsymmetricTauSigmaPerpSpinParityToAsymmetricTauSigma;
 	Expr//=xAct`PSALTer`Private`ToNewCanonical;
 	Expr=Expr/.xAct`PSALTer`AsymmetricTensorTheory`Private`ProjFAPerpParaToVG;
 	Expr//=xAct`PSALTer`Private`ToNewCanonical;
@@ -368,7 +362,7 @@ ExpandSources[InputExpr_]:=Module[{Expr=InputExpr},
 	Expr//=xAct`PSALTer`Private`ToNewCanonical;
 	Expr=Expr/.xAct`PSALTer`AsymmetricTensorTheory`Private`ProjPerpParaToVG;
 	Expr//=xAct`PSALTer`Private`ToNewCanonical;
-	Expr=Expr/.xAct`PSALTer`AsymmetricTensorTheory`Private`TauSigmaPerpParaToTauSigma;
+	Expr=Expr/.xAct`PSALTer`AsymmetricTensorTheory`Private`AsymmetricTauSigmaPerpParaToAsymmetricTauSigma;
 	Expr//=xAct`PSALTer`Private`ToNewCanonical;
 Expr];
 
