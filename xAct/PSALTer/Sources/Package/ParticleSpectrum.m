@@ -181,11 +181,15 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 				ExportTheory->False];
 	UpdateTheoryAssociation[
 				OptionValue@TheoryName,
+				SecularEquation,
+				SecularEquationValue,
+				ExportTheory->False];
+	UpdateTheoryAssociation[
+				OptionValue@TheoryName,
 				SourceConstraintComponents,
 				ConstraintComponentList,
 				ExportTheory->False];
 
-(*
 	ConstructUnitarityConditions[
 				OptionValue@ClassName,
 				MassiveAnalysis,
@@ -198,7 +202,6 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 				PositiveSystem,
 				PositiveSystemValue,
 				ExportTheory->False];
-*)
 
 	Print@DeleteDirectory[FileNameJoin@{$WorkingDirectory,"tmp"},DeleteContents->True];
 

@@ -24,9 +24,9 @@ ConstructMasslessAnalysis[ClassName_?StringQ,ValuesOfSourceConstraints_,ValuesSa
 	ConvertLightcone[ClassName,ValuesSaturatedPropagator,UnscaledNullSpace];
 	Print@{"ConvertLightcone end",AbsoluteTime[]};
 
-	{MasslessAnalysisValue,SecularEquation}=LightconePropagator;
+	{MasslessAnalysisValue,SecularEquationValue}=LightconePropagator;
 	Diagnostic@MasslessAnalysisValue;
-	Diagnostic@SecularEquation;
+	Diagnostic@SecularEquationValue;
 (*
 	MasslessPropagatorResidue=MapThread[(xAct`PSALTer`Private`PSALTerParallelSubmit@(NullResidue[#1,#2]))&,
 	{LightconePropagator,
@@ -75,5 +75,5 @@ ConstructMasslessAnalysis[ClassName_?StringQ,ValuesOfSourceConstraints_,ValuesSa
 		MasslessAnalysisValue,
 		QuarticAnalysisValue,
 		HexicAnalysisValue,
-		{SecularEquation}};
+		{SecularEquationValue}};
 ];
