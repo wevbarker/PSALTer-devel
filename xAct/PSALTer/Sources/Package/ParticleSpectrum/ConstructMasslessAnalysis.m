@@ -72,7 +72,7 @@ ConstructMasslessAnalysis[ClassName_?StringQ,ValuesOfSourceConstraints_,ValuesSa
 	QuarticAnalysisValue={};
 	HexicAnalysisValue={};
 	LocalMasslessSpectrum={{},{},
-		First@MasslessAnalysisValue,
+		MasslessAnalysisValue,
 		QuarticAnalysisValue,
 		HexicAnalysisValue,
 		{SecularEquation}};
