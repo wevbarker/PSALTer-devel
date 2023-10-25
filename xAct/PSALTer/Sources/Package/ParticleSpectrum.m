@@ -71,6 +71,7 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 		"TensorTheory",
 		"SymmetricTensorTheory",
 		"AsymmetricTensorTheory",
+		"BimetricTensorTheory",
 		"ScalarTensorTheory",
 		"PoincareGaugeTheory",
 		"WeylGaugeTheory",

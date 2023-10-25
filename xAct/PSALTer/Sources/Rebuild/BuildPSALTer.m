@@ -17,6 +17,7 @@ xAct`PSALTer`Private`BuildRebuild@"Classes/VectorTheory.m";
 xAct`PSALTer`Private`BuildRebuild@"Classes/TensorTheory.m";
 xAct`PSALTer`Private`BuildRebuild@"Classes/SymmetricTensorTheory.m";
 xAct`PSALTer`Private`BuildRebuild@"Classes/AsymmetricTensorTheory.m";
+xAct`PSALTer`Private`BuildRebuild@"Classes/BimetricTensorTheory.m";
 xAct`PSALTer`Private`BuildRebuild@"Classes/ScalarTensorTheory.m";
 xAct`PSALTer`Private`BuildRebuild@"Classes/PoincareGaugeTheory.m";
 xAct`PSALTer`Private`BuildRebuild@"Classes/WeylGaugeTheory.m";
