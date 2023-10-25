@@ -14,10 +14,10 @@ DefTensor[BimetricF[-i,-j],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSA
 xAct`PSALTer`BimetricTensorTheory`Private`BimetricTauSymb="\[ScriptCapitalT]";
 DefTensor[BimetricTau[-i,-j],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`BimetricTensorTheory`Private`BimetricTauSymb],Dagger->Complex];
 
-xAct`PSALTer`BimetricTensorTheory`Private`BimetricLinearMetricSymb="\[Psi]";
+xAct`PSALTer`BimetricTensorTheory`Private`BimetricLinearMetricSymb="\[CurlyPhi]";
 DefTensor[BimetricLinearMetric[-a,-b],M4,Symmetric[{-a,-b}],PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`BimetricTensorTheory`Private`BimetricLinearMetricSymb],Dagger->Complex];
 
-xAct`PSALTer`BimetricTensorTheory`Private`BimetricStressEnergySymb="\[ScriptCapitalT]";
+xAct`PSALTer`BimetricTensorTheory`Private`BimetricStressEnergySymb="\[Tau]";
 DefTensor[BimetricStressEnergy[-a,-b],M4,Symmetric[{-a,-b}],PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`BimetricTensorTheory`Private`BimetricStressEnergySymb],Dagger->Complex];
 
 (*==============*)
@@ -147,12 +147,12 @@ xAct`PSALTer`BimetricTensorTheory`Private`ManualAll=Join[xAct`PSALTer`BimetricTe
 
 AutomaticRules[BimetricTauPara2p,MakeRule[{BimetricTauPara2p[a,-a],0},MetricOn->All,ContractMetrics->True]];
 
-xAct`PSALTer`BimetricTensorTheory`Private`BimetricLinearMetricPerpSymb="\!\(\*SuperscriptBox[\(\[Psi]\),\(\[UpTee]\)]\)";
+xAct`PSALTer`BimetricTensorTheory`Private`BimetricLinearMetricPerpSymb="\!\(\*SuperscriptBox[\(\[CurlyPhi]\),\(\[UpTee]\)]\)";
 DefTensor[BimetricLinearMetricPerp0p[],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`BimetricTensorTheory`Private`BimetricLinearMetricPerpSymb,xAct`PSALTer`Private`Spin0p],Dagger->Complex];
 
 DefTensor[BimetricLinearMetricPerp1m[-a],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`BimetricTensorTheory`Private`BimetricLinearMetricPerpSymb,xAct`PSALTer`Private`Spin1m],OrthogonalTo->{V[a]},Dagger->Complex];
 
-xAct`PSALTer`BimetricTensorTheory`Private`BimetricLinearMetricParaSymb="\!\(\*SuperscriptBox[\(\[Psi]\),\(\[DoubleVerticalBar]\)]\)";
+xAct`PSALTer`BimetricTensorTheory`Private`BimetricLinearMetricParaSymb="\!\(\*SuperscriptBox[\(\[CurlyPhi]\),\(\[DoubleVerticalBar]\)]\)";
 
 DefTensor[BimetricLinearMetricPara0p[],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`BimetricTensorTheory`Private`BimetricLinearMetricParaSymb,xAct`PSALTer`Private`Spin0p],Dagger->Complex];
 
@@ -162,10 +162,10 @@ DefTensor[BimetricLinearMetricPara2p[-a,-b],M4,Symmetric[{-a,-b}],PrintAs->xAct`
 AutomaticRules[BimetricLinearMetricPara2p,MakeRule[{Evaluate@Dagger@BimetricLinearMetricPara2p[a,-a],0},MetricOn->All,ContractMetrics->True]];
 AutomaticRules[BimetricLinearMetricPara2p,MakeRule[{BimetricLinearMetricPara2p[a,-a],0},MetricOn->All,ContractMetrics->True]];
 
-xAct`PSALTer`BimetricTensorTheory`Private`BimetricStressEnergyPerpSymb="\!\(\*SuperscriptBox[\(\[ScriptCapitalT]\),\(\[UpTee]\)]\)";
+xAct`PSALTer`BimetricTensorTheory`Private`BimetricStressEnergyPerpSymb="\!\(\*SuperscriptBox[\(\[Tau]\),\(\[UpTee]\)]\)";
 DefTensor[BimetricStressEnergyPerp0p[],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`BimetricTensorTheory`Private`BimetricStressEnergyPerpSymb,xAct`PSALTer`Private`Spin0p],Dagger->Complex];
 DefTensor[BimetricStressEnergyPerp1m[-a],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`BimetricTensorTheory`Private`BimetricStressEnergyPerpSymb,xAct`PSALTer`Private`Spin1m],OrthogonalTo->{V[a]},Dagger->Complex];
-xAct`PSALTer`BimetricTensorTheory`Private`BimetricStressEnergyParaSymb="\!\(\*SuperscriptBox[\(\[ScriptCapitalT]\),\(\[DoubleVerticalBar]\)]\)";
+xAct`PSALTer`BimetricTensorTheory`Private`BimetricStressEnergyParaSymb="\!\(\*SuperscriptBox[\(\[Tau]\),\(\[DoubleVerticalBar]\)]\)";
 DefTensor[BimetricStressEnergyPara0p[],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`BimetricTensorTheory`Private`BimetricStressEnergyParaSymb,xAct`PSALTer`Private`Spin0p],Dagger->Complex];
 DefTensor[BimetricStressEnergyPara2p[-a,-b],M4,Symmetric[{-a,-b}],PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`BimetricTensorTheory`Private`BimetricStressEnergyParaSymb,xAct`PSALTer`Private`Spin2p],OrthogonalTo->{V[a],V[b]},Dagger->Complex];
 
