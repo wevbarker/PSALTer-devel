@@ -25,5 +25,5 @@ ParticleSpectrum[
 	ClassName->"SymmetricTensorTheory",
 	TheoryName->"SymmetricPartanenTulkkiTheoryDeep",
 	Method->"Easy",
-	MaxLaurentDepth->1
+	MaxLaurentDepth->3
 ];

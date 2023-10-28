@@ -17,6 +17,13 @@ ParticleSpectrum[
 	ClassName->"AsymmetricTensorTheory",
 	TheoryName->"AsymmetricPartanenTulkkiTheory",
 	Method->"Easy",
+	MaxLaurentDepth->1
+];
+Comment@{"So",Cref@"AsymmetricPartanenTulkkiTheory"," contains some ghosts. Now we try again with increased LaurentDepth."};
+ParticleSpectrum[
+	LinearisedLagrangian,
+	ClassName->"AsymmetricTensorTheory",
+	TheoryName->"AsymmetricPartanenTulkkiTheoryDeep",
+	Method->"Easy",
 	MaxLaurentDepth->3
 ];
-Comment@{"Some comment about",Cref@"AsymmetricPartanenTulkkiTheory","."};

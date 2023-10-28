@@ -17,5 +17,5 @@ ConstructMasslessAnalysis[ClassName_?StringQ,ValuesOfSourceConstraints_,ValuesSa
 	ConvertLightcone[ClassName,
 		ValuesSaturatedPropagator,
 		UnscaledNullSpace,
-		OptionValue@MaxLaurentDepth];
+		MaxLaurentDepth->OptionValue@MaxLaurentDepth];
 ];
