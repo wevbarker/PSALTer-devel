@@ -17,6 +17,13 @@ ParticleSpectrum[
 	ClassName->"SymmetricTensorTheory",
 	TheoryName->"SymmetricPartanenTulkkiTheory",
 	Method->"Easy",
-	MaxLaurentDepth->3
+	MaxLaurentDepth->1
 ];
-Comment@{"Some comment about",Cref@"SymmetricPartanenTulkkiTheory","."};
+Comment@{"So",Cref@"SymmetricPartanenTulkkiTheory"," contains some ghosts. Now we try again with increased LaurentDepth."};
+ParticleSpectrum[
+	LinearisedLagrangian,
+	ClassName->"SymmetricTensorTheory",
+	TheoryName->"SymmetricPartanenTulkkiTheoryDeep",
+	Method->"Easy",
+	MaxLaurentDepth->1
+];

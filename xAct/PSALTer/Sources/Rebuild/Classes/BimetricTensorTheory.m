@@ -8,7 +8,7 @@ BeginPackage["xAct`PSALTer`BimetricTensorTheory`",{"xAct`xTensor`","xAct`xPerm`"
 (*  Basic definitions of gauge fields and their conjugate sources  *)
 (*=================================================================*)
 
-xAct`PSALTer`BimetricTensorTheory`Private`BimetricFSymb="\[Psi]";
+xAct`PSALTer`BimetricTensorTheory`Private`BimetricFSymb="\[Theta]";
 DefTensor[BimetricF[-i,-j],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`BimetricTensorTheory`Private`BimetricFSymb],Dagger->Complex];
 
 xAct`PSALTer`BimetricTensorTheory`Private`BimetricTauSymb="\[ScriptCapitalT]";
@@ -78,9 +78,9 @@ xAct`PSALTer`BimetricTensorTheory`Private`ProjBimetricFASpinParityToVG=Join[
 (*  Field perpendicular and parallel  *)
 (*====================================*)
 
-xAct`PSALTer`BimetricTensorTheory`Private`BimetricFParaSymb="\!\(\*SuperscriptBox[\(\[Psi]\),\(\[DoubleVerticalBar]\)]\)";
+xAct`PSALTer`BimetricTensorTheory`Private`BimetricFParaSymb="\!\(\*SuperscriptBox[\(\[Theta]\),\(\[DoubleVerticalBar]\)]\)";
 DefTensor[BimetricFPara[-a,-b],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`BimetricTensorTheory`Private`BimetricFParaSymb],OrthogonalTo->{V[b]},Dagger->Complex];
-xAct`PSALTer`BimetricTensorTheory`Private`BimetricFPerpSymb="\!\(\*SuperscriptBox[\(\[Psi]\),\(\[UpTee]\)]\)";
+xAct`PSALTer`BimetricTensorTheory`Private`BimetricFPerpSymb="\!\(\*SuperscriptBox[\(\[Theta]\),\(\[UpTee]\)]\)";
 DefTensor[BimetricFPerp[-a],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`BimetricTensorTheory`Private`BimetricFPerpSymb],Dagger->Complex];
 
 xAct`PSALTer`BimetricTensorTheory`Private`BimetricFAToBimetricFAPerpPara=Join[

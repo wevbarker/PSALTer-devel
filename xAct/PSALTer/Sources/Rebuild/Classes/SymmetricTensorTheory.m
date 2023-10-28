@@ -8,7 +8,7 @@ BeginPackage["xAct`PSALTer`SymmetricTensorTheory`",{"xAct`xTensor`","xAct`xPerm`
 (*  Basic definitions of gauge fields and their conjugate sources  *)
 (*=================================================================*)
 
-xAct`PSALTer`SymmetricTensorTheory`Private`SymmetricLinearMetricSymb="\[Psi]";
+xAct`PSALTer`SymmetricTensorTheory`Private`SymmetricLinearMetricSymb="\[Theta]";
 DefTensor[SymmetricLinearMetric[-a,-b],M4,Symmetric[{-a,-b}],PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`SymmetricTensorTheory`Private`SymmetricLinearMetricSymb],Dagger->Complex];
 
 xAct`PSALTer`SymmetricTensorTheory`Private`SymmetricStressEnergySymb="\[ScriptCapitalT]";
@@ -43,12 +43,12 @@ xAct`PSALTer`SymmetricTensorTheory`Private`ProjPerpParaToVG=Join[
 (*  Tensor definitions  *)
 (*======================*)
 
-xAct`PSALTer`SymmetricTensorTheory`Private`SymmetricLinearMetricPerpSymb="\!\(\*SuperscriptBox[\(\[Psi]\),\(\[UpTee]\)]\)";
+xAct`PSALTer`SymmetricTensorTheory`Private`SymmetricLinearMetricPerpSymb="\!\(\*SuperscriptBox[\(\[Theta]\),\(\[UpTee]\)]\)";
 DefTensor[SymmetricLinearMetricPerp0p[],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`SymmetricTensorTheory`Private`SymmetricLinearMetricPerpSymb,xAct`PSALTer`Private`Spin0p],Dagger->Complex];
 
 DefTensor[SymmetricLinearMetricPerp1m[-a],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`SymmetricTensorTheory`Private`SymmetricLinearMetricPerpSymb,xAct`PSALTer`Private`Spin1m],OrthogonalTo->{V[a]},Dagger->Complex];
 
-xAct`PSALTer`SymmetricTensorTheory`Private`SymmetricLinearMetricParaSymb="\!\(\*SuperscriptBox[\(\[Psi]\),\(\[DoubleVerticalBar]\)]\)";
+xAct`PSALTer`SymmetricTensorTheory`Private`SymmetricLinearMetricParaSymb="\!\(\*SuperscriptBox[\(\[Theta]\),\(\[DoubleVerticalBar]\)]\)";
 
 DefTensor[SymmetricLinearMetricPara0p[],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`SymmetricTensorTheory`Private`SymmetricLinearMetricParaSymb,xAct`PSALTer`Private`Spin0p],Dagger->Complex];
 

@@ -8,7 +8,7 @@ BeginPackage["xAct`PSALTer`AsymmetricTensorTheory`",{"xAct`xTensor`","xAct`xPerm
 (*  Basic definitions of gauge fields and their conjugate sources  *)
 (*=================================================================*)
 
-xAct`PSALTer`AsymmetricTensorTheory`Private`AsymmetricFSymb="\[Psi]";
+xAct`PSALTer`AsymmetricTensorTheory`Private`AsymmetricFSymb="\[Theta]";
 DefTensor[AsymmetricF[-i,-j],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`AsymmetricFSymb],Dagger->Complex];
 
 xAct`PSALTer`AsymmetricTensorTheory`Private`AsymmetricTauSymb="\[ScriptCapitalT]";
@@ -72,9 +72,9 @@ xAct`PSALTer`AsymmetricTensorTheory`Private`ProjAsymmetricFASpinParityToVG=Join[
 (*  Field perpendicular and parallel  *)
 (*====================================*)
 
-xAct`PSALTer`AsymmetricTensorTheory`Private`AsymmetricFParaSymb="\!\(\*SuperscriptBox[\(\[Psi]\),\(\[DoubleVerticalBar]\)]\)";
+xAct`PSALTer`AsymmetricTensorTheory`Private`AsymmetricFParaSymb="\!\(\*SuperscriptBox[\(\[Theta]\),\(\[DoubleVerticalBar]\)]\)";
 DefTensor[AsymmetricFPara[-a,-b],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`AsymmetricFParaSymb],OrthogonalTo->{V[b]},Dagger->Complex];
-xAct`PSALTer`AsymmetricTensorTheory`Private`AsymmetricFPerpSymb="\!\(\*SuperscriptBox[\(\[Psi]\),\(\[UpTee]\)]\)";
+xAct`PSALTer`AsymmetricTensorTheory`Private`AsymmetricFPerpSymb="\!\(\*SuperscriptBox[\(\[Theta]\),\(\[UpTee]\)]\)";
 DefTensor[AsymmetricFPerp[-a],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`AsymmetricTensorTheory`Private`AsymmetricFPerpSymb],Dagger->Complex];
 
 xAct`PSALTer`AsymmetricTensorTheory`Private`AsymmetricFAToAsymmetricFAPerpPara=Join[

@@ -8,10 +8,16 @@ BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/FullyC
 BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/ExpressInLightcone.m";
 BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/ConstrainInLightcone.m";
 BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/MakeSaturatedMatrix.m";
-BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/NullResidue.m";
-BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/MasslessAnalysisOfTotal.m";
+BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/ExaminePoleOrder.m";
 
-ConvertLightcone[ClassName_?StringQ,ValuesSaturatedPropagator_,ValuesUnscaledNullSpace_]:=Module[{	
+Options@ConvertLightcone={
+	MaxLaurentDepth->1
+	};
+
+ConvertLightcone[ClassName_?StringQ,
+		ValuesSaturatedPropagator_,
+		ValuesUnscaledNullSpace_,
+		OptionsPattern[]]:=Module[{	
 	SaturatedPropagatorArray
 	},
 
@@ -96,20 +102,33 @@ ConvertLightcone[ClassName_?StringQ,ValuesSaturatedPropagator_,ValuesUnscaledNul
 	Diagnostic@LightconePropagator;
 	Print@{"MakeSaturatedMatrix end",AbsoluteTime[]};
 
-	LocalMasslessSpectrum=" ** NullResidue...";
+	{MasslessAnalysisValue,SecularEquationValue}=ExaminePoleOrder[LightconePropagator,1];
+	QuarticAnalysisValue={};
+	HexicAnalysisValue={};
 
-	Print@{"NullResidue start",AbsoluteTime[]};
-	LightconePropagator=Map[
-		(xAct`PSALTer`Private`PSALTerParallelSubmit@(NullResidue[#,1]))&,
-		LightconePropagator,{2}];
-	LightconePropagator=MonitorParallel@LightconePropagator;
-	Diagnostic@LightconePropagator;
-	Print@{"NullResidue end",AbsoluteTime[]};
+	LocalMasslessSpectrum={{},{},
+		MasslessAnalysisValue,
+		QuarticAnalysisValue,
+		HexicAnalysisValue,
+		{SecularEquationValue}};
 
-	LocalMasslessSpectrum=" ** MasslessAnalysisOfTotal...";
+	If[(OptionValue@MaxLaurentDepth)>1,
+		QuarticAnalysisValue=First@ExaminePoleOrder[LightconePropagator,2];
 
-	Print@{"MasslessAnalysisOfTotal start",AbsoluteTime[]};
-	LightconePropagator//=MasslessAnalysisOfTotal;
-	Diagnostic@LightconePropagator;
-	Print@{"MasslessAnalysisOfTotal end",AbsoluteTime[]};
+		LocalMasslessSpectrum={{},{},
+			MasslessAnalysisValue,
+			QuarticAnalysisValue,
+			HexicAnalysisValue,
+			{SecularEquationValue}};
+	];
+
+	If[(OptionValue@MaxLaurentDepth)>2,
+		HexicAnalysisValue=First@ExaminePoleOrder[LightconePropagator,3];
+
+		LocalMasslessSpectrum={{},{},
+			MasslessAnalysisValue,
+			QuarticAnalysisValue,
+			HexicAnalysisValue,
+			{SecularEquationValue}};
+	];
 ];
