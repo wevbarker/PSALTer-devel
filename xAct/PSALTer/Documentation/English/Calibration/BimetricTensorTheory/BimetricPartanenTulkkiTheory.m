@@ -10,6 +10,11 @@ DisplayExpression@Expr;
 Expr//=xAct`PSALTer`BimetricTensorTheory`Private`DecomposeFields;
 DisplayExpression@Expr;
 
+Expr=BimetricLinearMetric[-m,-n];
+DisplayExpression@Expr;
+Expr//=xAct`PSALTer`BimetricTensorTheory`Private`DecomposeFields;
+DisplayExpression@Expr;
+
 Comment@"Now we will expand things.";
 PresentExpansion[InputExpr_]:=Module[{Expr=InputExpr},	
 	DisplayExpression@Expr;
