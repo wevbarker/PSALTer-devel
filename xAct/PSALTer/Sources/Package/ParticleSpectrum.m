@@ -206,7 +206,7 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 				PositiveSystemValue,
 				ExportTheory->False];
 
-	Print@DeleteDirectory[FileNameJoin@{$WorkingDirectory,"tmp"},DeleteContents->True];
+	DeleteDirectory[FileNameJoin@{$WorkingDirectory,"tmp"},DeleteContents->True];
 
 	FinishDynamic[];
 	NotebookDelete@SummariseResultsOngoing;

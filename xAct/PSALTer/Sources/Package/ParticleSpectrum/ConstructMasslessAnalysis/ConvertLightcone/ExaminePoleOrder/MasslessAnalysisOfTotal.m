@@ -14,6 +14,6 @@ MasslessAnalysisOfTotal[ValuesNumeratorFreeSourceCoefficientMatrix_]:=Module[{
 
 	SecularEquation=(Det@(#-PoleResidue*IdentityMatrix@Length@#))&@NumeratorFreeSourceCoefficientMatrix;
 	SecularEquation//=FullSimplify;
-	Print@SecularEquation;
+	(*Print@SecularEquation;*)
 
 {NumeratorFreeSourceEigenvalues,SecularEquation}];
