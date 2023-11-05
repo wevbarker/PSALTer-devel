@@ -1,10 +1,24 @@
 (*===============*)
 (*  Calibration  *)
 (*===============*)
-
+(*
 Unprotect[$ProcessorCount];
 $ProcessorCount=56;
 $Cores=56;
+*)
+
+Print@"Default value for processors.";
+Print@$ProcessorCount;
+Print@"New value for processors.";
+Unprotect[$ProcessorCount];
+$ProcessorCount=56;
+Print@$ProcessorCount;
+
+Print@"Default value for kernels.";
+Print@$KernelCount;
+Print@LaunchKernels[];
+Print@"New value for kernels.";
+Print@$KernelCount;
 
 $ThisDirectory=If[NotebookDirectory[]==$Failed,Directory[],NotebookDirectory[],NotebookDirectory[]];
 

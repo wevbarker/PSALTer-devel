@@ -1,0 +1,129 @@
+Changed directory to /home/wb263/Documents/PSALTer-devel.
+
+JobID: 30257986
+======
+Time: Sat Nov  4 16:08:26 GMT 2023
+Running on master node: cpu-p-86
+Current directory: /home/wb263/Documents/PSALTer-devel
+
+Nodes allocated:
+================
+
+
+numtasks=, numnodes=1, mpi_tasks_per_node=1 (OMP_NUM_THREADS=32)
+
+Executing command:
+==================
+mpirun -ppn 1 -np 1 /home/wb263/Documents/PSALTer-devel/ParallelisationTest.sh 
+
+welcome to ParallelisationTest.sh
+moving to directory
+commencing run
+Mathematica 13.1.0 Kernel for Linux x86 (64-bit)
+Copyright 1988-2022 Wolfram Research, Inc.
+
+LocalObject::uri: Persistence is not a valid Local Object URL.
+
+PersistenceLocation::invalid: 
+   Persistence location PersistenceLocation[Local, $Failed, ReadOnly -> True]
+     is not valid.
+
+PersistenceLocation::invalid: 
+   Persistence location PersistenceLocation[Installation, {$Failed}]
+     is not valid.
+
+PersistenceLocation::invalid: Persistence location $Failed is not valid.
+
+General::stop: Further output of PersistenceLocation::invalid
+     will be suppressed during this calculation.
+
+PersistenceLocation::ploc: 
+   StartUp`Initialization`$BootstrapPath is not a persistence location.
+
+LocalObject::lbx: 
+   Cannot set $DefaultLocalBase to /home/wb263/.Wolfram/Objects.
+
+StringJoin::string: String expected at position 1 in $Failed<>/Persistence.
+
+LocalObject::uri: Persistence is not a valid Local Object URL.
+
+In[1]:= The purpose of this script is to determine whether Mathematica has been\
+ 
+>   correctly configured on the system. The need for this test is driven by\
+ 
+>   some unexpected poor performace on CSD3 jobs.
+
+In[2]:= The variable $MaxLicenseProcesses is set to Infinity
+
+In[3]:= The protected variable $ProcessorCount is set to 32
+
+In[4]:= 
+Get::noopen: Cannot open KernelConfiguration`.
+
+Needs::nocont: Context KernelConfiguration`
+     was not created when Needs was evaluated.
+
+Get::noopen: Cannot open KernelObject`.
+
+Needs::nocont: Context KernelObject` was not created when Needs was evaluated.
+
+$RelaunchFailedKernels::value: 
+   Option value Parallel`$Settings[RelaunchFailedKernels]
+     is outside allowed range; setting not changed.
+
+$RecoveryMode::value: 
+   Option value Parallel`$Settings[RecoveryMode]
+     is outside allowed range; setting not changed.
+
+StringJoin::string: String expected at position 1 in $Failed<>/Persistence.
+
+PersistenceLocation::invalid: 
+   Persistence location PersistenceLocation[Local, $Failed<>/Persistence]
+     is not valid.
+The variable $KernelCount is set to 0
+
+In[5]:= 
+In[6]:= Now we execute LaunchKernels[]
+
+In[7]:= 
+In[8]:= The variable $KernelCount is set to 0
+
+In[9]:= It takes 1.00123 seconds to wait for 1 seconds for 1 times in parallel.
+It takes 2.00368 seconds to wait for 1 seconds for 2 times in parallel.
+It takes 3.00596 seconds to wait for 1 seconds for 3 times in parallel.
+It takes 4.00873 seconds to wait for 1 seconds for 4 times in parallel.
+It takes 5.00909 seconds to wait for 1 seconds for 5 times in parallel.
+It takes 6.01077 seconds to wait for 1 seconds for 6 times in parallel.
+It takes 7.01137 seconds to wait for 1 seconds for 7 times in parallel.
+It takes 8.01609 seconds to wait for 1 seconds for 8 times in parallel.
+It takes 9.0197 seconds to wait for 1 seconds for 9 times in parallel.
+It takes 10.0208 seconds to wait for 1 seconds for 10 times in parallel.
+It takes 11.0239 seconds to wait for 1 seconds for 11 times in parallel.
+It takes 12.0268 seconds to wait for 1 seconds for 12 times in parallel.
+It takes 13.0282 seconds to wait for 1 seconds for 13 times in parallel.
+It takes 14.0254 seconds to wait for 1 seconds for 14 times in parallel.
+It takes 15.0303 seconds to wait for 1 seconds for 15 times in parallel.
+It takes 16.0322 seconds to wait for 1 seconds for 16 times in parallel.
+It takes 17.0332 seconds to wait for 1 seconds for 17 times in parallel.
+It takes 18.0302 seconds to wait for 1 seconds for 18 times in parallel.
+It takes 19.0321 seconds to wait for 1 seconds for 19 times in parallel.
+It takes 20.037 seconds to wait for 1 seconds for 20 times in parallel.
+It takes 21.0363 seconds to wait for 1 seconds for 21 times in parallel.
+It takes 22.0376 seconds to wait for 1 seconds for 22 times in parallel.
+It takes 23.041 seconds to wait for 1 seconds for 23 times in parallel.
+It takes 24.0382 seconds to wait for 1 seconds for 24 times in parallel.
+It takes 25.0356 seconds to wait for 1 seconds for 25 times in parallel.
+It takes 26.0494 seconds to wait for 1 seconds for 26 times in parallel.
+It takes 27.0503 seconds to wait for 1 seconds for 27 times in parallel.
+It takes 28.0501 seconds to wait for 1 seconds for 28 times in parallel.
+It takes 29.0526 seconds to wait for 1 seconds for 29 times in parallel.
+It takes 30.0486 seconds to wait for 1 seconds for 30 times in parallel.
+It takes 31.052 seconds to wait for 1 seconds for 31 times in parallel.
+It takes 32.0559 seconds to wait for 1 seconds for 32 times in parallel.
+It takes 33.0635 seconds to wait for 1 seconds for 33 times in parallel.
+It takes 34.0586 seconds to wait for 1 seconds for 34 times in parallel.
+It takes 35.0724 seconds to wait for 1 seconds for 35 times in parallel.
+It takes 36.0579 seconds to wait for 1 seconds for 36 times in parallel.
+It takes 37.062 seconds to wait for 1 seconds for 37 times in parallel.
+It takes 38.0706 seconds to wait for 1 seconds for 38 times in parallel.
+It takes 39.0703 seconds to wait for 1 seconds for 39 times in parallel.
