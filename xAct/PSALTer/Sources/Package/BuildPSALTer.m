@@ -13,8 +13,7 @@ SaveBinaryContexts[]:=Module[{PrintVariable},
 ];
 
 LoadBinaryContext[Context_String]:=Module[{PrintVariable},
-	PrintVariable=PrintTemporary[" ** BuildPSALTer: loading binary definitions for the context ",
-		Context];
+	PrintVariable=PrintTemporary[" ** BuildPSALTer: loading binary definitions for the context ",Context];
 	Off@(RuleDelayed::rhs);(* again emulating the xTensor sources *)
 	Get[FileNameJoin[{$PSALTerInstallDirectory,"Binaries","Contexts",#<>".mx"}]]&/@ContextList;
 	On@(RuleDelayed::rhs);
@@ -23,13 +22,9 @@ LoadBinaryContext[Context_String]:=Module[{PrintVariable},
 
 LoadPSALTer[]:=Catch@Module[{PrintVariable,InitialMemory,Progress},
 
-	(*<<xAct`PSALTer`PoincareGaugeTheory`;*)
-
 	PrintVariable=PrintTemporary[" ** BuildPSALTer: loading binary definitions..."];
 	InitialMemory=MemoryInUse[];
-(*
-	Progress=PrintTemporary@ProgressIndicator[Dynamic[N[(Refresh[MemoryInUse[],UpdateInterval->0.1]-InitialMemory)/10^8]],Appearance->"Percolate"];
-*)
+
 	Progress=PrintTemporary@ProgressIndicator[Appearance->"Necklace",ImageSize->Large];
 	LoadBinaryContext/@ContextList;
 	NotebookDelete@PrintVariable;	

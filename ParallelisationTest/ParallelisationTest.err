@@ -1,0 +1,2 @@
+/var/spool/slurm/slurmd/job30257986/slurm_script: line 117: ./svy/node-/peta4.hpc.mch: No such file or directory
+cat: ./svy/node-/peta4.hpc.mch: No such file or directory

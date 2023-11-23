@@ -39,3 +39,5 @@ Table[DefConstantSymbol[
 	Quiet@Symbol["i"<>ToString@i<>ToString@j],
 	PrintAs->"\!\(\*SubscriptBox[\(\[ScriptI]\), \("<>ColorString[ToString@i<>ToString@j,RGBColor[1.,0.,1.]]<>"\)]\)",
 	Dagger->Complex],{i,20},{j,20}];
+
+DefConstantSymbol[PoleResidue,PrintAs->"\[Lambda]"];

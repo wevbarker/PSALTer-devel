@@ -19,14 +19,17 @@ UpdateTheoryAssociation[Name_?StringQ,AssocKey_,Val_,OptionsPattern[]]:=Module[{
 	(*NotebookDelete@PrintVariable;*)
 
 	Quiet@Catch@DistributeDefinitions@Symbol@Name;
-
+(*
 	If[OptionValue@Advertise,
 		(*Print["** DefTheory: Defining association key ",ToString@AssocKey," for the theory association ",Name];*)
 	];
-
+*)
+(*
 	If[OptionValue@ExportTheory,
-		(*Print[" ** DefTheory: Exporting the binary at "<>Name<>".thr.mx"];*)
-		DumpSave[FileNameJoin@{$WorkingDirectory,Name<>".thr.mx"},{Name}];
+		(*Print[" ** DefTheory: Exporting the binary at "<>Name<>".mx"];*)
+		DumpSave[FileNameJoin@{$WorkingDirectory,Name<>".mx"},{Name}];
 	];
+*)
+	DumpSave[FileNameJoin@{$WorkingDirectory,Name<>".mx"},{Name}];
 
 ];

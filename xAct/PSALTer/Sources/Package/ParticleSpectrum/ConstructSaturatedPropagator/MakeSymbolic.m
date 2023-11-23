@@ -14,6 +14,8 @@ MakeSymbolic[InputMatrix_,CouplingAssumptions_]:=Module[{
 	SymbolicMatrix=Table[0,{i,DimensionOfMatrix},{j,DimensionOfMatrix}];	
 	SymbolicRules={};
 
+	Diagnostic@CouplingAssumptions;
+
 	ReplaceReal[i_,j_]:=Module[{RealPart,NewSymbol},	
 		Assuming[CouplingAssumptions,RealPart=Simplify@Re@(Evaluate@InputMatrix[[i,j]])];
 		NewSymbol=Symbol["r"<>ToString@i<>ToString@j];

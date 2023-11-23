@@ -39,7 +39,7 @@ MassiveAnalysisOfSector[SpinParitySectorFileName_,Couplings_,OptionsPattern[]]:=
 				);
 			SquareMassesValues//=DeleteDuplicates;
 			SquareMassesValues//=DeleteCases[#,0,Infinity]&;
-			SquareMassesValues//=DeleteCases[#,_?NumberQ]&;
+			SquareMassesValues//=DeleteCases[#,_?NumericQ]&;
 			SquareMassesValues=FullSimplify/@SquareMassesValues;
 		),
 		"Hard",

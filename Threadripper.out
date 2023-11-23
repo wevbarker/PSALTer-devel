@@ -1,0 +1,223 @@
+Mathematica 13.3.1 Kernel for Linux x86 (64-bit)
+Copyright 1988-2023 Wolfram Research, Inc.
+
+In[1]:= The purpose of this script is to determine whether Mathematica has been\
+ 
+>   correctly configured on the system. The need for this test is driven by\
+ 
+>   some unexpected poor performace on CSD3 jobs.
+
+In[2]:= The variable $MaxLicenseProcesses is set to 8
+
+In[3]:= The protected variable $ProcessorCount is set to 64
+
+In[4]:= The variable $KernelCount is set to 0
+
+In[5]:= 
+In[6]:= Now we execute LaunchKernels[]
+
+In[7]:= 
+In[8]:= The variable $KernelCount is set to 16
+
+In[9]:= It takes 1.00906 seconds to wait for 1 seconds for 1 times in parallel.
+It takes 1.01296 seconds to wait for 1 seconds for 2 times in parallel.
+It takes 1.01024 seconds to wait for 1 seconds for 3 times in parallel.
+It takes 1.00812 seconds to wait for 1 seconds for 4 times in parallel.
+It takes 1.01255 seconds to wait for 1 seconds for 5 times in parallel.
+It takes 1.01481 seconds to wait for 1 seconds for 6 times in parallel.
+It takes 1.00501 seconds to wait for 1 seconds for 7 times in parallel.
+It takes 1.00704 seconds to wait for 1 seconds for 8 times in parallel.
+It takes 1.01016 seconds to wait for 1 seconds for 9 times in parallel.
+It takes 1.00894 seconds to wait for 1 seconds for 10 times in parallel.
+It takes 1.01089 seconds to wait for 1 seconds for 11 times in parallel.
+It takes 1.0127 seconds to wait for 1 seconds for 12 times in parallel.
+It takes 1.01616 seconds to wait for 1 seconds for 13 times in parallel.
+It takes 1.01653 seconds to wait for 1 seconds for 14 times in parallel.
+It takes 1.01636 seconds to wait for 1 seconds for 15 times in parallel.
+It takes 1.01824 seconds to wait for 1 seconds for 16 times in parallel.
+It takes 2.01848 seconds to wait for 1 seconds for 17 times in parallel.
+It takes 2.01813 seconds to wait for 1 seconds for 18 times in parallel.
+It takes 2.01562 seconds to wait for 1 seconds for 19 times in parallel.
+It takes 2.01129 seconds to wait for 1 seconds for 20 times in parallel.
+It takes 2.02173 seconds to wait for 1 seconds for 21 times in parallel.
+It takes 2.01585 seconds to wait for 1 seconds for 22 times in parallel.
+It takes 2.02016 seconds to wait for 1 seconds for 23 times in parallel.
+It takes 2.02111 seconds to wait for 1 seconds for 24 times in parallel.
+It takes 2.01906 seconds to wait for 1 seconds for 25 times in parallel.
+It takes 2.01373 seconds to wait for 1 seconds for 26 times in parallel.
+It takes 2.02455 seconds to wait for 1 seconds for 27 times in parallel.
+It takes 2.02258 seconds to wait for 1 seconds for 28 times in parallel.
+It takes 2.01282 seconds to wait for 1 seconds for 29 times in parallel.
+It takes 2.02242 seconds to wait for 1 seconds for 30 times in parallel.
+It takes 2.01494 seconds to wait for 1 seconds for 31 times in parallel.
+It takes 2.01361 seconds to wait for 1 seconds for 32 times in parallel.
+It takes 3.02914 seconds to wait for 1 seconds for 33 times in parallel.
+It takes 3.02793 seconds to wait for 1 seconds for 34 times in parallel.
+It takes 3.02627 seconds to wait for 1 seconds for 35 times in parallel.
+It takes 3.02337 seconds to wait for 1 seconds for 36 times in parallel.
+It takes 3.02701 seconds to wait for 1 seconds for 37 times in parallel.
+It takes 3.02016 seconds to wait for 1 seconds for 38 times in parallel.
+It takes 3.0236 seconds to wait for 1 seconds for 39 times in parallel.
+It takes 3.01934 seconds to wait for 1 seconds for 40 times in parallel.
+It takes 3.02011 seconds to wait for 1 seconds for 41 times in parallel.
+It takes 3.0212 seconds to wait for 1 seconds for 42 times in parallel.
+It takes 3.02328 seconds to wait for 1 seconds for 43 times in parallel.
+It takes 3.02584 seconds to wait for 1 seconds for 44 times in parallel.
+It takes 3.02883 seconds to wait for 1 seconds for 45 times in parallel.
+It takes 3.01478 seconds to wait for 1 seconds for 46 times in parallel.
+It takes 3.02647 seconds to wait for 1 seconds for 47 times in parallel.
+It takes 3.0386 seconds to wait for 1 seconds for 48 times in parallel.
+It takes 4.02352 seconds to wait for 1 seconds for 49 times in parallel.
+It takes 4.02415 seconds to wait for 1 seconds for 50 times in parallel.
+It takes 4.03535 seconds to wait for 1 seconds for 51 times in parallel.
+It takes 4.03011 seconds to wait for 1 seconds for 52 times in parallel.
+It takes 4.02093 seconds to wait for 1 seconds for 53 times in parallel.
+It takes 4.0228 seconds to wait for 1 seconds for 54 times in parallel.
+It takes 4.02052 seconds to wait for 1 seconds for 55 times in parallel.
+It takes 4.0255 seconds to wait for 1 seconds for 56 times in parallel.
+It takes 4.02832 seconds to wait for 1 seconds for 57 times in parallel.
+It takes 4.03682 seconds to wait for 1 seconds for 58 times in parallel.
+It takes 4.03872 seconds to wait for 1 seconds for 59 times in parallel.
+It takes 4.02644 seconds to wait for 1 seconds for 60 times in parallel.
+It takes 4.0365 seconds to wait for 1 seconds for 61 times in parallel.
+It takes 4.03236 seconds to wait for 1 seconds for 62 times in parallel.
+It takes 4.04229 seconds to wait for 1 seconds for 63 times in parallel.
+It takes 4.04759 seconds to wait for 1 seconds for 64 times in parallel.
+It takes 5.04461 seconds to wait for 1 seconds for 65 times in parallel.
+It takes 5.03971 seconds to wait for 1 seconds for 66 times in parallel.
+It takes 5.04989 seconds to wait for 1 seconds for 67 times in parallel.
+It takes 5.05837 seconds to wait for 1 seconds for 68 times in parallel.
+It takes 5.03664 seconds to wait for 1 seconds for 69 times in parallel.
+It takes 5.02663 seconds to wait for 1 seconds for 70 times in parallel.
+It takes 5.04857 seconds to wait for 1 seconds for 71 times in parallel.
+It takes 5.03342 seconds to wait for 1 seconds for 72 times in parallel.
+It takes 5.03518 seconds to wait for 1 seconds for 73 times in parallel.
+It takes 5.04258 seconds to wait for 1 seconds for 74 times in parallel.
+It takes 5.039 seconds to wait for 1 seconds for 75 times in parallel.
+It takes 5.0414 seconds to wait for 1 seconds for 76 times in parallel.
+It takes 5.04376 seconds to wait for 1 seconds for 77 times in parallel.
+It takes 5.03534 seconds to wait for 1 seconds for 78 times in parallel.
+It takes 5.03543 seconds to wait for 1 seconds for 79 times in parallel.
+It takes 5.03572 seconds to wait for 1 seconds for 80 times in parallel.
+It takes 6.05653 seconds to wait for 1 seconds for 81 times in parallel.
+It takes 6.03378 seconds to wait for 1 seconds for 82 times in parallel.
+It takes 6.03756 seconds to wait for 1 seconds for 83 times in parallel.
+It takes 6.03811 seconds to wait for 1 seconds for 84 times in parallel.
+It takes 6.03708 seconds to wait for 1 seconds for 85 times in parallel.
+It takes 6.06296 seconds to wait for 1 seconds for 86 times in parallel.
+It takes 6.05343 seconds to wait for 1 seconds for 87 times in parallel.
+It takes 6.06209 seconds to wait for 1 seconds for 88 times in parallel.
+It takes 6.06054 seconds to wait for 1 seconds for 89 times in parallel.
+It takes 6.0743 seconds to wait for 1 seconds for 90 times in parallel.
+It takes 6.05109 seconds to wait for 1 seconds for 91 times in parallel.
+It takes 6.06322 seconds to wait for 1 seconds for 92 times in parallel.
+It takes 6.05232 seconds to wait for 1 seconds for 93 times in parallel.
+It takes 6.03388 seconds to wait for 1 seconds for 94 times in parallel.
+It takes 6.03069 seconds to wait for 1 seconds for 95 times in parallel.
+It takes 6.04395 seconds to wait for 1 seconds for 96 times in parallel.
+It takes 7.05106 seconds to wait for 1 seconds for 97 times in parallel.
+It takes 7.05069 seconds to wait for 1 seconds for 98 times in parallel.
+It takes 7.05776 seconds to wait for 1 seconds for 99 times in parallel.
+It takes 7.07289 seconds to wait for 1 seconds for 100 times in parallel.
+It takes 7.04445 seconds to wait for 1 seconds for 101 times in parallel.
+It takes 7.04475 seconds to wait for 1 seconds for 102 times in parallel.
+It takes 7.07435 seconds to wait for 1 seconds for 103 times in parallel.
+It takes 7.05018 seconds to wait for 1 seconds for 104 times in parallel.
+It takes 7.03864 seconds to wait for 1 seconds for 105 times in parallel.
+It takes 7.04004 seconds to wait for 1 seconds for 106 times in parallel.
+It takes 7.07188 seconds to wait for 1 seconds for 107 times in parallel.
+It takes 7.0588 seconds to wait for 1 seconds for 108 times in parallel.
+It takes 7.05493 seconds to wait for 1 seconds for 109 times in parallel.
+It takes 7.04793 seconds to wait for 1 seconds for 110 times in parallel.
+It takes 7.04726 seconds to wait for 1 seconds for 111 times in parallel.
+It takes 7.04225 seconds to wait for 1 seconds for 112 times in parallel.
+It takes 8.04536 seconds to wait for 1 seconds for 113 times in parallel.
+It takes 8.08997 seconds to wait for 1 seconds for 114 times in parallel.
+It takes 8.09243 seconds to wait for 1 seconds for 115 times in parallel.
+It takes 8.08738 seconds to wait for 1 seconds for 116 times in parallel.
+It takes 8.05854 seconds to wait for 1 seconds for 117 times in parallel.
+It takes 8.08438 seconds to wait for 1 seconds for 118 times in parallel.
+It takes 8.04814 seconds to wait for 1 seconds for 119 times in parallel.
+It takes 8.04062 seconds to wait for 1 seconds for 120 times in parallel.
+It takes 8.05048 seconds to wait for 1 seconds for 121 times in parallel.
+It takes 8.05581 seconds to wait for 1 seconds for 122 times in parallel.
+It takes 8.06724 seconds to wait for 1 seconds for 123 times in parallel.
+It takes 8.08486 seconds to wait for 1 seconds for 124 times in parallel.
+It takes 8.06497 seconds to wait for 1 seconds for 125 times in parallel.
+It takes 8.071 seconds to wait for 1 seconds for 126 times in parallel.
+It takes 8.05675 seconds to wait for 1 seconds for 127 times in parallel.
+It takes 8.04143 seconds to wait for 1 seconds for 128 times in parallel.
+It takes 9.07201 seconds to wait for 1 seconds for 129 times in parallel.
+It takes 9.09993 seconds to wait for 1 seconds for 130 times in parallel.
+It takes 9.093 seconds to wait for 1 seconds for 131 times in parallel.
+It takes 9.06186 seconds to wait for 1 seconds for 132 times in parallel.
+It takes 9.05859 seconds to wait for 1 seconds for 133 times in parallel.
+It takes 9.03847 seconds to wait for 1 seconds for 134 times in parallel.
+It takes 9.0624 seconds to wait for 1 seconds for 135 times in parallel.
+It takes 9.0653 seconds to wait for 1 seconds for 136 times in parallel.
+It takes 9.09875 seconds to wait for 1 seconds for 137 times in parallel.
+It takes 9.06168 seconds to wait for 1 seconds for 138 times in parallel.
+It takes 9.0529 seconds to wait for 1 seconds for 139 times in parallel.
+It takes 9.06496 seconds to wait for 1 seconds for 140 times in parallel.
+It takes 9.10274 seconds to wait for 1 seconds for 141 times in parallel.
+It takes 9.06076 seconds to wait for 1 seconds for 142 times in parallel.
+It takes 9.06945 seconds to wait for 1 seconds for 143 times in parallel.
+It takes 9.07797 seconds to wait for 1 seconds for 144 times in parallel.
+It takes 10.0529 seconds to wait for 1 seconds for 145 times in parallel.
+It takes 10.0932 seconds to wait for 1 seconds for 146 times in parallel.
+It takes 10.0547 seconds to wait for 1 seconds for 147 times in parallel.
+It takes 10.0825 seconds to wait for 1 seconds for 148 times in parallel.
+It takes 10.0792 seconds to wait for 1 seconds for 149 times in parallel.
+It takes 10.1006 seconds to wait for 1 seconds for 150 times in parallel.
+It takes 10.0945 seconds to wait for 1 seconds for 151 times in parallel.
+It takes 10.0676 seconds to wait for 1 seconds for 152 times in parallel.
+It takes 10.0595 seconds to wait for 1 seconds for 153 times in parallel.
+It takes 10.0804 seconds to wait for 1 seconds for 154 times in parallel.
+It takes 10.0848 seconds to wait for 1 seconds for 155 times in parallel.
+It takes 10.0779 seconds to wait for 1 seconds for 156 times in parallel.
+It takes 10.0904 seconds to wait for 1 seconds for 157 times in parallel.
+It takes 10.0713 seconds to wait for 1 seconds for 158 times in parallel.
+It takes 10.0385 seconds to wait for 1 seconds for 159 times in parallel.
+It takes 10.082 seconds to wait for 1 seconds for 160 times in parallel.
+It takes 11.0709 seconds to wait for 1 seconds for 161 times in parallel.
+It takes 11.0794 seconds to wait for 1 seconds for 162 times in parallel.
+It takes 11.0887 seconds to wait for 1 seconds for 163 times in parallel.
+It takes 11.0721 seconds to wait for 1 seconds for 164 times in parallel.
+It takes 11.0792 seconds to wait for 1 seconds for 165 times in parallel.
+It takes 11.0681 seconds to wait for 1 seconds for 166 times in parallel.
+It takes 11.0986 seconds to wait for 1 seconds for 167 times in parallel.
+It takes 11.0826 seconds to wait for 1 seconds for 168 times in parallel.
+It takes 11.0749 seconds to wait for 1 seconds for 169 times in parallel.
+It takes 11.0852 seconds to wait for 1 seconds for 170 times in parallel.
+It takes 11.1 seconds to wait for 1 seconds for 171 times in parallel.
+It takes 11.0905 seconds to wait for 1 seconds for 172 times in parallel.
+It takes 11.0715 seconds to wait for 1 seconds for 173 times in parallel.
+It takes 11.0657 seconds to wait for 1 seconds for 174 times in parallel.
+It takes 11.0612 seconds to wait for 1 seconds for 175 times in parallel.
+It takes 11.0976 seconds to wait for 1 seconds for 176 times in parallel.
+It takes 12.0885 seconds to wait for 1 seconds for 177 times in parallel.
+It takes 12.1022 seconds to wait for 1 seconds for 178 times in parallel.
+It takes 12.1167 seconds to wait for 1 seconds for 179 times in parallel.
+It takes 12.1286 seconds to wait for 1 seconds for 180 times in parallel.
+It takes 12.1194 seconds to wait for 1 seconds for 181 times in parallel.
+It takes 12.1246 seconds to wait for 1 seconds for 182 times in parallel.
+It takes 12.1041 seconds to wait for 1 seconds for 183 times in parallel.
+It takes 12.0665 seconds to wait for 1 seconds for 184 times in parallel.
+It takes 12.0877 seconds to wait for 1 seconds for 185 times in parallel.
+It takes 12.1175 seconds to wait for 1 seconds for 186 times in parallel.
+It takes 12.094 seconds to wait for 1 seconds for 187 times in parallel.
+It takes 12.1003 seconds to wait for 1 seconds for 188 times in parallel.
+It takes 12.0513 seconds to wait for 1 seconds for 189 times in parallel.
+It takes 12.0712 seconds to wait for 1 seconds for 190 times in parallel.
+It takes 12.0911 seconds to wait for 1 seconds for 191 times in parallel.
+It takes 12.0578 seconds to wait for 1 seconds for 192 times in parallel.
+It takes 13.0471 seconds to wait for 1 seconds for 193 times in parallel.
+It takes 13.0864 seconds to wait for 1 seconds for 194 times in parallel.
+It takes 13.124 seconds to wait for 1 seconds for 195 times in parallel.
+It takes 13.0745 seconds to wait for 1 seconds for 196 times in parallel.
+It takes 13.1391 seconds to wait for 1 seconds for 197 times in parallel.
+It takes 13.1194 seconds to wait for 1 seconds for 198 times in parallel.
+It takes 13.0581 seconds to wait for 1 seconds for 199 times in parallel.
+It takes 13.0761 seconds to wait for 1 seconds for 200 times in parallel.
+
+In[10]:= 

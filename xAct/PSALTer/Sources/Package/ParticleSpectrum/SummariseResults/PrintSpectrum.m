@@ -6,13 +6,15 @@ BuildPackage@"ParticleSpectrum/SummariseResults/PrintSpectrum/PrintParticle.m";
 BuildPackage@"ParticleSpectrum/SummariseResults/PrintSpectrum/PrintMassiveSpectrum.m";
 BuildPackage@"ParticleSpectrum/SummariseResults/PrintSpectrum/StripFactors.m";
 BuildPackage@"ParticleSpectrum/SummariseResults/PrintSpectrum/PrintMasslessSpectrum.m";
+BuildPackage@"ParticleSpectrum/SummariseResults/PrintSpectrum/PrintSecularEquation.m";
 
 PrintSpectrum[
 		SquareMasses_,
 		MassivePropagatorResidues_,
 		MasslessEigenvalues_,
 		QuarticAnalysisValue_,
-		HexicAnalysisValue_]:=Module[{ContentList},
+		HexicAnalysisValue_,
+		SecularEquation_]:=Module[{ContentList},
 
 	ContentList=(
 		(MapThread[If[!(#1==={}),
@@ -28,7 +30,8 @@ PrintSpectrum[
 		Join[
 			(PrintParticle[First@#,0,0,0,Length@#,LaurentDepth->1]&/@Gather@(StripFactors/@MasslessEigenvalues)),
 			(PrintParticle[First@#,0,0,0,Length@#,LaurentDepth->2]&/@Gather@(StripFactors/@QuarticAnalysisValue)),
-			(PrintParticle[First@#,0,0,0,Length@#,LaurentDepth->3]&/@Gather@(StripFactors/@HexicAnalysisValue))
+			(PrintParticle[First@#,0,0,0,Length@#,LaurentDepth->3]&/@Gather@(StripFactors/@HexicAnalysisValue))(*,
+(PrintSecularEquation/@SecularEquation)*)
 		]
 	);
 

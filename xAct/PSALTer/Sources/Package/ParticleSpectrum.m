@@ -40,6 +40,27 @@ ValidateMaxLaurentDepth[MaxLaurentDepthValue_]:=If[!({1,2,3}~MemberQ~MaxLaurentD
 			Throw@Message[ParticleSpectrum::WrongMaxLaurentDepth,MaxLaurentDepthValue]
 			];
 
+
+ParticleSpectrum[OptionsPattern[]]:=Catch@Module[{
+	SummaryOfResults,
+	Class},
+
+	ValidateTheoryName@OptionValue@TheoryName;
+
+	Get@FileNameJoin@{$WorkingDirectory,OptionValue@TheoryName<>".mx"};
+	Class=Evaluate@Symbol@OptionValue@TheoryName;
+
+	SummaryOfResults=SummariseResults[
+		Class@SavedWaveOperator,
+		Class@SavedPropagator,
+		Class@SavedSourceConstraints,
+		Class@SavedSpectrum,
+		Class@SavedMasslessSpectrum,
+		Class@SavedOverallUnitarity,
+		Class@SavedSummaryOfTheory];
+	Print@SummaryOfResults;
+];
+
 ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 	SummariseResultsOngoing,
 	ClassNames
@@ -48,6 +69,9 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 	ClassNames={"ScalarTheory",
 		"VectorTheory",
 		"TensorTheory",
+		"SymmetricTensorTheory",
+		"AsymmetricTensorTheory",
+		"BimetricTensorTheory",
 		"ScalarTensorTheory",
 		"PoincareGaugeTheory",
 		"WeylGaugeTheory",
@@ -83,6 +107,8 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 			LocalMasslessSpectrum,
 			LocalOverallUnitarity,
 			LocalSummaryOfTheory}]];
+
+	Quiet@CreateDirectory@FileNameJoin@{$WorkingDirectory,"tmp"};
 
 	ConstructLinearAction[
 				OptionValue@ClassName,
@@ -158,10 +184,14 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 				ExportTheory->False];
 	UpdateTheoryAssociation[
 				OptionValue@TheoryName,
+				SecularEquation,
+				SecularEquationValue,
+				ExportTheory->False];
+	UpdateTheoryAssociation[
+				OptionValue@TheoryName,
 				SourceConstraintComponents,
 				ConstraintComponentList,
 				ExportTheory->False];
-
 
 	ConstructUnitarityConditions[
 				OptionValue@ClassName,
@@ -176,6 +206,7 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 				PositiveSystemValue,
 				ExportTheory->False];
 
+	DeleteDirectory[FileNameJoin@{$WorkingDirectory,"tmp"},DeleteContents->True];
 
 	FinishDynamic[];
 	NotebookDelete@SummariseResultsOngoing;
@@ -188,9 +219,34 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 		LocalOverallUnitarity,
 		LocalSummaryOfTheory];
 	Print@SummaryOfResults;
+(*
 	If[$ExportPDF,
 		Export[FileNameJoin@{$WorkingDirectory,OptionValue@TheoryName<>".pdf"},
 					SummaryOfResults]
+	];
+*)
+	MapThread[
+	UpdateTheoryAssociation[
+				OptionValue@TheoryName,
+				#1,
+				#2,
+				ExportTheory->False]&,
+	{{		
+		SavedWaveOperator,
+		SavedPropagator,
+		SavedSourceConstraints,
+		SavedSpectrum,
+		SavedMasslessSpectrum,
+		SavedOverallUnitarity,
+		SavedSummaryOfTheory},
+	{
+		LocalWaveOperator,
+		LocalPropagator,
+		LocalSourceConstraints,
+		LocalSpectrum,
+		LocalMasslessSpectrum,
+		LocalOverallUnitarity,
+		LocalSummaryOfTheory}}
 	];
 ];
 On[Set::write];

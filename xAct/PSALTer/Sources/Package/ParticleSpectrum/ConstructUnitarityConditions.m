@@ -33,17 +33,24 @@ ConstructUnitarityConditions[ClassName_?StringQ,MassiveAnalysis_,MassiveGhostAna
 	PositiveSystem=PositiveSystem~Join~PathologicalSystem;
 
 	PositiveSystem=PositiveSystem/.{Mo->1,En->1,Def->1};
-	(*Quiet wrapper used since there are some PrintAs warnings*)
-	PositiveSystem//=Quiet@Assuming[CouplingAssumptions,Reduce[#,Couplings]]&;
-	Diagnostic@PositiveSystem;
-	LocalOverallUnitarity=PositiveSystem;
-	PositiveSystemValue=PositiveSystem;
 
-	If[PositiveSystem===False,
-		LocalOverallUnitarity=Text@"(Demonstrably impossible)";
-		PositiveSystemValue=Text@"(Demonstrably impossible)";
-		,
-		LocalOverallUnitarity={PositiveSystem};
-		PositiveSystemValue={PositiveSystem};
+
+	If[LeafCount@MasslessAnalysisValue>=50,
+		LocalOverallUnitarity=Text@"(Hidden for brevity)";
+		PositiveSystemValue=Text@"(Hidden for brevity)";,
+
+		(*Quiet wrapper used since there are some PrintAs warnings*)
+		PositiveSystem//=Quiet@Assuming[CouplingAssumptions,Reduce[#,Couplings]]&;
+		Diagnostic@PositiveSystem;
+		LocalOverallUnitarity=PositiveSystem;
+		PositiveSystemValue=PositiveSystem;
+
+		If[PositiveSystem===False,
+			LocalOverallUnitarity=Text@"(Demonstrably impossible)";
+			PositiveSystemValue=Text@"(Demonstrably impossible)";
+			,
+			LocalOverallUnitarity={PositiveSystem};
+			PositiveSystemValue={PositiveSystem};
+		];
 	];
 ];
