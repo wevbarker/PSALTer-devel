@@ -1,21 +1,27 @@
 (* ::Package:: *)
 
-(*=================*)
-(*  CalibrateCaseLinWeyl  *)
-(*=================*)
+(*=====================================*)
+(*  CalibrateCaseLinWeylZeroCurvature  *)
+(*=====================================*)
 
-CalibrateCaseLinWeyl[CaseNumber_,CaseRules_List,CaseConditions_List]:=Module[{
+CalibrateCaseLinWeylZeroCurvature[CaseNumber_,CaseRules_List,CaseConditions_List]:=Module[{
 	LinearisedLagrangianLinWeyl,
 	Couplings={lLambda,lR1,lR2,lR3,lR4,lR5,lC1,lXi,lNu,lT1,lT2,lT3,lPhi0},
 	CouplingAssumptions},
+	
+	(*To fit with notation in CriticalCasesLinWeyl*)
+	CaseNumberAdded=CaseNumber+36;
 
-	Subsection@("Case "<>ToString@CaseNumber);	
-
-	Comment@("Now for a new theory. Here is the full nonlinear Lagrangian for Case "<>ToString@CaseNumber<>". Cases 1-13 as defined by the second column of TABLE I. in Lin, PHYS. REV. D 104, 024034 (2021). Cases 14-36 as in TABLE III, Cases 37-42 as in TABLE IV:");	
-
-	DisplayExpression@CollectTensors@ToCanonical[NonlinearLagrangianLinWeyl/.CaseRules];
+	Subsection@("Case "<>ToString@CaseNumberAdded);	
+	Comment@("Now for a new theory. Here is the full nonlinear Lagrangian for Case "<>ToString@CaseNumberAdded<>". Cases 1-13 as defined by the second column of TABLE I. in Lin, PHYS. REV. D 104, 024034 (2021). Cases 14-36 as in TABLE III, Cases 37-42 as in TABLE IV:");	
 
 	LinearisedLagrangianLinWeyl=LineariseLagrangianLinWeyl[NonlinearLagrangianLinWeyl/.CaseRules];
+	
+	(*Here we perform the zero-torsion restriction*)
+	LinearisedLagrangianLinWeyl=LinearisedLagrangianLinWeyl/.WeylRotationalGaugeField->Zero;
+	
+	Comment@("For cases 37-42, we need to set A to 0. Here is the resultant linearised Lagrangian.");	
+	DisplayExpression@CollectTensors@ToCanonical[LinearisedLagrangianLinWeyl];
 	
 	(*Diagnostic line follows*)
 	Print@"Hi there, I'm sitting between Zhiyuan's code and Will's code!";
@@ -23,7 +29,7 @@ CalibrateCaseLinWeyl[CaseNumber_,CaseRules_List,CaseConditions_List]:=Module[{
 	ParticleSpectrum[
 		LinearisedLagrangianLinWeyl,
 		ClassName->"WeylGaugeTheory",
-		TheoryName->("WeylCase"<>ToString@CaseNumber),
+		TheoryName->("WeylCase"<>ToString@CaseNumberAdded),
 		Method->"Easy",
 		MaxLaurentDepth->3
 	];
@@ -34,5 +40,4 @@ CalibrateCaseLinWeyl[CaseNumber_,CaseRules_List,CaseConditions_List]:=Module[{
 	DisplayExpression@Quiet@Assuming[CouplingAssumptions,Reduce[CaseConditions,Couplings]];
 
 	Comment@"Okay, that concludes the analysis of this theory.";
-	
 	];
