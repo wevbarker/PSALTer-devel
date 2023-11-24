@@ -44,8 +44,8 @@ WeylRTToHBFieldACDBFieldCDA=Join[
 ];
 
 (*Here we load the files required to generate the Lagrangian*)
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","WeylGaugeTheory","LagrangianLinWeylCouplings.m"};
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","WeylGaugeTheory","LineariseLinWeyl.m"};
+Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheory","LagrangianLinWeylCouplings.m"};
+Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheory","LineariseLinWeyl.m"};
 
 Comment@"We expand the field strength R into the unstarred PGT quantities.";
 DisplayExpression[WeylBaseR[a, b, -d, -e]/.WeylRTToHBFieldACDBFieldCDA//xAct`PSALTer`Private`ToNewCanonical//CollectTensors];

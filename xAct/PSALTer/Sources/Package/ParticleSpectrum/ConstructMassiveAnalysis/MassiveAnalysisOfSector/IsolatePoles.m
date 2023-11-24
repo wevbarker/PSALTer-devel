@@ -22,7 +22,7 @@ IsolatePoles[InputDenominator_,CouplingAssumptions_]:=Module[{
 		Diagnostic@ListOfRoots;
 		ListOfRoots//=DeleteCases[#,0,Infinity]&;
 		Diagnostic@ListOfRoots;
-		ListOfRoots//=DeleteCases[#,_?NumberQ]&;
+		ListOfRoots//=DeleteCases[#,_?NumericQ]&;
 		Diagnostic@ListOfRoots;,
 		ListOfRoots={};
 	];

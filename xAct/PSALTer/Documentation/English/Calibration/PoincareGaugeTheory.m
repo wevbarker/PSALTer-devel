@@ -45,29 +45,36 @@ DisplayExpression[Expr];
 
 Comment@"Now we set up the general Lagrangian. In the first instance we will do this with some coupling constants which are proportional to those used by Hayashi and Shirafuji in Prog. Theor. Phys. 64 (1980) 2222, and identical to those used in arXiv:2205.13534 and (up to re-labelling) arXiv:gr-qc/9902032.";
 
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory",
+Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory",
 					"LagrangianHayashiShirafujiCouplings.m"};
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory",
+Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory",
 					"LagrangianKarananasCouplings.m"};
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory",
+Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory",
 					"Linearise.m"};
 
 BasicCriticalCases={
 	kR1==kR2==kR3==kR4==kR5==kLambda/4+kT1/3+kT2/12==-kLambda/2-kT1/3+kT2/6==-kLambda-kT1/3+2*kT3/3==0,
 	kR1==kR2==kR3==kR4==kR5==kT1==kT2==kT3==0
 };
-
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory",
+Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory",
+					"MarzoZellBarkerModel1.m"};
+Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory",
+					"MarzoZellBarkerModel2.m"};
+(*
+Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory",
 					"GeneralPGT.m"};
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory",
+Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory",
 					"EinsteinCartanTheory.m"};
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory",
+Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory",
+					"AsymmetricPartanenTulkkiTheory.m"};
+Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory",
 					"GeneralRelativity.m"};
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory",
+Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory",
 					"MelichevPercacciTheory.m"};
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory",
+Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory",
 					"YoNesterTheories.m"};
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory",
+Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory",
 					"AnnalaRasanenTheory.m"};
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","PoincareGaugeTheory",
+Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory",
 					"LinHobsonLasenbyTheories.m"};
+*)

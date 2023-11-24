@@ -21,12 +21,10 @@ ConstructMassiveAnalysis[ClassName_?StringQ,ValuesSaturatedPropagator_,ValuesInv
 
 	LocalSpectrum=" ** MassiveAnalysisOfSector...";
 
-	Quiet@CreateDirectory[FileNameJoin@{NotebookDirectory[],"tmp"}];
-
 	SpinParitySectorFileNames=Table[0,{i,Length@(ValuesSaturatedPropagator)}];
 	Table[
 		SpinParitySector=ValuesSaturatedPropagator[[i]];
-		SpinParitySectorFileName=FileNameJoin@{NotebookDirectory[],
+		SpinParitySectorFileName=FileNameJoin@{$WorkingDirectory,
 				"tmp",
 				"SpinParitySector"<>ToString@i<>".mx"};
 		SpinParitySectorFileNames[[i]]=SpinParitySectorFileName;
@@ -81,5 +79,6 @@ ConstructMassiveAnalysis[ClassName_?StringQ,ValuesSaturatedPropagator_,ValuesInv
 
 	Diagnostic@MassiveAnalysis;
 
-	LocalSpectrum={MassiveAnalysis,MassiveGhostAnalysis,{},{},{}};
+	LocalSpectrum={MassiveAnalysis,
+			MassiveGhostAnalysis,{},{},{},{}};
 ];

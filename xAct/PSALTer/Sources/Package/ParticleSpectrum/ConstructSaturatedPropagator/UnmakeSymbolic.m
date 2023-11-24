@@ -22,12 +22,10 @@ UnmakeSymbolic[InverseSymbolicMatrix_,
 
 	RankOfMatrix=Length@InverseSymbolicMatrix;
 
-	Quiet@CreateDirectory[FileNameJoin@{NotebookDirectory[],"tmp"}];
-
 	MatrixElementFileNames=Table[0,{i,RankOfMatrix},{j,RankOfMatrix}];
 	Table[
 		MatrixElement={CouplingAssumptions,Evaluate@(InverseSymbolicMatrix[[i,j]])};
-		MatrixElementFileName=FileNameJoin@{NotebookDirectory[],
+		MatrixElementFileName=FileNameJoin@{$WorkingDirectory,
 				"tmp",
 				"MatrixElement"<>ToString@i<>ToString@j<>".mx"};
 		MatrixElementFileNames[[i,j]]=MatrixElementFileName;

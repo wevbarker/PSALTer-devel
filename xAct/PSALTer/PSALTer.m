@@ -31,15 +31,29 @@ SetOptions[$FrontEndSession,EvaluationCompletionAction->"ScrollToOutput"];
 
 Print[xAct`xCore`Private`bars];
 Print["Package xAct`PSALTer` version ",$Version[[1]],", ",$Version[[2]]];
-Print["CopyRight \[Copyright] 2022, Will E. V. Barker, Stephanie Buttigieg, Carlo Marzo, Cillian Rew, Claire Rigouzzo, Zhiyuan Wei and David Yallup, under the General Public License."];
+Print["CopyRight \[Copyright] 2022, Will E. V. Barker, Stephanie Buttigieg, Carlo Marzo, Cillian Rew, Claire Rigouzzo, Zhiyuan Wei, Haoyang Ye and David Yallup, under the General Public License."];
 
 (*-------------------------------------------------------------------*)
 (*  Modify the path to accommodate notebook and install directories  *)
 (*-------------------------------------------------------------------*)
 
-Quiet@If[NotebookDirectory[]==$Failed,$WorkingDirectory=Directory[];,$WorkingDirectory=NotebookDirectory[];,$WorkingDirectory=NotebookDirectory[];];
+Quiet@If[NotebookDirectory[]==$Failed,
+	$CLI=True,
+	$CLI=False,
+	$CLI=False];
+
+If[$CLI,
+	$WorkingDirectory=Directory[],
+	$WorkingDirectory=NotebookDirectory[]];
+
 $Path~AppendTo~$WorkingDirectory;
 $PSALTerInstallDirectory=Select[FileNameJoin[{#,"xAct/PSALTer"}]&/@$Path,DirectoryQ][[1]];
+
+If[$CLI,	
+	Print@Import@FileNameJoin@{$PSALTerInstallDirectory,
+				"Documentation","Logo","ASCIILogo.txt"},
+	Print@Magnify[Import@FileNameJoin@{$PSALTerInstallDirectory,
+				"Documentation","Logo","GitLabLogo.png"},0.3]];
 
 $DiagnosticMode=False;
 $MonitorParallel=False;
@@ -61,7 +75,6 @@ Print[xAct`xCore`Private`bars]];
 
 ParticleSpectrum::usage="ParticleSpectrum[TheoryName,Expr,Tensor1,Tensor2,...,Options] performs the whole propagator analysis on a scalar Lagrangian Expr, which is quadratic in the given perturbed fields whose xTensor heads are Tensor1 and Tensor2 into its Fourier form. 
 Both Expr and at least one field must be provided. Do not include indices in the fields, just list the xTensor heads (i.e. the tensor names). If these names do not correspond to gauge field perturbations that are already known to PSALTer, an error will be thrown. The string TheoryName must not contain spaces, it will be converted to a symbol set to an association which contains the results of the analysis, and (if the option Export->True is passed) it will be used to construct the file \"TheoryName.thr.mx\".";
-ViewParticleSpectrum::usage="ViewParticleSpectrum[TheoryName] displays the results of the analysis.";
 ClassName::usage="ClassName is a mandatory option for ParticleSpectrum which identifies the theory class to which the linearised Lagrangian belongs. The option must be passed as the (string) name of a defined theory class.";
 TheoryName::usage="TheoryName is a mandatory option for ParticleSpectrum which associates a name with the linearised Lagrangian. The option must be passed as a (string) name of the new theory.";
 MaxLaurentDepth::usage="MaxLaurentDepth is an option for ParticleSpectrum which sets the maximum positive integer n for which the 1/k^(2n) null pole residues are requested. The default is 1, from which the massless spectrum can be obtained. Setting higher n naturally leads to longer runtimes, but also allows potential (pathological) higher-order/non-simple propagator poles to be identified, down to the requested depth.";
@@ -113,7 +126,6 @@ BuildRebuild[FileName_String]:=Get[FileNameJoin@{$PSALTerInstallDirectory,"Sourc
 BuildPSALTerPackage[]:=BuildPackage/@{
 	"BuildPSALTer.m",
 	"ParticleSpectrum.m",
-	"ViewParticleSpectrum.m",
 	"DefSpinParityMode.m",
 	"DefLagrangianCoupling.m",
 	"DefClass.m",
@@ -133,6 +145,12 @@ ContextList={
 	"xAct`PSALTer`VectorTheory`Private`",
 	"xAct`PSALTer`TensorTheory`",
 	"xAct`PSALTer`TensorTheory`Private`",
+	"xAct`PSALTer`SymmetricTensorTheory`",
+	"xAct`PSALTer`SymmetricTensorTheory`Private`",
+	"xAct`PSALTer`AsymmetricTensorTheory`",
+	"xAct`PSALTer`AsymmetricTensorTheory`Private`",
+	"xAct`PSALTer`BimetricTensorTheory`",
+	"xAct`PSALTer`BimetricTensorTheory`Private`",
 	"xAct`PSALTer`ScalarTensorTheory`",
 	"xAct`PSALTer`ScalarTensorTheory`Private`",
 	"xAct`PSALTer`PoincareGaugeTheory`",
