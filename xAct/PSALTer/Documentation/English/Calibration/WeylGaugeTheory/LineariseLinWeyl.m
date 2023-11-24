@@ -1,8 +1,8 @@
 (* ::Package:: *)
 
-(*=============*)
+(*=====================*)
 (*  LineariseLinWeyl  *)
-(*=============*)
+(*=====================*)
 
 Off[ValidateSymbol::used];
 DefConstantSymbol[PerturbativeParameterWeyl,PrintAs->"\[Epsilon]"];
