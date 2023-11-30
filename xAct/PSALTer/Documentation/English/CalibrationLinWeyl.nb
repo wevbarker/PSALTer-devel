@@ -1,1 +1,66 @@
-Get@FileNameJoin@{NotebookDirectory[],"CalibrationLinWeyl.m"};
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      1877,         58]
+NotebookOptionsPosition[      1297,         38]
+NotebookOutlinePosition[      1926,         60]
+CellTagsIndexPosition[      1883,         57]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"CloseKernels", "[", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Get", "@", 
+   RowBox[{"FileNameJoin", "@", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+      "\"\<CalibrationLinWeyl.m\>\""}], "}"}]}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.881335155853407*^9, 3.881335176405672*^9}, {
+  3.8825943163826847`*^9, 3.882594319694297*^9}, {3.8860717540372334`*^9, 
+  3.886071755501113*^9}, {3.900521132386359*^9, 3.900521133583127*^9}, {
+  3.9005230229407206`*^9, 3.900523023618452*^9}, {3.910185082290083*^9, 
+  3.910185084752162*^9}},
+ EmphasizeSyntaxErrors->True,
+ CellLabel->"In[1]:=",ExpressionUUID->"fa830831-9bb6-486c-90db-7d3f6b5b88d8"]
+},
+WindowSize->{1152, 625.5},
+WindowMargins->{{-1440, Automatic}, {Automatic, 0}},
+PrintingCopies->1,
+PrintingPageRange->{Automatic, Automatic},
+PrintingOptions->{"PaperOrientation"->"Landscape",
+"PaperSize"->{1191, 842},
+"PostScriptOutputFile"->"/home/williamb/print.pdf"},
+TaggingRules-><|"TryRealOnly" -> False|>,
+FrontEndVersion->"13.3 for Linux x86 (64-bit) (July 24, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"34e78da9-a457-4960-94bd-05fe79a0f0a3"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 735, 16, 50, "Input",ExpressionUUID->"fa830831-9bb6-486c-90db-7d3f6b5b88d8"]
+}
+]
+*)
+
