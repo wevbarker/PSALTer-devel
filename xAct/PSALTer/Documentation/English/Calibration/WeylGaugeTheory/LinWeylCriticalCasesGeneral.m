@@ -1,8 +1,8 @@
 (* ::Package:: *)
 
-(*==============================*)
-(*  LinWeylCriticalCases01To13  *)
-(*==============================*)
+(*===============================*)
+(*  LinWeylCriticalCasesGeneral  *)
+(*===============================*)
 
 (*=============================================*)
 (*  WGT critical cases from Lin et. al. 2021  *)
@@ -21,7 +21,7 @@ On[Solve::svars];
 Print@CriticalCasesSolutionsLinWeyl[[1;;13]];
 Print@UnitarityLinWeyl[[1;;13]];
 
-Comment@"We are now ready to check that PSALTer is getting the physics right by running it on the WGT cases in Lin et. al. 2021. We are looking at cases 1-13 here.";
+Comment@"We are now ready to check that PSALTer is getting the physics right by running it on the WGT cases in Lin et. al. 2021. We are looking at cases 1-13 of Table III.";
 
 CalibrationTimingDataLinWeyl=MapThread[
 		AbsoluteTiming@CalibrateCaseLinWeyl[#1,#2,#3]&,

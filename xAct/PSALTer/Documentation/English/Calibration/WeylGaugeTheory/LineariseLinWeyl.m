@@ -18,16 +18,11 @@ ToOrderWeylVector = MakeRule[{WeylVector[-i], PerturbativeParameterWeyl*WeylVect
 	MetricOn -> All, ContractMetrics -> True];
 
 (*To incoporate Einstein Gauge of Lin's paper*)
+ToOrderCompensatorEinsteinGauge = MakeRule[{Compensator[], Scalar[lPhi0]}, MetricOn -> All, ContractMetrics -> True];
 
-(*
-ToOrderCompensatorEinsteinGauge = MakeRule[{Compensator[], Scalar[lPhi0] + PerturbativeParameterWeyl*Compensator[]}, 
-	MetricOn -> All, ContractMetrics -> True];
-*)	
+(*Perturbative version of the gauge, here I am making the compensator dimensionless i.e. any possible masses order 1. I do this to prevent any denominators phi/phi0.*)
+(*ToOrderCompensatorEinsteinGauge = MakeRule[{Compensator[], lPhi0*(Scalar[1] + PerturbativeParameterWeyl*Compensator[])}, MetricOn -> All, ContractMetrics -> True];*)	
 
-(*Alternate version of the gauge, here I am making the compensator dimensionless i.e. any possible masses = 1. I do this to prevent any denominators phi/phi0.*)
-ToOrderCompensatorEinsteinGauge = MakeRule[{Compensator[], lPhi0*(Scalar[1] + PerturbativeParameterWeyl*Compensator[])}, 
-	MetricOn -> All, ContractMetrics -> True];	
-	
 ToOrderWeyl = Join[ToOrderAWeyl, ToOrderFWeyl, ToOrderWeylVector, ToOrderCompensatorEinsteinGauge];
 (*I want to check the outputs*)
 Print@"I want to check the outputs for Einstein Gauge expansion";
@@ -35,7 +30,7 @@ DisplayExpression[Compensator[]/.ToOrderWeyl];
 
 (*This is a rescaling of the constants after Einstein gauge*)
 xAct`PSALTer`WeylGaugeTheory`Private`RescaleEinsteinGaugeCouplingComment = 
-	"Here, we perform rescalings after application of Einstein Gauge: \[Phi]_0^2*\[Lambda] -> \[Lambda], \[Phi]_0^2*\[Nu] -> \[Nu], \[Phi]_0^2*t_i -> t_i. Also \[Phi]_0 -> 1, i.e. here I am making the compensator dimensionless, any possible masses = 1(?). I do this to prevent any denominators phi/phi0.";
+	"Here, we perform rescalings after application of Einstein Gauge: \[Phi]_0^2*\[Lambda] -> \[Lambda], \[Phi]_0^2*\[Nu] -> \[Nu], \[Phi]_0^2*t_i -> t_i. Also \[Phi]_0 -> 1, i.e. here I am making the compensator dimensionless, any possible masses order 1. I do this to prevent any denominators phi/phi0.";
 
 RescaleLLambda = MakeRule[{lLambda, lLambda*lPhi0^(-2)},MetricOn -> All, ContractMetrics -> True];
 RescaleLNu = MakeRule[{lNu, lNu*lPhi0^(-2)},MetricOn -> All, ContractMetrics -> True];
