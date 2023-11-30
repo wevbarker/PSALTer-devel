@@ -11,7 +11,7 @@ CalibrateCaseLinWeyl[CaseNumber_,CaseRules_List,CaseConditions_List]:=Module[{
 
 	Subsection@("Case "<>ToString@CaseNumber);	
 
-	Comment@("Now for a new theory. Here is the full nonlinear Lagrangian for Case "<>ToString@CaseNumber<>". Cases 1-13 as defined by the second column of TABLE I. in Lin, PHYS. REV. D 104, 024034 (2021). Cases 14-36 as in TABLE III, Cases 37-42 as in TABLE IV:");	
+	Comment@("Now for a new theory. Here is the full nonlinear Lagrangian for Case "<>ToString@CaseNumber<>". Cases 1-13 as defined by the second column of TABLE I. in Lin, PHYS. REV. D 104, 024034 (2021):");	
 
 	DisplayExpression@CollectTensors@ToCanonical[NonlinearLagrangianLinWeyl/.CaseRules];
 
