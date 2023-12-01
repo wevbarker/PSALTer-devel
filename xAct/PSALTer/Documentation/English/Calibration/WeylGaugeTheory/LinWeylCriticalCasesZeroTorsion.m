@@ -1,8 +1,8 @@
 (* ::Package:: *)
 
-(*==============================*)
-(*  LinWeylCriticalCases14To36  *)
-(*==============================*)
+(*====================================*)
+(*  LinWeylCriticalCasesZeroTorsion  *)
+(*====================================*)
 
 (*======================================================*)
 (*  Preamble: setting out the Torsion-free Lagrangian  *)
@@ -52,24 +52,21 @@ Section@"Evaluating the critical cases of WGT with zero torsion";
 
 (*Here we load the required files for the critical cases analysis*)
 Get@FileNameJoin@{NotebookDirectory[],"Calibration","WeylGaugeTheory","WeylCriticalCasesData","CriticalCasesLinWeylZeroTorsion.m"};
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","WeylGaugeTheory","WeylCriticalCasesData","UnitarityLinWeylZeroTorsion.m"};
 Get@FileNameJoin@{NotebookDirectory[],"Calibration","WeylGaugeTheory","WeylCriticalCasesData","CalibrateCaseLinWeylZeroTorsion.m"};
 
 Off[Solve::svars];
 CriticalCasesSolutionsLinWeylZeroTorsion=First/@(Solve[#,{lLambda,lR1,lR2,lR3,lR4,lR5,lC1,lXi,lNu,lT1,lT2,lT3,lPhi0}]&/@CriticalCasesLinWeylZeroTorsion);
 On[Solve::svars];
 
-Print@CriticalCasesSolutionsLinWeylZeroTorsion[[1;;23]];
-Print@UnitarityLinWeylZeroTorsion[[1;;23]];
+Print@CriticalCasesSolutionsLinWeylZeroTorsion[[1;;39]];
 
-Comment@"We are now ready to check that PSALTer is getting the physics right by running it on the WGT cases in Lin et. al. 2021. We are looking at cases 14-36 here.";
+Comment@"We are now ready to check that PSALTer is getting the physics right by running it on the WGT cases in Lin et. al. 2021. We are looking at the zero-torsion cases here (14-52).";
 
 CalibrationTimingDataLinWeylZeroTorsion=MapThread[
-		AbsoluteTiming@CalibrateCaseLinWeylZeroTorsion[#1,#2,#3]&,
+		AbsoluteTiming@CalibrateCaseLinWeylZeroTorsion[#1,#2]&,
 		{
-			Table[i,{i,1,23}],
-			CriticalCasesSolutionsLinWeylZeroTorsion[[1;;23]],(*formerly 1--42*)
-			UnitarityLinWeylZeroTorsion[[1;;23]]
+			Table[i,{i,1,39}],
+			CriticalCasesSolutionsLinWeylZeroTorsion[[1;;39]](*formerly 1--42*)
 		}];
 
 Section@"How long did this take?";
