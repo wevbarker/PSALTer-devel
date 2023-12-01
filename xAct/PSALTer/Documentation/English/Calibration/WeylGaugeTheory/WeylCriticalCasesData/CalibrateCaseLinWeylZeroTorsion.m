@@ -4,20 +4,19 @@
 (*  CalibrateCaseLinWeylZeroTorsion  *)
 (*====================================*)
 
-CalibrateCaseLinWeylZeroTorsion[CaseNumber_,CaseRules_List,CaseConditions_List]:=Module[{
+CalibrateCaseLinWeylZeroTorsion[CaseNumber_,CaseRules_List]:=Module[{
 	LinearisedLagrangianLinWeyl,
-	Couplings={lLambda,lR1,lR2,lR3,lR4,lR5,lC1,lXi,lNu,lT1,lT2,lT3,lPhi0},
-	CouplingAssumptions},
+	Couplings={lLambda,lR1,lR2,lR3,lR4,lR5,lC1,lXi,lNu,lT1,lT2,lT3,lPhi0}},
 	
 	(*To fit with notation in CriticalCasesLinWeyl*)
 	CaseNumberAdded=CaseNumber+13;
 
 	Subsection@("Case "<>ToString@CaseNumberAdded);	
 
-	Comment@("Now for a new theory. Here is the full nonlinear Lagrangian for Case "<>ToString@CaseNumberAdded<>". Cases 1-13 as defined by the second column of TABLE I. in Lin, PHYS. REV. D 104, 024034 (2021). Cases 14-36 as in TABLE III, Cases 37-42 as in TABLE IV:");	
+	Comment@("Now for a new theory. Here is the full nonlinear Lagrangian for Case "<>ToString@CaseNumberAdded<>". Cases 14-29 as defined by FIG. 1 in Lin, PHYS. REV. D 104, 024034 (2021). Cases 30-52 as in TABLE III:");	
 	
 	(*Here we perform the zero-torsion restriction*)
-	Comment@("For cases 14-36, we need to set the WGT torsion T* to 0.");
+	Comment@("For cases 14-52, we need to set the WGT torsion T* to 0.");
 	NonlinearLagrangianLinWeylZeroTorsion=WeylTestExpandRotationalGaugeToVectorAndTetradBHFunction[NonlinearLagrangianLinWeyl];
 
 	DisplayExpression@CollectTensors@ToCanonical[NonlinearLagrangianLinWeylZeroTorsion/.CaseRules];
@@ -35,10 +34,6 @@ CalibrateCaseLinWeylZeroTorsion[CaseNumber_,CaseRules_List,CaseConditions_List]:
 		MaxLaurentDepth->3
 	];
 
-	Comment@"So, that's the end of the PSALTer output for this theory. You can check the particle content against TABLE II. in Lin, PHYS. REV. D 104, 024034 (2021). If you take the overall unitarity conditions from the final column in TABLE I., and decompose them using Mathematica's Reduce function, you get the following (to be compared with the PSALTer conditions above):";
-	
-	CouplingAssumptions=(#~Element~Reals)&/@Couplings;
-	DisplayExpression@Quiet@Assuming[CouplingAssumptions,Reduce[CaseConditions,Couplings]];
-
+	Comment@"So, that's the end of the PSALTer output for this theory. N.B. No unitary conditions in the paper for these cases.";
 	Comment@"Okay, that concludes the analysis of this theory.";
 	];
