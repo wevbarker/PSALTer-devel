@@ -16,7 +16,7 @@ WeylTestTExpand=MakeRule[{WeylTestT[c,-a,-b],Evaluate[WeylVector[-i](-WeylTetrad
 
 Comment@"Here, by setting WGT T* to 0, we have essentially fixed T to only depend on the fields B, h, b, c.f. arxiv:2005.02228 eqn. 7."
 DisplayExpression@CollectTensors@ToCanonical[WeylTestT[c,-a,-b]/.WeylTestTExpand//xAct`PSALTer`Private`ToNewCanonical]\:ff1b
-
+(*NOTE: I think there is an issue of PD vs CD, causing the problem we observe in commit aacf793.*)
 (*Equation 24, using PD instead of CD*)
 DefTensor[WeylTestC[c, -a, -b], M4, Antisymmetric[{-a, -b}],PrintAs->"\[ScriptC]"]; 
 WeylTestCExpand=MakeRule[{WeylTestC[c,-a,-b],Evaluate[WeylTetrad[-a,i]WeylTetrad[-b,j](PD[-i][WeylInvTetrad[c,-j]]-PD[-j][WeylInvTetrad[c,-i]])]},MetricOn->All,ContractMetrics->True];
@@ -34,10 +34,15 @@ WeylTestContorsionExpand=MakeRule[{WeylTestContorsion[-a, -b, -i],Evaluate[(-1/2
 WeylTestRotationalGaugeFieldExpand=MakeRule[{WeylRotationalGaugeField[-a,-b,-i],Evaluate[WeylTestDelta[-a,-b,-i]+WeylTestContorsion[-a,-b,-i]]},MetricOn->All,ContractMetrics->True];  
 
 WeylTestExpandRotationalGaugeToVectorAndTetradBHFunction[RotationalGaugeField_]:=Module[{ExpandedRotationalGaugeField=RotationalGaugeField},
+	Print@"Diagnostic: WeylTestExpandRotationalGaugeToVectorAndTetradBHFunction[...] is being called upon.";
 	ExpandedRotationalGaugeField=ExpandedRotationalGaugeField/.WeylTestRotationalGaugeFieldExpand;(*Expand Eqn 21*)
+	Print@"Diagnostic: Expand Eqn 21 completed.";
 	ExpandedRotationalGaugeField=ExpandedRotationalGaugeField/.WeylTestDeltaExpand/.WeylTestCExpand; (*Expand Eqns 22-24*)
+	Print@"Diagnostic: Expand Eqn 22-24 completed.";
 	ExpandedRotationalGaugeField=ExpandedRotationalGaugeField/.WeylTestContorsionExpand/.WeylTestTExpand;(*Expand Eqn 20 and then restriction of eqn 7*)
+	Print@"Diagnostic: Expand Eqn 20 and then 7 completed. xAct`PSALTer`Private`ToNewCanonical is called upon. Currently the code becomes stuck here.";
 	ExpandedRotationalGaugeField//=xAct`PSALTer`Private`ToNewCanonical;
+	Print@"Diagnostic: xAct`PSALTer`Private`ToNewCanonical has run to completion. WeylTestExpandRotationalGaugeToVectorAndTetradBHFunction[...] is run to completion.";
 ExpandedRotationalGaugeField];
 
 (*We check if A under restricted T is properly expanded*)

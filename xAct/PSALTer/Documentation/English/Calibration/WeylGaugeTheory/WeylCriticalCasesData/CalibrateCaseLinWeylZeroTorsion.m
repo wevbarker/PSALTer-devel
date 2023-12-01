@@ -17,7 +17,7 @@ CalibrateCaseLinWeylZeroTorsion[CaseNumber_,CaseRules_List]:=Module[{
 	
 	(*Here we perform the zero-torsion restriction*)
 	Comment@("For cases 14-52, we need to set the WGT torsion T* to 0.");
-	NonlinearLagrangianLinWeylZeroTorsion=WeylTestExpandRotationalGaugeToVectorAndTetradBHFunction[NonlinearLagrangianLinWeyl];
+	NonlinearLagrangianLinWeylZeroTorsion=WeylTestExpandRotationalGaugeToVectorAndTetradBHFunction[NonlinearLagrangianLinWeyl/.WeylRTToHBFieldACDBFieldCDA];
 
 	DisplayExpression@CollectTensors@ToCanonical[NonlinearLagrangianLinWeylZeroTorsion/.CaseRules];
 
