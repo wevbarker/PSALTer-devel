@@ -57,6 +57,8 @@ BasicCriticalCases={
 	kR1==kR2==kR3==kR4==kR5==kT1==kT2==kT3==0
 };
 Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory",
+					"NevilleTheory.m"};
+Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory",
 					"MarzoZellBarkerModel1.m"};
 Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory",
 					"MarzoZellBarkerModel2.m"};

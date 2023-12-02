@@ -19,7 +19,7 @@ DisplayExpression@CollectTensors@ToCanonical[WeylTestT[c,-a,-b]/.WeylTestTExpand
 (*NOTE: I think there is an issue of PD vs CD, causing the problem we observe in commit aacf793.*)
 (*Equation 24, using PD instead of CD*)
 DefTensor[WeylTestC[c, -a, -b], M4, Antisymmetric[{-a, -b}],PrintAs->"\[ScriptC]"]; 
-WeylTestCExpand=MakeRule[{WeylTestC[c,-a,-b],Evaluate[WeylTetrad[-a,i]WeylTetrad[-b,j](PD[-i][WeylInvTetrad[c,-j]]-PD[-j][WeylInvTetrad[c,-i]])]},MetricOn->All,ContractMetrics->True];
+WeylTestCExpand=MakeRule[{WeylTestC[c,-a,-b],Evaluate[WeylTetrad[-a,i]WeylTetrad[-b,j](CD[-i][WeylInvTetrad[c,-j]]-CD[-j][WeylInvTetrad[c,-i]])]},MetricOn->All,ContractMetrics->True];
 
 (*Equation 22 and 23, defining Delta* *)
 xAct`PSALTer`LinWeylCriticalCases14To36`Private`WeylTestDeltaSymb="\!\(\*SuperscriptBox[\(\[CapitalDelta]\), \(*\)]\)";

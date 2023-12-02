@@ -66,5 +66,5 @@ Supercomment@"Now we have defined all the fields we need.";
 (*Get@FileNameJoin@{NotebookDirectory[],"Calibration","WeylGaugeTheory","WeylSimpleTestCases.m"};*)
 (*Get@FileNameJoin@{NotebookDirectory[],"Calibration","WeylGaugeTheory","WeylGeneralCase.m"};*)
 (*Get@FileNameJoin@{NotebookDirectory[],"Calibration","WeylGaugeTheory","LinWeylCriticalCasesGeneral.m"};*)
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","WeylGaugeTheory","LinWeylCriticalCasesZeroTorsion.m"};
+(*Get@FileNameJoin@{NotebookDirectory[],"Calibration","WeylGaugeTheory","LinWeylCriticalCasesZeroTorsion.m"};*)
 Get@FileNameJoin@{NotebookDirectory[],"Calibration","WeylGaugeTheory","LinWeylCriticalCasesZeroCurvature.m"};
