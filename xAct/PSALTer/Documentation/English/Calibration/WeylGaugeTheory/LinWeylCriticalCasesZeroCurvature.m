@@ -10,6 +10,7 @@ Section@"Evaluating the critical cases of WGT with zero curvature";
 
 (*Here we load the required files for the critical cases analysis*)
 Get@FileNameJoin@{NotebookDirectory[],"Calibration","WeylGaugeTheory","WeylCriticalCasesData","CriticalCasesLinWeylZeroCurvature.m"};
+Get@FileNameJoin@{NotebookDirectory[],"Calibration","WeylGaugeTheory","WeylCriticalCasesData","UnitarityInfoLinWeylZeroCurvature.m"};
 Get@FileNameJoin@{NotebookDirectory[],"Calibration","WeylGaugeTheory","WeylCriticalCasesData","CalibrateCaseLinWeylZeroCurvature.m"};
 
 Off[Solve::svars];

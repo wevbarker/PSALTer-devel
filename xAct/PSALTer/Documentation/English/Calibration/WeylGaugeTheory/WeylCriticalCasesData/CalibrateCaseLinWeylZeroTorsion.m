@@ -11,9 +11,12 @@ CalibrateCaseLinWeylZeroTorsion[CaseNumber_,CaseRules_List]:=Module[{
 	(*To fit with notation in CriticalCasesLinWeyl*)
 	CaseNumberAdded=CaseNumber+13;
 
-	Subsection@("Case "<>ToString@CaseNumberAdded);	
-
+	Subsection@("Case "<>ToString@CaseNumberAdded<>" i.e. zero-torsion case "<>ToString@UnitarityInfoLinWeylZeroTorsion[[CaseNumber,1]]);
 	Comment@("Now for a new theory. Here is the full nonlinear Lagrangian for Case "<>ToString@CaseNumberAdded<>". Cases 14-29 as defined by FIG. 1 in Lin, PHYS. REV. D 104, 024034 (2021). Cases 30-52 as in TABLE III:");	
+
+	(*Diagnostic*)
+	Comment@("Here are the expected details of this case:");
+	UnitarityInfoLinWeylZeroTorsionPrint[CaseNumber];
 
 	LinearisedLagrangianLinWeyl=LineariseLagrangianLinWeyl[NonlinearLagrangianLinWeylZeroTorsion/.CaseRules];
 	DisplayExpression@CollectTensors@ToCanonical[LinearisedLagrangianLinWeyl];
@@ -37,6 +40,7 @@ CalibrateCaseLinWeylZeroTorsion[CaseNumber_,CaseRules_List]:=Module[{
 		MaxLaurentDepth->3
 	];
 
-	Comment@"So, that's the end of the PSALTer output for this theory. N.B. No unitary conditions in the paper for these cases.";
+	Comment@"So, that's the end of the PSALTer output for this theory. N.B. No unitary conditions in the paper for these cases; here is the unitary information from the paper:";
+	UnitarityInfoLinWeylZeroTorsionPrint[CaseNumber];
 	Comment@"Okay, that concludes the analysis of this theory.";
 	];
