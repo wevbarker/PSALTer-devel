@@ -82,6 +82,7 @@ Section@"Evaluating the critical cases of WGT with zero torsion";
 
 (*Here we load the required files for the critical cases analysis*)
 Get@FileNameJoin@{NotebookDirectory[],"Calibration","WeylGaugeTheory","WeylCriticalCasesData","CriticalCasesLinWeylZeroTorsion.m"};
+Get@FileNameJoin@{NotebookDirectory[],"Calibration","WeylGaugeTheory","WeylCriticalCasesData","UnitarityInfoLinWeylZeroTorsion.m"};
 Get@FileNameJoin@{NotebookDirectory[],"Calibration","WeylGaugeTheory","WeylCriticalCasesData","CalibrateCaseLinWeylZeroTorsion.m"};
 
 Off[Solve::svars];
