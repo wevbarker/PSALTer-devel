@@ -3,7 +3,6 @@
 (*====================================*)
 (*  LinWeylCriticalCasesZeroTorsion  *)
 (*====================================*)
-
 (*======================================================*)
 (*  Preamble: setting out the Torsion-free Lagrangian  *)
 (*======================================================*)
@@ -61,16 +60,10 @@ DisplayExpression@CollectTensors@ToCanonical[WeylRotationalGaugeField[a,b,-i]/.W
 Print@"Check that the above two expressions are the same via subtraction:";
 DisplayExpression@CollectTensors@ToCanonical[Evaluate[WeylRotationalGaugeField[a,b,-i]/.WeylTestAExpandToLinear]-WeylTestExpandRotationalGaugeToVectorAndTetradBHFunction[WeylRotationalGaugeField[a,b,-i]]];
 
-(*Note: here we will first prepare the restricted non-linear WGT Lagrangian so that each call does not need recomputation.*)
-Comment@"For cases 14-52, we will first prepare the zero-torsion non-linear WGT Lagrangian so that each call does not need recomputation."
-
 (*To set T*T* terms to 0.*)
+Comment@"For cases 14-52, we will first remove the T*T* terms from the zero-torsion Lagrangian. It is hence clear that t1,t2,t3 will not be needed.";
+
 TestCaseZeroTorsionOverall={(lT1/3+lT2/12+lLambda/4)==(lT1/3-lT2/6+lLambda/2)==(lT1/3-2lT3/3+lLambda)==0};
-(*
-(*Diagnostic E-H test.*)
-Print@"Diagnostic E-H test, just to check that the code flows correctly. Must be commented out before an actual run.";
-TestCaseZeroTorsionOverall={lR1==lR2==lR3==lR4==lR5==lC1==lXi==lNu==(lT1+lLambda)==(lT2-lLambda)==(lT3-lLambda)==0};
-*)
 Off[Solve::svars];
 TestCaseZeroTorsionOverallRules=First/@(Solve[#,{lLambda,lR1,lR2,lR3,lR4,lR5,lC1,lXi,lNu,lT1,lT2,lT3,lPhi0}]&/@TestCaseZeroTorsionOverall);
 On[Solve::svars];
@@ -78,17 +71,6 @@ On[Solve::svars];
 NonlinearLagrangianLinWeylZeroTorsion=First@((NonlinearLagrangianLinWeyl)/.TestCaseZeroTorsionOverallRules);
 NonlinearLagrangianLinWeylZeroTorsion//=xAct`PSALTer`Private`ToNewCanonical;
 Print@"Diagnostic (Lagrangian): T*T* terms removed from non-linear Lagrangian successfully:";
-DisplayExpression@CollectTensors@ToCanonical[NonlinearLagrangianLinWeylZeroTorsion]\:ff1b
-
-NonlinearLagrangianLinWeylZeroTorsion=NonlinearLagrangianLinWeylZeroTorsion/.WeylRTToHBFieldACDBFieldCDA;
-NonlinearLagrangianLinWeylZeroTorsion//=xAct`PSALTer`Private`ToNewCanonical;
-Print@"Diagnostic (Lagrangian): Non-linear Lagrangian expanded to level of A field successfully:";
-DisplayExpression@CollectTensors@ToCanonical[NonlinearLagrangianLinWeylZeroTorsion]\:ff1b
-
-(*Here we perform restriction on A*)
-NonlinearLagrangianLinWeylZeroTorsion=NonlinearLagrangianLinWeylZeroTorsion/.WeylTestAExpandToLinear;
-NonlinearLagrangianLinWeylZeroTorsion//=xAct`PSALTer`Private`ToNewCanonical;
-Print@"Diagnostic (Lagrangian): A field expanded successfully:";
 DisplayExpression@CollectTensors@ToCanonical[NonlinearLagrangianLinWeylZeroTorsion]\:ff1b
 
 Comment@"We have finished loading the preamble for the restricted torsion setup."

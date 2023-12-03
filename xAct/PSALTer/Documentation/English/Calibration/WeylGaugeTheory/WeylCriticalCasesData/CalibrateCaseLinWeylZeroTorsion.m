@@ -15,10 +15,17 @@ CalibrateCaseLinWeylZeroTorsion[CaseNumber_,CaseRules_List]:=Module[{
 
 	Comment@("Now for a new theory. Here is the full nonlinear Lagrangian for Case "<>ToString@CaseNumberAdded<>". Cases 14-29 as defined by FIG. 1 in Lin, PHYS. REV. D 104, 024034 (2021). Cases 30-52 as in TABLE III:");	
 
-	DisplayExpression@CollectTensors@ToCanonical[NonlinearLagrangianLinWeylZeroTorsion/.CaseRules];
-
 	LinearisedLagrangianLinWeyl=LineariseLagrangianLinWeyl[NonlinearLagrangianLinWeylZeroTorsion/.CaseRules];
+	DisplayExpression@CollectTensors@ToCanonical[LinearisedLagrangianLinWeyl];
 	
+	(*Here we perform restriction on A*)
+	Comment@"Here we expand A to linear order in terms of Weyl vector and tetrad perturbation, as required in the zero-torsion restriction.";
+	LinearisedLagrangianLinWeyl=LinearisedLagrangianLinWeyl/.WeylTestAExpandToLinear;
+	LinearisedLagrangianLinWeyl//=xAct`PSALTer`Private`ToNewCanonical;
+	
+	Comment@"This is the resultant linearised Lagrangian that will be fed into PSALTer.";
+	DisplayExpression@CollectTensors@ToCanonical[LinearisedLagrangianLinWeyl];
+		
 	(*Diagnostic line follows*)
 	Print@"Hi there, I'm sitting between Zhiyuan's code and Will's code!";
 	
