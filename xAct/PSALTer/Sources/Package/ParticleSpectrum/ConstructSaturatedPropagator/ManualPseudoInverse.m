@@ -10,7 +10,8 @@ ManualPseudoInverse[TheInputMatrix_List?MatrixQ/;Precision[TheInputMatrix]===Inf
 	CompensatorMatrix,
 	Similarity,
 	RawInverse,
-	PseudoInverseMatrix},
+	PseudoInverseMatrix,
+	PseudoDeterminant},
 	
 	LocalPropagator=" ** ManualPseudoInverse...";
 
@@ -38,16 +39,13 @@ ManualPseudoInverse[TheInputMatrix_List?MatrixQ/;Precision[TheInputMatrix]===Inf
 			FullSimplify@(Similarity.ColumnNullSpace)]);
 
 	PseudoInverseMatrix=Assuming[xAct`PSALTer`Def>0,
-				Inverse[TheInputMatrix+CompensatorMatrix]];
+				Adjugate[TheInputMatrix+CompensatorMatrix]];
+
+	PseudoDeterminant=Det[TheInputMatrix+CompensatorMatrix];
 
 	PseudoInverseMatrix=Assuming[xAct`PSALTer`Def>0,
 				PseudoInverseMatrix.Similarity];
 
 	PseudoInverseMatrix=Assuming[xAct`PSALTer`Def>0,
 				(ConjugateTranspose@Similarity).PseudoInverseMatrix];
-
-	(*PseudoInverseMatrix=Inverse[(ConjugateTranspose@TheInputMatrix).TheInputMatrix+(ConjugateTranspose@CompensatorMatrix).CompensatorMatrix].(ConjugateTranspose@TheInputMatrix);*)
-(*
-	PseudoInverseMatrix=Inverse[(ConjugateTranspose@TheInputMatrix).TheInputMatrix+(ConjugateTranspose@CompensatorMatrix).CompensatorMatrix].(ConjugateTranspose@TheInputMatrix);
-*)
-PseudoInverseMatrix];
+{PseudoInverseMatrix,PseudoDeterminant}];

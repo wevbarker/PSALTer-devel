@@ -14,7 +14,9 @@ ConjectureInverse[InputMatrix_,Couplings_,CouplingAssumptions_]:=Module[{
 	FirstIntermediateSymbolsToCouplingConstants,
 	ReduceFirstIntermediateSymbols,
 	FirstIntermediateSymbolsToSecondIntermediateSymbols,
-	SecondIntermediateSymbolsToCouplingConstants
+	SecondIntermediateSymbolsToCouplingConstants,
+	InverseSymbolicMatrix,
+	DeterminantSymbolic
 	},
 
 	LocalPropagator=" ** ConjectureInverse...";
@@ -28,10 +30,10 @@ ConjectureInverse[InputMatrix_,Couplings_,CouplingAssumptions_]:=Module[{
 	Diagnostic@FirstIntermediateSymbolsToSecondIntermediateSymbols;
 	Diagnostic@SecondIntermediateSymbolsToCouplingConstants;
 
-	InverseSymbolicMatrix=ManualPseudoInverse[SymbolicMatrix,ConjecturedNullSpace];
+	{InverseSymbolicMatrix,DeterminantSymbolic}=ManualPseudoInverse[SymbolicMatrix,ConjecturedNullSpace];
 
-	InverseMatrix=UnmakeSymbolic[InverseSymbolicMatrix,ReduceFirstIntermediateSymbols,FirstIntermediateSymbolsToSecondIntermediateSymbols,SecondIntermediateSymbolsToCouplingConstants,CouplingAssumptions];
-	(*InverseMatrix=((#)~FullSimplify~CouplingAssumptions)&@InverseMatrix;*)
+	InverseMatrix=UnmakeSymbolic[InverseSymbolicMatrix,DeterminantSymbolic,ReduceFirstIntermediateSymbols,FirstIntermediateSymbolsToSecondIntermediateSymbols,SecondIntermediateSymbolsToCouplingConstants,CouplingAssumptions];
+
 	Diagnostic@InverseMatrix;
 
 InverseMatrix];
