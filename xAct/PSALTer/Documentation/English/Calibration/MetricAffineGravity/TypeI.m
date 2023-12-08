@@ -23,7 +23,8 @@ LinearLagrangian//=LineariseLagrangian;
 TestRestrictedCase[TheAugmentedRules_]:=Module[{RestrictedLinearLagrangian},
 Comment@{"Now we restrict the theory",Cref@"MetricAffineEinsteinHilbertTheory"," with the following (quite arbitrary) condition to simplify the computations."};
 DisplayExpression@TheAugmentedRules;
-RestrictedLinearLagrangian=LinearLagrangian/.TheAugmentedRules;
+(*RestrictedLinearLagrangian=LinearLagrangian/.TheAugmentedRules;*)
+RestrictedLinearLagrangian=LinearLagrangian;
 ParticleSpectrum[RestrictedLinearLagrangian,
 		ClassName->"MetricAffineGravity",
 		TheoryName->"TypeI",	

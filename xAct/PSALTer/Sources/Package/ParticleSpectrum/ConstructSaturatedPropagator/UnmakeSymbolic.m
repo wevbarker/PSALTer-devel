@@ -81,6 +81,6 @@ UnmakeSymbolic[InverseSymbolicMatrix_,
 		If[j<i,
 			InverseMatrix[[i,j]]=Assuming[CouplingAssumptions,FullSimplify@Assuming[CouplingAssumptions,Conjugate@Evaluate@(InverseMatrix[[j,i]])]]
 		],
-	{i,RankOfMatrix+1},{j,RankOfMatrix+1}];
+	{i,RankOfMatrix},{j,RankOfMatrix}];
 
 InverseMatrix];
