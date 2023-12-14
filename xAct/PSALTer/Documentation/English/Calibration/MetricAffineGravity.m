@@ -8,8 +8,10 @@ Supercomment@"We will test the [MetricAffineGravity] module.";
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity","FieldStrengthTensors.m"};
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity","NonlinearLagrangian.m"};
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity",
-					"TypeI.m"};
+					"MetricAffineRicciTypeTheory.m"};
 (*
+Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity",
+					"TypeI.m"};
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity",
 					"TypeII.m"};
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity",
