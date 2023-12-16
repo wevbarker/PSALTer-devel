@@ -23,13 +23,15 @@ ExtractSecularEquation[InputMatrix_]:=Module[{
 	LocalMasslessSpectrum=" ** GradualExpand...";
 	TheSymbolicToUnique=TheSymbolicInputMatrix@SymbolicToUnique;
 	Diagnostic@TheSymbolicToUnique;
-	TheSecularEquationCoefficients=Map[
+	TheSecularEquationCoefficients=MapThread[
 		(xAct`PSALTer`Private`PSALTerParallelSubmit@(GradualExpand[
-							PoleResidue>0,#,TheSymbolicToUnique]))&,
-	({#})&/@(TheSecularEquationCoefficients),{2}];
+							#1,#2,#3]))&,
+		{
+		(PoleResidue>0)~ConstantArray~(Length@TheSecularEquationCoefficients),
+		TheSecularEquationCoefficients,
+		TheSymbolicToUnique~ConstantArray~(Length@TheSecularEquationCoefficients)
+		}];
 	TheSecularEquationCoefficients//=MonitorParallel;
-	Diagnostic@TheSecularEquationCoefficients;
-	TheSecularEquationCoefficients=First/@TheSecularEquationCoefficients;
 	Diagnostic@TheSecularEquationCoefficients;
 
 	LocalMasslessSpectrum=" ** FullSimplify...";
