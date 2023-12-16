@@ -8,6 +8,8 @@ BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/FullyC
 BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/ExpressInLightcone.m";
 BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/ConstrainInLightcone.m";
 BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/MakeSaturatedMatrix.m";
+BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/MatrixToSymbolic.m";
+BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/MatrixFromSymbolic.m";
 BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/ExaminePoleOrder.m";
 
 Options@ConvertLightcone={
