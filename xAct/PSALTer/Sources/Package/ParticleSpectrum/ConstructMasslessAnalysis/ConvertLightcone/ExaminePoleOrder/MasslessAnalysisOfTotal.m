@@ -8,7 +8,15 @@ MasslessAnalysisOfTotal[ValuesNumeratorFreeSourceCoefficientMatrix_]:=Module[{
 
 	Diagnostic@NumeratorFreeSourceCoefficientMatrix;
 
-	NumeratorFreeSourceEigenvalues=Eigenvalues@NumeratorFreeSourceCoefficientMatrix;
-	NumeratorFreeSourceEigenvalues//=DeleteCases[#,0,Infinity]&;
+	TimeConstrained[
+	(
+		NumeratorFreeSourceEigenvalues=Eigenvalues@NumeratorFreeSourceCoefficientMatrix;
+		NumeratorFreeSourceEigenvalues//=DeleteCases[#,0,Infinity]&;
+	)
+	30,
+	(
+		NumeratorFreeSourceEigenvalues={};
+	)
+	];
 
 NumeratorFreeSourceEigenvalues];
