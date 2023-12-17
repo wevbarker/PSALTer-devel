@@ -4,8 +4,15 @@
 
 CLIPrint[WaveOperator_,Propagator_,SourceConstraints_,Spectrum_,MasslessSpectrum_,OverallUnitarity_]:=Module[{
 	TextTotal,
-	TextASCIILogo=Import@FileNameJoin@{"xAct","PSALTer","Documentation","Logo","ASCIILogo.txt"}
-	},
+	TextASCIILogo="
+
+ ____  ____    _    _   _____         
+|  _ \/ ___|  / \  | | |_   _|__ _ __ 
+| |_) \___ \ / _ \ | |   | |/ _ \ '__|
+|  __/ ___) / ___ \| |___| |  __/ |   
+|_|   |____/_/   \_\_____|_|\___|_|   
+                                      
+"},
 TextTotal=StringJoin@@{
 TextASCIILogo,
 "
