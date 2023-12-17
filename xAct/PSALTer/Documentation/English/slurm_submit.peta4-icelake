@@ -21,7 +21,7 @@
 #! SBATCH --ntasks-per-node=1
 
 #SBATCH --cpus-per-task=76
-#SBATCH --time=02:00:00
+#SBATCH --time=00:10:00
 #SBATCH --mail-type=ALL
 #! Uncomment this to prevent the job from being requeued (e.g. if
 #! interrupted by node failure or system downtime):
