@@ -4,15 +4,7 @@
 
 CLIPrint[WaveOperator_,Propagator_,SourceConstraints_,Spectrum_,MasslessSpectrum_,OverallUnitarity_]:=Module[{
 	TextTotal,
-	TextASCIILogo="
-
- ____  ____    _    _   _____         
-|  _ \/ ___|  / \  | | |_   _|__ _ __ 
-| |_) \___ \ / _ \ | |   | |/ _ \ '__|
-|  __/ ___) / ___ \| |___| |  __/ |   
-|_|   |____/_/   \_\_____|_|\___|_|   
-                                      
-"},
+	TextASCIILogo=Import@FileNameJoin@{$PSALTerInstallDirectory,"Documentation/Logo/TextASCIILogo.txt"}},
 TextTotal=StringJoin@@{
 TextASCIILogo,
 "

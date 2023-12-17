@@ -94,12 +94,12 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 	If[$CLI,
 		SummariseResultsOngoing=SessionSubmit[ScheduledTask[(
 		Print@CLIPrint[
-				WaveOperator,
-				Propagator,
-				SourceConstraints,
-				Spectrum,
-				MasslessSpectrum,
-				OverallUnitarity];
+				LocalWaveOperator,
+				LocalPropagator,
+				LocalSourceConstraints,
+				LocalSpectrum,
+				LocalMasslessSpectrum,
+				LocalOverallUnitarity];
 		), Quantity[1, "Seconds"]]];
 	,
 		SummariseResultsOngoing=PrintTemporary@Dynamic[Refresh[SummariseResults[
