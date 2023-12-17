@@ -91,22 +91,34 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 	LocalOverallUnitarity=Null;
 	LocalSummaryOfTheory=Null;
 
-	SummariseResultsOngoing=PrintTemporary@Dynamic[Refresh[SummariseResults[
-			LocalWaveOperator,
-			LocalPropagator,
-			LocalSourceConstraints,
-			LocalSpectrum,
-			LocalMasslessSpectrum,
-			LocalOverallUnitarity,
-			LocalSummaryOfTheory],
-		TrackedSymbols->{
-			LocalWaveOperator,
-			LocalPropagator,
-			LocalSourceConstraints,
-			LocalSpectrum,
-			LocalMasslessSpectrum,
-			LocalOverallUnitarity,
-			LocalSummaryOfTheory}]];
+	If[$CLI,
+		SummariseResultsOngoing=SessionSubmit[ScheduledTask[(
+		Print@CLIPrint[
+				WaveOperator,
+				Propagator,
+				SourceConstraints,
+				Spectrum,
+				MasslessSpectrum,
+				OverallUnitarity];
+		), Quantity[1, "Seconds"]]];
+	,
+		SummariseResultsOngoing=PrintTemporary@Dynamic[Refresh[SummariseResults[
+				LocalWaveOperator,
+				LocalPropagator,
+				LocalSourceConstraints,
+				LocalSpectrum,
+				LocalMasslessSpectrum,
+				LocalOverallUnitarity,
+				LocalSummaryOfTheory],
+			TrackedSymbols->{
+				LocalWaveOperator,
+				LocalPropagator,
+				LocalSourceConstraints,
+				LocalSpectrum,
+				LocalMasslessSpectrum,
+				LocalOverallUnitarity,
+				LocalSummaryOfTheory}]];
+	];
 
 	Quiet@CreateDirectory@FileNameJoin@{$WorkingDirectory,"tmp"};
 
@@ -177,6 +189,11 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 				ValuesOfSourceConstraints,
 				ValuesSaturatedPropagator,
 				MaxLaurentDepth->OptionValue@MaxLaurentDepth];
+	UpdateTheoryAssociation[
+				OptionValue@TheoryName,
+				SecularSystem,
+				SecularSystemValue,
+				ExportTheory->False];
 	UpdateTheoryAssociation[
 				OptionValue@TheoryName,
 				MasslessEigenvalues,

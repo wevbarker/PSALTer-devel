@@ -10,7 +10,7 @@ LinearLagrangian=Measure*NonlinearLagrangian/.{xAct`PSALTer`MetricAffineGravity`
 
 DisplayExpression[LinearLagrangian,EqnLabel->"MetricAffineEinsteinHilbertTheory"];
 LinearLagrangian//=LineariseLagrangian;
-ParticleSpectrum[LinearLagrangian,
+ParticleSpectrum[(*LinearLagrangian,*)
 		ClassName->"MetricAffineGravity",
 		TheoryName->"MetricAffineRicciTypeTheory",	
 		Method->"Hard",
