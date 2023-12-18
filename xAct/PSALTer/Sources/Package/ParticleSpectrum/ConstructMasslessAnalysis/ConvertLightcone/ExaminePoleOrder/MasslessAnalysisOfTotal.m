@@ -12,8 +12,8 @@ MasslessAnalysisOfTotal[ValuesNumeratorFreeSourceCoefficientMatrix_]:=Module[{
 	(
 		NumeratorFreeSourceEigenvalues=Eigenvalues@NumeratorFreeSourceCoefficientMatrix;
 		NumeratorFreeSourceEigenvalues//=DeleteCases[#,0,Infinity]&;
-	)
-	30,
+	),
+	200,
 	(
 		NumeratorFreeSourceEigenvalues={};
 	)

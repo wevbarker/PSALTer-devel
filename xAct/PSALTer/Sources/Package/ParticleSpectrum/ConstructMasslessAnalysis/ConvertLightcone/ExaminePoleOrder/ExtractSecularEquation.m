@@ -49,8 +49,8 @@ ExtractSecularEquation[InputMatrix_]:=Module[{
 		TheSecularEquation//=Numerator;
 		TheSecularEquation//=Collect[#,PoleResidue,FullSimplify]&;
 		Diagnostic@TheSecularEquation;
-	)
-	30,
+	),
+	200,
 	(
 		TheSecularEquation="(Timeout)";
 	)
