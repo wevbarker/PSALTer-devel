@@ -1,6 +1,9 @@
 Print@"The purpose of this script is to determine whether Mathematica has been correctly configured on the system. The need for this test is driven by some unexpected poor performace on CSD3 jobs.";
 Print["The variable $MaxLicenseProcesses is set to ",$MaxLicenseProcesses];
 Print["The protected variable $ProcessorCount is set to ",$ProcessorCount];
+Unprotect@$ProcessorCount;
+$ProcessorCount=112;
+Print["The protected variable $ProcessorCount is set to ",$ProcessorCount];
 Print["The variable $KernelCount is set to ",$KernelCount];
 WaitOnNumberOfTasks[WaitTime_Integer,NumberOfTasks_Integer]:=Module[{ParallelTask,TimeTaken},
 	ParallelTask=ParallelSubmit[Pause@#]&/@(WaitTime~ConstantArray~NumberOfTasks);

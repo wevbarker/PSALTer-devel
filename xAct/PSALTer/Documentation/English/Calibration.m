@@ -33,6 +33,12 @@ ClearAll@xAct`PSALTer`ParticleSpectrum;
 Protect@xAct`PSALTer`ParticleSpectrum;
 *)
 
+(*For HPC*)
+(*Unprotect@$ProcessorCount;*)
+(*$ProcessorCount=112;*)
+(*$ProcessorCount=76;*)
+(*$ProcessorCount=56;*)
+
 (*Global settings for xAct*)
 $DefInfoQ=False;
 Unprotect@AutomaticRules;
@@ -53,9 +59,9 @@ Comment@"Great, so PSALTer is now loaded and we can start to do some science.";
 (*Get@FileNameJoin@{$ThisDirectory,"Calibration","AsymmetricTensorTheory.m"};*)
 (*Get@FileNameJoin@{$ThisDirectory,"Calibration","BimetricTensorTheory.m"};*)
 (*Get@FileNameJoin@{$ThisDirectory,"Calibration","ScalarTensorTheory.m"};*)
-(*Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory.m"};*)
+Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory.m"};
 (*Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheory.m"};*)
-Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity.m"};
+(*Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity.m"};*)
 (*Get@FileNameJoin@{$ThisDirectory,"Calibration","ZeroTorsionPalatini.m"};*)
 (*Get@FileNameJoin@{$ThisDirectory,"Calibration","ErrorMessages.m"};*)
 
