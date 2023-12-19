@@ -1,0 +1,28 @@
+(* ::Package:: *)
+
+(*=====================================*)
+(*  CriticalCasesLinWeylZeroCurvature  *)
+(*=====================================*)
+
+(*Cases 53-71, Section VI.B: lLambda==lNu==0*)
+CriticalCasesLinWeylZeroCurvature={
+	lLambda==lNu==0,(*1,U=F,PPCR=F*)
+	lLambda==lNu==lT1==0,(*2,U=T,PPCR=F*)
+	lLambda==lNu==lT1+lT2==0,(*3,U=T,PPCR=F*)
+	lLambda==lNu==lT3==0,(*4,U=F,PPCR=F*)
+	lLambda==lNu==lT1==lXi==0,(*5,U=T,PPCR=F*)
+	lLambda==lNu==lT1==lT2==0,(*6,U=T,PPCR=F*)
+	lLambda==lNu==lT1==lT3==0,(*7,U=T,PPCR=F*)
+	lLambda==lNu==lT1+lT2==lT3==0,(*8,U=T,PPCR=F*)
+	lLambda==lNu==lT3==lXi==0,(*9,U=F,PPCR=F*)
+	lLambda==lNu==lT1==lT2==lXi==0,(*10,U=F,PPCR=F*)	
+	lLambda==lNu==lT1==lT2==lT3==0,(*11,U=T,PPCR=T*)
+	lLambda==lNu==lT1==lT3==lXi==0,(*12,U=T,PPCR=F*)
+	lLambda==lNu==lT1+lT2==lT3==lXi==0,(*13,U=T,PPCR=F*)
+	lLambda==lNu==lXi==0,(*1-1,Massive=F,U=F,PPCR=M*)
+	lLambda==lNu==lT1+lT3==0,(*1-2,Massive=F,U=F,PPCR=M*)
+	lLambda==lNu==lT1+lT3==lXi==0,(*1-3,Massive=F,U=F,PPCR=M*)
+	lLambda==lNu==lT1+lT2==lXi==0,(*3-1,Massive=F,U=T,PPCR=M*)
+	lLambda==lNu==lT1+lT2==lT1+lT3==0,(*3-2,Massive=F,U=T,PPCR=M*)
+	lLambda==lNu==lT1+lT2==lT1+lT3==lXi==0(*3-3,Massive=F,U=T,PPCR=M*)
+};

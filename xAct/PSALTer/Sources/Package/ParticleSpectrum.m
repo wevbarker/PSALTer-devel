@@ -247,7 +247,7 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 				OptionValue@TheoryName,
 				#1,
 				#2,
-				ExportTheory->False]&,
+				ExportTheory->True]&,
 	{{		
 		SavedWaveOperator,
 		SavedPropagator,
