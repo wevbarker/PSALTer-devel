@@ -755,38 +755,38 @@ xAct`PSALTer`MetricAffineGravity`Private`DecomposeConjugateSourceConnectionSymmR
 
 xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb="\[ScriptA]";
 
-DefLagrangianCoupling[A0,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->0];
-DefLagrangianCoupling[A1,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->1];
-DefLagrangianCoupling[A2,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->2];
-DefLagrangianCoupling[A3,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->3];
-DefLagrangianCoupling[A4,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->4];
-DefLagrangianCoupling[A5,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->5];
-DefLagrangianCoupling[A6,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->6];
-DefLagrangianCoupling[A7,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->7];
-DefLagrangianCoupling[A8,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->8];
-DefLagrangianCoupling[A9,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->9];
-DefLagrangianCoupling[A10,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->10];
-DefLagrangianCoupling[A11,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->11];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`A0,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->0];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`A1,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->1];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`A2,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->2];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`A3,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->3];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`A4,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->4];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`A5,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->5];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`A6,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->6];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`A7,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->7];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`A8,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->8];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`A9,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->9];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`A10,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->10];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`A11,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->11];
 
 xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb="\[ScriptC]";
 
-DefLagrangianCoupling[C0,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->0];
-DefLagrangianCoupling[C1,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->1];
-DefLagrangianCoupling[C2,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->2];
-DefLagrangianCoupling[C3,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->3];
-DefLagrangianCoupling[C4,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->4];
-DefLagrangianCoupling[C5,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->5];
-DefLagrangianCoupling[C6,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->6];
-DefLagrangianCoupling[C7,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->7];
-DefLagrangianCoupling[C8,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->8];
-DefLagrangianCoupling[C9,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->9];
-DefLagrangianCoupling[C10,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->10];
-DefLagrangianCoupling[C11,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->11];
-DefLagrangianCoupling[C12,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->12];
-DefLagrangianCoupling[C13,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->13];
-DefLagrangianCoupling[C14,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->14];
-DefLagrangianCoupling[C15,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->15];
-DefLagrangianCoupling[C16,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->16];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`C0,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->0];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`C1,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->1];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`C2,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->2];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`C3,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->3];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`C4,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->4];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`C5,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->5];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`C6,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->6];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`C7,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->7];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`C8,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->8];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`C9,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->9];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`C10,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->10];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`C11,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->11];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`C12,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->12];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`C13,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->13];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`C14,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->14];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`C15,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->15];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`C16,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->16];
 
 (*================================================*)
 (*  Some infrastructure for linearising theories  *)
@@ -798,7 +798,7 @@ DefLagrangianCoupling[C16,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Priva
 
 Begin["xAct`PSALTer`MetricAffineGravity`Private`"];
 
-LagrangianCouplings={A0,A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11,C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13,C14,C15,C16};
+LagrangianCouplings={xAct`PSALTer`MetricAffineGravity`A0,xAct`PSALTer`MetricAffineGravity`A1,xAct`PSALTer`MetricAffineGravity`A2,xAct`PSALTer`MetricAffineGravity`A3,xAct`PSALTer`MetricAffineGravity`A4,xAct`PSALTer`MetricAffineGravity`A5,xAct`PSALTer`MetricAffineGravity`A6,xAct`PSALTer`MetricAffineGravity`A7,xAct`PSALTer`MetricAffineGravity`A8,xAct`PSALTer`MetricAffineGravity`A9,xAct`PSALTer`MetricAffineGravity`A10,xAct`PSALTer`MetricAffineGravity`A11,xAct`PSALTer`MetricAffineGravity`C1,xAct`PSALTer`MetricAffineGravity`C2,xAct`PSALTer`MetricAffineGravity`C3,xAct`PSALTer`MetricAffineGravity`C4,xAct`PSALTer`MetricAffineGravity`C5,xAct`PSALTer`MetricAffineGravity`C6,xAct`PSALTer`MetricAffineGravity`C7,xAct`PSALTer`MetricAffineGravity`C8,xAct`PSALTer`MetricAffineGravity`C9,xAct`PSALTer`MetricAffineGravity`C10,xAct`PSALTer`MetricAffineGravity`C11,xAct`PSALTer`MetricAffineGravity`C12,xAct`PSALTer`MetricAffineGravity`C13,xAct`PSALTer`MetricAffineGravity`C14,xAct`PSALTer`MetricAffineGravity`C15,xAct`PSALTer`MetricAffineGravity`C16};
 
 FieldSpinParityTensorHeads=<|
 		MetricPerturbation-><|
