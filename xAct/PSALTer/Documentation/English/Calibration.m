@@ -34,10 +34,10 @@ Protect@xAct`PSALTer`ParticleSpectrum;
 *)
 
 (*For HPC*)
-(*Unprotect@$ProcessorCount;*)
+Unprotect@$ProcessorCount;
 (*$ProcessorCount=112;*)
 (*$ProcessorCount=76;*)
-(*$ProcessorCount=56;*)
+$ProcessorCount=56;
 
 (*Global settings for xAct*)
 $DefInfoQ=False;

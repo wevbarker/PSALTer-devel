@@ -12,7 +12,7 @@
 #! Name of the job:
 #SBATCH -J PSALTer 
 #! Which project should be charged:
-#SBATCH -A WBARKER-SL3-CPU
+#SBATCH -A DIRAC-DP264-CPU 
 #SBATCH -p cclake
 #! How many whole nodes should be allocated?
 #SBATCH --nodes=1
@@ -22,7 +22,7 @@
 #!SBATCH --ntasks=56
 #SBATCH --cpus-per-task=56
 #! How much wallclock time will be required?
-#SBATCH --time=00:30:00
+#SBATCH --time=02:00:00
 #! What types of email messages do you wish to receive?
 #SBATCH --mail-type=ALL
 #! Uncomment this to prevent the job from being requeued (e.g. if

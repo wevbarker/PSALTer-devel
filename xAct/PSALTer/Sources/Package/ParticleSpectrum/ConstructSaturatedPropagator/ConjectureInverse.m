@@ -31,7 +31,7 @@ ConjectureInverse[InputMatrix_,Couplings_,CouplingAssumptions_]:=Module[{
 	Diagnostic@FirstIntermediateSymbolsToSecondIntermediateSymbols;
 	Diagnostic@SecondIntermediateSymbolsToCouplingConstants;
 
-	{InverseSymbolicMatrix,DeterminantSymbolic}=ManualPseudoInverse[SymbolicMatrix,ConjecturedNullSpace,CouplingAssumptions];
+	{InverseSymbolicMatrix,DeterminantSymbolic}=ManualPseudoInverse[SymbolicMatrix,ConjecturedNullSpace];
 
 	SymbolicCouplingAssumptions=(#~Element~Reals)&/@Integrate`getAllVariables[InverseSymbolicMatrix,{}];
 
