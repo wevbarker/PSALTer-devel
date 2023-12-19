@@ -2,6 +2,7 @@
 (*  ConstructSaturatedPropagator  *)
 (*================================*)
 
+BuildPackage@"ParticleSpectrum/ConstructSaturatedPropagator/DistributeConjugate.m";
 BuildPackage@"ParticleSpectrum/ConstructSaturatedPropagator/ConjectureInverse.m";
 
 Options@ConstructSaturatedPropagator={

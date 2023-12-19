@@ -48,4 +48,5 @@ ManualPseudoInverse[TheInputMatrix_List?MatrixQ/;Precision[TheInputMatrix]===Inf
 
 	PseudoInverseMatrix=Assuming[xAct`PSALTer`Def>0,
 				(ConjugateTranspose@Similarity).PseudoInverseMatrix];
+
 {PseudoInverseMatrix,PseudoDeterminant}];
