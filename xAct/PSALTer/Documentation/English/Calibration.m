@@ -34,10 +34,18 @@ Protect@xAct`PSALTer`ParticleSpectrum;
 *)
 
 (*For HPC*)
+
+$NodeCPU=110;
+Print["The variable $NodeCPU is set to ",$NodeCPU];
+Print["The variable $ProcessorCount is set to ",$ProcessorCount];
 Unprotect@$ProcessorCount;
-(*$ProcessorCount=112;*)
-(*$ProcessorCount=76;*)
-$ProcessorCount=56;
+$ProcessorCount=$NodeCPU;
+Print["The variable $ProcessorCount is set to ",$ProcessorCount];
+Print["The variable $KernelCount is set to ",$KernelCount];
+Print@"Now we execute LaunchKernels[]";
+LaunchKernels@$NodeCPU;
+Print["The variable $KernelCount is set to ",$KernelCount];
+
 
 (*Global settings for xAct*)
 $DefInfoQ=False;
@@ -62,7 +70,7 @@ Comment@"Great, so PSALTer is now loaded and we can start to do some science.";
 (*Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory.m"};*)
 (*Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheory.m"};*)
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity.m"};
-(*Get@FileNameJoin@{$ThisDirectory,"Calibration","ZeroTorsionPalatini.m"};*)
+Get@FileNameJoin@{$ThisDirectory,"Calibration","ZeroTorsionPalatini.m"};
 (*Get@FileNameJoin@{$ThisDirectory,"Calibration","ErrorMessages.m"};*)
 
 Supercomment@"We have now reached the end of the PSALTer calibration script.";

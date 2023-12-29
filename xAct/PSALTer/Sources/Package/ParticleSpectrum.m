@@ -51,6 +51,7 @@ ParticleSpectrum[OptionsPattern[]]:=Catch@Module[{
 	Class=Evaluate@Symbol@OptionValue@TheoryName;
 
 	SummaryOfResults=SummariseResults[
+		OptionValue@TheoryName,
 		Class@SavedWaveOperator,
 		Class@SavedPropagator,
 		Class@SavedSourceConstraints,
@@ -94,6 +95,7 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 	If[$CLI,
 		SummariseResultsOngoing=SessionSubmit[ScheduledTask[(
 		Print@CLIPrint[
+				OptionValue@TheoryName,
 				LocalWaveOperator,
 				LocalPropagator,
 				LocalSourceConstraints,
@@ -103,6 +105,7 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 		), Quantity[1, "Seconds"]]];
 	,
 		SummariseResultsOngoing=PrintTemporary@Dynamic[Refresh[SummariseResults[
+				OptionValue@TheoryName,
 				LocalWaveOperator,
 				LocalPropagator,
 				LocalSourceConstraints,
@@ -227,7 +230,9 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 
 	FinishDynamic[];
 	NotebookDelete@SummariseResultsOngoing;
+	TaskRemove@SummariseResultsOngoing;
 	SummaryOfResults=SummariseResults[
+		OptionValue@TheoryName,
 		LocalWaveOperator,
 		LocalPropagator,
 		LocalSourceConstraints,

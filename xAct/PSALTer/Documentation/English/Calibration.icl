@@ -10,24 +10,24 @@
 
 #! sbatch directives begin here ###############################
 #! Name of the job:
-#SBATCH -J cpujob
-#! Which project should be charged:
-#SBATCH -A CHANGEME
+#SBATCH -J PSALTer
+#SBATCH -A DIRAC-DP264-CPU
 #SBATCH -p icelake
 #! How many whole nodes should be allocated?
 #SBATCH --nodes=1
 #! How many (MPI) tasks will there be in total? (<= nodes*76)
 #! The Ice Lake (icelake) nodes have 76 CPUs (cores) each and
 #! 3380 MiB of memory per CPU.
-#SBATCH --ntasks=76
-#! How much wallclock time will be required?
-#SBATCH --time=02:00:00
-#! What types of email messages do you wish to receive?
-#SBATCH --mail-type=NONE
+#! SBATCH --ntasks-per-node=1
+
+#SBATCH --time=12:00:00
+#SBATCH --mail-type=ALL
 #! Uncomment this to prevent the job from being requeued (e.g. if
 #! interrupted by node failure or system downtime):
 ##SBATCH --no-requeue
 
+#SBATCH --output="/home/wb263/Documents/PSALTer-devel/xAct/PSALTer/Documentation/English/Calibration.out"
+#SBATCH --error="/home/wb263/Documents/PSALTer-devel/xAct/PSALTer/Documentation/English/Calibration.err"
 #! sbatch directives end here (put any additional directives above this line)
 
 #! Notes:
@@ -54,9 +54,13 @@ module purge                               # Removes all modules still loaded
 module load rhel8/default-icl              # REQUIRED - loads the basic environment
 
 #! Insert additional module load commands after this line if needed:
+module load mathematica		#!	PSALTer is a wolfram package
+module load intel/bundles/complib/2017.4 	#!	Intel compiler suite 
+module load gcc-5.4.0-gcc-4.8.5-fis24gg		#!	C++ with Intel compilers
+module load gcc-7.2.0-gcc-4.8.5-pqn7o2k		#!	GCC compiler suite
 
 #! Full path to application executable: 
-application=""
+application="/home/wb263/Documents/PSALTer-devel/xAct/PSALTer/Documentation/English/Calibration.sh"
 
 #! Run options for the application:
 options=""

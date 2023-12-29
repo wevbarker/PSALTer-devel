@@ -12,11 +12,11 @@ DefiningSystem=First@Solve[DefiningSystem,{xAct`PSALTer`MetricAffineGravity`A0,x
 LinearLagrangian=Measure*NonlinearLagrangian/.DefiningSystem;
 DisplayExpression[LinearLagrangian,EqnLabel->"MetricAffineEinsteinHilbertTheory"];
 LinearLagrangian//=LineariseLagrangian;
-
-ParticleSpectrum[LinearLagrangian,
+Comment@"Here is the result from the supercomputer.";
+ParticleSpectrum[(*LinearLagrangian,*)
 		ClassName->"MetricAffineGravity",
 		TheoryName->"TypeII",	
 		Method->"Hard",
 		MaxLaurentDepth->1];
-
+Throw@"stop here"
 Comment@{"Some comments can be made about Type II."};

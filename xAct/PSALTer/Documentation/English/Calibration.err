@@ -1,0 +1,8 @@
+Loading rhel8/default-sar
+  Loading requirement: dot rhel8/slurm singularity/current rhel8/global
+    cuda/11.4 intel-oneapi-compilers/2022.1.0/gcc/b6zld2mz
+    intel-oneapi-mpi/2021.6.0/intel/guxuvcpm
+Loading intel/bundles/complib/2017.4
+  Loading requirement: intel/compilers/2017.4 intel/mkl/2017.4
+    intel/impi/2017.4/intel intel/libs/idb/2017.4 intel/libs/tbb/2017.4
+    intel/libs/ipp/2017.4 intel/libs/daal/2017.4

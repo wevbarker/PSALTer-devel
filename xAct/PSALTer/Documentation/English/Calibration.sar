@@ -11,7 +11,7 @@
 #! sbatch directives begin here ###############################
 #! Name of the job:
 #SBATCH -J PSALTer 
-#SBATCH -A WBARKER-SL3-CPU
+#SBATCH -A DIRAC-DP264-CPU
 #SBATCH -p sapphire 
 #! How many whole nodes should be allocated?
 #SBATCH --nodes=1
@@ -21,7 +21,7 @@
 #! SBATCH --ntasks-per-node=1
 
 #SBATCH --cpus-per-task=112
-#SBATCH --time=00:20:00
+#SBATCH --time=12:00:00
 #SBATCH --mail-type=ALL
 #! Uncomment this to prevent the job from being requeued (e.g. if
 #! interrupted by node failure or system downtime):
@@ -56,6 +56,11 @@ module load rhel8/default-sar              # REQUIRED - loads the basic environm
 
 #! Insert additional module load commands after this line if needed:
 module load mathematica		#!	PSALTer is a wolfram package
+module load intel/bundles/complib/2017.4 	#!	Intel compiler suite 
+module load gcc-5.4.0-gcc-4.8.5-fis24gg		#!	C++ with Intel compilers
+module load gcc-7.2.0-gcc-4.8.5-pqn7o2k		#!	GCC compiler suite
+
+
 
 #! Full path to application executable: 
 application="/home/wb263/Documents/PSALTer-devel/xAct/PSALTer/Documentation/English/Calibration.sh"

@@ -12,6 +12,6 @@ LinearLagrangian//=LineariseLagrangian;
 ParticleSpectrum[LinearLagrangian,
 		ClassName->"MetricAffineGravity",
 		TheoryName->"MetricAffineEinsteinHilbertTheory",	
-		Method->"Easy",
-		MaxLaurentDepth->1];
+		Method->"Hard",
+		MaxLaurentDepth->3];
 Comment@{"We find that there are no massive poles, and hence no massive gravitons. There are however two massless degrees of freedom which we take to be the graviton polarisations. The unitarity conditions of these polarisations just make sure that the Einstein--Hilbert coupling carries the right sign, i.e. that the square of the Planck mass is positive. The spectra",Cref@{"MetricAffineEinsteinHilbertTheory","EinsteinCartanTheory","GeneralRelativity"}," are all the same."};

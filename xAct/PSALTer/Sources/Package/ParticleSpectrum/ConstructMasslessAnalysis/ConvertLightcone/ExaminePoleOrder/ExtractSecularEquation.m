@@ -2,7 +2,7 @@
 (*  ExtractSecularEquation  *)
 (*==========================*)
 
-ExtractSecularEquation[InputMatrix_]:=Module[{
+ExtractSecularEquation[InputMatrix_,LaurentDepth_]:=Module[{
 	TheInputMatrix=InputMatrix,
 	TheSecularEquation,
 	TheSymbolicToUnique,
@@ -14,7 +14,7 @@ ExtractSecularEquation[InputMatrix_]:=Module[{
 	TheSymbolicInputMatrix=TheInputMatrix//MatrixToSymbolic;
 	Diagnostic@TheSymbolicInputMatrix;
 
-	SecularSystemValue=TheSymbolicInputMatrix;
+	SecularSystemValue@LaurentDepth=TheSymbolicInputMatrix;
 
 
 	TimeConstrained[

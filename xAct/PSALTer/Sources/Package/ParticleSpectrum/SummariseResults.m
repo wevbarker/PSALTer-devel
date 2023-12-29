@@ -18,7 +18,7 @@ BuildPackage@"ParticleSpectrum/SummariseResults/SummariseTheory.m";
 BuildPackage@"ParticleSpectrum/SummariseResults/PrintSpectrum.m";
 BuildPackage@"ParticleSpectrum/SummariseResults/PrintUnitarityConditions.m";
 
-SummariseResults[WaveOperator_,Propagator_,SourceConstraints_,Spectrum_,MasslessSpectrum_,OverallUnitarity_,SummaryOfTheory_]:=Module[{
+SummariseResults[TheoryName_?StringQ,WaveOperator_,Propagator_,SourceConstraints_,Spectrum_,MasslessSpectrum_,OverallUnitarity_,SummaryOfTheory_]:=Module[{
 	Computing,
 	TheSummaryOfTheory,
 	TheWaveOperator,
@@ -32,6 +32,7 @@ SummariseResults[WaveOperator_,Propagator_,SourceConstraints_,Spectrum_,Massless
 
 	If[$CLI,
 		SummaryOfResults=CLIPrint[
+			TheoryName,
 			WaveOperator,
 			Propagator,
 			SourceConstraints,

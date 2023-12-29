@@ -38,7 +38,7 @@ ExaminePoleOrder[LightconePropagator_,LaurentDepth_]:=Module[{
 *)
 
 	LocalMasslessSpectrum=" ** ExtractSecularEquation...";
-	SecularEquation=LightconePropagatorValue//ExtractSecularEquation;
+	SecularEquation=ExtractSecularEquation[LightconePropagatorValue,LaurentDepth];
 	Diagnostic@SecularEquation;
 
 	LocalMasslessSpectrum=" ** MasslessAnalysisOfTotal...";

@@ -1,6 +1,11 @@
 #!/bin/bash
-#	this file runs the jobs specified in jobs.m 
 echo "welcome to Calibration.sh"
+
+echo "Attempting to recompile xperm.c on the native architecture"
+cd /home/wb263/.Mathematica/Applications/xAct/xPerm/mathlink
+/usr/local/software/mathematica/13.1/SystemFiles/Links/WSTP/DeveloperKit/Linux-x86-64/CompilerAdditions/wsprep -o xpermtm.c xperm.tm
+/usr/local/software/mathematica/13.1/bin/mcc xperm.tm -luuid -O3 -o xperm.linux.64-bit
+echo "Completed attempt to recompile xperm.c on the native architecture"
 
 #	first make sure we are in the correct directory
 echo "moving to directory"
