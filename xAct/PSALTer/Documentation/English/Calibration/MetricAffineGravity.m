@@ -9,6 +9,10 @@ Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity","FieldStren
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity","NonlinearLagrangian.m"};
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity",
 					"MetricAffineRicciTypeTheory.m"};
+Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity",
+					"AllowingMasslessVectorTheory.m"};
+Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity",
+					"RemovingMasslessVector.m"};
 (*
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity",
 					"TypeI.m"};

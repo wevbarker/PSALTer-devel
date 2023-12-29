@@ -16,4 +16,3 @@ ParticleSpectrum[RelevantModel,
 		Method->"Hard",
 		MaxLaurentDepth->1];
 Comment@{"Some comments can be made about Ricci-type."};
-Throw@"Pause here for further considerations";

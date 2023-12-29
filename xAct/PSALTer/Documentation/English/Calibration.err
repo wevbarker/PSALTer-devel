@@ -6,3 +6,4 @@ Loading intel/bundles/complib/2017.4
   Loading requirement: intel/compilers/2017.4 intel/mkl/2017.4
     intel/impi/2017.4/intel intel/libs/idb/2017.4 intel/libs/tbb/2017.4
     intel/libs/ipp/2017.4 intel/libs/daal/2017.4
+slurmstepd: error: *** JOB 39507840 ON cpu-r-3 CANCELLED AT 2023-12-28T20:52:27 ***
