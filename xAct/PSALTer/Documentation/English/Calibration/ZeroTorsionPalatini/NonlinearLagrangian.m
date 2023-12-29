@@ -9,24 +9,24 @@ Comment@{"Now we construct the zero-torsion counterpart of",Cref@"MetricAffineNo
 NonlinearLagrangian=-(1/2)*(
 	-xAct`PSALTer`ZeroTorsionPalatini`A0*ZeroTorsionRicciScalar[]
 	+ZeroTorsionCurvature[m,n,r,s]*(
-		H1*ZeroTorsionCurvature[-m,-n,-r,-s]
-		+H2*ZeroTorsionCurvature[-m,-n,-s,-r]
-		+H3*ZeroTorsionCurvature[-r,-s,-m,-n]
-		+H4*ZeroTorsionCurvature[-m,-r,-n,-s]
+		xAct`PSALTer`ZeroTorsionPalatini`H1*ZeroTorsionCurvature[-m,-n,-r,-s]
+		+xAct`PSALTer`ZeroTorsionPalatini`H2*ZeroTorsionCurvature[-m,-n,-s,-r]
+		+xAct`PSALTer`ZeroTorsionPalatini`H3*ZeroTorsionCurvature[-r,-s,-m,-n]
+		+xAct`PSALTer`ZeroTorsionPalatini`H4*ZeroTorsionCurvature[-m,-r,-n,-s]
 	)
 	+ZeroTorsionRicciTensor13[m,n]*(
-		H7*ZeroTorsionRicciTensor13[-m,-n]
-		+H8*ZeroTorsionRicciTensor13[-n,-m]
+		xAct`PSALTer`ZeroTorsionPalatini`H7*ZeroTorsionRicciTensor13[-m,-n]
+		+xAct`PSALTer`ZeroTorsionPalatini`H8*ZeroTorsionRicciTensor13[-n,-m]
 	)
 	+ZeroTorsionRicciTensor14[m,n]*(
-		H9*ZeroTorsionRicciTensor14[-m,-n]
-		+H10*ZeroTorsionRicciTensor14[-n,-m]
+		xAct`PSALTer`ZeroTorsionPalatini`H9*ZeroTorsionRicciTensor14[-m,-n]
+		+xAct`PSALTer`ZeroTorsionPalatini`H10*ZeroTorsionRicciTensor14[-n,-m]
 	)
 	+ZeroTorsionRicciTensor14[m,n]*(
-		H11*ZeroTorsionRicciTensor13[-m,-n]
-		+H12*ZeroTorsionRicciTensor13[-n,-m]
+		xAct`PSALTer`ZeroTorsionPalatini`H11*ZeroTorsionRicciTensor13[-m,-n]
+		+xAct`PSALTer`ZeroTorsionPalatini`H12*ZeroTorsionRicciTensor13[-n,-m]
 	)
-	+H16*ZeroTorsionRicciScalar[]*ZeroTorsionRicciScalar[]
+	+xAct`PSALTer`ZeroTorsionPalatini`H16*ZeroTorsionRicciScalar[]*ZeroTorsionRicciScalar[]
 	+ZeroTorsionNonMetricity[r,m,n]*(
 		xAct`PSALTer`ZeroTorsionPalatini`A4*ZeroTorsionNonMetricity[-r,-m,-n]
 		+xAct`PSALTer`ZeroTorsionPalatini`A5*ZeroTorsionNonMetricity[-n,-m,-r]

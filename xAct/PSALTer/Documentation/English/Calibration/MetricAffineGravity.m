@@ -7,8 +7,10 @@ Title@"Metric affine gravity (MAG)";
 Supercomment@"We will test the [MetricAffineGravity] module.";
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity","FieldStrengthTensors.m"};
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity","NonlinearLagrangian.m"};
+(*
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity",
 					"MetricAffineRicciTypeTheory.m"};
+*)
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity",
 					"AllowingMasslessVectorTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity",
