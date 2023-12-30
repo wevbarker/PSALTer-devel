@@ -15,4 +15,4 @@ ParticleSpectrum[LinearLagrangian,
 		TheoryName->"MetricAffineRicciTypeTheory",	
 		Method->"Hard",
 		MaxLaurentDepth->1];
-Comment@{"So generically from",Cref@"MetricAffineRicciTypeTheory"," we expect a massless higher-spin particle and also a pair of positive- and negative-parity massive vectors. To my understanding this is perfectly consistent with the claims in Section C1 of Carlo's draft."};
+Comment@{"So generically from",Cref@"MetricAffineRicciTypeTheory"," we expect a massless higher-spin particle and also a pair of positive- and negative-parity massive vectors. To my understanding this is perfectly consistent with the claims in Section C1 of Carlo's draft (i.e. I can recover Eq. (28) and Eq. (29) perfectly)."};

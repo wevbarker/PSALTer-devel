@@ -23,4 +23,4 @@ ParticleSpectrum[LinearLagrangian,
 		TheoryName->"AllowingMasslessVectorTheory",	
 		Method->"Hard",
 		MaxLaurentDepth->1];
-Comment@{"The conclusion we reach from",Cref@"AllowingMasslessVectorTheory"," is that by using",Cref@"AllowingMasslessVectorTheoryConstraint"," we can kill off both the massive poles and keep a unitary massless mode in the spectrum alongside the graviton. This seems to contradict the conclusion of the draft as it stands, so probably this is a worthwhile special-case to consider."};
+Comment@{"The conclusion we reach from",Cref@"AllowingMasslessVectorTheoryConstraint"," is that by using",Cref@"AllowingMasslessVectorTheoryConstraint"," we can kill off both the massive poles and keep a unitary massless mode in the spectrum alongside the graviton. This seems to contradict the conclusion of the draft as it stands, so probably this is a worthwhile special-case to consider."};
