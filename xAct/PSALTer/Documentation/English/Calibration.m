@@ -36,15 +36,15 @@ Protect@xAct`PSALTer`ParticleSpectrum;
 (*For HPC*)
 
 $NodeCPU=110;
-Print["The variable $NodeCPU is set to ",$NodeCPU];
-Print["The variable $ProcessorCount is set to ",$ProcessorCount];
+Comment["The variable $NodeCPU is set to ",$NodeCPU];
+Comment["The variable $ProcessorCount is set to ",$ProcessorCount];
 Unprotect@$ProcessorCount;
 $ProcessorCount=$NodeCPU;
-Print["The variable $ProcessorCount is set to ",$ProcessorCount];
-Print["The variable $KernelCount is set to ",$KernelCount];
-Print@"Now we execute LaunchKernels[]";
+Comment["The variable $ProcessorCount is set to ",$ProcessorCount];
+Comment["The variable $KernelCount is set to ",$KernelCount];
+Comment@"Now we execute LaunchKernels[]";
 LaunchKernels@$NodeCPU;
-Print["The variable $KernelCount is set to ",$KernelCount];
+Comment["The variable $KernelCount is set to ",$KernelCount];
 
 
 (*Global settings for xAct*)
