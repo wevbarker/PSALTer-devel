@@ -2,7 +2,7 @@
 (*  CommonNullVector  *)
 (*====================*)
 
-BuildPackage@"ParticleSpectrum/ConstructSourceConstraints/ConjectureNullSpace/CommonNullVector/IsNullVectorOfSpace.m";
+BuildPackage@"ParticleSpectrum/ConstructSourceConstraints/IsNullVectorOfSpace.m";
 
 CommonNullVector[NullVector_,MinimalExampleCaseNullSpaces_]:=Module[{IsNullVectorOfExampleCaseNullSpaces},
 	IsNullVectorOfExampleCaseNullSpaces=IsNullVectorOfSpace[NullVector,#]&/@MinimalExampleCaseNullSpaces;
