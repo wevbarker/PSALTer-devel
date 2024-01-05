@@ -22,7 +22,7 @@ DisplayExpression@CollectTensors@ToCanonical[LinearisedLagrangianWGTE];
 
 ParticleSpectrum[
 	LinearisedLagrangianWGTE,
-	ClassName->"WeylGaugeTheoryExtended",
+	ClassName->"WeylGaugeTheory",
 	TheoryName->"TestWGTEwithEH",	
 	Method->"Easy",
 	MaxLaurentDepth->3
@@ -48,7 +48,7 @@ DisplayExpression@CollectTensors@ToCanonical[LinearisedLagrangianWGTE];
 
 ParticleSpectrum[
 	LinearisedLagrangianWGTE,
-	ClassName->"WeylGaugeTheoryExtended",
+	ClassName->"WeylGaugeTheory",
 	TheoryName->"TestWGTEwithEHwithPropagator",	
 	Method->"Easy",
 	MaxLaurentDepth->3
@@ -74,7 +74,7 @@ DisplayExpression@CollectTensors@ToCanonical[LinearisedLagrangianWGTE];
 
 ParticleSpectrum[
 	LinearisedLagrangianWGTE,
-	ClassName->"WeylGaugeTheoryExtended",
+	ClassName->"WeylGaugeTheory",
 	TheoryName->"TestWGTEwithEHwithPropagatorVector",	
 	Method->"Easy",
 	MaxLaurentDepth->3
@@ -100,7 +100,7 @@ DisplayExpression@CollectTensors@ToCanonical[LinearisedLagrangianWGTE];
 
 ParticleSpectrum[
 	LinearisedLagrangianWGTE,
-	ClassName->"WeylGaugeTheoryExtended",
+	ClassName->"WeylGaugeTheory",
 	TheoryName->"TestWGTEwithOnlyPropagatorVector",	
 	Method->"Easy",
 	MaxLaurentDepth->3
