@@ -1,7 +1,7 @@
 (*=======================*)
 (*  ConjectureNullSpace  *)
 (*=======================*)
-(*
+
 BuildPackage@"ParticleSpectrum/ConstructSourceConstraints/ConjectureNullSpace/CommonNullVector.m";
 
 ConjectureNullSpace[InputMatrix_,Couplings_,CouplingAssumptions_]:=Module[{	
@@ -19,8 +19,8 @@ ConjectureNullSpace[InputMatrix_,Couplings_,CouplingAssumptions_]:=Module[{
 	AllNullVectors//=DeleteDuplicates;
 	ConjecturedNullSpace=AllNullVectors~Select~(CommonNullVector[#,MinimalExampleCaseNullSpaces]&);
 ConjecturedNullSpace];
-*)
 
+(*
 ClearAll[CreateList];
 SetAttributes[CreateList,HoldAll];
 CreateList[Plus[a__]]:={a};
@@ -137,3 +137,4 @@ ConjectureNullSpace[InputMatrix_,Couplings_,CouplingAssumptions_]:=Module[{
 	ConjecturedNullSpace=AllNullVectors~Select~(CommonNullVector[#,MinimalExampleCaseNullSpaces]&);
 *)
 DescaledNullSpace];
+*)
