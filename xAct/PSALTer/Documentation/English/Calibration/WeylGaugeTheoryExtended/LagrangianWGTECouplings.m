@@ -21,28 +21,20 @@ NonlinearLagrangianWGTE=(
 );
 
 (*Check Eqn 15*)
-Comment@"In eqn 15 of Lin's draft, we check that the T+ contraction = 0.";
+Comment@"In eqn 15 of Lin's draft, we check that the T+ contraction = 0. Here we expand T+ to PGT T.";
 TDaggerContractionExpression=WeylDaggerT[a,-b,-a];
 TDaggerContractionExpression=TDaggerContractionExpression/.WeyDaggerTHCovDtoBaseTWeylVectorHBAndDaggerRtoDaggerA;
 TDaggerContractionExpression//=xAct`PSALTer`Private`ToNewCanonical;
 DisplayExpression@CollectTensors@ToCanonical[TDaggerContractionExpression];
 
-TDaggerContractionExpression=TDaggerContractionExpression/.WeylDaggerABaseTtoAHBWeylVector;
-TDaggerContractionExpression//=xAct`PSALTer`Private`ToNewCanonical;
-DisplayExpression@CollectTensors@ToCanonical[TDaggerContractionExpression];
-
 (*Expand non-linear Lagrangian*)
-DisplayExpression[NonlinearLagrangianWGTE,EqnLabel->"WGTEUnexpanded"];
 Comment@{"In",Cref@"WGTEUnexpanded"," this is the non-linear Lagrangian as given in eqn 13 of Lin's draft paper."};
+DisplayExpression[NonlinearLagrangianWGTE,EqnLabel->"WGTEUnexpanded"];
 
 NonlinearLagrangianWGTE=NonlinearLagrangianWGTE/.WeyDaggerTHCovDtoBaseTWeylVectorHBAndDaggerRtoDaggerA;
 NonlinearLagrangianWGTE//=xAct`PSALTer`Private`ToNewCanonical;
-NonlinearLagrangianWGTE//=CollectTensors;
-DisplayExpression[NonlinearLagrangianWGTE];
-
-NonlinearLagrangianWGTE=TDaggerContractionExpression/.WeylDaggerABaseTtoAHBWeylVector;
+NonlinearLagrangianWGTE=NonlinearLagrangianWGTE/.WeylDaggerABaseTtoAHBWeylVector;
 NonlinearLagrangianWGTE//=xAct`PSALTer`Private`ToNewCanonical;
 NonlinearLagrangianWGTE//=CollectTensors;
 
-DisplayExpression[NonlinearLagrangianWGTE,EqnLabel->"WGTEExpandedtoPGT"];
-Comment@{"In",Cref@"WGTEExpandedtoPGT"," the non-linear Lagrangian is expanded to PGT quantities."};
+Comment@{"Diagnostic: Now the non-linear Lagrangian has been expanded to PGT quantities. This is now stored for linearisation."};
