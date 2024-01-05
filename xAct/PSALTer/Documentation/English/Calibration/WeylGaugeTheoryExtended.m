@@ -69,7 +69,7 @@ Print@"R+:"
 DisplayExpression@CollectTensors@ToCanonical[WeylDaggerR[a,b,-d,-e]/.WeyDaggerTHCovDtoBaseTWeylVectorHBAndDaggerRtoDaggerA//xAct`PSALTer`Private`ToNewCanonical];
 
 (*We want a linear expression for A+ w.r.t. A. Should work out properly, but not sure if there is any exact and easy way to show other than exhaustively listing.*)
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","WeylGaugeTheoryExtended","ToOrderWeylAndRescalingWGTE.m"};
+Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheoryExtended","ToOrderWeylAndRescalingWGTE.m"};
 
 xAct`PSALTer`WeylGaugeTheoryExtended`Private`ADaggerExpandNonlinear=MakeRule[{WeylDaggerA[a,b,-j],Evaluate[WeylRotationalGaugeField[a,b,-j]+WeylVector[i](WeylInvTetrad[a,-j]WeylInvTetrad[b,-i]-WeylInvTetrad[b,-j]WeylInvTetrad[a,-i])]},MetricOn->All,ContractMetrics->True];
 xAct`PSALTer`WeylGaugeTheoryExtended`Private`ADaggerExpandNonlinearToLinearEval[ADaggerExpression_]:=Module[{ADaggerEvaluated=ADaggerExpression},
@@ -109,7 +109,9 @@ Supercomment@"Now we have defined all the fields we need.";
 (*=================================*)
 
 (*Here we load the files required to generate the Lagrangian*)
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","WeylGaugeTheoryExtended","LagrangianWGTECouplings.m"};
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","WeylGaugeTheoryExtended","LineariseWGTE.m"};
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","WeylGaugeTheoryExtended","WGTESimpleTestCases.m"};
-Get@FileNameJoin@{NotebookDirectory[],"Calibration","WeylGaugeTheoryExtended","WGTEGeneralCase.m"};
+Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheoryExtended","LagrangianWGTECouplings.m"};
+Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheoryExtended","LineariseWGTE.m"};
+(*
+Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheoryExtended","WGTESimpleTestCases.m"};
+*)
+Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheoryExtended","WGTEGeneralCase.m"};

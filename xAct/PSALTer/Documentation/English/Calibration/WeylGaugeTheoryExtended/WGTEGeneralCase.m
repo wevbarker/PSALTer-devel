@@ -23,8 +23,8 @@ ParticleSpectrum[
 	LinearisedLagrangianWGTE,
 	ClassName->"WeylGaugeTheory",
 	TheoryName->"GeneralWGTE",	
-	Method->"Easy",
-	MaxLaurentDepth->3
+	Method->"Hard",
+	MaxLaurentDepth->1
 ];
 
 Supercomment@"This marks the completion of the particle spectrum analysis for the general WGT."
