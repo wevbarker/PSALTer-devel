@@ -169,6 +169,10 @@ ContextList={
 
 Begin["xAct`PSALTer`"];
 	xAct`PSALTer`Private`BuildPSALTer[xAct`PSALTer`Private`Recompile->False];
+	Quiet@If[NotebookDirectory[]==$Failed,
+		$CLI=True,
+		$CLI=False,
+		$CLI=False];
 End[];
 
 End[];

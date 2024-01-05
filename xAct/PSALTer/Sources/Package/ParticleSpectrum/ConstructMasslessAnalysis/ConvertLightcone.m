@@ -8,6 +8,8 @@ BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/FullyC
 BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/ExpressInLightcone.m";
 BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/ConstrainInLightcone.m";
 BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/MakeSaturatedMatrix.m";
+BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/MatrixToSymbolic.m";
+BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/MatrixFromSymbolic.m";
 BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/ExaminePoleOrder.m";
 
 Options@ConvertLightcone={
@@ -73,6 +75,7 @@ ConvertLightcone[ClassName_?StringQ,
 	LightconePropagator//=MakeSaturatedMatrix[#,UnscaledNullSpace]&;
 	Diagnostic@LightconePropagator;
 
+	SecularSystemValue=<||>;
 	{MasslessAnalysisValue,SecularEquationValue}=ExaminePoleOrder[LightconePropagator,1];
 	QuarticAnalysisValue={};
 	HexicAnalysisValue={};

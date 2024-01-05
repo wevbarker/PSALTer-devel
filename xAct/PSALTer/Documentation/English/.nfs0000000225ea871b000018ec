@@ -1,0 +1,1064 @@
+welcome to Calibration.sh
+Attempting to recompile xperm.c on the native architecture
+Completed attempt to recompile xperm.c on the native architecture
+moving to directory
+commencing run
+Mathematica 13.1.0 Kernel for Linux x86 (64-bit)
+Copyright 1988-2022 Wolfram Research, Inc.
+
+In[1]:= 
+In[2]:= 
+In[3]:= 
+In[4]:= In[4]:= 
+FrontEndObject::notavail: 
+   A front end is not available; certain operations require a front end.
+
+In[5]:= In[5]:= ------------------------------------------------------------
+Package xAct`xPerm`  version 1.2.3, {2015, 8, 23}
+CopyRight (C) 2003-2020, Jose M. Martin-Garcia, under the General Public\
+ 
+>   License.
+Connecting to external linux executable...
+Connection established.
+------------------------------------------------------------
+Package xAct`xTensor`  version 1.2.0, {2021, 10, 17}
+CopyRight (C) 2002-2021, Jose M. Martin-Garcia, under the General Public\
+ 
+>   License.
+
+FrontEndObject::notavail: 
+   A front end is not available; certain operations require a front end.
+------------------------------------------------------------
+Package xAct`xPlain` version 0.0.0-developer, {2023, 12, 18}
+CopyRight © 2023, Will E. V. Barker and Sebastian Zell, under the General\
+ 
+>   Public License.
+------------------------------------------------------------
+These packages come with ABSOLUTELY NO WARRANTY; for details type\
+ 
+>   Disclaimer[]. This is free software, and you are welcome to redistribute\
+ 
+>   it under certain conditions. See the General Public License for details.
+------------------------------------------------------------
+
+FrontEndObject::notavail: 
+   A front end is not available; certain operations require a front end.
+
+FrontEndObject::notavail: 
+   A front end is not available; certain operations require a front end.
+
+General::stop: Further output of FrontEndObject::notavail
+     will be suppressed during this calculation.
+
+StringJoin::string: 
+   String expected at position 2 in 
+     ** BuildNovel: Purging LstListing directory at <>
+     FileNameJoin[{$Failed, LstListing/*}]<>....
+ ** BuildNovel: Purging LstListing directory at <>
+ 
+>   FileNameJoin[{$Failed, LstListing/*}]<>...
+
+In[6]:= In[6]:= PSALTer Calibration
+
+In[7]:= In[7]:= About xPlain and formatting
+
+In[8]:= In[8]:= Welcome to the calibration file for the PSALTer package. Commentary is\
+ 
+>   provided in this green text throughout by virtue of the xPlain package.
+
+In[9]:= In[9]:= 
+In[10]:= In[10]:= TextData[{StyleBox[Key observation: , Large, FontWeight -> Bold], 
+ 
+>    Occasionally, more important points will be highlighted in boxes like\
+ 
+>     this.}]
+
+In[11]:= In[11]:= The xPlain package is not part of PSALTer, so the output from PSALTer itself\
+ 
+>   will contrast with this formatting and be quite distinctive.
+
+In[12]:= In[12]:= The structure of this file
+
+In[13]:= In[13]:= The calibration file runs PSALTer on a very long list of theories, whose\
+ 
+>   particle spectra are already known.
+
+In[14]:= In[14]:= The first step is to load the PSALTer package.
+
+In[15]:= In[15]:= ------------------------------------------------------------
+Package xAct`SymManipulator`  version 0.9.5, {2021, 9, 14}
+CopyRight (C) 2011-2021, Thomas Bäckdahl, under the General Public License.
+------------------------------------------------------------
+Package xAct`xPert`  version 1.0.6, {2018, 2, 28}
+CopyRight (C) 2005-2020, David Brizuela, Jose M. Martin-Garcia and Guillermo\
+ 
+>   A. Mena Marugan, under the General Public License.
+** Variable $CovDFormat changed from Prefix to Postfix
+** Option AllowUpperDerivatives of ContractMetric changed from False to True
+** Option MetricOn of MakeRule changed from None to All
+** Option ContractMetrics of MakeRule changed from False to True
+------------------------------------------------------------
+Package xAct`Invar`  version 2.0.5, {2013, 7, 1}
+CopyRight (C) 2006-2020, J. M. Martin-Garcia, D. Yllanes and R. Portugal,\
+ 
+>   under the General Public License.
+** DefConstantSymbol: Defining constant symbol sigma. 
+** DefConstantSymbol: Defining constant symbol dim. 
+** Option CurvatureRelations of DefCovD changed from True to False
+** Variable $CommuteCovDsOnScalars changed from True to False
+------------------------------------------------------------
+Package xAct`xCoba`  version 0.8.6, {2021, 2, 28}
+CopyRight (C) 2005-2021, David Yllanes and Jose M. Martin-Garcia, under the\
+ 
+>   General Public License.
+------------------------------------------------------------
+Package xAct`xTras`  version 1.4.2, {2014, 10, 30}
+CopyRight (C) 2012-2014, Teake Nutma, under the General Public License.
+** Variable $CovDFormat changed from Postfix to Prefix
+** Option CurvatureRelations of DefCovD changed from False to True
+
+Get::noopen: Cannot open MaTeX`.
+
+Needs::nocont: Context MaTeX` was not created when Needs was evaluated.
+
+FrontEndObject::notavail: 
+   A front end is not available; certain operations require a front end.
+------------------------------------------------------------
+Package xAct`PSALTer` version 1.0.0-developer, {2023, 12, 27}
+CopyRight © 2022, Will E. V. Barker, Stephanie Buttigieg, Carlo Marzo,\
+ 
+>   Cillian Rew, Claire Rigouzzo, Zhiyuan Wei, Haoyang Ye and David Yallup,\
+ 
+>   under the General Public License.
+
+ ____  ____    _    _   _____         
+|  _ \/ ___|  / \  | | |_   _|__ _ __ 
+| |_) \___ \ / _ \ | |   | |/ _ \ '__|
+|  __/ ___) / ___ \| |___| |  __/ |   
+|_|   |____/_/   \_\_____|_|\___|_|   
+                                      
+------------------------------------------------------------
+These packages come with ABSOLUTELY NO WARRANTY; for details type\
+ 
+>   Disclaimer[]. This is free software, and you are welcome to redistribute\
+ 
+>   it under certain conditions. See the General Public License for details.
+------------------------------------------------------------
+
+In[16]:= In[16]:= 
+In[17]:=                                     
+In[18]:= In[18]:= 
+In[19]:= 
+In[20]:= 
+In[21]:= 
+In[22]:= 
+In[23]:= In[23]:= The variable $KernelCount is set to 0
+
+In[24]:= Now we execute LaunchKernels[]
+
+In[25]:= 
+In[26]:= The variable $KernelCount is set to 1
+
+In[27]:= In[27]:= 
+In[28]:= 
+In[29]:= 
+In[30]:= 
+In[31]:= 
+In[32]:= In[32]:= 
+In[33]:= 
+In[34]:= 
+In[35]:= 
+In[36]:= In[36]:= Great, so PSALTer is now loaded and we can start to do some science.
+
+In[37]:= In[37]:= 
+In[38]:= 
+In[39]:= 
+In[40]:= 
+In[41]:= 
+In[42]:= 
+In[43]:= 
+In[44]:= 
+In[45]:= 
+In[46]:= Metric affine gravity (MAG)
+TextData[{StyleBox[Key observation: , Large, FontWeight -> Bold], 
+ 
+>    We will test the [MetricAffineGravity] module.}]
+Field strength tensors
+In this section we analyse metric affine gravity (MAG). Our conventions\
+ 
+>   closely follow arXiv:1912.01023, and also arXiv:2110.14788.
+First we write out rules which define the field strength tensors.
+We want to define the curvature in Equation (2.1) on page 4 of\
+ 
+>   arXiv:1912.01023.
+
+DefTensor::invalid: -m is not a valid index at definition.
+
+ToCanonical::noident: 
+   Unknown expression not canonicalized: MetricAffineCurvature[-m, -n, r, -s]
+     .
+BoxData[RowBox[{MetricAffineCurvature, [, 
+ 
+>     RowBox[{RowBox[{-, m}], ,, RowBox[{-, n}], ,, r, ,, RowBox[{-, s}]}], ]}
+ 
+>     ]]
+BoxData[RowBox[{RowBox[{RowBox[{-, 
+ 
+>         RowBox[{Connection, [, 
+ 
+>           RowBox[{RowBox[{-, m}], ,, t, ,, RowBox[{-, s}]}], ]}]}],  , 
+ 
+>       RowBox[{Connection, [, RowBox[{RowBox[{-, n}], ,, r, ,, 
+ 
+>           RowBox[{-, t}]}], ]}]}], +, 
+ 
+>     RowBox[{RowBox[{Connection, [, 
+ 
+>         RowBox[{RowBox[{-, m}], ,, r, ,, RowBox[{-, t}]}], ]}],  , 
+ 
+>       RowBox[{Connection, [, RowBox[{RowBox[{-, n}], ,, t, ,, 
+ 
+>           RowBox[{-, s}]}], ]}]}], +, 
+ 
+>     RowBox[{RowBox[{CD, [, RowBox[{-, m}], ]}], [, 
+ 
+>       RowBox[{Connection, [, RowBox[{RowBox[{-, n}], ,, r, ,, 
+ 
+>           RowBox[{-, s}]}], ]}], ]}], -, 
+ 
+>     RowBox[{RowBox[{CD, [, RowBox[{-, n}], ]}], [, 
+ 
+>       RowBox[{Connection, [, RowBox[{RowBox[{-, m}], ,, r, ,, 
+ 
+>           RowBox[{-, s}]}], ]}], ]}]}]]
+Next want to define the torsion in Equation (2.2) on page 5 of\
+ 
+>   arXiv:1912.01023.
+
+DefTensor::invalid: -m is not a valid index at definition.
+
+ToCanonical::noident: 
+   Unknown expression not canonicalized: MetricAffineTorsion[-m, a, -n] .
+BoxData[RowBox[{MetricAffineTorsion, [, 
+ 
+>     RowBox[{RowBox[{-, m}], ,, a, ,, RowBox[{-, n}]}], ]}]]
+BoxData[RowBox[{RowBox[{Connection, [, 
+ 
+>       RowBox[{RowBox[{-, m}], ,, a, ,, RowBox[{-, n}]}], ]}], -, 
+ 
+>     RowBox[{Connection, [, RowBox[{RowBox[{-, n}], ,, a, ,, 
+ 
+>         RowBox[{-, m}]}], ]}]}]]
+And finally the non-metricity in Equation (2.3) on page 5 of\
+ 
+>   arXiv:1912.01023. Watch out for the trivial misprint in the arXiv paper.\
+ 
+>   Note also, that since the non-metricity only appears via quadratic\
+ 
+>   invariants we don't need to worry about perturbing the metric here.
+
+DefTensor::invalid: -l is not a valid index at definition.
+
+General::stop: Further output of DefTensor::invalid
+     will be suppressed during this calculation.
+
+ToCanonical::noident: 
+   Unknown expression not canonicalized: MetricAffineNonMetricity[-l, -m, -n]
+     .
+
+General::stop: Further output of ToCanonical::noident
+     will be suppressed during this calculation.
+BoxData[RowBox[{MetricAffineNonMetricity, [, 
+ 
+>     RowBox[{RowBox[{-, l}], ,, RowBox[{-, m}], ,, RowBox[{-, n}]}], ]}]]
+BoxData[RowBox[{RowBox[{RowBox[{Connection, [, 
+ 
+>         RowBox[{RowBox[{-, l}], ,, t, ,, RowBox[{-, n}]}], ]}],  , 
+ 
+>       RowBox[{G, [, RowBox[{RowBox[{-, m}], ,, RowBox[{-, t}]}], ]}]}], +, 
+ 
+>     RowBox[{RowBox[{Connection, [, 
+ 
+>         RowBox[{RowBox[{-, l}], ,, t, ,, RowBox[{-, m}]}], ]}],  , 
+ 
+>       RowBox[{G, [, RowBox[{RowBox[{-, t}], ,, RowBox[{-, n}]}], ]}]}], -, 
+ 
+>     RowBox[{RowBox[{CD, [, RowBox[{-, l}], ]}], [, 
+ 
+>       RowBox[{MetricPerturbation, [, 
+ 
+>         RowBox[{RowBox[{-, m}], ,, RowBox[{-, n}]}], ]}], ]}]}]]
+Now we compute the seven contractions defined in Equation (2.5) on page 5 of\
+ 
+>   arXiv:1912.01023. Most of these contractions only appear in quadratic\
+ 
+>   invariants, so again we only need these formulae to be accurate to first\
+ 
+>   order in small quantities.
+First comes the torsion contraction.
+BoxData[RowBox[{MetricAffineTorsionContraction, [, RowBox[{-, m}], ]}]]
+BoxData[RowBox[{MetricAffineTorsion, [, 
+ 
+>     RowBox[{RowBox[{-, l}], ,, l, ,, RowBox[{-, m}]}], ]}]]
+Next the (standard) non-metricity contraction.
+BoxData[RowBox[{MetricAffineNonMetricityContraction, [, RowBox[{-, m}], ]}]]
+BoxData[RowBox[{MetricAffineNonMetricity, [, 
+ 
+>     RowBox[{RowBox[{-, m}], ,, RowBox[{-, l}], ,, l}], ]}]]
+Next the (tilde) non-metricity contraction.
+BoxData[RowBox[{MetricAffineNonMetricityContractionTilde, [, RowBox[{-, m}], 
+ 
+>     ]}]]
+BoxData[RowBox[{MetricAffineNonMetricity, [, 
+ 
+>     RowBox[{RowBox[{-, l}], ,, l, ,, RowBox[{-, m}]}], ]}]]
+Next the homothetic curvature.
+BoxData[RowBox[{MetricAffineRicciTensor, [, 
+ 
+>     RowBox[{RowBox[{-, m}], ,, RowBox[{-, n}]}], ]}]]
+BoxData[RowBox[{MetricAffineCurvature, [, 
+ 
+>     RowBox[{RowBox[{-, m}], ,, RowBox[{-, n}], ,, RowBox[{-, l}], ,, l}], ]}
+ 
+>     ]]
+Next the first of the pseudo-Ricci tensors.
+BoxData[RowBox[{MetricAffineRicciTensor14, [, 
+ 
+>     RowBox[{RowBox[{-, m}], ,, RowBox[{-, n}]}], ]}]]
+BoxData[RowBox[{MetricAffineCurvature, [, 
+ 
+>     RowBox[{RowBox[{-, l}], ,, RowBox[{-, m}], ,, RowBox[{-, n}], ,, l}], ]}
+ 
+>     ]]
+Next the second of the pseudo-Ricci tensors.
+BoxData[RowBox[{MetricAffineRicciTensor13, [, 
+ 
+>     RowBox[{RowBox[{-, m}], ,, RowBox[{-, n}]}], ]}]]
+BoxData[RowBox[{MetricAffineCurvature, [, 
+ 
+>     RowBox[{RowBox[{-, l}], ,, RowBox[{-, m}], ,, l, ,, RowBox[{-, n}]}], ]}
+ 
+>     ]]
+Now we move on to computing the (conventional) Ricci scalar. This time we\
+ 
+>   need to be careful to retain contributions up to second order in\
+ 
+>   smallness, since this is the only invariant which appears on its own.
+
+DefTensor::unknown: Unknown dependency M4.
+BoxData[RowBox[{MetricAffineRicciScalar, [, ]}]]
+BoxData[InterpretationBox[StyleBox[RowBox[{StyleBox[(, 
+ 
+>        FontColor -> RGBColor[1, 0, 0]], 
+ 
+>       RowBox[{RowBox[{G, [, RowBox[{m, ,, RowBox[{-, r}]}], ]}],  , 
+ 
+>         RowBox[{MetricAffineCurvature, [, 
+ 
+>           RowBox[{RowBox[{-, m}], ,, RowBox[{-, n}], ,, r, ,, 
+ 
+>             RowBox[{-, s}]}], ]}],  , 
+ 
+>         RowBox[{(, RowBox[{RowBox[{G, [, RowBox[{n, ,, s}], ]}], -, 
+ 
+>             RowBox[{MetricPerturbation, [, RowBox[{n, ,, s}], ]}]}], )}]}], 
+ 
+>       StyleBox[), FontColor -> RGBColor[1, 0, 0]]}], AutoSpacing -> False, 
+ 
+>     ShowAutoStyles -> False], 
+ 
+>    Scalar[G[m, -r] MetricAffineCurvature[-m, -n, r, -s] 
+ 
+>      (G[n, s] - MetricPerturbation[n, s])], Editable -> False]]
+Now we define a further two contractions by analogy to arXiv:2212.09820.
+First the traceless, asymmetric average of the Ricci and co-Ricci tensors\
+ 
+>   similar to that defined in Eq. (2.10) on page 4 of arXiv:2212.09820.
+BoxData[RowBox[{MetricAffineRicciTensorTri, [, 
+ 
+>     RowBox[{RowBox[{-, m}], ,, RowBox[{-, n}]}], ]}]]
+BoxData[RowBox[{FractionBox[1, 2],  , 
+ 
+>     RowBox[{(, RowBox[{RowBox[{MetricAffineCurvature, [, 
+ 
+>           RowBox[{RowBox[{-, l}], ,, RowBox[{-, m}], ,, l, ,, 
+ 
+>             RowBox[{-, n}]}], ]}], +, 
+ 
+>         RowBox[{MetricAffineCurvature, [, 
+ 
+>           RowBox[{RowBox[{-, l}], ,, RowBox[{-, m}], ,, RowBox[{-, n}], ,, 
+ 
+>             l}], ]}]}], )}]}]]
+Next the antisymmetric projectively-invariant combination derived from Eq.\
+ 
+>   (2.17) on page 5 of arXiv:2212.09820, and subject also to the parameter\
+ 
+>   conditions set out in the paragraph at the top of page 6 in\
+ 
+>   arXiv:2212.09820.
+BoxData[RowBox[{MetricAffineRicciTensorP, [, 
+ 
+>     RowBox[{RowBox[{-, m}], ,, RowBox[{-, n}]}], ]}]]
+BoxData[RowBox[{FractionBox[1, 2],  , 
+ 
+>     RowBox[{(, RowBox[{RowBox[{MetricAffineCurvature, [, 
+ 
+>           RowBox[{RowBox[{-, l}], ,, RowBox[{-, m}], ,, l, ,, 
+ 
+>             RowBox[{-, n}]}], ]}], +, 
+ 
+>         RowBox[{FractionBox[1, 2],  , 
+ 
+>           RowBox[{(, RowBox[{RowBox[{-, 
+ 
+>                 RowBox[{MetricAffineCurvature, [, 
+ 
+>                   RowBox[{RowBox[{-, l}], ,, RowBox[{-, m}], ,, l, ,, 
+ 
+>                     RowBox[{-, n}]}], ]}]}], -, 
+ 
+>               RowBox[{MetricAffineCurvature, [, 
+ 
+>                 RowBox[{RowBox[{-, l}], ,, RowBox[{-, m}], ,, 
+ 
+>                   RowBox[{-, n}], ,, l}], ]}]}], )}]}], -, 
+ 
+>         RowBox[{MetricAffineRicciTensor13, [, 
+ 
+>           RowBox[{RowBox[{-, n}], ,, RowBox[{-, m}]}], ]}], +, 
+ 
+>         RowBox[{MetricAffineRicciTensorTri, [, 
+ 
+>           RowBox[{RowBox[{-, n}], ,, RowBox[{-, m}]}], ]}]}], )}]}]]
+TextData[{In order to check that we've defined the correct Ricci in,  , Eqs., 
+ 
+>     (, CounterBox[DisplayFormulaNumbered, MetricAffineRicciTensorP], ),, 
+ 
+>     and (, CounterBox[DisplayFormulaNumbered, 
+ 
+>     MetricAffineRicciTensorPPerturbed], ), 
+ 
+>    , we need to attempt a projective transformation.}]
+Define a vector to generate the transformation.
+BoxData[RowBox[{ProjVect, [, RowBox[{-, m}], ]}]]
+Define also a perturbative parameter.
+BoxData[InterpretationBox[StyleBox[RowBox[{ϵ}], AutoSpacing -> False, 
+ 
+>     ShowAutoStyles -> False], PerturbativeParameter, Editable -> False]]
+Now define the projective transformation itself. This is defined e.g. in Eq.\
+ 
+>   (2.16) on page 7 of arXiv:1912.01023.
+BoxData[RowBox[{Connection, [, RowBox[{RowBox[{-, m}], ,, r, ,, 
+ 
+>       RowBox[{-, n}]}], ]}]]
+BoxData[RowBox[{RowBox[{Connection, [, 
+ 
+>       RowBox[{RowBox[{-, m}], ,, r, ,, RowBox[{-, n}]}], ]}], +, 
+ 
+>     RowBox[{InterpretationBox[StyleBox[RowBox[{ϵ}], AutoSpacing -> False, 
+ 
+>         ShowAutoStyles -> False], PerturbativeParameter, Editable -> False]\
+ 
+>        ,  , RowBox[{G, [, RowBox[{r, ,, RowBox[{-, n}]}], ]}],  , 
+ 
+>       RowBox[{ProjVect, [, RowBox[{-, m}], ]}]}]}]]
+TextData[{Now we have defined (both infinitesimal and finite, if we ignore\
+ 
+>     the perturbative parameter) projective transformation in,  , Eqs.,  (, 
+ 
+>    CounterBox[DisplayFormulaNumbered, PreProjective], ),,  and (, 
+ 
+>    CounterBox[DisplayFormulaNumbered, PostProjective], ), 
+ 
+>    , we check the transformation properties of,  , 
+ 
+>    Cell[BoxData[RowBox[{MetricAffineRicciTensorP, [, 
+ 
+>        RowBox[{RowBox[{-, m}], ,, RowBox[{-, n}]}], ]}]], 
+ 
+>     CellContext -> Global`], .}]
+BoxData[RowBox[{MetricAffineRicciTensorP, [, 
+ 
+>     RowBox[{RowBox[{-, m}], ,, RowBox[{-, n}]}], ]}]]
+BoxData[RowBox[{RowBox[{FractionBox[1, 4],  , 
+ 
+>       RowBox[{MetricAffineCurvature, [, 
+ 
+>         RowBox[{RowBox[{-, l}], ,, RowBox[{-, m}], ,, l, ,, 
+ 
+>           RowBox[{-, n}]}], ]}]}], -, 
+ 
+>     RowBox[{FractionBox[1, 4],  , 
+ 
+>       RowBox[{MetricAffineCurvature, [, 
+ 
+>         RowBox[{RowBox[{-, l}], ,, RowBox[{-, m}], ,, RowBox[{-, n}], ,, 
+ 
+>           l}], ]}]}], -, RowBox[{FractionBox[1, 2],  , 
+ 
+>       RowBox[{MetricAffineRicciTensor13, [, 
+ 
+>         RowBox[{RowBox[{-, n}], ,, RowBox[{-, m}]}], ]}]}], +, 
+ 
+>     RowBox[{FractionBox[1, 2],  , 
+ 
+>       RowBox[{MetricAffineRicciTensorTri, [, 
+ 
+>         RowBox[{RowBox[{-, n}], ,, RowBox[{-, m}]}], ]}]}]}]]
+BoxData[RowBox[{RowBox[{FractionBox[1, 4],  , 
+ 
+>       RowBox[{MetricAffineCurvature, [, 
+ 
+>         RowBox[{RowBox[{-, l}], ,, RowBox[{-, m}], ,, l, ,, 
+ 
+>           RowBox[{-, n}]}], ]}]}], -, 
+ 
+>     RowBox[{FractionBox[1, 4],  , 
+ 
+>       RowBox[{MetricAffineCurvature, [, 
+ 
+>         RowBox[{RowBox[{-, l}], ,, RowBox[{-, m}], ,, RowBox[{-, n}], ,, 
+ 
+>           l}], ]}]}], -, RowBox[{FractionBox[1, 2],  , 
+ 
+>       RowBox[{MetricAffineRicciTensor13, [, 
+ 
+>         RowBox[{RowBox[{-, n}], ,, RowBox[{-, m}]}], ]}]}], +, 
+ 
+>     RowBox[{FractionBox[1, 2],  , 
+ 
+>       RowBox[{MetricAffineRicciTensorTri, [, 
+ 
+>         RowBox[{RowBox[{-, n}], ,, RowBox[{-, m}]}], ]}]}]}]]
+BoxData[RowBox[{FractionBox[1, 4],  , 
+ 
+>     RowBox[{(, RowBox[{RowBox[{MetricAffineCurvature, [, 
+ 
+>           RowBox[{RowBox[{-, l}], ,, RowBox[{-, m}], ,, l, ,, 
+ 
+>             RowBox[{-, n}]}], ]}], -, 
+ 
+>         RowBox[{MetricAffineCurvature, [, 
+ 
+>           RowBox[{RowBox[{-, l}], ,, RowBox[{-, m}], ,, RowBox[{-, n}], ,, 
+ 
+>             l}], ]}], -, RowBox[{2,  , 
+ 
+>           RowBox[{MetricAffineRicciTensor13, [, 
+ 
+>             RowBox[{RowBox[{-, n}], ,, RowBox[{-, m}]}], ]}]}], +, 
+ 
+>         RowBox[{2,  , RowBox[{MetricAffineRicciTensorTri, [, 
+ 
+>             RowBox[{RowBox[{-, n}], ,, RowBox[{-, m}]}], ]}]}]}], )}]}]]
+TextData[{So because,  , Eqs.,  (, 
+ 
+>    CounterBox[DisplayFormulaNumbered, RicciPreProjective], ),,  and (, 
+ 
+>    CounterBox[DisplayFormulaNumbered, RicciPostProjective], ), 
+ 
+>     are identical, we can have confidence that the tensor,  , Eqs.,  (, 
+ 
+>    CounterBox[DisplayFormulaNumbered, MetricAffineRicciTensorP], ),, 
+ 
+>     and (, CounterBox[DisplayFormulaNumbered, 
+ 
+>     MetricAffineRicciTensorPPerturbed], ), 
+ 
+>     is indeed (proportional to) the object considered in arXiv:2212.09820.}]
+The general parity-preserving Lagrangian
+Now all the generally-covariant contractions of the field strength tensors\
+ 
+>   have been defined, so we construct the general, parity-preserving\
+ 
+>   Lagrangian proposed in Equation (2.4) on page 5 of arXiv:1912.01023.
+BoxData[RowBox[{FractionBox[1, 2],  , 
+ 
+>     RowBox[{(, RowBox[{RowBox[{RowBox[{-, 
+ 
+>             RowBox[{MetricAffineCurvature, [, 
+ 
+>               RowBox[{m, ,, n, ,, r, ,, s}], ]}]}],  , 
+ 
+>           RowBox[{(, RowBox[{RowBox[{C1,  , 
+ 
+>                 RowBox[{MetricAffineCurvature, [, 
+ 
+>                   RowBox[{RowBox[{-, m}], ,, RowBox[{-, n}], ,, 
+ 
+>                     RowBox[{-, r}], ,, RowBox[{-, s}]}], ]}]}], +, 
+ 
+>               RowBox[{C2,  , RowBox[{MetricAffineCurvature, [, 
+ 
+>                   RowBox[{RowBox[{-, m}], ,, RowBox[{-, n}], ,, 
+ 
+>                     RowBox[{-, s}], ,, RowBox[{-, r}]}], ]}]}], +, 
+ 
+>               RowBox[{C4,  , RowBox[{MetricAffineCurvature, [, 
+ 
+>                   RowBox[{RowBox[{-, m}], ,, RowBox[{-, r}], ,, 
+ 
+>                     RowBox[{-, n}], ,, RowBox[{-, s}]}], ]}]}], +, 
+ 
+>               RowBox[{C5,  , RowBox[{MetricAffineCurvature, [, 
+ 
+>                   RowBox[{RowBox[{-, m}], ,, RowBox[{-, s}], ,, 
+ 
+>                     RowBox[{-, n}], ,, RowBox[{-, r}]}], ]}]}], +, 
+ 
+>               RowBox[{C6,  , RowBox[{MetricAffineCurvature, [, 
+ 
+>                   RowBox[{RowBox[{-, m}], ,, RowBox[{-, s}], ,, 
+ 
+>                     RowBox[{-, r}], ,, RowBox[{-, n}]}], ]}]}], +, 
+ 
+>               RowBox[{C3,  , RowBox[{MetricAffineCurvature, [, 
+ 
+>                   RowBox[{RowBox[{-, r}], ,, RowBox[{-, s}], ,, 
+ 
+>                     RowBox[{-, m}], ,, RowBox[{-, n}]}], ]}]}]}], )}]}], -, 
+ 
+>         RowBox[{RowBox[{(, RowBox[{RowBox[{A5,  , 
+ 
+>                 RowBox[{MetricAffineNonMetricity, [, 
+ 
+>                   RowBox[{RowBox[{-, n}], ,, RowBox[{-, m}], ,, 
+ 
+>                     RowBox[{-, r}]}], ]}]}], +, 
+ 
+>               RowBox[{A4,  , RowBox[{MetricAffineNonMetricity, [, 
+ 
+>                   RowBox[{RowBox[{-, r}], ,, RowBox[{-, m}], ,, 
+ 
+>                     RowBox[{-, n}]}], ]}]}]}], )}],  , 
+ 
+>           RowBox[{MetricAffineNonMetricity, [, RowBox[{r, ,, m, ,, n}], ]}]}
+ 
+>           ], -, RowBox[{A6,  , 
+ 
+>           RowBox[{MetricAffineNonMetricityContraction, [, RowBox[{-, m}], 
+ 
+>             ]}],  , RowBox[{MetricAffineNonMetricityContraction, [, m, ]}]}]
+ 
+>          , -, RowBox[{A8,  , RowBox[{MetricAffineNonMetricityContraction, 
+ 
+>             [, RowBox[{-, m}], ]}],  , 
+ 
+>           RowBox[{MetricAffineNonMetricityContractionTilde, [, m, ]}]}], -, 
+ 
+>         RowBox[{A7,  , RowBox[{MetricAffineNonMetricityContractionTilde, [, 
+ 
+>             RowBox[{-, m}], ]}],  , 
+ 
+>           RowBox[{MetricAffineNonMetricityContractionTilde, [, m, ]}]}], +, 
+ 
+>         RowBox[{A0,  , RowBox[{MetricAffineRicciScalar, [, ]}]}], -, 
+ 
+>         RowBox[{C16,  , SuperscriptBox[RowBox[{MetricAffineRicciScalar, [, 
+ 
+>              ]}], 2]}], -, RowBox[{RowBox[{MetricAffineRicciTensor13, [, 
+ 
+>             RowBox[{m, ,, n}], ]}],  , 
+ 
+>           RowBox[{(, RowBox[{RowBox[{C7,  , 
+ 
+>                 RowBox[{MetricAffineRicciTensor13, [, 
+ 
+>                   RowBox[{RowBox[{-, m}], ,, RowBox[{-, n}]}], ]}]}], +, 
+ 
+>               RowBox[{C8,  , RowBox[{MetricAffineRicciTensor13, [, 
+ 
+>                   RowBox[{RowBox[{-, n}], ,, RowBox[{-, m}]}], ]}]}]}], )}]}
+ 
+>           ], -, RowBox[{RowBox[{MetricAffineRicciTensor, [, 
+ 
+>             RowBox[{m, ,, n}], ]}],  , 
+ 
+>           RowBox[{(, RowBox[{RowBox[{C13,  , 
+ 
+>                 RowBox[{MetricAffineRicciTensor, [, 
+ 
+>                   RowBox[{RowBox[{-, m}], ,, RowBox[{-, n}]}], ]}]}], +, 
+ 
+>               RowBox[{C14,  , 
+ 
+>                 RowBox[{MetricAffineRicciTensor13, [, 
+ 
+>                   RowBox[{RowBox[{-, m}], ,, RowBox[{-, n}]}], ]}]}], +, 
+ 
+>               RowBox[{C15,  , 
+ 
+>                 RowBox[{MetricAffineRicciTensor14, [, 
+ 
+>                   RowBox[{RowBox[{-, m}], ,, RowBox[{-, n}]}], ]}]}]}], )}]}
+ 
+>           ], -, RowBox[{RowBox[{(, 
+ 
+>             RowBox[{RowBox[{C11,  , 
+ 
+>                 RowBox[{MetricAffineRicciTensor13, [, 
+ 
+>                   RowBox[{RowBox[{-, m}], ,, RowBox[{-, n}]}], ]}]}], +, 
+ 
+>               RowBox[{C12,  , 
+ 
+>                 RowBox[{MetricAffineRicciTensor13, [, 
+ 
+>                   RowBox[{RowBox[{-, n}], ,, RowBox[{-, m}]}], ]}]}]}], )}]\
+ 
+>            ,  , RowBox[{MetricAffineRicciTensor14, [, RowBox[{m, ,, n}], 
+ 
+>             ]}]}], -, RowBox[{RowBox[{MetricAffineRicciTensor14, [, 
+ 
+>             RowBox[{m, ,, n}], ]}],  , 
+ 
+>           RowBox[{(, RowBox[{RowBox[{C9,  , 
+ 
+>                 RowBox[{MetricAffineRicciTensor14, [, 
+ 
+>                   RowBox[{RowBox[{-, m}], ,, RowBox[{-, n}]}], ]}]}], +, 
+ 
+>               RowBox[{C10,  , 
+ 
+>                 RowBox[{MetricAffineRicciTensor14, [, 
+ 
+>                   RowBox[{RowBox[{-, n}], ,, RowBox[{-, m}]}], ]}]}]}], )}]}
+ 
+>           ], -, RowBox[{A9,  , 
+ 
+>           RowBox[{MetricAffineNonMetricity, [, 
+ 
+>             RowBox[{RowBox[{-, m}], ,, RowBox[{-, r}], ,, RowBox[{-, n}]}], 
+ 
+>             ]}],  , RowBox[{MetricAffineTorsion, [, 
+ 
+>             RowBox[{m, ,, r, ,, n}], ]}]}], -, 
+ 
+>         RowBox[{RowBox[{(, RowBox[{RowBox[{A2,  , 
+ 
+>                 RowBox[{MetricAffineTorsion, [, 
+ 
+>                   RowBox[{RowBox[{-, m}], ,, RowBox[{-, n}], ,, 
+ 
+>                     RowBox[{-, r}]}], ]}]}], +, 
+ 
+>               RowBox[{A1,  , RowBox[{MetricAffineTorsion, [, 
+ 
+>                   RowBox[{RowBox[{-, m}], ,, RowBox[{-, r}], ,, 
+ 
+>                     RowBox[{-, n}]}], ]}]}]}], )}],  , 
+ 
+>           RowBox[{MetricAffineTorsion, [, RowBox[{m, ,, r, ,, n}], ]}]}], 
+ 
+>         -, RowBox[{RowBox[{(, 
+ 
+>             RowBox[{RowBox[{A10,  , 
+ 
+>                 RowBox[{MetricAffineNonMetricityContraction, [, 
+ 
+>                   RowBox[{-, m}], ]}]}], +, 
+ 
+>               RowBox[{A11,  , 
+ 
+>                 RowBox[{MetricAffineNonMetricityContractionTilde, [, 
+ 
+>                   RowBox[{-, m}], ]}]}]}], )}],  , 
+ 
+>           RowBox[{MetricAffineTorsionContraction, [, m, ]}]}], -, 
+ 
+>         RowBox[{A3,  , RowBox[{MetricAffineTorsionContraction, [, 
+ 
+>             RowBox[{-, m}], ]}],  , 
+ 
+>           RowBox[{MetricAffineTorsionContraction, [, m, ]}]}]}], )}]}]]
+This general Lagrangian is something that we must linearize. First, we need\
+ 
+>   the linearized measure, otherwise the Einstein--Hilbert term (which has\
+ 
+>   first-order perturbed contributions) won't have the right linearization.
+BoxData[RowBox[{1, +, RowBox[{FractionBox[1, 2],  , 
+ 
+>       RowBox[{MetricPerturbation, [, RowBox[{a, ,, RowBox[{-, a}]}], ]}]}]}]
+ 
+>    ]
+Now we attempt the linearization.
+BoxData[RowBox[{xAct`PSALTer`Private`ToNewCanonical, [, 0, ]}]]
+TextData[{We see that,  , Eq.,  (, 
+ 
+>    CounterBox[DisplayFormulaNumbered, MetricAffineLinearLagrangian], ), 
+ 
+>     is generically quite a heavy expression, and there is not a very high\
+ 
+>     degree of degeneracy among the coupling constants.}]
+Physically interesting vector symmetries of metric affine gravity
+TextData[{We will study the four spectra of theories with physically\
+ 
+>     interesting vector symmetries.}]
+The extended-projective theory
+We will study extended-projective.
+
+Solve::svars: Equations may not give solutions for all "solve" variables.
+BoxData[RowBox[{FractionBox[1, 2],  , 
+ 
+>     RowBox[{(, RowBox[{RowBox[{RowBox[{-, 
+ 
+>             RowBox[{MetricAffineCurvature, [, 
+ 
+>               RowBox[{m, ,, n, ,, r, ,, s}], ]}]}],  , 
+ 
+>           RowBox[{(, RowBox[{RowBox[{C1,  , 
+ 
+>                 RowBox[{MetricAffineCurvature, [, 
+ 
+>                   RowBox[{RowBox[{-, m}], ,, RowBox[{-, n}], ,, 
+ 
+>                     RowBox[{-, r}], ,, RowBox[{-, s}]}], ]}]}], -, 
+ 
+>               RowBox[{C1,  , RowBox[{MetricAffineCurvature, [, 
+ 
+>                   RowBox[{RowBox[{-, m}], ,, RowBox[{-, n}], ,, 
+ 
+>                     RowBox[{-, s}], ,, RowBox[{-, r}]}], ]}]}], -, 
+ 
+>               RowBox[{2,  , C1,  , 
+ 
+>                 RowBox[{MetricAffineCurvature, [, 
+ 
+>                   RowBox[{RowBox[{-, m}], ,, RowBox[{-, r}], ,, 
+ 
+>                     RowBox[{-, n}], ,, RowBox[{-, s}]}], ]}]}], +, 
+ 
+>               RowBox[{4,  , C1,  , 
+ 
+>                 RowBox[{MetricAffineCurvature, [, 
+ 
+>                   RowBox[{RowBox[{-, m}], ,, RowBox[{-, s}], ,, 
+ 
+>                     RowBox[{-, n}], ,, RowBox[{-, r}]}], ]}]}], -, 
+ 
+>               RowBox[{2,  , C1,  , 
+ 
+>                 RowBox[{MetricAffineCurvature, [, 
+ 
+>                   RowBox[{RowBox[{-, m}], ,, RowBox[{-, s}], ,, 
+ 
+>                     RowBox[{-, r}], ,, RowBox[{-, n}]}], ]}]}], +, 
+ 
+>               RowBox[{2,  , C1,  , 
+ 
+>                 RowBox[{MetricAffineCurvature, [, 
+ 
+>                   RowBox[{RowBox[{-, r}], ,, RowBox[{-, s}], ,, 
+ 
+>                     RowBox[{-, m}], ,, RowBox[{-, n}]}], ]}]}]}], )}]}], -, 
+ 
+>         RowBox[{RowBox[{(, RowBox[{RowBox[{RowBox[{(, 
+ 
+>                   RowBox[{A0, -, FractionBox[A1, 2], -, FractionBox[A2, 4], 
+ 
+>                     -, FractionBox[RowBox[{3,  , A3}], 4], +, 
+ 
+>                     RowBox[{8,  , A6}], -, RowBox[{5,  , A7}]}], )}],  , 
+ 
+>                 RowBox[{MetricAffineNonMetricity, [, 
+ 
+>                   RowBox[{RowBox[{-, n}], ,, RowBox[{-, m}], ,, 
+ 
+>                     RowBox[{-, r}]}], ]}]}], +, 
+ 
+>               RowBox[{RowBox[{(, 
+ 
+>                   RowBox[{FractionBox[A0, 4], +, FractionBox[A1, 2], +, 
+ 
+>                     FractionBox[A2, 4], +, 
+ 
+>                     FractionBox[RowBox[{3,  , A3}], 4], -, 
+ 
+>                     RowBox[{2,  , A6}], -, A7}], )}],  , 
+ 
+>                 RowBox[{MetricAffineNonMetricity, [, 
+ 
+>                   RowBox[{RowBox[{-, r}], ,, RowBox[{-, m}], ,, 
+ 
+>                     RowBox[{-, n}]}], ]}]}]}], )}],  , 
+ 
+>           RowBox[{MetricAffineNonMetricity, [, RowBox[{r, ,, m, ,, n}], ]}]}
+ 
+>           ], -, RowBox[{A6,  , 
+ 
+>           RowBox[{MetricAffineNonMetricityContraction, [, RowBox[{-, m}], 
+ 
+>             ]}],  , RowBox[{MetricAffineNonMetricityContraction, [, m, ]}]}]
+ 
+>          , -, RowBox[{RowBox[{(, 
+ 
+>             RowBox[{RowBox[{-, FractionBox[A0, 2]}], -, RowBox[{4,  , A6}], 
+ 
+>               +, RowBox[{2,  , A7}]}], )}],  , 
+ 
+>           RowBox[{MetricAffineNonMetricityContraction, [, RowBox[{-, m}], 
+ 
+>             ]}],  , RowBox[{MetricAffineNonMetricityContractionTilde, [, m, 
+ 
+>             ]}]}], -, RowBox[{A7,  , 
+ 
+>           RowBox[{MetricAffineNonMetricityContractionTilde, [, 
+ 
+>             RowBox[{-, m}], ]}],  , 
+ 
+>           RowBox[{MetricAffineNonMetricityContractionTilde, [, m, ]}]}], +, 
+ 
+>         RowBox[{A0,  , RowBox[{MetricAffineRicciScalar, [, ]}]}], -, 
+ 
+>         RowBox[{A9,  , RowBox[{MetricAffineNonMetricity, [, 
+ 
+>             RowBox[{RowBox[{-, m}], ,, RowBox[{-, r}], ,, RowBox[{-, n}]}], 
+ 
+>             ]}],  , RowBox[{MetricAffineTorsion, [, 
+ 
+>             RowBox[{m, ,, r, ,, n}], ]}]}], -, 
+ 
+>         RowBox[{RowBox[{(, RowBox[{RowBox[{A2,  , 
+ 
+>                 RowBox[{MetricAffineTorsion, [, 
+ 
+>                   RowBox[{RowBox[{-, m}], ,, RowBox[{-, n}], ,, 
+ 
+>                     RowBox[{-, r}]}], ]}]}], +, 
+ 
+>               RowBox[{A1,  , RowBox[{MetricAffineTorsion, [, 
+ 
+>                   RowBox[{RowBox[{-, m}], ,, RowBox[{-, r}], ,, 
+ 
+>                     RowBox[{-, n}]}], ]}]}]}], )}],  , 
+ 
+>           RowBox[{MetricAffineTorsion, [, RowBox[{m, ,, r, ,, n}], ]}]}], 
+ 
+>         -, RowBox[{RowBox[{(, 
+ 
+>             RowBox[{RowBox[{RowBox[{(, 
+ 
+>                   RowBox[{FractionBox[RowBox[{2,  , A1}], 3], +, 
+ 
+>                     FractionBox[A2, 3], +, A3, +, FractionBox[A9, 3]}], )}]\
+ 
+>                  ,  , RowBox[{MetricAffineNonMetricityContraction, [, 
+ 
+>                   RowBox[{-, m}], ]}]}], +, 
+ 
+>               RowBox[{RowBox[{(, 
+ 
+>                   RowBox[{RowBox[{-, FractionBox[RowBox[{2,  , A1}], 3]}], 
+ 
+>                     -, FractionBox[A2, 3], -, A3, -, FractionBox[A9, 3]}], 
+ 
+>                   )}],  , RowBox[{MetricAffineNonMetricityContractionTilde, 
+ 
+>                   [, RowBox[{-, m}], ]}]}]}], )}],  , 
+ 
+>           RowBox[{MetricAffineTorsionContraction, [, m, ]}]}], -, 
+ 
+>         RowBox[{A3,  , RowBox[{MetricAffineTorsionContraction, [, 
+ 
+>             RowBox[{-, m}], ]}],  , 
+ 
+>           RowBox[{MetricAffineTorsionContraction, [, m, ]}]}]}], )}],  , 
+ 
+>     RowBox[{(, RowBox[{1, +, RowBox[{FractionBox[1, 2],  , 
+ 
+>           RowBox[{MetricPerturbation, [, RowBox[{a, ,, RowBox[{-, a}]}], 
+ 
+>             ]}]}]}], )}]}]]
+Here is the result from the supercomputer.
+TextData[{Some comments can be made about extended-projective.}]
+
+Throw::nocatch: Uncaught Throw[Have a look here] returned to top level.
+
+Out[46]= Hold[Throw[Have a look here]]
+
+In[47]:= 
+In[48]:= 
+In[49]:= In[49]:= TextData[{StyleBox[Key observation: , Large, FontWeight -> Bold], 
+ 
+>    We have now reached the end of the PSALTer calibration script.}]
+
+In[50]:= In[50]:= killing processes with pkill
+the following processes are still running on this node:
+   PID TTY          TIME CMD
+ 11902 ?        00:13:04 tmux
+ 11903 pts/16   00:00:00 bash
+ 12133 pts/19   00:00:00 bash
+ 12313 pts/19   00:00:00 squeue
+ 13163 pts/19   00:25:43 squeue
+ 37921 pts/16   00:00:00 tail
+ 51744 pts/16   00:00:00 tail
+ 52334 pts/16   00:00:00 tail
+ 61135 pts/39   00:00:00 bash
+ 62126 pts/16   00:00:00 tail
+ 67806 pts/16   00:00:00 tail
+ 70948 pts/16   00:00:00 tail
+ 84672 pts/16   00:00:00 tail
+ 84809 pts/16   00:00:00 tail
+ 88860 pts/16   00:00:00 tail
+ 90444 pts/16   00:00:00 tail
+ 94046 pts/16   00:00:00 vim
+ 95655 pts/72   00:00:00 Calibration.sh
+ 95723 pts/72   00:01:01 WolframKernel <defunct>
+ 95789 pts/61   00:00:34 htop
+ 95903 pts/61   00:05:37 htop
+ 95930 pts/72   00:00:00 Calibration.sh
+ 96004 pts/72   00:00:05 WolframKernel <defunct>
+ 97727 pts/72   00:00:00 Calibration.sh
+ 97795 pts/72   00:00:06 WolframKernel <defunct>
+ 97923 pts/72   00:00:00 Calibration.sh
+ 97989 pts/72   00:00:06 WolframKernel <defunct>
+106465 pts/72   00:00:00 tail
+106493 pts/84   00:00:00 Calibration.sh
+106656 pts/84   00:00:00 ps
+140385 pts/16   00:00:00 tail
+142507 pts/16   00:00:00 vim
+154399 pts/16   00:00:00 tail
+165327 pts/16   00:00:00 tail
+166928 pts/16   00:00:00 tail
+171609 pts/16   00:00:00 tail
+174213 pts/10   00:00:00 bash
+174312 pts/61   00:00:00 bash
+174702 pts/84   00:00:00 bash
+175161 pts/84   00:00:00 Calibration.sh
+175227 pts/84   00:08:45 WolframKernel <defunct>
+175276 pts/72   00:00:00 tail
+179783 pts/16   00:00:00 tail
+179958 pts/16   00:00:00 tail
+180976 pts/72   00:00:00 bash
+181092 pts/16   00:00:00 tail
+182631 pts/16   00:00:00 vim
+182994 pts/61   00:00:01 htop
+183678 pts/84   00:00:00 Calibration.sh
+183792 pts/84   00:00:10 WolframKernel <defunct>
+184377 pts/87   00:00:00 bash
+185106 pts/84   00:00:00 Calibration.sh
+185220 pts/84   00:08:37 WolframKernel <defunct>
+185274 pts/72   00:00:00 tail
+189376 pts/41   00:00:00 bash
+190941 pts/84   00:00:00 Calibration.sh
+191058 pts/84   00:03:42 WolframKernel <defunct>
+191958 pts/72   00:00:00 tail
+195381 pts/16   00:00:00 Calibration.sh
+195459 pts/87   00:00:00 Parallelisation
+195460 pts/87   00:00:03 WolframKernel <defunct>
+195467 pts/16   00:00:02 WolframKernel <defunct>
+198614 pts/87   00:00:00 Parallelisation
+198615 pts/87   00:00:09 WolframKernel <defunct>
+202013 pts/84   00:00:00 Calibration.sh
+202079 pts/84   00:00:10 WolframKernel <defunct>
+214006 pts/72   00:00:00 Calibration.sh
+214075 pts/72   00:00:01 WolframKernel <defunct>
+222359 pts/2    00:00:00 bash
+223730 pts/2    00:00:00 tmux
+236214 ?        00:00:28 sshd
+236436 pts/16   00:00:00 tail
+236838 pts/16   00:00:00 tail
+251170 pts/22   00:00:00 bash
+258377 pts/16   00:00:03 tail
+exiting with code 0

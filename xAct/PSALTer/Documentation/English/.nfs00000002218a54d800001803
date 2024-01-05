@@ -1,0 +1,20 @@
+Changed directory to /home/wb263/Documents/PSALTer-devel/xAct/PSALTer/Documentation/English.
+
+JobID: 39409190
+======
+Time: Wed Dec 27 14:11:55 GMT 2023
+Running on master node: cpu-q-605
+Current directory: /home/wb263/Documents/PSALTer-devel/xAct/PSALTer/Documentation/English
+
+Nodes allocated:
+================
+cpu-q-605
+
+numtasks=, numnodes=1, mpi_tasks_per_node=1 (OMP_NUM_THREADS=1)
+
+Executing command:
+==================
+/home/wb263/Documents/PSALTer-devel/xAct/PSALTer/Documentation/English/Calibration.sh 
+
+welcome to Calibration.sh
+Attempting to recompile xperm.c on the native architecture

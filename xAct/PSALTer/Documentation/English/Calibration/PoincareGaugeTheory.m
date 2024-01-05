@@ -62,7 +62,6 @@ Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory",
 					"MarzoZellBarkerModel1.m"};
 Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory",
 					"MarzoZellBarkerModel2.m"};
-(*
 Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory",
 					"GeneralPGT.m"};
 Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory",
@@ -79,4 +78,3 @@ Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory",
 					"AnnalaRasanenTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory",
 					"LinHobsonLasenbyTheories.m"};
-*)

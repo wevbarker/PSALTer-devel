@@ -1,15 +1,141 @@
-Print@"The purpose of this script is to determine whether Mathematica has been correctly configured on the system. The need for this test is driven by some unexpected poor performace on CSD3 jobs.";
-Print["The variable $MaxLicenseProcesses is set to ",$MaxLicenseProcesses];
-Print["The protected variable $ProcessorCount is set to ",$ProcessorCount];
-Print["The variable $KernelCount is set to ",$KernelCount];
-WaitOnNumberOfTasks[WaitTime_Integer,NumberOfTasks_Integer]:=Module[{ParallelTask,TimeTaken},
-	ParallelTask=ParallelSubmit[Pause@#]&/@(WaitTime~ConstantArray~NumberOfTasks);
-	ParallelTask=AbsoluteTiming@WaitAll@ParallelTask;
-	TimeTaken=First@ParallelTask;
-	Print["It takes ",TimeTaken," seconds to wait for ",WaitTime," seconds for ",NumberOfTasks," times in parallel."];
-];
-Print@"Now we execute LaunchKernels[]";
-LaunchKernels[];
-Print["The variable $KernelCount is set to ",$KernelCount];
-WaitOnNumberOfTasks[1,#]&/@Range@200;
+(*========*)
+(*  Test  *)
+(*========*)
+
+ClearAll[CreateList];
+SetAttributes[CreateList,HoldAll];
+CreateList[Plus[a__]]:={a};
+CreateList[a_?AtomQ]:={a};
+CreateList[a_]:=a;
+
+RemoveReferencesToMomentum[InputMatrix_,Couplings_]:=Module[{
+	FieldRescaledMatrix=InputMatrix,
+	ConstantRescalingPowers,
+	ConstantRescalingRules,
+	ConstantDescalingRules,
+	FieldRescalingPowers,
+	FieldRescalingMatrix,
+	FieldDescalingMatrix,
+	ScalingSolutions,
+	UnsolvedScalingSolutions
+	},
+
+	ConstantRescalingPowers=Table[ToExpression@("ConstantRescalingPower"<>ToString@ii),{ii,Length@Couplings}];
+	ConstantRescalingRules=MapThread[(#1->#1*xAct`PSALTer`Def^#2)&,{Couplings,ConstantRescalingPowers}];
+	ConstantDescalingRules=MapThread[(#1->#1*xAct`PSALTer`Def^-#2)&,{Couplings,ConstantRescalingPowers}];
+
+	FieldRescalingPowers=Table[ToExpression@("FieldRescalingPower"<>ToString@ii),{ii,Length@InputMatrix}];
+	FieldRescalingMatrix=DiagonalMatrix@((xAct`PSALTer`Def^#)&/@FieldRescalingPowers);
+	FieldDescalingMatrix=DiagonalMatrix@((xAct`PSALTer`Def^-#)&/@FieldRescalingPowers);
+
+	FieldRescaledMatrix=FieldRescalingMatrix.FieldRescaledMatrix.FieldRescalingMatrix/.ConstantRescalingRules;
+
+	ScalingSolutions=Flatten@FieldRescaledMatrix;
+	ScalingSolutions//=(PowerExpand/@#)&;
+	ScalingSolutions//=(Expand[#,xAct`PSALTer`Def]&/@#)&;
+	ScalingSolutions//=(CreateList/@#)&;
+	ScalingSolutions//=Flatten;
+	ScalingSolutions//=(((PowerExpand@Log@#)~Coefficient~Log@xAct`PSALTer`Def)&/@#)&;
+	ScalingSolutions//=Flatten;
+	ScalingSolutions//=((#==0)&/@#)&;
+	ScalingSolutions//=DeleteDuplicates;
+	ScalingSolutions//=(#~DeleteElements~True)&;
+	ScalingSolutions//=(First@Quiet@Solve[#,ConstantRescalingPowers~Join~FieldRescalingPowers])&;
+
+	UnsolvedScalingSolutions=DeleteDuplicates@Flatten@(Variables/@((ConstantRescalingPowers~Join~FieldRescalingPowers)/.ScalingSolutions));
+	UnsolvedScalingSolutions//=((#->-(2*3*5*7*11)^10)&/@#)&;
+	ScalingSolutions//=(#/.UnsolvedScalingSolutions)&;
+	ScalingSolutions//=FullSimplify;
+	ScalingSolutions//=(#~Join~UnsolvedScalingSolutions)&;
+
+	FieldRescaledMatrix=FieldRescaledMatrix/.ScalingSolutions;
+	FieldRescaledMatrix//=PowerExpand;
+	FieldRescaledMatrix//=FullSimplify;
+
+{FieldRescaledMatrix,ConstantDescalingRules,FieldRescalingMatrix,ScalingSolutions}];
+
+CleanNullVector[NullVector_,CouplingAssumptions_]:=Module[{
+	Expr=NullVector,
+	SimpleNorm},
+	
+	SimpleNorm=Assuming[CouplingAssumptions,FullSimplify@Sqrt@PowerExpand@((Norm@NullVector)^2)];
+	HighestPower=CouplingAssumptions~Assuming~Exponent[SimpleNorm,xAct`PSALTer`Def,Max];
+	LowestPower=CouplingAssumptions~Assuming~Exponent[SimpleNorm,xAct`PSALTer`Def,Min];
+	If[Abs@HighestPower>=Abs@LowestPower,
+		CouplingAssumptions~Assuming~(Expr/=xAct`PSALTer`Def^HighestPower);
+	,
+		CouplingAssumptions~Assuming~(Expr/=xAct`PSALTer`Def^LowestPower);
+	];
+	CouplingAssumptions~Assuming~(Expr//=FullSimplify);
+Expr];
+
+ConjectureNullSpace[InputMatrix_,Couplings_,CouplingAssumptions_]:=Module[{	
+	(*ProcessedMatrix=InputMatrix,
+	MinimalExampleCaseRules,
+	MinimalExampleCaseNullSpaces,
+	AllNullVectors*)
+	FieldRescaledMatrix,
+	ConstantDescalingRules,
+	FieldRescalingMatrix,
+	ScalingSolutions,
+	RescaledNullSpace,
+	DescaledNullSpace
+	},
+
+	{FieldRescaledMatrix,
+	ConstantDescalingRules,
+	FieldRescalingMatrix,
+	ScalingSolutions}=RemoveReferencesToMomentum[InputMatrix,Couplings];
+
+	RescaledNullSpace=NullSpace@FieldRescaledMatrix;
+
+	Print@"Show it works when simplified";
+	Print@MatrixForm@FieldRescaledMatrix;
+	(Print@MatrixForm@#)&/@RescaledNullSpace;
+	If[!(RescaledNullSpace=={}),
+		(Print@MatrixForm@((FieldRescaledMatrix).(#)))&/@RescaledNullSpace;
+	];
+
+	DescaledNullSpace=((FieldRescalingMatrix.#)/.ConstantDescalingRules/.ScalingSolutions)&/@RescaledNullSpace;
+	CouplingAssumptions~Assuming~(DescaledNullSpace//=FullSimplify);
+	DescaledNullSpace//=(CleanNullVector[#,CouplingAssumptions]&/@#)&;
+	
+	Print@"Show it works fully";
+	Print@MatrixForm@InputMatrix;
+	(Print@MatrixForm@#)&/@DescaledNullSpace;
+	If[!(DescaledNullSpace=={}),
+		(Print@MatrixForm@((InputMatrix).(#)))&/@DescaledNullSpace;
+	];
+
+(*
+	MinimalExampleCaseRules=Table[(#->0)&/@Drop[Couplings,{i}],{i,Length@Couplings}];
+	MinimalExampleCaseNullSpaces=Module[{MinimalExampleCaseNullSpace},
+		Assuming[CouplingAssumptions,MinimalExampleCaseNullSpace=NullSpace[InputMatrix/.#]];
+		Assuming[CouplingAssumptions,MinimalExampleCaseNullSpace//=Simplify];
+	MinimalExampleCaseNullSpace]&/@MinimalExampleCaseRules;
+	AllNullVectors=Join@@MinimalExampleCaseNullSpaces;
+	AllNullVectors//=DeleteDuplicates;
+	ConjecturedNullSpace=AllNullVectors~Select~(CommonNullVector[#,MinimalExampleCaseNullSpaces]&);
+*)
+DescaledNullSpace];
+
+Couplings={a,b,c};
+CouplingAssumptions=(Element[#,Reals])&/@{a,b,c,xAct`PSALTer`Def};
+Print@CouplingAssumptions;
+
+NastyMatrix={{0,-I*a*xAct`PSALTer`Def},{I*a*xAct`PSALTer`Def,a+(c1+c2)*xAct`PSALTer`Def^2}};
+ConjectureNullSpace[NastyMatrix,Couplings,CouplingAssumptions];
+
+NastyMatrix={{Sqrt[3]a,b},{b,c}};
+ConjectureNullSpace[NastyMatrix,Couplings,CouplingAssumptions];
+
+NastyMatrix={{b,I*a*xAct`PSALTer`Def},{-I*a*xAct`PSALTer`Def,b}};
+ConjectureNullSpace[NastyMatrix,Couplings,CouplingAssumptions];
+
+NastyMatrix={{b,I*a},{-2b,-2I*a}};
+ConjectureNullSpace[NastyMatrix,Couplings,CouplingAssumptions];
+
+NastyMatrix={{b*xAct`PSALTer`Def^2,I*b*xAct`PSALTer`Def},{-I*b*xAct`PSALTer`Def,b}};
+ConjectureNullSpace[NastyMatrix,Couplings,CouplingAssumptions];
+
 Quit[];

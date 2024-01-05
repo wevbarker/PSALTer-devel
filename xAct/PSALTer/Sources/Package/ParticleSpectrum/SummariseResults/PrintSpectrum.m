@@ -31,7 +31,7 @@ PrintSpectrum[
 			(PrintParticle[First@#,0,0,0,Length@#,LaurentDepth->1]&/@Gather@(StripFactors/@MasslessEigenvalues)),
 			(PrintParticle[First@#,0,0,0,Length@#,LaurentDepth->2]&/@Gather@(StripFactors/@QuarticAnalysisValue)),
 			(PrintParticle[First@#,0,0,0,Length@#,LaurentDepth->3]&/@Gather@(StripFactors/@HexicAnalysisValue))(*,
-(PrintSecularEquation/@SecularEquation)*)
+			(PrintSecularEquation/@SecularEquation)*)
 		]
 	);
 
