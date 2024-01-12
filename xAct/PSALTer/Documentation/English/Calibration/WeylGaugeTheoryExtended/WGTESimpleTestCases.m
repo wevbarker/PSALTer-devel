@@ -14,7 +14,7 @@ TestCase={lR1==lR2==lR3==lR4==lR5==lC1==lXi==lNu==(lT1+lLambda)==(lT2-lLambda)==
 Off[Solve::svars];
 TestCaseRules=First/@(Solve[#,{lLambda,lR1,lR2,lR3,lR4,lR5,lC1,lXi,lNu,lT1,lT2,lT3,lPhi0}]&/@TestCase);
 On[Solve::svars];
-DisplayExpression@CollectTensors@ToCanonical[First@((NonlinearLagrangianWGTE)/.TestCaseRules)];
+DisplayExpression@CollectTensors@ToCanonical[First@((NonlinearLagrangianWGTEOriginal)/.TestCaseRules)];
 LinearisedLagrangianWGTE=LineariseLagrangianWGTE[First@((NonlinearLagrangianWGTE)/.TestCaseRules)];
 
 Comment@{"Here is the linearised Lagrangian before feeding into ParticleSpectrum[]."};
@@ -41,7 +41,7 @@ Off[Solve::svars];
 TestCase2Rules=First/@(Solve[#,{lLambda,lR1,lR2,lR3,lR4,lR5,lC1,lXi,lNu,lT1,lT2,lT3,lPhi0}]&/@TestCase2);
 On[Solve::svars];
 
-DisplayExpression@CollectTensors@ToCanonical[First@((NonlinearLagrangianWGTE)/.TestCase2Rules)];
+DisplayExpression@CollectTensors@ToCanonical[First@((NonlinearLagrangianWGTEOriginal)/.TestCase2Rules)];
 LinearisedLagrangianWGTE=LineariseLagrangianWGTE[First@((NonlinearLagrangianWGTE)/.TestCase2Rules)];
 Comment@{"Here is the linearised Lagrangian before feeding into ParticleSpectrum[]."};
 DisplayExpression@CollectTensors@ToCanonical[LinearisedLagrangianWGTE];
@@ -67,7 +67,7 @@ Off[Solve::svars];
 TestCase3Rules=First/@(Solve[#,{lLambda,lR1,lR2,lR3,lR4,lR5,lC1,lXi,lNu,lT1,lT2,lT3,lPhi0}]&/@TestCase3);
 On[Solve::svars];
 
-DisplayExpression@CollectTensors@ToCanonical[First@((NonlinearLagrangianWGTE)/.TestCase3Rules)];
+DisplayExpression@CollectTensors@ToCanonical[First@((NonlinearLagrangianWGTEOriginal)/.TestCase3Rules)];
 LinearisedLagrangianWGTE=LineariseLagrangianWGTE[First@((NonlinearLagrangianWGTE)/.TestCase3Rules)];
 Comment@{"Here is the linearised Lagrangian before feeding into ParticleSpectrum[]."};
 DisplayExpression@CollectTensors@ToCanonical[LinearisedLagrangianWGTE];
@@ -93,7 +93,7 @@ Off[Solve::svars];
 TestCase4Rules=First/@(Solve[#,{lLambda,lR1,lR2,lR3,lR4,lR5,lC1,lXi,lNu,lT1,lT2,lT3,lPhi0}]&/@TestCase4);
 On[Solve::svars];
 
-DisplayExpression@CollectTensors@ToCanonical[First@((NonlinearLagrangianWGTE)/.TestCase4Rules)];
+DisplayExpression@CollectTensors@ToCanonical[First@((NonlinearLagrangianWGTEOriginal)/.TestCase4Rules)];
 LinearisedLagrangianWGTE=LineariseLagrangianWGTE[First@((NonlinearLagrangianWGTE)/.TestCase4Rules)];
 Comment@{"Here is the linearised Lagrangian before feeding into ParticleSpectrum[]."};
 DisplayExpression@CollectTensors@ToCanonical[LinearisedLagrangianWGTE];
