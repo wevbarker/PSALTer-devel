@@ -5,7 +5,7 @@
 (*===========================*)
 
 (*N.B. this is equation 13 of Lin's draft eWGT paper.*)
-NonlinearLagrangianWGTE=(
+NonlinearLagrangianWGTEOriginal=(
 	+lLambda*(Compensator[]^2)*WeylDaggerR[a,b,-a,-b](*Different sign to WGT*)
 	+(1lR1/3+lR2/6)*WeylDaggerR[a,b,c,d]*WeylDaggerR[-a,-b,-c,-d]
 	+(2lR1/3-2lR2/3)*WeylDaggerR[a,b,c,d]*WeylDaggerR[-a,-c,-b,-d]
@@ -29,9 +29,9 @@ DisplayExpression@CollectTensors@ToCanonical[TDaggerContractionExpression];
 
 (*Expand non-linear Lagrangian*)
 Comment@{"In",Cref@"WGTEUnexpanded"," this is the non-linear Lagrangian as given in eqn 13 of Lin's draft paper."};
-DisplayExpression[NonlinearLagrangianWGTE,EqnLabel->"WGTEUnexpanded"];
+DisplayExpression[NonlinearLagrangianWGTEOriginal,EqnLabel->"WGTEUnexpanded"];
 
-NonlinearLagrangianWGTE=NonlinearLagrangianWGTE/.WeyDaggerTHCovDtoBaseTWeylVectorHBAndDaggerRtoDaggerA;
+NonlinearLagrangianWGTE=NonlinearLagrangianWGTEOriginal/.WeyDaggerTHCovDtoBaseTWeylVectorHBAndDaggerRtoDaggerA;
 NonlinearLagrangianWGTE//=xAct`PSALTer`Private`ToNewCanonical;
 NonlinearLagrangianWGTE=NonlinearLagrangianWGTE/.WeylDaggerABaseTtoAHBWeylVector;
 NonlinearLagrangianWGTE//=xAct`PSALTer`Private`ToNewCanonical;
