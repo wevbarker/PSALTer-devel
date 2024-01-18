@@ -14,7 +14,7 @@ NonlinearLagrangianWGTEOriginal=(
 	+(lR4-lR5)*WeylDaggerR[a,c,b,-c]*WeylDaggerR[-b,-d,-a,d]	
 	-lC1*WeylDaggerR[a,c,b,-c]*WeylDaggerH[-a,-b](*Different sign to WGT*)	
 	+lXi*WeylDaggerH[a,b]*WeylDaggerH[-a,-b]
-	+lNu/2*WeylCovDerivDaggerOnScalar[-i]*WeylCovDerivDaggerOnScalar[i]
+	+lNu/2*WeylCovDerivDaggerOnScalar[-a]*WeylCovDerivDaggerOnScalar[a]
 	+(lT1/3+lT2/12+lLambda/4)*(Compensator[]^2)*WeylDaggerT[a,b,c]*WeylDaggerT[-a,-b,-c]
 	-(lT1/3-lT2/6+lLambda/2)*(Compensator[]^2)*WeylDaggerT[a,b,c]*WeylDaggerT[-c,-a,-b](*Checked, this contraction should be same from WGT*)
 	-(lT1/3-2lT3/3+lLambda)*(Compensator[]^2)*WeylDaggerT[-a,c,a]*WeylDaggerT[-b,-c,b]	
