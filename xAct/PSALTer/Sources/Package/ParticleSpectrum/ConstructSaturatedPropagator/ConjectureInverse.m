@@ -43,7 +43,7 @@ ConjectureInverse[InputMatrix_,Couplings_,CouplingAssumptions_]:=Module[{
 	Diagnostic@InverseSymbolicMatrix;
 	Diagnostic@DeterminantSymbolic;
 
-	LocalPropagator=" ** Integrate`getAllVariables...";
+	LocalPropagator=" ** IntegrategetAllVariables...";
 	SymbolicCouplingAssumptions=(#~Element~Reals)&/@Integrate`getAllVariables[InverseSymbolicMatrix,{}];
 	Diagnostic@SymbolicCouplingAssumptions
 
