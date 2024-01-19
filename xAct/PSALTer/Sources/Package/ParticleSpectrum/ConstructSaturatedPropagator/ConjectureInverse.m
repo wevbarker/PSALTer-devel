@@ -20,7 +20,7 @@ ConjectureInverse[InputMatrix_,Couplings_,CouplingAssumptions_]:=Module[{
 	SymbolicCouplingAssumptions
 	},
 
-	$DiagnosticMode=True;
+	(*$DiagnosticMode=True;*)
 
 	LocalPropagator=" ** ConjectureInverse...";
 	ConjecturedNullSpace=ConjectureNullSpace[TheInputMatrix,Couplings,CouplingAssumptions];
@@ -48,7 +48,7 @@ ConjectureInverse[InputMatrix_,Couplings_,CouplingAssumptions_]:=Module[{
 *)
 	SymbolicCouplingAssumptions=CouplingAssumptions;
 	Diagnostic@SymbolicCouplingAssumptions;
-	$DiagnosticMode=False;
+	(*$DiagnosticMode=False;*)
 
 	LocalPropagator=" ** DistributeConjugate...";
 	InverseSymbolicMatrix//=DistributeConjugate[#,SymbolicCouplingAssumptions]&;
