@@ -43,7 +43,7 @@ DefTensor[WeylDaggerR[a,b,-d,-e], M4, {Antisymmetric[{a,b}], Antisymmetric[{-d,-
 DefTensor[WeylDaggerT[a,-b,-c], M4, Antisymmetric[{-b,-c}],PrintAs->"\!\(\*SuperscriptBox[\(\[ScriptCapitalT]\), \(\[Dagger]\)]\)"]; 
 (*D+Phi*)
 xAct`PSALTer`WeylGaugeTheoryExtended`Private`WeylCovDerivDaggerOnScalarSymb="\!\(\*SuperscriptBox[\(\[ScriptCapitalD]\), \(\[Dagger]\)]\[Phi]\)";
-DefTensor[WeylCovDerivDaggerOnScalar[-i],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`WeylGaugeTheoryExtended`Private`WeylCovDerivDaggerOnScalarSymb],Dagger->Complex];
+DefTensor[WeylCovDerivDaggerOnScalar[-a],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`WeylGaugeTheoryExtended`Private`WeylCovDerivDaggerOnScalarSymb],Dagger->Complex];
 (*H+*)
 xAct`PSALTer`WeylGaugeTheoryExtended`Private`WeylHDaggerSymb="\!\(\*SuperscriptBox[\(\[ScriptCapitalH]\), \(\[Dagger]\)]\)";
 DefTensor[WeylDaggerH[-a,-b],M4,Antisymmetric[{-a,-b}],PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`WeylGaugeTheoryExtended`Private`WeylHDaggerSymb],Dagger->Complex];
@@ -53,8 +53,8 @@ DefTensor[WeylBaseT[a,-b,-c], M4, Antisymmetric[{-b,-c}],PrintAs->"\[ScriptCapit
 (*Expansion rule, expanding out T+ and H+. Also we expand R+ to A+*)
 WeyDaggerTHCovDtoBaseTWeylVectorHBAndDaggerRtoDaggerA=Join[
 	MakeRule[{WeylDaggerT[a,-b,-c],Evaluate[WeylBaseT[a,-b,-c]+(1/3)*(G[a,-b]WeylBaseT[d,-c,-d]-G[a,-c]WeylBaseT[e,-b,-e])]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{WeylDaggerH[-a,-b],Evaluate[WeylTetrad[-a,i]WeylTetrad[-b,j](CD[-i][WeylVector[-j]]-CD[-j][WeylVector[-i]])-(1/3)(CD[-a][WeylBaseT[d,-b,-d]]-CD[-b][WeylBaseT[e,-a,-e]])]},MetricOn->All,ContractMetrics->True],		
-	MakeRule[{WeylCovDerivDaggerOnScalar[-i],Evaluate[CD[-i][Compensator[]]-(WeylVector[-i]-(1/3)*WeylInvTetrad[a,-i]WeylBaseT[e,-a,-e])*Compensator[]]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{WeylDaggerH[-a,-b],Evaluate[WeylTetrad[-a,i]WeylTetrad[-b,j](CD[-i][WeylVector[-j]-((1/3)*WeylInvTetrad[c,-j]WeylBaseT[e,-c,-e])]-CD[-j][WeylVector[-i]-((1/3)*WeylInvTetrad[d,-i]WeylBaseT[h,-d,-h])])]},MetricOn->All,ContractMetrics->True],		
+	MakeRule[{WeylCovDerivDaggerOnScalar[-a],Evaluate[CD[-a][Compensator[]]-(WeylTetrad[-a,i]WeylVector[-i]-(1/3)*WeylBaseT[e,-a,-e])*Compensator[]]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{WeylDaggerR[a,b,-d,-e],Evaluate[WeylTetrad[-d,i]WeylTetrad[-e,j](CD[-i][WeylDaggerA[a,b,-j]]-CD[-j][WeylDaggerA[a,b,-i]]+WeylDaggerA[a,-k,-i]WeylDaggerA[k,b,-j]-WeylDaggerA[a,-k,-j]WeylDaggerA[k,b,-i])]},MetricOn->All,ContractMetrics->True]
 ];
 
@@ -64,7 +64,7 @@ DisplayExpression@CollectTensors@ToCanonical[WeylDaggerT[a,-b,-c]/.WeyDaggerTHCo
 Print@"H+:"
 DisplayExpression@CollectTensors@ToCanonical[WeylDaggerH[-a,-b]/.WeyDaggerTHCovDtoBaseTWeylVectorHBAndDaggerRtoDaggerA//xAct`PSALTer`Private`ToNewCanonical];
 Print@"CovD+(Phi):"
-DisplayExpression@CollectTensors@ToCanonical[WeylCovDerivDaggerOnScalar[-i]/.WeyDaggerTHCovDtoBaseTWeylVectorHBAndDaggerRtoDaggerA//xAct`PSALTer`Private`ToNewCanonical];
+DisplayExpression@CollectTensors@ToCanonical[WeylCovDerivDaggerOnScalar[-a]/.WeyDaggerTHCovDtoBaseTWeylVectorHBAndDaggerRtoDaggerA//xAct`PSALTer`Private`ToNewCanonical];
 Print@"R+:"
 DisplayExpression@CollectTensors@ToCanonical[WeylDaggerR[a,b,-d,-e]/.WeyDaggerTHCovDtoBaseTWeylVectorHBAndDaggerRtoDaggerA//xAct`PSALTer`Private`ToNewCanonical];
 
@@ -111,7 +111,9 @@ Supercomment@"Now we have defined all the fields we need.";
 (*Here we load the files required to generate the Lagrangian*)
 Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheoryExtended","LagrangianWGTECouplings.m"};
 Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheoryExtended","LineariseWGTE.m"};
-(*
-Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheoryExtended","WGTESimpleTestCases.m"};
-*)
-Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheoryExtended","WGTEGeneralCase.m"};
+Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheoryExtended","LagrangianWGTEScaleInvariantRescaling.m"};
+Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheoryExtended","LineariseWGTEScaleInvariantRescaling.m"};
+(*Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheoryExtended","WGTESimpleTestCases.m"};*)
+(*Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheoryExtended","WGTEGeneralCase.m"};*)
+Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheoryExtended","WGTETestCasesScaleInvariantRescaling.m"};
+Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheoryExtended","WGTEGeneralCaseScaleInvariantRescaling.m"};

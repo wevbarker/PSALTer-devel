@@ -11,7 +11,7 @@
 Section@"Most general eWGT";
 Comment@{"We will study the most general eWGT as defined in eqn 13 of Lin's draft paper."};
 
-DisplayExpression@CollectTensors@ToCanonical[NonlinearLagrangianWGTE];
+DisplayExpression@CollectTensors@ToCanonical[NonlinearLagrangianWGTEOriginal];
 LinearisedLagrangianWGTE=LineariseLagrangianWGTE[NonlinearLagrangianWGTE];
 
 Comment@{"Here is the linearised Lagrangian before feeding into ParticleSpectrum[]."};
@@ -34,8 +34,8 @@ Supercomment@"This marks the completion of the particle spectrum analysis for th
 Section@"Killing off the quartic pole";
 Comment@{"We will kill the quartic pole."};
 
-DisplayExpression@CollectTensors@ToCanonical[NonlinearLagrangianWGTE/.{lXi->0}];
-LinearisedLagrangianWGTE=LineariseLagrangianWGTE[NonlinearLagrangianWGTE];
+DisplayExpression@CollectTensors@ToCanonical[NonlinearLagrangianWGTEOriginal/.{lXi->0}];
+LinearisedLagrangianWGTE=LineariseLagrangianWGTE[NonlinearLagrangianWGTE/.{lXi->0}];
 
 Comment@{"Here is the linearised Lagrangian before feeding into ParticleSpectrum[]."};
 DisplayExpression@CollectTensors@ToCanonical[LinearisedLagrangianWGTE];
