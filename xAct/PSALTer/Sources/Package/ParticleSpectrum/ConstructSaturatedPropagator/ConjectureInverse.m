@@ -39,13 +39,13 @@ ConjectureInverse[InputMatrix_,Couplings_,CouplingAssumptions_]:=Module[{
 	LocalPropagator=" ** ManualPseudoInverse...";
 	{InverseSymbolicMatrix,DeterminantSymbolic}=ManualPseudoInverse[SymbolicMatrix,ConjecturedNullSpace];
 
-	$DiagnosticMode=False;
 	Diagnostic@InverseSymbolicMatrix;
 	Diagnostic@DeterminantSymbolic;
 
 	LocalPropagator=" ** IntegrategetAllVariables...";
 	SymbolicCouplingAssumptions=(#~Element~Reals)&/@Integrate`getAllVariables[InverseSymbolicMatrix,{}];
 	Diagnostic@SymbolicCouplingAssumptions
+	$DiagnosticMode=False;
 
 	LocalPropagator=" ** DistributeConjugate...";
 	InverseSymbolicMatrix//=DistributeConjugate[#,SymbolicCouplingAssumptions]&;
