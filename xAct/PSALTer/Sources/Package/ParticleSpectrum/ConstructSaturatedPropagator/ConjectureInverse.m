@@ -20,28 +20,45 @@ ConjectureInverse[InputMatrix_,Couplings_,CouplingAssumptions_]:=Module[{
 	SymbolicCouplingAssumptions
 	},
 
-	LocalPropagator=" ** ConjectureInverse...";
+	$DiagnosticMode=True;
 
+	LocalPropagator=" ** ConjectureInverse...";
 	ConjecturedNullSpace=ConjectureNullSpace[TheInputMatrix,Couplings,CouplingAssumptions];
-	Diagnostic@ConjecturedNullSpace;
+	Diagnostic@(MatrixForm@ConjecturedNullSpace);
+
+	LocalPropagator=" ** MakeSymbolic...";
 	{SymbolicMatrix,FirstIntermediateSymbolsToCouplingConstants}=MakeSymbolic[TheInputMatrix,CouplingAssumptions];
-	Diagnostic@SymbolicMatrix;
+	Diagnostic@(MatrixForm@SymbolicMatrix);
+
+	LocalPropagator=" ** IntermediateRules...";
 	{ReduceFirstIntermediateSymbols,FirstIntermediateSymbolsToSecondIntermediateSymbols,SecondIntermediateSymbolsToCouplingConstants}=IntermediateRules[FirstIntermediateSymbolsToCouplingConstants,Couplings];
 	Diagnostic@ReduceFirstIntermediateSymbols;
 	Diagnostic@FirstIntermediateSymbolsToSecondIntermediateSymbols;
 	Diagnostic@SecondIntermediateSymbolsToCouplingConstants;
 
+	LocalPropagator=" ** ManualPseudoInverse...";
 	{InverseSymbolicMatrix,DeterminantSymbolic}=ManualPseudoInverse[SymbolicMatrix,ConjecturedNullSpace];
 
+	$DiagnosticMode=False;
+	Diagnostic@InverseSymbolicMatrix;
+	Diagnostic@DeterminantSymbolic;
+
+	LocalPropagator=" ** Integrate`getAllVariables...";
 	SymbolicCouplingAssumptions=(#~Element~Reals)&/@Integrate`getAllVariables[InverseSymbolicMatrix,{}];
+	Diagnostic@SymbolicCouplingAssumptions
 
+	LocalPropagator=" ** DistributeConjugate...";
 	InverseSymbolicMatrix//=DistributeConjugate[#,SymbolicCouplingAssumptions]&;
+	Diagnostic@InverseSymbolicMatrix;
 	DeterminantSymbolic//=DistributeConjugate[#,SymbolicCouplingAssumptions]&;
+	Diagnostic@DeterminantSymbolic;
 
+	LocalPropagator=" ** UnmakeSymbolic...";
 	InverseMatrix=UnmakeSymbolic[InverseSymbolicMatrix,DeterminantSymbolic,ReduceFirstIntermediateSymbols,FirstIntermediateSymbolsToSecondIntermediateSymbols,SecondIntermediateSymbolsToCouplingConstants,CouplingAssumptions];
+	Diagnostic@InverseMatrix;
 
+	LocalPropagator=" ** DistributeConjugate...";
 	InverseMatrix//=DistributeConjugate[#,CouplingAssumptions]&;
-
 	Diagnostic@InverseMatrix;
 
 InverseMatrix];

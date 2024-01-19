@@ -3,7 +3,7 @@
 (*=======================*)
 
 BuildPackage@"ParticleSpectrum/ConstructSourceConstraints/ConjectureNullSpace/CommonNullVector.m";
-
+(*
 ConjectureNullSpace[InputMatrix_,Couplings_,CouplingAssumptions_]:=Module[{	
 	ProcessedMatrix=InputMatrix,
 	MinimalExampleCaseRules,
@@ -19,8 +19,8 @@ ConjectureNullSpace[InputMatrix_,Couplings_,CouplingAssumptions_]:=Module[{
 	AllNullVectors//=DeleteDuplicates;
 	ConjecturedNullSpace=AllNullVectors~Select~(CommonNullVector[#,MinimalExampleCaseNullSpaces]&);
 ConjecturedNullSpace];
+*)
 
-(*
 ClearAll[CreateList];
 SetAttributes[CreateList,HoldAll];
 CreateList[Plus[a__]]:={a};
@@ -58,7 +58,7 @@ RemoveReferencesToMomentum[InputMatrix_,Couplings_]:=Module[{
 	ScalingSolutions//=Flatten;
 	ScalingSolutions//=((#==0)&/@#)&;
 	ScalingSolutions//=DeleteDuplicates;
-	ScalingSolutions//=(#~DeleteElements~True)&;
+	ScalingSolutions//=(#~DeleteElements~{True})&;
 	ScalingSolutions//=(First@Quiet@Solve[#,ConstantRescalingPowers~Join~FieldRescalingPowers])&;
 
 	UnsolvedScalingSolutions=DeleteDuplicates@Flatten@(Variables/@((ConstantRescalingPowers~Join~FieldRescalingPowers)/.ScalingSolutions));
@@ -75,18 +75,26 @@ RemoveReferencesToMomentum[InputMatrix_,Couplings_]:=Module[{
 
 CleanNullVector[NullVector_,CouplingAssumptions_]:=Module[{
 	Expr=NullVector,
-	SimpleNorm},
-	
-	SimpleNorm=Assuming[CouplingAssumptions,FullSimplify@Sqrt@PowerExpand@((Norm@NullVector)^2)];
-	HighestPower=CouplingAssumptions~Assuming~Exponent[SimpleNorm,xAct`PSALTer`Def,Max];
-	LowestPower=CouplingAssumptions~Assuming~Exponent[SimpleNorm,xAct`PSALTer`Def,Min];
-	If[Abs@HighestPower>=Abs@LowestPower,
-		CouplingAssumptions~Assuming~(Expr/=xAct`PSALTer`Def^HighestPower);
-	,
-		CouplingAssumptions~Assuming~(Expr/=xAct`PSALTer`Def^LowestPower);
-	];
+	MinimumPower},
+
+	MinimumPower=NullVector;
+	MinimumPower//=Assuming[CouplingAssumptions,(Exponent[#,xAct`PSALTer`Def,Min])&/@#]&;
+	MinimumPower//=Assuming[CouplingAssumptions,Cases[#,_?NumericQ]]&;
+	MinimumPower//=Assuming[CouplingAssumptions,Min@#]&;
+	Expr/=xAct`PSALTer`Def^MinimumPower;
 	CouplingAssumptions~Assuming~(Expr//=FullSimplify);
 Expr];
+
+EnsureLinearInCouplings[NullVector_]:=Module[{
+	Expr=NullVector,
+	LinearNullVector=NullVector},
+
+	Expr=Together/@Expr;	
+	Expr=Denominator/@Expr;
+	Expr=Times@@Expr;	
+	LinearNullVector*=Expr;
+	LinearNullVector//=FullSimplify;
+LinearNullVector];
 
 ConjectureNullSpace[InputMatrix_,Couplings_,CouplingAssumptions_]:=Module[{	
 	(*ProcessedMatrix=InputMatrix,
@@ -108,23 +116,27 @@ ConjectureNullSpace[InputMatrix_,Couplings_,CouplingAssumptions_]:=Module[{
 
 	RescaledNullSpace=NullSpace@FieldRescaledMatrix;
 
+(*
 	Print@"Show it works when simplified";
 	Print@MatrixForm@FieldRescaledMatrix;
 	(Print@MatrixForm@#)&/@RescaledNullSpace;
 	If[!(RescaledNullSpace=={}),
-		(Print@MatrixForm@((FieldRescaledMatrix).(#)))&/@RescaledNullSpace;
+		(Print@MatrixForm@FullSimplify@((FieldRescaledMatrix).(#)))&/@RescaledNullSpace;
 	];
+*)
 
 	DescaledNullSpace=((FieldRescalingMatrix.#)/.ConstantDescalingRules/.ScalingSolutions)&/@RescaledNullSpace;
 	CouplingAssumptions~Assuming~(DescaledNullSpace//=FullSimplify);
 	DescaledNullSpace//=(CleanNullVector[#,CouplingAssumptions]&/@#)&;
-	
+	DescaledNullSpace=EnsureLinearInCouplings/@DescaledNullSpace;
+(*	
 	Print@"Show it works fully";
 	Print@MatrixForm@InputMatrix;
 	(Print@MatrixForm@#)&/@DescaledNullSpace;
 	If[!(DescaledNullSpace=={}),
-		(Print@MatrixForm@((InputMatrix).(#)))&/@DescaledNullSpace;
+		(Print@MatrixForm@FullSimplify@((InputMatrix).(#)))&/@DescaledNullSpace;
 	];
+*)
 
 (*
 	MinimalExampleCaseRules=Table[(#->0)&/@Drop[Couplings,{i}],{i,Length@Couplings}];
@@ -137,4 +149,3 @@ ConjectureNullSpace[InputMatrix_,Couplings_,CouplingAssumptions_]:=Module[{
 	ConjecturedNullSpace=AllNullVectors~Select~(CommonNullVector[#,MinimalExampleCaseNullSpaces]&);
 *)
 DescaledNullSpace];
-*)

@@ -139,6 +139,7 @@ BuildPSALTerPackage[];
 ContextList={	
 	"xAct`PSALTer`",
 	"xAct`PSALTer`Private`",
+(*
 	"xAct`PSALTer`ScalarTheory`",
 	"xAct`PSALTer`ScalarTheory`Private`",
 	"xAct`PSALTer`VectorTheory`",
@@ -157,10 +158,13 @@ ContextList={
 	"xAct`PSALTer`PoincareGaugeTheory`Private`",
 	"xAct`PSALTer`WeylGaugeTheory`",
 	"xAct`PSALTer`WeylGaugeTheory`Private`",
+*)
 	"xAct`PSALTer`MetricAffineGravity`",
 	"xAct`PSALTer`MetricAffineGravity`Private`",
+(*
 	"xAct`PSALTer`ZeroTorsionPalatini`",
 	"xAct`PSALTer`ZeroTorsionPalatini`Private`",
+*)
 	"xAct`xTensor`",
 	"xAct`xTensor`Private`",
 	"TangentM4`",

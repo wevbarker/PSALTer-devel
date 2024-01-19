@@ -12,6 +12,7 @@ xAct`PSALTer`Private`BuildRebuild@"Lightcone.m";
 
 If[!(ValueQ@ClassNames),ClassNames={}];
 Off[General::shdw];
+(*
 xAct`PSALTer`Private`BuildRebuild@"Classes/ScalarTheory.m";
 xAct`PSALTer`Private`BuildRebuild@"Classes/VectorTheory.m";
 xAct`PSALTer`Private`BuildRebuild@"Classes/TensorTheory.m";
@@ -21,6 +22,9 @@ xAct`PSALTer`Private`BuildRebuild@"Classes/BimetricTensorTheory.m";
 xAct`PSALTer`Private`BuildRebuild@"Classes/ScalarTensorTheory.m";
 xAct`PSALTer`Private`BuildRebuild@"Classes/PoincareGaugeTheory.m";
 xAct`PSALTer`Private`BuildRebuild@"Classes/WeylGaugeTheory.m";
+*)
 xAct`PSALTer`Private`BuildRebuild@"Classes/MetricAffineGravity.m";
+(*
 xAct`PSALTer`Private`BuildRebuild@"Classes/ZeroTorsionPalatini.m";
+*)
 On[General::shdw];
