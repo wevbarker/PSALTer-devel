@@ -23,7 +23,6 @@ DisplayExpression[LinearLagrangian,EqnLabel->"MetricAffineEinsteinHilbertTheory"
 LinearLagrangian=LineariseLagrangian[LinearLagrangian,Formulation->SecondOrder];
 
 DisplayExpression[LinearLagrangian,EqnLabel->"MetricAffineEinsteinHilbertTheorySecondOrder"];
-LinearLagrangian//=LineariseLagrangian;
 ParticleSpectrum[LinearLagrangian,
 		ClassName->"MetricAffineGravity",
 		TheoryName->"MetricAffineEinsteinHilbertTheorySecondOrder",	

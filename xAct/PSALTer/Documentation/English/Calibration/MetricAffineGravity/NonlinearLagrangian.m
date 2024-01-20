@@ -120,6 +120,8 @@ LineariseLagrangian[NonlinearLagrangian_,OptionsPattern[]]:=Module[{
 	LinearLagrangian//=xAct`PSALTer`Private`ToNewCanonical;
 	LinearLagrangian=LinearLagrangian/.ToPerturbed;
 	LinearLagrangian//=NoScalar;
+	Comment@"interim";
+	DisplayExpression@LinearLagrangian;
 	If[OptionValue@Formulation==SecondOrder,
 		LinearLagrangian=LinearLagrangian/.FirstOrderConnectionToSecondOrderConnection;
 	];
