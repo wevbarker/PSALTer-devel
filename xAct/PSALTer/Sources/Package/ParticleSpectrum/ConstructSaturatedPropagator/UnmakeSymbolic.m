@@ -77,10 +77,21 @@ UnmakeSymbolic[InverseSymbolicMatrix_,
 	InverseMatrix=MonitorParallel@InverseMatrix;
 	Diagnostic@InverseMatrix;
 
+	LocalPropagator=" ** Conjugate...";
 	Table[
 		If[j<i,
-			InverseMatrix[[i,j]]=Assuming[CouplingAssumptions,FullSimplify@Assuming[CouplingAssumptions,Conjugate@Evaluate@(InverseMatrix[[j,i]])]]
+			InverseMatrix[[i,j]]=Assuming[
+					CouplingAssumptions,
+					Conjugate@Evaluate@(InverseMatrix[[j,i]])]
 		],
-	{i,RankOfMatrix},{j,RankOfMatrix}];
+	{i,RankOfMatrix},
+	{j,RankOfMatrix}];
+
+	LocalPropagator=" ** ConsolidateFinalElement...";
+	InverseMatrix=Map[
+		(xAct`PSALTer`Private`PSALTerParallelSubmit@(ConsolidateFinalElement[#1]))&,
+		Map[{CouplingAssumptions,#}&,InverseMatrix,{2}],{2}];
+	InverseMatrix=MonitorParallel@InverseMatrix;
+	Diagnostic@InverseMatrix;
 
 InverseMatrix];

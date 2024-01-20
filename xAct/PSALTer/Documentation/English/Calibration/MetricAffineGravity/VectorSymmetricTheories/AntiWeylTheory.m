@@ -12,11 +12,24 @@ DefiningSystem//=First@Solve[#,AllCouplings]&;
 LinearLagrangian=Measure*NonlinearLagrangian/.DefiningSystem;
 DisplayExpression[LinearLagrangian,EqnLabel->"AntiWeylTheory"];
 LinearLagrangian//=LineariseLagrangian;
+Comment@"And here it is linearised";
+DisplayExpression[LinearLagrangian,EqnLabel->"AntiWeylTheoryLinear"];
 Comment@"Here is the result from the supercomputer.";
-
-ParticleSpectrum[(*LinearLagrangian,*)
+(*
+ParticleSpectrum[LinearLagrangian,
 		ClassName->"MetricAffineGravity",
 		TheoryName->"AntiWeylTheory",	
+		Method->"Hard",
+		MaxLaurentDepth->1];
+Comment@{"Some comments can be made about anti-Weyl."};
+*)
+Comment@"Now we want to try this usign the second order formalism.";
+LinearLagrangian//=LinearFirstOrderToLinearSecondOrder;
+
+DisplayExpression[LinearLagrangian,EqnLabel->"AntiWeylTheoryLinearSecondOrder"];
+ParticleSpectrum[LinearLagrangian,
+		ClassName->"MetricAffineGravity",
+		TheoryName->"AntiWeylTheorySecondOrder",	
 		Method->"Hard",
 		MaxLaurentDepth->1];
 Comment@{"Some comments can be made about anti-Weyl."};

@@ -132,3 +132,13 @@ LinearLagrangian=Measure*NonlinearLagrangian//LineariseLagrangian;
 DisplayExpression[LinearLagrangian,EqnLabel->"MetricAffineLinearLagrangian"];
 
 Comment@{"We see that",Cref@"MetricAffineLinearLagrangian"," is generically quite a heavy expression, and there is not a very high degree of degeneracy among the coupling constants."};
+
+FirstOrderConnectionToSecondOrderConnection=MakeRule[{
+		Connection[-m,r,-n],
+		Connection[-m,r,-n]+(1/2)*(CD[-m]@MetricPerturbation[r,-n]+CD[-n]@MetricPerturbation[r,-m]-CD[r]@MetricPerturbation[-m,-n])},
+		MetricOn->All,ContractMetrics->True];
+
+LinearFirstOrderToLinearSecondOrder[LinearFirstOrder_]:=Module[{LinearSecondOrder=LinearFirstOrder},
+	LinearSecondOrder=LinearSecondOrder/.FirstOrderConnectionToSecondOrderConnection;
+	LinearSecondOrder//=LineariseLagrangian;
+LinearSecondOrder];
