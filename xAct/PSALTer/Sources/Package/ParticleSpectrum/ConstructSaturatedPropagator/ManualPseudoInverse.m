@@ -18,7 +18,7 @@ Finding];
 CarefullyOrthogonalise[InputNullSpace_]:=Module[{
 	Expr=InputNullSpace,
 	ParameterisedNullVectors,
-	NonParameterisedNullVectors,
+	NonParameterisedNullVectors
 	},
 	
 	If[(ParameterisedNullVectorQ/@Expr)~MemberQ~True,

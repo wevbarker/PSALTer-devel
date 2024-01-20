@@ -66,7 +66,7 @@ CarloTestTheory[RuleSet_]:=Module[{LinearLagrangian},
 	ParticleSpectrum[LinearLagrangian,
 			ClassName->"MetricAffineGravity",
 			TheoryName->("CarloTheory"<>ToString@CaseNumber),	
-			Method->"Easy",
+			Method->"Hard",
 			MaxLaurentDepth->1];
 	Comment@{"Some comments to be made about",Cref@("RuleSet"<>ToString@CaseNumber),"."};
 	CaseNumber+=1;

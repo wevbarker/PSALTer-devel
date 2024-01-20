@@ -7,5 +7,17 @@ ConsolidateFinalElement[FinalElement_]:=Module[{
 	FullElement},
 
 	{CouplingAssumptions,FullElement}=FinalElement;
-	Assuming[CouplingAssumptions,FullElement//=FullSimplify];	
+	TimeConstrained[
+	(
+		Assuming[CouplingAssumptions,FullElement//=FullSimplify];	
+	)
+	,
+	500,
+	(
+		TimeConstrained[
+		(
+			Assuming[CouplingAssumptions,FullElement//=Simplify];	
+		),500];
+	)
+	];
 FullElement];

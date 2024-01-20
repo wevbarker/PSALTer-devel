@@ -14,7 +14,7 @@ DisplayExpression[LinearLagrangian,EqnLabel->"AntiWeylTheory"];
 LinearLagrangian//=LineariseLagrangian;
 Comment@"Here is the result from the supercomputer.";
 
-ParticleSpectrum[LinearLagrangian,
+ParticleSpectrum[(*LinearLagrangian,*)
 		ClassName->"MetricAffineGravity",
 		TheoryName->"AntiWeylTheory",	
 		Method->"Hard",
