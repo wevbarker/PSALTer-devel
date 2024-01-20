@@ -45,7 +45,6 @@ Comment@{"The variable $KernelCount is set to ",ToString@$KernelCount};
 Comment@{"Now we execute LaunchKernels[]"};
 LaunchKernels@$NodeCPU;
 Comment@{"The variable $KernelCount is set to ",ToString@$KernelCount};
-
 *)
 
 (*Global settings for xAct*)
