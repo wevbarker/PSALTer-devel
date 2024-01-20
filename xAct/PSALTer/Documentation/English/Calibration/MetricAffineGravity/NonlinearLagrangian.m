@@ -72,7 +72,7 @@ ToOrder=Join[ToOrderConnection,ToOrderMetricPerturbation];
 
 FirstOrderConnectionToSecondOrderConnection=MakeRule[{
 		Connection[-m,r,-n],
-		Connection[-m,r,-n]+(1/2)*(G[r,l]-MetricPerturbation[r,l])*(CD[-m]@MetricPerturbation[-l,-n]+CD[-n]@MetricPerturbation[-l,-m]-CD[-l]@MetricPerturbation[-m,-n])},
+(*Connection[-m,r,-n]+*)(1/2)*(G[r,l]-MetricPerturbation[r,l])*(CD[-m]@MetricPerturbation[-l,-n]+CD[-n]@MetricPerturbation[-l,-m]-CD[-l]@MetricPerturbation[-m,-n])},
 		MetricOn->All,ContractMetrics->True];
 
 LinearFirstOrderToLinearSecondOrder[LinearFirstOrder_]:=Module[{LinearSecondOrder=LinearFirstOrder},
@@ -153,5 +153,5 @@ Comment@{"We see that",Cref@"MetricAffineLinearLagrangian"," is generically quit
 
 Comment@"Now we try the second order formulation.";
 
-LinearLagrangianSecondOrder=LinearLagrangian[Measure*NonlinearLagrangian,Formulation->SecondOrder];
+LinearLagrangianSecondOrder=LineariseLagrangian[Measure*NonlinearLagrangian,Formulation->SecondOrder];
 DisplayExpression[LinearLagrangianSecondOrder,EqnLabel->"MetricAffineLinearLagrangianSecondOrder"];
