@@ -69,7 +69,20 @@ ToOrderConnection=MakeRule[{Connection[-a,-b,-c],PerturbativeParameter*Connectio
 ToOrderMetricPerturbation=MakeRule[{MetricPerturbation[-a,-b],PerturbativeParameter*MetricPerturbation[-a,-b]},MetricOn->All,ContractMetrics->True];
 ToOrder=Join[ToOrderConnection,ToOrderMetricPerturbation];
 
-LineariseLagrangian[NonlinearLagrangian_]:=Module[{
+
+FirstOrderConnectionToSecondOrderConnection=MakeRule[{
+		Connection[-m,r,-n],
+		Connection[-m,r,-n]+(1/2)*(G[r,l]-MetricPerturbation[r,l])*(CD[-m]@MetricPerturbation[-l,-n]+CD[-n]@MetricPerturbation[-l,-m]-CD[-l]@MetricPerturbation[-m,-n])},
+		MetricOn->All,ContractMetrics->True];
+
+LinearFirstOrderToLinearSecondOrder[LinearFirstOrder_]:=Module[{LinearSecondOrder=LinearFirstOrder},
+	LinearSecondOrder=LinearSecondOrder/.FirstOrderConnectionToSecondOrderConnection;
+	LinearSecondOrder//=LineariseLagrangian;
+LinearSecondOrder];
+
+
+Options@LineariseLagrangian={Formulation->FirstOrder};
+LineariseLagrangian[NonlinearLagrangian_,OptionsPattern[]]:=Module[{
 	LinearLagrangian=NonlinearLagrangian,
 	FirstOrderPart,
 	SecondOrderPart	
@@ -107,6 +120,9 @@ LineariseLagrangian[NonlinearLagrangian_]:=Module[{
 	LinearLagrangian//=xAct`PSALTer`Private`ToNewCanonical;
 	LinearLagrangian=LinearLagrangian/.ToPerturbed;
 	LinearLagrangian//=NoScalar;
+	If[OptionValue@Formulation==SecondOrder,
+		LinearLagrangian=LinearLagrangian/.FirstOrderConnectionToSecondOrderConnection;
+	];
 	LinearLagrangian//=xAct`PSALTer`Private`ToNewCanonical;
 	LinearLagrangian=LinearLagrangian/.ToOrder;
 
@@ -133,12 +149,7 @@ DisplayExpression[LinearLagrangian,EqnLabel->"MetricAffineLinearLagrangian"];
 
 Comment@{"We see that",Cref@"MetricAffineLinearLagrangian"," is generically quite a heavy expression, and there is not a very high degree of degeneracy among the coupling constants."};
 
-FirstOrderConnectionToSecondOrderConnection=MakeRule[{
-		Connection[-m,r,-n],
-		Connection[-m,r,-n]+(1/2)*(CD[-m]@MetricPerturbation[r,-n]+CD[-n]@MetricPerturbation[r,-m]-CD[r]@MetricPerturbation[-m,-n])},
-		MetricOn->All,ContractMetrics->True];
+Comment@"Now we try the second order formulation.";
 
-LinearFirstOrderToLinearSecondOrder[LinearFirstOrder_]:=Module[{LinearSecondOrder=LinearFirstOrder},
-	LinearSecondOrder=LinearSecondOrder/.FirstOrderConnectionToSecondOrderConnection;
-	LinearSecondOrder//=LineariseLagrangian;
-LinearSecondOrder];
+LinearLagrangianSecondOrder=LinearLagrangian[Measure*NonlinearLagrangian,Formulation->SecondOrder];
+DisplayExpression[LinearLagrangianSecondOrder,EqnLabel->"MetricAffineLinearLagrangianSecondOrder"];

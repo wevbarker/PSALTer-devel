@@ -11,10 +11,12 @@ DefiningSystem=And[xAct`PSALTer`MetricAffineGravity`A4==(-2)xAct`PSALTer`MetricA
 DefiningSystem//=First@Solve[#,AllCouplings]&;
 LinearLagrangian=Measure*NonlinearLagrangian/.DefiningSystem;
 DisplayExpression[LinearLagrangian,EqnLabel->"AntiWeylTheory"];
+(*
 LinearLagrangian//=LineariseLagrangian;
 Comment@"And here it is linearised";
 DisplayExpression[LinearLagrangian,EqnLabel->"AntiWeylTheoryLinear"];
 Comment@"Here is the result from the supercomputer.";
+*)
 (*
 ParticleSpectrum[LinearLagrangian,
 		ClassName->"MetricAffineGravity",
@@ -24,7 +26,8 @@ ParticleSpectrum[LinearLagrangian,
 Comment@{"Some comments can be made about anti-Weyl."};
 *)
 Comment@"Now we want to try this usign the second order formalism.";
-LinearLagrangian//=LinearFirstOrderToLinearSecondOrder;
+
+LinearLagrangian=LineariseLagrangian[LinearLagrangian,Formulation->SecondOrder];
 
 DisplayExpression[LinearLagrangian,EqnLabel->"AntiWeylTheoryLinearSecondOrder"];
 ParticleSpectrum[LinearLagrangian,

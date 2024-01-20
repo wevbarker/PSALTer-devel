@@ -35,6 +35,6 @@ Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity",
 					"MetricAffineGaussBonnetTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity",
 					"QuadraticSymmetricRiemannTheory.m"};
+*)
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity",
 					"VectorSymmetricTheories.m"};
-*)
