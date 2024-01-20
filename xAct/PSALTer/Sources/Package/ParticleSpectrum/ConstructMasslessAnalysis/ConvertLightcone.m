@@ -22,7 +22,7 @@ ConvertLightcone[ClassName_?StringQ,
 		OptionsPattern[]]:=Module[{	
 	SaturatedPropagatorArray
 	},
-
+	$DiagnosticMode=True;
 	LocalMasslessSpectrum=" ** ConvertLightcone...";
 	LightconePropagator=ValuesSaturatedPropagator;
 
@@ -105,4 +105,5 @@ ConvertLightcone[ClassName_?StringQ,
 			HexicAnalysisValue,
 			{SecularEquationValue}};
 	];
+	$DiagnosticMode=False;
 ];
