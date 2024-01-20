@@ -26,6 +26,5 @@ ParticleSpectrum[(*LinearLagrangian,*)
 		TheoryName->"MetricAffineEinsteinHilbertTheorySecondOrder",	
 		Method->"Hard",
 		MaxLaurentDepth->3];
-(*ih*)
 
 Quit[];
