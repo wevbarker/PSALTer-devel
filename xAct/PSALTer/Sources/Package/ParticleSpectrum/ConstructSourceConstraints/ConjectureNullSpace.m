@@ -3,23 +3,6 @@
 (*=======================*)
 
 BuildPackage@"ParticleSpectrum/ConstructSourceConstraints/ConjectureNullSpace/CommonNullVector.m";
-(*
-ConjectureNullSpace[InputMatrix_,Couplings_,CouplingAssumptions_]:=Module[{	
-	ProcessedMatrix=InputMatrix,
-	MinimalExampleCaseRules,
-	MinimalExampleCaseNullSpaces,
-	AllNullVectors},
-
-	MinimalExampleCaseRules=Table[(#->0)&/@Drop[Couplings,{i}],{i,Length@Couplings}];
-	MinimalExampleCaseNullSpaces=Module[{MinimalExampleCaseNullSpace},
-		Assuming[CouplingAssumptions,MinimalExampleCaseNullSpace=NullSpace[InputMatrix/.#]];
-		Assuming[CouplingAssumptions,MinimalExampleCaseNullSpace//=Simplify];
-	MinimalExampleCaseNullSpace]&/@MinimalExampleCaseRules;
-	AllNullVectors=Join@@MinimalExampleCaseNullSpaces;
-	AllNullVectors//=DeleteDuplicates;
-	ConjecturedNullSpace=AllNullVectors~Select~(CommonNullVector[#,MinimalExampleCaseNullSpaces]&);
-ConjecturedNullSpace];
-*)
 
 ClearAll[CreateList];
 SetAttributes[CreateList,HoldAll];
@@ -116,36 +99,9 @@ ConjectureNullSpace[InputMatrix_,Couplings_,CouplingAssumptions_]:=Module[{
 
 	RescaledNullSpace=NullSpace@FieldRescaledMatrix;
 
-(*
-	Print@"Show it works when simplified";
-	Print@MatrixForm@FieldRescaledMatrix;
-	(Print@MatrixForm@#)&/@RescaledNullSpace;
-	If[!(RescaledNullSpace=={}),
-		(Print@MatrixForm@FullSimplify@((FieldRescaledMatrix).(#)))&/@RescaledNullSpace;
-	];
-*)
-
 	DescaledNullSpace=((FieldRescalingMatrix.#)/.ConstantDescalingRules/.ScalingSolutions)&/@RescaledNullSpace;
 	CouplingAssumptions~Assuming~(DescaledNullSpace//=FullSimplify);
 	DescaledNullSpace//=(CleanNullVector[#,CouplingAssumptions]&/@#)&;
 	DescaledNullSpace=EnsureLinearInCouplings/@DescaledNullSpace;
-(*	
-	Print@"Show it works fully";
-	Print@MatrixForm@InputMatrix;
-	(Print@MatrixForm@#)&/@DescaledNullSpace;
-	If[!(DescaledNullSpace=={}),
-		(Print@MatrixForm@FullSimplify@((InputMatrix).(#)))&/@DescaledNullSpace;
-	];
-*)
 
-(*
-	MinimalExampleCaseRules=Table[(#->0)&/@Drop[Couplings,{i}],{i,Length@Couplings}];
-	MinimalExampleCaseNullSpaces=Module[{MinimalExampleCaseNullSpace},
-		Assuming[CouplingAssumptions,MinimalExampleCaseNullSpace=NullSpace[InputMatrix/.#]];
-		Assuming[CouplingAssumptions,MinimalExampleCaseNullSpace//=Simplify];
-	MinimalExampleCaseNullSpace]&/@MinimalExampleCaseRules;
-	AllNullVectors=Join@@MinimalExampleCaseNullSpaces;
-	AllNullVectors//=DeleteDuplicates;
-	ConjecturedNullSpace=AllNullVectors~Select~(CommonNullVector[#,MinimalExampleCaseNullSpaces]&);
-*)
 DescaledNullSpace];

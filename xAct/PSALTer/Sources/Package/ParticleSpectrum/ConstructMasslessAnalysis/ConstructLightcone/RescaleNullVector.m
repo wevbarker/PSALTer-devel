@@ -23,10 +23,10 @@ which are introduced by poles*)
 
 	While[TrialPower>0&&!Rescaled,
 		Diagnostic@TrialPower;
-		If[Total@(Abs/@Residue[#,{En,Mo}]&/@Evaluate[RescaledNullVector*(En-Mo)^(TrialPower-1)])==0,
+		If[DeleteDuplicates@(Abs/@Residue[#,{En,Mo}]&/@Evaluate[RescaledNullVector*(En-Mo)^(TrialPower-1)])=={0},
 			Rescaled=False,
-			RescaledNullVector*=((En-Mo)/Mo)^TrialPower;Rescaled=True,
-			RescaledNullVector*=((En-Mo)/Mo)^TrialPower;Rescaled=True
+			RescaledNullVector*=((En-Mo)(*/Mo*))^TrialPower;Rescaled=True,
+			RescaledNullVector*=((En-Mo)(*/Mo*))^TrialPower;Rescaled=True
 		];
 		TrialPower--
 	];
@@ -46,5 +46,5 @@ which are introduced by poles*)
 	NullVectorDegreeOfDivergence=(Log@UltravioletNullVector/Log@Mo//FullSimplify)~Limit~(Mo->Infinity);
 	Diagnostic@NullVectorDegreeOfDivergence;
 
-	RescaledNullVector*=Mo^(-NullVectorDegreeOfDivergence);
+	(*RescaledNullVector*=Mo^(-NullVectorDegreeOfDivergence);*)
 RescaledNullVector];

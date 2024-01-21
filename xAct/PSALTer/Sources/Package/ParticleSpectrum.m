@@ -91,17 +91,17 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 	LocalMasslessSpectrum=Null;
 	LocalOverallUnitarity=Null;
 	LocalSummaryOfTheory=Null;
-
+(*
 	If[$CLI,
 		SummariseResultsOngoing=SessionSubmit[ScheduledTask[(
-		Print@CLIPrint[
+		Run@("echo -e \"\n\n"<>CLIPrint[
 				OptionValue@TheoryName,
 				LocalWaveOperator,
 				LocalPropagator,
 				LocalSourceConstraints,
 				LocalSpectrum,
 				LocalMasslessSpectrum,
-				LocalOverallUnitarity];
+				LocalOverallUnitarity]<>"\"");
 		), Quantity[1, "Seconds"]]];
 	,
 		SummariseResultsOngoing=PrintTemporary@Dynamic[Refresh[SummariseResults[
@@ -122,6 +122,7 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 				LocalOverallUnitarity,
 				LocalSummaryOfTheory}]];
 	];
+*)
 
 	Quiet@CreateDirectory@FileNameJoin@{$WorkingDirectory,"tmp"};
 
@@ -231,16 +232,33 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 	FinishDynamic[];
 	NotebookDelete@SummariseResultsOngoing;
 	TaskRemove@SummariseResultsOngoing;
-	SummaryOfResults=SummariseResults[
-		OptionValue@TheoryName,
-		LocalWaveOperator,
-		LocalPropagator,
-		LocalSourceConstraints,
-		LocalSpectrum,
-		LocalMasslessSpectrum,
-		LocalOverallUnitarity,
-		LocalSummaryOfTheory];
-	Print@SummaryOfResults;
+
+	If[$CLI,
+		Run@("echo -e \"\n\n"<>CLIPrint[
+				OptionValue@TheoryName,
+				LocalWaveOperator,
+				LocalPropagator,
+				LocalSourceConstraints,
+				LocalSpectrum,
+				LocalMasslessSpectrum,
+				LocalOverallUnitarity]<>"\"");
+	,
+		SummaryOfResults=SummariseResults[
+			OptionValue@TheoryName,
+			LocalWaveOperator,
+			LocalPropagator,
+			LocalSourceConstraints,
+			LocalSpectrum,
+			LocalMasslessSpectrum,
+			LocalOverallUnitarity,
+			LocalSummaryOfTheory];
+		Print@SummaryOfResults;
+	];
+
+
+
+
+
 (*
 	If[$ExportPDF,
 		Export[FileNameJoin@{$WorkingDirectory,OptionValue@TheoryName<>".pdf"},

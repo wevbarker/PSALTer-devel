@@ -31,10 +31,9 @@ ExaminePoleOrder[LightconePropagator_,LaurentDepth_]:=Module[{
 			SymbolicLightconePropagator@SymbolicMatrix,
 			SymbolicLightconePropagator@SymbolicMatrixElements,
 			TheUniqueMatrixElements];
-(*
+
 	{InputMatrix,InputDenominator}=LightconePropagatorValue//ReparameteriseSources;
-*)
-	{InputMatrix,InputDenominator}={LightconePropagatorValue,1};
+	(*{InputMatrix,InputDenominator}={LightconePropagatorValue,1};*)
 
 	LocalMasslessSpectrum=" ** ExtractSecularEquation...";
 	SecularEquation=ExtractSecularEquation[InputMatrix,LaurentDepth];

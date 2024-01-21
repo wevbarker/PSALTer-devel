@@ -22,13 +22,14 @@ CarefullyOrthogonalise[InputNullSpace_]:=Module[{
 	},
 	
 	If[(ParameterisedNullVectorQ/@Expr)~MemberQ~True,
-		Print@"proceeding carefully";
+		LocalSaturatedPropagator=" ** SplitBy...";
 		{ParameterisedNullVectors,NonParameterisedNullVectors}=Expr~SplitBy~ParameterisedNullVectorQ;
+		LocalSaturatedPropagator=" ** Orthogonalize...";
 		Assuming[xAct`PSALTer`Def>0,
 			NonParameterisedNullVectors=FullSimplify@Orthogonalize@NonParameterisedNullVectors];
 		Expr=ParameterisedNullVectors~Join~NonParameterisedNullVectors;
 	,
-		Print@"proceeding dangerously";
+		LocalSaturatedPropagator=" ** Orthogonalize...";
 		Assuming[xAct`PSALTer`Def>0,
 			Expr=FullSimplify@Orthogonalize@Expr];
 	];
