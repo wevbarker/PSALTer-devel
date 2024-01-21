@@ -23,6 +23,18 @@ DisplayExpression[LinearLagrangian,EqnLabel->"MetricAffineEinsteinHilbertTheory"
 LinearLagrangian=LineariseLagrangian[LinearLagrangian,Formulation->SecondOrder];
 
 DisplayExpression[LinearLagrangian,EqnLabel->"MetricAffineEinsteinHilbertTheorySecondOrder"];
+
+LinearLagrangian-=xAct`PSALTer`MetricAffineGravity`A0*(
+(1/2)*CD[-b]@(MetricPerturbation[a,b]*CD[-a]@MetricPerturbation[c,-c])
+-CD[-c]@(MetricPerturbation[a,b]*CD[-b]@MetricPerturbation[-a,c])
++(1/4)*CD[-c]@(MetricPerturbation[a,-a]*CD[-b]@MetricPerturbation[b,c])
++(1/2)*CD[-c]@(MetricPerturbation[a,b]*CD[c]@MetricPerturbation[-a,-b])
+-(1/4)*CD[-c]@(MetricPerturbation[a,-a]*CD[c]@MetricPerturbation[b,-b])
+);
+LinearLagrangian//=xAct`PSALTer`Private`ToNewCanonical;
+
+DisplayExpression[LinearLagrangian,EqnLabel->"MetricAffineEinsteinHilbertTheorySecondOrder"];
+
 ParticleSpectrum[LinearLagrangian,
 		ClassName->"MetricAffineGravity",
 		TheoryName->"MetricAffineEinsteinHilbertTheorySecondOrder",	
