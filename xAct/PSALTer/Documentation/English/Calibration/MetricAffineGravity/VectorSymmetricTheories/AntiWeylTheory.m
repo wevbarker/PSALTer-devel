@@ -29,7 +29,28 @@ Comment@"Now we want to try this usign the second order formalism.";
 
 LinearLagrangian=LineariseLagrangian[LinearLagrangian,Formulation->SecondOrder];
 
+
+SuperRules={
+xAct`PSALTer`MetricAffineGravity`A2->xAct`PSALTer`MetricAffineGravity`A1,
+xAct`PSALTer`MetricAffineGravity`A3->xAct`PSALTer`MetricAffineGravity`A1,
+xAct`PSALTer`MetricAffineGravity`A4->xAct`PSALTer`MetricAffineGravity`A1,
+xAct`PSALTer`MetricAffineGravity`A5->xAct`PSALTer`MetricAffineGravity`A1,
+xAct`PSALTer`MetricAffineGravity`A6->xAct`PSALTer`MetricAffineGravity`A1,
+xAct`PSALTer`MetricAffineGravity`A7->xAct`PSALTer`MetricAffineGravity`A1,
+xAct`PSALTer`MetricAffineGravity`A8->xAct`PSALTer`MetricAffineGravity`A1,
+xAct`PSALTer`MetricAffineGravity`A9->xAct`PSALTer`MetricAffineGravity`A1,
+xAct`PSALTer`MetricAffineGravity`A10->xAct`PSALTer`MetricAffineGravity`A1,
+xAct`PSALTer`MetricAffineGravity`A11->xAct`PSALTer`MetricAffineGravity`A1,
+xAct`PSALTer`MetricAffineGravity`C13->0
+};
+
+
 DisplayExpression[LinearLagrangian,EqnLabel->"AntiWeylTheoryLinearSecondOrder"];
+LinearLagrangian=LinearLagrangian/.SuperRules;
+LinearLagrangian=LinearLagrangian/.SuperRules;
+
+
+
 ParticleSpectrum[LinearLagrangian,
 		ClassName->"MetricAffineGravity",
 		TheoryName->"AntiWeylTheorySecondOrder",	

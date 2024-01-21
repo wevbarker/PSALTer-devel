@@ -122,7 +122,7 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 				LocalOverallUnitarity,
 				LocalSummaryOfTheory}]];
 	];
-*)
+		*)
 
 	Quiet@CreateDirectory@FileNameJoin@{$WorkingDirectory,"tmp"};
 
