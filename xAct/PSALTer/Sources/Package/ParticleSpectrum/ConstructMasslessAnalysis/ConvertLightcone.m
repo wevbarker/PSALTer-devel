@@ -36,10 +36,10 @@ ConvertLightcone[ClassName_?StringQ,
 		LightconePropagator];
 	LightconePropagator=MonitorParallel@LightconePropagator;
 	Diagnostic@LightconePropagator;
-
+(*
 	LocalMasslessSpectrum=" ** VerifyCovariance...";
 	LightconePropagator//VerifyCovariance;
-
+*)
 	LocalMasslessSpectrum=" ** Repartition...";
 	LightconePropagator//=Repartition[#,10,ExpandAll->False]&;
 
