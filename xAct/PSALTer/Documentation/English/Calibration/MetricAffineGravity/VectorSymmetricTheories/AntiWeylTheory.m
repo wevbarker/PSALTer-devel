@@ -10,33 +10,13 @@ DefiningSystem=And[xAct`PSALTer`MetricAffineGravity`A4==(-2)xAct`PSALTer`MetricA
 
 DefiningSystem//=First@Solve[#,AllCouplings]&;
 LinearLagrangian=Measure*NonlinearLagrangian/.DefiningSystem;
-
-
-SuperRules={
-xAct`PSALTer`MetricAffineGravity`A0->0,
-xAct`PSALTer`MetricAffineGravity`A2->xAct`PSALTer`MetricAffineGravity`A1,
-xAct`PSALTer`MetricAffineGravity`A3->xAct`PSALTer`MetricAffineGravity`A1,
-xAct`PSALTer`MetricAffineGravity`A4->xAct`PSALTer`MetricAffineGravity`A1,
-xAct`PSALTer`MetricAffineGravity`A5->xAct`PSALTer`MetricAffineGravity`A1,
-xAct`PSALTer`MetricAffineGravity`A6->xAct`PSALTer`MetricAffineGravity`A1,
-xAct`PSALTer`MetricAffineGravity`A7->xAct`PSALTer`MetricAffineGravity`A1,
-xAct`PSALTer`MetricAffineGravity`A8->0*xAct`PSALTer`MetricAffineGravity`A1,
-xAct`PSALTer`MetricAffineGravity`A9->0*xAct`PSALTer`MetricAffineGravity`A1,
-xAct`PSALTer`MetricAffineGravity`A10->0*xAct`PSALTer`MetricAffineGravity`A1,
-xAct`PSALTer`MetricAffineGravity`A11->0*xAct`PSALTer`MetricAffineGravity`A1,
-xAct`PSALTer`MetricAffineGravity`C13->0
-};
-LinearLagrangian=LinearLagrangian/.SuperRules;
-LinearLagrangian=LinearLagrangian/.SuperRules;
-
 DisplayExpression[LinearLagrangian,EqnLabel->"AntiWeylTheory"];
+
 (*
 LinearLagrangian//=LineariseLagrangian;
 Comment@"And here it is linearised";
 DisplayExpression[LinearLagrangian,EqnLabel->"AntiWeylTheoryLinear"];
 Comment@"Here is the result from the supercomputer.";
-*)
-(*
 ParticleSpectrum[LinearLagrangian,
 		ClassName->"MetricAffineGravity",
 		TheoryName->"AntiWeylTheory",	
@@ -44,17 +24,10 @@ ParticleSpectrum[LinearLagrangian,
 		MaxLaurentDepth->1];
 Comment@{"Some comments can be made about anti-Weyl."};
 *)
-Comment@"Now we want to try this usign the second order formalism.";
 
+Comment@"Now we want to try this using the second order formalism.";
 LinearLagrangian=LineariseLagrangian[LinearLagrangian,Formulation->SecondOrder];
-
-
-
-
 DisplayExpression[LinearLagrangian,EqnLabel->"AntiWeylTheoryLinearSecondOrder"];
-
-
-
 ParticleSpectrum[LinearLagrangian,
 		ClassName->"MetricAffineGravity",
 		TheoryName->"AntiWeylTheorySecondOrder",	

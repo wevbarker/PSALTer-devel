@@ -37,11 +37,9 @@ xAct`PSALTer`MetricAffineGravity`C16};
 Comment@{"We will study the four spectra of theories with physically interesting vector symmetries."};
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity","VectorSymmetricTheories",
 					"AntiWeylTheory.m"};
-(*
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity","VectorSymmetricTheories",
 					"ExtendedProjectiveTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity","VectorSymmetricTheories",
 					"ProjectiveTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity","VectorSymmetricTheories",
 					"ConcurrentTheory.m"};
-*)

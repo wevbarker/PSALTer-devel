@@ -12,7 +12,8 @@ DefiningSystem//=First@Solve[#,AllCouplings]&;
 LinearLagrangian=Measure*NonlinearLagrangian/.DefiningSystem;
 DisplayExpression[LinearLagrangian,EqnLabel->"ExtendedProjectiveTheory"];
 LinearLagrangian//=LineariseLagrangian;
-Comment@"Here is the result from the supercomputer.";
+Comment@"Now we want to try this using the second order formalism.";
+LinearLagrangian=LineariseLagrangian[LinearLagrangian,Formulation->SecondOrder];
 ParticleSpectrum[LinearLagrangian,
 		ClassName->"MetricAffineGravity",
 		TheoryName->"ExtendedProjectiveTheory",	
