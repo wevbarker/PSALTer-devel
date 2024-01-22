@@ -25,6 +25,7 @@ ConvertLightcone[ClassName_?StringQ,
 	},
 	LocalMasslessSpectrum=" ** ConvertLightcone...";
 	LightconePropagator=ValuesSaturatedPropagator;
+	Diagnostic@LightconePropagator;
 
 	LocalMasslessSpectrum=" ** Repartition...";
 	LightconePropagator//=Repartition[#,1]&;
