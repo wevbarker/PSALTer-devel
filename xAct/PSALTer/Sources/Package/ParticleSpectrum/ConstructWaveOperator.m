@@ -10,7 +10,6 @@ ConstructWaveOperator[ClassName_?StringQ,Expr_]:=Module[{
 	Class,
 	TheTensors
 	},
-$DiagnosticMode=True;
 	LocalWaveOperator=" ** ConstructWaveOperator...";
 	
 	Class=Evaluate@Symbol@ClassName;
@@ -21,5 +20,4 @@ $DiagnosticMode=True;
 	Diagnostic@DecomposeFieldsdLagrangian;
 
 	ConstructOperator[ClassName,DecomposeFieldsdLagrangian,Couplings];
-	$DiagnosticMode=False;
 ];

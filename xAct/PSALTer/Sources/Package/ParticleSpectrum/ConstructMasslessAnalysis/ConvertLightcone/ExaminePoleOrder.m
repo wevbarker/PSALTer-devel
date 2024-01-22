@@ -20,9 +20,7 @@ ExaminePoleOrder[LightconePropagator_,LaurentDepth_]:=Module[{
 	LocalMasslessSpectrum=" ** NullResidue...";
 	SymbolicLightconePropagator=LightconePropagatorValue//MatrixToSymbolic;
 	Diagnostic@SymbolicLightconePropagator;
-	$DiagnosticMode=True;
 	Diagnostic@(SymbolicLightconePropagator@UniqueMatrixElements);
-	$DiagnosticMode=False;
 	TheUniqueMatrixElements=Map[
 		(xAct`PSALTer`Private`PSALTerParallelSubmit@(NullResidue[#,LaurentDepth]))&,
 	({#})&/@(SymbolicLightconePropagator@UniqueMatrixElements),{2}];

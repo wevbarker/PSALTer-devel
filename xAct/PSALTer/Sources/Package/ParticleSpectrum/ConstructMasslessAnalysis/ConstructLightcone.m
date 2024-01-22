@@ -15,7 +15,6 @@ ConstructLightcone[ClassName_?StringQ,ValuesOfSourceConstraints_]:=Module[{
 	
 	LocalMasslessSpectrum=" ** ConstructLightcone...";
 
-	$DiagnosticMode=True;
 	ConstraintComponentList=MakeConstraintComponentList[ClassName,ValuesOfSourceConstraints];
 	Diagnostic@ConstraintComponentList;
 	ConstraintComponentList=xAct`xCoba`SeparateBasis[AIndex][#]&/@ConstraintComponentList;
@@ -43,5 +42,4 @@ ConstructLightcone[ClassName_?StringQ,ValuesOfSourceConstraints_]:=Module[{
 	SourceComponentsToFreeSourceVariables=MakeFreeSourceVariables[RescaledNullSpace,SourceComponents];
 	Diagnostic@SourceComponentsToFreeSourceVariables;
 
-	$DiagnosticMode=False;
 ];

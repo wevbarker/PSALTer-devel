@@ -91,7 +91,7 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 	LocalMasslessSpectrum=Null;
 	LocalOverallUnitarity=Null;
 	LocalSummaryOfTheory=Null;
-(*
+
 	If[$CLI,
 		SummariseResultsOngoing=SessionSubmit[ScheduledTask[(
 		Run@("echo -e \"\n\n"<>CLIPrint[
@@ -122,7 +122,7 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 				LocalOverallUnitarity,
 				LocalSummaryOfTheory}]];
 	];
-		*)
+		
 
 	Quiet@CreateDirectory@FileNameJoin@{$WorkingDirectory,"tmp"};
 
