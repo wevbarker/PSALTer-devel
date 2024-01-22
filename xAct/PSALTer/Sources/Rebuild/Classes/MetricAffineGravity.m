@@ -367,7 +367,7 @@ DefSpinParityMode[ConnectionSymmPerp2p[-i,-j],Symmetric[{-i,-j}],Spin->2,Parity-
 DefSpinParityMode[ConnectionSymmParaH1m[-i],Spin->1,Parity->Odd,
 	FieldSymbol->xAct`PSALTer`MetricAffineGravity`Private`ConnectionSymmParaHSymb,
 	SourceSymbol->xAct`PSALTer`MetricAffineGravity`Private`ConjugateSourceConnectionSymmParaHSymb];
-DefSpinParityMode[ConnectionSymmPara2m[-i,-j,-a],Symmetric[{-i,-j}],MultiTermSymmetries->{ConnectionSymmPara2m[-i,-j,-a]+ConnectionSymmPara2m[-a,-i,-j]+ConnectionSymmPara2m[-j,-a,-i]},Spin->2,Parity->Odd,
+DefSpinParityMode[ConnectionSymmPara2m[-i,-j,-a],Antisymmetric[{-i,-j}],MultiTermSymmetries->{ConnectionSymmPara2m[-i,-j,-a]+ConnectionSymmPara2m[-a,-i,-j]+ConnectionSymmPara2m[-j,-a,-i]},Spin->2,Parity->Odd,
 	FieldSymbol->xAct`PSALTer`MetricAffineGravity`Private`ConnectionSymmParaSymb,
 	SourceSymbol->xAct`PSALTer`MetricAffineGravity`Private`ConjugateSourceConnectionSymmParaSymb];
 
@@ -529,8 +529,8 @@ xAct`PSALTer`MetricAffineGravity`Private`ExpandConnectionSymmFtoReduced=Join[
 	MakeRule[{ConnectionSymmParaH1mF[-i,-j,-a],Evaluate[((1/2)remsymConnectionSymmConjugateSourceConnectionSymm[k,l,b,-i,-j,-a]ProjPara[-k,-l]ConnectionSymmParaH1m[-b])//ToCanonical]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{Evaluate@Dagger@ConnectionSymmParaH1mF[-i,-j,-a],Evaluate@Dagger[((1/2)remsymConnectionSymmConjugateSourceConnectionSymm[k,l,b,-i,-j,-a]ProjPara[-k,-l]ConnectionSymmParaH1m[-b])//ToCanonical]},MetricOn->All,ContractMetrics->True],
 
-	MakeRule[{ConnectionSymmPara2mF[-i,-j,-a],Evaluate[ConnectionSymmPara2m[-i,-j,-a]]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@ConnectionSymmPara2mF[-i,-j,-a],Evaluate@Dagger[ConnectionSymmPara2m[-i,-j,-a]]},MetricOn->All,ContractMetrics->True]	
+	MakeRule[{ConnectionSymmPara2mF[-i,-j,-a],Evaluate[(1/2)*(ConnectionSymmPara2m[-a,-i,-j]+ConnectionSymmPara2m[-a,-j,-i])]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@ConnectionSymmPara2mF[-i,-j,-a],Evaluate@Dagger[(1/2)*(ConnectionSymmPara2m[-a,-i,-j]+ConnectionSymmPara2m[-a,-j,-i])]},MetricOn->All,ContractMetrics->True]	
 ];
 
 xAct`PSALTer`MetricAffineGravity`Private`ExpandConjugateSourceConnectionSymmFtoReduced=Join[
@@ -567,8 +567,8 @@ xAct`PSALTer`MetricAffineGravity`Private`ExpandConjugateSourceConnectionSymmFtoR
 	MakeRule[{ConjugateSourceConnectionSymmParaH1mF[-i,-j,-a],Evaluate[((1/2)remsymConnectionSymmConjugateSourceConnectionSymm[k,l,b,-i,-j,-a]ProjPara[-k,-l]ConjugateSourceConnectionSymmParaH1m[-b])//ToCanonical]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{Evaluate@Dagger@ConjugateSourceConnectionSymmParaH1mF[-i,-j,-a],Evaluate@Dagger[((1/2)remsymConnectionSymmConjugateSourceConnectionSymm[k,l,b,-i,-j,-a]ProjPara[-k,-l]ConjugateSourceConnectionSymmParaH1m[-b])//ToCanonical]},MetricOn->All,ContractMetrics->True],
 
-	MakeRule[{ConjugateSourceConnectionSymmPara2mF[-i,-j,-a],Evaluate[ConjugateSourceConnectionSymmPara2m[-i,-j,-a]]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@ConjugateSourceConnectionSymmPara2mF[-i,-j,-a],Evaluate@Dagger[ConjugateSourceConnectionSymmPara2m[-i,-j,-a]]},MetricOn->All,ContractMetrics->True]	
+	MakeRule[{ConjugateSourceConnectionSymmPara2mF[-i,-j,-a],Evaluate[(1/2)*(ConjugateSourceConnectionSymmPara2m[-a,-i,-j]+ConjugateSourceConnectionSymmPara2m[-a,-j,-i])]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@ConjugateSourceConnectionSymmPara2mF[-i,-j,-a],Evaluate@Dagger[(1/2)*(ConjugateSourceConnectionSymmPara2m[-a,-i,-j]+ConjugateSourceConnectionSymmPara2m[-a,-j,-i])]},MetricOn->All,ContractMetrics->True]	
 ];
 
 (*==================*)
@@ -707,8 +707,8 @@ xAct`PSALTer`MetricAffineGravity`Private`DecomposeConnectionSymmReducedtoConnect
 	MakeRule[{ConnectionSymmParaH1m[-i],Evaluate[((-3)ProjPara[m,-i]ProjPara[n,z]ProjPara[c,-z]remsymConnectionSymmConjugateSourceConnectionSymm[k,l,b,-m,-n,-c]ConnectionSymm[-k,-l,-b])//ToCanonical]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{Evaluate@Dagger@ConnectionSymmParaH1m[-i],Evaluate@Dagger[((-3)ProjPara[m,-i]ProjPara[n,z]ProjPara[c,-z]remsymConnectionSymmConjugateSourceConnectionSymm[k,l,b,-m,-n,-c]ConnectionSymm[-k,-l,-b])//ToCanonical]},MetricOn->All,ContractMetrics->True],
 
-	MakeRule[{ConnectionSymmPara2m[-i,-j,-a],Evaluate[((ProjPara[m,-i]ProjPara[n,-j]ProjPara[c,-a]-(1/2)(ProjPara[-i,-j]ProjPara[m,-z]ProjPara[n,z]ProjPara[c,-a]+ProjPara[-j,-a]ProjPara[m,-i]ProjPara[n,z]ProjPara[c,-z]+ProjPara[-i,-a]ProjPara[m,-z]ProjPara[n,-j]ProjPara[c,z]))remsymConnectionSymmConjugateSourceConnectionSymm[k,l,b,-m,-n,-c]ConnectionSymm[-k,-l,-b])//ToCanonical]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@ConnectionSymmPara2m[-i,-j,-a],Evaluate@Dagger[((ProjPara[m,-i]ProjPara[n,-j]ProjPara[c,-a]-(1/2)(ProjPara[-i,-j]ProjPara[m,-z]ProjPara[n,z]ProjPara[c,-a]+ProjPara[-j,-a]ProjPara[m,-i]ProjPara[n,z]ProjPara[c,-z]+ProjPara[-i,-a]ProjPara[m,-z]ProjPara[n,-j]ProjPara[c,z]))remsymConnectionSymmConjugateSourceConnectionSymm[k,l,b,-m,-n,-c]ConnectionSymm[-k,-l,-b])//ToCanonical]},MetricOn->All,ContractMetrics->True]
+	MakeRule[{ConnectionSymmPara2m[-j,-a,-i],Evaluate[(-4/3)*Antisymmetrize[((ProjPara[m,-i]ProjPara[n,-j]ProjPara[c,-a]-(1/2)(ProjPara[-i,-j]ProjPara[m,-z]ProjPara[n,z]ProjPara[c,-a]+ProjPara[-j,-a]ProjPara[m,-i]ProjPara[n,z]ProjPara[c,-z]+ProjPara[-i,-a]ProjPara[m,-z]ProjPara[n,-j]ProjPara[c,z]))remsymConnectionSymmConjugateSourceConnectionSymm[k,l,b,-m,-n,-c]ConnectionSymm[-k,-l,-b]),{-j,-a}]//ToCanonical]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@ConnectionSymmPara2m[-j,-a,-i],Evaluate@Dagger[(-4/3)*Antisymmetrize[((ProjPara[m,-i]ProjPara[n,-j]ProjPara[c,-a]-(1/2)(ProjPara[-i,-j]ProjPara[m,-z]ProjPara[n,z]ProjPara[c,-a]+ProjPara[-j,-a]ProjPara[m,-i]ProjPara[n,z]ProjPara[c,-z]+ProjPara[-i,-a]ProjPara[m,-z]ProjPara[n,-j]ProjPara[c,z]))remsymConnectionSymmConjugateSourceConnectionSymm[k,l,b,-m,-n,-c]ConnectionSymm[-k,-l,-b]),{-j,-a}]//ToCanonical]},MetricOn->All,ContractMetrics->True]
 ];
 
 xAct`PSALTer`MetricAffineGravity`Private`DecomposeConjugateSourceConnectionSymmReducedtoConjugateSourceConnectionSymm=Join[
@@ -745,8 +745,8 @@ xAct`PSALTer`MetricAffineGravity`Private`DecomposeConjugateSourceConnectionSymmR
 	MakeRule[{ConjugateSourceConnectionSymmParaH1m[-i],Evaluate[((-3)ProjPara[m,-i]ProjPara[n,z]ProjPara[c,-z]remsymConnectionSymmConjugateSourceConnectionSymm[k,l,b,-m,-n,-c]ConjugateSourceConnectionSymm[-k,-l,-b])//ToCanonical]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{Evaluate@Dagger@ConjugateSourceConnectionSymmParaH1m[-i],Evaluate@Dagger[((-3)ProjPara[m,-i]ProjPara[n,z]ProjPara[c,-z]remsymConnectionSymmConjugateSourceConnectionSymm[k,l,b,-m,-n,-c]ConjugateSourceConnectionSymm[-k,-l,-b])//ToCanonical]},MetricOn->All,ContractMetrics->True],
 
-	MakeRule[{ConjugateSourceConnectionSymmPara2m[-i,-j,-a],Evaluate[((ProjPara[m,-i]ProjPara[n,-j]ProjPara[c,-a]-(1/2)(ProjPara[-i,-j]ProjPara[m,-z]ProjPara[n,z]ProjPara[c,-a]+ProjPara[-j,-a]ProjPara[m,-i]ProjPara[n,z]ProjPara[c,-z]+ProjPara[-i,-a]ProjPara[m,-z]ProjPara[n,-j]ProjPara[c,z]))remsymConnectionSymmConjugateSourceConnectionSymm[k,l,b,-m,-n,-c]ConjugateSourceConnectionSymm[-k,-l,-b])//ToCanonical]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@ConjugateSourceConnectionSymmPara2m[-i,-j,-a],Evaluate@Dagger[((ProjPara[m,-i]ProjPara[n,-j]ProjPara[c,-a]-(1/2)(ProjPara[-i,-j]ProjPara[m,-z]ProjPara[n,z]ProjPara[c,-a]+ProjPara[-j,-a]ProjPara[m,-i]ProjPara[n,z]ProjPara[c,-z]+ProjPara[-i,-a]ProjPara[m,-z]ProjPara[n,-j]ProjPara[c,z]))remsymConnectionSymmConjugateSourceConnectionSymm[k,l,b,-m,-n,-c]ConjugateSourceConnectionSymm[-k,-l,-b])//ToCanonical]},MetricOn->All,ContractMetrics->True]
+	MakeRule[{ConjugateSourceConnectionSymmPara2m[-j,-a,-i],Evaluate[(-4/3)*Antisymmetrize[((ProjPara[m,-i]ProjPara[n,-j]ProjPara[c,-a]-(1/2)(ProjPara[-i,-j]ProjPara[m,-z]ProjPara[n,z]ProjPara[c,-a]+ProjPara[-j,-a]ProjPara[m,-i]ProjPara[n,z]ProjPara[c,-z]+ProjPara[-i,-a]ProjPara[m,-z]ProjPara[n,-j]ProjPara[c,z]))remsymConnectionSymmConjugateSourceConnectionSymm[k,l,b,-m,-n,-c]ConjugateSourceConnectionSymm[-k,-l,-b]),{-j,-a}]//ToCanonical]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@ConjugateSourceConnectionSymmPara2m[-j,-a,-i],Evaluate@Dagger[(-4/3)*Antisymmetrize[((ProjPara[m,-i]ProjPara[n,-j]ProjPara[c,-a]-(1/2)(ProjPara[-i,-j]ProjPara[m,-z]ProjPara[n,z]ProjPara[c,-a]+ProjPara[-j,-a]ProjPara[m,-i]ProjPara[n,z]ProjPara[c,-z]+ProjPara[-i,-a]ProjPara[m,-z]ProjPara[n,-j]ProjPara[c,z]))remsymConnectionSymmConjugateSourceConnectionSymm[k,l,b,-m,-n,-c]ConjugateSourceConnectionSymm[-k,-l,-b]),{-j,-a}]//ToCanonical]},MetricOn->All,ContractMetrics->True]
 ];
 
 (*==========================================================*)
