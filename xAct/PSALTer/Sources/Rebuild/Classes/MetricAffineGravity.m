@@ -307,7 +307,7 @@ DefSpinParityMode[ConnectionAntiPara1m[-a],Spin->1,Parity->Odd,
 DefSpinParityMode[ConnectionAntiPara2p[-a,-b],Symmetric[{-a,-b}],Spin->2,Parity->Even,
 	FieldSymbol->xAct`PSALTer`MetricAffineGravity`Private`ConnectionAntiParaSymb,
 	SourceSymbol->xAct`PSALTer`MetricAffineGravity`Private`ConjugateSourceConnectionAntiParaSymb];
-DefSpinParityMode[ConnectionAntiPara2m[-a,-b,-c],Symmetric[{-a,-b}],Spin->2,Parity->Odd,
+DefSpinParityMode[ConnectionAntiPara2m[-a,-b,-c],Antisymmetric[{-a,-b}],Spin->2,Parity->Odd,
 	FieldSymbol->xAct`PSALTer`MetricAffineGravity`Private`ConnectionAntiParaSymb,
 	SourceSymbol->xAct`PSALTer`MetricAffineGravity`Private`ConjugateSourceConnectionAntiParaSymb];
 DefSpinParityMode[ConnectionAntiPerp1p[-a,-b],Antisymmetric[{-a,-b}],Spin->1,Parity->Even,
