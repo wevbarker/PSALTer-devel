@@ -63,6 +63,8 @@ CarloTestTheory[RuleSet_]:=Module[{LinearLagrangian},
 
 	DisplayExpression[LinearLagrangian,EqnLabel->"MetricAffineEinsteinHilbertTheory"];
 	LinearLagrangian//=LineariseLagrangian;
+	LinearLagrangian=LineariseLagrangian[LinearLagrangian,Formulation->SecondOrder];
+
 	ParticleSpectrum[LinearLagrangian,
 			ClassName->"MetricAffineGravity",
 			TheoryName->("CarloTheory"<>ToString@CaseNumber),	

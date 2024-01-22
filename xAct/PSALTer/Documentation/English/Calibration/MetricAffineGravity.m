@@ -12,11 +12,8 @@ Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity",
 					"MetricAffineRicciTypeTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity",
 					"AllowingMasslessVectorTheory.m"};
-*)
-
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity",
 					"MetricAffineEinsteinHilbertTheory.m"};
-(*
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity",
 					"CarloTheories.m"};
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity",
