@@ -58,6 +58,7 @@ FourierLagrangian[ClassName_?StringQ,Expr_,Tensors_]:=Module[{
 	ToMomentumExpr=ToMomentumExpr/.ToV;
 
 	ToMomentumExpr//=Class@DecomposeFields;
+	ToMomentumExpr//=ToNewCanonical;
 	Diagnostic@ToMomentumExpr;
 
 ToMomentumExpr];
