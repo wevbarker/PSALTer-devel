@@ -749,6 +749,16 @@ xAct`PSALTer`MetricAffineGravity`Private`DecomposeConjugateSourceConnectionSymmR
 	MakeRule[{Evaluate@Dagger@ConjugateSourceConnectionSymmPara2m[-j,-a,-i],Evaluate@Dagger[(-4/3)*Antisymmetrize[((ProjPara[m,-i]ProjPara[n,-j]ProjPara[c,-a]-(1/2)(ProjPara[-i,-j]ProjPara[m,-z]ProjPara[n,z]ProjPara[c,-a]+ProjPara[-j,-a]ProjPara[m,-i]ProjPara[n,z]ProjPara[c,-z]+ProjPara[-i,-a]ProjPara[m,-z]ProjPara[n,-j]ProjPara[c,z]))remsymConnectionSymmConjugateSourceConnectionSymm[k,l,b,-m,-n,-c]ConjugateSourceConnectionSymm[-k,-l,-b]),{-j,-a}]//ToCanonical]},MetricOn->All,ContractMetrics->True]
 ];
 
+(*Ptolmey*)
+AutomaticRules[ConnectionSymmPara2m,MakeRule[{ConnectionSymmPara2m[-a,-b,-c]*Dagger@ConnectionSymmPara2m[a,c,b],
+					Evaluate[ConnectionSymmPara2m[-a,-b,-c]*Dagger@ConnectionSymmPara2m[a,b,c]/2]},MetricOn->All,ContractMetrics->True]];
+AutomaticRules[ConnectionSymmPara2m,MakeRule[{ConnectionSymmPara2m[-a,-b,-c]*Dagger@ConnectionAntiPara2m[a,c,b],
+					Evaluate[ConnectionSymmPara2m[-a,-b,-c]*Dagger@ConnectionAntiPara2m[a,b,c]/2]},MetricOn->All,ContractMetrics->True]];
+AutomaticRules[ConnectionAntiPara2m,MakeRule[{ConnectionAntiPara2m[-a,-b,-c]*Dagger@ConnectionAntiPara2m[a,c,b],
+					Evaluate[ConnectionAntiPara2m[-a,-b,-c]*Dagger@ConnectionAntiPara2m[a,b,c]/2]},MetricOn->All,ContractMetrics->True]];
+AutomaticRules[ConnectionAntiPara2m,MakeRule[{ConnectionAntiPara2m[-a,-b,-c]*Dagger@ConnectionSymmPara2m[a,c,b],
+					Evaluate[ConnectionAntiPara2m[-a,-b,-c]*Dagger@ConnectionSymmPara2m[a,b,c]/2]},MetricOn->All,ContractMetrics->True]];
+
 (*==========================================================*)
 (*  Basic definitions of the Lagrangian coupling constants  *)
 (*==========================================================*)
