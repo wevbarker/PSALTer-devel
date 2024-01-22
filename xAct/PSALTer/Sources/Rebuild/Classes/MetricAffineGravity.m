@@ -750,14 +750,14 @@ xAct`PSALTer`MetricAffineGravity`Private`DecomposeConjugateSourceConnectionSymmR
 ];
 
 (*Ptolmey*)
-AutomaticRules[ConnectionSymmPara2m,MakeRule[{ConnectionSymmPara2m[-a,-b,-c]*Dagger@ConnectionSymmPara2m[a,c,b],
-					Evaluate[ConnectionSymmPara2m[-a,-b,-c]*Dagger@ConnectionSymmPara2m[a,b,c]/2]},MetricOn->All,ContractMetrics->True]];
-AutomaticRules[ConnectionSymmPara2m,MakeRule[{ConnectionSymmPara2m[-a,-b,-c]*Dagger@ConnectionAntiPara2m[a,c,b],
-					Evaluate[ConnectionSymmPara2m[-a,-b,-c]*Dagger@ConnectionAntiPara2m[a,b,c]/2]},MetricOn->All,ContractMetrics->True]];
-AutomaticRules[ConnectionAntiPara2m,MakeRule[{ConnectionAntiPara2m[-a,-b,-c]*Dagger@ConnectionAntiPara2m[a,c,b],
-					Evaluate[ConnectionAntiPara2m[-a,-b,-c]*Dagger@ConnectionAntiPara2m[a,b,c]/2]},MetricOn->All,ContractMetrics->True]];
-AutomaticRules[ConnectionAntiPara2m,MakeRule[{ConnectionAntiPara2m[-a,-b,-c]*Dagger@ConnectionSymmPara2m[a,c,b],
-					Evaluate[ConnectionAntiPara2m[-a,-b,-c]*Dagger@ConnectionSymmPara2m[a,b,c]/2]},MetricOn->All,ContractMetrics->True]];
+AutomaticRules[ConnectionSymmPara2m,MakeRule[{ConnectionSymmPara2m[-a,-b,-c]*Evaluate@Dagger[ConnectionSymmPara2m[a,c,b]],
+					Evaluate[ConnectionSymmPara2m[-a,-b,-c]*Evaluate@Dagger[ConnectionSymmPara2m[a,b,c]]/2]},MetricOn->All,ContractMetrics->True]];
+AutomaticRules[ConnectionSymmPara2m,MakeRule[{ConnectionSymmPara2m[-a,-b,-c]*Evaluate@Dagger[ConnectionAntiPara2m[a,c,b]],
+					Evaluate[ConnectionSymmPara2m[-a,-b,-c]*Evaluate@Dagger[ConnectionAntiPara2m[a,b,c]]/2]},MetricOn->All,ContractMetrics->True]];
+AutomaticRules[ConnectionAntiPara2m,MakeRule[{ConnectionAntiPara2m[-a,-b,-c]*Evaluate@Dagger[ConnectionAntiPara2m[a,c,b]],
+					Evaluate[ConnectionAntiPara2m[-a,-b,-c]*Evaluate@Dagger[ConnectionAntiPara2m[a,b,c]]/2]},MetricOn->All,ContractMetrics->True]];
+AutomaticRules[ConnectionAntiPara2m,MakeRule[{ConnectionAntiPara2m[-a,-b,-c]*Evaluate@Dagger[ConnectionSymmPara2m[a,c,b]],
+					Evaluate[ConnectionAntiPara2m[-a,-b,-c]*Evaluate@Dagger[ConnectionSymmPara2m[a,b,c]]/2]},MetricOn->All,ContractMetrics->True]];
 
 (*==========================================================*)
 (*  Basic definitions of the Lagrangian coupling constants  *)
