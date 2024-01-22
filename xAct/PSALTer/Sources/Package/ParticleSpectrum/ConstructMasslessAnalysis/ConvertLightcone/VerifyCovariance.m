@@ -2,4 +2,6 @@ VerifyCovariance[InputLightconePropagator_]:=Module[{Expr=InputLightconePropagat
 	Expr//=Total;
 	Expr//=ToNewCanonical;
 	Diagnostic@Expr;	
+	Print@SummaryOfResults;
+	Quit[];
 ];
