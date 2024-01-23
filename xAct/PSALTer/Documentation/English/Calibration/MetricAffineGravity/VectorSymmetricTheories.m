@@ -39,9 +39,7 @@ Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity","VectorSymm
 					"AntiWeylTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity","VectorSymmetricTheories",
 					"ExtendedProjectiveTheory.m"};
-(*
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity","VectorSymmetricTheories",
 					"ProjectiveTheory.m"};
-*)
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity","VectorSymmetricTheories",
 					"ConcurrentTheory.m"};
