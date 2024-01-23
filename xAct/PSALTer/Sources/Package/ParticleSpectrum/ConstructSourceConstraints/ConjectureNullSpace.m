@@ -98,16 +98,16 @@ ConjectureNullSpace[InputMatrix_,Couplings_,CouplingAssumptions_]:=Module[{
 	ScalingSolutions}=RemoveReferencesToMomentum[InputMatrix,Couplings];
 
 	Diagnostic@(MatrixForm@FieldRescaledMatrix);
-
+(*
 	TestNull=NullSpace@FieldRescaledMatrix;
 	Diagnostic@TestNull;
-
+*)
 	Diagnostic@ConstantDescalingRules;
 	Diagnostic@(MatrixForm@FieldRescalingMatrix);
 	Diagnostic@ScalingSolutions;
 
-	RescaledNullSpace=NullSpace@InputMatrix;
-	(*RescaledNullSpace=NullSpace@FieldRescaledMatrix;*)
+	(*RescaledNullSpace=NullSpace@InputMatrix;*)
+	RescaledNullSpace=NullSpace@FieldRescaledMatrix;
 
 	DescaledNullSpace=((FieldRescalingMatrix.#)/.ConstantDescalingRules/.ScalingSolutions)&/@RescaledNullSpace;
 	CouplingAssumptions~Assuming~(DescaledNullSpace//=FullSimplify);
