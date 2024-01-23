@@ -35,7 +35,7 @@ Protect@xAct`PSALTer`ParticleSpectrum;
 
 (*For HPC*)
 (**)
-$NodeCPU=16;
+$NodeCPU=110;
 Comment@{"The variable $NodeCPU is set to ",ToString@$NodeCPU};
 Comment@{"The variable $ProcessorCount is set to ",ToString@$ProcessorCount};
 Unprotect@$ProcessorCount;
