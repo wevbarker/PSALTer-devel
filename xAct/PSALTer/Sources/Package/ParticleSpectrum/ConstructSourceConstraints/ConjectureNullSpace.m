@@ -108,6 +108,7 @@ ConjectureNullSpace[InputMatrix_,Couplings_,CouplingAssumptions_]:=Module[{
 
 	(*RescaledNullSpace=NullSpace@InputMatrix;*)
 	RescaledNullSpace=NullSpace@FieldRescaledMatrix;
+	(*Print@RescaledNullSpace;*)
 
 	DescaledNullSpace=((FieldRescalingMatrix.#)/.ConstantDescalingRules/.ScalingSolutions)&/@RescaledNullSpace;
 	CouplingAssumptions~Assuming~(DescaledNullSpace//=FullSimplify);

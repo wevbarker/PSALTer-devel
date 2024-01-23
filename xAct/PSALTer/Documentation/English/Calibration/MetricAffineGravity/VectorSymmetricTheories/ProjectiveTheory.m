@@ -12,7 +12,23 @@ DefiningSystem//=Quiet@First@Solve[#,AllCouplings]&;
 LinearLagrangian=NonlinearLagrangian/.DefiningSystem;
 DisplayExpression[LinearLagrangian,EqnLabel->"ProjectiveTheory"];
 
-Comment@{"First we study",Cref@"ProjectiveTheory"," in the first-order formulation."};
+ReductionRules={
+xAct`PSALTer`MetricAffineGravity`A2->xAct`PSALTer`MetricAffineGravity`A1,
+xAct`PSALTer`MetricAffineGravity`A3->xAct`PSALTer`MetricAffineGravity`A1,
+xAct`PSALTer`MetricAffineGravity`A4->xAct`PSALTer`MetricAffineGravity`A1,
+xAct`PSALTer`MetricAffineGravity`A5->xAct`PSALTer`MetricAffineGravity`A1,
+xAct`PSALTer`MetricAffineGravity`A6->xAct`PSALTer`MetricAffineGravity`A1,
+xAct`PSALTer`MetricAffineGravity`A7->xAct`PSALTer`MetricAffineGravity`A1,
+xAct`PSALTer`MetricAffineGravity`A8->xAct`PSALTer`MetricAffineGravity`A1,
+xAct`PSALTer`MetricAffineGravity`A9->xAct`PSALTer`MetricAffineGravity`A1,
+xAct`PSALTer`MetricAffineGravity`A10->xAct`PSALTer`MetricAffineGravity`A1,
+xAct`PSALTer`MetricAffineGravity`A11->xAct`PSALTer`MetricAffineGravity`A1
+};
+Comment@{"In the most general form",Cref@"ProjectiveTheory",", the theory has a symmetry which is cumbersome to express in terms of the remaining couplings. We therefore take an arbitrary case of the theory."};
+LinearLagrangian=LinearLagrangian/.ReductionRules;
+DisplayExpression[LinearLagrangian,EqnLabel->"ProjectiveTheoryReduced"];
+
+Comment@{"First we study",Cref@"ProjectiveTheoryReduced"," in the first-order formulation."};
 LinearLagrangian*=Measure;
 LinearLagrangian//=LineariseLagrangian;
 (*
