@@ -60,6 +60,8 @@ ConstructSourceConstraints[ClassName_?StringQ,CouplingAssumptions_,Rescalings_,R
 		LocalSummaryOfTheory];
 	Print@SummaryOfResults;
 
+	Quit[];
+
 	NullSpaces=((#)~FullSimplify~CouplingAssumptions)&/@NullSpaces;
 	Diagnostic@NullSpaces;
 
