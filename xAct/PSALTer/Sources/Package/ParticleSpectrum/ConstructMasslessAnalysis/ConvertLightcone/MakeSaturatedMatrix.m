@@ -21,9 +21,5 @@ MakeSaturatedMatrix[RawMasslessPropagatorResidue_,NullSpace_List]:=Module[{
 	NumeratorFreeSourceCoefficientMatrix=NumeratorFreeSourceCoefficientMatrix[[1;;(1/2)Length@#,(1/2)Length@#+1;;Length@#]]&@NumeratorFreeSourceCoefficientMatrix;
 	NumeratorFreeSourceCoefficientMatrix//=Normal;
 	Diagnostic@(MatrixForm@NumeratorFreeSourceCoefficientMatrix);
-	SliceOfMatrix=NumeratorFreeSourceCoefficientMatrix[[1;;5,1;;5]];
-	Diagnostic@(MatrixForm@SliceOfMatrix);
-	SliceOfMatrix=Map[(Residue[#*((En-Mo)^(1-1)),{En,Mo}]//Simplify)&,SliceOfMatrix,{2}];
-	Diagnostic@(MatrixForm@SliceOfMatrix);
 
 NumeratorFreeSourceCoefficientMatrix];
