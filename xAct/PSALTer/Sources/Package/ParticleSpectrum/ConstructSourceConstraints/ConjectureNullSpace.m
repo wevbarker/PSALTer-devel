@@ -97,6 +97,11 @@ ConjectureNullSpace[InputMatrix_,Couplings_,CouplingAssumptions_]:=Module[{
 	FieldRescalingMatrix,
 	ScalingSolutions}=RemoveReferencesToMomentum[InputMatrix,Couplings];
 
+	Diagnostic@(MatrixForm@FieldRescaledMatrix);
+	Diagnostic@ConstantDescalingRules;
+	Diagnostic@(MatrixForm@FieldRescalingMatrix);
+	Diagnostic@ScalingSolutions;
+
 	RescaledNullSpace=NullSpace@InputMatrix;
 	(*RescaledNullSpace=NullSpace@FieldRescaledMatrix;*)
 
