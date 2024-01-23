@@ -15,12 +15,13 @@ DisplayExpression[LinearLagrangian,EqnLabel->"ProjectiveTheory"];
 Comment@{"First we study",Cref@"ProjectiveTheory"," in the first-order formulation."};
 LinearLagrangian*=Measure;
 LinearLagrangian//=LineariseLagrangian;
+(*
 ParticleSpectrum[LinearLagrangian,
 		ClassName->"MetricAffineGravity",
 		TheoryName->"ProjectiveTheory",	
 		Method->"Hard",
 		MaxLaurentDepth->1];
-
+*)
 Comment@{"Next we study",Cref@"ProjectiveTheory"," in the second-order formulation."};
 LinearLagrangian=LineariseLagrangian[LinearLagrangian,Formulation->SecondOrder];
 ParticleSpectrum[LinearLagrangian,

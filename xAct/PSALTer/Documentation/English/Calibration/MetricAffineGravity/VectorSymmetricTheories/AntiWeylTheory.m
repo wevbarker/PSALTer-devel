@@ -15,12 +15,13 @@ DisplayExpression[LinearLagrangian,EqnLabel->"AntiWeylTheory"];
 Comment@{"First we study",Cref@"AntiWeylTheory"," in the first-order formulation."};
 LinearLagrangian*=Measure;
 LinearLagrangian//=LineariseLagrangian;
+(*
 ParticleSpectrum[LinearLagrangian,
 		ClassName->"MetricAffineGravity",
 		TheoryName->"AntiWeylTheory",	
 		Method->"Hard",
 		MaxLaurentDepth->1];
-
+*)
 Comment@{"Next we study",Cref@"AntiWeylTheory"," in the second-order formulation."};
 LinearLagrangian=LineariseLagrangian[LinearLagrangian,Formulation->SecondOrder];
 ParticleSpectrum[LinearLagrangian,

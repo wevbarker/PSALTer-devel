@@ -15,12 +15,13 @@ DisplayExpression[LinearLagrangian,EqnLabel->"ConcurrentTheory"];
 Comment@{"First we study",Cref@"ConcurrentTheory"," in the first-order formulation."};
 LinearLagrangian*=Measure;
 LinearLagrangian//=LineariseLagrangian;
+(*
 ParticleSpectrum[LinearLagrangian,
 		ClassName->"MetricAffineGravity",
 		TheoryName->"ConcurrentTheory",	
 		Method->"Hard",
 		MaxLaurentDepth->1];
-
+*)
 Comment@{"Next we study",Cref@"ConcurrentTheory"," in the second-order formulation."};
 LinearLagrangian=LineariseLagrangian[LinearLagrangian,Formulation->SecondOrder];
 ParticleSpectrum[LinearLagrangian,
