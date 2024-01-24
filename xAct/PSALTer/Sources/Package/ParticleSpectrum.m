@@ -159,7 +159,6 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 				ValuesOfSourceConstraints,
 				ExportTheory->False];
 
-
 	ConstructSaturatedPropagator[
 				OptionValue@ClassName,
 				MatrixLagrangian,

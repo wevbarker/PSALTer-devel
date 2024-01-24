@@ -14,8 +14,10 @@ Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity",
 					"AllowingMasslessVectorTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity",
 					"MetricAffineEinsteinHilbertTheory.m"};
+*)
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity",
 					"CarloTheories.m"};
+(*
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity",
 					"RemovingMasslessVectorTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity",
@@ -32,6 +34,6 @@ Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity",
 					"MetricAffineGaussBonnetTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity",
 					"QuadraticSymmetricRiemannTheory.m"};
-*)
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity",
 					"VectorSymmetricTheories.m"};
+*)
