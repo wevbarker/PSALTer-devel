@@ -74,30 +74,35 @@ CarloSolutions={
 
 Comment@"Now we will study the batch of theories sent by Carlo.";
 DisplayExpression/@CarloSolutions;
-DisplayExpression/@DeparameterisationRules;
+(*DisplayExpression/@DeparameterisationRules;*)
+
+TheNonlinearLagrangian=NonlinearLagrangian/.{
+	xAct`PSALTer`MetricAffineGravity`A1->0,
+	xAct`PSALTer`MetricAffineGravity`A2->0,
+	xAct`PSALTer`MetricAffineGravity`A3->0,
+	xAct`PSALTer`MetricAffineGravity`A4->0,
+	xAct`PSALTer`MetricAffineGravity`A5->0,
+	xAct`PSALTer`MetricAffineGravity`A6->0,
+	xAct`PSALTer`MetricAffineGravity`A7->0,
+	xAct`PSALTer`MetricAffineGravity`A8->0,
+	xAct`PSALTer`MetricAffineGravity`A9->0,
+	xAct`PSALTer`MetricAffineGravity`A10->0,
+	xAct`PSALTer`MetricAffineGravity`A11->0,
+	xAct`PSALTer`MetricAffineGravity`C1->0,
+	xAct`PSALTer`MetricAffineGravity`C2->0,
+	xAct`PSALTer`MetricAffineGravity`C3->0,
+	xAct`PSALTer`MetricAffineGravity`C4->0,
+	xAct`PSALTer`MetricAffineGravity`C5->0,
+	xAct`PSALTer`MetricAffineGravity`C6->0,
+	xAct`PSALTer`MetricAffineGravity`C16->0};
+
+Comment@"Here is the most general Ricci-type theory.";
+DisplayExpression[LinearLagrangian,EqnLabel->"MetricAffineRicciTypeTheory"];
 
 CaseNumber=1;
 
 CarloTestTheory[RuleSet_,DeparameterisationRuleSet_]:=Module[{LinearLagrangian},
-	LinearLagrangian=NonlinearLagrangian/.{
-		xAct`PSALTer`MetricAffineGravity`A1->0,
-		xAct`PSALTer`MetricAffineGravity`A2->0,
-		xAct`PSALTer`MetricAffineGravity`A3->0,
-		xAct`PSALTer`MetricAffineGravity`A4->0,
-		xAct`PSALTer`MetricAffineGravity`A5->0,
-		xAct`PSALTer`MetricAffineGravity`A6->0,
-		xAct`PSALTer`MetricAffineGravity`A7->0,
-		xAct`PSALTer`MetricAffineGravity`A8->0,
-		xAct`PSALTer`MetricAffineGravity`A9->0,
-		xAct`PSALTer`MetricAffineGravity`A10->0,
-		xAct`PSALTer`MetricAffineGravity`A11->0,
-		xAct`PSALTer`MetricAffineGravity`C1->0,
-		xAct`PSALTer`MetricAffineGravity`C2->0,
-		xAct`PSALTer`MetricAffineGravity`C3->0,
-		xAct`PSALTer`MetricAffineGravity`C4->0,
-		xAct`PSALTer`MetricAffineGravity`C5->0,
-		xAct`PSALTer`MetricAffineGravity`C6->0,
-		xAct`PSALTer`MetricAffineGravity`C16->0};
+	LinearLagrangian=TheNonlinearLagrangian;
 
 	Comment@"Here is a new case defined by Carlo.";
 	DisplayExpression[RuleSet,EqnLabel->("RuleSet"<>ToString@CaseNumber)];
@@ -111,11 +116,13 @@ CarloTestTheory[RuleSet_,DeparameterisationRuleSet_]:=Module[{LinearLagrangian},
 	Comment@{"We first perform the spectral analysis of",Cref@("CarloTheory"<>ToString@CaseNumber)," in the first-order formulation (Palatini basis, in which the connection is independent of the metric)."};
 	LinearLagrangian*=Measure;
 	LinearLagrangian//=LineariseLagrangian;
+(*
 	ParticleSpectrum[LinearLagrangian,
 			ClassName->"MetricAffineGravity",
 			TheoryName->("CarloTheory"<>ToString@CaseNumber),	
 			Method->"Hard",
 			MaxLaurentDepth->1];
+*)
 
 	Comment@{"We next perform the spectral analysis of",Cref@("CarloTheory"<>ToString@CaseNumber)," in the second-order formulation (distortion basis, in which the distortion, i.e. contortion and disformation or torsion and non-metricity, are independent of the metric)."};
 	LinearLagrangian=LineariseLagrangian[LinearLagrangian,Formulation->SecondOrder];
