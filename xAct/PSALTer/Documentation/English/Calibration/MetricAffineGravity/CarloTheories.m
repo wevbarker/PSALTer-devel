@@ -97,7 +97,7 @@ TheNonlinearLagrangian=NonlinearLagrangian/.{
 	xAct`PSALTer`MetricAffineGravity`C16->0};
 
 Comment@"Here is the most general Ricci-type theory.";
-DisplayExpression[LinearLagrangian,EqnLabel->"MetricAffineRicciTypeTheory"];
+DisplayExpression[TheNonlinearLagrangian,EqnLabel->"MetricAffineRicciTypeTheory"];
 
 CaseNumber=1;
 
@@ -132,7 +132,7 @@ CarloTestTheory[RuleSet_,DeparameterisationRuleSet_]:=Module[{LinearLagrangian},
 			Method->"Hard",
 			MaxLaurentDepth->1];
 
-	Supercomment@{"Some comments to be made about",Cref@("CarloTheory"<>ToString@CaseNumber),"."};
+	Supercomment@{"So, the theory",Cref@("CarloTheory"<>ToString@CaseNumber)," cannot be viable."};
 	CaseNumber+=1;
 ];
 
