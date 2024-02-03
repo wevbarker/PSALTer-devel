@@ -6,7 +6,7 @@
 
 
 if [ "$1" = "--newton" ]; then
-	rsync -avh -e 'ssh -A -J appcs' --force --exclude '.git' newton:~/PSALTer-devel/xAct/PSALTer/Documentation/English/ ./xAct/PSALTer/Documentation/English/ --delete
+	rsync -avh -e 'ssh -A -J appcs' --force --include="*/" --include="*.mx" --include="*.png" --exclude="*" newton:~/PSALTer-devel/xAct/PSALTer/Documentation/English/ ./xAct/PSALTer/Documentation/English/ --delete
 elif [ "$1" = "--green" ]; then
 	rsync -avh --force ./ green:~/Documents/PSALTer-devel/ --delete
 elif [ "$1" = "--red" ]; then

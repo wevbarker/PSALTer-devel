@@ -18,7 +18,12 @@ BuildPackage@"ParticleSpectrum/SummariseResults/SummariseTheory.m";
 BuildPackage@"ParticleSpectrum/SummariseResults/PrintSpectrum.m";
 BuildPackage@"ParticleSpectrum/SummariseResults/PrintUnitarityConditions.m";
 
-SummariseResults[TheoryName_?StringQ,WaveOperator_,Propagator_,SourceConstraints_,Spectrum_,MasslessSpectrum_,OverallUnitarity_,SummaryOfTheory_]:=Module[{
+BuildPackage@"ParticleSpectrum/SummariseResults/SplitWignerGrid.m";
+BuildPackage@"ParticleSpectrum/SummariseResults/PSALTerResultsCollage.m";
+
+Options@SummariseResults={SummaryType->ResultsPanel};
+
+SummariseResults[TheoryName_?StringQ,WaveOperator_,Propagator_,SourceConstraints_,Spectrum_,MasslessSpectrum_,OverallUnitarity_,SummaryOfTheory_,OptionsPattern[]]:=Module[{
 	Computing,
 	TheSummaryOfTheory,
 	TheWaveOperator,
@@ -30,58 +35,91 @@ SummariseResults[TheoryName_?StringQ,WaveOperator_,Propagator_,SourceConstraints
 	SummaryOfResults
 	},
 
-	If[$CLI,
-		SummaryOfResults=CLIPrint[
-			TheoryName,
-			WaveOperator,
-			Propagator,
-			SourceConstraints,
-			Spectrum,
-			MasslessSpectrum,
-			OverallUnitarity];
-	,
-		Computing=Row[{ProgressIndicator[Appearance->"Necklace",ImageSize->Small],"Pending..."},Invisible@MakeLabel@"  ",Alignment->{Left,Center}];
-		FullWidth=First@Rasterize[Show[Graphics[Circle[]],ImageSize->Full],"RasterSize"];
+	If[OptionValue@SummaryType==ResultsPanel,
+		If[$CLI,
+			SummaryOfResults=CLIPrint[
+				TheoryName,
+				WaveOperator,
+				Propagator,
+				SourceConstraints,
+				Spectrum,
+				MasslessSpectrum,
+				OverallUnitarity];
+		,
+			Computing=Row[{ProgressIndicator[
+					Appearance->"Necklace",
+					ImageSize->Small],
+					"Pending..."},
+					Invisible@MakeLabel@"  ",Alignment->{Left,Center}];
+			FullWidth=First@Rasterize[Show[Graphics[Circle[]],
+							ImageSize->Full],"RasterSize"];
+
+			TheSummaryOfTheory=SummariseTheory@SummaryOfTheory;
+			If[WaveOperator===Null,
+				TheWaveOperator=Computing,
+				TheWaveOperator=WignerGrid@@WaveOperator];
+			If[Propagator===Null,
+				ThePropagator=Computing,
+				ThePropagator=WignerGrid@@Propagator];
+			If[SourceConstraints===Null,
+				TheSourceConstraints=Computing,
+				TheSourceConstraints=PrintSourceConstraints@@SourceConstraints];
+			If[Spectrum===Null,
+				TheSpectrum=Computing,
+				TheSpectrum=If[ListQ@#,
+				Grid[Partition[#,UpTo@2],Alignment->{Left,Top}],
+				#,#]&@(PrintSpectrum@@Spectrum)];
+			If[MasslessSpectrum===Null,
+				TheMasslessSpectrum=Computing,
+				TheMasslessSpectrum=If[ListQ@#,
+				Grid[Partition[#,UpTo@2],Alignment->{Left,Top}],
+				#,#]&@(PrintSpectrum@@MasslessSpectrum)];
+			If[OverallUnitarity===Null,
+				TheOverallUnitarity=Computing,
+				TheOverallUnitarity=DetailCell@@(PrintUnitarityConditions@OverallUnitarity)];
+
+			SummaryOfResults=Column[{
+				MakeLabel@"PSALTer results panel",
+				TheSummaryOfTheory,
+				MakeLabel@"Wave operator",
+				TheWaveOperator,
+				MakeLabel@"Saturated propagator",
+				ThePropagator,
+				MakeLabel@"Source constraints",
+				TheSourceConstraints,
+				MakeLabel@"Massive spectrum",
+				TheSpectrum,
+				MakeLabel@"Massless spectrum",
+				TheMasslessSpectrum,
+				MakeLabel@"Unitarity conditions",
+				TheOverallUnitarity},
+				Spacings->{1,1},
+				Frame->True,
+				Background->PanelColor,
+				Alignment->{Left,Center}];
+		];
+	];
+
+	If[OptionValue@SummaryType==ResultsCollage,	
+
+		FullWidth=First@Rasterize[Show[Graphics[Circle[]],
+						ImageSize->Full],"RasterSize"];
 
 		TheSummaryOfTheory=SummariseTheory@SummaryOfTheory;
-		If[WaveOperator===Null,
-			TheWaveOperator=Computing,
-			TheWaveOperator=WignerGrid@@WaveOperator];
-		If[Propagator===Null,
-			ThePropagator=Computing,
-			ThePropagator=WignerGrid@@Propagator];
-		If[SourceConstraints===Null,
-			TheSourceConstraints=Computing,
-			TheSourceConstraints=PrintSourceConstraints@@SourceConstraints];
-		If[Spectrum===Null,
-			TheSpectrum=Computing,
-			TheSpectrum=PrintSpectrum@@Spectrum];
-		If[MasslessSpectrum===Null,
-			TheMasslessSpectrum=Computing,
-			TheMasslessSpectrum=PrintSpectrum@@MasslessSpectrum];
-		If[OverallUnitarity===Null,
-			TheOverallUnitarity=Computing,
-			TheOverallUnitarity=DetailCell@@(PrintUnitarityConditions@OverallUnitarity)];
+		TheWaveOperator=SplitWignerGrid@@WaveOperator;
+		ThePropagator=SplitWignerGrid@@Propagator;
+		TheSourceConstraints=PrintSourceConstraints@@SourceConstraints;
+		TheSpectrum=If[ListQ@#,#,{#},{#}]&@(PrintSpectrum@@Spectrum);
+		TheMasslessSpectrum=If[ListQ@#,#,{#},{#}]&@(PrintSpectrum@@MasslessSpectrum);
+		TheOverallUnitarity=DetailCell@@(PrintUnitarityConditions@OverallUnitarity);
 
-		SummaryOfResults=Column[{
-			MakeLabel@"PSALTer results panel",
-			TheSummaryOfTheory,
-			MakeLabel@"Wave operator",
-			TheWaveOperator,
-			MakeLabel@"Saturated propagator",
-			ThePropagator,
-			MakeLabel@"Source constraints",
-			TheSourceConstraints,
-			MakeLabel@"Massive spectrum",
-			TheSpectrum,
-			MakeLabel@"Massless spectrum",
-			TheMasslessSpectrum(*,
-			MakeLabel@"Gauge symmetries",
-			"(Not yet implemented in PSALTer)"*),
-			MakeLabel@"Unitarity conditions",
-			TheOverallUnitarity(*,
-			MakeLabel@"Validity assumptions",
-			"(Not yet implemented in PSALTer)"*)
-			},Spacings->{1,1},Frame->True,Background->PanelColor,Alignment->{Left,Center}];
+		SummaryOfResults=PSALTerResultsCollage[
+				TheSummaryOfTheory,
+				TheWaveOperator,
+				ThePropagator,
+				TheSourceConstraints,
+				TheSpectrum,
+				TheMasslessSpectrum,
+				TheOverallUnitarity];
 	];
 SummaryOfResults];

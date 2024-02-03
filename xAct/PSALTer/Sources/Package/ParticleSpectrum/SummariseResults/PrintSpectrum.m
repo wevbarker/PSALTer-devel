@@ -34,9 +34,11 @@ PrintSpectrum[
 			(PrintSecularEquation/@SecularEquation)*)
 		]
 	);
-
+(*
 	If[!(ContentList=={}),
 		ContentList//=Grid[Partition[#,UpTo@2],Alignment->{Left,Top}]&;,
 		ContentList=DetailCell@Text@"(No particles)";
 	];
+*)
+	If[ContentList=={},ContentList=DetailCell@Text@"(No particles)"];
 ContentList];

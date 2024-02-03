@@ -64,7 +64,8 @@ ParticleSpectrum[OptionsPattern[]]:=Catch@Module[{
 
 ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 	SummariseResultsOngoing,
-	ClassNames
+	ClassNames,
+	RasterObject
 },
 
 	ClassNames={"ScalarTheory",
@@ -228,9 +229,12 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 
 	DeleteDirectory[FileNameJoin@{$WorkingDirectory,"tmp"},DeleteContents->True];
 
-	FinishDynamic[];
-	NotebookDelete@SummariseResultsOngoing;
-	TaskRemove@SummariseResultsOngoing;
+	If[$CLI,
+		TaskRemove@SummariseResultsOngoing;
+	,
+		FinishDynamic[];
+		NotebookDelete@SummariseResultsOngoing;
+	];
 
 	If[$CLI,
 		Run@("echo -e \"\n\n"<>CLIPrint[
@@ -254,16 +258,23 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 		Print@SummaryOfResults;
 	];
 
-
-
-
-
-(*
 	If[$ExportPDF,
-		Export[FileNameJoin@{$WorkingDirectory,OptionValue@TheoryName<>".pdf"},
-					SummaryOfResults]
+		RasterObject=SummariseResults[
+				OptionValue@TheoryName,
+				LocalWaveOperator,
+				LocalPropagator,
+				LocalSourceConstraints,
+				LocalSpectrum,
+				LocalMasslessSpectrum,
+				LocalOverallUnitarity,
+				LocalSummaryOfTheory,
+				SummaryType->ResultsCollage];
+		Print@RasterObject;
+		Export[FileNameJoin@{$WorkingDirectory,OptionValue@TheoryName<>".png"},
+			RasterObject
+		];
 	];
-*)
+
 	MapThread[
 	UpdateTheoryAssociation[
 				OptionValue@TheoryName,

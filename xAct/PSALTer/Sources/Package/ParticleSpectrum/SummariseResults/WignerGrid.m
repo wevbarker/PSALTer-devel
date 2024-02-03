@@ -9,6 +9,7 @@ AllElements,
 EndCells,
 StartCells,
 Frames,
+InnerFrames,
 Cols
 },
 
@@ -48,28 +49,62 @@ Which[
 )&,
 {StartCells,EndCells,SpinParities,Sizes,TheSides,TheTops},1];
 
+OuterDirective=Directive[Black,Thick];
+InnerDirective=Directive[Black,Thickness@Medium];
+
 Frames=MapThread[
 (
 Which[
 #3[[1]]==0,
 	{
-	{{#1[[2]]+1,#2[[2]]+1},{#1[[2]]+1,#2[[2]]+1}}->True
+	{{#1[[2]]+1,#2[[2]]+1},{#1[[2]]+1,#2[[2]]+1}}->OuterDirective
 	},
 #3[[2]]==0,
 	{
-	{{#1[[1]]+1,#2[[1]]+1},{#1[[1]]+1,#2[[1]]+1}}->True
+	{{#1[[1]]+1,#2[[1]]+1},{#1[[1]]+1,#2[[1]]+1}}->OuterDirective
 	},
 (!(#3[[1]]==0))&&(!(#3[[2]]==0)),
 	{
-	{{#1[[1]]+1,#2[[2]]+1},{#1[[1]]+1,#2[[2]]+1}}->True,
-	{{#1[[1]]+1,#2[[1]]+1},{#1[[1]]+1,#2[[1]]+1}}->True,
-	{{#1[[2]]+1,#2[[2]]+1},{#1[[2]]+1,#2[[2]]+1}}->True
+	{{#1[[1]]+1,#2[[2]]+1},{#1[[1]]+1,#2[[2]]+1}}->OuterDirective,
+	{{#1[[1]]+1,#2[[1]]+1},{#1[[1]]+1,#2[[1]]+1}}->OuterDirective,
+	{{#1[[2]]+1,#2[[2]]+1},{#1[[2]]+1,#2[[2]]+1}}->OuterDirective
 	}
 ]
 )&,
 {StartCells,EndCells,Sizes}
 ];
 Frames//=Flatten;
+
+InnerFrames=MapThread[
+(
+Which[
+#3[[1]]==0,
+	Table[
+	{
+	{{#1[[2]]+1,#2[[2]]+1},{#1[[2]]+1,qf}}->InnerDirective,
+	{{#1[[2]]+1,qf},{#1[[2]]+1,#2[[2]]+1}}->InnerDirective
+	},
+	{qf,#1[[2]]+1,#2[[2]]+1}]
+	,
+#3[[2]]==0,
+	Table[
+	{
+	{{#1[[1]]+1,#2[[1]]+1},{#1[[1]]+1,qf}}->InnerDirective,
+	{{#1[[1]]+1,qf},{#1[[1]]+1,#2[[1]]+1}}->InnerDirective
+	},
+	{qf,#1[[1]]+1,#2[[1]]+1}],
+(!(#3[[1]]==0))&&(!(#3[[2]]==0)),
+	Table[
+	{
+	{{#1[[1]]+1,#2[[2]]+1},{#1[[1]]+1,qf}}->InnerDirective,
+	{{#1[[1]]+1,qf},{#1[[1]]+1,#2[[2]]+1}}->InnerDirective
+	},
+	{qf,#1[[1]]+1,#2[[2]]+1}]
+]
+)&,
+{StartCells,EndCells,Sizes}
+];
+InnerFrames//=Flatten;
 
 Cols=MapThread[
 (
@@ -90,5 +125,9 @@ Which[
 {StartCells,EndCells,Sizes}
 ];
 	Cols//=Flatten;
+
+
+Frames=InnerFrames~Join~Frames;
+
 (*,ItemSize->All*)
 Grid[Map[If[#==Null,Null,Text@#,Text@#]&,AllElements,{2}],Background->{None,None,Cols},Frame->{None,None,Frames},Alignment->{Center,Center,Alignments},ItemSize->Full]];
