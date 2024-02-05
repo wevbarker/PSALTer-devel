@@ -179,6 +179,13 @@ SplitWignerGrid[AllMatrices_,Sizes_,Spins_,Sides_,Tops_]:=(WignerGrid@@#)&/@MapT
 	(List/@{#1,#2,#3,#4,#5})&,
 	{AllMatrices,Sizes,Spins,Sides,Tops}];
 
+Vectorize[InputExpr_]:=Module[{TemporaryFileName,Expr},
+	TemporaryFileName=FileNameJoin@{NotebookDirectory[],"tmp/Vectorized"<>".pdf"};
+	TemporaryFileName~Export~InputExpr;
+	Expr=TemporaryFileName~Import~{"PDF","PageGraphics"};
+	Expr//=First;
+Expr];
+
 PSALTerResultsCollage[
 		TheSummaryOfTheory_,
 		TheWaveOperator_,
@@ -189,7 +196,7 @@ PSALTerResultsCollage[
 	WaveOperatorGroup=TheWaveOperator,
 	SpectrumGroup=Join[TheSpectrum,TheMasslessSpectrum],
 	TheoryGroup=Join[TheSummaryOfTheory,TheSourceConstraints,TheOverallUnitarity],
-	FinalImageResolution=400,
+	FinalImageResolution=100,
 	FinalImageWidth=500,
 	FinalImage,
 	UpperHalf,
@@ -204,10 +211,12 @@ PSALTerResultsCollage[
 
 	IfNotSpanFromLeft[InputImage_,ApplyFunction_]:=(Map[If[!(#==SpanFromLeft),ApplyFunction@#,#,ApplyFunction@#]&,InputImage,{2}]);
 
+(*
 	UpperHalf=UpperHalf~IfNotSpanFromLeft~(If[ListQ@#,#,{#},{#}]&);
 	UpperHalf=UpperHalf~IfNotSpanFromLeft~((Rasterize[#,
 				Background->PanelColor,
-				ImageResolution->UpperHalfResolution]&/@#)&);
+				ImageResolution->FinalImageResolution]&/@#)&);
+	UpperHalf=UpperHalf~IfNotSpanFromLeft~((ImageGraphics[#]&/@#)&);
 	UpperHalf=UpperHalf~IfNotSpanFromLeft~(ImageCollage[
 				MapThread[(#1->#2)&,
 					{(Times@@#)&/@(ImageDimensions/@#),#}],
@@ -219,42 +228,71 @@ PSALTerResultsCollage[
 			BaselinePosition->Center,
 			Background->PanelColor,
 			Alignment->{Left,Center}]&;
-
+	(*Print@UpperHalf;*)
+*)
 	LowerHalf={
 			{MakeLabel@"PSALTer results panel",SpanFromLeft,SpanFromLeft},
 			{MakeLabel@"Wave operator",SpanFromLeft,SpanFromLeft},
-			{WaveOperatorGroup,SpanFromLeft,SpanFromLeft}
+			{WaveOperatorGroup,SpanFromLeft,SpanFromLeft},
+			{MakeLabel@"Massive spectrum",MakeLabel@"Massless spectrum",MakeLabel@"Massless spectrum"},
+			{SpectrumGroup,TheoryGroup,TheoryGroup}
 		};
 
 	LowerHalf=LowerHalf~IfNotSpanFromLeft~(If[ListQ@#,#,{#},{#}]&);
+(*
 	LowerHalf=LowerHalf~IfNotSpanFromLeft~((Rasterize[#,
 				Background->PanelColor,
-				ImageResolution->LowerHalfResolution]&/@#)&);
+				ImageResolution->FinalImageResolution]&/@#)&);
+	LowerHalf=LowerHalf~IfNotSpanFromLeft~((ImageGraphics[#]&/@#)&);
+*)
+	LowerHalf=LowerHalf~IfNotSpanFromLeft~((Vectorize[#]&/@#)&);
+	Print@LowerHalf;
+(*
 	LowerHalf=LowerHalf~IfNotSpanFromLeft~(ImageCollage[
 				MapThread[(#1->#2)&,
 					{(Times@@#)&/@(ImageDimensions/@#),#}],
 					Background->PanelColor,
 					ImagePadding->4]&);
-	LowerHalf=LowerHalf~IfNotSpanFromLeft~(Image[#,Magnification->1]&);
+*)
+	img=Vectorize@First@WaveOperatorGroup;
+	LowerHalf=Graphics[{Inset[img, {2, 3}],Inset[img, {2.5, 3}]}, Frame -> True];
+	Print@LowerHalf;
+	Quit[];
+	LowerHalf=LowerHalf~IfNotSpanFromLeft~(WordCloud[
+				MapThread[(#1->#2)&,
+					{(1&)/@#,#}],
+					Rectangle[{0,0},
+						{Max@Flatten@(ImageDimensions/@#),
+						Max@Flatten@(ImageDimensions/@#)}],
+					ScalingFunctions->(#&),
+					PreprocessingRules->{Expr_->Magnify[Expr,1]},
+					Background->PanelColor,
+					WordSpacings->0]&);
+	Print@LowerHalf;
+	(*LowerHalf=LowerHalf~IfNotSpanFromLeft~(Image[#,Magnification->1]&);*)
+	Print@LowerHalf;
 	LowerHalf//=Grid[#,
-			Spacings->{0,0},
-			BaselinePosition->Center,
+			Alignment->{Left,Center},
 			Background->PanelColor,
-			Alignment->{Left,Center}]&;
-
-
+			ImageSize->Small
+			BaselinePosition->Center,
+			Spacings->{0,0}]&;
+	Print@LowerHalf;
+(*
 	FinalImage=Grid[{{LowerHalf},{UpperHalf}},
 			Spacings->{0,0},
 			Frame->True,
 			BaselinePosition->Center,
 			Background->PanelColor,
 			Alignment->{Left,Center}];
+
+(*
 	FinalImageResolution=80;
 	While[$RasterIncomplete,
 		Check[
 			$RasterIncomplete=False;
 			Print@"trying...";
-			RasterFinalImage=Rasterize[#,
+			RasterFinalImage=ImageGraphics@Rasterize[#,
 						Background->PanelColor,
 						ImageResolution->5*FinalImageResolution(*,
 						ImageSize->FinalImageWidth*)]&@FinalImage;
@@ -262,9 +300,15 @@ PSALTerResultsCollage[
 			$RasterIncomplete=True;
 			FinalImageResolution*=0.9;
 			(*FinalImageWidth*=0.9;*)
-			Print@FinalImageWidth;
 		];	
 	];
+*)
+Print@FinalImage;
+*)
+Export[FileNameJoin@{NotebookDirectory[],"Test"<>".pdf"},
+			LowerHalf
+		];
+
 RasterFinalImage];
 
 
@@ -278,10 +322,7 @@ Tops={{x,y},{z,e,h,h}};
 MainWignerGrid=WignerGrid[AllMatrices,Sizes,Spins,Sides,Tops];
 (*Print@MainWignerGrid;*)
 
-NewObject=Grid[{Flatten@{Alphabet[],Alphabet[],Alphabet[],Alphabet[],Alphabet[]}},Frame->All];
-Print@NewObject;
 TheWaveOperator=SplitWignerGrid[AllMatrices,Sizes,Spins,Sides,Tops];
-TheWaveOperator=TheWaveOperator~Join~{NewObject};
 (*Print/@TheWaveOperator;*)
 
 TheSummaryOfTheory=Total/@Partition[Alphabet[],3];
@@ -297,6 +338,6 @@ Collage=PSALTerResultsCollage[
 		TheSpectrum,
 		TheMasslessSpectrum,
 		TheOverallUnitarity];
-Print@Collage;
+(*Print@Collage;*)
 
 Quit[];

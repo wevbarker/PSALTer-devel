@@ -57,7 +57,6 @@ BasicCriticalCases={
 	kR1==kR2==kR3==kR4==kR5==kT1==kT2==kT3==0
 };
 (*
-*)
 Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory",
 					"NevilleTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory",
@@ -72,13 +71,14 @@ Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory",
 					"AsymmetricPartanenTulkkiTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory",
 					"GeneralRelativity.m"};
-(*
 Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory",
 					"MelichevPercacciTheory.m"};
-*)
 Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory",
 					"YoNesterTheories.m"};
+*)
 Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory",
 					"AnnalaRasanenTheory.m"};
+(*
 Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory",
 					"LinHobsonLasenbyTheories.m"};
+*)

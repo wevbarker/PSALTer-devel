@@ -80,9 +80,8 @@ LinearFirstOrderToLinearSecondOrder[LinearFirstOrder_]:=Module[{LinearSecondOrde
 	LinearSecondOrder//=LineariseLagrangian;
 LinearSecondOrder];
 
-
-Options@LineariseLagrangian={Formulation->FirstOrder};
-LineariseLagrangian[NonlinearLagrangian_,OptionsPattern[]]:=Module[{
+Options@MetricAffineLineariseLagrangian={Formulation->FirstOrder};
+MetricAffineLineariseLagrangian[NonlinearLagrangian_,OptionsPattern[]]:=Module[{
 	LinearLagrangian=NonlinearLagrangian,
 	FirstOrderPart,
 	SecondOrderPart	

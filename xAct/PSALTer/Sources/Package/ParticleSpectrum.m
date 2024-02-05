@@ -259,6 +259,7 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 	];
 
 	If[$ExportPDF,
+		Print@"Gotten that far";
 		RasterObject=SummariseResults[
 				OptionValue@TheoryName,
 				LocalWaveOperator,
@@ -269,7 +270,8 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 				LocalOverallUnitarity,
 				LocalSummaryOfTheory,
 				SummaryType->ResultsCollage];
-		Print@RasterObject;
+		Print@"Gotten this far";
+		(*Print@RasterObject;*)
 		Export[FileNameJoin@{$WorkingDirectory,OptionValue@TheoryName<>".png"},
 			RasterObject
 		];

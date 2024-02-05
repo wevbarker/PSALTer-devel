@@ -58,7 +58,7 @@ module purge                               # Removes all modules still loaded
 module load rhel7/default-ccl              # REQUIRED - loads the basic environment
 
 #! Insert additional module load commands after this line if needed:
-module load mathematica		#!	PSALTer is a wolfram package
+module load mathematica/13.1		#!	PSALTer is a wolfram package
 module load intel/bundles/complib/2017.4 	#!	Intel compiler suite 
 module load gcc-5.4.0-gcc-4.8.5-fis24gg		#!	C++ with Intel compilers
 module load gcc-7.2.0-gcc-4.8.5-pqn7o2k		#!	GCC compiler suite

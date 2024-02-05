@@ -15,6 +15,7 @@ PSALTerResultsCollage[
 	MasslessSpectrumGroup=TheMasslessSpectrum,
 	FinalImageResolution=200,
 	FinalImageWidth=500,
+	GridSpacing=Scaled[0.01],
 	UpperHalf,
 	LowerHalf,
 	FinalImage,
@@ -61,7 +62,7 @@ PSALTerResultsCollage[
 					ImagePadding->4]&);
 	UpperHalf=UpperHalf~IfNotSpanFromLeft~(Image[#,Magnification->1]&);
 	UpperHalf//=Grid[#,
-			Spacings->{0,0},
+			Spacings->{GridSpacing,GridSpacing},
 			Background->PanelColor,
 			Alignment->{Left,Center}]&;
 
@@ -76,17 +77,17 @@ PSALTerResultsCollage[
 					ImagePadding->4]&);
 	LowerHalf=LowerHalf~IfNotSpanFromLeft~(Image[#,Magnification->1]&);
 	LowerHalf//=Grid[#,
-			Spacings->{0,0},
+			Spacings->{GridSpacing,GridSpacing},
 			Background->PanelColor,
 			Alignment->{Left,Center}]&;
 
 	FinalImage=Grid[{{UpperHalf},{LowerHalf}},
-			Spacings->{0,0},
+			Spacings->{GridSpacing,GridSpacing},
 			Frame->True,
 			BaselinePosition->Center,
 			Background->PanelColor,
 			Alignment->{Left,Center}];
-	FinalImageResolution=150;
+	FinalImageResolution=400;
 	While[$RasterIncomplete,
 		Check[
 			$RasterIncomplete=False;
