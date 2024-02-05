@@ -186,6 +186,60 @@ Vectorize[InputExpr_]:=Module[{TemporaryFileName,Expr},
 	Expr//=First;
 Expr];
 
+<<JasonB`RectanglePacking`;
+
+
+GraphicsCollage[InputExpr_]:=InputExpr;
+
+GraphicsCollage[InputExpr__]:=Module[{
+		Expr=InputExpr,
+		GraphicsDimensions,
+		PackedGraphicsDimensions,
+		FrameSize,
+		Packing,
+		Flipped,
+		GraphicsContent,
+		PackedGraphicsCoordinates,
+		FinalGraphicsCollage},
+
+	Expr//=List;
+	GraphicsDimensions=ImageDimensions/@Expr;
+
+	FrameSize=Total@GraphicsDimensions;
+	Packing=FrameSize~PackRectangles~GraphicsDimensions;
+
+	DummyPacking=Graphics[{FaceForm[LightYellow],
+				EdgeForm[Black],
+				{LightBlue,
+				Rectangle[{0,0},FrameSize],
+				LightYellow}~Join~(Rectangle@@@Packing)},
+				Frame->False];
+	Print@DummyPacking;
+
+	PackedGraphicsDimensions=(Minus@(Subtract@@#))&/@Packing;
+
+	Permutation=(Sort/@GraphicsDimensions)~FindPermutation~(Sort/@PackedGraphicsDimensions);
+
+	Flipped=MapThread[(If[#1==#2,False,True,True])&,
+				{GraphicsDimensions~Permute~Permutation,PackedGraphicsDimensions}];
+
+	GraphicsContent=(If[#2,Rotate[#1,Pi/2],#1])&~MapThread~{Expr~Permute~Permutation,Flipped};
+
+	PackedGraphicsCoordinates=(N/@Simplify@((1/2)*Plus@@#))&/@Packing;
+
+	FinalGraphicsCollage=MapThread[Inset[#1,Offset@#2]&,
+				{GraphicsContent,PackedGraphicsCoordinates}];
+	FinalGraphicsCollage={PanelColor,Rectangle[Offset@{0,0},Offset@FrameSize]}~Join~FinalGraphicsCollage;
+	FinalGraphicsCollage//=Graphics[#,Frame->False]&;
+
+FinalGraphicsCollage];
+
+
+(*
+	LowerHalf=Graphics[{Inset[img, {2, 3}],Inset[img, {2.5, 3}]}, Frame -> False];
+*)
+
+
 PSALTerResultsCollage[
 		TheSummaryOfTheory_,
 		TheWaveOperator_,
@@ -254,10 +308,12 @@ PSALTerResultsCollage[
 					Background->PanelColor,
 					ImagePadding->4]&);
 *)
-	img=Vectorize@First@WaveOperatorGroup;
-	LowerHalf=Graphics[{Inset[img, {2, 3}],Inset[img, {2.5, 3}]}, Frame -> True];
+	LowerHalf=Vectorize/@WaveOperatorGroup;
+	Print@LowerHalf;
+	LowerHalf=GraphicsCollage@@LowerHalf;
 	Print@LowerHalf;
 	Quit[];
+	(*LowerHalf=Graphics[{Inset[img, {2, 3}],Inset[img, {2.5, 3}]}, Frame -> False];*)
 	LowerHalf=LowerHalf~IfNotSpanFromLeft~(WordCloud[
 				MapThread[(#1->#2)&,
 					{(1&)/@#,#}],
