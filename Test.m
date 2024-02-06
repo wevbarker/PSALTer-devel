@@ -190,9 +190,8 @@ Expr];
 
 
 GraphicsCollage[InputExpr_]:=InputExpr;
-
-GraphicsCollage[InputExpr__]:=Module[{
-		Expr=InputExpr,
+GraphicsCollage[InputExpr__]:=GraphicsCollage[InputExpr,1];
+GraphicsCollage[InputExpr__,CollageWidth_?IntegerQ]:=Module[{
 		GraphicsDimensions,
 		PackedGraphicsDimensions,
 		FrameSize,
@@ -200,39 +199,43 @@ GraphicsCollage[InputExpr__]:=Module[{
 		Flipped,
 		GraphicsContent,
 		PackedGraphicsCoordinates,
+		ScalingError,
 		FinalGraphicsCollage},
 
-	Expr//=List;
-	GraphicsDimensions=ImageDimensions/@Expr;
-
-	FrameSize=Total@GraphicsDimensions;
-	Packing=FrameSize~PackRectangles~GraphicsDimensions;
-
+	GraphicsDimensions=ImageDimensions/@(List@InputExpr);
+	FrameSize={Ceiling[0.9*#],Ceiling[1.1*#]}&@(Max@(First/@GraphicsDimensions));
+	Packing=PackRectangles[FrameSize,GraphicsDimensions,Method->$MaxRectangles];
+	CollageSize=Max/@Transpose@((#[[2]])&/@Packing);
 	DummyPacking=Graphics[{FaceForm[LightYellow],
 				EdgeForm[Black],
 				{LightBlue,
 				Rectangle[{0,0},FrameSize],
 				LightYellow}~Join~(Rectangle@@@Packing)},
-				Frame->False];
-	Print@DummyPacking;
-
+				Frame->True];
 	PackedGraphicsDimensions=(Minus@(Subtract@@#))&/@Packing;
-
 	Permutation=(Sort/@GraphicsDimensions)~FindPermutation~(Sort/@PackedGraphicsDimensions);
-
 	Flipped=MapThread[(If[#1==#2,False,True,True])&,
 				{GraphicsDimensions~Permute~Permutation,PackedGraphicsDimensions}];
-
-	GraphicsContent=(If[#2,Rotate[#1,Pi/2],#1])&~MapThread~{Expr~Permute~Permutation,Flipped};
-
+	GraphicsContent=(If[#2,Rotate[#1,Pi/2],#1])&~MapThread~{{InputExpr}~Permute~Permutation,
+								Flipped};
 	PackedGraphicsCoordinates=(N/@Simplify@((1/2)*Plus@@#))&/@Packing;
-
-	FinalGraphicsCollage=MapThread[Inset[#1,Offset@#2]&,
+	Insets=MapThread[Inset[Magnify[#1,1],#2]&,
 				{GraphicsContent,PackedGraphicsCoordinates}];
-	FinalGraphicsCollage={PanelColor,Rectangle[Offset@{0,0},Offset@FrameSize]}~Join~FinalGraphicsCollage;
-	FinalGraphicsCollage//=Graphics[#,Frame->False]&;
+	MakeGraphicsCollage[Insets_,ImageSizeScale_]:=Graphics[Insets,
+			Background->PanelColor,
+			Frame->False,
+			PlotRange->{{0,CollageSize[[1]]},{0,CollageSize[[2]]}},
+			ImagePadding->None,
+			ImageSize->ImageSizeScale*CollageSize];
+	FinalGraphicsCollage=MakeGraphicsCollage[Insets,1];
+	ScalingError=(N@(#1/#2))&~MapThread~{CollageSize,ImageDimensions@FinalGraphicsCollage};
+	ScalingError//=Total;
+	ScalingError/=2;
+	FinalGraphicsCollage=MakeGraphicsCollage[Insets,ScalingError];
 
 FinalGraphicsCollage];
+
+(*Print@$RectanglePackingMethods;*)
 
 
 (*
@@ -312,6 +315,12 @@ PSALTerResultsCollage[
 	Print@LowerHalf;
 	LowerHalf=GraphicsCollage@@LowerHalf;
 	Print@LowerHalf;
+
+
+Export[FileNameJoin@{NotebookDirectory[],"Test"<>".pdf"},
+			LowerHalf
+		];
+
 	Quit[];
 	(*LowerHalf=Graphics[{Inset[img, {2, 3}],Inset[img, {2.5, 3}]}, Frame -> False];*)
 	LowerHalf=LowerHalf~IfNotSpanFromLeft~(WordCloud[
@@ -369,7 +378,7 @@ RasterFinalImage];
 
 
 
-AllMatrices={{{a,b},{b,c}},{{d,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0}}};
+AllMatrices={{{a,b},{b,c}},{{d,0,0,0},{0,0,0,0},{0,0,0,0},{0,dsadfg-dsfd+gdg,a+b-c+r+f+g+hh+j+k,0}}};
 Sizes={{2,0},{1,3}};
 Spins={{0,0},{1,1}};
 Sides={{i,d},{k,v,h,h}};
@@ -380,6 +389,8 @@ MainWignerGrid=WignerGrid[AllMatrices,Sizes,Spins,Sides,Tops];
 
 TheWaveOperator=SplitWignerGrid[AllMatrices,Sizes,Spins,Sides,Tops];
 (*Print/@TheWaveOperator;*)
+SmallMatrix=First@TheWaveOperator;
+TheWaveOperator=Table[SmallMatrix,3]~Join~TheWaveOperator;
 
 TheSummaryOfTheory=Total/@Partition[Alphabet[],3];
 TheSourceConstraints=Total/@Partition[Alphabet[],3];
