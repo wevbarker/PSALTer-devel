@@ -3,7 +3,7 @@
 (*========================================*)
 (*  LagrangianWGTEScaleInvariantRescaling *)
 (*========================================*)
-
+Section@"Setting out the eWGT Lagrangian (nonlinear) in scale-invariant variables, A+_hat, h_hat:";
 (*========================*)
 (*  Setting the rescaling *)
 (*========================*)
@@ -14,7 +14,7 @@ WeylWGTEScaleInvariantRescalingWeylVectorA=Join[
 	MakeRule[{WeylVector[-i],WeylVector[-i]+((1/3)*WeylInvTetrad[a,-i]WeylBaseT[e,-a,-e])+CD[-i][Log[Compensator[]/lPhi0]]},MetricOn->All,ContractMetrics->True](*199d*)
 ];
 
-(*199d: V_hat relation to T(contracted)_natural*)
+(*199d: B_hat relation to T(contracted)_natural*)
 WeylWGTEScaleInvariantRescalingWeylVectortoTContracted=MakeRule[{WeylVector[-i],Evaluate[(-1/3)*WeylInvTetrad[a,-i]WeylBaseT[e,-a,-e]]},MetricOn->All,ContractMetrics->True];
 
 (*199b*)
@@ -38,16 +38,21 @@ Print@"Inverse tetrad b in terms of b_hat:";
 DisplayExpression@CollectTensors@ToCanonical[WeylInvTetrad[a,-c]/.WeylWGTEScaleInvariantRescalingBH//xAct`PSALTer`Private`ToNewCanonical];
 Print@"Eqn. 199d, vector B in terms of B_hat. N.B. B = -V in paper.";
 DisplayExpression@CollectTensors@ToCanonical[WeylVector[-i]/.WeylWGTEScaleInvariantRescalingWeylVectorA//xAct`PSALTer`Private`ToNewCanonical];
-Print@"If so desired, B_hat can be removed (199d):";
+Print@"Note that in the variables A+,f,(Phi), B is no longer a variable, and is equivalent to T_natural contracted:";
 DisplayExpression@CollectTensors@ToCanonical[WeylVector[-i]/.WeylWGTEScaleInvariantRescalingWeylVectortoTContracted//xAct`PSALTer`Private`ToNewCanonical];
 
+(*Make linearised rule*)
+WeylWGTEScaleInvariantRescalingWeylVectortoTLinear=MakeRule[{WeylVector[-i],Evaluate[(-1/3)*(WeylRotationalGaugeField[-i,k,-k]+CD[-k][WeylTranslationalGaugeFieldPerturbation[-i,k]]-CD[-i][WeylTranslationalGaugeFieldPerturbation[k,-k]])]},MetricOn->All,ContractMetrics->True];
+Comment@"Linearised rule for B is:"
+DisplayExpression@CollectTensors@ToCanonical[WeylVector[-i]/.WeylWGTEScaleInvariantRescalingWeylVectortoTLinear//xAct`PSALTer`Private`ToNewCanonical];
+(*
 Comment@{"Diagnostic: Show Lagrangian after dealing with det h^-1, setting nu*D^2 term to 0 temporarily"};
 DisplayExpression@CollectTensors@ToCanonical[NonlinearLagrangianWGTEScaleInvariantRescaling];
-
+*)
 (*=================================*)
 (*  Checking the field quantities *)
 (*=================================*)
-
+(*
 (*Check CovD+ expansion*)
 Comment@{"We check CovD+ under the redefinition of variables B to B_hat:"};
 WeylRescaleTestCovD=WeylCovDerivDaggerOnScalar[-a]/.WeyDaggerTHCovDtoBaseTWeylVectorHBAndDaggerRtoDaggerA;
@@ -82,9 +87,29 @@ WeylRescaleTestT=WeylRescaleTestT/.WeylWGTEScaleInvariantRescalingBH;
 WeylRescaleTestT//=xAct`PSALTer`Private`ToNewCanonical;
 DisplayExpression@CollectTensors@ToCanonical[WeylRescaleTestT];
 
-(*===================================================*)
-(*  WGT Lagrangian in terms of redefined variables  *)
-(*===================================================*)
+Comment@"Now we want to remove vector B in order to get a PGT Lagrangian. We want a linear-order expression for B_mu. First expand:"
+ExpandWeylVectorDemo=WeylVector[-i];
+ExpandWeylVectorDemo=ExpandWeylVectorDemo/.WeylWGTEScaleInvariantRescalingWeylVectortoTContracted;
+ExpandWeylVectorDemo=ExpandWeylVectorDemo/.WeylDaggerABaseTtoAHBWeylVector;
+ExpandWeylVectorDemo//=xAct`PSALTer`Private`ToNewCanonical;
+DisplayExpression@CollectTensors@ToCanonical[ExpandWeylVectorDemo];
+
+Comment@"Linearisation:"
+ExpandWeylVectorDemo=ExpandWeylVectorDemo/.xAct`PSALTer`WeylGaugeTheoryExtended`Private`WeylHBFieldToGF;
+ExpandWeylVectorDemo//=xAct`PSALTer`Private`ToNewCanonical;
+ExpandWeylVectorDemo=ExpandWeylVectorDemo/.ToOrderWeyl;
+ExpandWeylVectorDemo//=Series[#,{PerturbativeParameterWeyl,0,1}]&;(*To linear order*)
+ExpandWeylVectorDemo//=Normal;
+ExpandWeylVectorDemo=ExpandWeylVectorDemo/.PerturbativeParameterWeyl->1;
+ExpandWeylVectorDemo//=xAct`PSALTer`Private`ToNewCanonical;
+DisplayExpression@CollectTensors@ToCanonical[ExpandWeylVectorDemo];
+
+Print@"Check two expressions are the same:"
+DisplayExpression@CollectTensors@ToCanonical[ExpandWeylVectorDemo-Evaluate[WeylVector[-i]/.WeylWGTEScaleInvariantRescalingWeylVectortoTLinear]];
+*)
+(*==============================================================================*)
+(*  WGT Lagrangian in terms of redefined scale-invariant variables, with no B  *)
+(*==============================================================================*)
 
 (*Expansion of dagger field quantities*)
 NonlinearLagrangianWGTEScaleInvariantRescaling=NonlinearLagrangianWGTEScaleInvariantRescaling/.WeyDaggerTHCovDtoBaseTWeylVectorHBAndDaggerRtoDaggerA;
@@ -104,39 +129,8 @@ NonlinearLagrangianWGTEScaleInvariantRescaling//=xAct`PSALTer`Private`ToNewCanon
 Print@"Here, we perform rescalings: \[Phi]_0^2*\[Lambda] -> \[Lambda], \[Phi]_0^2*\[Nu] -> \[Nu], \[Phi]_0^2*t_i -> t_i.";
 NonlinearLagrangianWGTEScaleInvariantRescaling=NonlinearLagrangianWGTEScaleInvariantRescaling/.RescaleEinsteinGaugeCoupling;
 NonlinearLagrangianWGTEScaleInvariantRescaling//=xAct`PSALTer`Private`ToNewCanonical;
-Comment@"This is the general eWGT Lagrangian after the variable redefinitions. Note that indeed all phi has disappeared:"
-DisplayExpression@CollectTensors@ToCanonical[NonlinearLagrangianWGTEScaleInvariantRescaling];
-
-(*======================================================*)
-(*  WGT Lagrangian: removing B to get a PGT Lagrangian  *)
-(*======================================================*)
-
-Comment@"Now we want to remove vector B in order to get a PGT Lagrangian. We want a linear-order expression for B_mu. First expand:"
-ExpandWeylVectorDemo=WeylVector[-i];
-ExpandWeylVectorDemo=ExpandWeylVectorDemo/.WeylWGTEScaleInvariantRescalingWeylVectortoTContracted;
-ExpandWeylVectorDemo=ExpandWeylVectorDemo/.WeylDaggerABaseTtoAHBWeylVector;
-ExpandWeylVectorDemo//=xAct`PSALTer`Private`ToNewCanonical;
-DisplayExpression@CollectTensors@ToCanonical[ExpandWeylVectorDemo];
-
-Comment@"Linearisation:"
-ExpandWeylVectorDemo=ExpandWeylVectorDemo/.xAct`PSALTer`WeylGaugeTheoryExtended`Private`WeylHBFieldToGF;
-ExpandWeylVectorDemo//=xAct`PSALTer`Private`ToNewCanonical;
-ExpandWeylVectorDemo=ExpandWeylVectorDemo/.ToOrderWeyl;
-ExpandWeylVectorDemo//=Series[#,{PerturbativeParameterWeyl,0,1}]&;(*To linear order*)
-ExpandWeylVectorDemo//=Normal;
-ExpandWeylVectorDemo=ExpandWeylVectorDemo/.PerturbativeParameterWeyl->1;
-ExpandWeylVectorDemo//=xAct`PSALTer`Private`ToNewCanonical;
-DisplayExpression@CollectTensors@ToCanonical[ExpandWeylVectorDemo];
-
-(*Make linearised rule*)
-WeylWGTEScaleInvariantRescalingWeylVectortoTLinear=MakeRule[{WeylVector[-i],Evaluate[(-1/3)*(WeylRotationalGaugeField[-i,k,-k]+CD[-k][WeylTranslationalGaugeFieldPerturbation[-i,k]]-CD[-i][WeylTranslationalGaugeFieldPerturbation[k,-k]])]},MetricOn->All,ContractMetrics->True];
-Comment@"Linearised rule for B is:"
-DisplayExpression@CollectTensors@ToCanonical[WeylVector[-i]/.WeylWGTEScaleInvariantRescalingWeylVectortoTLinear//xAct`PSALTer`Private`ToNewCanonical];
-Print@"Check two expressions are the same:"
-DisplayExpression@CollectTensors@ToCanonical[ExpandWeylVectorDemo-Evaluate[WeylVector[-i]/.WeylWGTEScaleInvariantRescalingWeylVectortoTLinear]];
-
 (*Construct the PGT Lagrangian*)
 NonlinearLagrangianWGTEScaleInvariantRescalingPGT=NonlinearLagrangianWGTEScaleInvariantRescaling/.WeylWGTEScaleInvariantRescalingWeylVectortoTLinear;
 NonlinearLagrangianWGTEScaleInvariantRescalingPGT//=xAct`PSALTer`Private`ToNewCanonical;
-Comment@"This is the resultant PGT after removing B:"
-DisplayExpression@CollectTensors@ToCanonical[NonlinearLagrangianWGTEScaleInvariantRescalingPGT];
+Comment@"Diagnostic: We have generated and stored the general Lagrangian after the scale-invariant variable redefinitions (A_hat, h_hat, no B). Note that indeed all phi has disappeared."
+(*DisplayExpression@CollectTensors@ToCanonical[NonlinearLagrangianWGTEScaleInvariantRescalingPGT];*)

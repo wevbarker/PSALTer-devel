@@ -4,51 +4,26 @@
 (*  WGTEGeneralCase *)
 (*==================*)
 
-(*=====================*)
-(*  Most general WGT  *)
-(*=====================*)
-(*
-Section@"Most general eWGT";
-Comment@{"We will study the most general eWGT as defined in eqn 13 of Lin's draft paper."};
+GeneralWGTEPunnettSquare={
+	lR1==lR2==lR3==lR4==lR5==(lT1+lLambda)==(lT2-lLambda)==(lT3-lLambda)==0,(*Test; EH with Phi,B terms.*)
+	lLambda-lLambda==0,(*Most general eWGT*)
+	lC1==0,
+	lXi==0,
+	lC1==lXi==0
+};
 
-DisplayExpression@CollectTensors@ToCanonical[NonlinearLagrangianWGTEOriginal];
-LinearisedLagrangianWGTE=LineariseLagrangianWGTE[NonlinearLagrangianWGTE];
+Section@"Evaluating the general eWGT and the 'Punnett square' of c1 and \[Xi] constants";
+Comment@"Here are the cases considered:";
+Print@GeneralWGTEPunnettSquare[[1;5]];
 
-Comment@{"Here is the linearised Lagrangian before feeding into ParticleSpectrum[]."};
-DisplayExpression@CollectTensors@ToCanonical[LinearisedLagrangianWGTE];
+CalibrationTimingDataWGTEPunnettSquare=MapThread[
+		AbsoluteTiming@GaugeSelectorWGTELooper[#1,#2]&,
+		{
+			Table[i,{i,1,5}],
+			GeneralWGTEPunnettSquare[[1;;5]]
+		}];
 
-(*Diagnostic line*)
-Print@"Hi there, I'm sitting between Zhiyuan's code and Will's code! Method -> easy mode.";
-
-ParticleSpectrum[
-	LinearisedLagrangianWGTE,
-	ClassName->"WeylGaugeTheory",
-	TheoryName->"GeneralWGTE",	
-	Method->"Hard",
-	MaxLaurentDepth->3
-];
-
-Supercomment@"This marks the completion of the particle spectrum analysis for the general WGT."
-*)
-
-Section@"Killing off the quartic pole";
-Comment@{"We will kill the quartic pole."};
-
-DisplayExpression@CollectTensors@ToCanonical[NonlinearLagrangianWGTEOriginal/.{lXi->0}];
-LinearisedLagrangianWGTE=LineariseLagrangianWGTE[NonlinearLagrangianWGTE/.{lXi->0}];
-
-Comment@{"Here is the linearised Lagrangian before feeding into ParticleSpectrum[]."};
-DisplayExpression@CollectTensors@ToCanonical[LinearisedLagrangianWGTE];
-
-(*Diagnostic line*)
-Print@"Hi there, I'm sitting between Zhiyuan's code and Will's code! Method -> easy mode.";
-
-ParticleSpectrum[
-	LinearisedLagrangianWGTE,
-	ClassName->"WeylGaugeTheory",
-	TheoryName->"NoQuarticWGTE",	
-	Method->"Hard",
-	MaxLaurentDepth->3
-];
-
-Supercomment@"This marks the completion of the particle spectrum analysis for the removed quartic pole."
+Section@"How long did this take?";
+Comment@"Computation complete; all the cases have been evaluated. You can see from the timing below (in seconds):";
+DisplayExpression@CalibrationTimingDataWGTEPunnettSquare;
+(*DumpSave[FileNameJoin@{NotebookDirectory[],"CalibrationTimingDataWGTEPunnettSquare.mx"},{CalibrationTimingDataWGTEPunnettSquare}];*)
