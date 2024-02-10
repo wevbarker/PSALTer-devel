@@ -22,11 +22,15 @@ xAct`PSALTer`Private`BuildRebuild@"Classes/SymmetricTensorTheory.m";
 xAct`PSALTer`Private`BuildRebuild@"Classes/AsymmetricTensorTheory.m";
 xAct`PSALTer`Private`BuildRebuild@"Classes/BimetricTensorTheory.m";
 xAct`PSALTer`Private`BuildRebuild@"Classes/ScalarTensorTheory.m";
-*)
 xAct`PSALTer`Private`BuildRebuild@"Classes/PoincareGaugeTheory.m";
-(*
+*)
+<<<<<<< HEAD
+=======
 xAct`PSALTer`Private`BuildRebuild@"Classes/WeylGaugeTheory.m";
+(*
+>>>>>>> 299ddd3c0ba571054d7232fe2a0f3aa1564d4d41
 xAct`PSALTer`Private`BuildRebuild@"Classes/MetricAffineGravity.m";
 xAct`PSALTer`Private`BuildRebuild@"Classes/ZeroTorsionPalatini.m";
+(*
 *)
 On[General::shdw];

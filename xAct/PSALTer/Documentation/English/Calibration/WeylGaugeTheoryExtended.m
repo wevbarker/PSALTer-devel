@@ -68,9 +68,9 @@ DisplayExpression@CollectTensors@ToCanonical[WeylCovDerivDaggerOnScalar[-a]/.Wey
 Print@"R+:"
 DisplayExpression@CollectTensors@ToCanonical[WeylDaggerR[a,b,-d,-e]/.WeyDaggerTHCovDtoBaseTWeylVectorHBAndDaggerRtoDaggerA//xAct`PSALTer`Private`ToNewCanonical];
 
-(*We want a linear expression for A+ w.r.t. A. Should work out properly, but not sure if there is any exact and easy way to show other than exhaustively listing.*)
 Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheoryExtended","ToOrderWeylAndRescalingWGTE.m"};
-
+(*
+(*We want a linear expression for A+ w.r.t. A. Should work out properly, but not sure if there is any exact and easy way to show other than exhaustively listing.*)
 xAct`PSALTer`WeylGaugeTheoryExtended`Private`ADaggerExpandNonlinear=MakeRule[{WeylDaggerA[a,b,-j],Evaluate[WeylRotationalGaugeField[a,b,-j]+WeylVector[i](WeylInvTetrad[a,-j]WeylInvTetrad[b,-i]-WeylInvTetrad[b,-j]WeylInvTetrad[a,-i])]},MetricOn->All,ContractMetrics->True];
 xAct`PSALTer`WeylGaugeTheoryExtended`Private`ADaggerExpandNonlinearToLinearEval[ADaggerExpression_]:=Module[{ADaggerEvaluated=ADaggerExpression},
 	Comment@"Here is the non-linear expansion of A+ to level of perturbation field f:";
@@ -87,7 +87,7 @@ xAct`PSALTer`WeylGaugeTheoryExtended`Private`ADaggerExpandNonlinearToLinearEval[
 	DisplayExpression@CollectTensors@ToCanonical[ADaggerEvaluated];
 ADaggerEvaluated];
 xAct`PSALTer`WeylGaugeTheoryExtended`Private`ADaggerExpandNonlinearToLinearEval[WeylDaggerA[a,b,-j]];
-
+*)
 (*Now we expand A+ (hence R+) and T to the base PGT quantities.*)
 WeylDaggerABaseTtoAHBWeylVector=Join[	
 	MakeRule[{WeylDaggerA[a,b,-j],Evaluate[WeylRotationalGaugeField[a,b,-j]+WeylVector[b]G[a,-j]-WeylVector[a]G[b,-j]]},MetricOn->All,ContractMetrics->True],
@@ -99,9 +99,10 @@ Print@"A+:"
 DisplayExpression@CollectTensors@ToCanonical[WeylDaggerA[a,b,-j]/.WeylDaggerABaseTtoAHBWeylVector//xAct`PSALTer`Private`ToNewCanonical];
 Print@"T:"
 DisplayExpression@CollectTensors@ToCanonical[WeylBaseT[a,-b,-c]/.WeylDaggerABaseTtoAHBWeylVector//xAct`PSALTer`Private`ToNewCanonical];
+(*
 Print@"Check two expressions for A+ are the same:"
 DisplayExpression@CollectTensors@ToCanonical[xAct`PSALTer`WeylGaugeTheoryExtended`Private`ADaggerExpandNonlinearToLinearEval[WeylDaggerA[a,b,-j]]-Evaluate[WeylDaggerA[a,b,-j]/.WeylDaggerABaseTtoAHBWeylVector]];
-
+*)
 Supercomment@"Now we have defined all the fields we need.";
 
 (*=================================*)
@@ -113,7 +114,6 @@ Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheoryExtended","Lagran
 Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheoryExtended","LineariseWGTE.m"};
 Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheoryExtended","LagrangianWGTEScaleInvariantRescaling.m"};
 Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheoryExtended","LineariseWGTEScaleInvariantRescaling.m"};
-(*Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheoryExtended","WGTESimpleTestCases.m"};*)
-(*Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheoryExtended","WGTEGeneralCase.m"};*)
-Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheoryExtended","WGTETestCasesScaleInvariantRescaling.m"};
-Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheoryExtended","WGTEGeneralCaseScaleInvariantRescaling.m"};
+Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheoryExtended","LagrangianWGTENaturalVariables.m"};
+Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheoryExtended","GaugeSelectorWGTE.m"};
+Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheoryExtended","WGTEGeneralCase.m"};

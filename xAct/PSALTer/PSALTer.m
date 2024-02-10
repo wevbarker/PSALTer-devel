@@ -1,3 +1,5 @@
+(* ::Package:: *)
+
 (*===========*)
 (*  PSALTer  *)
 (*===========*)
@@ -155,13 +157,12 @@ ContextList={
 	"xAct`PSALTer`BimetricTensorTheory`Private`",
 	"xAct`PSALTer`ScalarTensorTheory`",
 	"xAct`PSALTer`ScalarTensorTheory`Private`",
-*)
 	"xAct`PSALTer`PoincareGaugeTheory`",
 	"xAct`PSALTer`PoincareGaugeTheory`Private`",
-(*
+*)	
 	"xAct`PSALTer`WeylGaugeTheory`",
 	"xAct`PSALTer`WeylGaugeTheory`Private`",
-*)
+(*
 	"xAct`PSALTer`MetricAffineGravity`",
 	"xAct`PSALTer`MetricAffineGravity`Private`",
 	"xAct`PSALTer`ZeroTorsionPalatini`",
