@@ -154,7 +154,7 @@ DisplayExpression[Expr,EqnLabel->"PreProjective"];
 Expr=Expr/.MakeProjectiveTransformation;
 DisplayExpression[Expr,EqnLabel->"PostProjective"];
 
-Comment@{"Now we have defined (both infinitesimal and finite, if we ignore the perturbative parameter) projective transformation in",Cref@{"PreProjective","PostProjective"},", we check the transformation properties of",Inline@(MetricAffineRicciTensorP[-m,-n]),"."};
+Comment@{"Now we have defined (both infinitesimal and finite, if we ignore the perturbative parameter) projective transformation in",Cref@{"PreProjective","PostProjective"},", we check the transformation properties."};
 Expr=MetricAffineRicciTensorP[-m,-n];
 DisplayExpression@Expr;
 Expr=Expr/.MetricAffineRicciTensorPToPerturbed;

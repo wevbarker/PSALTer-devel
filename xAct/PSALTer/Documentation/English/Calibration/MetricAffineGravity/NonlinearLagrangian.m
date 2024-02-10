@@ -75,11 +75,6 @@ FirstOrderConnectionToSecondOrderConnection=MakeRule[{
 Connection[-m,r,-n]+(1/2)*(G[r,l]-MetricPerturbation[r,l])*(CD[-m]@MetricPerturbation[-l,-n]+CD[-n]@MetricPerturbation[-l,-m]-CD[-l]@MetricPerturbation[-m,-n])},
 		MetricOn->All,ContractMetrics->True];
 
-LinearFirstOrderToLinearSecondOrder[LinearFirstOrder_]:=Module[{LinearSecondOrder=LinearFirstOrder},
-	LinearSecondOrder=LinearSecondOrder/.FirstOrderConnectionToSecondOrderConnection;
-	LinearSecondOrder//=LineariseLagrangian;
-LinearSecondOrder];
-
 Options@MetricAffineLineariseLagrangian={Formulation->FirstOrder};
 MetricAffineLineariseLagrangian[NonlinearLagrangian_,OptionsPattern[]]:=Module[{
 	LinearLagrangian=NonlinearLagrangian,

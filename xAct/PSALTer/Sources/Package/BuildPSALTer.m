@@ -47,7 +47,10 @@ BuildPSALTer[OptionsPattern[]]:=Module[{PrintVariable},
 			Check[
 
 				PrintVariable=PrintTemporary@" ** BuildPSALTer: Loading PSALTer from context binaries...";
-				LoadPSALTer[];,
+				Off[General::shdw];
+				LoadPSALTer[];
+				On[General::shdw];
+				,
 
 				Print@" ** BuildPSALTer: No suitable context binaries found, rebuilding them from scratch. Don't worry: this should happen if it is your first time loading the	package from a fresh install! It is *very important* that PSALTer is installed to a place where Mathematica has permissions to write files. For example on linux this might be ~/.Mathematica/Applications/xAct/PSALTer/.";
 				BuildRebuild["BuildPSALTer.m"];

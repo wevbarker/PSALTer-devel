@@ -7,7 +7,7 @@ Subsection@"The general parity-preserving Lagrangian";
 Comment@{"Now we construct the zero-torsion counterpart of",Cref@"MetricAffineNonlinearLagrangian",", which is given in Eq. (6.2) on page 19 of arXiv:1912.01023."};
 
 NonlinearLagrangian=-(1/2)*(
-	-xAct`PSALTer`ZeroTorsionPalatini`A0*ZeroTorsionRicciScalar[]
+	-xAct`PSALTer`ZeroTorsionPalatini`ZeroTorsionPalatiniA0*ZeroTorsionRicciScalar[]
 	+ZeroTorsionCurvature[m,n,r,s]*(
 		xAct`PSALTer`ZeroTorsionPalatini`H1*ZeroTorsionCurvature[-m,-n,-r,-s]
 		+xAct`PSALTer`ZeroTorsionPalatini`H2*ZeroTorsionCurvature[-m,-n,-s,-r]
@@ -28,12 +28,12 @@ NonlinearLagrangian=-(1/2)*(
 	)
 	+xAct`PSALTer`ZeroTorsionPalatini`H16*ZeroTorsionRicciScalar[]*ZeroTorsionRicciScalar[]
 	+ZeroTorsionNonMetricity[r,m,n]*(
-		xAct`PSALTer`ZeroTorsionPalatini`A4*ZeroTorsionNonMetricity[-r,-m,-n]
-		+xAct`PSALTer`ZeroTorsionPalatini`A5*ZeroTorsionNonMetricity[-n,-m,-r]
+		xAct`PSALTer`ZeroTorsionPalatini`ZeroTorsionPalatiniA4*ZeroTorsionNonMetricity[-r,-m,-n]
+		+xAct`PSALTer`ZeroTorsionPalatini`ZeroTorsionPalatiniA5*ZeroTorsionNonMetricity[-n,-m,-r]
 	)
-	+xAct`PSALTer`ZeroTorsionPalatini`A6*ZeroTorsionNonMetricityContraction[-m]*ZeroTorsionNonMetricityContraction[m]
-	+xAct`PSALTer`ZeroTorsionPalatini`A7*ZeroTorsionNonMetricityContractionTilde[-m]*ZeroTorsionNonMetricityContractionTilde[m]
-	+xAct`PSALTer`ZeroTorsionPalatini`A8*ZeroTorsionNonMetricityContraction[-m]*ZeroTorsionNonMetricityContractionTilde[m]
+	+xAct`PSALTer`ZeroTorsionPalatini`ZeroTorsionPalatiniA6*ZeroTorsionNonMetricityContraction[-m]*ZeroTorsionNonMetricityContraction[m]
+	+xAct`PSALTer`ZeroTorsionPalatini`ZeroTorsionPalatiniA7*ZeroTorsionNonMetricityContractionTilde[-m]*ZeroTorsionNonMetricityContractionTilde[m]
+	+xAct`PSALTer`ZeroTorsionPalatini`ZeroTorsionPalatiniA8*ZeroTorsionNonMetricityContraction[-m]*ZeroTorsionNonMetricityContractionTilde[m]
 );
 
 DisplayExpression[NonlinearLagrangian,EqnLabel->"ZeroTorsionNonlinearLagrangian"];
@@ -52,7 +52,14 @@ ToOrderZeroTorsionPalatiniConnection=MakeRule[{ZeroTorsionPalatiniConnection[-a,
 ToOrderZeroTorsionPalatiniMetricPerturbation=MakeRule[{ZeroTorsionPalatiniMetricPerturbation[-a,-b],PerturbativeParameter*ZeroTorsionPalatiniMetricPerturbation[-a,-b]},MetricOn->All,ContractMetrics->True];
 ToOrder=Join[ToOrderZeroTorsionPalatiniConnection,ToOrderZeroTorsionPalatiniMetricPerturbation];
 
-LineariseLagrangian[NonlinearLagrangian_]:=Module[{
+
+FirstOrderZeroTorsionPalatiniConnectionToSecondOrderZeroTorsionPalatiniConnection=MakeRule[{
+		ZeroTorsionPalatiniConnection[-m,r,-n],
+ZeroTorsionPalatiniConnection[-m,r,-n]+(1/2)*(G[r,l]-ZeroTorsionPalatiniMetricPerturbation[r,l])*(CD[-m]@ZeroTorsionPalatiniMetricPerturbation[-l,-n]+CD[-n]@ZeroTorsionPalatiniMetricPerturbation[-l,-m]-CD[-l]@ZeroTorsionPalatiniMetricPerturbation[-m,-n])},
+		MetricOn->All,ContractMetrics->True];
+
+Options@ZeroTorsionPalatiniLineariseLagrangian={Formulation->FirstOrder};
+ZeroTorsionPalatiniLineariseLagrangian[NonlinearLagrangian_,OptionsPattern[]]:=Module[{
 	LinearLagrangian=NonlinearLagrangian,
 	FirstOrderPart,
 	SecondOrderPart	
@@ -84,6 +91,11 @@ LineariseLagrangian[NonlinearLagrangian_]:=Module[{
 	LinearLagrangian//=xAct`PSALTer`Private`ToNewCanonical;
 	LinearLagrangian=LinearLagrangian/.ToPerturbed;
 	LinearLagrangian//=NoScalar;
+
+	If[OptionValue@Formulation==SecondOrder,
+		LinearLagrangian=LinearLagrangian/.FirstOrderZeroTorsionPalatiniConnectionToSecondOrderZeroTorsionPalatiniConnection;
+	];
+	LinearLagrangian//=NoScalar;
 	LinearLagrangian//=xAct`PSALTer`Private`ToNewCanonical;
 	LinearLagrangian=LinearLagrangian/.ToOrder;
 
@@ -105,7 +117,7 @@ LinearLagrangian];
 
 Comment@{"Now we linearize",Cref@"ZeroTorsionNonlinearLagrangian","."};
 
-LinearLagrangian=Measure*NonlinearLagrangian//LineariseLagrangian;
+LinearLagrangian=Measure*NonlinearLagrangian//ZeroTorsionPalatiniLineariseLagrangian;
 DisplayExpression[LinearLagrangian,EqnLabel->"ZeroTorsionLinearLagrangian"];
 
 Comment@{"We see that",Cref@"ZeroTorsionLinearLagrangian"," is appreciably shorter than",Cref@"MetricAffineLinearLagrangian",", which is to be expected."};

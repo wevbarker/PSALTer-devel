@@ -41,12 +41,12 @@ ConstructUnitarityConditions[ClassName_?StringQ,MassiveAnalysis_,MassiveGhostAna
 
 		TimeConstrained[
 		(
-			PositiveSystem//=Quiet@Assuming[CouplingAssumptions,Reduce[#,Couplings]]&;
+			PositiveSystem//=Assuming[CouplingAssumptions,Reduce[#,Couplings]]&;
 		)
 		,
-		50,
+		10,
 		(
-			PositiveSystem=Text@"(Timeout after 50 seconds)";
+			PositiveSystem=Text@"(Timeout after 10 seconds)";
 		)
 		];
 

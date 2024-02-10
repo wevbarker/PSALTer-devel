@@ -41,8 +41,9 @@ ValidateMaxLaurentDepth[MaxLaurentDepthValue_]:=If[!({1,2,3}~MemberQ~MaxLaurentD
 			];
 
 
-ParticleSpectrum[OptionsPattern[]]:=Catch@Module[{
+ParticleSpectrum[OptionsPattern[]]:=Module[{
 	SummaryOfResults,
+	PDFSummaryOfResults,
 	Class},
 
 	ValidateTheoryName@OptionValue@TheoryName;
@@ -60,52 +61,216 @@ ParticleSpectrum[OptionsPattern[]]:=Catch@Module[{
 		Class@SavedOverallUnitarity,
 		Class@SavedSummaryOfTheory];
 	Print@SummaryOfResults;
+
+	If[$ExportPDF,
+		PDFSummaryOfResults=SummariseResults[
+				OptionValue@TheoryName,
+				Class@SavedWaveOperator,
+				Class@SavedPropagator,
+				Class@SavedSourceConstraints,
+				Class@SavedSpectrum,
+				Class@SavedMasslessSpectrum,
+				Class@SavedOverallUnitarity,
+				Class@SavedSummaryOfTheory,
+				SummaryType->ResultsCollage];
+		Print@PDFSummaryOfResults;
+		Export[FileNameJoin@{$WorkingDirectory,OptionValue@TheoryName<>".pdf"},
+			PDFSummaryOfResults
+		];
+	];
 ];
 
-ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
-	SummariseResultsOngoing,
-	ClassNames,
-	RasterObject
-},
+ParticleSpectrum[Expr_,OptionsPattern[]]:=If[
+	$ReadOnly,
+	ParticleSpectrum[	
+		ClassName->OptionValue@ClassName,
+		TheoryName->OptionValue@TheoryName,
+		Method->OptionValue@Method,
+		MaxLaurentDepth->OptionValue@MaxLaurentDepth],
+	Module[{
+		SummariseResultsOngoing,
+		ClassNames,
+		PDFSummaryOfResults
+	},
 
-	ClassNames={"ScalarTheory",
-		"VectorTheory",
-		"TensorTheory",
-		"SymmetricTensorTheory",
-		"AsymmetricTensorTheory",
-		"BimetricTensorTheory",
-		"ScalarTensorTheory",
-		"PoincareGaugeTheory",
-		"WeylGaugeTheory",
-		"MetricAffineGravity",
-		"ZeroTorsionPalatini"};
+		ClassNames={"ScalarTheory",
+			"VectorTheory",
+			"TensorTheory",
+			"SymmetricTensorTheory",
+			"AsymmetricTensorTheory",
+			"BimetricTensorTheory",
+			"ScalarTensorTheory",
+			"PoincareGaugeTheory",
+			"WeylGaugeTheory",
+			"MetricAffineGravity",
+			"ZeroTorsionPalatini"};
 
-	ValidateClassName[OptionValue@ClassName,ClassNames];
-	ValidateTheoryName@OptionValue@TheoryName;
-	ValidateMethod@OptionValue@Method;
-	ValidateMaxLaurentDepth@OptionValue@MaxLaurentDepth;
+		ValidateClassName[OptionValue@ClassName,ClassNames];
+		ValidateTheoryName@OptionValue@TheoryName;
+		ValidateMethod@OptionValue@Method;
+		ValidateMaxLaurentDepth@OptionValue@MaxLaurentDepth;
 
-	LocalWaveOperator=Null;
-	LocalPropagator=Null;
-	LocalSourceConstraints=Null;
-	LocalSpectrum=Null;
-	LocalMasslessSpectrum=Null;
-	LocalOverallUnitarity=Null;
-	LocalSummaryOfTheory=Null;
+		LocalWaveOperator=Null;
+		LocalPropagator=Null;
+		LocalSourceConstraints=Null;
+		LocalSpectrum=Null;
+		LocalMasslessSpectrum=Null;
+		LocalOverallUnitarity=Null;
+		LocalSummaryOfTheory=Null;
 
-	If[$CLI,
-		SummariseResultsOngoing=SessionSubmit[ScheduledTask[(
-		Run@("echo -e \"\n\n"<>CLIPrint[
-				OptionValue@TheoryName,
-				LocalWaveOperator,
-				LocalPropagator,
-				LocalSourceConstraints,
-				LocalSpectrum,
-				LocalMasslessSpectrum,
-				LocalOverallUnitarity]<>"\"");
-		), Quantity[1, "Seconds"]]];
-	,
-		SummariseResultsOngoing=PrintTemporary@Dynamic[Refresh[SummariseResults[
+		If[$CLI,
+			SummariseResultsOngoing=SessionSubmit[ScheduledTask[(
+			Run@("echo -e \"\n\n"<>CLIPrint[
+					OptionValue@TheoryName,
+					LocalWaveOperator,
+					LocalPropagator,
+					LocalSourceConstraints,
+					LocalSpectrum,
+					LocalMasslessSpectrum,
+					LocalOverallUnitarity]<>"\"");
+			), Quantity[1, "Seconds"]]];
+		,
+			SummariseResultsOngoing=PrintTemporary@Dynamic[Refresh[SummariseResults[
+					OptionValue@TheoryName,
+					LocalWaveOperator,
+					LocalPropagator,
+					LocalSourceConstraints,
+					LocalSpectrum,
+					LocalMasslessSpectrum,
+					LocalOverallUnitarity,
+					LocalSummaryOfTheory],
+				TrackedSymbols->{
+					LocalWaveOperator,
+					LocalPropagator,
+					LocalSourceConstraints,
+					LocalSpectrum,
+					LocalMasslessSpectrum,
+					LocalOverallUnitarity,
+					LocalSummaryOfTheory}]];
+		];
+			
+
+		Quiet@CreateDirectory@FileNameJoin@{$WorkingDirectory,"tmp"};
+
+		ConstructLinearAction[
+					OptionValue@ClassName,
+					Expr];
+
+
+		ConstructWaveOperator[
+					OptionValue@ClassName,
+					Expr];
+		UpdateTheoryAssociation[
+					OptionValue@TheoryName,
+					BMatrices,
+					ValuesAllMatrices,
+					ExportTheory->False];
+		UpdateTheoryAssociation[
+					OptionValue@TheoryName,
+					MomentumSpaceLagrangian,
+					DecomposeFieldsdLagrangian,
+					ExportTheory->False];
+
+
+		ConstructSourceConstraints[
+					OptionValue@ClassName,
+					CouplingAssumptions,
+					Rescalings,
+					RaisedIndexSources,
+					MatrixLagrangian,
+					Method->OptionValue@Method];
+		UpdateTheoryAssociation[
+					OptionValue@TheoryName,
+					SourceConstraints,
+					ValuesOfSourceConstraints,
+					ExportTheory->False];
+
+		ConstructSaturatedPropagator[
+					OptionValue@ClassName,
+					MatrixLagrangian,
+					CouplingAssumptions,
+					BMatricesValues,
+					RaisedIndexSources,
+					LoweredIndexSources,
+					Method->OptionValue@Method];
+		UpdateTheoryAssociation[
+					OptionValue@TheoryName,
+					InverseBMatrices,
+					ValuesInverseBMatricesValues,
+					ExportTheory->False];
+
+
+		ConstructMassiveAnalysis[
+					OptionValue@ClassName,
+					ValuesSaturatedPropagator,
+					ValuesInverseBMatricesValues,
+					BlockMassSigns,
+					Method->OptionValue@Method];
+		UpdateTheoryAssociation[
+					OptionValue@TheoryName,
+					SquareMasses,
+					MassiveAnalysis,
+					ExportTheory->False];
+
+
+		ConstructMasslessAnalysis[
+					OptionValue@ClassName,
+					ValuesOfSourceConstraints,
+					ValuesSaturatedPropagator,
+					MaxLaurentDepth->OptionValue@MaxLaurentDepth];
+		UpdateTheoryAssociation[
+					OptionValue@TheoryName,
+					SecularSystem,
+					SecularSystemValue,
+					ExportTheory->False];
+		UpdateTheoryAssociation[
+					OptionValue@TheoryName,
+					MasslessEigenvalues,
+					MasslessAnalysisValue,
+					ExportTheory->False];
+		UpdateTheoryAssociation[
+					OptionValue@TheoryName,
+					SecularEquation,
+					SecularEquationValue,
+					ExportTheory->False];
+		UpdateTheoryAssociation[
+					OptionValue@TheoryName,
+					SourceConstraintComponents,
+					ConstraintComponentList,
+					ExportTheory->False];
+
+		ConstructUnitarityConditions[
+					OptionValue@ClassName,
+					MassiveAnalysis,
+					MassiveGhostAnalysis,
+					MasslessAnalysisValue,
+					QuarticAnalysisValue,
+					HexicAnalysisValue];
+		UpdateTheoryAssociation[
+					OptionValue@TheoryName,
+					PositiveSystem,
+					PositiveSystemValue,
+					ExportTheory->False];
+		DeleteDirectory[FileNameJoin@{$WorkingDirectory,"tmp"},DeleteContents->True];
+
+		If[$CLI,
+			TaskRemove@SummariseResultsOngoing;
+		,
+			FinishDynamic[];
+			NotebookDelete@SummariseResultsOngoing;
+		];
+
+		If[$CLI,
+			Run@("echo -e \"\n\n"<>CLIPrint[
+					OptionValue@TheoryName,
+					LocalWaveOperator,
+					LocalPropagator,
+					LocalSourceConstraints,
+					LocalSpectrum,
+					LocalMasslessSpectrum,
+					LocalOverallUnitarity]<>"\"");
+		,
+			SummaryOfResults=SummariseResults[
 				OptionValue@TheoryName,
 				LocalWaveOperator,
 				LocalPropagator,
@@ -113,192 +278,50 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 				LocalSpectrum,
 				LocalMasslessSpectrum,
 				LocalOverallUnitarity,
-				LocalSummaryOfTheory],
-			TrackedSymbols->{
-				LocalWaveOperator,
-				LocalPropagator,
-				LocalSourceConstraints,
-				LocalSpectrum,
-				LocalMasslessSpectrum,
-				LocalOverallUnitarity,
-				LocalSummaryOfTheory}]];
-	];
-		
+				LocalSummaryOfTheory];
+			Print@SummaryOfResults;
+		];
 
-	Quiet@CreateDirectory@FileNameJoin@{$WorkingDirectory,"tmp"};
+		If[$ExportPDF,
+			PDFSummaryOfResults=SummariseResults[
+					OptionValue@TheoryName,
+					LocalWaveOperator,
+					LocalPropagator,
+					LocalSourceConstraints,
+					LocalSpectrum,
+					LocalMasslessSpectrum,
+					LocalOverallUnitarity,
+					LocalSummaryOfTheory,
+					SummaryType->ResultsCollage];
+			Print@PDFSummaryOfResults;
+			Export[FileNameJoin@{$WorkingDirectory,OptionValue@TheoryName<>".pdf"},
+				PDFSummaryOfResults
+			];
+		];
 
-	ConstructLinearAction[
-				OptionValue@ClassName,
-				Expr];
-
-
-	ConstructWaveOperator[
-				OptionValue@ClassName,
-				Expr];
-	UpdateTheoryAssociation[
-				OptionValue@TheoryName,
-				BMatrices,
-				ValuesAllMatrices,
-				ExportTheory->False];
-	UpdateTheoryAssociation[
-				OptionValue@TheoryName,
-				MomentumSpaceLagrangian,
-				DecomposeFieldsdLagrangian,
-				ExportTheory->False];
-
-
-	ConstructSourceConstraints[
-				OptionValue@ClassName,
-				CouplingAssumptions,
-				Rescalings,
-				RaisedIndexSources,
-				MatrixLagrangian,
-				Method->OptionValue@Method];
-	UpdateTheoryAssociation[
-				OptionValue@TheoryName,
-				SourceConstraints,
-				ValuesOfSourceConstraints,
-				ExportTheory->False];
-
-	ConstructSaturatedPropagator[
-				OptionValue@ClassName,
-				MatrixLagrangian,
-				CouplingAssumptions,
-				BMatricesValues,
-				RaisedIndexSources,
-				LoweredIndexSources,
-				Method->OptionValue@Method];
-	UpdateTheoryAssociation[
-				OptionValue@TheoryName,
-				InverseBMatrices,
-				ValuesInverseBMatricesValues,
-				ExportTheory->False];
-
-
-	ConstructMassiveAnalysis[
-				OptionValue@ClassName,
-				ValuesSaturatedPropagator,
-				ValuesInverseBMatricesValues,
-				BlockMassSigns,
-				Method->OptionValue@Method];
-	UpdateTheoryAssociation[
-				OptionValue@TheoryName,
-				SquareMasses,
-				MassiveAnalysis,
-				ExportTheory->False];
-
-
-	ConstructMasslessAnalysis[
-				OptionValue@ClassName,
-				ValuesOfSourceConstraints,
-				ValuesSaturatedPropagator,
-				MaxLaurentDepth->OptionValue@MaxLaurentDepth];
-	UpdateTheoryAssociation[
-				OptionValue@TheoryName,
-				SecularSystem,
-				SecularSystemValue,
-				ExportTheory->False];
-	UpdateTheoryAssociation[
-				OptionValue@TheoryName,
-				MasslessEigenvalues,
-				MasslessAnalysisValue,
-				ExportTheory->False];
-	UpdateTheoryAssociation[
-				OptionValue@TheoryName,
-				SecularEquation,
-				SecularEquationValue,
-				ExportTheory->False];
-	UpdateTheoryAssociation[
-				OptionValue@TheoryName,
-				SourceConstraintComponents,
-				ConstraintComponentList,
-				ExportTheory->False];
-
-	ConstructUnitarityConditions[
-				OptionValue@ClassName,
-				MassiveAnalysis,
-				MassiveGhostAnalysis,
-				MasslessAnalysisValue,
-				QuarticAnalysisValue,
-				HexicAnalysisValue];
-	UpdateTheoryAssociation[
-				OptionValue@TheoryName,
-				PositiveSystem,
-				PositiveSystemValue,
-				ExportTheory->False];
-
-	DeleteDirectory[FileNameJoin@{$WorkingDirectory,"tmp"},DeleteContents->True];
-
-	If[$CLI,
-		TaskRemove@SummariseResultsOngoing;
-	,
-		FinishDynamic[];
-		NotebookDelete@SummariseResultsOngoing;
-	];
-
-	If[$CLI,
-		Run@("echo -e \"\n\n"<>CLIPrint[
-				OptionValue@TheoryName,
-				LocalWaveOperator,
-				LocalPropagator,
-				LocalSourceConstraints,
-				LocalSpectrum,
-				LocalMasslessSpectrum,
-				LocalOverallUnitarity]<>"\"");
-	,
-		SummaryOfResults=SummariseResults[
-			OptionValue@TheoryName,
+		MapThread[
+		UpdateTheoryAssociation[
+					OptionValue@TheoryName,
+					#1,
+					#2,
+					ExportTheory->True]&,
+		{{		
+			SavedWaveOperator,
+			SavedPropagator,
+			SavedSourceConstraints,
+			SavedSpectrum,
+			SavedMasslessSpectrum,
+			SavedOverallUnitarity,
+			SavedSummaryOfTheory},
+		{
 			LocalWaveOperator,
 			LocalPropagator,
 			LocalSourceConstraints,
 			LocalSpectrum,
 			LocalMasslessSpectrum,
 			LocalOverallUnitarity,
-			LocalSummaryOfTheory];
-		Print@SummaryOfResults;
-	];
-
-	If[$ExportPDF,
-		Print@"Gotten that far";
-		RasterObject=SummariseResults[
-				OptionValue@TheoryName,
-				LocalWaveOperator,
-				LocalPropagator,
-				LocalSourceConstraints,
-				LocalSpectrum,
-				LocalMasslessSpectrum,
-				LocalOverallUnitarity,
-				LocalSummaryOfTheory,
-				SummaryType->ResultsCollage];
-		Print@"Gotten this far";
-		(*Print@RasterObject;*)
-		Export[FileNameJoin@{$WorkingDirectory,OptionValue@TheoryName<>".png"},
-			RasterObject
+			LocalSummaryOfTheory}}
 		];
-	];
-
-	MapThread[
-	UpdateTheoryAssociation[
-				OptionValue@TheoryName,
-				#1,
-				#2,
-				ExportTheory->True]&,
-	{{		
-		SavedWaveOperator,
-		SavedPropagator,
-		SavedSourceConstraints,
-		SavedSpectrum,
-		SavedMasslessSpectrum,
-		SavedOverallUnitarity,
-		SavedSummaryOfTheory},
-	{
-		LocalWaveOperator,
-		LocalPropagator,
-		LocalSourceConstraints,
-		LocalSpectrum,
-		LocalMasslessSpectrum,
-		LocalOverallUnitarity,
-		LocalSummaryOfTheory}}
 	];
 ];
 On[Set::write];

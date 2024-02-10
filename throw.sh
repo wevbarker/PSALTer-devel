@@ -12,7 +12,7 @@ elif [ "$1" = "--green" ]; then
 elif [ "$1" = "--red" ]; then
 	rsync -avh --force --exclude '.git' --exclude="*.mx" ./ red:~/Documents/PSALTer-devel/ --delete
 elif [ "$1" = "--Cumulus" ]; then
-	rsync -avh --force --exclude '.git' --exclude="*.mx" ./ Cumulus:~/Documents/PSALTer-devel/ --delete
+	rsync -avh --force --exclude '.git' --exclude="*.mx" ./ Cumulus-q:~/Documents/PSALTer-devel/ --delete
 else
 	echo "can you please specify a remote location from newton, green, red or Cumulus?"	
 fi

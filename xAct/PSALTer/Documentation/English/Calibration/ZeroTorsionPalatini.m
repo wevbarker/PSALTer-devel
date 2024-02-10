@@ -11,7 +11,7 @@ Get@FileNameJoin@{$ThisDirectory,"Calibration","ZeroTorsionPalatini",
 Get@FileNameJoin@{$ThisDirectory,"Calibration","ZeroTorsionPalatini",
 					"NonlinearLagrangian.m"};
 Get@FileNameJoin@{$ThisDirectory,"Calibration","ZeroTorsionPalatini",
-					"ZeroTorsionPalatiniRicciTypeTheory.m"};
+					"BarkerMarzoTheories.m"};
 (*
 Get@FileNameJoin@{$ThisDirectory,"Calibration","ZeroTorsionPalatini",
 					"KarananasTheory.m"};

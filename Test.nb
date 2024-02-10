@@ -3,124 +3,27 @@
 (*** Wolfram Notebook File ***)
 (* http://www.wolfram.com/nb *)
 
-(* CreatedBy='Mathematica 13.2' *)
+(* CreatedBy='Mathematica 14.0' *)
 
 (*CacheID: 234*)
 (* Internal cache information:
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      4766,        135]
-NotebookOptionsPosition[      4289,        118]
-NotebookOutlinePosition[      4690,        134]
-CellTagsIndexPosition[      4647,        131]
+NotebookDataLength[       822,         34]
+NotebookOptionsPosition[       561,         21]
+NotebookOutlinePosition[       962,         37]
+CellTagsIndexPosition[       919,         34]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
-
-Cell[CellGroupData[{
-Cell[BoxData[
- RowBox[{
-  RowBox[{"Get", "@", 
-   RowBox[{"FileNameJoin", "@", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<Test.m\>\""}], 
-     "}"}]}]}], ";"}]], "Input",
- CellChangeTimes->{{3.911827925550522*^9, 3.911827939788147*^9}},
- CellLabel->"In[1]:=",ExpressionUUID->"3d65fcb7-3c8d-4257-8e15-e60de85fc87b"],
-
-Cell[BoxData[
- TagBox[GridBox[{
-    {"", 
-     InterpretationBox[Cell[BoxData[
-       FormBox["x", TextForm]], "InlineText",ExpressionUUID->
-       "ebecbb3b-2d3c-4960-8757-994ae8f446da"],
-      Text[$CellContext`x]], 
-     InterpretationBox[Cell[BoxData[
-       FormBox["y", TextForm]], "InlineText",ExpressionUUID->
-       "3be6fceb-1faf-4946-b552-7319c854b14a"],
-      Text[$CellContext`y]], ""},
-    {
-     InterpretationBox[Cell[BoxData[
-       FormBox["i", TextForm]], "InlineText",ExpressionUUID->
-       "43f48369-9388-4f19-842f-0cede31b011b"],
-      Text[$CellContext`i]], 
-     InterpretationBox[Cell[BoxData[
-       FormBox["a", TextForm]], "InlineText",ExpressionUUID->
-       "b1710db6-61e6-4ced-8dfe-64143ec3c5e4"],
-      Text[$CellContext`a]], 
-     InterpretationBox[Cell[BoxData[
-       FormBox["b", TextForm]], "InlineText",ExpressionUUID->
-       "f0e4cf91-cbaf-4393-be2e-6b94b9bf43b9"],
-      Text[$CellContext`b]], ""},
-    {
-     InterpretationBox[Cell[BoxData[
-       FormBox["d", TextForm]], "InlineText",ExpressionUUID->
-       "bdf54ea6-41c2-40d8-948d-c27a5fc860c3"],
-      Text[$CellContext`d]], 
-     InterpretationBox[Cell[BoxData[
-       FormBox["b", TextForm]], "InlineText",ExpressionUUID->
-       "2d9ea79d-4d29-44fa-8670-9a62d93d9b80"],
-      Text[$CellContext`b]], 
-     InterpretationBox[Cell[BoxData[
-       FormBox["c", TextForm]], "InlineText",ExpressionUUID->
-       "4c7360b5-d61c-432d-8eaf-ed53138a9da1"],
-      Text[$CellContext`c]], 
-     InterpretationBox[Cell[BoxData[
-       FormBox["z", TextForm]], "InlineText",ExpressionUUID->
-       "6f77d428-3c96-48b4-a175-b3a8b435cd6b"],
-      Text[$CellContext`z]]},
-    {"", "", 
-     InterpretationBox[Cell[BoxData[
-       FormBox["k", TextForm]], "InlineText",ExpressionUUID->
-       "24e4f4de-fa9a-47d4-861d-86a5462369f7"],
-      Text[$CellContext`k]], 
-     InterpretationBox[Cell[BoxData[
-       FormBox["d", TextForm]], "InlineText",ExpressionUUID->
-       "60d83f88-2fdd-438c-a483-e1b349b838fb"],
-      Text[$CellContext`d]]}
-   },
-   AutoDelete->False,
-   GridBoxAlignment->{
-    "Columns" -> {{Center}}, "Rows" -> {{Center}}, 
-     "ItemsIndexed" -> {{2, 1} -> {Right, Center}, {3, 1} -> {
-        Right, Center}, {1, 2} -> {Center, Bottom}, {1, 3} -> {
-        Center, Bottom}, {4, 3} -> {Right, Center}, {3, 4} -> {
-        Center, Bottom}}},
-   GridBoxBackground->{
-    "Columns" -> {{None}}, "Rows" -> {{None}}, 
-     "ItemsIndexed" -> {{2, 2} -> RGBColor[1, 
-         Rational[4, 5], 
-         Rational[4, 5]], {2, 3} -> RGBColor[1, 
-         Rational[4, 5], 
-         Rational[4, 5]], {3, 2} -> RGBColor[1, 
-         Rational[4, 5], 
-         Rational[4, 5]], {3, 3} -> RGBColor[1, 
-         Rational[4, 5], 
-         Rational[4, 5]], {4, 4} -> RGBColor[1, 
-         Rational[4, 5], 
-         Rational[4, 5]]}},
-   GridBoxFrame->{
-    "Columns" -> None, "Rows" -> None, 
-     "ItemsIndexed" -> {{{2, 3}, {2, 3}} -> True, {{4, 4}, {4, 4}} -> True}},
-   GridBoxItemSize->{"Columns" -> {{All}}, "Rows" -> {{All}}}],
-  "Grid"]], "Print",
- CellChangeTimes->{
-  3.915431357639165*^9, 3.915431720369776*^9, {3.915431802596558*^9, 
-   3.91543182684772*^9}, 3.9154325252319403`*^9, 3.915432632374197*^9, 
-   3.915432690305744*^9},
- CellLabel->
-  "During evaluation of \
-In[1]:=",ExpressionUUID->"ccc9217e-1338-45ba-94ea-b3697bb01125"]
-}, Open  ]]
 },
 WindowSize->{1440, 860.25},
 WindowMargins->{{Automatic, 810}, {Automatic, 19.5}},
 FrontEndVersion->"14.0 for Linux x86 (64-bit) (December 12, 2023)",
 StyleDefinitions->"Default.nb",
-ExpressionUUID->"ae05872c-c8a0-4469-a95b-1931e3288bc1"
+ExpressionUUID->"0cb89754-4dab-4deb-b68a-b7477322210b"
 ]
 (* End of Notebook Content *)
 
@@ -133,11 +36,9 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[CellGroupData[{
-Cell[580, 22, 361, 9, 29, "Input",ExpressionUUID->"3d65fcb7-3c8d-4257-8e15-e60de85fc87b"],
-Cell[944, 33, 3329, 82, 85, "Print",ExpressionUUID->"ccc9217e-1338-45ba-94ea-b3697bb01125"]
-}, Open  ]]
 }
 ]
 *)
+
+(* End of internal cache information *)
 

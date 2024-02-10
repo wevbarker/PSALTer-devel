@@ -2,6 +2,9 @@
 (*  PSALTerResultsCollage  *)
 (*=========================*)
 
+BuildPackage@"ParticleSpectrum/SummariseResults/PSALTerResultsCollage/Vectorize.m";
+BuildPackage@"ParticleSpectrum/SummariseResults/PSALTerResultsCollage/GraphicsCollage.m";
+
 PSALTerResultsCollage[
 		TheSummaryOfTheory_,
 		TheWaveOperator_,
@@ -10,93 +13,43 @@ PSALTerResultsCollage[
 		TheSpectrum_,
 		TheMasslessSpectrum_,
 		TheOverallUnitarity_]:=Module[{
-	WaveOperatorGroup=TheWaveOperator,
-	SpectrumGroup=TheSpectrum,
-	MasslessSpectrumGroup=TheMasslessSpectrum,
-	FinalImageResolution=200,
-	FinalImageWidth=500,
-	GridSpacing=Scaled[0.01],
-	UpperHalf,
-	LowerHalf,
-	FinalImage,
-	RasterFinalImage,
-	$RasterIncomplete=True},
+	MatricesGroup=Join[TheWaveOperator,ThePropagator,{TheSourceConstraints},{TheSummaryOfTheory}],
+	SpectrumGroup=TheSpectrum~Join~TheMasslessSpectrum,
+	FinalElement,
+	MaxWidth,
+	FinalGraphic},
 	
-	UpperHalf={
-		{MakeLabel@"PSALTer results panel",	
-			SpanFromLeft,
-			SpanFromLeft},
-		{MakeLabel@"Wave operator",
-			SpanFromLeft,
-			SpanFromLeft},
-		{WaveOperatorGroup,
-			SpanFromLeft,
-			SpanFromLeft}
-	};
+	MatricesGroup=Vectorize/@MatricesGroup;
+	SpectrumGroup=Vectorize/@SpectrumGroup;
 
-	LowerHalf={
-		{MakeLabel@"Source constraints",
-			MakeLabel@"Massive spectrum",
-			MakeLabel@"Massless spectrum"},
-		{TheSourceConstraints,
+	(*Print@(((Times@@(ImageDimensions@#))&)/@MatricesGroup);
+	Print@((((ImageDimensions@#))&)/@MatricesGroup);*)
+	FinalElement=MatricesGroup[[-1]];
+	MatricesGroup//=(#~Drop~(-1))&;
+	MatricesGroup//=(#~DeleteCases~(_?(((Times@@(ImageDimensions@#))>0.5*10^6)&)))&;
+	MatricesGroup//=(#~Join~{FinalElement})&;
+	MaxWidth=Max@((First/@(ImageDimensions/@(MatricesGroup~Join~SpectrumGroup)))~Join~{500});
+
+	MatricesGroup=GraphicsCollage[MatricesGroup,MaxWidth];
+	SpectrumGroup=GraphicsCollage[SpectrumGroup,MaxWidth];
+
+	FinalGraphic={
+			MakeLabel@"PSALTer results panel",
+			MakeLabel@"Wave operator and propagator",
+			MatricesGroup,
+			MakeLabel@"Massive and massless spectra",
 			SpectrumGroup,
-			MasslessSpectrumGroup},
-		{MakeLabel@"Unitarity conditions",
-			SpanFromLeft,
-			SpanFromLeft},
-		{TheOverallUnitarity,
-			SpanFromLeft,
-			SpanFromLeft}
+			MakeLabel@"Unitarity conditions",
+			TheOverallUnitarity,
 	};
 
-	IfNotSpanFromLeft[InputImage_,ApplyFunction_]:=(Map[If[!(#==SpanFromLeft),ApplyFunction@#,#,ApplyFunction@#]&,InputImage,{2}]);
-
-	UpperHalf=UpperHalf~IfNotSpanFromLeft~(If[ListQ@#,#,{#},{#}]&);
-	UpperHalf=UpperHalf~IfNotSpanFromLeft~((Rasterize[#,
-				Background->PanelColor,
-				ImageResolution->UpperHalfResolution]&/@#)&);
-	UpperHalf=UpperHalf~IfNotSpanFromLeft~(ImageCollage[
-				MapThread[(#1->#2)&,
-					{(Times@@#)&/@(ImageDimensions/@#),#}],
-					Background->PanelColor,
-					ImagePadding->4]&);
-	UpperHalf=UpperHalf~IfNotSpanFromLeft~(Image[#,Magnification->1]&);
-	UpperHalf//=Grid[#,
-			Spacings->{GridSpacing,GridSpacing},
+	FinalGraphic//=Column[#,
+			Alignment->{Left,Center},
 			Background->PanelColor,
-			Alignment->{Left,Center}]&;
-
-	LowerHalf=LowerHalf~IfNotSpanFromLeft~(If[ListQ@#,#,{#},{#}]&);
-	LowerHalf=LowerHalf~IfNotSpanFromLeft~((Rasterize[#,
-				Background->PanelColor,
-				ImageResolution->LowerHalfResolution]&/@#)&);
-	LowerHalf=LowerHalf~IfNotSpanFromLeft~(ImageCollage[
-				MapThread[(#1->#2)&,
-					{(Times@@#)&/@(ImageDimensions/@#),#}],
-					Background->PanelColor,
-					ImagePadding->4]&);
-	LowerHalf=LowerHalf~IfNotSpanFromLeft~(Image[#,Magnification->1]&);
-	LowerHalf//=Grid[#,
-			Spacings->{GridSpacing,GridSpacing},
-			Background->PanelColor,
-			Alignment->{Left,Center}]&;
-
-	FinalImage=Grid[{{UpperHalf},{LowerHalf}},
-			Spacings->{GridSpacing,GridSpacing},
 			Frame->True,
-			BaselinePosition->Center,
-			Background->PanelColor,
-			Alignment->{Left,Center}];
-	FinalImageResolution=400;
-	While[$RasterIncomplete,
-		Check[
-			$RasterIncomplete=False;
-			RasterFinalImage=Rasterize[#,
-						Background->PanelColor,
-						ImageResolution->FinalImageResolution]&@FinalImage;
-		,	
-			$RasterIncomplete=True;
-			FinalImageResolution*=0.9;
-		];	
-	];
-RasterFinalImage];
+			Spacings->{1,1}]&;
+
+Export[FileNameJoin@{NotebookDirectory[],"Test"<>".pdf"},
+			FinalGraphic
+		];
+FinalGraphic];

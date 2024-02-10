@@ -15,7 +15,6 @@ PrintSpectrum[
 		QuarticAnalysisValue_,
 		HexicAnalysisValue_,
 		SecularEquation_]:=Module[{ContentList},
-
 	ContentList=(
 		(MapThread[If[!(#1==={}),
 					PrintParticle[First@#1,First@#2,#4,#3,2*#4+1],

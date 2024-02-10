@@ -19,7 +19,7 @@ Off@(Solve::fulldim);
 (*  xAct`PSALTer`  *)
 (*=================*)
 
-BeginPackage["xAct`PSALTer`",{"xAct`xTensor`","xAct`SymManipulator`","xAct`xPerm`","xAct`xCore`","xAct`xTras`","xAct`xCoba`","MaTeX`"}];
+BeginPackage["xAct`PSALTer`",{"xAct`xTensor`","xAct`SymManipulator`","xAct`xPerm`","xAct`xCore`","xAct`xTras`","xAct`xCoba`","MaTeX`","JasonB`RectanglePacking`"}];
 
 ParallelNeeds["xAct`PSALTer`"];
 
@@ -58,6 +58,7 @@ If[$CLI,
 $DiagnosticMode=False;
 $MonitorParallel=False;
 $ExportPDF=False;
+$ReadOnly=False;
 
 (*--------------*)
 (*  Disclaimer  *)
@@ -163,10 +164,8 @@ ContextList={
 *)
 	"xAct`PSALTer`MetricAffineGravity`",
 	"xAct`PSALTer`MetricAffineGravity`Private`",
-(*
 	"xAct`PSALTer`ZeroTorsionPalatini`",
 	"xAct`PSALTer`ZeroTorsionPalatini`Private`",
-*)
 	"xAct`xTensor`",
 	"xAct`xTensor`Private`",
 	"TangentM4`",

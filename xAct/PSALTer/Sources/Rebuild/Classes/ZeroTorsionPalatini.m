@@ -755,12 +755,12 @@ xAct`PSALTer`ZeroTorsionPalatini`Private`DecomposeConjugateSourceZeroTorsionPala
 
 xAct`PSALTer`ZeroTorsionPalatini`Private`ACouplingSymb="\[ScriptA]";
 
-DefLagrangianCoupling[A0,CouplingSymbol->xAct`PSALTer`ZeroTorsionPalatini`Private`ACouplingSymb,CouplingIndex->0];
-DefLagrangianCoupling[A4,CouplingSymbol->xAct`PSALTer`ZeroTorsionPalatini`Private`ACouplingSymb,CouplingIndex->4];
-DefLagrangianCoupling[A5,CouplingSymbol->xAct`PSALTer`ZeroTorsionPalatini`Private`ACouplingSymb,CouplingIndex->5];
-DefLagrangianCoupling[A6,CouplingSymbol->xAct`PSALTer`ZeroTorsionPalatini`Private`ACouplingSymb,CouplingIndex->6];
-DefLagrangianCoupling[A7,CouplingSymbol->xAct`PSALTer`ZeroTorsionPalatini`Private`ACouplingSymb,CouplingIndex->7];
-DefLagrangianCoupling[A8,CouplingSymbol->xAct`PSALTer`ZeroTorsionPalatini`Private`ACouplingSymb,CouplingIndex->8];
+DefLagrangianCoupling[ZeroTorsionPalatiniA0,CouplingSymbol->xAct`PSALTer`ZeroTorsionPalatini`Private`ACouplingSymb,CouplingIndex->0];
+DefLagrangianCoupling[ZeroTorsionPalatiniA4,CouplingSymbol->xAct`PSALTer`ZeroTorsionPalatini`Private`ACouplingSymb,CouplingIndex->4];
+DefLagrangianCoupling[ZeroTorsionPalatiniA5,CouplingSymbol->xAct`PSALTer`ZeroTorsionPalatini`Private`ACouplingSymb,CouplingIndex->5];
+DefLagrangianCoupling[ZeroTorsionPalatiniA6,CouplingSymbol->xAct`PSALTer`ZeroTorsionPalatini`Private`ACouplingSymb,CouplingIndex->6];
+DefLagrangianCoupling[ZeroTorsionPalatiniA7,CouplingSymbol->xAct`PSALTer`ZeroTorsionPalatini`Private`ACouplingSymb,CouplingIndex->7];
+DefLagrangianCoupling[ZeroTorsionPalatiniA8,CouplingSymbol->xAct`PSALTer`ZeroTorsionPalatini`Private`ACouplingSymb,CouplingIndex->8];
 
 xAct`PSALTer`ZeroTorsionPalatini`Private`HCouplingSymb="\[ScriptH]";
 
@@ -786,7 +786,7 @@ DefLagrangianCoupling[H16,CouplingSymbol->xAct`PSALTer`ZeroTorsionPalatini`Priva
 
 Begin["xAct`PSALTer`ZeroTorsionPalatini`Private`"];
 
-LagrangianCouplings={A0,A4,A5,A6,A7,A8,H1,H2,H3,H4,H7,H8,H9,H10,H11,H12,H16};
+LagrangianCouplings={ZeroTorsionPalatiniA0,ZeroTorsionPalatiniA4,ZeroTorsionPalatiniA5,ZeroTorsionPalatiniA6,ZeroTorsionPalatiniA7,ZeroTorsionPalatiniA8,H1,H2,H3,H4,H7,H8,H9,H10,H11,H12,H16};
 
 FieldSpinParityTensorHeads=<|
 		ZeroTorsionPalatiniMetricPerturbation-><|
