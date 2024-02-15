@@ -41,6 +41,6 @@ GaugeSelectorWGTEFunction[TSGNumber_Integer:1,WeylNumber_Integer:5]:=Module[{
 	TSGNumber==3,  OutputLagrangian=LinearisedLagrangianWGTESIV(*SIV3*)*)];
 	
 	(*Diagnostic line*)
-	DisplayExpression@CollectTensors@ToCanonical[OutputLagrangian];
+	(*DisplayExpression@CollectTensors@ToCanonical[OutputLagrangian];*)
 	Print@"Hi there, I'm sitting between Zhiyuan's code and Will's code!";
 OutputLagrangian];
