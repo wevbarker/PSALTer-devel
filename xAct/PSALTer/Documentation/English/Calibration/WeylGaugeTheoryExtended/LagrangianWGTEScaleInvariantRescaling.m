@@ -3,134 +3,65 @@
 (*========================================*)
 (*  LagrangianWGTEScaleInvariantRescaling *)
 (*========================================*)
-Section@"Setting out the eWGT Lagrangian (nonlinear) in scale-invariant variables, A+_hat, h_hat:";
-(*========================*)
-(*  Setting the rescaling *)
-(*========================*)
 
-(*See Section 3M of Lasenby and Hobson 2016, J. Math. Phys. 57, 092505.*)
-WeylWGTEScaleInvariantRescalingWeylVectorA=Join[	
-	MakeRule[{WeylDaggerA[a,b,-j],WeylRotationalGaugeField[a,b,-j]},MetricOn->All,ContractMetrics->True],(*199c*)
-	MakeRule[{WeylVector[-i],WeylVector[-i]+((1/3)*WeylInvTetrad[a,-i]WeylBaseT[e,-a,-e])+CD[-i][Log[Compensator[]/lPhi0]]},MetricOn->All,ContractMetrics->True](*199d*)
-];
+Section@"Setting out and linearising the eWGT Lagrangian (nonlinear) in scale-invariant variables, A+_hat, h_hat";
 
-(*199d: B_hat relation to T(contracted)_natural*)
-WeylWGTEScaleInvariantRescalingWeylVectortoTContracted=MakeRule[{WeylVector[-i],Evaluate[(-1/3)*WeylInvTetrad[a,-i]WeylBaseT[e,-a,-e]]},MetricOn->All,ContractMetrics->True];
-
-(*199b*)
+(*See Section 3M, eqn 199b of Lasenby and Hobson 2016, J. Math. Phys. 57, 092505.*)
 WeylWGTEScaleInvariantRescalingBH=Join[	
-	MakeRule[{WeylTetrad[-a,c],(Compensator[]/lPhi0)*WeylTetrad[-a,c]},MetricOn->All,ContractMetrics->True],(*199c*)
-	MakeRule[{WeylInvTetrad[a,-c],(lPhi0/Compensator[])*WeylInvTetrad[a,-c]},MetricOn->All,ContractMetrics->True](*199d*)
+	MakeRule[{WeylTetrad[-a,c],(Compensator[]/lPhi0)*WeylTetrad[-a,c]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{WeylInvTetrad[a,-c],(lPhi0/Compensator[])*WeylInvTetrad[a,-c]},MetricOn->All,ContractMetrics->True]
 ];
-
-(*Rule to deal with the CovD issue as below*)
-WeylWGTEScaleInvariantRescalingCovD=MakeRule[{WeylCovDerivDaggerOnScalar[-a],Evaluate[(-1)*WeylTetrad[-a,i]WeylVector[-i]*Compensator[]]},MetricOn->All,ContractMetrics->True];
-
-(*Rescaling of Lagrangian by det, h^-1. Temporarily set CovD term to 0.*)
-NonlinearLagrangianWGTEScaleInvariantRescaling=NonlinearLagrangianWGTEOriginal*((lPhi0/Compensator[])^4);
-NonlinearLagrangianWGTEScaleInvariantRescaling=NonlinearLagrangianWGTEScaleInvariantRescaling/.{lNu->0};
-NonlinearLagrangianWGTEScaleInvariantRescaling//=xAct`PSALTer`Private`ToNewCanonical;
 
 Comment@"We present the 'scale-invariant' variable redefinitions as in Section 3M of Lasenby and Hobson 2016, J. Math. Phys. 57, 092505.";
+Comment@"N.B. the SIV reparametrisation only works in the natural variables, i.e. TSG gauge B=0.";
+
 Print@"Eqn. 199b, tetrad h in terms of h_hat:";
 DisplayExpression@CollectTensors@ToCanonical[WeylTetrad[-a,c]/.WeylWGTEScaleInvariantRescalingBH//xAct`PSALTer`Private`ToNewCanonical];
 Print@"Inverse tetrad b in terms of b_hat:";
 DisplayExpression@CollectTensors@ToCanonical[WeylInvTetrad[a,-c]/.WeylWGTEScaleInvariantRescalingBH//xAct`PSALTer`Private`ToNewCanonical];
-Print@"Eqn. 199d, vector B in terms of B_hat. N.B. B = -V in paper.";
-DisplayExpression@CollectTensors@ToCanonical[WeylVector[-i]/.WeylWGTEScaleInvariantRescalingWeylVectorA//xAct`PSALTer`Private`ToNewCanonical];
-Print@"Note that in the variables A+,f,(Phi), B is no longer a variable, and is equivalent to T_natural contracted:";
-DisplayExpression@CollectTensors@ToCanonical[WeylVector[-i]/.WeylWGTEScaleInvariantRescalingWeylVectortoTContracted//xAct`PSALTer`Private`ToNewCanonical];
 
-(*Make linearised rule*)
-WeylWGTEScaleInvariantRescalingWeylVectortoTLinear=MakeRule[{WeylVector[-i],Evaluate[(-1/3)*(WeylRotationalGaugeField[-i,k,-k]+CD[-k][WeylTranslationalGaugeFieldPerturbation[-i,k]]-CD[-i][WeylTranslationalGaugeFieldPerturbation[k,-k]])]},MetricOn->All,ContractMetrics->True];
-Comment@"Linearised rule for B is:"
-DisplayExpression@CollectTensors@ToCanonical[WeylVector[-i]/.WeylWGTEScaleInvariantRescalingWeylVectortoTLinear//xAct`PSALTer`Private`ToNewCanonical];
-(*
-Comment@{"Diagnostic: Show Lagrangian after dealing with det h^-1, setting nu*D^2 term to 0 temporarily"};
-DisplayExpression@CollectTensors@ToCanonical[NonlinearLagrangianWGTEScaleInvariantRescaling];
-*)
-(*=================================*)
-(*  Checking the field quantities *)
-(*=================================*)
-(*
-(*Check CovD+ expansion*)
-Comment@{"We check CovD+ under the redefinition of variables B to B_hat:"};
-WeylRescaleTestCovD=WeylCovDerivDaggerOnScalar[-a]/.WeyDaggerTHCovDtoBaseTWeylVectorHBAndDaggerRtoDaggerA;
-WeylRescaleTestCovD=WeylRescaleTestCovD/.WeylWGTEScaleInvariantRescalingWeylVectorA;
-WeylRescaleTestCovD//=xAct`PSALTer`Private`ToNewCanonical;
-DisplayExpression@CollectTensors@ToCanonical[WeylRescaleTestCovD];
+(*==============================================*)
+(*  Constructing and linearising the Lagrangian *)
+(*==============================================*)
 
-Comment@{"We know that the last two terms cancel. While normally we can expand h,b to perturbation f and remove this issue, here we need to rescale h,b before the perturbation expansion. Hence, we make a rule to make this cancellation first."};
-DisplayExpression@CollectTensors@ToCanonical[WeylCovDerivDaggerOnScalar[-a]/.WeylWGTEScaleInvariantRescalingCovD//xAct`PSALTer`Private`ToNewCanonical];
+LineariseLagrangianWGTESIV[NonlinearLagrangianLinWeyl_]:=Module[{LinearLagrangianLinWeyl=NonlinearLagrangianLinWeyl},
+	Print@"Diagnostic: linearisation routine called on to linearise eWGT Lagrangian w.r.t. SIV variables.";
+	LinearLagrangianLinWeyl*=((1-WeylTranslationalGaugeFieldPerturbation[z,-z])*((lPhi0/Compensator[])^4));(*Scaling of the h^-1 determinant*)	
+	LinearLagrangianLinWeyl=LinearLagrangianLinWeyl/.WeyDaggerTHCovDtoBaseTWeylVectorHBAndDaggerRtoDaggerA;
+	LinearLagrangianLinWeyl=LinearLagrangianLinWeyl/.WeylDaggerABaseTtoAHBWeylVector;
+	LinearLagrangianLinWeyl=LinearLagrangianLinWeyl/.{WeylVector->Zero};
+	Print@"Diagnostic: successfully expanded to h,b fields. Natural variables A(+), B=0.";
+	
+	LinearLagrangianLinWeyl=LinearLagrangianLinWeyl/.WeylWGTEScaleInvariantRescalingBH;
+	LinearLagrangianLinWeyl=LinearLagrangianLinWeyl/.RescaleEinsteinGaugeCoupling;
+	Print@"Diagnostic: successful SIV reparam for b,h. Here, we perform coeff. rescalings: \[Phi]_0^2*\[Lambda] -> \[Lambda], \[Phi]_0^2*\[Nu] -> \[Nu], \[Phi]_0^2*t_i -> t_i.";
+	LinearLagrangianLinWeyl=LinearLagrangianLinWeyl/.xAct`PSALTer`WeylGaugeTheoryExtended`Private`WeylHBFieldToGF;
+	(*Print@"Diagnostic: successfully expanded to f field.";*)
+		
+	LinearLagrangianLinWeyl=LinearLagrangianLinWeyl/.ToOrderWeyl;
+	LinearLagrangianLinWeyl//=Series[#,{PerturbativeParameterWeyl,0,2}]&;
+	LinearLagrangianLinWeyl//=Normal;
+	LinearLagrangianLinWeyl=LinearLagrangianLinWeyl/.PerturbativeParameterWeyl->1;	
+	LinearLagrangianLinWeyl//=xAct`PSALTer`Private`ToNewCanonical;
+	LinearLagrangianLinWeyl//=CollectTensors;
+	Print@"Diagnostic: linearised SIV Lagrangian generated successfully!";	
+LinearLagrangianLinWeyl];
 
-(*Check H+ expansion*)
-Comment@{"We check H+ under the redefinition of variables B to B_hat:"};
-WeylRescaleTestH=WeylDaggerH[-a,-b]/.WeyDaggerTHCovDtoBaseTWeylVectorHBAndDaggerRtoDaggerA;
-WeylRescaleTestH=WeylRescaleTestH/.WeylWGTEScaleInvariantRescalingWeylVectorA;
-WeylRescaleTestH=WeylRescaleTestH/.WeylWGTEScaleInvariantRescalingBH;
-WeylRescaleTestH//=xAct`PSALTer`Private`ToNewCanonical;
-DisplayExpression@CollectTensors@ToCanonical[WeylRescaleTestH];
+(*================================================*)
+(*  Comparing SIV Lagrangian to nat.variables, EG *)
+(*================================================*)
+Comment@"Whatever the meaning of the SIV variables, at the free Lagrangian level, it is equivalent to using natural variables (A+,f) and taking the Einstein gauge (Phi0). We demostrate:";
 
-(*Check R+ expansion*)
-Comment@{"We check R+ under the redefinition of variables A to A_hat, h to h_hat:"};
-WeylRescaleTestR=WeylDaggerR[a,b,-d,-e]/.WeyDaggerTHCovDtoBaseTWeylVectorHBAndDaggerRtoDaggerA;
-WeylRescaleTestR=WeylRescaleTestR/.WeylWGTEScaleInvariantRescalingWeylVectorA;
-WeylRescaleTestR=WeylRescaleTestR/.WeylWGTEScaleInvariantRescalingBH;
-WeylRescaleTestR//=xAct`PSALTer`Private`ToNewCanonical;
-DisplayExpression@CollectTensors@ToCanonical[WeylRescaleTestR];
+Comment@"This is the linearised free SIV Lagrangian:";
+LinearisedLagrangianWGTESIV=LineariseLagrangianWGTESIV[NonlinearLagrangianWGTEOriginal];
+DisplayExpression[LinearisedLagrangianWGTESIV,EqnLabel->"WGTESIVExpanded"];
 
-(*Check T+ expansion*)
-Comment@{"We check T+ under the redefinition of variables A to A_hat, h to h_hat:"};
-WeylRescaleTestT=WeylDaggerT[a,-b,-c]/.WeyDaggerTHCovDtoBaseTWeylVectorHBAndDaggerRtoDaggerA;
-WeylRescaleTestT=WeylRescaleTestT/.WeylDaggerABaseTtoAHBWeylVector;
-WeylRescaleTestT=WeylRescaleTestT/.WeylWGTEScaleInvariantRescalingBH;
-WeylRescaleTestT//=xAct`PSALTer`Private`ToNewCanonical;
-DisplayExpression@CollectTensors@ToCanonical[WeylRescaleTestT];
+Comment@"This is the linearised Lagrangian, natural variables, Einstein gauge:";
+LinearisedLagrangianWGTENat=LinearisedLagrangianWGTEOriginal/.{WeylVector->Zero}/.{Compensator->Zero};(*Nat2,EG4*)
+DisplayExpression[LinearisedLagrangianWGTENat,EqnLabel->"WGTENatExpanded"];
 
-Comment@"Now we want to remove vector B in order to get a PGT Lagrangian. We want a linear-order expression for B_mu. First expand:"
-ExpandWeylVectorDemo=WeylVector[-i];
-ExpandWeylVectorDemo=ExpandWeylVectorDemo/.WeylWGTEScaleInvariantRescalingWeylVectortoTContracted;
-ExpandWeylVectorDemo=ExpandWeylVectorDemo/.WeylDaggerABaseTtoAHBWeylVector;
-ExpandWeylVectorDemo//=xAct`PSALTer`Private`ToNewCanonical;
-DisplayExpression@CollectTensors@ToCanonical[ExpandWeylVectorDemo];
-
-Comment@"Linearisation:"
-ExpandWeylVectorDemo=ExpandWeylVectorDemo/.xAct`PSALTer`WeylGaugeTheoryExtended`Private`WeylHBFieldToGF;
-ExpandWeylVectorDemo//=xAct`PSALTer`Private`ToNewCanonical;
-ExpandWeylVectorDemo=ExpandWeylVectorDemo/.ToOrderWeyl;
-ExpandWeylVectorDemo//=Series[#,{PerturbativeParameterWeyl,0,1}]&;(*To linear order*)
-ExpandWeylVectorDemo//=Normal;
-ExpandWeylVectorDemo=ExpandWeylVectorDemo/.PerturbativeParameterWeyl->1;
-ExpandWeylVectorDemo//=xAct`PSALTer`Private`ToNewCanonical;
-DisplayExpression@CollectTensors@ToCanonical[ExpandWeylVectorDemo];
-
-Print@"Check two expressions are the same:"
-DisplayExpression@CollectTensors@ToCanonical[ExpandWeylVectorDemo-Evaluate[WeylVector[-i]/.WeylWGTEScaleInvariantRescalingWeylVectortoTLinear]];
-*)
-(*==============================================================================*)
-(*  WGT Lagrangian in terms of redefined scale-invariant variables, with no B  *)
-(*==============================================================================*)
-
-(*Expansion of dagger field quantities*)
-NonlinearLagrangianWGTEScaleInvariantRescaling=NonlinearLagrangianWGTEScaleInvariantRescaling/.WeyDaggerTHCovDtoBaseTWeylVectorHBAndDaggerRtoDaggerA;
-NonlinearLagrangianWGTEScaleInvariantRescaling//=xAct`PSALTer`Private`ToNewCanonical;
-(*Replacement of A+ and V*)
-NonlinearLagrangianWGTEScaleInvariantRescaling=NonlinearLagrangianWGTEScaleInvariantRescaling/.WeylWGTEScaleInvariantRescalingWeylVectorA;
-(*Expansion of remaining T to A*)
-NonlinearLagrangianWGTEScaleInvariantRescaling=NonlinearLagrangianWGTEScaleInvariantRescaling/.WeylDaggerABaseTtoAHBWeylVector;
-NonlinearLagrangianWGTEScaleInvariantRescaling//=xAct`PSALTer`Private`ToNewCanonical;
-(*Re-addition of CovD term and susbstitution to v-hat*)
-NonlinearLagrangianWGTEScaleInvariantRescaling+=lNu/2*WeylCovDerivDaggerOnScalar[-a]*WeylCovDerivDaggerOnScalar[a]*((lPhi0/Compensator[])^4);
-NonlinearLagrangianWGTEScaleInvariantRescaling=NonlinearLagrangianWGTEScaleInvariantRescaling/.WeylWGTEScaleInvariantRescalingCovD;
-(*Replacement of h,b*)
-NonlinearLagrangianWGTEScaleInvariantRescaling=NonlinearLagrangianWGTEScaleInvariantRescaling/.WeylWGTEScaleInvariantRescalingBH;
-NonlinearLagrangianWGTEScaleInvariantRescaling//=xAct`PSALTer`Private`ToNewCanonical;
-(*Rescaling the couplings*)
-Print@"Here, we perform rescalings: \[Phi]_0^2*\[Lambda] -> \[Lambda], \[Phi]_0^2*\[Nu] -> \[Nu], \[Phi]_0^2*t_i -> t_i.";
-NonlinearLagrangianWGTEScaleInvariantRescaling=NonlinearLagrangianWGTEScaleInvariantRescaling/.RescaleEinsteinGaugeCoupling;
-NonlinearLagrangianWGTEScaleInvariantRescaling//=xAct`PSALTer`Private`ToNewCanonical;
-(*Construct the PGT Lagrangian*)
-NonlinearLagrangianWGTEScaleInvariantRescalingPGT=NonlinearLagrangianWGTEScaleInvariantRescaling/.WeylWGTEScaleInvariantRescalingWeylVectortoTLinear;
-NonlinearLagrangianWGTEScaleInvariantRescalingPGT//=xAct`PSALTer`Private`ToNewCanonical;
-Comment@"Diagnostic: We have generated and stored the general Lagrangian after the scale-invariant variable redefinitions (A_hat, h_hat, no B). Note that indeed all phi has disappeared."
-(*DisplayExpression@CollectTensors@ToCanonical[NonlinearLagrangianWGTEScaleInvariantRescalingPGT];*)
+DiffLagrangianWGTENatSIV=LinearisedLagrangianWGTESIV-LinearisedLagrangianWGTENat;
+DiffLagrangianWGTENatSIV//=xAct`PSALTer`Private`ToNewCanonical;
+DiffLagrangianWGTENatSIV//=CollectTensors;
+Comment@"This is the difference between the two Lagrangians. We can clearly see that they are equal!";
+DisplayExpression[DiffLagrangianWGTENatSIV];

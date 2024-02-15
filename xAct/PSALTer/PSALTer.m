@@ -167,6 +167,7 @@ ContextList={
 	"xAct`PSALTer`MetricAffineGravity`Private`",
 	"xAct`PSALTer`ZeroTorsionPalatini`",
 	"xAct`PSALTer`ZeroTorsionPalatini`Private`",
+*)
 	"xAct`xTensor`",
 	"xAct`xTensor`Private`",
 	"TangentM4`",
