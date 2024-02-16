@@ -89,6 +89,6 @@ Supercomment@"Now we have defined all the fields we need.";
 (*Here we load the files required to generate the Lagrangian*)
 Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheoryExtended","LagrangianWGTECouplings.m"};
 Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheoryExtended","LineariseWGTE.m"};
-(*Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheoryExtended","LagrangianWGTEScaleInvariantRescaling.m"};*)
+Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheoryExtended","LagrangianWGTEScaleInvariantRescaling.m"};
 Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheoryExtended","GaugeSelectorWGTE.m"};
 Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheoryExtended","WGTEGeneralCase.m"};
