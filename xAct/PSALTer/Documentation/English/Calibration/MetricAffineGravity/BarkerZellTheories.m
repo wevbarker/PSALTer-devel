@@ -1,6 +1,6 @@
-(*===========================*)
-(*  VectorSymmetricTheories  *)
-(*===========================*)
+(*======================*)
+(*  BarkerZellTheories  *)
+(*======================*)
 
 Section@"Physically interesting vector symmetries of metric affine gravity";
 
@@ -35,11 +35,15 @@ xAct`PSALTer`MetricAffineGravity`C15,
 xAct`PSALTer`MetricAffineGravity`C16};
 
 Comment@{"We will study the four spectra of theories with physically interesting vector symmetries."};
-Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity","VectorSymmetricTheories",
+(*
+Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity","BarkerZellTheories",
 					"AntiWeylTheory.m"};
-Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity","VectorSymmetricTheories",
+Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity","BarkerZellTheories",
 					"ExtendedProjectiveTheory.m"};
-Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity","VectorSymmetricTheories",
+*)
+Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity","BarkerZellTheories",
 					"ProjectiveTheory.m"};
-Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity","VectorSymmetricTheories",
+(*
+Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity","BarkerZellTheories",
 					"ConcurrentTheory.m"};
+*)

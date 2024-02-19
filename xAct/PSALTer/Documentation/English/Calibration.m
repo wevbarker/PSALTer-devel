@@ -35,7 +35,7 @@ Protect@xAct`PSALTer`ParticleSpectrum;
 
 (*For HPC*)
 
-(*
+(**)
 $NodeCPU=110;
 Comment@{"The variable $NodeCPU is set to ",ToString@$NodeCPU};
 Comment@{"The variable $ProcessorCount is set to ",ToString@$ProcessorCount};
@@ -46,7 +46,7 @@ Comment@{"The variable $KernelCount is set to ",ToString@$KernelCount};
 Comment@{"Now we execute LaunchKernels[]"};
 LaunchKernels@$NodeCPU;
 Comment@{"The variable $KernelCount is set to ",ToString@$KernelCount};
-*)
+(**)
 
 (*Global settings for xAct*)
 $DefInfoQ=False;
@@ -57,8 +57,8 @@ Protect@AutomaticRules;
 (*Global settings for PSALTer*)
 $DiagnosticMode=False;
 $MonitorParallel=False;
-$ExportPDF=True;
-$ReadOnly=True;
+$ExportPDF=False;
+$ReadOnly=False;
 
 Comment@"Great, so PSALTer is now loaded and we can start to do some science.";
 

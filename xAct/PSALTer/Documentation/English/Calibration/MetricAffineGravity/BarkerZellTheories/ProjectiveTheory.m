@@ -23,7 +23,7 @@ xAct`PSALTer`MetricAffineGravity`A7->0,
 xAct`PSALTer`MetricAffineGravity`A8->0,
 xAct`PSALTer`MetricAffineGravity`A9->0,
 xAct`PSALTer`MetricAffineGravity`A10->0,
-xAct`PSALTer`MetricAffineGravity`A11->0,
+xAct`PSALTer`MetricAffineGravity`A11->0,(*
 xAct`PSALTer`MetricAffineGravity`C2->xAct`PSALTer`MetricAffineGravity`C1,
 xAct`PSALTer`MetricAffineGravity`C3->xAct`PSALTer`MetricAffineGravity`C1,
 xAct`PSALTer`MetricAffineGravity`C4->xAct`PSALTer`MetricAffineGravity`C1,
@@ -38,7 +38,7 @@ xAct`PSALTer`MetricAffineGravity`C12->xAct`PSALTer`MetricAffineGravity`C1,
 xAct`PSALTer`MetricAffineGravity`C13->xAct`PSALTer`MetricAffineGravity`C1,
 xAct`PSALTer`MetricAffineGravity`C14->xAct`PSALTer`MetricAffineGravity`C1,
 xAct`PSALTer`MetricAffineGravity`C15->xAct`PSALTer`MetricAffineGravity`C1,
-xAct`PSALTer`MetricAffineGravity`C16->xAct`PSALTer`MetricAffineGravity`C1
+xAct`PSALTer`MetricAffineGravity`C16->xAct`PSALTer`MetricAffineGravity`C1*)
 };
 Comment@{"In the most general form",Cref@"ProjectiveTheory",", the theory has a symmetry which is cumbersome to express in terms of the remaining couplings. We therefore take an arbitrary case of the theory."};
 LinearLagrangian=LinearLagrangian/.ReductionRules;

@@ -2,7 +2,7 @@
 (*  BuildPSALTer  *)
 (*================*)
 
-SaveBinaryContext[Context_String]:=DumpSave[FileNameJoin[{$PSALTerInstallDirectory,"Binaries","Contexts",Context<>".mx"}],Context];
+SaveBinaryContext[Context_String]:=DumpSave[FileNameJoin[{NotebookDirectory[],"Binaries","Contexts",Context<>".mx"}],Context];
 
 SaveBinaryContexts[]:=Module[{PrintVariable},
 	Run@("rm -rf "<>FileNameJoin[{$PSALTerInstallDirectory,"Binaries","Contexts"}]<>"/*");

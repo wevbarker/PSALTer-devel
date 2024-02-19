@@ -159,12 +159,12 @@ ContextList={
 	"xAct`PSALTer`ScalarTensorTheory`Private`",
 	"xAct`PSALTer`PoincareGaugeTheory`",
 	"xAct`PSALTer`PoincareGaugeTheory`Private`",
-*)	
 	"xAct`PSALTer`WeylGaugeTheory`",
 	"xAct`PSALTer`WeylGaugeTheory`Private`",
-(*
+*)
 	"xAct`PSALTer`MetricAffineGravity`",
 	"xAct`PSALTer`MetricAffineGravity`Private`",
+(*
 	"xAct`PSALTer`ZeroTorsionPalatini`",
 	"xAct`PSALTer`ZeroTorsionPalatini`Private`",
 *)
