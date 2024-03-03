@@ -75,6 +75,7 @@ ConvertLightcone[ClassName_?StringQ,
 	LightconePropagator//=MakeSaturatedMatrix[#,UnscaledNullSpace]&;
 	Diagnostic@LightconePropagator;
 
+	SecularSystemValue=<||>;
 	{MasslessAnalysisValue,SecularEquationValue}=ExaminePoleOrder[LightconePropagator,1];
 	QuarticAnalysisValue={};
 	HexicAnalysisValue={};

@@ -35,12 +35,21 @@ ConstructUnitarityConditions[ClassName_?StringQ,MassiveAnalysis_,MassiveGhostAna
 	PositiveSystem=PositiveSystem/.{Mo->1,En->1,Def->1};
 
 
-	If[LeafCount@MasslessAnalysisValue>=50,
+	If[LeafCount@MasslessAnalysisValue>=5000,
 		LocalOverallUnitarity=Text@"(Hidden for brevity)";
 		PositiveSystemValue=Text@"(Hidden for brevity)";,
 
-		(*Quiet wrapper used since there are some PrintAs warnings*)
-		PositiveSystem//=Quiet@Assuming[CouplingAssumptions,Reduce[#,Couplings]]&;
+		TimeConstrained[
+		(
+			PositiveSystem//=Quiet@Assuming[CouplingAssumptions,Reduce[#,Couplings]]&;
+		)
+		,
+		50,
+		(
+			PositiveSystem=Text@"(Timeout after 50 seconds)";
+		)
+		];
+
 		Diagnostic@PositiveSystem;
 		LocalOverallUnitarity=PositiveSystem;
 		PositiveSystemValue=PositiveSystem;

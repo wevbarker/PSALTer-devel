@@ -51,6 +51,7 @@ ParticleSpectrum[OptionsPattern[]]:=Catch@Module[{
 	Class=Evaluate@Symbol@OptionValue@TheoryName;
 
 	SummaryOfResults=SummariseResults[
+		OptionValue@TheoryName,
 		Class@SavedWaveOperator,
 		Class@SavedPropagator,
 		Class@SavedSourceConstraints,
@@ -91,22 +92,36 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 	LocalOverallUnitarity=Null;
 	LocalSummaryOfTheory=Null;
 
-	SummariseResultsOngoing=PrintTemporary@Dynamic[Refresh[SummariseResults[
-			LocalWaveOperator,
-			LocalPropagator,
-			LocalSourceConstraints,
-			LocalSpectrum,
-			LocalMasslessSpectrum,
-			LocalOverallUnitarity,
-			LocalSummaryOfTheory],
-		TrackedSymbols->{
-			LocalWaveOperator,
-			LocalPropagator,
-			LocalSourceConstraints,
-			LocalSpectrum,
-			LocalMasslessSpectrum,
-			LocalOverallUnitarity,
-			LocalSummaryOfTheory}]];
+	If[$CLI,
+		SummariseResultsOngoing=SessionSubmit[ScheduledTask[(
+		Print@CLIPrint[
+				OptionValue@TheoryName,
+				LocalWaveOperator,
+				LocalPropagator,
+				LocalSourceConstraints,
+				LocalSpectrum,
+				LocalMasslessSpectrum,
+				LocalOverallUnitarity];
+		), Quantity[1, "Seconds"]]];
+	,
+		SummariseResultsOngoing=PrintTemporary@Dynamic[Refresh[SummariseResults[
+				OptionValue@TheoryName,
+				LocalWaveOperator,
+				LocalPropagator,
+				LocalSourceConstraints,
+				LocalSpectrum,
+				LocalMasslessSpectrum,
+				LocalOverallUnitarity,
+				LocalSummaryOfTheory],
+			TrackedSymbols->{
+				LocalWaveOperator,
+				LocalPropagator,
+				LocalSourceConstraints,
+				LocalSpectrum,
+				LocalMasslessSpectrum,
+				LocalOverallUnitarity,
+				LocalSummaryOfTheory}]];
+	];
 
 	Quiet@CreateDirectory@FileNameJoin@{$WorkingDirectory,"tmp"};
 
@@ -179,6 +194,11 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 				MaxLaurentDepth->OptionValue@MaxLaurentDepth];
 	UpdateTheoryAssociation[
 				OptionValue@TheoryName,
+				SecularSystem,
+				SecularSystemValue,
+				ExportTheory->False];
+	UpdateTheoryAssociation[
+				OptionValue@TheoryName,
 				MasslessEigenvalues,
 				MasslessAnalysisValue,
 				ExportTheory->False];
@@ -210,7 +230,9 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 
 	FinishDynamic[];
 	NotebookDelete@SummariseResultsOngoing;
+	TaskRemove@SummariseResultsOngoing;
 	SummaryOfResults=SummariseResults[
+		OptionValue@TheoryName,
 		LocalWaveOperator,
 		LocalPropagator,
 		LocalSourceConstraints,
@@ -230,7 +252,7 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=Catch@Module[{
 				OptionValue@TheoryName,
 				#1,
 				#2,
-				ExportTheory->False]&,
+				ExportTheory->True]&,
 	{{		
 		SavedWaveOperator,
 		SavedPropagator,
