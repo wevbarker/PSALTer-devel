@@ -14,7 +14,7 @@ DisplayExpression[LinearLagrangian,EqnLabel->"ExtendedProjectiveTheory"];
 
 (*Comment@{"First we study",Cref@"ExtendedProjectiveTheory"," in the first-order formulation."};*)
 LinearLagrangian*=Measure;
-LinearLagrangian//=LineariseLagrangian;
+LinearLagrangian//=MetricAffineLineariseLagrangian;
 (*
 ParticleSpectrum[LinearLagrangian,
 		ClassName->"MetricAffineGravity",
@@ -23,7 +23,7 @@ ParticleSpectrum[LinearLagrangian,
 		MaxLaurentDepth->1];
 *)
 Comment@{"We study",Cref@"ExtendedProjectiveTheory"," in the second-order formulation."};
-LinearLagrangian=LineariseLagrangian[LinearLagrangian,Formulation->SecondOrder];
+LinearLagrangian=MetricAffineLineariseLagrangian[LinearLagrangian,Formulation->SecondOrder];
 ParticleSpectrum[LinearLagrangian,
 		ClassName->"MetricAffineGravity",
 		TheoryName->"ExtendedProjectiveTheorySecondOrder",	

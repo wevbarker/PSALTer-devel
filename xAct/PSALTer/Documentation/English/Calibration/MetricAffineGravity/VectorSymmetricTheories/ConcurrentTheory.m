@@ -46,7 +46,7 @@ DisplayExpression[LinearLagrangian,EqnLabel->"ConcurrentTheoryReduced"];
 
 Comment@{"First we study",Cref@"ConcurrentTheoryReduced"," in the first-order formulation."};
 LinearLagrangian*=Measure;
-LinearLagrangian//=LineariseLagrangian;
+LinearLagrangian//=MetricAffineLineariseLagrangian;
 (**)
 ParticleSpectrum[LinearLagrangian,
 		ClassName->"MetricAffineGravity",
@@ -55,7 +55,7 @@ ParticleSpectrum[LinearLagrangian,
 		MaxLaurentDepth->1];
 (**)
 Comment@{"Next we study",Cref@"ConcurrentTheory"," in the second-order formulation."};
-LinearLagrangian=LineariseLagrangian[LinearLagrangian,Formulation->SecondOrder];
+LinearLagrangian=MetricAffineLineariseLagrangian[LinearLagrangian,Formulation->SecondOrder];
 ParticleSpectrum[LinearLagrangian,
 		ClassName->"MetricAffineGravity",
 		TheoryName->"ConcurrentTheorySecondOrder",	

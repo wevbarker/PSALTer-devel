@@ -9,9 +9,9 @@ Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity",
 					"FieldStrengthTensors.m"};
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity",
 					"NonlinearLagrangian.m"};
+(*
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity",
 					"BarkerMarzoTheories.m"};
-(*
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity",
 					"AllowingMasslessVectorTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity",
@@ -37,3 +37,5 @@ Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity",
 Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity",
 					"VectorSymmetricTheories.m"};
 *)
+Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity",
+					"BarkerKarananasZellTheory.m"};
