@@ -37,6 +37,8 @@ GaugeSelectorWGTELooper[CaseNumber_,LCList_]:=Module[{i,j,
 Section@"Evaluating the general eWGT and the 'Punnett square' of c1 and \[Xi] constants";
 Comment@"Here are the cases considered:";
 
+(*Physical Review D*)
+
 GeneralWGTECases={
 	lR1==lR2==lR3==lR4==lR5==(lT1+lLambda)==(lT2-lLambda)==(lT3-lLambda)==0,(*Test; EH with Phi,B terms, w lC1.*)
 	lR1==lR2==lR3==lR4==lR5==(lT1+lLambda)==(lT2-lLambda)==(lT3-lLambda)==lC1==0,(*Test; EH with Phi,B terms, w/o lC1.*)
