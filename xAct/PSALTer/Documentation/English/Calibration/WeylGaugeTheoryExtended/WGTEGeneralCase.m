@@ -23,7 +23,7 @@ GaugeSelectorWGTELooper[CaseNumber_,LCList_]:=Module[{i,j,
 		LinearisedLagrangianWGTELooper,
 		ClassName->"WeylGaugeTheory",
 		TheoryName->"Case"<>ToString@CaseNumber<>"Gauge"<>ToString@i<>ToString@j<>"WGTE",	
-		Method->"Easy",
+		Method->"Hard",
 		MaxLaurentDepth->3]
 	]];
 
@@ -40,8 +40,9 @@ Comment@"Here are the cases considered:";
 (*Physical Review D*)
 
 GeneralWGTECases={
+	(*
 	lR1==lR2==lR3==lR4==lR5==(lT1+lLambda)==(lT2-lLambda)==(lT3-lLambda)==0,(*Test; EH with Phi,B terms, w lC1.*)
-	lR1==lR2==lR3==lR4==lR5==(lT1+lLambda)==(lT2-lLambda)==(lT3-lLambda)==lC1==0,(*Test; EH with Phi,B terms, w/o lC1.*)
+	lR1==lR2==lR3==lR4==lR5==(lT1+lLambda)==(lT2-lLambda)==(lT3-lLambda)==lC1==0,(*Test; EH with Phi,B terms, w/o lC1.*)*)
 	lLambda-lLambda==0,(*Most general eWGT*)
 	lC1==0,
 	lXi==0,
@@ -51,13 +52,13 @@ GeneralWGTECases={
 Off[Solve::svars];
 GeneralWGTECasesSolutions=First/@(Solve[#,{lLambda,lR1,lR2,lR3,lR4,lR5,lC1,lXi,lNu,lT1,lT2,lT3,lPhi0}]&/@GeneralWGTECases);
 On[Solve::svars];
-Print@GeneralWGTECasesSolutions[[1;;6]];
+Print@GeneralWGTECasesSolutions[[1;;4]];
 
 CalibrationTimingDataWGTECases=MapThread[
 		AbsoluteTiming@GaugeSelectorWGTELooper[#1,#2]&,
 		{
-			Table[i,{i,1,6}],
-			GeneralWGTECasesSolutions[[1;;6]]
+			Table[i,{i,2,4}],
+			GeneralWGTECasesSolutions[[2;;4]]
 		}];
 
 Section@"How long did this take?";

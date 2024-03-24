@@ -95,6 +95,7 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=If[
 
 		ClassNames={"ScalarTheory",
 			"VectorTheory",
+			"BiScalarVectorTensorTheory",
 			"TensorTheory",
 			"SymmetricTensorTheory",
 			"AsymmetricTensorTheory",
@@ -184,7 +185,7 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=If[
 					SourceConstraints,
 					ValuesOfSourceConstraints,
 					ExportTheory->False];
-
+		Print@"About to start";
 		ConstructSaturatedPropagator[
 					OptionValue@ClassName,
 					MatrixLagrangian,
