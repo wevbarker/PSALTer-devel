@@ -54,11 +54,11 @@ Comment@"Whatever the meaning of the SIV variables, at the free Lagrangian level
 
 Comment@"This is the linearised free SIV Lagrangian:";
 LinearisedLagrangianWGTESIV=LineariseLagrangianWGTESIV[NonlinearLagrangianWGTEOriginal];
-DisplayExpression[LinearisedLagrangianWGTESIV,EqnLabel->"WGTESIVExpanded"];
+DisplayExpression[LinearisedLagrangianWGTESIV/.WGTEToSIVariables,EqnLabel->"WGTESIVExpanded"];
 
 Comment@"This is the linearised Lagrangian, natural variables, Einstein gauge:";
 LinearisedLagrangianWGTENat=LinearisedLagrangianWGTEOriginal/.{WeylVector->Zero}/.{Compensator->Zero};(*Nat2,EG4*)
-DisplayExpression[LinearisedLagrangianWGTENat,EqnLabel->"WGTENatExpanded"];
+DisplayExpression[LinearisedLagrangianWGTENat/.WGTEToNaturalVariables,EqnLabel->"WGTENatExpanded"];
 
 DiffLagrangianWGTENatSIV=LinearisedLagrangianWGTESIV-LinearisedLagrangianWGTENat;
 DiffLagrangianWGTENatSIV//=xAct`PSALTer`Private`ToNewCanonical;

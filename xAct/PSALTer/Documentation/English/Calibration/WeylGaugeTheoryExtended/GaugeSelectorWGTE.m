@@ -18,8 +18,8 @@ GaugeSelectorWGTELegend={
 
 GaugeSelectorWGTEPrint[TSGNumber_Integer,WeylNumber_Integer]:=Module[{i=TSGNumber,j=WeylNumber},
 	Comment@("The gauge choices are");
-	Comment@("| TSG: "<>ToString@GaugeSelectorWGTELegend[[i]]<>" |");
-	Comment@("| Weyl: "<>ToString@GaugeSelectorWGTELegend[[j]]<>" |");
+	Print@("| TSG: "<>ToString@GaugeSelectorWGTELegend[[i]]<>" |");
+	Print@("| Weyl: "<>ToString@GaugeSelectorWGTELegend[[j]]<>" |");
 ];
 
 (*====================================*)
@@ -35,12 +35,25 @@ GaugeSelectorWGTEFunction[TSGNumber_Integer:1,WeylNumber_Integer:5]:=Module[{
 	
 	Which[
 	TSGNumber==1&&WeylNumber==5,  OutputLagrangian=OutputLagrangian(*Orig1,EP5*),
-	TSGNumber==1&&WeylNumber==4,  OutputLagrangian=OutputLagrangian/.{Compensator->Zero}(*Orig1,EG4*),
-	TSGNumber==2&&WeylNumber==5,  OutputLagrangian=OutputLagrangian/.{WeylVector->Zero}(*Nat2,EP5*),
-	TSGNumber==2&&WeylNumber==4,  OutputLagrangian=OutputLagrangian/.{WeylVector->Zero}/.{Compensator->Zero}(*Nat2,EG4*)(*,
-	TSGNumber==3,  OutputLagrangian=LinearisedLagrangianWGTESIV(*SIV3*)*)];
+	TSGNumber==1&&WeylNumber==4,  OutputLagrangian=OutputLagrangian/.{Compensator->Zero}/.WGTEToEinsteinGaugeOriginalVariables(*Orig1,EG4*),
+	TSGNumber==2&&WeylNumber==5,  OutputLagrangian=OutputLagrangian/.{WeylVector->Zero}/.WGTEToNaturalVariables(*Nat2,EP5*),
+	TSGNumber==2&&WeylNumber==4,  OutputLagrangian=OutputLagrangian/.{WeylVector->Zero}/.{Compensator->Zero}/.WGTEToSIVariables(*Nat2,EG4*),
+	TSGNumber==3,  OutputLagrangian=LinearisedLagrangianWGTESIV/.WGTEToSIVariables(*SIV3*)];
 	
 	(*Diagnostic line*)
-	(*DisplayExpression@CollectTensors@ToCanonical[OutputLagrangian];*)
-	Print@"Hi there, I'm sitting between Zhiyuan's code and Will's code!";
+	Print@"Diagnostic: the linearised Lagrangian is displayed prior to feeding into PSALTer. We can see that the substitutions have been made to send the Lagrangian to the correct theory class.";
+	DisplayExpression@CollectTensors@ToCanonical[OutputLagrangian];
 OutputLagrangian];
+
+(*=======================================*)
+(*  Function for theory class selector  *)
+(*=======================================*)
+
+TheorySelectorWGTEFunction[TSGNumber_Integer:1,WeylNumber_Integer:5]:=Module[{OutputTheoryClass},
+	Which[
+	TSGNumber==1&&WeylNumber==5,  OutputTheoryClass="WeylGaugeTheory"(*Orig1,EP5*),
+	TSGNumber==1&&WeylNumber==4,  OutputTheoryClass="WeylEinsteinGaugeTheory"(*Orig1,EG4*),
+	TSGNumber==2&&WeylNumber==5,  OutputTheoryClass="WeylNaturalGaugeTheory"(*Nat2,EP5*),
+	TSGNumber==2&&WeylNumber==4,  OutputTheoryClass="WeylSIVGaugeTheory"(*Nat2,EG4*),
+	TSGNumber==3,  OutputTheoryClass="WeylSIVGaugeTheory"(*SIV3*)];
+OutputTheoryClass];
