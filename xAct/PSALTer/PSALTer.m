@@ -147,10 +147,8 @@ ContextList={
 	"xAct`PSALTer`ScalarTheory`Private`",
 	"xAct`PSALTer`VectorTheory`",
 	"xAct`PSALTer`VectorTheory`Private`",
-*)
 	"xAct`PSALTer`BiScalarVectorTensorTheory`",
 	"xAct`PSALTer`BiScalarVectorTensorTheory`Private`",
-(*
 	"xAct`PSALTer`TensorTheory`",
 	"xAct`PSALTer`TensorTheory`Private`",
 	"xAct`PSALTer`SymmetricTensorTheory`",
@@ -163,6 +161,7 @@ ContextList={
 	"xAct`PSALTer`ScalarTensorTheory`Private`",
 	"xAct`PSALTer`PoincareGaugeTheory`",
 	"xAct`PSALTer`PoincareGaugeTheory`Private`",
+*)
 	"xAct`PSALTer`WeylGaugeTheory`",
 	"xAct`PSALTer`WeylGaugeTheory`Private`",
 	"xAct`PSALTer`WeylEinsteinGaugeTheory`",
@@ -170,7 +169,8 @@ ContextList={
 	"xAct`PSALTer`WeylNaturalGaugeTheory`",
 	"xAct`PSALTer`WeylNaturalGaugeTheory`Private`",
 	"xAct`PSALTer`WeylSIVGaugeTheory`",
-	"xAct`PSALTer`WeylSIVGaugeTheory`Private`",			
+	"xAct`PSALTer`WeylSIVGaugeTheory`Private`",
+(*				
 	"xAct`PSALTer`MetricAffineGravity`",
 	"xAct`PSALTer`MetricAffineGravity`Private`",
 	"xAct`PSALTer`ZeroTorsionPalatini`",

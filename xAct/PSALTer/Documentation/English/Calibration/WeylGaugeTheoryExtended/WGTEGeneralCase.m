@@ -19,9 +19,14 @@ GaugeSelectorWGTELooper[CaseNumber_,LCList_]:=Module[{i,j,
 	Comment@{"Case "<>ToString@CaseNumber<>"."<>ToString@i<>ToString@j<>":"};	
 	LinearisedLagrangianWGTELooper=GaugeSelectorWGTEFunction[i,j]/.LCList;
 	
+	(*Diagnostic*)
+	Print@"This is the string that will be fed into ParticleSpectrum[ClassName -> ...]";
+	Print@TheorySelectorWGTEFunction[i,j];
+	Print@"This marks where Zhiyuan's code end and Will's code begins. Hard mode used";
+	
 	ParticleSpectrum[
 		LinearisedLagrangianWGTELooper,
-		ClassName->"WeylGaugeTheory",
+		ClassName->ToString@TheorySelectorWGTEFunction[i,j],
 		TheoryName->"Case"<>ToString@CaseNumber<>"Gauge"<>ToString@i<>ToString@j<>"WGTE",	
 		Method->"Hard",
 		MaxLaurentDepth->3]
@@ -42,7 +47,8 @@ Comment@"Here are the cases considered:";
 GeneralWGTECases={
 	(*
 	lR1==lR2==lR3==lR4==lR5==(lT1+lLambda)==(lT2-lLambda)==(lT3-lLambda)==0,(*Test; EH with Phi,B terms, w lC1.*)
-	lR1==lR2==lR3==lR4==lR5==(lT1+lLambda)==(lT2-lLambda)==(lT3-lLambda)==lC1==0,(*Test; EH with Phi,B terms, w/o lC1.*)*)
+	lR1==lR2==lR3==lR4==lR5==(lT1+lLambda)==(lT2-lLambda)==(lT3-lLambda)==lC1==0,(*Test; EH with Phi,B terms, w/o lC1.*)
+	*)
 	lLambda-lLambda==0,(*Most general eWGT*)
 	lC1==0,
 	lXi==0,
