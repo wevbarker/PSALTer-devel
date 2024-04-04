@@ -256,6 +256,8 @@ DefLagrangianCoupling[CouplingVarPhi0,
 	CouplingSymbol->"\[CurlyPhi]",CouplingIndex->0];
 DefLagrangianCoupling[CouplingMu,
 	CouplingSymbol->"\[Mu]",CouplingIndex->1];
+DefLagrangianCoupling[CouplingSigma,
+	CouplingSymbol->"\[Sigma]",CouplingIndex->1];
 
 (*================================================*)
 (*  Some infrastructure for linearising theories  *)
