@@ -13,10 +13,19 @@ DefLagrangianCoupling[SymbName_,OptionsPattern[]]:=Module[{
 	Symb
 	},
 
-	Symb=SymbolBuild[
-		CouplingSymbolValue,
-		CouplingIndexSuffices@CouplingIndexValue,
-		IsConstantSymbol->True];
-	
-	DefConstantSymbol[SymbName,PrintAs->Symb];
+	If[CouplingIndexValue==None,		
+		DefConstantSymbol[SymbName,PrintAs->CouplingSymbolValue];
+	,
+		Symb=SymbolBuild[
+			CouplingSymbolValue,
+			CouplingIndexSuffices@CouplingIndexValue,
+			IsConstantSymbol->True];	
+		DefConstantSymbol[SymbName,PrintAs->Symb];
+	,
+		Symb=SymbolBuild[
+			CouplingSymbolValue,
+			CouplingIndexSuffices@CouplingIndexValue,
+			IsConstantSymbol->True];	
+		DefConstantSymbol[SymbName,PrintAs->Symb];
+	];
 ];
