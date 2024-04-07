@@ -58,7 +58,7 @@ Protect@AutomaticRules;
 $DiagnosticMode=False;
 $MonitorParallel=False;
 $ExportPDF=False;
-$ReadOnly=True;
+$ReadOnly=False;
 
 Comment@"Great, so PSALTer is now loaded and we can start to do some science.";
 
