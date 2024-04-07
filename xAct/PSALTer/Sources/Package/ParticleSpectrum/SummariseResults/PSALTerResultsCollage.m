@@ -26,7 +26,7 @@ PSALTerResultsCollage[
 	Print@((((ImageDimensions@#))&)/@MatricesGroup);*)
 	FinalElement=MatricesGroup[[-1]];
 	MatricesGroup//=(#~Drop~(-1))&;
-	MatricesGroup//=(#~DeleteCases~(_?(((Times@@(ImageDimensions@#))>0.5*10^6)&)))&;
+	(*MatricesGroup//=(#~DeleteCases~(_?(((Times@@(ImageDimensions@#))>0.5*10^6)&)))&;*)
 	MatricesGroup//=(#~Join~{FinalElement})&;
 	MaxWidth=Max@((First/@(ImageDimensions/@(MatricesGroup~Join~SpectrumGroup)))~Join~{500});
 
