@@ -200,7 +200,7 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=If[
 					ValuesInverseBMatricesValues,
 					ExportTheory->False];
 
-(*
+(**)
 		ConstructMassiveAnalysis[
 					OptionValue@ClassName,
 					ValuesSaturatedPropagator,
@@ -252,7 +252,7 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=If[
 					PositiveSystem,
 					PositiveSystemValue,
 					ExportTheory->False];
-*)
+(**)
 		DeleteDirectory[FileNameJoin@{$WorkingDirectory,"tmp"},DeleteContents->True];
 
 		If[$CLI,

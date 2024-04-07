@@ -181,7 +181,7 @@ TryTheory[TheTheory_]:=Module[{
 	Comment@"Some comments to be made.";
 ];
 
-TryTheory/@Table[i,{i,6,6}];
+TryTheory/@Table[i,{i,1,6}];
 
 
 
