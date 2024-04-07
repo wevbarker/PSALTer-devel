@@ -25,6 +25,10 @@ TryTheory[TheTheory_]:=Module[{
 	Comment@"Trying a new theory.";
 	DisplayExpression@TheoryRule;
 	DisplayExpression@TheoryName;
+	SuperRules={Chi0^2->Xi0*kT1*kT3^2}~Join~TheoryRule;
+	SuperRules/.{Rule->Equal};
+	SuperRules=SuperRules//=Reduce;
+	DisplayExpression@SuperRules;
 ];
 
 TryTheory/@Table[i,{i,1,6}];
