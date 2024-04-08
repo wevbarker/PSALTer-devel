@@ -28,7 +28,7 @@ NewNonlinearLagrangian=(
 DisplayExpression[NewNonlinearLagrangian];
 
 Comment@"We first try the PGT equivalent.";
-SpecialNonlinearLagrangian=NewNonlinearLagrangian/.{Chi0->0,Xi->0};
+SpecialNonlinearLagrangian=NewNonlinearLagrangian/.{Chi0->0,Xi0->0};
 SpecialNonlinearLagrangian//=LineariseLagrangian;
 SpecialNonlinearLagrangian//DisplayExpression;
 ParticleSpectrum[
@@ -41,7 +41,7 @@ ParticleSpectrum[
 
 Comment@"We next try the discontinuous PGT equivalent.";
 SpecialNonlinearLagrangian=NewNonlinearLagrangian/.{Alp5->-(2*Alp2+4*Alp4)};
-SpecialNonlinearLagrangian=SpecialNonlinearLagrangian/.{Chi0->0,Xi->0};
+SpecialNonlinearLagrangian=SpecialNonlinearLagrangian/.{Chi0->0,Xi0->0};
 SpecialNonlinearLagrangian//=LineariseLagrangian;
 SpecialNonlinearLagrangian//DisplayExpression;
 ParticleSpectrum[
