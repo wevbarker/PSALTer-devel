@@ -7,7 +7,8 @@ ConstructUnitarityConditions[ClassName_?StringQ,MassiveAnalysis_,MassiveGhostAna
 	Class,
 	PositiveSystem=Join[MassiveAnalysis,MassiveGhostAnalysis,MasslessAnalysisValue],
 	PathologicalSystem=Join[QuarticAnalysisValue,HexicAnalysisValue],
-	CouplingAssumptions
+	CouplingAssumptions,
+	UnitarityTime=10
 	},
 
 	LocalOverallUnitarity=" ** ConstructUnitarityConditions...";
@@ -32,8 +33,7 @@ ConstructUnitarityConditions[ClassName_?StringQ,MassiveAnalysis_,MassiveGhostAna
 
 	PositiveSystem=PositiveSystem~Join~PathologicalSystem;
 
-	PositiveSystem=PositiveSystem/.{Mo->1,En->1,Def->1};
-
+	PositiveSystem=PositiveSystem/.{Mo->1,En->1,Def->1};	
 
 	If[LeafCount@MasslessAnalysisValue>=5000,
 		LocalOverallUnitarity=Text@"(Hidden for brevity)";
@@ -41,25 +41,29 @@ ConstructUnitarityConditions[ClassName_?StringQ,MassiveAnalysis_,MassiveGhostAna
 
 		TimeConstrained[
 		(
-			PositiveSystem//=Assuming[CouplingAssumptions,Reduce[#,Couplings]]&;
+			PositiveSystem//=Assuming[CouplingAssumptions,Reduce[#,Couplings,Reals]]&;
+			Diagnostic@PositiveSystem;
+(*
+			PositiveSystem//=LogicalExpand;
+			Diagnostic@PositiveSystem;
+			PositiveSystem=PositiveSystem/.{Or->List};
+			Diagnostic@PositiveSystem;
+*)
+			If[PositiveSystem===False,
+				LocalOverallUnitarity=Text@"(Demonstrably impossible)";
+				,
+				If[ListQ@PositiveSystem,
+					LocalOverallUnitarity=PositiveSystem;
+					,
+					LocalOverallUnitarity={PositiveSystem};
+				];
+			];
 		)
 		,
-		10,
+		UnitarityTime,
 		(
-			PositiveSystem=Text@"(Timeout after 10 seconds)";
+			LocalOverallUnitarity=Text@("(Timeout after "<>ToString@UnitarityTime<>" seconds)");
 		)
-		];
-
-		Diagnostic@PositiveSystem;
-		LocalOverallUnitarity=PositiveSystem;
-		PositiveSystemValue=PositiveSystem;
-
-		If[PositiveSystem===False,
-			LocalOverallUnitarity=Text@"(Demonstrably impossible)";
-			PositiveSystemValue=Text@"(Demonstrably impossible)";
-			,
-			LocalOverallUnitarity={PositiveSystem};
-			PositiveSystemValue={PositiveSystem};
 		];
 	];
 ];

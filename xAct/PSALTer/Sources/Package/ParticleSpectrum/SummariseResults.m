@@ -76,7 +76,7 @@ SummariseResults[TheoryName_?StringQ,WaveOperator_,Propagator_,SourceConstraints
 				#,#]&@(PrintSpectrum@@MasslessSpectrum)];
 			If[OverallUnitarity===Null,
 				TheOverallUnitarity=Computing,
-				TheOverallUnitarity=DetailCell@@(PrintUnitarityConditions@OverallUnitarity)];
+				TheOverallUnitarity=DetailCell@(PrintUnitarityConditions@OverallUnitarity)];
 
 			SummaryOfResults=Column[{
 				MakeLabel@"PSALTer results panel",
@@ -111,7 +111,7 @@ SummariseResults[TheoryName_?StringQ,WaveOperator_,Propagator_,SourceConstraints
 		TheSourceConstraints=PrintSourceConstraints@@SourceConstraints;
 		TheSpectrum=If[ListQ@#,#,{#},{#}]&@(PrintSpectrum@@Spectrum);
 		TheMasslessSpectrum=If[ListQ@#,#,{#},{#}]&@(PrintSpectrum@@MasslessSpectrum);
-		TheOverallUnitarity=DetailCell@@(PrintUnitarityConditions@OverallUnitarity);
+		TheOverallUnitarity=DetailCell@(PrintUnitarityConditions@OverallUnitarity);
 
 		SummaryOfResults=PSALTerResultsCollage[
 				TheSummaryOfTheory,

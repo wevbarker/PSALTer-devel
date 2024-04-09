@@ -185,7 +185,7 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=If[
 					SourceConstraints,
 					ValuesOfSourceConstraints,
 					ExportTheory->False];
-		Print@"About to start";
+
 		ConstructSaturatedPropagator[
 					OptionValue@ClassName,
 					MatrixLagrangian,
@@ -250,7 +250,7 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=If[
 		UpdateTheoryAssociation[
 					OptionValue@TheoryName,
 					PositiveSystem,
-					PositiveSystemValue,
+					LocalOverallUnitarity,
 					ExportTheory->False];
 (**)
 		DeleteDirectory[FileNameJoin@{$WorkingDirectory,"tmp"},DeleteContents->True];
