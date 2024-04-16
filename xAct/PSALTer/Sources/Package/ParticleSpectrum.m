@@ -1,3 +1,5 @@
+(* ::Package:: *)
+
 (*====================*)
 (*  ParticleSpectrum  *)
 (*====================*)
@@ -103,6 +105,9 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=If[
 			"ScalarTensorTheory",
 			"PoincareGaugeTheory",
 			"WeylGaugeTheory",
+			"WeylEinsteinGaugeTheory",
+			"WeylNaturalGaugeTheory",
+			"WeylSIVGaugeTheory",			
 			"MetricAffineGravity",
 			"ZeroTorsionPalatini"};
 
