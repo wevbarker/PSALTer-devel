@@ -7,8 +7,8 @@ ConstructUnitarityConditions[ClassName_?StringQ,MassiveAnalysis_,MassiveGhostAna
 	Class,
 	PositiveSystem=Join[MassiveAnalysis,MassiveGhostAnalysis,MasslessAnalysisValue],
 	PathologicalSystem=Join[QuarticAnalysisValue,HexicAnalysisValue],
-	CouplingAssumptions,
-	UnitarityTime=10
+	CouplingAssumptionsg
+gUnitarityTime=10
 	},
 
 	LocalOverallUnitarity=" ** ConstructUnitarityConditions...";

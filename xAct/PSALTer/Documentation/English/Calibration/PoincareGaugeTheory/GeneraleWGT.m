@@ -76,8 +76,8 @@ SpecialNonlinearLagrangian//=LineariseLagrangian;
 SpecialNonlinearLagrangian//DisplayExpression;
 ParticleSpectrum[
 	SpecialNonlinearLagrangian,
-	ClassName->"PoincareGaugeTheory",
-	TheoryName->"NoChieWGT",	
+	ClassName->"PoincareGaugeTheoryg,
+gTheoryName->"NoChieWGT",	
 	Method->"Hard",
 	MaxLaurentDepth->3
 ];
