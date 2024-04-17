@@ -31,19 +31,23 @@ ConstructOperator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 	SourceSpinParityTensorHeadsValue=Class@SourceSpinParityTensorHeads;
 
 	SymbolicLagrangian=Expr/.Class@InvariantToConstantRules;
+	Diagnostic@(Class@InvariantToConstantRules);
 	Diagnostic@SymbolicLagrangian;
 
 	SpinParityConstantSymbols=Map[
 		(ToExpression@((ToString@#)<>"ConstantSymbol"))&,
 		FieldSpinParityTensorHeadsValue,{4}
 	];
+	Diagnostic@SpinParityConstantSymbols;
 
 	SpinParityRescalingSymbols=Map[
 		(ToExpression@((ToString@#)<>"RescalingSymbol"))&,
 		FieldSpinParityTensorHeadsValue,{4}
 	];
+	Diagnostic@SpinParityRescalingSymbols;
 
 	Symbols=<||>;
+	Diagnostic@Symbols;
 	(
 		Symbols[Spin]=(#~Join~((Evaluate@Dagger[#])&/@#))&@Flatten@Join[
 			SpinParityConstantSymbols[Tensor][Spin][Even]~Table~{Tensor,Class@Tensors},
