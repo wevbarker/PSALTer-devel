@@ -2,5 +2,11 @@
 (*  Test  *)
 (*========*)
 
-Expr=Grid[{{a,b,c},{d,Total@Alphabet[],e}},ItemSize->{Automatic,Automatic,{1,2}->10}];
+Comment@"Trying to clone a field";
+
+Expr=Names@"xAct`PSALTer`VectorTheory`*";
 Print@Expr;
+Print/@(DownValues/@Expr);
+Print/@(UpValues/@Expr);
+
+Throw@"Hold it here!";

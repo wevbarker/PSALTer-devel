@@ -2,6 +2,10 @@
 (*  BuildPSALTer  *)
 (*================*)
 
+BuildPackage@"BuildPSALTer/SymbolBuild.m";
+BuildPackage@"BuildPSALTer/ToNewCanonical.m";
+BuildPackage@"BuildPSALTer/Diagnostic.m";
+
 SaveBinaryContext[Context_String]:=DumpSave[FileNameJoin[{$PSALTerInstallDirectory,"Binaries","Contexts",Context<>".mx"}],Context];
 
 SaveBinaryContexts[]:=Module[{PrintVariable},

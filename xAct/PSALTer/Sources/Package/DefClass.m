@@ -2,6 +2,8 @@
 (*  DefClass  *)
 (*============*)
 
+BuildPackage@"DefClass/DefSpinParityMode.m";
+BuildPackage@"DefClass/DefLagrangianCoupling.m";
 BuildPackage@"DefClass/BasicInformation.m";
 BuildPackage@"DefClass/GetTensorComponents.m";
 BuildPackage@"DefClass/ValidateModes.m";
@@ -28,7 +30,6 @@ DefClass[ClassName_?StringQ,
 	ExpandSourcesInput_,
 	OptionsPattern[]]:=Module[{},
 
-	(*Firstly we remove all definitions which might be associated with a class already*)
 	UndefClass[];
 	If[OptionValue@ImportClass,
 
@@ -45,10 +46,6 @@ DefClass[ClassName_?StringQ,
 		UpdateClassAssociation[ClassName,DecomposeFields,DecomposeFieldsInput];
 		UpdateClassAssociation[ClassName,ExpandSources,ExpandSourcesInput];
 		UpdateClassAssociation[ClassName,SourceEngineeringDimensions,SourceEngineeringDimensionsInput];
-
-		(*--------------------------------------------*)
-		(*  These functions do much of the hard work  *)
-		(*--------------------------------------------*)
 
 		BasicInformation[ClassName];
 		ValidateModes[ClassName];

@@ -2,9 +2,9 @@
 (*  DefSpinParityMode  *)
 (*=====================*)
 
-BuildPackage@"DefSpinParityMode/MakeAutomaticallyTraceless.m";
-BuildPackage@"DefSpinParityMode/MakeAutomaticallyNotAntisymmetric.m";
-BuildPackage@"DefSpinParityMode/MakeUniqueQuadratic.m";
+BuildPackage@"DefClass/DefSpinParityMode/MakeAutomaticallyTraceless.m";
+BuildPackage@"DefClass/DefSpinParityMode/MakeAutomaticallyNotAntisymmetric.m";
+BuildPackage@"DefClass/DefSpinParityMode/MakeUniqueQuadratic.m";
 
 Options@DefSpinParityMode={
 	MultiTermSymmetries->{},

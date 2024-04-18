@@ -1,5 +1,3 @@
-(* ::Package:: *)
-
 (*====================*)
 (*  ParticleSpectrum  *)
 (*====================*)
@@ -25,7 +23,7 @@ Options@ParticleSpectrum={
 	MaxLaurentDepth->1
 	};
 
-ParticleSpectrum::WrongClassName="You must pass a string to the option ClassName, from the list of defined classes `1`.";
+ParticleSpectrum::WrongClassName="The option ClassName must be from the list of defined classes `1`.";
 ValidateClassName[ClassNameValue_,ClassNames_]:=If[!(ClassNames~MemberQ~ClassNameValue),
 			Throw@Message[ParticleSpectrum::WrongClassName,ClassNames]
 			];
