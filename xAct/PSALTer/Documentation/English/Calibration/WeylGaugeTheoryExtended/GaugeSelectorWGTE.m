@@ -26,19 +26,18 @@ GaugeSelectorWGTEPrint[TSGNumber_Integer,WeylNumber_Integer]:=Module[{i=TSGNumbe
 (*  Function for the gauge selector  *)
 (*====================================*)
 
-GaugeSelectorWGTEFunction[TSGNumber_Integer:1,WeylNumber_Integer:5]:=Module[{
+GaugeSelectorWGTEFunction[TSGNumber_Integer:1,WeylNumber_Integer:5,InputLagrangian_:LinearisedLagrangianWGTEOriginal]:=Module[{
 	OutputLagrangian},
-	OutputLagrangian=LinearisedLagrangianWGTEOriginal;
 	
 	(*Printing the gauge selection*)
 	GaugeSelectorWGTEPrint[TSGNumber,WeylNumber];
 	
 	Which[
-	TSGNumber==1&&WeylNumber==5,  OutputLagrangian=OutputLagrangian(*Orig1,EP5*),
-	TSGNumber==1&&WeylNumber==4,  OutputLagrangian=OutputLagrangian/.{Compensator->Zero}/.WGTEToEinsteinGaugeOriginalVariables(*Orig1,EG4*),
-	TSGNumber==2&&WeylNumber==5,  OutputLagrangian=OutputLagrangian/.{WeylVector->Zero}/.WGTEToNaturalVariables(*Nat2,EP5*),
-	TSGNumber==2&&WeylNumber==4,  OutputLagrangian=OutputLagrangian/.{WeylVector->Zero}/.{Compensator->Zero}/.WGTEToSIVariables(*Nat2,EG4*),
-	TSGNumber==3,  OutputLagrangian=LinearisedLagrangianWGTESIV/.WGTEToSIVariables(*SIV3*)];
+	TSGNumber==1&&WeylNumber==5,  OutputLagrangian=InputLagrangian(*Orig1,EP5*),
+	TSGNumber==1&&WeylNumber==4,  OutputLagrangian=InputLagrangian/.{Compensator->Zero}/.WGTEToEinsteinGaugeOriginalVariables(*Orig1,EG4*),
+	TSGNumber==2&&WeylNumber==5,  OutputLagrangian=InputLagrangian/.{WeylVector->Zero}/.WGTEToNaturalVariables(*Nat2,EP5*),
+	TSGNumber==2&&WeylNumber==4,  OutputLagrangian=InputLagrangian/.{WeylVector->Zero}/.{Compensator->Zero}/.WGTEToSIVariables(*Nat2,EG4*),
+	TSGNumber==3,  OutputLagrangian=InputLagrangian/.WGTEToSIVariables(*LinearisedLagrangianWGTESIV, SIV3*)];
 	
 	(*Diagnostic line*)
 	Print@"Diagnostic: the linearised Lagrangian is displayed prior to feeding into PSALTer. We can see that the substitutions have been made to send the Lagrangian to the correct theory class.";

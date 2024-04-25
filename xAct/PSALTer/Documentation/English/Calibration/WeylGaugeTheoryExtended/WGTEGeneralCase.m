@@ -17,7 +17,7 @@ GaugeSelectorWGTELooper[CaseNumber_,LCList_]:=Module[{i,j,
 				
 	For[i=1,i<3,i++,For[j=4,j<6,j++,
 	Comment@{"Case "<>ToString@CaseNumber<>"."<>ToString@i<>ToString@j<>":"};	
-	LinearisedLagrangianWGTELooper=GaugeSelectorWGTEFunction[i,j]/.LCList;
+	LinearisedLagrangianWGTELooper=GaugeSelectorWGTEFunction[i,j,(LinearisedLagrangianWGTEOriginal/.LCList)];
 	
 	(*Diagnostic*)
 	Print@"This is the string that will be fed into ParticleSpectrum[ClassName -> ...]";
@@ -58,7 +58,7 @@ GeneralWGTECases={
 Off[Solve::svars];
 GeneralWGTECasesSolutions=First/@(Solve[#,{lLambda,lR1,lR2,lR3,lR4,lR5,lC1,lXi,lNu,lT1,lT2,lT3,lPhi0}]&/@GeneralWGTECases);
 On[Solve::svars];
-Print@GeneralWGTECasesSolutions[[1;;4]];
+Print@GeneralWGTECasesSolutions[[2;;4]];
 
 CalibrationTimingDataWGTECases=MapThread[
 		AbsoluteTiming@GaugeSelectorWGTELooper[#1,#2]&,
