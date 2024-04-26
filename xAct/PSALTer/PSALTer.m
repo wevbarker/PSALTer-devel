@@ -31,7 +31,7 @@ SetOptions[$FrontEndSession,EvaluationCompletionAction->"ScrollToOutput"];
 
 Print[xAct`xCore`Private`bars];
 Print["Package xAct`PSALTer` version ",$Version[[1]],", ",$Version[[2]]];
-Print["CopyRight \[Copyright] 2022, Will E. V. Barker, Stephanie Buttigieg, Carlo Marzo, Cillian Rew, Claire Rigouzzo, Zhiyuan Wei, Haoyang Ye and David Yallup, under the General Public License."];
+Print["CopyRight \[Copyright] 2022, Will Barker, Stephanie Buttigieg, Carlo Marzo, Cillian Rew, Claire Rigouzzo, Zhiyuan Wei, David Yallup and Haoyang Ye, under the General Public License."];
 
 (*-------------------------------------------------------------------*)
 (*  Modify the path to accommodate notebook and install directories  *)
@@ -73,8 +73,6 @@ Print[xAct`xCore`Private`bars]];
 (*===============================*)
 (*  Functions and their options  *)
 (*===============================*)
-
-DefKinematics::usage="DefKinematics[K,{c1,c2,c3,...}] defines K to be a kinematic framework in which the coupling constants are c1, c2, c3, etc.";
 
 DefField::usage="DefField[Field[Inds],K,SymmExpr,Options] populates the kinematics K with a tensorial field Field with indices Inds and index symmetries given by SymmExpr. Options include PrintAs and PrintSourceAs";
 PrintSourceAs::usage="PrintSourceAs is an option for DefField which acts as the PrintAs option for the conjugate source.";
@@ -149,7 +147,6 @@ BuildRebuild[FileName_String]:=Get[FileNameJoin@{$PSALTerInstallDirectory,"Sourc
 
 BuildPSALTerPackage[]:=BuildPackage/@{
 	"BuildPSALTer.m",
-	"DefKinematics.m",
 	"DefField.m",
 	"DefClass.m",
 	"ParticleSpectrum.m"
