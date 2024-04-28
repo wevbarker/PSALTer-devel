@@ -1,21 +1,20 @@
-(*=================*)
-(*  ValidateModes  *)
-(*=================*)
+(*=====================*)
+(*  ValidateSO3Irreps  *)
+(*=====================*)
 
-BuildPackage@"DefClass/ValidateModes/ValidateTraceless.m";
-BuildPackage@"DefClass/ValidateModes/ValidateSpatial.m";
-BuildPackage@"DefClass/ValidateModes/ValidateInverseField.m";
-BuildPackage@"DefClass/ValidateModes/ValidateSymmetryField.m";
-BuildPackage@"DefClass/ValidateModes/ValidateInverseMode.m";
-BuildPackage@"DefClass/ValidateModes/ValidateSymmetryMode.m";
+BuildPackage@"DefField/CombineRules/ValidateSO3Irreps/ValidateTraceless.m";
+BuildPackage@"DefField/CombineRules/ValidateSO3Irreps/ValidateSpatial.m";
+BuildPackage@"DefField/CombineRules/ValidateSO3Irreps/ValidateInverseField.m";
+BuildPackage@"DefField/CombineRules/ValidateSO3Irreps/ValidateSymmetryField.m";
+BuildPackage@"DefField/CombineRules/ValidateSO3Irreps/ValidateInverseMode.m";
+BuildPackage@"DefField/CombineRules/ValidateSO3Irreps/ValidateSymmetryMode.m";
 
-ValidateModes[ClassName_?StringQ]:=Catch@Module[{
+ValidateSO3Irreps[]:=Catch@Module[{
 	Class,
 	FieldSpinParityTensorHeadsValue,
-	ListOfModes
-	},
+	ListOfModes},
 
-	Class=Evaluate@Symbol@ClassName;
+	Class=FieldAssociation@Context[];
 
 	DecomposeAndExpandFields[InputExpr_]:=Catch@Module[{
 		Fundamental=InputExpr,
@@ -23,7 +22,7 @@ ValidateModes[ClassName_?StringQ]:=Catch@Module[{
 		Expanded
 		},
 
-		Print[" ** DefClass: validating the fundamental field "<>(ToString@InputExpr)<>"..."];
+		Print[" ** DefField: validating the fundamental field "<>(ToString@InputExpr)<>"..."];
 		Fundamental//=ToIndexFree;
 		Fundamental//=FromIndexFree;
 		Decomposed=Fundamental//(Class@DecomposeFields);
@@ -39,7 +38,7 @@ ValidateModes[ClassName_?StringQ]:=Catch@Module[{
 		Expanded
 		},
 
-		Print[" ** DefClass: validating the reduced-index mode "<>(ToString@InputExpr)<>"..."];
+		Print[" ** DefField: validating the reduced-index mode "<>(ToString@InputExpr)<>"..."];
 		Reduced//=ToIndexFree;
 		Reduced//=FromIndexFree;
 		Expanded=Reduced//(Class@ExpandFields);

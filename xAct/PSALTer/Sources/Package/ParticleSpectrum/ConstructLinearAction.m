@@ -4,6 +4,7 @@
 
 ConstructLinearAction[ClassName_?StringQ,Expr_]:=Module[{
 	Class,
+	NewExpr,
 	TheTensors,
 	TensorList,
 	SourceCoupling
@@ -12,6 +13,7 @@ ConstructLinearAction[ClassName_?StringQ,Expr_]:=Module[{
 	LocalSummaryOfTheory=" ** ConstructLinearAction...";
 	
 	Class=Evaluate@Symbol@ClassName;
+	NewExpr=Expr/.(Class@FieldToFiducialField);
 	TheTensors=Class@Tensors;
 	Diagnostic@TheTensors;
 	TensorList=(FromIndexFree@ToIndexFree@#)&/@(TheTensors);
@@ -23,6 +25,6 @@ ConstructLinearAction[ClassName_?StringQ,Expr_]:=Module[{
 	Diagnostic@SourceCoupling;
 	SourceCoupling//=ToNewCanonical;
 	Diagnostic@SourceCoupling;
-	LocalSummaryOfTheory=Expr+SourceCoupling;
+	LocalSummaryOfTheory=NewExpr+SourceCoupling;
 	Diagnostic@LocalSummaryOfTheory;
 ];

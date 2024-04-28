@@ -2,7 +2,7 @@
 (*  NormaliseRescalings  *)
 (*=======================*)
 
-NormaliseRescalings[ClassName_?StringQ]:=Module[{
+NormaliseRescalings[TheoryContext_]:=Module[{
 	Class,
 	Expr,
 	SystemOfEquations,
@@ -11,7 +11,7 @@ NormaliseRescalings[ClassName_?StringQ]:=Module[{
 	InvariantMatrixValue
 	},
 
-	Class=Evaluate@Symbol@ClassName;
+	Class=FieldAssociation@TheoryContext;
 	InvariantMatrixValue=Class@InvariantMatrix;
 	
 	Expr=Total@((Tr@InvariantMatrixValue[Spin])~Table~{Spin,Class@Spins});
@@ -40,5 +40,5 @@ NormaliseRescalings[ClassName_?StringQ]:=Module[{
 
 	Diagnostic@RescalingSolutionsValue;
 
-	UpdateClassAssociation[ClassName,RescalingSolutions,RescalingSolutionsValue];
+	AppendToField[TheoryContext,RescalingSolutions,RescalingSolutionsValue];
 ];

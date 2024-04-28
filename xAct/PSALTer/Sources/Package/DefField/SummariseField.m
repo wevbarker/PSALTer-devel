@@ -1,12 +1,12 @@
 (*==================*)
-(*  SummariseClass  *)
+(*  SummariseField  *)
 (*==================*)
 
-BuildPackage@"DefClass/SummariseClass/ExpansionTable.m";
-BuildPackage@"DefClass/SummariseClass/DecompositionTable.m";
-BuildPackage@"DefClass/SummariseClass/PSALTerClassCollage.m";
+BuildPackage@"DefField/SummariseField/ExpansionTable.m";
+BuildPackage@"DefField/SummariseField/DecompositionTable.m";
+BuildPackage@"DefField/SummariseField/PSALTerClassCollage.m";
 
-SummariseClass[ClassName_?StringQ]:=Module[{
+SummariseField[]:=Module[{
 	Class,
 	BasicInfo,
 	FieldSpinParityTensors,
@@ -22,7 +22,7 @@ SummariseClass[ClassName_?StringQ]:=Module[{
 	ThePSALTerClassCollage
 	},
 
-	Class=Evaluate@Symbol@ClassName;
+	Class=FieldAssociation@Context[];
 
 	FieldSpinParityTensors=Flatten@Values@(Flatten/@(Values/@(Values/@(Class@FieldSpinParityTensorHeads))));
 	FieldSpinParityTensors//=((FromIndexFree@ToIndexFree@#)&/@#)&;
@@ -60,13 +60,12 @@ SummariseClass[ClassName_?StringQ]:=Module[{
 		FieldTensorsDecomposed,
 		SourceTensors];
 
+	ThePSALTerClassCollage=PSALTerClassCollage[
+				BasicInfo,
+				TheDecompositionTable,
+				TheExpansionTable];
+	Print@ThePSALTerClassCollage;
 	If[$ExportPDF,
-
-		ThePSALTerClassCollage=PSALTerClassCollage[
-					BasicInfo,
-					TheDecompositionTable,
-					TheExpansionTable];
-		Print@ThePSALTerClassCollage;
 		Export[FileNameJoin@{$WorkingDirectory,ClassName<>".pdf"},
 			ThePSALTerClassCollage
 		];

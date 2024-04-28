@@ -4,7 +4,7 @@
 
 Options@CatalogueInvariant={Mixed->False};
 CatalogueInvariant[
-	ClassName_?StringQ,
+	TheoryContext_,
 	LeftTensor_,
 	LeftTensorConstantSymbol_,
 	RightTensor_,
@@ -33,7 +33,7 @@ CatalogueInvariant[
 		TensorContraction=Times@@((#[])&/@({LeftTensor,RightTensor}));
 	];
 
-	Class=Evaluate@Symbol@ClassName;
+	Class=FieldAssociation@TheoryContext;
 	InvariantToConstantRulesValue=Class@InvariantToConstantRules;
 
 	InvariantToConstantRulesValue=InvariantToConstantRulesValue~Join~
@@ -42,5 +42,5 @@ CatalogueInvariant[
 				LeftTensorConstantSymbol~Times~RightTensorConstantSymbol
 			},MetricOn->All,ContractMetrics->True];
 
-	UpdateClassAssociation[ClassName,InvariantToConstantRules,InvariantToConstantRulesValue];
+	AppendToField[TheoryContext,InvariantToConstantRules,InvariantToConstantRulesValue];
 TensorContraction];

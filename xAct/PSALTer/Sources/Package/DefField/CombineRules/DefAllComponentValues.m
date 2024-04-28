@@ -1,15 +1,15 @@
-(*=======================*)
-(*  GetTensorComponents  *)
-(*=======================*)
+(*=========================*)
+(*  DefAllComponentValues  *)
+(*=========================*)
 
-GetTensorComponents[ClassName_?StringQ]:=Module[{
+DefAllComponentValues[]:=Module[{
 	Class,
 	TensorsWhoseComponentsWeNeed,
 	PrintVariable},
 
-	Print[" ** DefClass: pre-computing tensor components..."];
+	Print[" ** DefField: pre-computing tensor components..."];
 
-	Class=Evaluate@Symbol@ClassName;
+	Class=FieldAssociation@Context[];
 
 	TensorsWhoseComponentsWeNeed=Flatten@Map[Values,Evaluate@(Class@SourceSpinParityTensorHeads),{0,2}];
 	TensorsWhoseComponentsWeNeed=(FromIndexFree@ToIndexFree@#)&/@TensorsWhoseComponentsWeNeed;

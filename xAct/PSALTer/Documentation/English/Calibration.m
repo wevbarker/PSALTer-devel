@@ -49,6 +49,7 @@ Comment@{"The variable $KernelCount is set to ",ToString@$KernelCount};
 *)
 
 (*Global settings for xAct*)
+SetOptions[$FrontEndSession,EvaluationCompletionAction->"ScrollToOutput"];
 $DefInfoQ=False;
 Unprotect@AutomaticRules;
 Options[AutomaticRules]={Verbose->False};

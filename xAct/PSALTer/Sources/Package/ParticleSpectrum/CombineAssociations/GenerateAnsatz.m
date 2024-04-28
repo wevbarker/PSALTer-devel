@@ -2,9 +2,9 @@
 (*  GenerateAnsatz  *)
 (*==================*)
 
-BuildPackage@"DefClass/CatalogueInvariant.m";
+BuildPackage@"ParticleSpectrum/CombineAssociations/GenerateAnsatz/CatalogueInvariant.m";
 
-GenerateAnsatz[ClassName_?StringQ]:=Catch@Module[{
+GenerateAnsatz[TheoryContext_]:=Catch@Module[{
 	Class,
 	EvenEven,
 	EvenEvenMask,
@@ -29,7 +29,7 @@ GenerateAnsatz[ClassName_?StringQ]:=Catch@Module[{
 	AntiMaskMatrixValue
 	},
 
-	Class=Evaluate@Symbol@ClassName;
+	Class=FieldAssociation@TheoryContext;
 	FieldSpinParityTensorHeadsValue=Class@FieldSpinParityTensorHeads;
 
 	RescalingMatrixValue=<||>;
@@ -56,14 +56,13 @@ GenerateAnsatz[ClassName_?StringQ]:=Catch@Module[{
 			}
 		];
 
-	UpdateClassAssociation[ClassName,SpinParityRescalingRules,SpinParityRescalingRulesValue];
-
-	UpdateClassAssociation[ClassName,InvariantToConstantRules,{}];
+	AppendToField[TheoryContext,SpinParityRescalingRules,SpinParityRescalingRulesValue];
+	AppendToField[TheoryContext,InvariantToConstantRules,{}];
 
 	(
 
 	EvenEven=Outer[CatalogueInvariant[
-			ClassName,
+			TheoryContext,
 			Dagger@(#1[[1]]),
 			Dagger@(#1[[2]]),
 			#2[[1]],
@@ -91,7 +90,7 @@ GenerateAnsatz[ClassName_?StringQ]:=Catch@Module[{
 	EvenEvenAntiMask//=DeleteCases[#,{}]&;
 
 	EvenOdd=Outer[CatalogueInvariant[
-			ClassName,
+			TheoryContext,
 			Dagger@(#1[[1]]),
 			Dagger@(#1[[2]]),
 			#2[[1]],
@@ -119,7 +118,7 @@ GenerateAnsatz[ClassName_?StringQ]:=Catch@Module[{
 	EvenOddAntiMask//=DeleteCases[#,{}]&;
 
 	OddEven=Outer[CatalogueInvariant[
-			ClassName,
+			TheoryContext,
 			Dagger@(#1[[1]]),
 			Dagger@(#1[[2]]),
 			#2[[1]],
@@ -147,7 +146,7 @@ GenerateAnsatz[ClassName_?StringQ]:=Catch@Module[{
 	OddEvenAntiMask//=DeleteCases[#,{}]&;
 
 	OddOdd=Outer[CatalogueInvariant[
-			ClassName,
+			TheoryContext,
 			Dagger@(#1[[1]]),
 			Dagger@(#1[[2]]),
 			#2[[1]],
@@ -226,9 +225,9 @@ GenerateAnsatz[ClassName_?StringQ]:=Catch@Module[{
 
 	)~Table~{Spin,Class@Spins};
 
-	UpdateClassAssociation[ClassName,InvariantMatrix,InvariantMatrixValue];
-	UpdateClassAssociation[ClassName,MaskMatrix,MaskMatrixValue];
-	UpdateClassAssociation[ClassName,AntiMaskMatrix,AntiMaskMatrixValue];
-	UpdateClassAssociation[ClassName,RescalingMatrix,RescalingMatrixValue];
-	UpdateClassAssociation[ClassName,InverseRescalingMatrix,InverseRescalingMatrixValue];
+	AppendToField[TheoryContext,InvariantMatrix,InvariantMatrixValue];
+	AppendToField[TheoryContext,MaskMatrix,MaskMatrixValue];
+	AppendToField[TheoryContext,AntiMaskMatrix,AntiMaskMatrixValue];
+	AppendToField[TheoryContext,RescalingMatrix,RescalingMatrixValue];
+	AppendToField[TheoryContext,InverseRescalingMatrix,InverseRescalingMatrixValue];
 ];
