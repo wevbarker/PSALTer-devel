@@ -4,8 +4,6 @@
 (*  LagrangianWGTECouplings  *)
 (*===========================*)
 
-Section@"The original eWGT Lagrangian and its linearisation";
-
 (*N.B. this is equation 13 of Lin's draft eWGT paper.*)
 NonlinearLagrangianWGTEOriginal=(
 	+lLambda*(Compensator[]^2)*WeylDaggerR[a,b,-a,-b](*Different sign to WGT*)
@@ -22,5 +20,5 @@ NonlinearLagrangianWGTEOriginal=(
 	-(lT1/3-2lT3/3+lLambda)*(Compensator[]^2)*WeylDaggerT[-a,c,a]*WeylDaggerT[-b,-c,b]	
 );
 
-Comment@{"In",Cref@"WGTEUnexpanded"," this is the non-linear Lagrangian as given in eqn 13 of Lin's draft paper."};
+Comment@{"Having defined the required field strengths, we present the most general parity-preserving Lagrangian, following the coefficients of Lin et. al. 2021."};
 DisplayExpression[NonlinearLagrangianWGTEOriginal,EqnLabel->"WGTEUnexpanded"];

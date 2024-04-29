@@ -3,23 +3,16 @@
 (*===========================*)
 (*  WeylGaugeTheoryExtended  *)
 (*===========================*)
-Title@"Weyl gauge theory extended (eWGT)";
-Supercomment@"We will test the WeylGaugeTheoryExtended module. This is an extension to test eWGT [Lasenby and Hobson 2016].";
-Supercomment@"This section is still under development by Zhiyuan.";
 
 (*====================================*)
 (*  Preamble: setting out the fields  *)
 (*====================================*)
-Section@"Preamble: setting out the fields";
+Section@"Setting up extended Weyl gauge theory (eWGT)";
+Subsection@"Field strength tensors and the general Lagrangian in the original formulation";
 
 (*We will first load the tetrad and inverse tetrad.*)
-Comment@"We present the tetrad,";
 DefTensor[WeylTetrad[-a,c],M4,PrintAs->"\[ScriptH]"];
-DisplayExpression[WeylTetrad[-a,c]];
-
-Comment@"and the inverse tetrad.";
 DefTensor[WeylInvTetrad[a,-c],M4,PrintAs->"\[ScriptB]"];
-DisplayExpression[WeylInvTetrad[a,-c]];
 
 xAct`PSALTer`WeylGaugeTheoryExtended`Private`WeylHBFieldToGF=Join[
 	MakeRule[{WeylTetrad[-i,-j],G[-i,-j]+WeylTranslationalGaugeFieldPerturbation[-i,-j]},MetricOn->All,ContractMetrics->True],
@@ -29,9 +22,12 @@ AutomaticRules[WeylTetrad,MakeRule[{WeylTetrad[-a,i]WeylInvTetrad[a,-j],G[i,-j]}
 AutomaticRules[WeylTetrad,MakeRule[{WeylTetrad[-a,i]WeylInvTetrad[c,-i],G[-a,c]},MetricOn->All,ContractMetrics->True]];
 AutomaticRules[WeylTetrad,MakeRule[{CD[-a][WeylTetrad[-j,n]],Evaluate[-WeylTetrad[-i,n]WeylTetrad[-j,m]CD[-a][WeylInvTetrad[i,-m]]]},MetricOn->All,ContractMetrics->True]];
 
-Comment@"We present the tetrad in terms of perturbation tetrad f,";
+Comment@"The tetrad h is related to the perturbation tetrad f by:";
+DisplayExpression[WeylTetrad[-a,c]];
 DisplayExpression[WeylTetrad[-a,c]/.xAct`PSALTer`WeylGaugeTheoryExtended`Private`WeylHBFieldToGF//xAct`PSALTer`Private`ToNewCanonical//CollectTensors];
-Comment@"and the inverse tetrad in terms of perturbation tetrad f.";
+
+Comment@"We expand the inverse tetrad b w.r.t. the perturbation tetrad, up to second order:";
+DisplayExpression[WeylInvTetrad[a,-c]];
 DisplayExpression[WeylInvTetrad[a,-c]/.xAct`PSALTer`WeylGaugeTheoryExtended`Private`WeylHBFieldToGF//xAct`PSALTer`Private`ToNewCanonical//CollectTensors];
 
 (*We define A+,T+,R+,H+,D+Phi.*)
@@ -42,7 +38,7 @@ DefTensor[WeylDaggerA[a,b,-j],M4,Antisymmetric[{a,b}],PrintAs->xAct`PSALTer`Priv
 DefTensor[WeylDaggerR[a,b,-d,-e], M4, {Antisymmetric[{a,b}], Antisymmetric[{-d,-e}]},PrintAs->"\!\(\*SuperscriptBox[\(\[ScriptCapitalR]\), \(\[Dagger]\)]\)"]; 
 DefTensor[WeylDaggerT[a,-b,-c], M4, Antisymmetric[{-b,-c}],PrintAs->"\!\(\*SuperscriptBox[\(\[ScriptCapitalT]\), \(\[Dagger]\)]\)"]; 
 (*D+Phi*)
-xAct`PSALTer`WeylGaugeTheoryExtended`Private`WeylCovDerivDaggerOnScalarSymb="\!\(\*SuperscriptBox[\(\[ScriptCapitalD]\), \(\[Dagger]\)]\[Phi]\)";
+xAct`PSALTer`WeylGaugeTheoryExtended`Private`WeylCovDerivDaggerOnScalarSymb="\!\((\*SuperscriptBox[\(\[ScriptCapitalD]\), \(\[Dagger]\)]\[Phi])\)";
 DefTensor[WeylCovDerivDaggerOnScalar[-a],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`WeylGaugeTheoryExtended`Private`WeylCovDerivDaggerOnScalarSymb],Dagger->Complex];
 (*H+*)
 xAct`PSALTer`WeylGaugeTheoryExtended`Private`WeylHDaggerSymb="\!\(\*SuperscriptBox[\(\[ScriptCapitalH]\), \(\[Dagger]\)]\)";
@@ -58,29 +54,35 @@ WeyDaggerTHCovDtoBaseTWeylVectorHBAndDaggerRtoDaggerA=Join[
 	MakeRule[{WeylDaggerR[a,b,-d,-e],Evaluate[WeylTetrad[-d,i]WeylTetrad[-e,j](CD[-i][WeylDaggerA[a,b,-j]]-CD[-j][WeylDaggerA[a,b,-i]]+WeylDaggerA[a,-k,-i]WeylDaggerA[k,b,-j]-WeylDaggerA[a,-k,-j]WeylDaggerA[k,b,-i])]},MetricOn->All,ContractMetrics->True]
 ];
 
-Comment@"We present and expand the eWGT (dagger) field strengths:";
-Print@"T+:"
-DisplayExpression@CollectTensors@ToCanonical[WeylDaggerT[a,-b,-c]/.WeyDaggerTHCovDtoBaseTWeylVectorHBAndDaggerRtoDaggerA//xAct`PSALTer`Private`ToNewCanonical];
-Print@"H+:"
-DisplayExpression@CollectTensors@ToCanonical[WeylDaggerH[-a,-b]/.WeyDaggerTHCovDtoBaseTWeylVectorHBAndDaggerRtoDaggerA//xAct`PSALTer`Private`ToNewCanonical];
-Print@"CovD+(Phi):"
-DisplayExpression@CollectTensors@ToCanonical[WeylCovDerivDaggerOnScalar[-a]/.WeyDaggerTHCovDtoBaseTWeylVectorHBAndDaggerRtoDaggerA//xAct`PSALTer`Private`ToNewCanonical];
-Print@"R+:"
-DisplayExpression@CollectTensors@ToCanonical[WeylDaggerR[a,b,-d,-e]/.WeyDaggerTHCovDtoBaseTWeylVectorHBAndDaggerRtoDaggerA//xAct`PSALTer`Private`ToNewCanonical];
-
-(*Now we expand A+ (hence R+) and T to the base PGT quantities.*)
+(*We expand A+ (hence R+) and T to the base PGT quantities.*)
 WeylDaggerABaseTtoAHBWeylVector=Join[	
 	MakeRule[{WeylDaggerA[a,b,-j],Evaluate[WeylRotationalGaugeField[a,b,-j]+WeylVector[b]G[a,-j]-WeylVector[a]G[b,-j]]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{WeylBaseT[a,-b,-c],Evaluate[WeylTetrad[-b,i]WeylTetrad[-c,j](CD[-i][WeylInvTetrad[a,-j]]-CD[-j][WeylInvTetrad[a,-i]]+WeylRotationalGaugeField[a,-k,-i]WeylInvTetrad[k,-j]-WeylRotationalGaugeField[a,-k,-j]WeylInvTetrad[k,-i])]},MetricOn->All,ContractMetrics->True]
 ];
 
-Comment@"We present and expand A+ and T into PGT field strengths:";
-Print@"A+:"
-DisplayExpression@CollectTensors@ToCanonical[WeylDaggerA[a,b,-j]/.WeylDaggerABaseTtoAHBWeylVector//xAct`PSALTer`Private`ToNewCanonical];
-Print@"T:"
-DisplayExpression@CollectTensors@ToCanonical[WeylBaseT[a,-b,-c]/.WeylDaggerABaseTtoAHBWeylVector//xAct`PSALTer`Private`ToNewCanonical];
+Comment@"The original formulation of eWGT is presented in section III of Lasenby and Hobson 2016, J. Math. Phys. 57, 092505. The torsion is given as:";
+DisplayExpression@ToCanonical[WeylDaggerT[a,-b,-c]];
+DisplayExpression@CollectTensors@ToCanonical[WeylDaggerT[a,-b,-c]/.WeyDaggerTHCovDtoBaseTWeylVectorHBAndDaggerRtoDaggerA//xAct`PSALTer`Private`ToNewCanonical];
 
-Supercomment@"Now we have defined all the fields we need.";
+Comment@"The H-field is given below. Note that our notation differs from that of Lasenby and Hobson to facilitate comparison with Lin et al. 2021, Phys. Rev. D 104, 024034: -H \[ShortRightArrow] H, -V \[ShortRightArrow] B.";
+DisplayExpression@ToCanonical[WeylDaggerH[-a,-b]];
+DisplayExpression@CollectTensors@ToCanonical[WeylDaggerH[-a,-b]/.WeyDaggerTHCovDtoBaseTWeylVectorHBAndDaggerRtoDaggerA//xAct`PSALTer`Private`ToNewCanonical];
+
+Comment@"The covariant derivative acting on the compensator field is given by:";
+DisplayExpression@ToCanonical[WeylCovDerivDaggerOnScalar[-a]];
+DisplayExpression@CollectTensors@ToCanonical[WeylCovDerivDaggerOnScalar[-a]/.WeyDaggerTHCovDtoBaseTWeylVectorHBAndDaggerRtoDaggerA//xAct`PSALTer`Private`ToNewCanonical];
+
+Comment@"The curvature is given by:";
+DisplayExpression@ToCanonical[WeylDaggerR[a,b,-d,-e]];
+DisplayExpression@CollectTensors@ToCanonical[WeylDaggerR[a,b,-d,-e]/.WeyDaggerTHCovDtoBaseTWeylVectorHBAndDaggerRtoDaggerA//xAct`PSALTer`Private`ToNewCanonical];
+
+Comment@"The modified A-field of eWGT is expressed in terms of the PGT A-field. We truncate to linear order:";
+DisplayExpression@ToCanonical[WeylDaggerA[a,b,-j]];
+DisplayExpression@CollectTensors@ToCanonical[WeylDaggerA[a,b,-j]/.WeylDaggerABaseTtoAHBWeylVector//xAct`PSALTer`Private`ToNewCanonical];
+
+Comment@"For completeness, we express the PGT torsion w.r.t. the PGT A-field (eqn. 10a). Similarly, we truncate to linear order:";
+DisplayExpression@ToCanonical[WeylBaseT[a,-b,-c]];
+DisplayExpression@CollectTensors@ToCanonical[WeylBaseT[a,-b,-c]/.WeylDaggerABaseTtoAHBWeylVector//xAct`PSALTer`Private`ToNewCanonical];
 
 (*=================================*)
 (*  Evaluating the various cases  *)
