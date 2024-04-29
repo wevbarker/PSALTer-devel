@@ -3,23 +3,24 @@
 (*=====================*)
 (*  GaugeSelectorWGTE  *)
 (*=====================*)
+Supercomment@"We now have four gauge choices/field reformulations that must give equivalent physics and particle spectra: choosing original vs. natural variables (w.r.t. TSG symmetry), and choosing Einstein gauge or perturbation (w.r.t. Weyl symmetry). We also see that using both natural variables and the Einstein gauge is the same as using the scale-invariant formulation. We now proceed to run through test cases of the eWGT Lagrangian to check that the four formulations indeed give the same results up to differences in residue. Differences in residue may arise as the various gauge choices remove different rows and columns from the (singular) propagator matrix.";
 (*====================================*)
 (*  Comments for the gauge selector  *)
 (*====================================*)
 
 GaugeSelectorWGTELegend={
-	"Original variables - A,f,B,\[Phi]",(*Orig,1*)
-	"Natural variables - A+,f,\[Phi]",(*Nat,2*)
-	"Scale-invariant variables - A+_hat,f_hat",(*SIV,3*)
-	"Einstein Gauge - \[Phi] \[RightArrow] \[Phi]0",(*EG,4*)
-	"Perturbation around the Einstein Gauge - \[Phi] \[RightArrow] \[Phi]0(1+\[Phi])"(*EP,5*),
+	"Original variables",(*Orig,1*)
+	"Natural variables",(*Nat,2*)
+	"Scale-invariant variables",(*SIV,3*)
+	"Einstein gauge",(*EG,4*)
+	"Perturbation around the Einstein gauge"(*EP,5*),
 	"NA"(*SIV,6*)
 };
 
 GaugeSelectorWGTEPrint[TSGNumber_Integer,WeylNumber_Integer]:=Module[{i=TSGNumber,j=WeylNumber},
 	Comment@("The gauge choices are");
-	Print@("| TSG: "<>ToString@GaugeSelectorWGTELegend[[i]]<>" |");
-	Print@("| Weyl: "<>ToString@GaugeSelectorWGTELegend[[j]]<>" |");
+	Print@("TSG: "<>ToString@GaugeSelectorWGTELegend[[i]]<>" ");
+	Print@("Weyl: "<>ToString@GaugeSelectorWGTELegend[[j]]<>" ");
 ];
 
 (*====================================*)
@@ -38,10 +39,6 @@ GaugeSelectorWGTEFunction[TSGNumber_Integer:1,WeylNumber_Integer:5,InputLagrangi
 	TSGNumber==2&&WeylNumber==5,  OutputLagrangian=InputLagrangian/.{WeylVector->Zero}/.WGTEToNaturalVariables(*Nat2,EP5*),
 	TSGNumber==2&&WeylNumber==4,  OutputLagrangian=InputLagrangian/.{WeylVector->Zero}/.{Compensator->Zero}/.WGTEToSIVariables(*Nat2,EG4*),
 	TSGNumber==3,  OutputLagrangian=InputLagrangian/.WGTEToSIVariables(*LinearisedLagrangianWGTESIV, SIV3*)];
-	
-	(*Diagnostic line*)
-	Print@"Diagnostic: the linearised Lagrangian is displayed prior to feeding into PSALTer. We can see that the substitutions have been made to send the Lagrangian to the correct theory class.";
-	DisplayExpression@CollectTensors@ToCanonical[OutputLagrangian];
 OutputLagrangian];
 
 (*=======================================*)

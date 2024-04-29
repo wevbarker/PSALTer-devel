@@ -60,3 +60,24 @@ WGTEToSIVariables=Join[
 	MakeRule[{lNu, xAct`PSALTer`WeylSIVGaugeTheory`lsNu}, MetricOn -> All, ContractMetrics -> True],
 	MakeRule[{lPhi0, xAct`PSALTer`WeylSIVGaugeTheory`lsPhi0}, MetricOn -> All, ContractMetrics -> True]
 ];
+
+(*==============================*)
+(*  Explaining the gauges used  *)
+(*==============================*)
+Subsection@"Defining natural and scale-invariant variables";
+
+Comment@"The Weyl symmetry in eWGT can be gauge-fixed via the Einstein gauge, c.f. Lasenby and Hobson 2016, mapping";
+DisplayExpression[Compensator[]];
+Comment@"to";
+DisplayExpression[lPhi0];
+
+Comment@"We also consider the mapping that we term as 'perturbation around the Einstein gauge'. This is a reparameterisation of the compensator which does not gauge-fix the Weyl symmetry:";
+DisplayExpression[Compensator[]];
+DisplayExpression[Compensator[]/.ToOrderCompensatorEinsteinGauge];
+
+Comment@"For clarity, we refer to the original field variables, in which eWGT is initially formulated in, as:";
+DisplayExpression[{WeylRotationalGaugeField[-a,-b,-c],WeylTranslationalGaugeFieldPerturbation[-a,-b],WeylVector[-i],Compensator[]}];
+Comment@"Lasenby and Hobson 2016 defines the set of natural field variables that eWGT can be reformulated in. This is equivalent to fixing the TSG symmetry by setting B = 0, c.f. Hobson and Lasenby 2021, Phys. Rev. D 103, 104042."
+DisplayExpression[{xAct`PSALTer`WeylNaturalGaugeTheory`WeylNaturalRotationalGaugeField[-a,-b,-c],xAct`PSALTer`WeylNaturalGaugeTheory`WeylNaturalTranslationalGaugeFieldPerturbation[-a,-b],xAct`PSALTer`WeylNaturalGaugeTheory`WeylNaturalCompensator[]}];
+Comment@"Section III.M of Lasenby and Hobson 2016 also defines the scale-invariant variables, which allows the eWGT Lagrangian to be reformulated to remove the compensator as a field variable:"
+DisplayExpression[{xAct`PSALTer`WeylSIVGaugeTheory`WeylSIVRotationalGaugeField[-a,-b,-c],xAct`PSALTer`WeylSIVGaugeTheory`WeylSIVTranslationalGaugeFieldPerturbation[-a,-b]}];
