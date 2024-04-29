@@ -22,7 +22,6 @@ ValidateSO3Irreps[]:=Catch@Module[{
 		Expanded
 		},
 
-		Print[" ** DefField: validating the fundamental field "<>(ToString@InputExpr)<>"..."];
 		Fundamental//=ToIndexFree;
 		Fundamental//=FromIndexFree;
 		Decomposed=Fundamental//(Class@DecomposeFields);
@@ -38,7 +37,6 @@ ValidateSO3Irreps[]:=Catch@Module[{
 		Expanded
 		},
 
-		Print[" ** DefField: validating the reduced-index mode "<>(ToString@InputExpr)<>"..."];
 		Reduced//=ToIndexFree;
 		Reduced//=FromIndexFree;
 		Expanded=Reduced//(Class@ExpandFields);

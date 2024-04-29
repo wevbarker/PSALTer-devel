@@ -41,9 +41,13 @@ GenerateAnsatz[TheoryContext_]:=Catch@Module[{
 	Block[{Print},
 	Unprotect@Print;
 	Print[Expr_]:=NoPrint[Expr];
+	Off[ValidateSymbol::used];
 	SpinParityConstantSymbols=Map[(DefConstantSymbol[ToExpression@((ToString@#)<>"ConstantSymbol"),Dagger->Complex];ToExpression@((ToString@#)<>"ConstantSymbol"))&,FieldSpinParityTensorHeadsValue,{4}];
+	On[ValidateSymbol::used];
 
+	Off[ValidateSymbol::used];
 	SpinParityRescalingSymbols=Map[(DefConstantSymbol[ToExpression@((ToString@#)<>"RescalingSymbol"),Dagger->Complex];ToExpression@((ToString@#)<>"RescalingSymbol"))&,FieldSpinParityTensorHeadsValue,{4}];
+	On[ValidateSymbol::used];
 
 	Protect@Print;
 	];

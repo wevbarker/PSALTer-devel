@@ -16,8 +16,11 @@ CombineAssociations[Lagrangian_,TheoryContext_]:=Module[{
 		ExpandSourcesRulesValue
 		},
 
+	Expr=Expr/.{Plus->List};
+	(!(ListQ@Expr))~If~(Expr//=List);
 	Expr//=ToIndexFree;
 	Expr=Expr/.{CD->Identity,IndexFree->Identity};
+	Expr=Expr.Table[0.1*ii,{ii,Length@Expr}];
 	Expr//=Variables;	
 	Expr//=DeleteDuplicates;
 

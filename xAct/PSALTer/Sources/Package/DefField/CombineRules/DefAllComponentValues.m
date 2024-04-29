@@ -7,8 +7,6 @@ DefAllComponentValues[]:=Module[{
 	TensorsWhoseComponentsWeNeed,
 	PrintVariable},
 
-	Print[" ** DefField: pre-computing tensor components..."];
-
 	Class=FieldAssociation@Context[];
 
 	TensorsWhoseComponentsWeNeed=Flatten@Map[Values,Evaluate@(Class@SourceSpinParityTensorHeads),{0,2}];

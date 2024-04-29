@@ -24,16 +24,21 @@ Comment@"The calibration file runs PSALTer on a very long list of theories, whos
 
 Comment@"The first step is to load the PSALTer package.";
 
-<<xAct`PSALTer`;
+Code[<<xAct`PSALTer`;];
 
-(*For when we want to only run the commentary part of the script*)
+(*===================*)
+(*  Commentary only  *)
+(*===================*)
+
 (*
 Unprotect@xAct`PSALTer`ParticleSpectrum;
 ClearAll@xAct`PSALTer`ParticleSpectrum;
 Protect@xAct`PSALTer`ParticleSpectrum;
 *)
 
-(*For HPC*)
+(*=======*)
+(*  HPC  *)
+(*=======*)
 
 (*
 $NodeCPU=110;
@@ -48,24 +53,38 @@ LaunchKernels@$NodeCPU;
 Comment@{"The variable $KernelCount is set to ",ToString@$KernelCount};
 *)
 
-(*Global settings for xAct*)
-SetOptions[$FrontEndSession,EvaluationCompletionAction->"ScrollToOutput"];
-$DefInfoQ=False;
-Unprotect@AutomaticRules;
-Options[AutomaticRules]={Verbose->False};
-Protect@AutomaticRules;
+(*============================*)
+(*  Global settings for xAct  *)
+(*============================*)
 
-(*Global settings for PSALTer*)
-$DiagnosticMode=False;
-$MonitorParallel=False;
-$ExportPDF=False;
-$ReadOnly=False;
+Comment@"We will impose some settings which make xAct easier to use (you may have seen these in other example notebooks for xAct).";
+
+Code[
+	SetOptions[$FrontEndSession,EvaluationCompletionAction->"ScrollToOutput"];
+	$DefInfoQ=False;
+	Unprotect@AutomaticRules;
+	Options[AutomaticRules]={Verbose->False};
+	Protect@AutomaticRules;
+];
+
+(*===============================*)
+(*  Global settings for PSALTer  *)
+(*===============================*)
+
+Comment@"We will also impose some global settings for PSALTer.";
+Comment@"We can use this setting to run diagnostics. It will give a running commentary of the calculation.";
+Code[$DiagnosticMode=False;];
+Comment@"We can use this setting to get more information about ongoing parallel computations.";
+Code[$MonitorParallel=False;];
+Comment@"We can use this setting to export the spectral analyses to a PDF file.";
+Code[$ExportPDF=False;];
+Comment@"We can use this setting to read in binary results and print them, without actually computing them. This is useful for when you ran the job on the cluster before hand.";
+Code[$ReadOnly=False;];
 
 Comment@"Great, so PSALTer is now loaded and we can start to do some science.";
 
-(*Get@FileNameJoin@{$ThisDirectory,"Calibration","InitialTests.m"};*)
 (*Get@FileNameJoin@{$ThisDirectory,"Calibration","ScalarTheory.m"};*)
-(*Get@FileNameJoin@{$ThisDirectory,"Calibration","VectorTheory.m"};*)
+Get@FileNameJoin@{$ThisDirectory,"Calibration","VectorTheory.m"};
 (*Get@FileNameJoin@{$ThisDirectory,"Calibration","BiScalarVectorTensorTheory.m"};*)
 (*Get@FileNameJoin@{$ThisDirectory,"Calibration","TensorTheory.m"};*)
 (*Get@FileNameJoin@{$ThisDirectory,"Calibration","SymmetricTensorTheory.m"};*)
