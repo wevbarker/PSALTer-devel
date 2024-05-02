@@ -77,13 +77,13 @@ Code[$DiagnosticMode=False;];
 Comment@"We can use this setting to get more information about ongoing parallel computations.";
 Code[$MonitorParallel=False;];
 Comment@"We can use this setting to export the spectral analyses to a PDF file.";
-Code[$ExportPDF=False;];
+Code[$ExportPDF=True;];
 Comment@"We can use this setting to read in binary results and print them, without actually computing them. This is useful for when you ran the job on the cluster before hand.";
 Code[$ReadOnly=False;];
 
 Comment@"Great, so PSALTer is now loaded and we can start to do some science.";
 
-(*Get@FileNameJoin@{$ThisDirectory,"Calibration","ScalarTheory.m"};*)
+Get@FileNameJoin@{$ThisDirectory,"Calibration","ScalarTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Calibration","VectorTheory.m"};
 (*Get@FileNameJoin@{$ThisDirectory,"Calibration","BiScalarVectorTensorTheory.m"};*)
 (*Get@FileNameJoin@{$ThisDirectory,"Calibration","TensorTheory.m"};*)

@@ -13,7 +13,10 @@ CacheContexts[]:=Module[{NewContextList=$AllFieldContexts~Join~{
 	LocalSummaryOfTheory=" ** DumpSave...";
 	DumpSave[FileNameJoin@{$WorkingDirectory,"tmp",#<>".mx"},#]&/@NewContextList;
 
+	Diagnostic@NewContextList;
+
 	LocalSummaryOfTheory=" ** LaunchKernels...";
+	CloseKernels[];
 	Off[LaunchKernels::nodef];
 	LaunchKernels[];	
 	On[LaunchKernels::nodef];

@@ -5,6 +5,7 @@
 BuildPackage@"ParticleSpectrum/CombineAssociations/GenerateAnsatz.m";
 BuildPackage@"ParticleSpectrum/CombineAssociations/NormaliseRescalings.m";
 BuildPackage@"ParticleSpectrum/CombineAssociations/CacheContexts.m";
+BuildPackage@"ParticleSpectrum/CombineAssociations/DefPlaceholderSpins.m";
 
 CombineAssociations[Lagrangian_,TheoryContext_]:=Module[{
 		Expr=Lagrangian,
@@ -37,10 +38,12 @@ CombineAssociations[Lagrangian_,TheoryContext_]:=Module[{
 	
 	FieldSpinParityTensorHeadsValue=(#@FieldSpinParityTensorHeads)&/@Expr;
 	FieldSpinParityTensorHeadsValue=FieldSpinParityTensorHeadsValue~Merge~Total;
+	FieldSpinParityTensorHeadsValue//=DefPlaceholderSpins;
 	AppendToField[TheoryContext,FieldSpinParityTensorHeads,FieldSpinParityTensorHeadsValue];
 
 	SourceSpinParityTensorHeadsValue=(#@SourceSpinParityTensorHeads)&/@Expr;
 	SourceSpinParityTensorHeadsValue=SourceSpinParityTensorHeadsValue~Merge~Total;
+	SourceSpinParityTensorHeadsValue//=DefPlaceholderSpins;
 	AppendToField[TheoryContext,SourceSpinParityTensorHeads,SourceSpinParityTensorHeadsValue];
 
 	FieldToFiducialFieldValue=(#@FieldToFiducialField)&/@Expr;
