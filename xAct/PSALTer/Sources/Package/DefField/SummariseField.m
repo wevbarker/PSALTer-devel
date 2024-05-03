@@ -66,7 +66,7 @@ SummariseField[]:=Module[{
 				TheExpansionTable];
 	Print@ThePSALTerClassCollage;
 	If[$ExportPDF,
-		Export[FileNameJoin@{$WorkingDirectory,ClassName<>".pdf"},
+		Export[FileNameJoin@{$WorkingDirectory,(StringReplace[Context[],{"xAct"->"","PSALTer"->"","`"->""}])<>".pdf"},
 			ThePSALTerClassCollage
 		];
 	];
