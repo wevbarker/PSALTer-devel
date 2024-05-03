@@ -4,6 +4,14 @@
 
 Title@"Symmetric tensor field theory";
 
-Supercomment@"We will test the [SymmetricTensorTheory] module.";
+Comment@"Let's define a symmetric tensor field.";
+Code[
+	DefField[SymmTensor[-a,-b],Symmetric[{-a,-b}],PrintAs->"\[Psi]",PrintSourceAs->"\[Chi]"];
+];
+Comment@"Also define some more coupling constants.";
+Code[
+	DefConstantSymbol[EinsteinConstant,PrintAs->"\[Kappa]"];
+];
+
 Get@FileNameJoin@{$ThisDirectory,"Calibration","SymmetricTensorTheory",
 				"SymmetricPartanenTulkkiTheory.m"};

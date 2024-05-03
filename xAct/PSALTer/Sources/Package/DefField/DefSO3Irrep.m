@@ -5,12 +5,12 @@
 BuildPackage@"DefField/DefSO3Irrep/MakeAutomaticallyTraceless.m";
 BuildPackage@"DefField/DefSO3Irrep/MakeAutomaticallyNotAntisymmetric.m";
 BuildPackage@"DefField/DefSO3Irrep/MakeUniqueQuadratic.m";
+BuildPackage@"DefField/DefSO3Irrep/DefSymbol.m";
 
 Options@DefSO3Irrep={
 	MultiTermSymmetries->{},
 	Spin->0,	
-	Parity->Even,
-};
+	Parity->Even};
 
 DefSO3Irrep[SO3IrrepName_[SO3IrrepInds___],
 		Opts___?OptionQ]:=DefSO3Irrep[SO3IrrepName[SO3IrrepInds],GenSet[],Opts];
@@ -24,9 +24,13 @@ DefSO3Irrep[SO3IrrepName_[SO3IrrepInds___],
 	Expr},
 
 	MultiTermSymmetriesOf@SO3IrrepName^=OptionValue@MultiTermSymmetries;
-	Symb=SymbolBuild[xAct`PSALTer`Private`PrintAsValue,
-			(SpinParityPreffices@(OptionValue@Spin))@(OptionValue@Parity)
-			];	
+	FiducialFieldName=First@Keys@((FieldAssociation@Context[])@FieldSpinParityTensorHeads);
+	Expr=First@Values@((FieldAssociation@Context[])@FieldSpinParityTensorHeads);
+	(!(AssociationQ@Expr@(OptionValue@Spin)))~If~(Expr@(OptionValue@Spin)=<|Even->{},Odd->{}|>);
+	((Expr@(OptionValue@Spin))@(OptionValue@Parity))~AppendTo~SO3IrrepName;
+	Expr=<|FiducialFieldName->Expr|>;
+	AppendToField[Context[],FieldSpinParityTensorHeads,Expr];
+	Symb=DefSymbol[xAct`PSALTer`Private`PrintAsValue,Spin->OptionValue@Spin,Parity->OptionValue@Parity,Duplicate->Length@(((Expr@FiducialFieldName)@(OptionValue@Spin))@(OptionValue@Parity))];
 	DefTensor[
 		SO3IrrepName[SO3IrrepInds],
 		xAct`PSALTer`M4,
@@ -37,18 +41,16 @@ DefSO3Irrep[SO3IrrepName_[SO3IrrepInds___],
 	MakeAutomaticallyTraceless@SO3IrrepName;	
 	MakeAutomaticallyNotAntisymmetric@SO3IrrepName;
 	MakeUniqueQuadratic@SO3IrrepName;
-	FiducialFieldName=First@Keys@((FieldAssociation@Context[])@FieldSpinParityTensorHeads);
-	Expr=First@Values@((FieldAssociation@Context[])@FieldSpinParityTensorHeads);
-	(!(AssociationQ@Expr@(OptionValue@Spin)))~If~(Expr@(OptionValue@Spin)=<|Even->{},Odd->{}|>);
-	((Expr@(OptionValue@Spin))@(OptionValue@Parity))~AppendTo~SO3IrrepName;
-	Expr=<|FiducialFieldName->Expr|>;
-	AppendToField[Context[],FieldSpinParityTensorHeads,Expr];
 
 	SourceSO3IrrepName=ToExpression@((ToString@SO3IrrepName)~StringReplace~("Rank"->"SourceRank"));
 	MultiTermSymmetriesOf@SourceSO3IrrepName^=((OptionValue@MultiTermSymmetries)/.{SO3IrrepName->SourceSO3IrrepName});
-	Symb=SymbolBuild[xAct`PSALTer`Private`PrintSourceAsValue,
-			(SpinParityPreffices@(OptionValue@Spin))@(OptionValue@Parity)
-			];
+	FiducialSourceName=First@Keys@((FieldAssociation@Context[])@SourceSpinParityTensorHeads);
+	Expr=First@Values@((FieldAssociation@Context[])@SourceSpinParityTensorHeads);
+	(!(AssociationQ@Expr@(OptionValue@Spin)))~If~(Expr@(OptionValue@Spin)=<|Even->{},Odd->{}|>);
+	((Expr@(OptionValue@Spin))@(OptionValue@Parity))~AppendTo~SourceSO3IrrepName;
+	Expr=<|FiducialSourceName->Expr|>;
+	AppendToField[Context[],SourceSpinParityTensorHeads,Expr];
+	Symb=DefSymbol[xAct`PSALTer`Private`PrintSourceAsValue,Spin->OptionValue@Spin,Parity->OptionValue@Parity,Duplicate->Length@(((Expr@FiducialSourceName)@(OptionValue@Spin))@(OptionValue@Parity))];
 	DefTensor[
 		SourceSO3IrrepName[SO3IrrepInds],
 		xAct`PSALTer`M4,
@@ -59,10 +61,4 @@ DefSO3Irrep[SO3IrrepName_[SO3IrrepInds___],
 	MakeAutomaticallyTraceless@SourceSO3IrrepName;
 	MakeAutomaticallyNotAntisymmetric@SourceSO3IrrepName;
 	MakeUniqueQuadratic@SourceSO3IrrepName;
-	FiducialSourceName=First@Keys@((FieldAssociation@Context[])@SourceSpinParityTensorHeads);
-	Expr=First@Values@((FieldAssociation@Context[])@SourceSpinParityTensorHeads);
-	(!(AssociationQ@Expr@(OptionValue@Spin)))~If~(Expr@(OptionValue@Spin)=<|Even->{},Odd->{}|>);
-	((Expr@(OptionValue@Spin))@(OptionValue@Parity))~AppendTo~SourceSO3IrrepName;
-	Expr=<|FiducialSourceName->Expr|>;
-	AppendToField[Context[],SourceSpinParityTensorHeads,Expr];
 ];

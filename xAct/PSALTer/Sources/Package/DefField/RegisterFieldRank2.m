@@ -4,10 +4,9 @@
 
 xAct`PSALTer`Private`DefFiducialField[Rank2[-a,-b]];
 xAct`PSALTer`Private`DefSO3Irrep[Rank2Para0p[],Spin->0,Parity->Even];
-xAct`PSALTer`Private`DefSO3Irrep[Rank2Para1p[-a,-b],Antisymmetric[{-a,-b}],Spin->1,Parity->Odd];
+xAct`PSALTer`Private`DefSO3Irrep[Rank2Para1p[-a,-b],Antisymmetric[{-a,-b}],Spin->1,Parity->Even];
 xAct`PSALTer`Private`DefSO3Irrep[Rank2Para1m[-a],Spin->1,Parity->Odd];
 xAct`PSALTer`Private`DefSO3Irrep[Rank2Para2p[-a,-b],Symmetric[{-a,-b}],Spin->2,Parity->Even];
-
 xAct`PSALTer`Private`DefSO3Irrep[Rank2Perp0p[],Spin->0,Parity->Even];
 xAct`PSALTer`Private`DefSO3Irrep[Rank2Perp1m[-a],Spin->1,Parity->Odd];
 
@@ -197,50 +196,53 @@ SourceRank2SigmaPerpToSourceRank2SigmaPerpSpinParity=Join[
 	MakeRule[{Evaluate@Dagger@SourceRank2Perp[-n],Evaluate[Dagger@(SourceRank2Perp0p[]V[-n]+SourceRank2Perp1m[-n])]},
 	MetricOn->All,ContractMetrics->True]];
 
-Table[];
+ExpandFieldsRules=Flatten@Map[MakeRule[{#,Evaluate@Module[{Expr=#},
+		Expr=Expr/.Rank2AParaSpinParityToRank2A;
+		Expr//=xAct`PSALTer`Private`ToNewCanonical;
+		Expr=Expr/.Rank2APerpSpinParityToRank2A;
+		Expr//=xAct`PSALTer`Private`ToNewCanonical;
+		Expr=Expr/.ProjRank2APerpParaToVG;
+		Expr//=xAct`PSALTer`Private`ToNewCanonical;
+		Expr=Expr/.ProjRank2ASpinParityToVG;
+		Expr//=xAct`PSALTer`Private`ToNewCanonical;
+		Expr=Expr/.ProjPerpParaToVG;
+		Expr//=xAct`PSALTer`Private`ToNewCanonical;
+		Expr=Expr/.Rank2APerpParaToRank2A;
+		Expr//=xAct`PSALTer`Private`ToNewCanonical;
+		Expr//=CollectTensors;
+		Expr]},
+		MetricOn->All,ContractMetrics->True]&,{Rank2Para0p[],Rank2Para1p[-a,-b],Rank2Para1m[-a],Rank2Para2p[-a,-b],Rank2Perp0p[],Rank2Perp1m[-a],Dagger@Rank2Para0p[],Dagger@Rank2Para1p[-a,-b],Dagger@Rank2Para1m[-a],Dagger@Rank2Para2p[-a,-b],Dagger@Rank2Perp0p[],Dagger@Rank2Perp1m[-a]}];
 
-ExpandFields[InputExpr_]:=Module[{Expr=InputExpr},
-	Expr=Expr/.Rank2AParaSpinParityToRank2A;
-	Expr//=xAct`PSALTer`Private`ToNewCanonical;
-	Expr=Expr/.Rank2APerpSpinParityToRank2A;
-	Expr//=xAct`PSALTer`Private`ToNewCanonical;
-	Expr=Expr/.ProjRank2APerpParaToVG;
-	Expr//=xAct`PSALTer`Private`ToNewCanonical;
-	Expr=Expr/.ProjRank2ASpinParityToVG;
-	Expr//=xAct`PSALTer`Private`ToNewCanonical;
-	Expr=Expr/.ProjPerpParaToVG;
-	Expr//=xAct`PSALTer`Private`ToNewCanonical;
-	Expr=Expr/.Rank2APerpParaToRank2A;
-	Expr//=xAct`PSALTer`Private`ToNewCanonical;
-	Expr//=CollectTensors;
-Expr];
+ExpandSourcesRules=Flatten@Map[MakeRule[{#,Evaluate@Module[{Expr=#},
+		Expr=Expr/.SourceRank2SigmaParaSpinParityToSourceRank2Sigma;
+		Expr//=xAct`PSALTer`Private`ToNewCanonical;
+		Expr=Expr/.SourceRank2SigmaPerpSpinParityToSourceRank2Sigma;
+		Expr//=xAct`PSALTer`Private`ToNewCanonical;
+		Expr=Expr/.ProjRank2APerpParaToVG;
+		Expr//=xAct`PSALTer`Private`ToNewCanonical;
+		Expr=Expr/.ProjRank2ASpinParityToVG;
+		Expr//=xAct`PSALTer`Private`ToNewCanonical;
+		Expr=Expr/.ProjPerpParaToVG;
+		Expr//=xAct`PSALTer`Private`ToNewCanonical;
+		Expr=Expr/.SourceRank2SigmaPerpParaToSourceRank2Sigma;
+		Expr//=xAct`PSALTer`Private`ToNewCanonical;
+		Expr]},
+		MetricOn->All,ContractMetrics->True]&,{SourceRank2Para0p[],SourceRank2Para1p[-a,-b],SourceRank2Para1m[-a],SourceRank2Para2p[-a,-b],SourceRank2Perp0p[],SourceRank2Perp1m[-a],Dagger@SourceRank2Para0p[],Dagger@SourceRank2Para1p[-a,-b],Dagger@SourceRank2Para1m[-a],Dagger@SourceRank2Para2p[-a,-b],Dagger@SourceRank2Perp0p[],Dagger@SourceRank2Perp1m[-a]}];
 
-ExpandSources[InputExpr_]:=Module[{Expr=InputExpr},
-	Expr=Expr/.SourceRank2SigmaParaSpinParityToSourceRank2Sigma;
-	Expr//=xAct`PSALTer`Private`ToNewCanonical;
-	Expr=Expr/.SourceRank2SigmaPerpSpinParityToSourceRank2Sigma;
-	Expr//=xAct`PSALTer`Private`ToNewCanonical;
-	Expr=Expr/.ProjRank2APerpParaToVG;
-	Expr//=xAct`PSALTer`Private`ToNewCanonical;
-	Expr=Expr/.ProjRank2ASpinParityToVG;
-	Expr//=xAct`PSALTer`Private`ToNewCanonical;
-	Expr=Expr/.ProjPerpParaToVG;
-	Expr//=xAct`PSALTer`Private`ToNewCanonical;
-	Expr=Expr/.SourceRank2SigmaPerpParaToSourceRank2Sigma;
-	Expr//=xAct`PSALTer`Private`ToNewCanonical;
-Expr];
+DecomposeFieldsRules=Flatten@Map[MakeRule[{#,Evaluate@Module[{Expr=#},
+		Expr//=xAct`PSALTer`Private`ToNewCanonical;
+		Expr=Expr/.Rank2AToRank2APerpPara;
+		Expr//=xAct`PSALTer`Private`ToNewCanonical;
+		Expr=Expr/.Rank2AParaToRank2AParaSpinParity;
+		Expr//=xAct`PSALTer`Private`ToNewCanonical;
+		Expr=Expr/.Rank2APerpToRank2APerpSpinParity;
+		Expr//=xAct`PSALTer`Private`ToNewCanonical;
+		Expr//=CollectTensors;
+		Expr//=xAct`PSALTer`Private`ToNewCanonical;
+		Expr//=CollectTensors;
+		Expr]},
+		MetricOn->All,ContractMetrics->True]&,{Rank2[-a,-b],Dagger@Rank2[-a,-b]}];
 
-DecomposeFields[InputExpr_]:=Module[{Expr=InputExpr},
-	Expr//=xAct`PSALTer`Private`ToNewCanonical;
-	Expr=Expr/.Rank2AToRank2APerpPara;
-	Expr//=xAct`PSALTer`Private`ToNewCanonical;
-	Expr=Expr/.Rank2AParaToRank2AParaSpinParity;
-	Expr//=xAct`PSALTer`Private`ToNewCanonical;
-	Expr=Expr/.Rank2APerpToRank2APerpSpinParity;
-	Expr//=xAct`PSALTer`Private`ToNewCanonical;
-	Expr//=CollectTensors;
-	Expr=Expr/.ManualAll;
-	Expr//=xAct`PSALTer`Private`ToNewCanonical;
-	Expr//=CollectTensors;
-Expr];
-
+xAct`PSALTer`Private`CombineRules[ExpandFieldsRules,
+			ExpandSourcesRules,
+			DecomposeFieldsRules];
