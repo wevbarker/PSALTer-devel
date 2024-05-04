@@ -17,17 +17,17 @@ DefConstantSymbol[Phi0,PrintAs->"\(\*SubscriptBox[\(\[Phi]\), \(0\)]\)"];
 DisplayExpression@Phi0;
 
 Comment@"Next think of a rule to rescale the Planck mass.";
-DisplayExpression[{MPl->Sqrt[xAct`PSALTer`ScalarTensorTheory`Coupling1]/Phi0^(Pw/2)},EqnLabel->"MPlRescale"];
+DisplayExpression[{MPl->Sqrt[Coupling1]/Phi0^(Pw/2)},EqnLabel->"MPlRescale"];
 Comment@"Next think of a rule to rescale the quadratic Ricci scalar coupling.";
-DisplayExpression[{xAct`PSALTer`ScalarTensorTheory`Coupling5->xAct`PSALTer`ScalarTensorTheory`Coupling5/Phi0^2},EqnLabel->"Coupling5Rescale"];
+DisplayExpression[{Coupling5->Coupling5/Phi0^2},EqnLabel->"Coupling5Rescale"];
 Comment@"Next think of a rule to rescale the quadratic Ricci tensor coupling.";
-DisplayExpression[{xAct`PSALTer`ScalarTensorTheory`Coupling6->xAct`PSALTer`ScalarTensorTheory`Coupling6/Phi0^2},EqnLabel->"Coupling6Rescale"];
+DisplayExpression[{Coupling6->Coupling6/Phi0^2},EqnLabel->"Coupling6Rescale"];
 Comment@"Next think of a rule to rescale the quadratic Riemann tensor coupling.";
-DisplayExpression[{xAct`PSALTer`ScalarTensorTheory`Coupling7->xAct`PSALTer`ScalarTensorTheory`Coupling7/Phi0^2},EqnLabel->"Coupling7Rescale"];
+DisplayExpression[{Coupling7->Coupling7/Phi0^2},EqnLabel->"Coupling7Rescale"];
 Comment@"Next a rescaling of the dynamical scalar.";
 DisplayExpression[{ScalarTensorPhi[]->ScalarTensorPhi[]*Phi0},EqnLabel->"PhiRescale"];
 Comment@"Finally a rescaling of the kinetic term coefficient of the scalar.";
-DisplayExpression[{xAct`PSALTer`ScalarTensorTheory`Coupling2->xAct`PSALTer`ScalarTensorTheory`Coupling2*Phi0^(-(Pw+2))},EqnLabel->"Phi0Rescale"];
+DisplayExpression[{Coupling2->Coupling2*Phi0^(-(Pw+2))},EqnLabel->"Phi0Rescale"];
 
 Comment@{"So in summary, if we impose",Cref@{"Coupling5Rescale","Coupling6Rescale","Coupling7Rescale","PhiRescale","Phi0Rescale"}," on the linearised lagrangian, we can get it into the following form."};
 LinearisedLagrangian=Get@FileNameJoin@{$ThisDirectory,"Calibration","ScalarTensorTheory","ScalarGaussBonnetTheory","GeneralLambda.txt"};
@@ -47,12 +47,9 @@ Comment@"So if we change the PECT parameter, we change the formulae for masses a
 
 Comment@"Here are the rules which we will use to impose the scalar-Gauss-Bonnet theory.";
 ImposeGaussBonnet={
-	xAct`PSALTer`ScalarTensorTheory`Coupling5->
-		xAct`PSALTer`ScalarTensorTheory`Coupling5,
-	xAct`PSALTer`ScalarTensorTheory`Coupling6->
-		xAct`PSALTer`ScalarTensorTheory`Coupling5,
-	xAct`PSALTer`ScalarTensorTheory`Coupling7->
-		xAct`PSALTer`ScalarTensorTheory`Coupling5};
+	Coupling5->Coupling5,
+	Coupling6->Coupling5,
+	Coupling7->Coupling5};
 DisplayExpression@ImposeGaussBonnet;
 
 Get@FileNameJoin@{$ThisDirectory,"Calibration","ScalarTensorTheory",

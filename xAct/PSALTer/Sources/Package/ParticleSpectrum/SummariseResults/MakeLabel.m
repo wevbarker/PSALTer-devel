@@ -2,4 +2,4 @@
 (*  MakeLabel  *)
 (*=============*)
 
-MakeLabel[SomeString_]:=Text@Style[SomeString,FontSize->18,Bold];
+MakeLabel[SomeString_,InputSize_:18]:=Text@Style[SomeString,FontSize->InputSize,Bold];

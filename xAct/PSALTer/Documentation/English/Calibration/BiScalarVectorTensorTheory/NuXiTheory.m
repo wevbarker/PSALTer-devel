@@ -8,23 +8,22 @@ DefTensor[NonlinearMetric[a,b],M4,Symmetric[{a,b}],PrintAs->"\[ScriptG]"];
 DefTensor[NonlinearMeasure[],M4,PrintAs->"sG"];
 
 LinearisedLagrangian=Sqrt[-NonlinearMeasure[]]*(
--(1/4)*NonlinearMetric[a,c]*NonlinearMetric[b,d]*xAct`PSALTer`BiScalarVectorTensorTheory`CouplingXi*(CD[-a]@xAct`PSALTer`BiScalarVectorTensorTheory`B[-b]-CD[-b]@xAct`PSALTer`BiScalarVectorTensorTheory`B[-a])*(CD[-c]@xAct`PSALTer`BiScalarVectorTensorTheory`B[-d]-CD[-d]@xAct`PSALTer`BiScalarVectorTensorTheory`B[-c])
-+(1/2)*NonlinearMetric[a,b]*(CD[-a]@xAct`PSALTer`BiScalarVectorTensorTheory`VarPhi[]-xAct`PSALTer`BiScalarVectorTensorTheory`VarPhi[]*xAct`PSALTer`BiScalarVectorTensorTheory`B[-a])*(CD[-b]@xAct`PSALTer`BiScalarVectorTensorTheory`VarPhi[]-xAct`PSALTer`BiScalarVectorTensorTheory`VarPhi[]*xAct`PSALTer`BiScalarVectorTensorTheory`B[-b])
-+(1/2)*NonlinearMetric[a,b]*xAct`PSALTer`BiScalarVectorTensorTheory`CouplingSigma*(CD[-a]@xAct`PSALTer`BiScalarVectorTensorTheory`VarPhi[]-xAct`PSALTer`BiScalarVectorTensorTheory`VarPhi[]*xAct`PSALTer`BiScalarVectorTensorTheory`B[-a])*(CD[-b]@xAct`PSALTer`BiScalarVectorTensorTheory`Phi[]-xAct`PSALTer`BiScalarVectorTensorTheory`Phi[]*xAct`PSALTer`BiScalarVectorTensorTheory`B[-b])
-+(1/2)*NonlinearMetric[a,b]*xAct`PSALTer`BiScalarVectorTensorTheory`CouplingNu*(CD[-a]@xAct`PSALTer`BiScalarVectorTensorTheory`Phi[]-xAct`PSALTer`BiScalarVectorTensorTheory`Phi[]*xAct`PSALTer`BiScalarVectorTensorTheory`B[-a])*(CD[-b]@xAct`PSALTer`BiScalarVectorTensorTheory`Phi[]-xAct`PSALTer`BiScalarVectorTensorTheory`Phi[]*xAct`PSALTer`BiScalarVectorTensorTheory`B[-b])
--(1/2)*xAct`PSALTer`BiScalarVectorTensorTheory`CouplingMu^2*xAct`PSALTer`BiScalarVectorTensorTheory`Phi[]^2*xAct`PSALTer`BiScalarVectorTensorTheory`VarPhi[]^2
+-(1/4)*NonlinearMetric[a,c]*NonlinearMetric[b,d]*CouplingXi*(CD[-a]@B[-b]-CD[-b]@B[-a])*(CD[-c]@B[-d]-CD[-d]@B[-c])
++(1/2)*NonlinearMetric[a,b]*(CD[-a]@VarPhi[]-VarPhi[]*B[-a])*(CD[-b]@VarPhi[]-VarPhi[]*B[-b])
++(1/2)*NonlinearMetric[a,b]*CouplingSigma*(CD[-a]@VarPhi[]-VarPhi[]*B[-a])*(CD[-b]@Phi[]-Phi[]*B[-b])
++(1/2)*NonlinearMetric[a,b]*CouplingNu*(CD[-a]@Phi[]-Phi[]*B[-a])*(CD[-b]@Phi[]-Phi[]*B[-b])
+-(1/2)*CouplingMu^2*Phi[]^2*VarPhi[]^2
 );
 
 DisplayExpression[LinearisedLagrangian,EqnLabel->"NuXiTheory"];
 DefConstantSymbol[PerturbativeParameter,PrintAs->"\[Epsilon]"];
-NonlinearMetricRule=MakeRule[{NonlinearMetric[a,b],G[a,b]-PerturbativeParameter*xAct`PSALTer`BiScalarVectorTensorTheory`LinearMetric[a,b]},MetricOn->All,ContractMetrics->True];
-NonlinearMeasureRule=MakeRule[{NonlinearMeasure[],-1+PerturbativeParameter*xAct`PSALTer`BiScalarVectorTensorTheory`LinearMetric[-a,a]},MetricOn->All,ContractMetrics->True];
+NonlinearMetricRule=MakeRule[{NonlinearMetric[a,b],G[a,b]-PerturbativeParameter*LinearMetric[a,b]},MetricOn->All,ContractMetrics->True];
+NonlinearMeasureRule=MakeRule[{NonlinearMeasure[],-1+PerturbativeParameter*LinearMetric[-a,a]},MetricOn->All,ContractMetrics->True];
 
 TotalRules=Join[NonlinearMetricRule,NonlinearMeasureRule,{
-xAct`PSALTer`BiScalarVectorTensorTheory`Phi[]->xAct`PSALTer`BiScalarVectorTensorTheory`CouplingPhi0+PerturbativeParameter*xAct`PSALTer`BiScalarVectorTensorTheory`Phi[],
-xAct`PSALTer`BiScalarVectorTensorTheory`VarPhi[]->PerturbativeParameter*xAct`PSALTer`BiScalarVectorTensorTheory`VarPhi[],
-(*xAct`PSALTer`BiScalarVectorTensorTheory`VarPhi[]->xAct`PSALTer`BiScalarVectorTensorTheory`CouplingVarPhi0+PerturbativeParameter*xAct`PSALTer`BiScalarVectorTensorTheory`VarPhi[],*)
-xAct`PSALTer`BiScalarVectorTensorTheory`B[Anything___]->PerturbativeParameter*xAct`PSALTer`BiScalarVectorTensorTheory`B[Anything]
+Phi[]->CouplingPhi0+PerturbativeParameter*Phi[],
+VarPhi[]->PerturbativeParameter*VarPhi[],
+B[Anything___]->PerturbativeParameter*B[Anything]
 }];
 LinearisedLagrangian=LinearisedLagrangian/.TotalRules;
 
@@ -35,19 +34,16 @@ LinearisedLagrangian//=ToCanonical;
 LinearisedLagrangian//=CollectTensors;
 
 DisplayExpression[LinearisedLagrangian,EqnLabel->"NuXiTheory"];
-(*
-LinearisedLagrangian=LinearisedLagrangian/.{xAct`PSALTer`BiScalarVectorTensorTheory`CouplingMu->1,xAct`PSALTer`BiScalarVectorTensorTheory`CouplingNu->1,xAct`PSALTer`BiScalarVectorTensorTheory`CouplingVarPhi0->0};
-*)
 LinearisedLagrangian//=ToCanonical;
 LinearisedLagrangian//=CollectTensors;
 
 DisplayExpression[LinearisedLagrangian,EqnLabel->"NuXiTheory"];
-
-ParticleSpectrum[
-	LinearisedLagrangian,
-	ClassName->"BiScalarVectorTensorTheory",
-	TheoryName->"NuXiTheory",	
-	Method->"Easy",
-	MaxLaurentDepth->3
+Code[
+	ParticleSpectrum[
+		LinearisedLagrangian,
+		TheoryName->"NuXiTheory",	
+		Method->"Easy",
+		MaxLaurentDepth->3
+	];
 ];
 Comment@"Some comment can be made.";

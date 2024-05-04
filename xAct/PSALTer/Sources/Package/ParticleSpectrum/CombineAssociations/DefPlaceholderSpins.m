@@ -9,7 +9,7 @@ DefPlaceholderSpins[InputExpr_]:=Module[{
 	Expr=InputExpr},
 
 	Fields=Keys@Expr;
-	Spins=Keys@((Expr/@Keys@Expr)~Merge~Total);
+	Spins=Keys@((Expr/@Keys@Expr)~Merge~((Flatten@Join@#)&));
 	Table[If[!((Keys@Expr@Field)~MemberQ~Spin),(Expr@Field)@Spin=PlaceholderSpin],
 		{Spin,Spins},{Field,Fields}];	
 Expr];

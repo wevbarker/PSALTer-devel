@@ -7,49 +7,49 @@ Subsection@"The general parity-preserving Lagrangian";
 Comment@"Now all the generally-covariant contractions of the field strength tensors have been defined, so we construct the general, parity-preserving Lagrangian proposed in Equation (2.4) on page 5 of arXiv:1912.01023.";
 
 NonlinearLagrangian=-(1/2)*(
-	-xAct`PSALTer`MetricAffineGravity`A0*MetricAffineRicciScalar[]
+	-A0*MetricAffineRicciScalar[]
 	+MetricAffineCurvature[m,n,r,s]*(
-		xAct`PSALTer`MetricAffineGravity`C1*MetricAffineCurvature[-m,-n,-r,-s]
-		+xAct`PSALTer`MetricAffineGravity`C2*MetricAffineCurvature[-m,-n,-s,-r]
-		+xAct`PSALTer`MetricAffineGravity`C3*MetricAffineCurvature[-r,-s,-m,-n]
-		+xAct`PSALTer`MetricAffineGravity`C4*MetricAffineCurvature[-m,-r,-n,-s]
-		+xAct`PSALTer`MetricAffineGravity`C5*MetricAffineCurvature[-m,-s,-n,-r]
-		+xAct`PSALTer`MetricAffineGravity`C6*MetricAffineCurvature[-m,-s,-r,-n]
+		C1*MetricAffineCurvature[-m,-n,-r,-s]
+		+C2*MetricAffineCurvature[-m,-n,-s,-r]
+		+C3*MetricAffineCurvature[-r,-s,-m,-n]
+		+C4*MetricAffineCurvature[-m,-r,-n,-s]
+		+C5*MetricAffineCurvature[-m,-s,-n,-r]
+		+C6*MetricAffineCurvature[-m,-s,-r,-n]
 	)
 	+MetricAffineRicciTensor13[m,n]*(
-		xAct`PSALTer`MetricAffineGravity`C7*MetricAffineRicciTensor13[-m,-n]
-		+xAct`PSALTer`MetricAffineGravity`C8*MetricAffineRicciTensor13[-n,-m]
+		C7*MetricAffineRicciTensor13[-m,-n]
+		+C8*MetricAffineRicciTensor13[-n,-m]
 	)
 	+MetricAffineRicciTensor14[m,n]*(
-		xAct`PSALTer`MetricAffineGravity`C9*MetricAffineRicciTensor14[-m,-n]
-		+xAct`PSALTer`MetricAffineGravity`C10*MetricAffineRicciTensor14[-n,-m]
+		C9*MetricAffineRicciTensor14[-m,-n]
+		+C10*MetricAffineRicciTensor14[-n,-m]
 	)
 	+MetricAffineRicciTensor14[m,n]*(
-		xAct`PSALTer`MetricAffineGravity`C11*MetricAffineRicciTensor13[-m,-n]
-		+xAct`PSALTer`MetricAffineGravity`C12*MetricAffineRicciTensor13[-n,-m]
+		C11*MetricAffineRicciTensor13[-m,-n]
+		+C12*MetricAffineRicciTensor13[-n,-m]
 	)
 	+MetricAffineRicciTensor[m,n]*(
-		xAct`PSALTer`MetricAffineGravity`C13*MetricAffineRicciTensor[-m,-n]
-		+xAct`PSALTer`MetricAffineGravity`C14*MetricAffineRicciTensor13[-m,-n]
-		+xAct`PSALTer`MetricAffineGravity`C15*MetricAffineRicciTensor14[-m,-n]
+		C13*MetricAffineRicciTensor[-m,-n]
+		+C14*MetricAffineRicciTensor13[-m,-n]
+		+C15*MetricAffineRicciTensor14[-m,-n]
 	)
-	+xAct`PSALTer`MetricAffineGravity`C16*MetricAffineRicciScalar[]*MetricAffineRicciScalar[]
+	+C16*MetricAffineRicciScalar[]*MetricAffineRicciScalar[]
 	+MetricAffineTorsion[m,r,n]*(
-		xAct`PSALTer`MetricAffineGravity`A1*MetricAffineTorsion[-m,-r,-n]
-		+xAct`PSALTer`MetricAffineGravity`A2*MetricAffineTorsion[-m,-n,-r]
+		A1*MetricAffineTorsion[-m,-r,-n]
+		+A2*MetricAffineTorsion[-m,-n,-r]
 	)
-	+xAct`PSALTer`MetricAffineGravity`A3*MetricAffineTorsionContraction[m]*MetricAffineTorsionContraction[-m]
+	+A3*MetricAffineTorsionContraction[m]*MetricAffineTorsionContraction[-m]
 	+MetricAffineNonMetricity[r,m,n]*(
-		xAct`PSALTer`MetricAffineGravity`A4*MetricAffineNonMetricity[-r,-m,-n]
-		+xAct`PSALTer`MetricAffineGravity`A5*MetricAffineNonMetricity[-n,-m,-r]
+		A4*MetricAffineNonMetricity[-r,-m,-n]
+		+A5*MetricAffineNonMetricity[-n,-m,-r]
 	)
-	+xAct`PSALTer`MetricAffineGravity`A6*MetricAffineNonMetricityContraction[-m]*MetricAffineNonMetricityContraction[m]
-	+xAct`PSALTer`MetricAffineGravity`A7*MetricAffineNonMetricityContractionTilde[-m]*MetricAffineNonMetricityContractionTilde[m]
-	+xAct`PSALTer`MetricAffineGravity`A8*MetricAffineNonMetricityContraction[-m]*MetricAffineNonMetricityContractionTilde[m]
-	+xAct`PSALTer`MetricAffineGravity`A9*MetricAffineTorsion[m,r,n]*MetricAffineNonMetricity[-m,-r,-n]
+	+A6*MetricAffineNonMetricityContraction[-m]*MetricAffineNonMetricityContraction[m]
+	+A7*MetricAffineNonMetricityContractionTilde[-m]*MetricAffineNonMetricityContractionTilde[m]
+	+A8*MetricAffineNonMetricityContraction[-m]*MetricAffineNonMetricityContractionTilde[m]
+	+A9*MetricAffineTorsion[m,r,n]*MetricAffineNonMetricity[-m,-r,-n]
 	+MetricAffineTorsionContraction[m]*(
-		xAct`PSALTer`MetricAffineGravity`A10*MetricAffineNonMetricityContraction[-m]
-		+xAct`PSALTer`MetricAffineGravity`A11*MetricAffineNonMetricityContractionTilde[-m]
+		A10*MetricAffineNonMetricityContraction[-m]
+		+A11*MetricAffineNonMetricityContractionTilde[-m]
 	)
 );
 
@@ -140,13 +140,12 @@ LinearLagrangian];
 
 Comment@"Now we attempt the linearization.";
 
-LinearLagrangian=Measure*NonlinearLagrangian//LineariseLagrangian;
+LinearLagrangian=Measure*NonlinearLagrangian//MetricAffineLineariseLagrangian;
 DisplayExpression[LinearLagrangian,EqnLabel->"MetricAffineLinearLagrangian"];
 
 Comment@{"We see that",Cref@"MetricAffineLinearLagrangian"," is generically quite a heavy expression, and there is not a very high degree of degeneracy among the coupling constants."};
-
-Comment@"Now we try the second order formulation.";
 (*
-LinearLagrangianSecondOrder=LineariseLagrangian[Measure*NonlinearLagrangian,Formulation->SecondOrder];
+Comment@"Now we try the second order formulation.";
+LinearLagrangianSecondOrder=MetricAffineLineariseLagrangian[Measure*NonlinearLagrangian,Formulation->SecondOrder];
 DisplayExpression[LinearLagrangianSecondOrder,EqnLabel->"MetricAffineLinearLagrangianSecondOrder"];
 *)

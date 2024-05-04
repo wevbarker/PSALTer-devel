@@ -21,6 +21,7 @@ CombineAssociations[Lagrangian_,TheoryContext_]:=Module[{
 	(!(ListQ@Expr))~If~(Expr//=List);
 	Expr//=ToIndexFree;
 	Expr=Expr/.{CD->Identity,IndexFree->Identity};
+	Expr//=Flatten;
 	Expr=Expr.Table[0.1*Exp@ii,{ii,Length@Expr}];
 	Expr//=Variables;	
 	Expr//=DeleteDuplicates;
@@ -37,12 +38,14 @@ CombineAssociations[Lagrangian_,TheoryContext_]:=Module[{
 	Expr=FieldAssociation/@Expr;
 	
 	FieldSpinParityTensorHeadsValue=(#@FieldSpinParityTensorHeads)&/@Expr;
-	FieldSpinParityTensorHeadsValue=FieldSpinParityTensorHeadsValue~Merge~Total;
+	FieldSpinParityTensorHeadsValue=FieldSpinParityTensorHeadsValue~Merge~((Flatten@Join@#)&);
+	(FieldSpinParityTensorHeadsValue@#=First@Evaluate@FieldSpinParityTensorHeadsValue@#)&/@(Keys@FieldSpinParityTensorHeadsValue);
 	FieldSpinParityTensorHeadsValue//=DefPlaceholderSpins;
 	AppendToField[TheoryContext,FieldSpinParityTensorHeads,FieldSpinParityTensorHeadsValue];
 
 	SourceSpinParityTensorHeadsValue=(#@SourceSpinParityTensorHeads)&/@Expr;
-	SourceSpinParityTensorHeadsValue=SourceSpinParityTensorHeadsValue~Merge~Total;
+	SourceSpinParityTensorHeadsValue=SourceSpinParityTensorHeadsValue~Merge~((Flatten@Join@#)&);
+	(SourceSpinParityTensorHeadsValue@#=First@Evaluate@SourceSpinParityTensorHeadsValue@#)&/@(Keys@SourceSpinParityTensorHeadsValue);
 	SourceSpinParityTensorHeadsValue//=DefPlaceholderSpins;
 	AppendToField[TheoryContext,SourceSpinParityTensorHeads,SourceSpinParityTensorHeadsValue];
 

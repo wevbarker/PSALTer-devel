@@ -16,7 +16,7 @@ PSALTerClassCollage[
 	ExpansionGroup//=Vectorize;
 
 	FinalGraphic={
-			MakeLabel@"PSALTer kinematic panel",
+			MakeLabel["Field kinematics",20],
 			BasicInfoGroup,
 			MakeLabel@"Fundamental fields",
 			DecompositionGroup,

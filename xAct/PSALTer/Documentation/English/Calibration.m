@@ -1,12 +1,12 @@
-(*===============*)
-(*  Calibration  *)
-(*===============*)
+(*=================*)
+(*  Documentation  *)
+(*=================*)
 
 $ThisDirectory=If[NotebookDirectory[]==$Failed,Directory[],NotebookDirectory[],NotebookDirectory[]];
 
 <<xAct`xPlain`;
 
-Title@"PSALTer Calibration";
+Title@"PSALTer Documentation";
 
 Subsection@"About xPlain and formatting";
 
@@ -30,11 +30,11 @@ Code[<<xAct`PSALTer`;];
 (*  Commentary only  *)
 (*===================*)
 
-(*
+(**)
 Unprotect@xAct`PSALTer`ParticleSpectrum;
 ClearAll@xAct`PSALTer`ParticleSpectrum;
 Protect@xAct`PSALTer`ParticleSpectrum;
-*)
+(**)
 
 (*=======*)
 (*  HPC  *)
@@ -87,17 +87,17 @@ Comment@"Great, so PSALTer is now loaded and we can start to do some science.";
 (*Get@FileNameJoin@{$ThisDirectory,"Calibration","VectorTheory.m"};*)
 (*Get@FileNameJoin@{$ThisDirectory,"Calibration","BiScalarVectorTensorTheory.m"};*)
 (*Get@FileNameJoin@{$ThisDirectory,"Calibration","TensorTheory.m"};*)
-Get@FileNameJoin@{$ThisDirectory,"Calibration","AntisymmetricTensorTheory.m"};
+(*Get@FileNameJoin@{$ThisDirectory,"Calibration","AntisymmetricTensorTheory.m"};*)
 (*Get@FileNameJoin@{$ThisDirectory,"Calibration","SymmetricTensorTheory.m"};*)
 (*Get@FileNameJoin@{$ThisDirectory,"Calibration","AsymmetricTensorTheory.m"};*)
 (*Get@FileNameJoin@{$ThisDirectory,"Calibration","BimetricTensorTheory.m"};*)
 (*Get@FileNameJoin@{$ThisDirectory,"Calibration","ScalarTensorTheory.m"};*)
 (*Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory.m"};*)
 (*Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheory.m"};*)
-(*Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity.m"};*)
+Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity.m"};
 (*Get@FileNameJoin@{$ThisDirectory,"Calibration","ZeroTorsionPalatini.m"};*)
 (*Get@FileNameJoin@{$ThisDirectory,"Calibration","ErrorMessages.m"};*)
 
-Supercomment@"We have now reached the end of the PSALTer calibration script.";
+Supercomment@"We have now reached the end of the documentation.";
 
 Quit[];

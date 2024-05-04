@@ -9,11 +9,12 @@ LinearisedLagrangian=GeneralLinearisedLagrangian/.{Pw->1};
 LinearisedLagrangian//=ToCanonical;
 LinearisedLagrangian//=CollectTensors;
 DisplayExpression@LinearisedLagrangian;
-ParticleSpectrum[
-	LinearisedLagrangian,
-	ClassName->"ScalarTensorTheory",
-	TheoryName->"GeneralLambda1",
-	Method->"Easy",
-	MaxLaurentDepth->3
+Code[
+	ParticleSpectrum[
+		LinearisedLagrangian,
+		TheoryName->"GeneralLambda1",
+		Method->"Easy",
+		MaxLaurentDepth->3
+	];
 ];
 Comment@"Spectrum is unacceptable.";

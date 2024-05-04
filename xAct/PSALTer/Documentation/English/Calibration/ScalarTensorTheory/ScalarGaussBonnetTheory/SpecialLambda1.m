@@ -10,12 +10,12 @@ LinearisedLagrangian=LinearisedLagrangian/.ImposeGaussBonnet;
 LinearisedLagrangian//=ToCanonical;
 LinearisedLagrangian//=CollectTensors;
 DisplayExpression@LinearisedLagrangian;
-
-ParticleSpectrum[
-	LinearisedLagrangian,
-	ClassName->"ScalarTensorTheory",
-	TheoryName->"SpecialLambda1",
-	Method->"Easy",
-	MaxLaurentDepth->3
+Code[
+	ParticleSpectrum[
+		LinearisedLagrangian,
+		TheoryName->"SpecialLambda1",
+		Method->"Easy",
+		MaxLaurentDepth->3
+	];
 ];
 Comment@{"Spectrum is healthy, seemingly similar to massless Einstein-Klein-Gordon in",Cref@"ScalarFierzPauliTheory","."};
