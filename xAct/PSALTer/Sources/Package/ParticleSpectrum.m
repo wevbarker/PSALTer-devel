@@ -43,7 +43,7 @@ ParticleSpectrum[OptionsPattern[]]:=Module[{
 
 	ValidateTheoryName@OptionValue@TheoryName;
 
-	Get@FileNameJoin@{$WorkingDirectory,OptionValue@TheoryName<>".mx"};
+	Get@FileNameJoin@{$WorkingDirectory,"ParticleSpectrograph"<>OptionValue@TheoryName<>".mx"};
 	Class=Evaluate@Symbol@OptionValue@TheoryName;
 
 	SummaryOfResults=SummariseResults[
@@ -69,7 +69,7 @@ ParticleSpectrum[OptionsPattern[]]:=Module[{
 				Class@SavedSummaryOfTheory,
 				SummaryType->ResultsCollage];
 		Print@PDFSummaryOfResults;
-		Export[FileNameJoin@{$WorkingDirectory,OptionValue@TheoryName<>".pdf"},
+		Export[FileNameJoin@{$WorkingDirectory,"ParticleSpectrograph"<>OptionValue@TheoryName<>".pdf"},
 			PDFSummaryOfResults
 		];
 	];
@@ -130,6 +130,7 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=If[
 		];
 			
 
+		Quiet@DeleteDirectory[FileNameJoin@{$WorkingDirectory,"tmp"},DeleteContents->True];
 		Quiet@CreateDirectory@FileNameJoin@{$WorkingDirectory,"tmp"};
 
 		CombineAssociations[Expr,TheoryContext];
@@ -268,7 +269,7 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=If[
 					LocalSummaryOfTheory,
 					SummaryType->ResultsCollage];
 			Print@PDFSummaryOfResults;
-			Export[FileNameJoin@{$WorkingDirectory,OptionValue@TheoryName<>".pdf"},
+			Export[FileNameJoin@{$WorkingDirectory,"ParticleSpectrograph"<>OptionValue@TheoryName<>".pdf"},
 				PDFSummaryOfResults
 			];
 		];

@@ -31,6 +31,7 @@ Quiet@If[NotebookDirectory[]==$Failed,$CLI=True,$CLI=False,$CLI=False];
 If[$CLI,$WorkingDirectory=Directory[],$WorkingDirectory=NotebookDirectory[]];
 $Path~AppendTo~$WorkingDirectory;
 $PSALTerInstallDirectory=Select[FileNameJoin[{#,"xAct/PSALTer"}]&/@$Path,DirectoryQ][[1]];
+$PSALTerBuilt=False;
 If[$CLI,	
 	Print@Import@FileNameJoin@{$PSALTerInstallDirectory,
 				"Documentation","Logo","ASCIILogo.txt"},
@@ -106,16 +107,8 @@ BuildPSALTerPackage[]:=BuildPackage/@{
 	"ParticleSpectrum.m"
 };
 BuildPSALTerPackage[];
-ContextList={	
-	"xAct`PSALTer`",
-	"xAct`PSALTer`Private`",
-	"xAct`xTensor`",
-	"xAct`xTensor`Private`",
-	"TangentM4`",
-	"xAct`PSALTer`"
-};
 Begin["xAct`PSALTer`"];
-	xAct`PSALTer`Private`BuildPSALTer[xAct`PSALTer`Private`Recompile->False];
+	xAct`PSALTer`Private`BuildPSALTer[];
 	Quiet@If[NotebookDirectory[]==$Failed,$CLI=True,$CLI=False,$CLI=False];
 End[];
 End[];

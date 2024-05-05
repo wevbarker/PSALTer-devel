@@ -40,7 +40,7 @@ PSALTerResultsCollage[
 			MakeLabel@"Massive and massless spectra",
 			SpectrumGroup,
 			MakeLabel@"Unitarity conditions",
-			TheOverallUnitarity,
+			TheOverallUnitarity
 	};
 
 	FinalGraphic//=Column[#,
@@ -48,8 +48,4 @@ PSALTerResultsCollage[
 			Background->PanelColor,
 			Frame->True,
 			Spacings->{1,1}]&;
-
-Export[FileNameJoin@{NotebookDirectory[],"Test"<>".pdf"},
-			FinalGraphic
-		];
 FinalGraphic];

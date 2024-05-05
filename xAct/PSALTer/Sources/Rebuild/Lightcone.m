@@ -2,6 +2,9 @@
 (*  Lightcone  *)
 (*=============*)
 
+$DefInfoQ=False;
+$CVVerbose=False;
+Off@ValidateSymbol::used;
 DefBasis[cartesian,TangentM4,{0,1,2,3},BasisColor->RGBColor[0,1,0]];
 
 xAct`PSALTer`Private`EnSymb="\[ScriptCapitalE]";
@@ -47,4 +50,7 @@ Table[DefConstantSymbol[
 	PrintAs->"\!\(\*SubscriptBox[\(\[ScriptI]\), \("<>ColorString[ToString@i<>ToString@j,RGBColor[1.,0.,1.]]<>"\)]\)",
 	Dagger->Complex],{i,20},{j,20}];
 
+On@ValidateSymbol::used;
 DefConstantSymbol[PoleResidue,PrintAs->"\[Lambda]"];
+$CVVerbose=True;
+$DefInfoQ=True;

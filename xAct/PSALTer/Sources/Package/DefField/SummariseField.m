@@ -66,7 +66,7 @@ SummariseField[]:=Module[{
 				TheExpansionTable];
 	Print@ThePSALTerClassCollage;
 	If[$ExportPDF,
-		Export[FileNameJoin@{$WorkingDirectory,(StringReplace[Context[],{"xAct"->"","PSALTer"->"","`"->""}])<>".pdf"},
+		Export[FileNameJoin@{$WorkingDirectory,"FieldKinematics"<>(StringReplace[Context[],{"xAct"->"","PSALTer"->"","`"->""}])<>".pdf"},
 			ThePSALTerClassCollage
 		];
 	];
