@@ -26,7 +26,6 @@ Title@"PSALTer Documentation";
 Get@FileNameJoin@{$ThisDirectory,"Documentation","HowToUse.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","LoadingPSALTer.m"};
 
-
 (*Get@FileNameJoin@{$ThisDirectory,"Documentation","ScalarTheory.m"};*)
 (*Get@FileNameJoin@{$ThisDirectory,"Documentation","VectorTheory.m"};*)
 (*Get@FileNameJoin@{$ThisDirectory,"Documentation","BiScalarVectorTensorTheory.m"};*)
@@ -43,5 +42,4 @@ Get@FileNameJoin@{$ThisDirectory,"Documentation","TensorTheory.m"};
 (*Get@FileNameJoin@{$ThisDirectory,"Documentation","ErrorMessages.m"};*)
 
 Supercomment@"We have now reached the end of the documentation.";
-
 Quit[];
