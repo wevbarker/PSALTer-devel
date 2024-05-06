@@ -9,12 +9,13 @@ NonlinearLagrangian=Alp1*R[a,b,c,d]*R[-a,-b,-c,-d]+Bet1*T[a,b,c]*T[-a,-b,-c];
 DisplayExpression[CollectTensors@ToCanonical[NonlinearLagrangian],EqnLabel->"MelichevPercacci"];
 Comment@{"At first glance,",Cref@"MelichevPercacci"," is already an appealing theory to study, since it has quite an odd structure. The two terms are respectively the Kretschmann scalar and the `totally cross-contracted' square of the torsion (not a typical combination), meanwhile the Einstein-Hilbert term is entirely missing."};
 LinearLagrangian=LineariseLagrangian[NonlinearLagrangian];
-ParticleSpectrum[
-	LinearLagrangian,
-	ClassName->"PoincareGaugeTheory",
-	TheoryName->"MelichevPercacciTheory",	
-	Method->"Hard",
-	MaxLaurentDepth->3
+Code[LinearLagrangian,
+	ParticleSpectrum[
+		LinearLagrangian,
+		TheoryName->"MelichevPercacciTheory",	
+		Method->"Hard",
+		MaxLaurentDepth->3
+	];
 ];
 Comment@"There are quite a few comments to unpack here. Firstly, due the vanishing of the Einstein-Hilbert term, it is possible that this model falls into the category of unstudied PGT spectra, since it features vanishing tordion (not a typo: a tordion being a torsion particle) masses. In many papers, the authors explicitly refuse to consider such scenarios, due to their complexity and the emergence of extra symmetries. However PSALTer can handle vanishing masses, and we do indeed get a spectrum, which in turn has some features worth further comment.";
 Comment@{"Let's start with the massive sector. We see scalar, vector and tensor species all propagating. By inspection of",Cref@"MelichevPercacci",", it makes dimensional sense that all the square masses are proportional to",Inline@(Bet1/Alp1),". Now consider the first two particles: a pseudoscalar and a parity-even vector. For the pseudoscalar to be neither a ghost nor a tachyon, we need",Inline@(Alp1<0)," and",Inline@(Bet1>0),". These conditions stop the parity-even vector mode from being a tachyon, but they then force it to be a ghost."};

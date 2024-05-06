@@ -18,7 +18,7 @@ Code[LinearisedLagrangian,
 	ParticleSpectrum[
 		LinearisedLagrangian,
 		TheoryName->"FierzPauliTheory",
-		Method->"Easy",
+		Method->"Hard",
 		MaxLaurentDepth->3
 	];
 ];

@@ -10,5 +10,4 @@ AppendToField[KinematicContext_,AssocKey_,InputValue_]:=Module[{
 	Clear@KinematicContext;
 	FieldAssociationValue@AssocKey=InputValue;
 	FieldAssociation@KinematicContext:=FieldAssociationValue;
-	Quiet@Catch@DistributeDefinitions@KinematicContext;
 ];

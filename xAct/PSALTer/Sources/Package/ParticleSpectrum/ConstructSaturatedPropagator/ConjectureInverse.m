@@ -2,10 +2,10 @@
 (*  ConjectureInverse  *)
 (*=====================*)
 
-BuildPackage@"ParticleSpectrum/ConstructSaturatedPropagator/MakeSymbolic.m";
-BuildPackage@"ParticleSpectrum/ConstructSaturatedPropagator/IntermediateRules.m";
-BuildPackage@"ParticleSpectrum/ConstructSaturatedPropagator/ManualPseudoInverse.m";
-BuildPackage@"ParticleSpectrum/ConstructSaturatedPropagator/UnmakeSymbolic.m";
+BuildPackage@"ParticleSpectrum/ConstructSaturatedPropagator/ConjectureInverse/MakeSymbolic.m";
+BuildPackage@"ParticleSpectrum/ConstructSaturatedPropagator/ConjectureInverse/IntermediateRules.m";
+BuildPackage@"ParticleSpectrum/ConstructSaturatedPropagator/ConjectureInverse/ManualPseudoInverse.m";
+BuildPackage@"ParticleSpectrum/ConstructSaturatedPropagator/ConjectureInverse/UnmakeSymbolic.m";
 
 ConjectureInverse[InputMatrix_,Couplings_,CouplingAssumptions_]:=Module[{	
 	TheInputMatrix=InputMatrix,
@@ -38,13 +38,8 @@ ConjectureInverse[InputMatrix_,Couplings_,CouplingAssumptions_]:=Module[{
 	LocalPropagator=" ** ManualPseudoInverse...";
 	{InverseSymbolicMatrix,DeterminantSymbolic}=ManualPseudoInverse[SymbolicMatrix,ConjecturedNullSpace];
 
-	(*Diagnostic@InverseSymbolicMatrix;*)
-	(*Diagnostic@DeterminantSymbolic;*)
-
 	LocalPropagator=" ** IntegrategetAllVariables...";
-(*
-	SymbolicCouplingAssumptions=(#~Element~Reals)&/@Integrate`getAllVariables[InverseSymbolicMatrix,{}];
-*)
+
 	SymbolicCouplingAssumptions=CouplingAssumptions;
 	Diagnostic@SymbolicCouplingAssumptions;
 

@@ -4,7 +4,14 @@
 
 Title@"Poincaré gauge theory (PGT)";
 
-Supercomment@"We will test the [PoincareGaugeTheory] module.";
+Comment@"We will set up an antisymmetric rank-three tensor field.";
+Code[
+	DefField[A[-a,-b,-c],Antisymmetric[{-a,-b}],PrintAs->"\[ScriptCapitalA]",PrintSourceAs->"\[Sigma]"];
+];
+Comment@"We will also set up an asymmetric tensor field.";
+Code[
+	DefField[F[-a,-b],PrintAs->"\[ScriptF]",PrintSourceAs->"\[Tau]"];
+];
 
 Comment@"Here is the inverse translational gauge field, or tetrad.";
 DefTensor[H[-a,c],M4,PrintAs->"\[ScriptH]"];
@@ -44,6 +51,18 @@ Expr//=ScreenDollarIndices;
 DisplayExpression[Expr];
 
 Comment@"Now we set up the general Lagrangian. In the first instance we will do this with some coupling constants which are proportional to those used by Hayashi and Shirafuji in Prog. Theor. Phys. 64 (1980) 2222, and identical to those used in arXiv:2205.13534 and (up to re-labelling) arXiv:gr-qc/9902032.";
+Code[
+	DefConstantSymbol[Alp0,PrintAs->"\!\(\*SubscriptBox[\(\[Alpha]\), \(0\)]\)"];
+	DefConstantSymbol[Alp1,PrintAs->"\!\(\*SubscriptBox[\(\[Alpha]\), \(1\)]\)"];
+	DefConstantSymbol[Alp2,PrintAs->"\!\(\*SubscriptBox[\(\[Alpha]\), \(2\)]\)"];
+	DefConstantSymbol[Alp3,PrintAs->"\!\(\*SubscriptBox[\(\[Alpha]\), \(3\)]\)"];
+	DefConstantSymbol[Alp4,PrintAs->"\!\(\*SubscriptBox[\(\[Alpha]\), \(4\)]\)"];
+	DefConstantSymbol[Alp5,PrintAs->"\!\(\*SubscriptBox[\(\[Alpha]\), \(5\)]\)"];
+	DefConstantSymbol[Alp6,PrintAs->"\!\(\*SubscriptBox[\(\[Alpha]\), \(6\)]\)"];
+	DefConstantSymbol[Bet1,PrintAs->"\!\(\*SubscriptBox[\(\[Beta]\), \(1\)]\)"];
+	DefConstantSymbol[Bet2,PrintAs->"\!\(\*SubscriptBox[\(\[Beta]\), \(2\)]\)"];
+	DefConstantSymbol[Bet3,PrintAs->"\!\(\*SubscriptBox[\(\[Beta]\), \(3\)]\)"];
+];
 
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 					"LagrangianHayashiShirafujiCouplings.m"};
@@ -58,7 +77,6 @@ BasicCriticalCases={
 };
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 					"TeleparallelTheory.m"};
-(*
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 					"NevilleTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
@@ -67,8 +85,6 @@ Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 					"MarzoZellBarkerModel2.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 					"GeneralPGT.m"};
-Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
-					"GeneraleWGT.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 					"EinsteinCartanTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
@@ -83,4 +99,7 @@ Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 					"AnnalaRasanenTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 					"LinHobsonLasenbyTheories.m"};
+(*
+Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
+					"GeneraleWGT.m"};
 *)

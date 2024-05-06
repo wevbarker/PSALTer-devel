@@ -6,10 +6,7 @@
 (*  Version  *)
 (*===========*)
 
-(*
-xAct`PSALTer`$Version={"1.0.0",{2022,11,4}};
-*)
-xAct`PSALTer`$Version={"1.0.0-developer",DateList@FileDate@$InputFileName~Drop~(-3)};
+xAct`PSALTer`$Version={"1.0.0",{2024,6,1}};
 If[Unevaluated[xAct`xCore`Private`$LastPackage]===xAct`xCore`Private`$LastPackage,xAct`xCore`Private`$LastPackage="xAct`PSALTer`"];
 Off@(Solve::fulldim);
 
@@ -31,7 +28,6 @@ Quiet@If[NotebookDirectory[]==$Failed,$CLI=True,$CLI=False,$CLI=False];
 If[$CLI,$WorkingDirectory=Directory[],$WorkingDirectory=NotebookDirectory[]];
 $Path~AppendTo~$WorkingDirectory;
 $PSALTerInstallDirectory=Select[FileNameJoin[{#,"xAct/PSALTer"}]&/@$Path,DirectoryQ][[1]];
-$PSALTerBuilt=False;
 If[$CLI,	
 	Print@Import@FileNameJoin@{$PSALTerInstallDirectory,
 				"Documentation","Logo","ASCIILogo.txt"},
@@ -84,9 +80,9 @@ $MonitorParallel::usage="$MonitorParallel is a boolean variable which controls w
 $ExportPDF::usage="$ExportPDF is a boolean variable which controls whether PDF files of the analysis are exported. Default is False.";
 $ReadOnly::usage="$ReadOnly is a boolean variable which controls whether the analysis is actually performed or simply read in from a PDF file. Default is False.";
 
-(*===============*)
-(*  Depreciated  *)
-(*===============*)
+(*================*)
+(*  Undocumented  *)
+(*================*)
 
 Spin::usage="Spin is an option for DefSO3Irrep.";
 Parity::usage="Parity is an option for DefSO3Irrep.";

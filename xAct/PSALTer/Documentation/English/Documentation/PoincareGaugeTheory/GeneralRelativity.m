@@ -11,11 +11,12 @@ On[Solve::svars];
 DisplayExpression[CollectTensors@ToCanonical[KNonlinearLagrangian/.CaseRules],
 			EqnLabel->"GeneralRelativity"];
 LinearLagrangian=LineariseLagrangian[KNonlinearLagrangian/.CaseRules];
-ParticleSpectrum[
-	LinearLagrangian,
-	ClassName->"PoincareGaugeTheory",
-	TheoryName->"GeneralRelativity",	
-	Method->"Easy",
-	MaxLaurentDepth->3
+Code[LinearLagrangian,
+	ParticleSpectrum[
+		LinearLagrangian,
+		TheoryName->"GeneralRelativity",	
+		Method->"Easy",
+		MaxLaurentDepth->3
+	];
 ];
 Comment@{"The spectra of",Cref@{"EinsteinCartanTheory","GeneralRelativity"}," are identical, as expected."};

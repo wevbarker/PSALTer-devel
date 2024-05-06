@@ -1,6 +1,5 @@
 (*==================*)
-(*  GenerateAnsatz  *)
-(*==================*)
+(*  GenerateAnsatz  *) (*==================*)
 
 BuildPackage@"ParticleSpectrum/CombineAssociations/GenerateAnsatz/CatalogueInvariant.m";
 
