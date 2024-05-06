@@ -1,14 +1,14 @@
 <img src="xAct/PSALTer/Documentation/Logo/GitHubLogo.png" width="1000">
 
 # Particle Spectrum for Any Tensor Lagrangian (PSALTer)
-## Version 0.0.0-developer
+## Version 1.0.0
 
-- Pre-release version, pending completion of pre-print and docs.
+- Initial release to accompany pre-print and docs.
 - Functionality for Weyl gauge theory and metric affine gravity removed due to ongoing collaborations with Tallinn and Tartu.
 
 ## License
 
-Copyright © 2022 Will E. V. Barker
+Copyright © 2022 Will Barker
 
 PSALTer is distributed as free software under the [GNU General Public License (GPL)](https://www.gnu.org/licenses/gpl-3.0.en.html).
 
