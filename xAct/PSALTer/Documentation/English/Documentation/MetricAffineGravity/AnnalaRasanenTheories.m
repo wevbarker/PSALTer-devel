@@ -2,8 +2,6 @@
 (*  AnnalaRasanenTheories  *)
 (*=========================*)
 
-Section@"Annala-Räsänen theories";
-
 Comment@"We construct a representative Lagrangian which will cover the whole of the fourth column of Table 1 on page 14 of arXiv:2212.09820.";
 ARNonlinearLagrangian=-(1/2)*(
 	-A0*MetricAffineRicciScalar[]
@@ -23,7 +21,6 @@ DisplayExpression[ARNonlinearLagrangian,EqnLabel->"MetricAffineARNonlinearLagran
 Comment@{"Now we linearize",Cref@"MetricAffineARNonlinearLagrangian","."};
 ARLinearLagrangian=Measure*ARNonlinearLagrangian//MetricAffineLineariseLagrangian;
 DisplayExpression[ARLinearLagrangian,EqnLabel->"MetricAffineARLinearLagrangian"];
-
 Get@FileNameJoin@{$ThisDirectory,"Documentation","MetricAffineGravity","AnnalaRasanenTheories",
 					"AnnalaRasanenCol1Row1.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","MetricAffineGravity","AnnalaRasanenTheories",

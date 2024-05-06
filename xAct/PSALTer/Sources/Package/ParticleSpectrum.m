@@ -2,6 +2,10 @@
 (*  ParticleSpectrum  *)
 (*====================*)
 
+BuildPackage@"ParticleSpectrum/ValidateTheoryName.m";
+BuildPackage@"ParticleSpectrum/ValidateMethod.m";
+BuildPackage@"ParticleSpectrum/ValidateMaxLaurentDepth.m";
+BuildPackage@"ParticleSpectrum/ValidateLagrangian.m";
 BuildPackage@"ParticleSpectrum/CombineAssociations.m";
 BuildPackage@"ParticleSpectrum/UpdateTheoryAssociation.m";
 BuildPackage@"ParticleSpectrum/PSALTerParallelSubmit.m";
@@ -16,25 +20,13 @@ BuildPackage@"ParticleSpectrum/ConstructUnitarityConditions.m";
 
 Off[Set::write];
 Off[SetDelayed::write];
+Unprotect@ParticleSpectrum;
+
 Options@ParticleSpectrum={	
 	TheoryName->False,
 	Method->"Easy",
 	MaxLaurentDepth->1
 	};
-
-ParticleSpectrum::WrongTheoryName="You must pass a string to the option TheoryName.";
-ValidateTheoryName[TheoryNameValue_]:=If[!(StringQ@TheoryNameValue),
-			Throw@Message[ParticleSpectrum::WrongTheoryName,TheoryNameValue]
-			];
-ParticleSpectrum::WrongMethod="The method `1` for evaluating the source constraints and matrix pseudoinverses appears not to be either of the strings Easy, Hard or Both.";
-ValidateMethod[MethodValue_]:=If[!({"Easy","Hard","Both"}~MemberQ~MethodValue),
-			Throw@Message[ParticleSpectrum::WrongMethod,MethodValue]
-			];
-ParticleSpectrum::WrongMaxLaurentDepth="The maximum requested depth n of the 1/k^(2n) residue n=`1` appears not to be a natural number 1, 2 or 3.";
-ValidateMaxLaurentDepth[MaxLaurentDepthValue_]:=If[!({1,2,3}~MemberQ~MaxLaurentDepthValue),
-			Throw@Message[ParticleSpectrum::WrongMaxLaurentDepth,MaxLaurentDepthValue]
-			];
-
 
 ParticleSpectrum[OptionsPattern[]]:=Module[{
 	SummaryOfResults,
@@ -89,6 +81,7 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=If[
 		ValidateTheoryName@OptionValue@TheoryName;
 		ValidateMethod@OptionValue@Method;
 		ValidateMaxLaurentDepth@OptionValue@MaxLaurentDepth;
+		ValidateLagrangian@Expr;
 
 		LocalWaveOperator=Null;
 		LocalPropagator=Null;

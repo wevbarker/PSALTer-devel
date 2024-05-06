@@ -2,7 +2,7 @@
 (*  ValidateTraceless  *)
 (*=====================*)
 
-ValidateModes::NotTraceless="The reduced-index mode `1`, when expanded in terms of the fundamental fields, appears not to be traceless over slots at positions `2`.";
+DefField::NotTraceless="The reduced-index mode `1`, when expanded in terms of the fundamental fields, appears not to be traceless over slots at positions `2`.";
 ValidateTraceless[InputExpr_,Reduced_]:=Module[{
 	FreeIndices,
 	MetricsToContract,
@@ -19,7 +19,7 @@ ValidateTraceless[InputExpr_,Reduced_]:=Module[{
 		Contraction//=ToNewCanonical;
 		Catch@If[!(Contraction===0),
 			Diagnostic@Contraction;
-			Throw[Message[ValidateModes::NotTraceless,InputExpr,((Minus/@FreeIndices)~Position~#)&/@(List@@(IndicesOf[Free]@#))]]
+			Throw[Message[DefField::NotTraceless,InputExpr,((Minus/@FreeIndices)~Position~#)&/@(List@@(IndicesOf[Free]@#))]]
 			];
 	)&/@MetricsToContract;
 ];

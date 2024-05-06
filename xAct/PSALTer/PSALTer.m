@@ -102,6 +102,7 @@ BuildPSALTerPackage[]:=BuildPackage/@{
 	"DefField.m",
 	"ParticleSpectrum.m"
 };
+
 BuildPSALTerPackage[];
 Begin["xAct`PSALTer`"];
 	xAct`PSALTer`Private`BuildPSALTer[];

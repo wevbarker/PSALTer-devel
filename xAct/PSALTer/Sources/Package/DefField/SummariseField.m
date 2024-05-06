@@ -59,15 +59,16 @@ SummariseField[]:=Module[{
 		FieldTensorsSymmetries,
 		FieldTensorsDecomposed,
 		SourceTensors];
-
-	ThePSALTerClassCollage=PSALTerClassCollage[
-				BasicInfo,
-				TheDecompositionTable,
-				TheExpansionTable];
-	Print@ThePSALTerClassCollage;
-	If[$ExportPDF,
-		Export[FileNameJoin@{$WorkingDirectory,"FieldKinematics"<>(StringReplace[Context[],{"xAct"->"","PSALTer"->"","`"->""}])<>".pdf"},
-			ThePSALTerClassCollage
+	If[!$CLI,
+		ThePSALTerClassCollage=PSALTerClassCollage[
+					BasicInfo,
+					TheDecompositionTable,
+					TheExpansionTable];
+		Print@ThePSALTerClassCollage;
+		If[$ExportPDF,
+			Export[FileNameJoin@{$WorkingDirectory,"FieldKinematics"<>(StringReplace[Context[],{"xAct"->"","PSALTer"->"","`"->""}])<>".pdf"},
+				ThePSALTerClassCollage
+			];
 		];
 	];
 ];

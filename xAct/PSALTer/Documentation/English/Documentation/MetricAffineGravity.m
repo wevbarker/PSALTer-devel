@@ -2,22 +2,17 @@
 (*  MetricAffineGravity  *)
 (*=======================*)
 
-Title@"Metric affine gravity (MAG)";
-
-Comment@"We will define a connection field.";
+Section@"A symmetric rank-two tensor and an asymmetric rank-three tensor";
+Comment@"This is the kinematic setup which is used in metric-affine gravity (MAG)";
+Comment@"We will define a connection field:";
 Code[
 	DefField[Connection[-a,-b,-c],PrintAs->"\[ScriptCapitalA]",PrintSourceAs->"\[CapitalDelta]"];
 ];
-Comment@"Let's define another symmetric tensor field.";
+Comment@"Let's define another symmetric tensor field:";
 Code[
 	DefField[MetricPerturbation[-a,-b],Symmetric[{-a,-b}],PrintAs->"\[ScriptH]",PrintSourceAs->"\[ScriptCapitalT]"];
 ];
-Comment@"We will define some coupling constants.";
-(*
-	DefTensor[Connection[-a,-b,-c],M4,PrintAs->"\[ScriptCapitalA]"];
-	DefTensor[MetricPerturbation[-a,-b],M4,Symmetric[{-a,-b}],PrintAs->"\[ScriptH]"];
-*)
-
+Comment@"We will define some coupling constants:";
 Code[
 	DefConstantSymbol[A0,PrintAs->"\!\(\*SubscriptBox[\(\[ScriptA]\), \(0\)]\)"];
 	DefConstantSymbol[A1,PrintAs->"\!\(\*SubscriptBox[\(\[ScriptA]\), \(1\)]\)"];
@@ -49,7 +44,6 @@ Code[
 	DefConstantSymbol[C15,PrintAs->"\!\(\*SubscriptBox[\(\[ScriptA]\), \(15\)]\)"];
 	DefConstantSymbol[C16,PrintAs->"\!\(\*SubscriptBox[\(\[ScriptA]\), \(16\)]\)"];
 ];
-
 Get@FileNameJoin@{$ThisDirectory,"Documentation","MetricAffineGravity",
 					"FieldStrengthTensors.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","MetricAffineGravity",

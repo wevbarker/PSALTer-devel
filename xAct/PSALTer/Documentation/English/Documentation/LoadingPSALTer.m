@@ -5,15 +5,17 @@
 Subsection@"Loading the package";
 Comment@"The first step is to load the PSALTer package:";
 Code[<<xAct`PSALTer`;];
-(**)
+(*
 Unprotect@xAct`PSALTer`ParticleSpectrum;
 ClearAll@xAct`PSALTer`ParticleSpectrum;
+Protect@xAct`PSALTer`ParticleSpectrum;
+Unprotect@xAct`PSALTer`DefField;
 ClearAll@xAct`PSALTer`DefField;
 Options@DefField={PrintAs->"\[Zeta]",PrintSourceAs->"\[ScriptJ]"};
 DefField[InputField_[Inds___],Opts___?OptionQ]:=DefField[InputField[Inds],GenSet[],Opts];
 DefField[InputField_[Inds___],SymmExpr_,OptionsPattern[]]:=DefTensor[InputField[Inds],M4,SymmExpr,PrintAs->OptionValue@PrintAs];
-Protect@xAct`PSALTer`ParticleSpectrum;
-(**)
+Protect@xAct`PSALTer`DefField;
+*)
 Comment@"PSALTer is now loaded. It is helpful to briefly review all the symbols which are provided by the package:";
 Code[
 	Print@Names@"xAct`PSALTer`*";
@@ -58,7 +60,7 @@ Code[
 	Print/@{?$DiagnosticMode,?$MonitorParallel,?$ExportPDF,?$ReadOnly};
 	$DiagnosticMode=False;
 	$MonitorParallel=False;
-	$ExportPDF=True;
+	$ExportPDF=False;
 	$ReadOnly=False;
 ];
 Comment@"With these settings in place the kernel is ready for science operations.";

@@ -2,7 +2,7 @@
 (*  MakeAutomaticallyNotAntisymmetric  *)
 (*=====================================*)
 
-MakeAutomaticallyNotAntisymmetric::MakeNotAntisymmetric="Can't remove antisymmetric part `1`.";
+DefField::MakeNotAntisymmetric="Can't remove antisymmetric part `1`.";
 
 MakeAutomaticallyNotAntisymmetric[InputExpr_?xTensorQ]:=Module[{
 	TensorName=InputExpr,
@@ -34,11 +34,11 @@ MakeAutomaticallyNotAntisymmetric[InputExpr_?xTensorQ]:=Module[{
 			ContractMetrics->True]];
 
 		If[!(ToCanonical@TensorAntisymmetric===0),
-			Throw[Message[MakeAutomaticallyNotAntisymmetric::MakeNotAntisymmetric,TensorAntisymmetric],
+			Throw[Message[DefField::MakeNotAntisymmetric,TensorAntisymmetric],
 				HaltBuild]
 			];
 		If[!(ToCanonical@DaggerTensorAntisymmetric===0),
-			Throw[Message[MakeAutomaticallyNotAntisymmetric::MakeNotAntisymmetric,DaggerTensorAntisymmetric],
+			Throw[Message[DefField::MakeNotAntisymmetric,DaggerTensorAntisymmetric],
 				HaltBuild]
 			];
 

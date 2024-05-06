@@ -2,7 +2,7 @@
 (*  MakeAutomaticallyTraceless  *)
 (*==============================*)
 
-MakeAutomaticallyTraceless::MakeTraceless="Can't remove trace `1`.";
+DefField::MakeTraceless="Can't remove trace `1`.";
 
 MakeAutomaticallyTraceless[InputExpr_?xTensorQ]:=Module[{
 	TensorName=InputExpr,
@@ -36,11 +36,11 @@ MakeAutomaticallyTraceless[InputExpr_?xTensorQ]:=Module[{
 			ContractMetrics->True]];
 
 		If[!(ToCanonical@TensorTrace===0),
-			Throw[Message[MakeAutomaticallyTraceless::MakeTraceless,TensorTrace],
+			Throw[Message[DefField::MakeTraceless,TensorTrace],
 				HaltBuild]
 			];
 		If[!(ToCanonical@DaggerTensorTrace===0),
-			Throw[Message[MakeAutomaticallyTraceless::MakeTraceless,DaggerTensorTrace],
+			Throw[Message[DefField::MakeTraceless,DaggerTensorTrace],
 				HaltBuild]
 			];
 

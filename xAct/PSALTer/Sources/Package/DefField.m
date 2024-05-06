@@ -8,9 +8,13 @@ BuildPackage@"DefField/DefSO3Irrep.m";
 BuildPackage@"DefField/CombineRules.m";
 BuildPackage@"DefField/SummariseField.m";
 
-DefField::UnstudiedKinetics="The SO(3) decomposition of tensors with indices `1` and symmetry `2` has not yet been implemented in PSALTer.";
+Off[Set::write];
+Off[SetDelayed::write];
+Unprotect@DefField;
 
 Options@DefField={PrintAs->"\[Zeta]",PrintSourceAs->"\[ScriptJ]"};
+
+DefField::UnstudiedKinetics="The SO(3) decomposition of tensors with indices `1` and symmetry `2` has not yet been implemented in PSALTer.";
 
 DefField[InputField_[Inds___],Opts___?OptionQ]:=DefField[InputField[Inds],GenSet[],Opts];
 
@@ -63,4 +67,6 @@ DefField[InputField_[Inds___],SymmExpr_,OptionsPattern[]]:=Module[{
 	SummariseField[];
 	End[];
 ];
-Protect@ParticleSpectrum;
+On[Set::write];
+On[SetDelayed::write];
+Protect@DefField;
