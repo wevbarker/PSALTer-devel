@@ -2,16 +2,13 @@
 (*  ProcaTheory  *)
 (*===============*)
 
-Section@"Proca field (electroweak bosons)";
-
+Subsection@"Proca field (electroweak bosons)";
 Comment@{"Having investigated the massless theory in",Cref@"MaxwellTheory"," we keep the same kinetic term but now add a mass term. This is the Proca theory."};
-Code[
-	LinearisedLagrangian=Coupling1*(CD[-a]@B[-b]-CD[-b]@B[-a])*(CD[a]@B[b]-CD[b]@B[a])+Coupling3*B[-a]*B[a];
-];
+LinearisedLagrangian=Coupling1*(CD[-a]@B[-b]-CD[-b]@B[-a])*(CD[a]@B[b]-CD[b]@B[a])+Coupling3*B[-a]*B[a];
 DisplayExpression[LinearisedLagrangian,EqnLabel->"ProcaTheory"];
 LinearisedLagrangian//=ToCanonical;
 LinearisedLagrangian//=CollectTensors;
-Code[
+Code[LinearisedLagrangian,
 	ParticleSpectrum[
 		LinearisedLagrangian,
 		TheoryName->"ProcaTheory",	

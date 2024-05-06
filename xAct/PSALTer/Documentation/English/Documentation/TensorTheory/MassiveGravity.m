@@ -2,8 +2,7 @@
 (*  MassiveGravity  *)
 (*==================*)
 
-Section@"Massive gravity";
-
+Subsection@"Massive gravity";
 Comment@{"We now add to",Cref@"FierzPauliTheory"," the unique mass term which corresponds to massive gravity, i.e. `Fierz-Pauli tuning'."};
 LinearisedLagrangian=Coupling1*(
 	(1/2)*CD[-b]@LinearMetric[a,-a]*CD[b]@LinearMetric[c,-c]

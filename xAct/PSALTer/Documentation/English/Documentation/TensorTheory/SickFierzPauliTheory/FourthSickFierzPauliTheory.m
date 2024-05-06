@@ -2,8 +2,7 @@
 (*  FourthSickFierzPauliTheory  *)
 (*==============================*)
 
-Section@"Sick Fierz-Pauli (fourth variation)";
-
+Subsection@"Sick Fierz-Pauli (fourth variation)";
 Comment@{"We allow the first term in",Cref@"FierzPauliTheory"," to float."};
 LinearisedLagrangian=Coupling1*(
 	-CD[a]@LinearMetric[-a,-b]*CD[b]@LinearMetric[c,-c]

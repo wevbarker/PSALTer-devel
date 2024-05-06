@@ -2,14 +2,13 @@
 (*  MassiveScalarTheory  *)
 (*=======================*)
 
-Section@"Massive scalar (Higgs field, pions)";
-
-Comment@"A massive scalar field theory.";
+Subsection@"Massive scalar (Higgs field, pions)";
+Comment@"A massive scalar field theory:";
 Code[
 	LinearisedLagrangian=Coupling1*CD[-a]@Phi[]CD[a]@Phi[]-Coupling2*Phi[]*Phi[];
 ];
 DisplayExpression@LinearisedLagrangian;
-Code[
+Code[LinearisedLagrangian,
 	ParticleSpectrum[
 		LinearisedLagrangian,
 		TheoryName->"MassiveScalarTheory",

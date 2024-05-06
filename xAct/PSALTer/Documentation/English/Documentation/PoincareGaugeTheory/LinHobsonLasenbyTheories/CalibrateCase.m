@@ -7,7 +7,7 @@ CalibrateCase[CaseNumber_,CaseRules_List,CaseConditions_List]:=Module[{
 	Couplings={kR1,kR2,kR3,kR4,kR5,kT1,kT2,kT3,kLambda},
 	CouplingAssumptions},
 
-	Subsection@("Case "<>ToString@CaseNumber);	
+	Subsection@("Poincaré gauge theory Case "<>ToString@CaseNumber);	
 
 	Comment@{"Here is the full nonlinear Lagrangian for Case "<>ToString@CaseNumber<>" as defined by the second column of TABLE V. in arXiv:1910.14197, using the general formulation in",Cref@"CleanKarananas","."};
 	DisplayExpression@CollectTensors@ToCanonical[KNonlinearLagrangian/.CaseRules];

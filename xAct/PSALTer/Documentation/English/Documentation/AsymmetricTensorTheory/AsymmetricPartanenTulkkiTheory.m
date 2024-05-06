@@ -2,19 +2,16 @@
 (*  AsymmetricPartanenTulkkiTheory  *)
 (*==================================*)
 
-Section@"Partanen-Tulkki gravity";
-
+Subsection@"Partanen-Tulkki gravity";
 Comment@"We now examine the theory proposed in arXiv:2310.01460.";
-Code[
-	LinearisedLagrangian=-(1/(8*EinsteinConstant))*(
-		(CD[-m]@AsymmetricF[-r,-n]-CD[-n]@AsymmetricF[-r,-m])*
-		(CD[m]@AsymmetricF[r,n]-CD[n]@AsymmetricF[r,m])
-	);
-];
+LinearisedLagrangian=-(1/(8*EinsteinConstant))*(
+	(CD[-m]@AsymmetricF[-r,-n]-CD[-n]@AsymmetricF[-r,-m])*
+	(CD[m]@AsymmetricF[r,n]-CD[n]@AsymmetricF[r,m])
+);
 DisplayExpression[LinearisedLagrangian,EqnLabel->"AsymmetricPartanenTulkkiTheory"];
 LinearisedLagrangian//=ToCanonical;
 LinearisedLagrangian//=CollectTensors;
-Code[
+Code[LinearisedLagrangian,
 	ParticleSpectrum[
 		LinearisedLagrangian,
 		TheoryName->"AsymmetricPartanenTulkkiTheory",
@@ -23,7 +20,7 @@ Code[
 	];
 ];
 Comment@{"So",Cref@"AsymmetricPartanenTulkkiTheory"," contains some ghosts. Now we try again with increased LaurentDepth."};
-Code[
+Code[LinearisedLagrangian,
 	ParticleSpectrum[
 		LinearisedLagrangian,
 		TheoryName->"AsymmetricPartanenTulkkiTheoryDeep",
@@ -31,3 +28,4 @@ Code[
 		MaxLaurentDepth->3
 	];
 ];
+Comment@"We see that the problems are caused by higher-order poles.";

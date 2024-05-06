@@ -63,3 +63,4 @@ DefField[InputField_[Inds___],SymmExpr_,OptionsPattern[]]:=Module[{
 	SummariseField[];
 	End[];
 ];
+Protect@ParticleSpectrum;

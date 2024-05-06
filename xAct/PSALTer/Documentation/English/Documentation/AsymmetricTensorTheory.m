@@ -2,16 +2,14 @@
 (*  AsymmetricTensorTheory  *)
 (*==========================*)
 
-Title@"Asymmetric tensor field theory";
-
-Comment@"Let's define an asymmetric tensor field.";
+Section@"A single asymmetric rank-two tensor";
+Comment@"Let's define an asymmetric tensor field:";
 Code[
 	DefField[AsymmetricF[-a,-b],PrintAs->"\[Theta]",PrintSourceAs->"\[Omega]"];
 ];
-Comment@"Also define some more coupling constants.";
+Comment@"Also define another coupling constant:";
 Code[
 	DefConstantSymbol[EinsteinConstant,PrintAs->"\[Kappa]"];
 ];
-
 Get@FileNameJoin@{$ThisDirectory,"Documentation","AsymmetricTensorTheory",
 				"AsymmetricPartanenTulkkiTheory.m"};

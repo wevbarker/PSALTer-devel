@@ -2,13 +2,13 @@
 (*  PoincareGaugeTheory  *)
 (*=======================*)
 
-Title@"Poincaré gauge theory (PGT)";
-
-Comment@"We will set up an antisymmetric rank-three tensor field.";
+Section@"An asymmetric rank-two tensor and a pair-antisymmetric rank-three tensor";
+Comment@"This is the kinematic setup which is used in Poincaré gauge theory (PGT)";
+Comment@"We will set up an antisymmetric rank-three tensor field (the perturbation of the spin connection).";
 Code[
 	DefField[A[-a,-b,-c],Antisymmetric[{-a,-b}],PrintAs->"\[ScriptCapitalA]",PrintSourceAs->"\[Sigma]"];
 ];
-Comment@"We will also set up an asymmetric tensor field.";
+Comment@"We will also set up an asymmetric tensor field (the perturbation of the tetrad).";
 Code[
 	DefField[F[-a,-b],PrintAs->"\[ScriptF]",PrintSourceAs->"\[Tau]"];
 ];
@@ -75,7 +75,6 @@ BasicCriticalCases={
 	kR1==kR2==kR3==kR4==kR5==kLambda/4+kT1/3+kT2/12==-kLambda/2-kT1/3+kT2/6==-kLambda-kT1/3+2*kT3/3==0,
 	kR1==kR2==kR3==kR4==kR5==kT1==kT2==kT3==0
 };
-(*
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 					"TeleparallelTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
@@ -89,8 +88,6 @@ Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 					"EinsteinCartanTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
-					"AsymmetricPartanenTulkkiTheory.m"};
-Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 					"GeneralRelativity.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 					"MelichevPercacciTheory.m"};
@@ -98,10 +95,11 @@ Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 					"YoNesterTheories.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 					"AnnalaRasanenTheory.m"};
-*)
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 					"LinHobsonLasenbyTheories.m"};
 (*
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 					"GeneraleWGT.m"};
+Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
+					"AsymmetricPartanenTulkkiTheory.m"};
 *)

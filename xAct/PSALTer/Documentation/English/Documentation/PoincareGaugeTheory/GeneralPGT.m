@@ -2,8 +2,7 @@
 (*  GeneralPGT  *)
 (*==============*)
 
-Section@"Most general PGT";
-
+Subsection@"Most general PGT";
 Comment@{"We want to study the most general PGT. We will do this using the general coupling coefficients defined in",Cref@"CleanHayashiShirafuji","."};
 DisplayExpression@CollectTensors@ToCanonical[HSNonlinearLagrangian];
 LinearLagrangian=LineariseLagrangian[HSNonlinearLagrangian];

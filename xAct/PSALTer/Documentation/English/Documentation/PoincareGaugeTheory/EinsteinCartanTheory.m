@@ -2,8 +2,7 @@
 (*  EinsteinCartanTheory  *)
 (*========================*)
 
-Section@"Einstein-Cartan theory (ECT)";
-
+Subsection@"Einstein-Cartan theory (ECT)";
 Comment@"We would like to check the basic Einstein-Cartan theory.";
 Off[Solve::svars];
 CaseRules=(First/@(Solve[#,{kR1,kR2,kR3,kR4,kR5,kT1,kT2,kT3,kLambda}]&/@BasicCriticalCases))[[1]];

@@ -2,16 +2,13 @@
 (*  SickProcaTheory  *)
 (*===================*)
 
-Section@"Sickly Proca field";
-
+Subsection@"Sickly Proca field";
 Comment@{"We extend our analysis of",Cref@"SickMaxwellTheory"," to the general massive case."};
-Code[
-	LinearisedLagrangian=Coupling1*CD[-a]@B[-b]*CD[a]@B[b]+Coupling2*CD[-a]@B[a]*CD[-b]@B[b]+Coupling3*B[-a]*B[a];
-];
+LinearisedLagrangian=Coupling1*CD[-a]@B[-b]*CD[a]@B[b]+Coupling2*CD[-a]@B[a]*CD[-b]@B[b]+Coupling3*B[-a]*B[a];
 DisplayExpression[LinearisedLagrangian,EqnLabel->"SickProcaTheory"];
 LinearisedLagrangian//=ToCanonical;
 LinearisedLagrangian//=CollectTensors;
-Code[
+Code[LinearisedLagrangian,
 	ParticleSpectrum[
 		LinearisedLagrangian,
 		TheoryName->"SickProcaTheory",	

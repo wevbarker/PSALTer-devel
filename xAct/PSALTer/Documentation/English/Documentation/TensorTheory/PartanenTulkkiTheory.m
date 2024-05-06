@@ -2,8 +2,7 @@
 (*  PartanenTulkkiTheory  *)
 (*========================*)
 
-Section@"Partanen-Tulkki gravity";
-
+Subsection@"Partanen-Tulkki gravity";
 Comment@"We now examine the theory proposed in arXiv:2310.01460.";
 LinearisedLagrangian=Coupling1*(
 	(CD[-m]@LinearMetric[-r,-n]-CD[-n]@LinearMetric[-r,-m])*
@@ -20,4 +19,4 @@ Code[LinearisedLagrangian,
 		MaxLaurentDepth->3
 	];
 ];
-Comment@{"What to say about",Cref@"PartanenTulkkiTheory","."};
+Comment@{"Evidently there are some problems with",Cref@"PartanenTulkkiTheory","."};

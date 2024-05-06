@@ -2,9 +2,8 @@
 (*  SquareRicciTheory  *)
 (*=====================*)
 
-Section@"Zell's square Ricci theory";
-
-Comment@{"We need to see what happens when we try the square of the Ricci tensor."};
+Subsection@"Pure Ricci-square theory";
+Comment@{"We build a theory out of the square of the Ricci tensor."};
 LinearisedLagrangian=-Coupling1*(
 	CD[-a]@CD[-b]@LinearMetric[a,b]
 	-CD[-a]@CD[a]@LinearMetric[-b,b]	
@@ -23,4 +22,4 @@ Code[LinearisedLagrangian,
 		MaxLaurentDepth->3
 	];
 ];
-Comment@{"Some comment can be made."};
+Comment@{"The empty spectrum is consistent with the literature."};

@@ -2,11 +2,10 @@
 (*  NuNoXiTheory  *)
 (*================*)
 
-Section@"With Nu and no Xi";
-
+Subsection@"With Nu and no Xi";
 NewLinearisedLagrangian=LinearisedLagrangian/.{CouplingXi->0};
 DisplayExpression[NewLinearisedLagrangian,EqnLabel->"NuNoXiTheory"];
-Code[
+Code[LinearisedLagrangian,
 	ParticleSpectrum[
 		LinearisedLagrangian,
 		TheoryName->"NuNoXiTheory",	
@@ -14,4 +13,4 @@ Code[
 		MaxLaurentDepth->3
 	];
 ];
-Comment@"Some comment can be made.";
+Comment@"This result was used in a manuscript in preparation.";

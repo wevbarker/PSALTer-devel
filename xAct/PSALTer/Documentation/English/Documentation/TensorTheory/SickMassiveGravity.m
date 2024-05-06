@@ -2,8 +2,7 @@
 (*  SickMassiveGravity  *)
 (*======================*)
 
-Section@"Sick massive gravity";
-
+Subsection@"Sick massive gravity";
 Comment@{"We now break the `Fierz-Pauli tuning' in",Cref@"MassiveGravity","."};
 LinearisedLagrangian=Coupling1*(
 	(1/2)*CD[-b]@LinearMetric[a,-a]*CD[b]@LinearMetric[c,-c]

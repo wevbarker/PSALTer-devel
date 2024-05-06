@@ -2,17 +2,19 @@
 (*  ScalarTheory  *)
 (*================*)
 
-Title@"Scalar field theory";
-
-Comment@"Let's define a scalar field.";
+Section@"A single scalar";
+Comment@"Let's define a scalar field:";
 Code[
-	DefField[Phi[],PrintAs->"\[Phi]",PrintSourceAs->"\[ScriptJ]"];
+	DefField[Phi[],PrintAs->"\[Phi]",PrintSourceAs->"\[Rho]"];
 ];
-Comment@"Also define a pair of coupling constants.";
+Comment@"Also, we define a lot of coupling constants:";
 Code[
 	DefConstantSymbol[Coupling1,PrintAs->"\[Alpha]"];
 	DefConstantSymbol[Coupling2,PrintAs->"\[Beta]"];
+	DefConstantSymbol[Coupling3,PrintAs->"\[Gamma]"];
+	DefConstantSymbol[Coupling4,PrintAs->"\[Delta]"];
+	DefConstantSymbol[Coupling5,PrintAs->"\[Epsilon]"];
+	DefConstantSymbol[Coupling6,PrintAs->"\[Zeta]"];
 ];
-
 Get@FileNameJoin@{$ThisDirectory,"Documentation","ScalarTheory","MasslessScalarTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","ScalarTheory","MassiveScalarTheory.m"};

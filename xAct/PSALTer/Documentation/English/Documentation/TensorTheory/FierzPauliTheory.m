@@ -2,8 +2,7 @@
 (*  FierzPauliTheory  *)
 (*====================*)
 
-Section@"Fierz-Pauli (linear gravity)";
-
+Subsection@"Fierz-Pauli (linear gravity)";
 Comment@"The natural theory to check will be the Fierz-Pauli theory.";
 LinearisedLagrangian=Coupling1*(
 	(1/2)*CD[-b]@LinearMetric[a,-a]*CD[b]@LinearMetric[c,-c]
