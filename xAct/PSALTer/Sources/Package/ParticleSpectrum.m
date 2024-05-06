@@ -1,13 +1,15 @@
-(* ::Package:: *)
-
 (*====================*)
 (*  ParticleSpectrum  *)
 (*====================*)
 
+BuildPackage@"ParticleSpectrum/ValidateTheoryName.m";
+BuildPackage@"ParticleSpectrum/ValidateMethod.m";
+BuildPackage@"ParticleSpectrum/ValidateMaxLaurentDepth.m";
+BuildPackage@"ParticleSpectrum/ValidateLagrangian.m";
+BuildPackage@"ParticleSpectrum/CombineAssociations.m";
 BuildPackage@"ParticleSpectrum/UpdateTheoryAssociation.m";
 BuildPackage@"ParticleSpectrum/PSALTerParallelSubmit.m";
 BuildPackage@"ParticleSpectrum/SummariseResults.m";
-
 BuildPackage@"ParticleSpectrum/ConstructLinearAction.m";
 BuildPackage@"ParticleSpectrum/ConstructWaveOperator.m";
 BuildPackage@"ParticleSpectrum/ConstructSourceConstraints.m";
@@ -18,30 +20,13 @@ BuildPackage@"ParticleSpectrum/ConstructUnitarityConditions.m";
 
 Off[Set::write];
 Off[SetDelayed::write];
-Options@ParticleSpectrum={
-	ClassName->False,
+Unprotect@ParticleSpectrum;
+
+Options@ParticleSpectrum={	
 	TheoryName->False,
 	Method->"Easy",
 	MaxLaurentDepth->1
 	};
-
-ParticleSpectrum::WrongClassName="You must pass a string to the option ClassName, from the list of defined classes `1`.";
-ValidateClassName[ClassNameValue_,ClassNames_]:=If[!(ClassNames~MemberQ~ClassNameValue),
-			Throw@Message[ParticleSpectrum::WrongClassName,ClassNames]
-			];
-ParticleSpectrum::WrongTheoryName="You must pass a string to the option TheoryName.";
-ValidateTheoryName[TheoryNameValue_]:=If[!(StringQ@TheoryNameValue),
-			Throw@Message[ParticleSpectrum::WrongTheoryName,TheoryNameValue]
-			];
-ParticleSpectrum::WrongMethod="The method `1` for evaluating the source constraints and matrix pseudoinverses appears not to be either of the strings Easy, Hard or Both.";
-ValidateMethod[MethodValue_]:=If[!({"Easy","Hard","Both"}~MemberQ~MethodValue),
-			Throw@Message[ParticleSpectrum::WrongMethod,MethodValue]
-			];
-ParticleSpectrum::WrongMaxLaurentDepth="The maximum requested depth n of the 1/k^(2n) residue n=`1` appears not to be a natural number 1, 2 or 3.";
-ValidateMaxLaurentDepth[MaxLaurentDepthValue_]:=If[!({1,2,3}~MemberQ~MaxLaurentDepthValue),
-			Throw@Message[ParticleSpectrum::WrongMaxLaurentDepth,MaxLaurentDepthValue]
-			];
-
 
 ParticleSpectrum[OptionsPattern[]]:=Module[{
 	SummaryOfResults,
@@ -50,7 +35,7 @@ ParticleSpectrum[OptionsPattern[]]:=Module[{
 
 	ValidateTheoryName@OptionValue@TheoryName;
 
-	Get@FileNameJoin@{$WorkingDirectory,OptionValue@TheoryName<>".mx"};
+	Get@FileNameJoin@{$WorkingDirectory,"ParticleSpectrograph"<>OptionValue@TheoryName<>".mx"};
 	Class=Evaluate@Symbol@OptionValue@TheoryName;
 
 	SummaryOfResults=SummariseResults[
@@ -76,7 +61,7 @@ ParticleSpectrum[OptionsPattern[]]:=Module[{
 				Class@SavedSummaryOfTheory,
 				SummaryType->ResultsCollage];
 		Print@PDFSummaryOfResults;
-		Export[FileNameJoin@{$WorkingDirectory,OptionValue@TheoryName<>".pdf"},
+		Export[FileNameJoin@{$WorkingDirectory,"ParticleSpectrograph"<>OptionValue@TheoryName<>".pdf"},
 			PDFSummaryOfResults
 		];
 	];
@@ -84,37 +69,19 @@ ParticleSpectrum[OptionsPattern[]]:=Module[{
 
 ParticleSpectrum[Expr_,OptionsPattern[]]:=If[
 	$ReadOnly,
-	ParticleSpectrum[	
-		ClassName->OptionValue@ClassName,
+	ParticleSpectrum[		
 		TheoryName->OptionValue@TheoryName,
 		Method->OptionValue@Method,
 		MaxLaurentDepth->OptionValue@MaxLaurentDepth],
 	Module[{
-		SummariseResultsOngoing,
-		ClassNames,
-		PDFSummaryOfResults
-	},
+		SummariseResultsOngoing,	
+		TheoryContext,
+		PDFSummaryOfResults},
 
-		ClassNames={"ScalarTheory",
-			"VectorTheory",
-			"BiScalarVectorTensorTheory",
-			"TensorTheory",
-			"SymmetricTensorTheory",
-			"AsymmetricTensorTheory",
-			"BimetricTensorTheory",
-			"ScalarTensorTheory",
-			"PoincareGaugeTheory",
-			"WeylGaugeTheory",
-			"WeylEinsteinGaugeTheory",
-			"WeylNaturalGaugeTheory",
-			"WeylSIVGaugeTheory",			
-			"MetricAffineGravity",
-			"ZeroTorsionPalatini"};
-
-		ValidateClassName[OptionValue@ClassName,ClassNames];
 		ValidateTheoryName@OptionValue@TheoryName;
 		ValidateMethod@OptionValue@Method;
 		ValidateMaxLaurentDepth@OptionValue@MaxLaurentDepth;
+		ValidateLagrangian@Expr;
 
 		LocalWaveOperator=Null;
 		LocalPropagator=Null;
@@ -156,15 +123,15 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=If[
 		];
 			
 
+		Quiet@DeleteDirectory[FileNameJoin@{$WorkingDirectory,"tmp"},DeleteContents->True];
 		Quiet@CreateDirectory@FileNameJoin@{$WorkingDirectory,"tmp"};
 
+		CombineAssociations[Expr,TheoryContext];
 		ConstructLinearAction[
-					OptionValue@ClassName,
+					"xAct`PSALTer`Private`ClassName",
 					Expr];
-
-
 		ConstructWaveOperator[
-					OptionValue@ClassName,
+					"xAct`PSALTer`Private`ClassName",
 					Expr];
 		UpdateTheoryAssociation[
 					OptionValue@TheoryName,
@@ -176,10 +143,8 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=If[
 					MomentumSpaceLagrangian,
 					DecomposeFieldsdLagrangian,
 					ExportTheory->False];
-
-
 		ConstructSourceConstraints[
-					OptionValue@ClassName,
+					"xAct`PSALTer`Private`ClassName",
 					CouplingAssumptions,
 					Rescalings,
 					RaisedIndexSources,
@@ -192,7 +157,7 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=If[
 					ExportTheory->False];
 
 		ConstructSaturatedPropagator[
-					OptionValue@ClassName,
+					"xAct`PSALTer`Private`ClassName",
 					MatrixLagrangian,
 					CouplingAssumptions,
 					BMatricesValues,
@@ -204,10 +169,8 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=If[
 					InverseBMatrices,
 					ValuesInverseBMatricesValues,
 					ExportTheory->False];
-
-(**)
 		ConstructMassiveAnalysis[
-					OptionValue@ClassName,
+					"xAct`PSALTer`Private`ClassName",
 					ValuesSaturatedPropagator,
 					ValuesInverseBMatricesValues,
 					BlockMassSigns,
@@ -217,10 +180,8 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=If[
 					SquareMasses,
 					MassiveAnalysis,
 					ExportTheory->False];
-
-
 		ConstructMasslessAnalysis[
-					OptionValue@ClassName,
+					"xAct`PSALTer`Private`ClassName",
 					ValuesOfSourceConstraints,
 					ValuesSaturatedPropagator,
 					MaxLaurentDepth->OptionValue@MaxLaurentDepth];
@@ -244,20 +205,20 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=If[
 					SourceConstraintComponents,
 					ConstraintComponentList,
 					ExportTheory->False];
-
+(*
 		ConstructUnitarityConditions[
-					OptionValue@ClassName,
+					"xAct`PSALTer`Private`ClassName",
 					MassiveAnalysis,
 					MassiveGhostAnalysis,
 					MasslessAnalysisValue,
 					QuarticAnalysisValue,
 					HexicAnalysisValue];
+*)
 		UpdateTheoryAssociation[
 					OptionValue@TheoryName,
 					PositiveSystem,
 					LocalOverallUnitarity,
 					ExportTheory->False];
-(**)
 		DeleteDirectory[FileNameJoin@{$WorkingDirectory,"tmp"},DeleteContents->True];
 
 		If[$CLI,
@@ -301,7 +262,7 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=If[
 					LocalSummaryOfTheory,
 					SummaryType->ResultsCollage];
 			Print@PDFSummaryOfResults;
-			Export[FileNameJoin@{$WorkingDirectory,OptionValue@TheoryName<>".pdf"},
+			Export[FileNameJoin@{$WorkingDirectory,"ParticleSpectrograph"<>OptionValue@TheoryName<>".pdf"},
 				PDFSummaryOfResults
 			];
 		];

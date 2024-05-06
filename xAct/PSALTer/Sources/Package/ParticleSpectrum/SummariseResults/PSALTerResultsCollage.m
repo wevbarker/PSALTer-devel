@@ -34,13 +34,13 @@ PSALTerResultsCollage[
 	SpectrumGroup=GraphicsCollage[SpectrumGroup,MaxWidth];
 
 	FinalGraphic={
-			MakeLabel@"PSALTer results panel",
+			MakeLabel["Particle spectrograph",20],
 			MakeLabel@"Wave operator and propagator",
 			MatricesGroup,
 			MakeLabel@"Massive and massless spectra",
 			SpectrumGroup,
 			MakeLabel@"Unitarity conditions",
-			TheOverallUnitarity,
+			TheOverallUnitarity
 	};
 
 	FinalGraphic//=Column[#,
@@ -48,8 +48,4 @@ PSALTerResultsCollage[
 			Background->PanelColor,
 			Frame->True,
 			Spacings->{1,1}]&;
-
-Export[FileNameJoin@{NotebookDirectory[],"Test"<>".pdf"},
-			FinalGraphic
-		];
 FinalGraphic];

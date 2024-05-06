@@ -79,7 +79,7 @@ SummariseResults[TheoryName_?StringQ,WaveOperator_,Propagator_,SourceConstraints
 				TheOverallUnitarity=DetailCell@(PrintUnitarityConditions@OverallUnitarity)];
 
 			SummaryOfResults=Column[{
-				MakeLabel@"PSALTer results panel",
+				MakeLabel["Particle spectrograph",20],
 				TheSummaryOfTheory,
 				MakeLabel@"Wave operator",
 				TheWaveOperator,

@@ -4,7 +4,6 @@
 
 BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/Repartition.m";
 BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/FullyExpandSources.m";
-BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/VerifyCovariance.m";
 BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/FullyCanonicalise.m";
 BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/ExpressInLightcone.m";
 BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/ConstrainInLightcone.m";
@@ -36,10 +35,7 @@ ConvertLightcone[ClassName_?StringQ,
 		LightconePropagator];
 	LightconePropagator=MonitorParallel@LightconePropagator;
 	Diagnostic@LightconePropagator;
-(*
-	LocalMasslessSpectrum=" ** VerifyCovariance...";
-	LightconePropagator//VerifyCovariance;
-*)
+
 	LocalMasslessSpectrum=" ** Repartition...";
 	LightconePropagator//=Repartition[#,10,ExpandAll->False]&;
 

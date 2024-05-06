@@ -30,11 +30,19 @@ which are introduced by poles*)
 		];
 		TrialPower--
 	];
-
+(*
 	LocalSourceEngineeringDimensions=Class@SourceEngineeringDimensions;
 	Diagnostic@LocalSourceEngineeringDimensions;
 
 	SourceEngineeringDimensionsList=(LocalSourceEngineeringDimensions@(Head@#))&/@SourceComponents;
+*)
+(*
+	LocalSourceEngineeringDimensions=<|xAct`PSALTer`A`SourceRank3Antisymmetric->0,xAct`PSALTer`F`SourceRank2->1|>;
+*)
+	SourceEngineeringDimensionsList=(0)&/@SourceComponents;
+(*
+	SourceEngineeringDimensionsList=(LocalSourceEngineeringDimensions@(Head@#))&/@SourceComponents;
+*)
 	Diagnostic@SourceEngineeringDimensionsList;
 
 	UltravioletNullVector=FullSimplify@Total@MapThread[(Abs@((#1/(Mo^#2))/.{En->Pi Mo}))&,

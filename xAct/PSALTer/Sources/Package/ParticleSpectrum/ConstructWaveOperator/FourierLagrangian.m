@@ -5,6 +5,7 @@
 FourierLagrangian[ClassName_?StringQ,Expr_,Tensors_]:=Module[{
 	Class,
 	CrossingRules,
+	NewExpr,
 	ToMomentumExpr,
 	Tensors1,
 	Tensors2},
@@ -52,19 +53,17 @@ FourierLagrangian[ClassName_?StringQ,Expr_,Tensors_]:=Module[{
 
 	Diagnostic@CrossingRules;
 
-	ToMomentumExpr=Expr;
+	NewExpr=Expr/.(Class@FieldToFiducialField);
+	ToMomentumExpr=NewExpr;
 	ToMomentumExpr//=ToNewCanonical;
 	ToMomentumExpr//=CollectTensors;
-
 	ToMomentumExpr=ToMomentumExpr/.CrossingRules;
 	Diagnostic@ToMomentumExpr;
 	ToMomentumExpr=ToMomentumExpr/.CrossingRules;
 	Diagnostic@ToMomentumExpr;
 	ToMomentumExpr//=ToNewCanonical;
 	Diagnostic@ToMomentumExpr;
-
 	ToMomentumExpr=ToMomentumExpr/.ToV;
-
 	ToMomentumExpr//=Class@DecomposeFields;
 	Diagnostic@ToMomentumExpr;
 
