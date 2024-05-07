@@ -23,7 +23,9 @@ Get@FileNameJoin@{$ThisDirectory,"Documentation","AsymmetricTensorTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","ScalarTensorTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","BiScalarVectorTensorTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","BimetricTensorTheory.m"};
+*)
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory.m"};
+(*
 Get@FileNameJoin@{$ThisDirectory,"Documentation","MetricAffineGravity.m"};
 *)
 (*Get@FileNameJoin@{$ThisDirectory,"Documentation","WeylGaugeTheory.m"};*)

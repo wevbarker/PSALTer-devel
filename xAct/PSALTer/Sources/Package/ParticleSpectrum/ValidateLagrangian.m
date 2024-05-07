@@ -36,6 +36,6 @@ ValidateLagrangian[InputExpr_]:=Module[{
 
 	((ResourceFunction["PolynomialDegree"][#,LagrangianCouplingsValue]!=1)~If~(Throw@Message[ParticleSpectrum::NonLinearCouplings,#]))&/@PolyExpr;
 
-	((ResourceFunction["PolynomialDegree"][#,TensorsValue]!=2)~If~(Throw@Message[ParticleSpectrum::NonQuadraticFields,#]))&/@PolyExpr;
+	((ResourceFunction["PolynomialDegree"][#,TensorsValue]>2)~If~(Throw@Message[ParticleSpectrum::NonQuadraticFields,#]))&/@PolyExpr;
 
 ];	
