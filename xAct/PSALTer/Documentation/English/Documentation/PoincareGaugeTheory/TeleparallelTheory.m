@@ -76,7 +76,7 @@ ProcessModel[InputLagrangian_,ModelName_]:=Module[{
 	InternalLinearLagrangian//=CollectTensors;
 	DisplayExpression[InternalLinearLagrangian,EqnLabel->ToString@Added];
 	Comment@{"Now we compute the particle spectrum of",Cref@ToString@Added,":"};
-(*
+
 	Code[InternalLinearLagrangian,      
 		ParticleSpectrum[
 			InternalLinearLagrangian,
@@ -85,7 +85,6 @@ ProcessModel[InputLagrangian_,ModelName_]:=Module[{
 			MaxLaurentDepth->3
 		];
 	];
-*)
 ];
 
 Subsection@"TEGR";
