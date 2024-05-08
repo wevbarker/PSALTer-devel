@@ -2,6 +2,7 @@
 (*  ValidateLagrangian  *)
 (*======================*)
 
+ParticleSpectrum::Zero="The Lagrangian density is zero.";
 ParticleSpectrum::NonLinearCouplings="The Lagrangian density contains the monomial `1` which is not linear in constant symbols.";
 ParticleSpectrum::NonQuadraticFields="The Lagrangian density contains the monomial `1` which is not quadratic in fields or their derivatives.";
 ParticleSpectrum::UnknownField="The Lagrangian density contains a tensor `1` which was not defined using DefField.";
@@ -14,6 +15,8 @@ ValidateLagrangian[InputExpr_]:=Module[{
 	Unknowns,
 	TensorsValue
 	},
+
+	If[PossibleZeroQ@Expr,Throw@Message@ParticleSpectrum::UnknownCoupling];
 
 	Expr=Expr/.{Plus->List};
 	(!(ListQ@Expr))~If~(Expr//=List);

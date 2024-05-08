@@ -119,4 +119,3 @@ TryCombo[InputRule_]:=Module[{CaseRule,TheNonlinearLagrangian},
 	CaseNumber+=1;
 ];
 TryCombo/@Eqs;
-
