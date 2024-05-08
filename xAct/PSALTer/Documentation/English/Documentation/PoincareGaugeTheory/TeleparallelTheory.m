@@ -21,6 +21,7 @@ Code[
 Comment@"Here is the two-form sector on its own.";
 TwoFormSector=KineticCoupling*Antisymmetrize[CD[-a]@B[-b,-c],{-a,-b,-c}]*CD[a]@B[b,c]+TwoFormMassSquare*B[-a,-b]*B[a,b];
 TwoFormSector=KineticCoupling*Antisymmetrize[CD[-a]@B[-b,-c],{-a,-b,-c}]*CD[a]@B[b,c];
+TwoFormSector=TwoFormMassSquare*B[-a,-b]*B[a,b];
 DisplayExpression[TwoFormSector,EqnLabel->"TwoFormSector"];
 Comment@"We want a rule which can displace the tetrad perturbation by a two-form-valued field.";
 DisplaceF=MakeRule[{F[-a,-b],F[-a,-b]+B[-a,-b]},MetricOn->All,ContractMetrics->True];
@@ -89,15 +90,30 @@ Subsection@"TEGR";
 Comment@"We run the analysis on TEGR.";
 NonLinearLagrangian=kT1*(-(1/4)*T[-m, -n, -r]*T[m, n, r]-(1/2)*T[-m, -n, -r]*T[n, m, r]+T[n, -m, -n]*T[r, m, -r]);
 DisplayExpression@NonLinearLagrangian;
-(*ProcessModel[NonLinearLagrangian,"TEGR"];*)
+ProcessModel[NonLinearLagrangian,"TEGR"];
 
 Subsection@"New GR (completely general)";
 Comment@"We run the analysis on new GR without any constraints.";
 NonLinearLagrangian=(C1*T[-m, -n, -r]*T[m, n, r]+C2*T[-m, -n, -r]*T[n, m, r]+C3*T[n, -m, -n]*T[r, m, -r]);
 DisplayExpression[NonLinearLagrangian,EqnLabel->"FullNewGR"];
 ProcessModel[NonLinearLagrangian,"FullNewGR"];
-
-Quit[];
+(*
+	LinearLagrangian=NonLinearLagrangian;
+	LinearLagrangian//=LineariseLagrangian;
+	DisplayExpression[LinearLagrangian,EqnLabel->ToString@FullLinearise];
+	Comment@{"Here is the Lagrangian",Cref@ToString@FullLinearise," in the Weitzenbock gauge."};
+	LinearLagrangian=LinearLagrangian/.{A->Zero};
+	DisplayExpression[LinearLagrangian,EqnLabel->ToString@Weitzenbock];
+	Comment@{"Now we compute the particle spectrum of",Cref@ToString@Weitzenbock,":"};
+	Code[LinearLagrangian,      
+		ParticleSpectrum[
+			LinearLagrangian,
+			TheoryName->ModelName,	
+			Method->"Hard",
+			MaxLaurentDepth->3
+		];
+	];
+*)
 
 Comment@"Now we notice from the above analysis that the following conditions may be useful.";
 Eqs={2*C1+C2+3*C3==0,2*C1-C2==0,2*C1+C2==0,2*C1+C2+C3==0};
