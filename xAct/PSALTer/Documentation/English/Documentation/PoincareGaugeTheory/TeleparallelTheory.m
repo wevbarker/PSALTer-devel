@@ -78,7 +78,7 @@ ProcessModel[InputLagrangian_,ModelName_]:=Module[{
 	Code[LinearLagrangian,      
 		ParticleSpectrum[
 			LinearLagrangian,
-			TheoryName->"TeleparallelTheory",	
+			TheoryName->ModelName<>"WithB",	
 			Method->"Hard",
 			MaxLaurentDepth->3
 		];
@@ -89,13 +89,15 @@ Subsection@"TEGR";
 Comment@"We run the analysis on TEGR.";
 NonLinearLagrangian=kT1*(-(1/4)*T[-m, -n, -r]*T[m, n, r]-(1/2)*T[-m, -n, -r]*T[n, m, r]+T[n, -m, -n]*T[r, m, -r]);
 DisplayExpression@NonLinearLagrangian;
-ProcessModel[NonLinearLagrangian,"TEGR"];
+(*ProcessModel[NonLinearLagrangian,"TEGR"];*)
 
 Subsection@"New GR (completely general)";
 Comment@"We run the analysis on new GR without any constraints.";
 NonLinearLagrangian=(C1*T[-m, -n, -r]*T[m, n, r]+C2*T[-m, -n, -r]*T[n, m, r]+C3*T[n, -m, -n]*T[r, m, -r]);
 DisplayExpression[NonLinearLagrangian,EqnLabel->"FullNewGR"];
 ProcessModel[NonLinearLagrangian,"FullNewGR"];
+
+Quit[];
 
 Comment@"Now we notice from the above analysis that the following conditions may be useful.";
 Eqs={2*C1+C2+3*C3==0,2*C1-C2==0,2*C1+C2==0,2*C1+C2+C3==0};
