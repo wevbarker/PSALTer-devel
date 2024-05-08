@@ -92,7 +92,7 @@ ProcessModel[InputLagrangian_,ModelName_]:=Module[{
 	InternalLinearLagrangiani2=InternalLinearLagrangian/.{KineticCoupling->0};
 	Code[InternalLinearLagrangian2,      
 		ParticleSpectrum[
-			InternalLinearLagrangian,
+			InternalLinearLagrangian2,
 			TheoryName->ModelName<>"WithBNoKinetic",	
 			Method->"Hard",
 			MaxLaurentDepth->3
@@ -102,7 +102,7 @@ ProcessModel[InputLagrangian_,ModelName_]:=Module[{
 	InternalLinearLagrangiani4=InternalLinearLagrangian/.{TwoFormMassSquare->0};
 	Code[InternalLinearLagrangian4,      
 		ParticleSpectrum[
-			InternalLinearLagrangian,
+			InternalLinearLagrangian4,
 			TheoryName->ModelName<>"WithBNoMass",	
 			Method->"Hard",
 			MaxLaurentDepth->3

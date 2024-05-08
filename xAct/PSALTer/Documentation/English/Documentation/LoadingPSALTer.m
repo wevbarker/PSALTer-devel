@@ -60,7 +60,7 @@ Code[
 	Print/@{?$DiagnosticMode,?$MonitorParallel,?$ExportPDF,?$ReadOnly};
 	$DiagnosticMode=False;
 	$MonitorParallel=False;
-	$ExportPDF=False;
-	$ReadOnly=False;
+	$ExportPDF=True;
+	$ReadOnly=True;
 ];
 Comment@"With these settings in place the kernel is ready for science operations.";
