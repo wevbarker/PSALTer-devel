@@ -20,8 +20,10 @@ Code[
 ];
 Comment@"Here is the two-form sector on its own.";
 TwoFormSector=KineticCoupling*Antisymmetrize[CD[-a]@B[-b,-c],{-a,-b,-c}]*CD[a]@B[b,c]+TwoFormMassSquare*B[-a,-b]*B[a,b];
+(*
 TwoFormSector=KineticCoupling*Antisymmetrize[CD[-a]@B[-b,-c],{-a,-b,-c}]*CD[a]@B[b,c];
 TwoFormSector=TwoFormMassSquare*B[-a,-b]*B[a,b];
+*)
 DisplayExpression[TwoFormSector,EqnLabel->"TwoFormSector"];
 Comment@"We want a rule which can displace the tetrad perturbation by a two-form-valued field.";
 DisplaceF=MakeRule[{F[-a,-b],F[-a,-b]+B[-a,-b]},MetricOn->All,ContractMetrics->True];
