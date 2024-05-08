@@ -48,10 +48,10 @@ ProcessModel[InputLagrangian_]:=Module[{
 	Added},
 
 	Supercomment@"First we try the model without the two-form field.";	
-	Comment@"Here is the Lagangian to second order in perturbative fields.";
+	Comment@"Here is the Lagrangian to second order in perturbative fields.";
 	LinearLagrangian//=LineariseLagrangian;
 	DisplayExpression[LinearLagrangian,EqnLabel->ToString@FullLinearise];
-	Comment@"Here is the Lagrangian in the Weitzenbock gauge.";
+	Comment@{"Here is the Lagrangian",Cref@ToString@FullLinearise," in the Weitzenbock gauge."};
 	LinearLagrangian=LinearLagrangian/.{A->Zero};
 	DisplayExpression[LinearLagrangian,EqnLabel->ToString@Weitzenbock];
 	Comment@{"Now we compute the particle spectrum of",Cref@ToString@Weitzenbock,":"};
@@ -70,9 +70,10 @@ ProcessModel[InputLagrangian_]:=Module[{
 	DisplayExpression[LinearLagrangian,EqnLabel->ToString@Displaced];
 	Comment@{"And here is the Lagrangian in",Cref@ToString@Displaced," when we add the pure two-form sector in",Cref@"TwoFormSector","."};
 	LinearLagrangian+=TwoFormSector;
-	DisplayExpression[LinearLagrangian,EqnLabel->ToString@Added];
 	LinearLagrangian//=ToCanonical;
 	LinearLagrangian//=CollectTensors;
+	DisplayExpression[LinearLagrangian,EqnLabel->ToString@Added];
+	Comment@{"Now we compute the particle spectrum of",Cref@ToString@Added,":"};
 	Code[LinearLagrangian,      
 		ParticleSpectrum[
 			LinearLagrangian,
@@ -112,9 +113,9 @@ TryCombo[InputRule_]:=Module[{CaseRule,TheNonlinearLagrangian},
 	Comment@"Consider the following rule.";
 	DisplayExpression[InputRule,EqnLabel->ToString@CaseRule];
 	Comment@{"We take the general Lagrangian in",Cref@"FullNewGR"," and we impose the constraint",Cref@ToString@CaseRule," to give the following."};
-	TheNonlinearLagrangian=NonlinearLagrangian/.InputRule;	
+	TheNonlinearLagrangian=NonLinearLagrangian/.InputRule;	
 	DisplayExpression@TheNonlinearLagrangian;
-	ProcessModel@TheNonLinearLagrangian;
+	ProcessModel@TheNonlinearLagrangian;
 	CaseNumber+=1;
 ];
 TryCombo/@Eqs;
