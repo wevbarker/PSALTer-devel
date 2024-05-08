@@ -77,6 +77,7 @@ BasicCriticalCases={
 };
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 					"TeleparallelTheory.m"};
+(*
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 					"NevilleTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
@@ -97,6 +98,7 @@ Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 					"AnnalaRasanenTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 					"LinHobsonLasenbyTheories.m"};
+*)
 (*
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 					"GeneraleWGT.m"};
