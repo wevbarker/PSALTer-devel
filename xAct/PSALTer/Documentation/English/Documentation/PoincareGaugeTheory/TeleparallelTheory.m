@@ -89,7 +89,7 @@ ProcessModel[InputLagrangian_,ModelName_]:=Module[{
 		];
 	];
 	Comment@"Without the kinetic part.";
-	InternalLinearLagrangiani2=InternalLinearLagrangian/.{KineticCoupling->0};
+	InternalLinearLagrangian2=InternalLinearLagrangian/.{KineticCoupling->0};
 	Code[InternalLinearLagrangian2,      
 		ParticleSpectrum[
 			InternalLinearLagrangian2,
@@ -99,7 +99,7 @@ ProcessModel[InputLagrangian_,ModelName_]:=Module[{
 		];
 	];
 	Comment@"Without the mass part.";
-	InternalLinearLagrangiani4=InternalLinearLagrangian/.{TwoFormMassSquare->0};
+	InternalLinearLagrangian4=InternalLinearLagrangian/.{TwoFormMassSquare->0};
 	Code[InternalLinearLagrangian4,      
 		ParticleSpectrum[
 			InternalLinearLagrangian4,
