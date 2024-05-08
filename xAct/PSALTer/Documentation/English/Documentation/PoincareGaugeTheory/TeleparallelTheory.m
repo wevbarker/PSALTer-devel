@@ -20,6 +20,7 @@ Code[
 ];
 Comment@"Here is the two-form sector on its own.";
 TwoFormSector=KineticCoupling*Antisymmetrize[CD[-a]@B[-b,-c],{-a,-b,-c}]*CD[a]@B[b,c]+TwoFormMassSquare*B[-a,-b]*B[a,b];
+TwoFormSector=KineticCoupling*Antisymmetrize[CD[-a]@B[-b,-c],{-a,-b,-c}]*CD[a]@B[b,c];
 DisplayExpression[TwoFormSector,EqnLabel->"TwoFormSector"];
 Comment@"We want a rule which can displace the tetrad perturbation by a two-form-valued field.";
 DisplaceF=MakeRule[{F[-a,-b],F[-a,-b]+B[-a,-b]},MetricOn->All,ContractMetrics->True];
@@ -40,7 +41,7 @@ Expr=F[-a,-b]
 DisplayExpression[Expr,EqnLabel->"BeforeTransformation"];
 Expr=Expr/.DisplaceF;
 DisplayExpression[Expr,EqnLabel->"AfterTransformation"];
-ProcessModel[InputLagrangian_]:=Module[{
+ProcessModel[InputLagrangian_,ModelName_]:=Module[{
 	LinearLagrangian=InputLagrangian,
 	FullLinearise,
 	Weitzenbock,
@@ -58,7 +59,7 @@ ProcessModel[InputLagrangian_]:=Module[{
 	Code[LinearLagrangian,      
 		ParticleSpectrum[
 			LinearLagrangian,
-			TheoryName->"TeleparallelTheory",	
+			TheoryName->ModelName,	
 			Method->"Hard",
 			MaxLaurentDepth->3
 		];
@@ -88,13 +89,13 @@ Subsection@"TEGR";
 Comment@"We run the analysis on TEGR.";
 NonLinearLagrangian=kT1*(-(1/4)*T[-m, -n, -r]*T[m, n, r]-(1/2)*T[-m, -n, -r]*T[n, m, r]+T[n, -m, -n]*T[r, m, -r]);
 DisplayExpression@NonLinearLagrangian;
-ProcessModel@NonLinearLagrangian;
+ProcessModel[NonLinearLagrangian,"TEGR"];
 
 Subsection@"New GR (completely general)";
 Comment@"We run the analysis on new GR without any constraints.";
 NonLinearLagrangian=(C1*T[-m, -n, -r]*T[m, n, r]+C2*T[-m, -n, -r]*T[n, m, r]+C3*T[n, -m, -n]*T[r, m, -r]);
 DisplayExpression[NonLinearLagrangian,EqnLabel->"FullNewGR"];
-ProcessModel@NonLinearLagrangian;
+ProcessModel[NonLinearLagrangian,"FullNewGR"];
 
 Comment@"Now we notice from the above analysis that the following conditions may be useful.";
 Eqs={2*C1+C2+3*C3==0,2*C1-C2==0,2*C1+C2==0,2*C1+C2+C3==0};
@@ -113,9 +114,10 @@ TryCombo[InputRule_]:=Module[{CaseRule,TheNonlinearLagrangian},
 	Comment@"Consider the following rule.";
 	DisplayExpression[InputRule,EqnLabel->ToString@CaseRule];
 	Comment@{"We take the general Lagrangian in",Cref@"FullNewGR"," and we impose the constraint",Cref@ToString@CaseRule," to give the following."};
-	TheNonlinearLagrangian=NonLinearLagrangian/.InputRule;	
+	(*TheNonlinearLagrangian=NonLinearLagrangian/.InputRule;	*)
+	TheNonlinearLagrangian=NonLinearLagrangian/.C2->2*C1;	
 	DisplayExpression@TheNonlinearLagrangian;
-	ProcessModel@TheNonlinearLagrangian;
+	ProcessModel[TheNonlinearLagrangian,"TeleparallelCase"<>ToString@CaseNumber];
 	CaseNumber+=1;
 ];
 TryCombo/@Eqs;
