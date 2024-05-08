@@ -44,6 +44,8 @@ Expr=Expr/.DisplaceF;
 DisplayExpression[Expr,EqnLabel->"AfterTransformation"];
 ProcessModel[InputLagrangian_,ModelName_]:=Module[{
 	InternalLinearLagrangian=InputLagrangian,
+	InternalLinearLagrangian2,
+	InternalLinearLagrangian4,
 	FullLinearise,
 	Weitzenbock,
 	Displaced,
@@ -76,11 +78,30 @@ ProcessModel[InputLagrangian_,ModelName_]:=Module[{
 	InternalLinearLagrangian//=CollectTensors;
 	DisplayExpression[InternalLinearLagrangian,EqnLabel->ToString@Added];
 	Comment@{"Now we compute the particle spectrum of",Cref@ToString@Added,":"};
-
 	Code[InternalLinearLagrangian,      
 		ParticleSpectrum[
 			InternalLinearLagrangian,
 			TheoryName->ModelName<>"WithB",	
+			Method->"Hard",
+			MaxLaurentDepth->3
+		];
+	];
+	Comment@"Without the kinetic part.";
+	InternalLinearLagrangiani2=InternalLinearLagrangian/.{KineticCoupling->0};
+	Code[InternalLinearLagrangian2,      
+		ParticleSpectrum[
+			InternalLinearLagrangian,
+			TheoryName->ModelName<>"WithBNoKinetic",	
+			Method->"Hard",
+			MaxLaurentDepth->3
+		];
+	];
+	Comment@"Without the mass part.";
+	InternalLinearLagrangiani4=InternalLinearLagrangian/.{TwoFormMassSquare->0};
+	Code[InternalLinearLagrangian4,      
+		ParticleSpectrum[
+			InternalLinearLagrangian,
+			TheoryName->ModelName<>"WithBNoMass",	
 			Method->"Hard",
 			MaxLaurentDepth->3
 		];
@@ -98,24 +119,6 @@ Comment@"We run the analysis on new GR without any constraints.";
 NonLinearLagrangian=(C1*T[-m, -n, -r]*T[m, n, r]+C2*T[-m, -n, -r]*T[n, m, r]+C3*T[n, -m, -n]*T[r, m, -r]);
 DisplayExpression[NonLinearLagrangian,EqnLabel->"FullNewGR"];
 ProcessModel[NonLinearLagrangian,"FullNewGR"];
-Quit[];
-(*
-	LinearLagrangian=NonLinearLagrangian;
-	LinearLagrangian//=LineariseLagrangian;
-	DisplayExpression[LinearLagrangian,EqnLabel->ToString@FullLinearise];
-	Comment@{"Here is the Lagrangian",Cref@ToString@FullLinearise," in the Weitzenbock gauge."};
-	LinearLagrangian=LinearLagrangian/.{A->Zero};
-	DisplayExpression[LinearLagrangian,EqnLabel->ToString@Weitzenbock];
-	Comment@{"Now we compute the particle spectrum of",Cref@ToString@Weitzenbock,":"};
-	Code[LinearLagrangian,      
-		ParticleSpectrum[
-			LinearLagrangian,
-			TheoryName->ModelName,	
-			Method->"Hard",
-			MaxLaurentDepth->3
-		];
-	];
-*)
 
 Comment@"Now we notice from the above analysis that the following conditions may be useful.";
 Eqs={2*C1+C2+3*C3==0,2*C1-C2==0,2*C1+C2==0,2*C1+C2+C3==0};
@@ -134,8 +137,8 @@ TryCombo[InputRule_]:=Module[{CaseRule,TheNonlinearLagrangian},
 	Comment@"Consider the following rule.";
 	DisplayExpression[InputRule,EqnLabel->ToString@CaseRule];
 	Comment@{"We take the general Lagrangian in",Cref@"FullNewGR"," and we impose the constraint",Cref@ToString@CaseRule," to give the following."};
-	(*TheNonlinearLagrangian=NonLinearLagrangian/.InputRule;	*)
-	TheNonlinearLagrangian=NonLinearLagrangian/.C2->2*C1;	
+	TheNonlinearLagrangian=NonLinearLagrangian/.InputRule;
+	(*TheNonlinearLagrangian=NonLinearLagrangian/.C2->2*C1;	*)
 	DisplayExpression@TheNonlinearLagrangian;
 	ProcessModel[TheNonlinearLagrangian,"TeleparallelCase"<>ToString@CaseNumber];
 	CaseNumber+=1;
