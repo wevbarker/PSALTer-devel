@@ -43,7 +43,7 @@ DisplayExpression[Expr,EqnLabel->"BeforeTransformation"];
 Expr=Expr/.DisplaceF;
 DisplayExpression[Expr,EqnLabel->"AfterTransformation"];
 ProcessModel[InputLagrangian_,ModelName_]:=Module[{
-	LinearLagrangian=InputLagrangian,
+	InternalLinearLagrangian=InputLagrangian,
 	FullLinearise,
 	Weitzenbock,
 	Displaced,
@@ -51,15 +51,15 @@ ProcessModel[InputLagrangian_,ModelName_]:=Module[{
 
 	Supercomment@"First we try the model without the two-form field.";	
 	Comment@"Here is the Lagrangian to second order in perturbative fields.";
-	LinearLagrangian//=LineariseLagrangian;
-	DisplayExpression[LinearLagrangian,EqnLabel->ToString@FullLinearise];
+	InternalLinearLagrangian//=LineariseLagrangian;
+	DisplayExpression[InternalLinearLagrangian,EqnLabel->ToString@FullLinearise];
 	Comment@{"Here is the Lagrangian",Cref@ToString@FullLinearise," in the Weitzenbock gauge."};
-	LinearLagrangian=LinearLagrangian/.{A->Zero};
-	DisplayExpression[LinearLagrangian,EqnLabel->ToString@Weitzenbock];
+	InternalLinearLagrangian=InternalLinearLagrangian/.{A->Zero};
+	DisplayExpression[InternalLinearLagrangian,EqnLabel->ToString@Weitzenbock];
 	Comment@{"Now we compute the particle spectrum of",Cref@ToString@Weitzenbock,":"};
-	Code[LinearLagrangian,      
+	Code[InternalLinearLagrangian,      
 		ParticleSpectrum[
-			LinearLagrangian,
+			InternalLinearLagrangian,
 			TheoryName->ModelName,	
 			Method->"Hard",
 			MaxLaurentDepth->3
@@ -67,23 +67,25 @@ ProcessModel[InputLagrangian_,ModelName_]:=Module[{
 	];
 	Supercomment@"Next we try the model with the two-form field.";
 	Comment@{"Here is the Lagrangian in",Cref@ToString@Weitzenbock," where we used the rules in",Cref@{"BeforeTransformation","AfterTransformation"}," to introduce the two form."};
-	LinearLagrangian=LinearLagrangian/.DisplaceF;
-	LinearLagrangian//=LineariseLagrangian;
-	DisplayExpression[LinearLagrangian,EqnLabel->ToString@Displaced];
+	InternalLinearLagrangian=InternalLinearLagrangian/.DisplaceF;
+	InternalLinearLagrangian//=LineariseLagrangian;
+	DisplayExpression[InternalLinearLagrangian,EqnLabel->ToString@Displaced];
 	Comment@{"And here is the Lagrangian in",Cref@ToString@Displaced," when we add the pure two-form sector in",Cref@"TwoFormSector","."};
-	LinearLagrangian+=TwoFormSector;
-	LinearLagrangian//=ToCanonical;
-	LinearLagrangian//=CollectTensors;
-	DisplayExpression[LinearLagrangian,EqnLabel->ToString@Added];
+	InternalLinearLagrangian+=TwoFormSector;
+	InternalLinearLagrangian//=ToCanonical;
+	InternalLinearLagrangian//=CollectTensors;
+	DisplayExpression[InternalLinearLagrangian,EqnLabel->ToString@Added];
 	Comment@{"Now we compute the particle spectrum of",Cref@ToString@Added,":"};
-	Code[LinearLagrangian,      
+(*
+	Code[InternalLinearLagrangian,      
 		ParticleSpectrum[
-			LinearLagrangian,
+			InternalLinearLagrangian,
 			TheoryName->ModelName<>"WithB",	
 			Method->"Hard",
 			MaxLaurentDepth->3
 		];
 	];
+*)
 ];
 
 Subsection@"TEGR";
@@ -97,6 +99,7 @@ Comment@"We run the analysis on new GR without any constraints.";
 NonLinearLagrangian=(C1*T[-m, -n, -r]*T[m, n, r]+C2*T[-m, -n, -r]*T[n, m, r]+C3*T[n, -m, -n]*T[r, m, -r]);
 DisplayExpression[NonLinearLagrangian,EqnLabel->"FullNewGR"];
 ProcessModel[NonLinearLagrangian,"FullNewGR"];
+Quit[];
 (*
 	LinearLagrangian=NonLinearLagrangian;
 	LinearLagrangian//=LineariseLagrangian;
