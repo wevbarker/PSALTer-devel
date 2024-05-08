@@ -31,9 +31,9 @@ Get@FileNameJoin@{$ThisDirectory,"Documentation","MetricAffineGravity.m"};
 (*Get@FileNameJoin@{$ThisDirectory,"Documentation","WeylGaugeTheory.m"};*)
 (*Get@FileNameJoin@{$ThisDirectory,"Documentation","SymmetricTensorTheory.m"};*)
 (*Get@FileNameJoin@{$ThisDirectory,"Documentation","ZeroTorsionPalatini.m"};*)
-
+(*
 Chapter@"Error messages";
 Get@FileNameJoin@{$ThisDirectory,"Documentation","ErrorMessages.m"};
-
+*)
 Supercomment@"We have now reached the end of the documentation.";
 Quit[];
