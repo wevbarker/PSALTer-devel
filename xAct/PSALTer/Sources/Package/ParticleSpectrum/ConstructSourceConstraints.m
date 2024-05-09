@@ -48,6 +48,20 @@ ConstructSourceConstraints[ClassName_?StringQ,CouplingAssumptions_,Rescalings_,R
 			Print@Null;
 		)
 	];
+(*
+	SummaryOfResults=SummariseResults[
+		"something",
+		LocalWaveOperator,
+		LocalPropagator,
+		LocalSourceConstraints,
+		LocalSpectrum,
+		LocalMasslessSpectrum,
+		LocalOverallUnitarity,
+		LocalSummaryOfTheory];
+	Print@SummaryOfResults;
+
+	Quit[];
+*)
 
 	NullSpaces=((#)~FullSimplify~CouplingAssumptions)&/@NullSpaces;
 	Diagnostic@NullSpaces;

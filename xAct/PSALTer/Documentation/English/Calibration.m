@@ -33,6 +33,21 @@ ClearAll@xAct`PSALTer`ParticleSpectrum;
 Protect@xAct`PSALTer`ParticleSpectrum;
 *)
 
+(*For HPC*)
+
+(*
+$NodeCPU=110;
+Comment@{"The variable $NodeCPU is set to ",ToString@$NodeCPU};
+Comment@{"The variable $ProcessorCount is set to ",ToString@$ProcessorCount};
+Unprotect@$ProcessorCount;
+$ProcessorCount=$NodeCPU;
+Comment@{"The variable $ProcessorCount is set to ",ToString@$ProcessorCount};
+Comment@{"The variable $KernelCount is set to ",ToString@$KernelCount};
+Comment@{"Now we execute LaunchKernels[]"};
+LaunchKernels@$NodeCPU;
+Comment@{"The variable $KernelCount is set to ",ToString@$KernelCount};
+*)
+
 (*Global settings for xAct*)
 $DefInfoQ=False;
 Unprotect@AutomaticRules;
@@ -40,23 +55,25 @@ Options[AutomaticRules]={Verbose->False};
 Protect@AutomaticRules;
 
 (*Global settings for PSALTer*)
-$DiagnosticMode=False;
+$DiagnosticMode=True;
 $MonitorParallel=False;
-$ExportPDF=True;
+$ExportPDF=False;
+$ReadOnly=False;
 
 Comment@"Great, so PSALTer is now loaded and we can start to do some science.";
 
 (*Get@FileNameJoin@{$ThisDirectory,"Calibration","ScalarTheory.m"};*)
 (*Get@FileNameJoin@{$ThisDirectory,"Calibration","VectorTheory.m"};*)
+(*Get@FileNameJoin@{$ThisDirectory,"Calibration","BiScalarVectorTensorTheory.m"};*)
 (*Get@FileNameJoin@{$ThisDirectory,"Calibration","TensorTheory.m"};*)
 (*Get@FileNameJoin@{$ThisDirectory,"Calibration","SymmetricTensorTheory.m"};*)
 (*Get@FileNameJoin@{$ThisDirectory,"Calibration","AsymmetricTensorTheory.m"};*)
 (*Get@FileNameJoin@{$ThisDirectory,"Calibration","BimetricTensorTheory.m"};*)
 (*Get@FileNameJoin@{$ThisDirectory,"Calibration","ScalarTensorTheory.m"};*)
-(*Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory.m"};*)
+Get@FileNameJoin@{$ThisDirectory,"Calibration","PoincareGaugeTheory.m"};
 (*Get@FileNameJoin@{$ThisDirectory,"Calibration","WeylGaugeTheory.m"};*)
 (*Get@FileNameJoin@{$ThisDirectory,"Calibration","MetricAffineGravity.m"};*)
-Get@FileNameJoin@{$ThisDirectory,"Calibration","ZeroTorsionPalatini.m"};
+(*Get@FileNameJoin@{$ThisDirectory,"Calibration","ZeroTorsionPalatini.m"};*)
 (*Get@FileNameJoin@{$ThisDirectory,"Calibration","ErrorMessages.m"};*)
 
 Supercomment@"We have now reached the end of the PSALTer calibration script.";

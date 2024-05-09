@@ -10,11 +10,11 @@ Get@FileNameJoin@{$ThisDirectory,"Calibration","ZeroTorsionPalatini",
 					"FieldStrengthTensors.m"};
 Get@FileNameJoin@{$ThisDirectory,"Calibration","ZeroTorsionPalatini",
 					"NonlinearLagrangian.m"};
-
+Get@FileNameJoin@{$ThisDirectory,"Calibration","ZeroTorsionPalatini",
+					"BarkerMarzoTheories.m"};
+(*
 Get@FileNameJoin@{$ThisDirectory,"Calibration","ZeroTorsionPalatini",
 					"KarananasTheory.m"};
-
-(*
 Get@FileNameJoin@{$ThisDirectory,"Calibration","ZeroTorsionPalatini",
 					"NonlinearLagrangian.m"};
 Get@FileNameJoin@{$ThisDirectory,"Calibration","ZeroTorsionPalatini",

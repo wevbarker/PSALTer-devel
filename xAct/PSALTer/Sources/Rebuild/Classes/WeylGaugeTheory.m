@@ -32,7 +32,7 @@ DefTensor[ConjugateSourceWeylRotationalGaugeField[-i,-j,-k],M4,Antisymmetric[{-j
 xAct`PSALTer`WeylGaugeTheory`Private`WeylTranslationalGaugeFieldPerturbationSymb="\[ScriptF]";
 DefTensor[WeylTranslationalGaugeFieldPerturbation[-i,-j],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`WeylGaugeTheory`Private`WeylTranslationalGaugeFieldPerturbationSymb],Dagger->Complex];
 
-xAct`PSALTer`WeylGaugeTheory`Private`ConjugateSourceWeylTranslationalGaugeFieldPerturbationSymb="\[ScriptCapitalJ]";
+xAct`PSALTer`WeylGaugeTheory`Private`ConjugateSourceWeylTranslationalGaugeFieldPerturbationSymb="\[Tau]";
 DefTensor[ConjugateSourceWeylTranslationalGaugeFieldPerturbation[-i,-j],M4,PrintAs->xAct`PSALTer`Private`SymbolBuild[xAct`PSALTer`WeylGaugeTheory`Private`ConjugateSourceWeylTranslationalGaugeFieldPerturbationSymb],Dagger->Complex];
 
 (*==============*)

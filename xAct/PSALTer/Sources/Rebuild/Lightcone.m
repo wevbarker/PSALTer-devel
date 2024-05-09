@@ -24,6 +24,13 @@ DefConstantSymbol[
 ]&/@Table[i,{i,100}];
 
 DefConstantSymbol[
+	Symbol["UniqueCoefficient"<>ToString@#],
+	PrintAs->"\!\(\*SubscriptBox[\(\[ScriptCapitalC]\), \("
+		<>ColorString[ToString@#,RGBColor[1.,0.,1.]]<>"\)]\)",
+	Dagger->Complex
+]&/@Table[i,{i,10000}];
+
+DefConstantSymbol[
 	Symbol["l"<>ToString@#],
 	PrintAs->"\!\(\*SubscriptBox[\(\[ScriptL]\), \("
 		<>ColorString[ToString@#,RGBColor[1.,0.,1.]]<>"\)]\)",

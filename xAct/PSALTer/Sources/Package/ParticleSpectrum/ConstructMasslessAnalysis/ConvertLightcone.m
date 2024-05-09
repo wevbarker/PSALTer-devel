@@ -4,10 +4,13 @@
 
 BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/Repartition.m";
 BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/FullyExpandSources.m";
+BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/VerifyCovariance.m";
 BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/FullyCanonicalise.m";
 BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/ExpressInLightcone.m";
 BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/ConstrainInLightcone.m";
 BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/MakeSaturatedMatrix.m";
+BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/MatrixToSymbolic.m";
+BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/MatrixFromSymbolic.m";
 BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/ExaminePoleOrder.m";
 
 Options@ConvertLightcone={
@@ -20,9 +23,9 @@ ConvertLightcone[ClassName_?StringQ,
 		OptionsPattern[]]:=Module[{	
 	SaturatedPropagatorArray
 	},
-
 	LocalMasslessSpectrum=" ** ConvertLightcone...";
 	LightconePropagator=ValuesSaturatedPropagator;
+	Diagnostic@LightconePropagator;
 
 	LocalMasslessSpectrum=" ** Repartition...";
 	LightconePropagator//=Repartition[#,1]&;
@@ -33,7 +36,10 @@ ConvertLightcone[ClassName_?StringQ,
 		LightconePropagator];
 	LightconePropagator=MonitorParallel@LightconePropagator;
 	Diagnostic@LightconePropagator;
-
+(*
+	LocalMasslessSpectrum=" ** VerifyCovariance...";
+	LightconePropagator//VerifyCovariance;
+*)
 	LocalMasslessSpectrum=" ** Repartition...";
 	LightconePropagator//=Repartition[#,10,ExpandAll->False]&;
 
@@ -73,6 +79,7 @@ ConvertLightcone[ClassName_?StringQ,
 	LightconePropagator//=MakeSaturatedMatrix[#,UnscaledNullSpace]&;
 	Diagnostic@LightconePropagator;
 
+	SecularSystemValue=<||>;
 	{MasslessAnalysisValue,SecularEquationValue}=ExaminePoleOrder[LightconePropagator,1];
 	QuarticAnalysisValue={};
 	HexicAnalysisValue={};

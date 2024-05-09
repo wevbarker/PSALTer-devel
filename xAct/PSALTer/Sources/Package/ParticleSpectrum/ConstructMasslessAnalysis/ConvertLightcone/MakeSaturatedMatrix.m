@@ -20,5 +20,6 @@ MakeSaturatedMatrix[RawMasslessPropagatorResidue_,NullSpace_List]:=Module[{
 	NumeratorFreeSourceCoefficientMatrix=Last@CoefficientArrays[MasslessPropagatorResidue,FreeSourceVariables~Join~(Evaluate@Dagger[FreeSourceVariables]),"Symmetric"->False];
 	NumeratorFreeSourceCoefficientMatrix=NumeratorFreeSourceCoefficientMatrix[[1;;(1/2)Length@#,(1/2)Length@#+1;;Length@#]]&@NumeratorFreeSourceCoefficientMatrix;
 	NumeratorFreeSourceCoefficientMatrix//=Normal;
+	Diagnostic@(MatrixForm@NumeratorFreeSourceCoefficientMatrix);
 
 NumeratorFreeSourceCoefficientMatrix];

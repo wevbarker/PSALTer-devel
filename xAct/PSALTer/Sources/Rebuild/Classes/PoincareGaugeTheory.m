@@ -476,15 +476,22 @@ DefLagrangianCoupling[kR6,
 
 xAct`PSALTer`PoincareGaugeTheory`Private`kTSymb="\[ScriptT]";
 DefLagrangianCoupling[kT1,
-	CouplingSymbol->xAct`PSALTer`PoincareGaugeTheory`Private`kTSymb,CouplingIndex->1];
+	CouplingSymbol->"\[Theta]"];
 DefLagrangianCoupling[kT2,
 	CouplingSymbol->xAct`PSALTer`PoincareGaugeTheory`Private`kTSymb,CouplingIndex->2];
 DefLagrangianCoupling[kT3,
-	CouplingSymbol->xAct`PSALTer`PoincareGaugeTheory`Private`kTSymb,CouplingIndex->3];
+	CouplingSymbol->"\[Psi]"];
 
 (*================================*)
 (*  Hayasahi-Shirafuji couplings  *)
 (*================================*)
+
+DefLagrangianCoupling[MPl0,
+	CouplingSymbol->"(\*SuperscriptBox[SubscriptBox[\(\[ScriptCapitalM]\), \(Pl\)],2])"];
+DefLagrangianCoupling[Chi0,
+	CouplingSymbol->"\[Chi]"];
+DefLagrangianCoupling[Xi0,
+	CouplingSymbol->"\[Xi]"];
 
 xAct`PSALTer`PoincareGaugeTheory`Private`AlpSymb="\[Alpha]";
 DefLagrangianCoupling[Alp0,
@@ -516,7 +523,7 @@ DefLagrangianCoupling[Bet3,
 
 Begin["xAct`PSALTer`PoincareGaugeTheory`Private`"];
 
-LagrangianCouplings={Alp0,Alp1,Alp2,Alp3,Alp4,Alp5,Alp6,Bet1,Bet2,Bet3,kLambda,kR1,kR2,kR3,kR4,kR5,kR6,kT1,kT2,kT3};
+LagrangianCouplings={MPl0,Xi0,Chi0,Alp0,Alp1,Alp2,Alp3,Alp4,Alp5,Alp6,Bet1,Bet2,Bet3,kLambda,kR1,kR2,kR3,kR4,kR5,kR6,kT1,kT2,kT3};
 
 FieldSpinParityTensorHeads=<|
 		A-><|

@@ -7,7 +7,7 @@ Section@"Annala-Räsänen theories";
 Comment@"Now we need to extend to a representative Lagrangian which will cover the whole of the fourth column of Table 1 on page 14 of arXiv:2212.09820.";
 
 ARNonlinearLagrangian=-(1/2)*(
-	-xAct`PSALTer`ZeroTorsionPalatini`A0*ZeroTorsionRicciScalar[]
+	-xAct`PSALTer`ZeroTorsionPalatini`ZeroTorsionPalatiniA0*ZeroTorsionRicciScalar[]
 	+(1/2)*H1*ZeroTorsionRicciTensor13[m,n]*(
 		ZeroTorsionRicciTensor13[-m,-n]
 		+ZeroTorsionRicciTensor13[-n,-m]
@@ -24,7 +24,7 @@ DisplayExpression[ARNonlinearLagrangian,EqnLabel->"ZeroTorsionARNonlinearLagrang
 
 Comment@{"Now we linearize",Cref@"ZeroTorsionARNonlinearLagrangian","."};
 
-ARLinearLagrangian=Measure*ARNonlinearLagrangian//LineariseLagrangian;
+ARLinearLagrangian=Measure*ARNonlinearLagrangian//ZeroTorsionPalatiniLineariseLagrangian;
 DisplayExpression[ARLinearLagrangian,EqnLabel->"ZeroTorsionARLinearLagrangian"];
 
 Get@FileNameJoin@{$ThisDirectory,"Calibration","ZeroTorsionPalatini","AnnalaRasanenTheories",

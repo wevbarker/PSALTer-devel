@@ -1,3 +1,5 @@
+(* ::Package:: *)
+
 (*===========*)
 (*  PSALTer  *)
 (*===========*)
@@ -19,7 +21,7 @@ Off@(Solve::fulldim);
 (*  xAct`PSALTer`  *)
 (*=================*)
 
-BeginPackage["xAct`PSALTer`",{"xAct`xTensor`","xAct`SymManipulator`","xAct`xPerm`","xAct`xCore`","xAct`xTras`","xAct`xCoba`","MaTeX`"}];
+BeginPackage["xAct`PSALTer`",{"xAct`xTensor`","xAct`SymManipulator`","xAct`xPerm`","xAct`xCore`","xAct`xTras`","xAct`xCoba`","MaTeX`","JasonB`RectanglePacking`"}];
 
 ParallelNeeds["xAct`PSALTer`"];
 
@@ -58,6 +60,7 @@ If[$CLI,
 $DiagnosticMode=False;
 $MonitorParallel=False;
 $ExportPDF=False;
+$ReadOnly=False;
 
 (*--------------*)
 (*  Disclaimer  *)
@@ -139,10 +142,13 @@ BuildPSALTerPackage[];
 ContextList={	
 	"xAct`PSALTer`",
 	"xAct`PSALTer`Private`",
+(*
 	"xAct`PSALTer`ScalarTheory`",
 	"xAct`PSALTer`ScalarTheory`Private`",
 	"xAct`PSALTer`VectorTheory`",
 	"xAct`PSALTer`VectorTheory`Private`",
+	"xAct`PSALTer`BiScalarVectorTensorTheory`",
+	"xAct`PSALTer`BiScalarVectorTensorTheory`Private`",
 	"xAct`PSALTer`TensorTheory`",
 	"xAct`PSALTer`TensorTheory`Private`",
 	"xAct`PSALTer`SymmetricTensorTheory`",
@@ -155,12 +161,21 @@ ContextList={
 	"xAct`PSALTer`ScalarTensorTheory`Private`",
 	"xAct`PSALTer`PoincareGaugeTheory`",
 	"xAct`PSALTer`PoincareGaugeTheory`Private`",
+*)
 	"xAct`PSALTer`WeylGaugeTheory`",
 	"xAct`PSALTer`WeylGaugeTheory`Private`",
+	"xAct`PSALTer`WeylEinsteinGaugeTheory`",
+	"xAct`PSALTer`WeylEinsteinGaugeTheory`Private`",
+	"xAct`PSALTer`WeylNaturalGaugeTheory`",
+	"xAct`PSALTer`WeylNaturalGaugeTheory`Private`",
+	"xAct`PSALTer`WeylSIVGaugeTheory`",
+	"xAct`PSALTer`WeylSIVGaugeTheory`Private`",
+(*
 	"xAct`PSALTer`MetricAffineGravity`",
 	"xAct`PSALTer`MetricAffineGravity`Private`",
 	"xAct`PSALTer`ZeroTorsionPalatini`",
 	"xAct`PSALTer`ZeroTorsionPalatini`Private`",
+*)
 	"xAct`xTensor`",
 	"xAct`xTensor`Private`",
 	"TangentM4`",
@@ -169,6 +184,10 @@ ContextList={
 
 Begin["xAct`PSALTer`"];
 	xAct`PSALTer`Private`BuildPSALTer[xAct`PSALTer`Private`Recompile->False];
+	Quiet@If[NotebookDirectory[]==$Failed,
+		$CLI=True,
+		$CLI=False,
+		$CLI=False];
 End[];
 
 End[];

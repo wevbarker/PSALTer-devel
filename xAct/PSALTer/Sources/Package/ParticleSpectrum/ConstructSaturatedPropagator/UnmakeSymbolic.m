@@ -5,8 +5,10 @@
 BuildPackage@"ParticleSpectrum/ConstructSaturatedPropagator/UnmakeSymbolic/InitialExpand.m";
 BuildPackage@"ParticleSpectrum/ConstructSaturatedPropagator/UnmakeSymbolic/GradualExpandSubTask.m";
 BuildPackage@"ParticleSpectrum/ConstructSaturatedPropagator/UnmakeSymbolic/ConsolidateUnmakeSymbolic.m";
+BuildPackage@"ParticleSpectrum/ConstructSaturatedPropagator/UnmakeSymbolic/ConsolidateFinalElement.m";
 
 UnmakeSymbolic[InverseSymbolicMatrix_,
+	DeterminantSymbolic_,
 	ReduceFirstIntermediateSymbols_,
 	FirstIntermediateSymbolsToSecondIntermediateSymbols_,
 	SecondIntermediateSymbolsToCouplingConstants_,
@@ -22,17 +24,23 @@ UnmakeSymbolic[InverseSymbolicMatrix_,
 
 	RankOfMatrix=Length@InverseSymbolicMatrix;
 
-	MatrixElementFileNames=Table[0,{i,RankOfMatrix},{j,RankOfMatrix}];
+	MatrixElementFileNames=Table[0,{i,RankOfMatrix+1},{j,RankOfMatrix+1}];
+	TheInverseSymbolicMatrix=InverseSymbolicMatrix~PadRight~{RankOfMatrix+1,RankOfMatrix+1};
+	TheInverseSymbolicMatrix[[RankOfMatrix+1,RankOfMatrix+1]]=Evaluate@(DeterminantSymbolic);
+
 	Table[
-		MatrixElement={CouplingAssumptions,Evaluate@(InverseSymbolicMatrix[[i,j]])};
+		If[j>=i,
+			MatrixElement={CouplingAssumptions,Evaluate@(TheInverseSymbolicMatrix[[i,j]])},
+			MatrixElement={CouplingAssumptions,0}
+		];
 		MatrixElementFileName=FileNameJoin@{$WorkingDirectory,
 				"tmp",
-				"MatrixElement"<>ToString@i<>ToString@j<>".mx"};
+				"MatrixElement"<>ToString@i<>"By"<>ToString@j<>".mx"};
 		MatrixElementFileNames[[i,j]]=MatrixElementFileName;
 		DumpSave[MatrixElementFileName,MatrixElement];
 		MatrixElement=0;
 		MatrixElementFileName="";,
-	{i,RankOfMatrix},{j,RankOfMatrix}];
+	{i,RankOfMatrix+1},{j,RankOfMatrix+1}];
 
 	Diagnostic@MatrixElementFileNames;
 
@@ -57,6 +65,32 @@ UnmakeSymbolic[InverseSymbolicMatrix_,
 	InverseMatrix=Map[
 		(xAct`PSALTer`Private`PSALTerParallelSubmit@(ConsolidateUnmakeSymbolic[#1]))&,
 		SubTaskFileNames,{2}];
+	InverseMatrix=MonitorParallel@InverseMatrix;
+	Diagnostic@InverseMatrix;
+
+	InverseMatrix=InverseMatrix[[1;;RankOfMatrix,1;;RankOfMatrix]]/InverseMatrix[[RankOfMatrix+1,RankOfMatrix+1]];
+
+	LocalPropagator=" ** ConsolidateFinalElement...";
+	InverseMatrix=Map[
+		(xAct`PSALTer`Private`PSALTerParallelSubmit@(ConsolidateFinalElement[#1]))&,
+		Map[{CouplingAssumptions,#}&,InverseMatrix,{2}],{2}];
+	InverseMatrix=MonitorParallel@InverseMatrix;
+	Diagnostic@InverseMatrix;
+
+	LocalPropagator=" ** Conjugate...";
+	Table[
+		If[j<i,
+			InverseMatrix[[i,j]]=Assuming[
+					CouplingAssumptions,
+					Conjugate@Evaluate@(InverseMatrix[[j,i]])]
+		],
+	{i,RankOfMatrix},
+	{j,RankOfMatrix}];
+
+	LocalPropagator=" ** ConsolidateFinalElement...";
+	InverseMatrix=Map[
+		(xAct`PSALTer`Private`PSALTerParallelSubmit@(ConsolidateFinalElement[#1]))&,
+		Map[{CouplingAssumptions,#}&,InverseMatrix,{2}],{2}];
 	InverseMatrix=MonitorParallel@InverseMatrix;
 	Diagnostic@InverseMatrix;
 

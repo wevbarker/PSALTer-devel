@@ -41,4 +41,5 @@ ConstructLightcone[ClassName_?StringQ,ValuesOfSourceConstraints_]:=Module[{
 
 	SourceComponentsToFreeSourceVariables=MakeFreeSourceVariables[RescaledNullSpace,SourceComponents];
 	Diagnostic@SourceComponentsToFreeSourceVariables;
+
 ];

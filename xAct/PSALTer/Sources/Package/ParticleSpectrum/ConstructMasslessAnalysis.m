@@ -12,7 +12,6 @@ Options@ConstructMasslessAnalysis={
 ConstructMasslessAnalysis[ClassName_?StringQ,ValuesOfSourceConstraints_,ValuesSaturatedPropagator_,OptionsPattern[]]:=Module[{},
 
 	LocalMasslessSpectrum=" ** ConstructMasslessAnalysis...";
-
 	ConstructLightcone[ClassName,ValuesOfSourceConstraints];
 	ConvertLightcone[ClassName,
 		ValuesSaturatedPropagator,

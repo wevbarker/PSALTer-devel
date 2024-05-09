@@ -2,18 +2,41 @@
 (*  MasslessAnalysisOfTotal  *)
 (*===========================*)
 
-MasslessAnalysisOfTotal[ValuesNumeratorFreeSourceCoefficientMatrix_]:=Module[{
-	NumeratorFreeSourceCoefficientMatrix=ValuesNumeratorFreeSourceCoefficientMatrix,
+BuildPackage@"ParticleSpectrum/ConstructMasslessAnalysis/ConvertLightcone/ExaminePoleOrder/MasslessAnalysisOfTotal/ExtractPart.m";
+
+MasslessAnalysisOfTotal[InputMatrix_,InputDenominator_]:=Module[{
 	NumeratorFreeSourceEigenvalues,
-	SecularEquation},
+	StillComputing=True,
+	NewOrder=0
+	},
 
 	Diagnostic@NumeratorFreeSourceCoefficientMatrix;
 
-	NumeratorFreeSourceEigenvalues=Eigenvalues@NumeratorFreeSourceCoefficientMatrix;
-	NumeratorFreeSourceEigenvalues//=DeleteCases[#,0,Infinity]&;
 
-	SecularEquation=(Det@(#-PoleResidue*IdentityMatrix@Length@#))&@NumeratorFreeSourceCoefficientMatrix;
-	SecularEquation//=FullSimplify;
-	(*Print@SecularEquation;*)
+	TimeConstrained[
+	(
+		NumeratorFreeSourceEigenvalues=ExtractPart[InputMatrix,InputDenominator,Infinity];
+	),
+	10,
+	(
+		While[StillComputing&&(NewOrder<=2),
+			TimeConstrained[
+			(
+				NumeratorFreeSourceEigenvalues=ExtractPart[
+						InputMatrix,
+						InputDenominator,
+						NewOrder];
+				NewOrder+=1;
+			)
+			,
+			10,
+			(
+				StillComputing=False;
+			)
+			];
+			
+		];
+	)
+	];
 
-{NumeratorFreeSourceEigenvalues,SecularEquation}];
+NumeratorFreeSourceEigenvalues];

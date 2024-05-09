@@ -42,5 +42,18 @@ TestTheory[InputRules_]:=Module[{NewLinearLagrangian},
 			Method->"Hard",
 			MaxLaurentDepth->1];	
 ];
-
+(*
 TestTheory/@AllRules;
+*)
+
+BasicRules={xAct`PSALTer`MetricAffineGravity`A1->0,xAct`PSALTer`MetricAffineGravity`A2->0,xAct`PSALTer`MetricAffineGravity`A3->0,xAct`PSALTer`MetricAffineGravity`A4->0,xAct`PSALTer`MetricAffineGravity`A5->0,xAct`PSALTer`MetricAffineGravity`A6->0,xAct`PSALTer`MetricAffineGravity`A7->0,xAct`PSALTer`MetricAffineGravity`A8->0,xAct`PSALTer`MetricAffineGravity`A9->0,xAct`PSALTer`MetricAffineGravity`A10->0,xAct`PSALTer`MetricAffineGravity`A11->0}
+
+NewLinearLagrangian=Measure*NonlinearLagrangian/.BasicRules;
+DisplayExpression[NewLinearLagrangian,EqnLabel->"NewMetricAffineEinsteinHilbertTheory"];
+NewLinearLagrangian//=LineariseLagrangian;
+NewLinearLagrangian=LineariseLagrangian[NewLinearLagrangian,Formulation->SecondOrder];
+ParticleSpectrum[NewLinearLagrangian,
+		ClassName->"MetricAffineGravity",
+		TheoryName->"GeneralMAG",	
+		Method->"Hard",
+		MaxLaurentDepth->1];	

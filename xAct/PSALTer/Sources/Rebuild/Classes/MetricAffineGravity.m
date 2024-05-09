@@ -367,7 +367,7 @@ DefSpinParityMode[ConnectionSymmPerp2p[-i,-j],Symmetric[{-i,-j}],Spin->2,Parity-
 DefSpinParityMode[ConnectionSymmParaH1m[-i],Spin->1,Parity->Odd,
 	FieldSymbol->xAct`PSALTer`MetricAffineGravity`Private`ConnectionSymmParaHSymb,
 	SourceSymbol->xAct`PSALTer`MetricAffineGravity`Private`ConjugateSourceConnectionSymmParaHSymb];
-DefSpinParityMode[ConnectionSymmPara2m[-i,-j,-a],Symmetric[{-i,-j}],MultiTermSymmetries->{ConnectionSymmPara2m[-i,-j,-a]+ConnectionSymmPara2m[-a,-i,-j]+ConnectionSymmPara2m[-j,-a,-i]},Spin->2,Parity->Odd,
+DefSpinParityMode[ConnectionSymmPara2m[-i,-j,-a],Antisymmetric[{-i,-j}],MultiTermSymmetries->{ConnectionSymmPara2m[-i,-j,-a]+ConnectionSymmPara2m[-a,-i,-j]+ConnectionSymmPara2m[-j,-a,-i]},Spin->2,Parity->Odd,
 	FieldSymbol->xAct`PSALTer`MetricAffineGravity`Private`ConnectionSymmParaSymb,
 	SourceSymbol->xAct`PSALTer`MetricAffineGravity`Private`ConjugateSourceConnectionSymmParaSymb];
 
@@ -529,8 +529,8 @@ xAct`PSALTer`MetricAffineGravity`Private`ExpandConnectionSymmFtoReduced=Join[
 	MakeRule[{ConnectionSymmParaH1mF[-i,-j,-a],Evaluate[((1/2)remsymConnectionSymmConjugateSourceConnectionSymm[k,l,b,-i,-j,-a]ProjPara[-k,-l]ConnectionSymmParaH1m[-b])//ToCanonical]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{Evaluate@Dagger@ConnectionSymmParaH1mF[-i,-j,-a],Evaluate@Dagger[((1/2)remsymConnectionSymmConjugateSourceConnectionSymm[k,l,b,-i,-j,-a]ProjPara[-k,-l]ConnectionSymmParaH1m[-b])//ToCanonical]},MetricOn->All,ContractMetrics->True],
 
-	MakeRule[{ConnectionSymmPara2mF[-i,-j,-a],Evaluate[ConnectionSymmPara2m[-i,-j,-a]]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@ConnectionSymmPara2mF[-i,-j,-a],Evaluate@Dagger[ConnectionSymmPara2m[-i,-j,-a]]},MetricOn->All,ContractMetrics->True]	
+	MakeRule[{ConnectionSymmPara2mF[-i,-j,-a],Evaluate[(1/2)*(ConnectionSymmPara2m[-a,-i,-j]+ConnectionSymmPara2m[-a,-j,-i])]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@ConnectionSymmPara2mF[-i,-j,-a],Evaluate@Dagger[(1/2)*(ConnectionSymmPara2m[-a,-i,-j]+ConnectionSymmPara2m[-a,-j,-i])]},MetricOn->All,ContractMetrics->True]	
 ];
 
 xAct`PSALTer`MetricAffineGravity`Private`ExpandConjugateSourceConnectionSymmFtoReduced=Join[
@@ -567,8 +567,8 @@ xAct`PSALTer`MetricAffineGravity`Private`ExpandConjugateSourceConnectionSymmFtoR
 	MakeRule[{ConjugateSourceConnectionSymmParaH1mF[-i,-j,-a],Evaluate[((1/2)remsymConnectionSymmConjugateSourceConnectionSymm[k,l,b,-i,-j,-a]ProjPara[-k,-l]ConjugateSourceConnectionSymmParaH1m[-b])//ToCanonical]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{Evaluate@Dagger@ConjugateSourceConnectionSymmParaH1mF[-i,-j,-a],Evaluate@Dagger[((1/2)remsymConnectionSymmConjugateSourceConnectionSymm[k,l,b,-i,-j,-a]ProjPara[-k,-l]ConjugateSourceConnectionSymmParaH1m[-b])//ToCanonical]},MetricOn->All,ContractMetrics->True],
 
-	MakeRule[{ConjugateSourceConnectionSymmPara2mF[-i,-j,-a],Evaluate[ConjugateSourceConnectionSymmPara2m[-i,-j,-a]]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@ConjugateSourceConnectionSymmPara2mF[-i,-j,-a],Evaluate@Dagger[ConjugateSourceConnectionSymmPara2m[-i,-j,-a]]},MetricOn->All,ContractMetrics->True]	
+	MakeRule[{ConjugateSourceConnectionSymmPara2mF[-i,-j,-a],Evaluate[(1/2)*(ConjugateSourceConnectionSymmPara2m[-a,-i,-j]+ConjugateSourceConnectionSymmPara2m[-a,-j,-i])]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@ConjugateSourceConnectionSymmPara2mF[-i,-j,-a],Evaluate@Dagger[(1/2)*(ConjugateSourceConnectionSymmPara2m[-a,-i,-j]+ConjugateSourceConnectionSymmPara2m[-a,-j,-i])]},MetricOn->All,ContractMetrics->True]	
 ];
 
 (*==================*)
@@ -707,8 +707,8 @@ xAct`PSALTer`MetricAffineGravity`Private`DecomposeConnectionSymmReducedtoConnect
 	MakeRule[{ConnectionSymmParaH1m[-i],Evaluate[((-3)ProjPara[m,-i]ProjPara[n,z]ProjPara[c,-z]remsymConnectionSymmConjugateSourceConnectionSymm[k,l,b,-m,-n,-c]ConnectionSymm[-k,-l,-b])//ToCanonical]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{Evaluate@Dagger@ConnectionSymmParaH1m[-i],Evaluate@Dagger[((-3)ProjPara[m,-i]ProjPara[n,z]ProjPara[c,-z]remsymConnectionSymmConjugateSourceConnectionSymm[k,l,b,-m,-n,-c]ConnectionSymm[-k,-l,-b])//ToCanonical]},MetricOn->All,ContractMetrics->True],
 
-	MakeRule[{ConnectionSymmPara2m[-i,-j,-a],Evaluate[((ProjPara[m,-i]ProjPara[n,-j]ProjPara[c,-a]-(1/2)(ProjPara[-i,-j]ProjPara[m,-z]ProjPara[n,z]ProjPara[c,-a]+ProjPara[-j,-a]ProjPara[m,-i]ProjPara[n,z]ProjPara[c,-z]+ProjPara[-i,-a]ProjPara[m,-z]ProjPara[n,-j]ProjPara[c,z]))remsymConnectionSymmConjugateSourceConnectionSymm[k,l,b,-m,-n,-c]ConnectionSymm[-k,-l,-b])//ToCanonical]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@ConnectionSymmPara2m[-i,-j,-a],Evaluate@Dagger[((ProjPara[m,-i]ProjPara[n,-j]ProjPara[c,-a]-(1/2)(ProjPara[-i,-j]ProjPara[m,-z]ProjPara[n,z]ProjPara[c,-a]+ProjPara[-j,-a]ProjPara[m,-i]ProjPara[n,z]ProjPara[c,-z]+ProjPara[-i,-a]ProjPara[m,-z]ProjPara[n,-j]ProjPara[c,z]))remsymConnectionSymmConjugateSourceConnectionSymm[k,l,b,-m,-n,-c]ConnectionSymm[-k,-l,-b])//ToCanonical]},MetricOn->All,ContractMetrics->True]
+	MakeRule[{ConnectionSymmPara2m[-j,-a,-i],Evaluate[(-4/3)*Antisymmetrize[((ProjPara[m,-i]ProjPara[n,-j]ProjPara[c,-a]-(1/2)(ProjPara[-i,-j]ProjPara[m,-z]ProjPara[n,z]ProjPara[c,-a]+ProjPara[-j,-a]ProjPara[m,-i]ProjPara[n,z]ProjPara[c,-z]+ProjPara[-i,-a]ProjPara[m,-z]ProjPara[n,-j]ProjPara[c,z]))remsymConnectionSymmConjugateSourceConnectionSymm[k,l,b,-m,-n,-c]ConnectionSymm[-k,-l,-b]),{-j,-a}]//ToCanonical]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@ConnectionSymmPara2m[-j,-a,-i],Evaluate@Dagger[(-4/3)*Antisymmetrize[((ProjPara[m,-i]ProjPara[n,-j]ProjPara[c,-a]-(1/2)(ProjPara[-i,-j]ProjPara[m,-z]ProjPara[n,z]ProjPara[c,-a]+ProjPara[-j,-a]ProjPara[m,-i]ProjPara[n,z]ProjPara[c,-z]+ProjPara[-i,-a]ProjPara[m,-z]ProjPara[n,-j]ProjPara[c,z]))remsymConnectionSymmConjugateSourceConnectionSymm[k,l,b,-m,-n,-c]ConnectionSymm[-k,-l,-b]),{-j,-a}]//ToCanonical]},MetricOn->All,ContractMetrics->True]
 ];
 
 xAct`PSALTer`MetricAffineGravity`Private`DecomposeConjugateSourceConnectionSymmReducedtoConjugateSourceConnectionSymm=Join[
@@ -745,9 +745,19 @@ xAct`PSALTer`MetricAffineGravity`Private`DecomposeConjugateSourceConnectionSymmR
 	MakeRule[{ConjugateSourceConnectionSymmParaH1m[-i],Evaluate[((-3)ProjPara[m,-i]ProjPara[n,z]ProjPara[c,-z]remsymConnectionSymmConjugateSourceConnectionSymm[k,l,b,-m,-n,-c]ConjugateSourceConnectionSymm[-k,-l,-b])//ToCanonical]},MetricOn->All,ContractMetrics->True],
 	MakeRule[{Evaluate@Dagger@ConjugateSourceConnectionSymmParaH1m[-i],Evaluate@Dagger[((-3)ProjPara[m,-i]ProjPara[n,z]ProjPara[c,-z]remsymConnectionSymmConjugateSourceConnectionSymm[k,l,b,-m,-n,-c]ConjugateSourceConnectionSymm[-k,-l,-b])//ToCanonical]},MetricOn->All,ContractMetrics->True],
 
-	MakeRule[{ConjugateSourceConnectionSymmPara2m[-i,-j,-a],Evaluate[((ProjPara[m,-i]ProjPara[n,-j]ProjPara[c,-a]-(1/2)(ProjPara[-i,-j]ProjPara[m,-z]ProjPara[n,z]ProjPara[c,-a]+ProjPara[-j,-a]ProjPara[m,-i]ProjPara[n,z]ProjPara[c,-z]+ProjPara[-i,-a]ProjPara[m,-z]ProjPara[n,-j]ProjPara[c,z]))remsymConnectionSymmConjugateSourceConnectionSymm[k,l,b,-m,-n,-c]ConjugateSourceConnectionSymm[-k,-l,-b])//ToCanonical]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{Evaluate@Dagger@ConjugateSourceConnectionSymmPara2m[-i,-j,-a],Evaluate@Dagger[((ProjPara[m,-i]ProjPara[n,-j]ProjPara[c,-a]-(1/2)(ProjPara[-i,-j]ProjPara[m,-z]ProjPara[n,z]ProjPara[c,-a]+ProjPara[-j,-a]ProjPara[m,-i]ProjPara[n,z]ProjPara[c,-z]+ProjPara[-i,-a]ProjPara[m,-z]ProjPara[n,-j]ProjPara[c,z]))remsymConnectionSymmConjugateSourceConnectionSymm[k,l,b,-m,-n,-c]ConjugateSourceConnectionSymm[-k,-l,-b])//ToCanonical]},MetricOn->All,ContractMetrics->True]
+	MakeRule[{ConjugateSourceConnectionSymmPara2m[-j,-a,-i],Evaluate[(-4/3)*Antisymmetrize[((ProjPara[m,-i]ProjPara[n,-j]ProjPara[c,-a]-(1/2)(ProjPara[-i,-j]ProjPara[m,-z]ProjPara[n,z]ProjPara[c,-a]+ProjPara[-j,-a]ProjPara[m,-i]ProjPara[n,z]ProjPara[c,-z]+ProjPara[-i,-a]ProjPara[m,-z]ProjPara[n,-j]ProjPara[c,z]))remsymConnectionSymmConjugateSourceConnectionSymm[k,l,b,-m,-n,-c]ConjugateSourceConnectionSymm[-k,-l,-b]),{-j,-a}]//ToCanonical]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{Evaluate@Dagger@ConjugateSourceConnectionSymmPara2m[-j,-a,-i],Evaluate@Dagger[(-4/3)*Antisymmetrize[((ProjPara[m,-i]ProjPara[n,-j]ProjPara[c,-a]-(1/2)(ProjPara[-i,-j]ProjPara[m,-z]ProjPara[n,z]ProjPara[c,-a]+ProjPara[-j,-a]ProjPara[m,-i]ProjPara[n,z]ProjPara[c,-z]+ProjPara[-i,-a]ProjPara[m,-z]ProjPara[n,-j]ProjPara[c,z]))remsymConnectionSymmConjugateSourceConnectionSymm[k,l,b,-m,-n,-c]ConjugateSourceConnectionSymm[-k,-l,-b]),{-j,-a}]//ToCanonical]},MetricOn->All,ContractMetrics->True]
 ];
+
+(*Ptolmey*)
+AutomaticRules[ConnectionSymmPara2m,MakeRule[{ConnectionSymmPara2m[-a,-b,-c]*Evaluate@Dagger[ConnectionSymmPara2m[a,c,b]],
+					Evaluate[ConnectionSymmPara2m[-a,-b,-c]*Evaluate@Dagger[ConnectionSymmPara2m[a,b,c]]/2]},MetricOn->All,ContractMetrics->True]];
+AutomaticRules[ConnectionSymmPara2m,MakeRule[{ConnectionSymmPara2m[-a,-b,-c]*Evaluate@Dagger[ConnectionAntiPara2m[a,c,b]],
+					Evaluate[ConnectionSymmPara2m[-a,-b,-c]*Evaluate@Dagger[ConnectionAntiPara2m[a,b,c]]/2]},MetricOn->All,ContractMetrics->True]];
+AutomaticRules[ConnectionAntiPara2m,MakeRule[{ConnectionAntiPara2m[-a,-b,-c]*Evaluate@Dagger[ConnectionAntiPara2m[a,c,b]],
+					Evaluate[ConnectionAntiPara2m[-a,-b,-c]*Evaluate@Dagger[ConnectionAntiPara2m[a,b,c]]/2]},MetricOn->All,ContractMetrics->True]];
+AutomaticRules[ConnectionAntiPara2m,MakeRule[{ConnectionAntiPara2m[-a,-b,-c]*Evaluate@Dagger[ConnectionSymmPara2m[a,c,b]],
+					Evaluate[ConnectionAntiPara2m[-a,-b,-c]*Evaluate@Dagger[ConnectionSymmPara2m[a,b,c]]/2]},MetricOn->All,ContractMetrics->True]];
 
 (*==========================================================*)
 (*  Basic definitions of the Lagrangian coupling constants  *)
@@ -755,38 +765,38 @@ xAct`PSALTer`MetricAffineGravity`Private`DecomposeConjugateSourceConnectionSymmR
 
 xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb="\[ScriptA]";
 
-DefLagrangianCoupling[A0,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->0];
-DefLagrangianCoupling[A1,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->1];
-DefLagrangianCoupling[A2,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->2];
-DefLagrangianCoupling[A3,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->3];
-DefLagrangianCoupling[A4,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->4];
-DefLagrangianCoupling[A5,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->5];
-DefLagrangianCoupling[A6,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->6];
-DefLagrangianCoupling[A7,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->7];
-DefLagrangianCoupling[A8,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->8];
-DefLagrangianCoupling[A9,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->9];
-DefLagrangianCoupling[A10,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->10];
-DefLagrangianCoupling[A11,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->11];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`A0,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->0];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`A1,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->1];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`A2,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->2];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`A3,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->3];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`A4,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->4];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`A5,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->5];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`A6,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->6];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`A7,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->7];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`A8,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->8];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`A9,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->9];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`A10,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->10];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`A11,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`ACouplingSymb,CouplingIndex->11];
 
 xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb="\[ScriptC]";
 
-DefLagrangianCoupling[C0,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->0];
-DefLagrangianCoupling[C1,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->1];
-DefLagrangianCoupling[C2,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->2];
-DefLagrangianCoupling[C3,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->3];
-DefLagrangianCoupling[C4,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->4];
-DefLagrangianCoupling[C5,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->5];
-DefLagrangianCoupling[C6,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->6];
-DefLagrangianCoupling[C7,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->7];
-DefLagrangianCoupling[C8,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->8];
-DefLagrangianCoupling[C9,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->9];
-DefLagrangianCoupling[C10,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->10];
-DefLagrangianCoupling[C11,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->11];
-DefLagrangianCoupling[C12,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->12];
-DefLagrangianCoupling[C13,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->13];
-DefLagrangianCoupling[C14,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->14];
-DefLagrangianCoupling[C15,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->15];
-DefLagrangianCoupling[C16,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->16];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`C0,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->0];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`C1,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->1];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`C2,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->2];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`C3,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->3];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`C4,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->4];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`C5,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->5];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`C6,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->6];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`C7,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->7];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`C8,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->8];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`C9,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->9];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`C10,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->10];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`C11,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->11];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`C12,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->12];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`C13,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->13];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`C14,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->14];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`C15,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->15];
+DefLagrangianCoupling[xAct`PSALTer`MetricAffineGravity`C16,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Private`CCouplingSymb,CouplingIndex->16];
 
 (*================================================*)
 (*  Some infrastructure for linearising theories  *)
@@ -798,7 +808,7 @@ DefLagrangianCoupling[C16,CouplingSymbol->xAct`PSALTer`MetricAffineGravity`Priva
 
 Begin["xAct`PSALTer`MetricAffineGravity`Private`"];
 
-LagrangianCouplings={A0,A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11,C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13,C14,C15,C16};
+LagrangianCouplings={xAct`PSALTer`MetricAffineGravity`A0,xAct`PSALTer`MetricAffineGravity`A1,xAct`PSALTer`MetricAffineGravity`A2,xAct`PSALTer`MetricAffineGravity`A3,xAct`PSALTer`MetricAffineGravity`A4,xAct`PSALTer`MetricAffineGravity`A5,xAct`PSALTer`MetricAffineGravity`A6,xAct`PSALTer`MetricAffineGravity`A7,xAct`PSALTer`MetricAffineGravity`A8,xAct`PSALTer`MetricAffineGravity`A9,xAct`PSALTer`MetricAffineGravity`A10,xAct`PSALTer`MetricAffineGravity`A11,xAct`PSALTer`MetricAffineGravity`C1,xAct`PSALTer`MetricAffineGravity`C2,xAct`PSALTer`MetricAffineGravity`C3,xAct`PSALTer`MetricAffineGravity`C4,xAct`PSALTer`MetricAffineGravity`C5,xAct`PSALTer`MetricAffineGravity`C6,xAct`PSALTer`MetricAffineGravity`C7,xAct`PSALTer`MetricAffineGravity`C8,xAct`PSALTer`MetricAffineGravity`C9,xAct`PSALTer`MetricAffineGravity`C10,xAct`PSALTer`MetricAffineGravity`C11,xAct`PSALTer`MetricAffineGravity`C12,xAct`PSALTer`MetricAffineGravity`C13,xAct`PSALTer`MetricAffineGravity`C14,xAct`PSALTer`MetricAffineGravity`C15,xAct`PSALTer`MetricAffineGravity`C16};
 
 FieldSpinParityTensorHeads=<|
 		MetricPerturbation-><|

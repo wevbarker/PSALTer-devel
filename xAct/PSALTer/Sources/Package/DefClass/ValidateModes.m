@@ -62,13 +62,4 @@ ValidateModes[ClassName_?StringQ]:=Catch@Module[{
 	)~Table~{Tensor,Class@Tensors};
 
 	On[General::stop];
-(*
-	SourceSpinParityTensorHeadsValue=Class@SourceSpinParityTensorHeads;
-	ListOfModes=Flatten/@(Values/@(Values/@SourceSpinParityTensorHeadsValue));
-
-	(
-		DecomposeAndExpandFields@Source;
-		ExpandAndDecomposeFields/@(ListOfModes@Source);
-	)~Table~{Source,Class@Sources};
-*)
 ];

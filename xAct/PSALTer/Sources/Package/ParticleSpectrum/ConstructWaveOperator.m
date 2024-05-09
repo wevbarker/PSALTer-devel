@@ -10,7 +10,6 @@ ConstructWaveOperator[ClassName_?StringQ,Expr_]:=Module[{
 	Class,
 	TheTensors
 	},
-
 	LocalWaveOperator=" ** ConstructWaveOperator...";
 	
 	Class=Evaluate@Symbol@ClassName;

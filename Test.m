@@ -1,15 +1,36 @@
-Print@"The purpose of this script is to determine whether Mathematica has been correctly configured on the system. The need for this test is driven by some unexpected poor performace on CSD3 jobs.";
-Print["The variable $MaxLicenseProcesses is set to ",$MaxLicenseProcesses];
-Print["The protected variable $ProcessorCount is set to ",$ProcessorCount];
-Print["The variable $KernelCount is set to ",$KernelCount];
-WaitOnNumberOfTasks[WaitTime_Integer,NumberOfTasks_Integer]:=Module[{ParallelTask,TimeTaken},
-	ParallelTask=ParallelSubmit[Pause@#]&/@(WaitTime~ConstantArray~NumberOfTasks);
-	ParallelTask=AbsoluteTiming@WaitAll@ParallelTask;
-	TimeTaken=First@ParallelTask;
-	Print["It takes ",TimeTaken," seconds to wait for ",WaitTime," seconds for ",NumberOfTasks," times in parallel."];
+<<xAct`xPlain`;
+
+Comment@"Now we will try to look for new solutions to the vector system.";
+
+NewTheoryConditions={	
+	(2Bet1+Bet2+3Bet3)(6Alp1+2Alp3-2Alp4+2Alp6+Chi0^2/Xi0)==0,
+	4Alp2+12Alp4-2Chi0^2/Xi0==0,
+	(Alp2-Alp3+4Alp4-4Alp6)(2Bet1-Bet2)==0,
+	(2Bet1+Bet2)(3Alp2-Alp3+4Alp4-4Alp6-2Chi0^2/Xi0)==0,
+	4Alp2-2Chi0^2/Xi0==0,
+	Chi0!=0
+};
+Comment@"From the general mass parameters, here are the conditions which must be true in order for only the parity-odd vector to propagate.";
+DisplayExpression/@NewTheoryConditions;
+Comment@"Now we obtain the following solutions.";
+NewTheoryRules=Solve@NewTheoryConditions;
+(*NewTheoryRules=NewTheoryRules/.{Chi0^2->Xi0*kT1*kT3^2};*)
+NewTheoryRules//=FullSimplify;
+DisplayExpression/@NewTheoryRules;
+
+TryTheory[TheTheory_]:=Module[{
+		TheoryName="TrialeWGT"<>ToString@TheTheory,
+		TheoryRule=NewTheoryRules[[TheTheory]]},
+
+	Comment@"Trying a new theory.";
+	DisplayExpression@TheoryRule;
+	DisplayExpression@TheoryName;
+	SuperRules={Alp5->Chi0^2/Xi0-(2*Alp2+4*Alp4)}~Join~TheoryRule;
+	SuperRules=SuperRules/.{Rule->Equal};
+	SuperRules//=Reduce;
+	DisplayExpression@SuperRules;
 ];
-Print@"Now we execute LaunchKernels[]";
-LaunchKernels[];
-Print["The variable $KernelCount is set to ",$KernelCount];
-WaitOnNumberOfTasks[1,#]&/@Range@200;
+
+TryTheory/@Table[i,{i,1,6}];
+
 Quit[];

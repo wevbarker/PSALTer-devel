@@ -11,7 +11,7 @@ Comment@"Unfortunately, the theory Giorgos is looking at is not quite kinematica
 NonlinearKarananasTheory=xAct`PSALTer`ZeroTorsionPalatini`H1*(ZeroTorsionRicciScalar[]-CD[-r]@ZeroTorsionNonMetricityContractionTilde[r])*(ZeroTorsionRicciScalar[]-CD[-s]@ZeroTorsionNonMetricityContractionTilde[s]);
 DisplayExpression[NonlinearKarananasTheory,EqnLabel->"NonlinearKarananasTheory"];
 Comment@{"Okay, so now we take",Cref@"NonlinearKarananasTheory"," and we linearise it."};
-LinearLagrangian=Measure*NonlinearKarananasTheory//LineariseLagrangian;
+LinearLagrangian=Measure*NonlinearKarananasTheory//ZeroTorsionPalatiniLineariseLagrangian;
 DisplayExpression[LinearLagrangian,EqnLabel->"LinearKarananasTheory"];
 Comment@{"Okay, so now we take",Cref@"LinearKarananasTheory"," and we try it in PSALTer."};
 

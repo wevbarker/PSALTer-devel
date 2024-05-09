@@ -14,24 +14,52 @@ ConjectureInverse[InputMatrix_,Couplings_,CouplingAssumptions_]:=Module[{
 	FirstIntermediateSymbolsToCouplingConstants,
 	ReduceFirstIntermediateSymbols,
 	FirstIntermediateSymbolsToSecondIntermediateSymbols,
-	SecondIntermediateSymbolsToCouplingConstants
+	SecondIntermediateSymbolsToCouplingConstants,
+	InverseSymbolicMatrix,
+	DeterminantSymbolic,
+	SymbolicCouplingAssumptions
 	},
 
-	LocalPropagator=" ** ConjectureInverse...";
 
+	LocalPropagator=" ** ConjectureInverse...";
 	ConjecturedNullSpace=ConjectureNullSpace[TheInputMatrix,Couplings,CouplingAssumptions];
-	Diagnostic@ConjecturedNullSpace;
+	Diagnostic@(MatrixForm@ConjecturedNullSpace);
+
+	LocalPropagator=" ** MakeSymbolic...";
 	{SymbolicMatrix,FirstIntermediateSymbolsToCouplingConstants}=MakeSymbolic[TheInputMatrix,CouplingAssumptions];
-	Diagnostic@SymbolicMatrix;
+	Diagnostic@(MatrixForm@SymbolicMatrix);
+
+	LocalPropagator=" ** IntermediateRules...";
 	{ReduceFirstIntermediateSymbols,FirstIntermediateSymbolsToSecondIntermediateSymbols,SecondIntermediateSymbolsToCouplingConstants}=IntermediateRules[FirstIntermediateSymbolsToCouplingConstants,Couplings];
 	Diagnostic@ReduceFirstIntermediateSymbols;
 	Diagnostic@FirstIntermediateSymbolsToSecondIntermediateSymbols;
 	Diagnostic@SecondIntermediateSymbolsToCouplingConstants;
 
-	InverseSymbolicMatrix=ManualPseudoInverse[SymbolicMatrix,ConjecturedNullSpace];
+	LocalPropagator=" ** ManualPseudoInverse...";
+	{InverseSymbolicMatrix,DeterminantSymbolic}=ManualPseudoInverse[SymbolicMatrix,ConjecturedNullSpace];
 
-	InverseMatrix=UnmakeSymbolic[InverseSymbolicMatrix,ReduceFirstIntermediateSymbols,FirstIntermediateSymbolsToSecondIntermediateSymbols,SecondIntermediateSymbolsToCouplingConstants,CouplingAssumptions];
-	(*InverseMatrix=((#)~FullSimplify~CouplingAssumptions)&@InverseMatrix;*)
+	(*Diagnostic@InverseSymbolicMatrix;*)
+	(*Diagnostic@DeterminantSymbolic;*)
+
+	LocalPropagator=" ** IntegrategetAllVariables...";
+(*
+	SymbolicCouplingAssumptions=(#~Element~Reals)&/@Integrate`getAllVariables[InverseSymbolicMatrix,{}];
+*)
+	SymbolicCouplingAssumptions=CouplingAssumptions;
+	Diagnostic@SymbolicCouplingAssumptions;
+
+	LocalPropagator=" ** DistributeConjugate...";
+	InverseSymbolicMatrix//=DistributeConjugate[#,SymbolicCouplingAssumptions]&;
+	Diagnostic@InverseSymbolicMatrix;
+	DeterminantSymbolic//=DistributeConjugate[#,SymbolicCouplingAssumptions]&;
+	Diagnostic@DeterminantSymbolic;
+
+	LocalPropagator=" ** UnmakeSymbolic...";
+	InverseMatrix=UnmakeSymbolic[InverseSymbolicMatrix,DeterminantSymbolic,ReduceFirstIntermediateSymbols,FirstIntermediateSymbolsToSecondIntermediateSymbols,SecondIntermediateSymbolsToCouplingConstants,CouplingAssumptions];
+	Diagnostic@InverseMatrix;
+
+	LocalPropagator=" ** DistributeConjugate...";
+	InverseMatrix//=DistributeConjugate[#,CouplingAssumptions]&;
 	Diagnostic@InverseMatrix;
 
 InverseMatrix];

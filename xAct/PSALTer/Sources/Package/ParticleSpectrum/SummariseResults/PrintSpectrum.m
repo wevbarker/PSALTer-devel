@@ -15,7 +15,6 @@ PrintSpectrum[
 		QuarticAnalysisValue_,
 		HexicAnalysisValue_,
 		SecularEquation_]:=Module[{ContentList},
-
 	ContentList=(
 		(MapThread[If[!(#1==={}),
 					PrintParticle[First@#1,First@#2,#4,#3,2*#4+1],
@@ -31,12 +30,14 @@ PrintSpectrum[
 			(PrintParticle[First@#,0,0,0,Length@#,LaurentDepth->1]&/@Gather@(StripFactors/@MasslessEigenvalues)),
 			(PrintParticle[First@#,0,0,0,Length@#,LaurentDepth->2]&/@Gather@(StripFactors/@QuarticAnalysisValue)),
 			(PrintParticle[First@#,0,0,0,Length@#,LaurentDepth->3]&/@Gather@(StripFactors/@HexicAnalysisValue))(*,
-(PrintSecularEquation/@SecularEquation)*)
+			(PrintSecularEquation/@SecularEquation)*)
 		]
 	);
-
+(*
 	If[!(ContentList=={}),
 		ContentList//=Grid[Partition[#,UpTo@2],Alignment->{Left,Top}]&;,
 		ContentList=DetailCell@Text@"(No particles)";
 	];
+*)
+	If[ContentList=={},ContentList=DetailCell@Text@"(No particles)"];
 ContentList];
