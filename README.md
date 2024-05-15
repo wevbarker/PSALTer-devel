@@ -64,9 +64,18 @@ To summarise the physical information that is automatically computed:
 
 ### General use 
 
+#### Basic geometry
+
+PSALTer pre-defines a flat, Minkowskian manifold with the following ingredients:
+
+|Object|LaTeX|
+|---|---|
+|`G[-m,-n]`|$\eta_{\mu\nu}$|
+|`CD[-m]@`|$\partial_{\mu}$|
+
 #### Function syntax 
 
-PSALTer defines _two_ functions. To define a tensor field you use `DefField`, which has a very similar syntax to `DefTensor` in `xTensor`:
+PSALTer defines _two_ functions. To define a tensor field you use `DefField`, which has a very similar syntax to `DefTensor` in _xTensor_:
 ```mathematica
 DefField[
     F_[Inds___],
@@ -78,11 +87,11 @@ DefField[
 The arguments and options are as follows:
 - `F` is the symbolic name of the new field.
 - `Inds` are the indices of `F`, if any.
-- `Symm` is the intended index-symmetry on `Inds`, the syntax is the same as in `DefTensor`.
-- `PrintAsValue` is the string that `F` will format as, the syntax is the same as in `DefTensor`.
+- `Symm` is the intended index-symmetry on `Inds`. The syntax is the same as in `DefTensor`.
+- `PrintAsValue` is the string that `F` will format as. The syntax is the same as in `DefTensor`.
 - `PrintSourceAsValue` is the string that the source conjugate to `F` will format as.
 
-To compute a spectrum:
+To compute a spectrum use `ParticleSpectrum`:
 ```mathematica
 ParticleSpectrum[
     L_,
@@ -93,61 +102,20 @@ ParticleSpectrum[
 ```
 and the arguments and options are as follows:
 - `L` must be a valid linearised Lagrangian density. The expression must be a Lorentz-scalar. Each term must be quadratic in the field(s) `F` defined using `DefField`. Each term must be linear in coupling constants defined using `DefConstantSymbol`. Other allowed ingredients are `CD` acting on field(s) `F` and `G` used to contract indices. Do _not_ use an odd power of `epsilonG`, which will result in a parity-odd theory. Do _not_ include the term coupling the fields to their conjugate sources, this is automatically included.
-- `TheTheoryName` can be any string, this is used for labelling the output files.
-- `TheMethod` can be `"Easy"` (default) or `"Hard"` (experimental, uses home-brewed implementations of the symbolic Moore-Penrose inverse and other innovations).
+- `TheTheoryName` can be any string. This is used for labelling the output files.
+- `TheMethod` can be either of the strings `"Easy"` (default) or `"Hard"` (experimental, uses home-brewed implementations of the symbolic Moore-Penrose inverse and other innovations).
 - `MaxLaurentDepth` can be `1`, `2` or `3`. This sets the maximum positive integer $n$ for which the $1/k^{2n}$ null pole residues are requested. The default is `1`, from which the massless spectrum can be obtained. Setting higher $n$ naturally leads to longer runtimes, but also allows potential (pathological) higher-order/non-simple propagator poles to be identified, down to the requested depth.
-
-#### Basic geometry
-
-PSALTer pre-defines a flat, Minkowskian manifold with the following ingredients:
-
-|Object|LaTeX|
-|---|---|
-|`G[-m,-n]`|$\eta_{\mu\nu}$|
-|`CD[-m]@`|$\partial_{\mu}$|
-
-#### Theory classes, fields and couplings
-
-Five _theory classes_ (also called _theory modules_) are available, and these _must_ be passed to `ParticleSpectrum` via the option `ClassName`. For each module, you are only permitted to pass linearised Lagrangia which refer to the collection of fields and coupling constants defined by that module, as listed in the following table:
-
-|Class name|Fields|LaTeX|Coupling constants|LaTeX|
-|---|---|---|---|---|
-|`"ScalarTheory"`|``xAct`PSALTer`ScalarTheory`Phi[]``|$\phi$|``xAct`PSALTer`ScalarTheory`Coupling1``|$\alpha_1$|
-||||``xAct`PSALTer`ScalarTheory`Coupling2``|$\alpha_2$|
-||||``xAct`PSALTer`ScalarTheory`Coupling3``|$\alpha_3$|
-|`"VectorTheory"`|``xAct`PSALTer`VectorTheory`B[-m]``|$B_{\mu}$|``xAct`PSALTer`VectorTheory`Coupling1``|$\alpha_1$|
-||||``xAct`PSALTer`VectorTheory`Coupling2``|$\alpha_2$|
-||||``xAct`PSALTer`VectorTheory`Coupling3``|$\alpha_3$|
-|`"TensorTheory"`|``xAct`PSALTer`TensorTheory`LinearMetric[-m,-n]``|$h_{\mu\nu}$|``xAct`PSALTer`TensorTheory`Coupling1``|$\alpha_1$|
-||||``xAct`PSALTer`TensorTheory`Coupling2``|$\alpha_2$|
-||||``xAct`PSALTer`TensorTheory`Coupling3``|$\alpha_3$|
-|`"ScalarTensorTheory"`|``xAct`PSALTer`ScalarTensorTheory`LinearMetric[-m,-n]``|$h_{\mu\nu}$|``xAct`PSALTer`ScalarTensorTheory`Coupling1``|$\alpha_1$|
-||``xAct`PSALTer`ScalarTensorTheory`Phi[]``|$\phi$|...|...|
-||||``xAct`PSALTer`PoincareGaugeTheory`Coupling10``|$\alpha_{10}$|
-|`"PoincareGaugeTheory"`|``xAct`PSALTer`PoincareGaugeTheory`F[-m,-n]``|$f_{\mu\nu}$|``xAct`PSALTer`PoincareGaugeTheory`kLambda``|$\lambda$|
-||``xAct`PSALTer`PoincareGaugeTheory`A[-m,-n,-s]``|$A_{\mu\nu\sigma}$|``xAct`PSALTer`PoincareGaugeTheory`kR1``|$r_1$|
-||||...|...|
-||||``xAct`PSALTer`PoincareGaugeTheory`kR6``|$r_6$|
-||||``xAct`PSALTer`PoincareGaugeTheory`kT1``|$t_1$|
-||||``xAct`PSALTer`PoincareGaugeTheory`kT2``|$t_2$|
-||||``xAct`PSALTer`PoincareGaugeTheory`kT3``|$t_3$|
-||||``xAct`PSALTer`PoincareGaugeTheory`Alp0``|$\alpha_0$|
-||||...|...|
-||||``xAct`PSALTer`PoincareGaugeTheory`Alp6``|$\alpha_6$|
-||||``xAct`PSALTer`PoincareGaugeTheory`Bet1``|$\beta_1$|
-||||``xAct`PSALTer`PoincareGaugeTheory`Bet2``|$\beta_2$|
-||||``xAct`PSALTer`PoincareGaugeTheory`Bet3``|$\beta_3$|
 
 ## Installation
 
 ### Requirements 
 
 PSALTer has been tested in the following environment(s):
-- Linux x86 (64-bit) (specifically Manjaro and Arch)
-- Mathematica v 13.1.0.0
-- xAct v 1.2.0
-- MaTeX v 1.7.9
-- xPlain v 0.0.0-developer (if running the Calibration notebook)
+- [_Linux x86_](https://www.linux.org/) (specifically [Manjaro](https://manjaro.org/) and [Arch](https://archlinux.org/))
+- [_Mathematica v 14.0.0.0_](https://www.wolfram.com/mathematica/)
+- [_xAct v 1.2.0_](http://www.xact.es/) (required packages [_xTensor_](http://www.xact.es/xCoba/index.html), [_SymManipulator_](http://www.xact.es/SymManipulator/index.html), [_xPerm_](http://www.xact.es/xPerm/index.html), [_xCore_](http://www.xact.es/xCore/index.html), [_xTras_](http://www.xact.es/xTras/index.html) and [_xCoba_](http://www.xact.es/xCoba/index.html))
+- [_MaTeX v 1.7.9_](https://library.wolfram.com/infocenter/MathSource/9355/)
+- [_RectanglePacking_](https://resources.wolframcloud.com/PacletRepository/resources/JasonB/RectanglePacking/)
 
 ### Install 
 
