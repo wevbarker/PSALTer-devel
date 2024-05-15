@@ -16,7 +16,7 @@ _PSALTer_ is provided without warranty, or the implied warranty of merchantibili
 
 ## About
 
-_PSALTer_ is an (unofficial) part of the [xAct bundle](http://www.xact.es/). 
+_PSALTer_ is an (unofficial) part of the [_xAct_ bundle](http://www.xact.es/). 
 
 _PSALTer_ is designed to predict the propagating quantum particle states in any tensorial field theory, including (but not limited to) just about any theory of gravity. The _free_ action $S_{\text{F}}$ must have the structure
 ```math
@@ -119,24 +119,19 @@ _PSALTer_ has the following dependencies:
 
 ### Install 
 
-1. Make sure you have [installed xAct](http://www.xact.es/download.html).
-2. Make sure you have [installed MaTeX](http://szhorvat.net/pelican/latex-typesetting-in-mathematica.html).
-3. Download _PSALTer_:
+1. Make sure you have satisfied all the dependencies.
+2. Download _PSALTer_:
 	```bash, git
-	git clone https://github.com/wevbarker/PSALTer-devel
-	cd PSALTer-devel 
+	git clone https://github.com/wevbarker/PSALTer
+	cd PSALTer 
 	```
-4. Place the `./xAct/PSALTer` directory relative to your xAct install. A global install might have ended up at: 
+3. Copy the `PSALTer/xAct/PSALTer` directory inside your _xAct_ installation alongside the dependencies such as _xTensor_. For a global _xAct_ installation the following may be sufficient: 
 	```bash
-	/usr/share/Mathematica/Applications/xAct
+	cp -r ./xAct/PSALTer /usr/share/Mathematica/Applications/xAct/
 	```
 ## Quickstart 
 
-1. In the cloned _PSALTer_ repository, open the example notebook at `./xAct/PSALTer/Documentation/English/Calibration.nb`, scroll through *without running* to understand the capabilities and scope of _PSALTer_.
-2. Make sure you have [installed xPlain](https://github.com/wevbarker/xPlain) if you want to run `Calibration.nb`, then simply execute the single line of code in the first (and only) input cell (you should first delete all the output using `Cell -> Delete All Output` in the Mathematica front-end).
-3. The first time you run `Calibration.nb` after a fresh install, PSALTer will rebuild certain binary files. This may take some time, especially on Windows machines.
-4. After the install completes successfully, delete the build output cells as before, and re-run the first input cell.
-5. To see how the examples are implemented, and to test your own theories, go to the Wolfram Language file at `./xAct/PSALTer/Documentation/English/Calibration.m`, and all the various sub-files referred to therein under the path `./xAct/PSALTer/Documentation/English/Calibration/`.
+1. Open the example notebook at `PSALTer/xAct/PSALTer/Documentation/English/Documentation.nb`, scroll through *without running* to understand the capabilities and scope of _PSALTer_.
 
 ## Contribute
 
