@@ -11,7 +11,11 @@ Options@ConstructMassiveAnalysis={
 ConstructMassiveAnalysis[ClassName_?StringQ,ValuesSaturatedPropagator_,ValuesInverseBMatricesValues_,BlockMassSigns_,OptionsPattern[]]:=Module[{	
 	Couplings,
 	Class,
-	SignedInverseBMatrices
+	SignedInverseBMatrices,
+	TheSpins,
+	RequiredSpins,
+	NewMassiveAnalysis,
+	NewMassiveGhostAnalysis
 	},
 
 	LocalSpectrum=" ** ConstructMassiveAnalysis...";
@@ -79,6 +83,25 @@ ConstructMassiveAnalysis[ClassName_?StringQ,ValuesSaturatedPropagator_,ValuesInv
 
 	Diagnostic@MassiveAnalysis;
 
-	LocalSpectrum={MassiveAnalysis,
-			MassiveGhostAnalysis,{},{},{},{}};
+	TheSpins=Class@Spins;
+	RequiredSpins={0,1,2,3};
+	NewMassiveAnalysis={};
+	NewMassiveGhostAnalysis={};
+	If[MemberQ[TheSpins,#],
+		AppendTo[NewMassiveAnalysis,
+			MassiveAnalysis[[2*First@First@Position[TheSpins,#]-1]]];
+		AppendTo[NewMassiveAnalysis,
+			MassiveAnalysis[[2*First@First@Position[TheSpins,#]]]];
+		AppendTo[NewMassiveGhostAnalysis,
+			MassiveGhostAnalysis[[2*First@First@Position[TheSpins,#]-1]]];
+		AppendTo[NewMassiveGhostAnalysis,
+			MassiveGhostAnalysis[[2*First@First@Position[TheSpins,#]]]];,
+		AppendTo[NewMassiveAnalysis,{}];
+		AppendTo[NewMassiveAnalysis,{}];
+		AppendTo[NewMassiveGhostAnalysis,{}];
+		AppendTo[NewMassiveGhostAnalysis,{}];
+	]&/@RequiredSpins;
+
+	LocalSpectrum={NewMassiveAnalysis,
+			NewMassiveGhostAnalysis,{},{},{},{}};
 ];

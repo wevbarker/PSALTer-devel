@@ -68,12 +68,12 @@ SummariseResults[TheoryName_?StringQ,WaveOperator_,Propagator_,SourceConstraints
 				TheSpectrum=Computing,
 				TheSpectrum=If[ListQ@#,
 				Grid[Partition[#,UpTo@2],Alignment->{Left,Top}],
-				#,#]&@(PrintSpectrum@@Spectrum)];
+				#,#]&@(PrintSpectrumMassive@@Spectrum)];
 			If[MasslessSpectrum===Null,
 				TheMasslessSpectrum=Computing,
 				TheMasslessSpectrum=If[ListQ@#,
 				Grid[Partition[#,UpTo@2],Alignment->{Left,Top}],
-				#,#]&@(PrintSpectrum@@MasslessSpectrum)];
+				#,#]&@(PrintSpectrumMassless@@MasslessSpectrum)];
 			If[OverallUnitarity===Null,
 				TheOverallUnitarity=Computing,
 				TheOverallUnitarity=DetailCell@(PrintUnitarityConditions@OverallUnitarity)];
@@ -109,8 +109,8 @@ SummariseResults[TheoryName_?StringQ,WaveOperator_,Propagator_,SourceConstraints
 		TheWaveOperator=SplitWignerGrid@@WaveOperator;
 		ThePropagator=SplitWignerGrid@@Propagator;
 		TheSourceConstraints=PrintSourceConstraints@@SourceConstraints;
-		TheSpectrum=If[ListQ@#,#,{#},{#}]&@(PrintSpectrum@@Spectrum);
-		TheMasslessSpectrum=If[ListQ@#,#,{#},{#}]&@(PrintSpectrum@@MasslessSpectrum);
+		TheSpectrum=If[ListQ@#,#,{#},{#}]&@(PrintSpectrumMassive@@Spectrum);
+		TheMasslessSpectrum=If[ListQ@#,#,{#},{#}]&@(PrintSpectrumMassless@@MasslessSpectrum);
 		TheOverallUnitarity=DetailCell@(PrintUnitarityConditions@OverallUnitarity);
 
 		SummaryOfResults=PSALTerResultsCollage[
