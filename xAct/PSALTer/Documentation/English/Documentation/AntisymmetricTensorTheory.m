@@ -17,7 +17,9 @@ Code[
 	DefConstantSymbol[Coupling5,PrintAs->"\[Epsilon]"];
 	DefConstantSymbol[Coupling6,PrintAs->"\[Zeta]"];
 ];
+(*
 Get@FileNameJoin@{$ThisDirectory,"Documentation","AntisymmetricTensorTheory",
 				"TwoFormTheory.m"};
+*)
 Get@FileNameJoin@{$ThisDirectory,"Documentation","AntisymmetricTensorTheory",
 				"MassiveTwoFormTheory.m"};

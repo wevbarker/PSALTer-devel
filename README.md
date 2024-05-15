@@ -8,7 +8,7 @@
 
 ## License
 
-Copyright © 2022 Will Barker
+Copyright © 2022 Will Barker, Stephanie Buttigieg, Carlo Marzo, Cillian Rew, Claire Rigouzzo, Zhiyuan Wei, David Yallup and Haoyang Ye
 
 PSALTer is distributed as free software under the [GNU General Public License (GPL)](https://www.gnu.org/licenses/gpl-3.0.en.html).
 
@@ -66,25 +66,32 @@ To summarise the physical information that is automatically computed:
 
 #### Function syntax 
 
-PSALTer defines _only one_ function:
-
+PSALTer defines _two_ functions. To define a tensor field:
 ```mathematica
+DefField[DefField[F_[Inds___],Symm_,PrintAs->FString_?String,PrintSourceAs->FSourceString_?String];
+```
+The arguments and options are as follows:
+- `F` is the symbolic name of your new field.
+- `Inds` are the indices of your new field, if any.
+- `Symm` is the intended index-symmetry on `Inds`.
+- `FString` is the string that you'd like `F` to format as.
+- `FSourceString` is the string that you'd like the source conjugate to `F` to format as.
+
+To compute a spectrum:
+```mathematica
+DefField[DefField[F_[Inds___]];
 ParticleSpectrum[
-    QuadraticLagrangian_,
-    ClassName->Classname_,
-    TheoryName->TheoryName_,
-    Method->Method_,
-    MaxLaurentDepth->MaxLaurentDepth_
+    L_,
+    TheoryName->TheTheoryName_?String,
+    Method->TheMethod_?String,
+    MaxLaurentDepth->TheMaxLaurentDepth_
 ];
 ```
 and the arguments and options are as follows:
-- `QuadraticLagrangian_` must be a valid linearised Lagrangian; do _not_ include the term coupling the fields to their conjugate sources, this will be automatically included by PSALTer.
-- `Classname_` must be a pre-defined string.
-- `TheoryName_` can be any string.
-- `Method_` can be `"Easy"` (default) or `"Hard"` (experimental, uses home-brewed implementations of the symbolic Moore-Penrose inverse and other innovations).
-- `MaxLaurentDepth_` can be `1`, `2` or `3`.
-
-For details about `QuadraticLagrangian_` and `Classname_`, keep reading.
+- `L` must be a valid linearised Lagrangian; do _not_ include the term coupling the fields to their conjugate sources, this will be automatically included by PSALTer.
+- `TheTheoryName` can be any string, this is used for labelling the output files.
+- `TheMethod` can be `"Easy"` (default) or `"Hard"` (experimental, uses home-brewed implementations of the symbolic Moore-Penrose inverse and other innovations).
+- `MaxLaurentDepth` can be `1`, `2` or `3`.
 
 #### Basic geometry
 
