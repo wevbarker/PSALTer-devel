@@ -64,7 +64,7 @@ To summarise the physical information that is automatically computed:
 
 ### General use 
 
-#### Basic geometry
+#### Pre-defined physics 
 
 _PSALTer_ pre-defines a flat, Minkowskian manifold with the following ingredients:
 
@@ -73,7 +73,7 @@ _PSALTer_ pre-defines a flat, Minkowskian manifold with the following ingredient
 |`G[-m,-n]`|$\eta_{\mu\nu}$|
 |`CD[-m]@`|$\partial_{\mu}$|
 
-#### Function syntax 
+#### Provided functions 
 
 _PSALTer_ defines _two_ functions. To define a tensor field you use `DefField`, which has a very similar syntax to `DefTensor` in _xTensor_:
 ```mathematica
@@ -101,7 +101,7 @@ ParticleSpectrum[
 ];
 ```
 and the arguments and options are as follows:
-- `L` must be a valid linearised Lagrangian density. The expression must be a Lorentz-scalar. Each term must be quadratic in the field(s) `F` defined using `DefField`. Each term must be linear in coupling constants defined using `DefConstantSymbol`. Other allowed ingredients are `CD` acting on field(s) `F` and `G` used to contract indices. Do _not_ use an odd power of `epsilonG`, which will result in a parity-odd theory. Do _not_ include the term coupling the fields to their conjugate sources, this is automatically included.
+- `L` must be a valid linearised Lagrangian density. The expression must be a Lorentz-scalar. Each term must be quadratic in the field(s) `F` defined using `DefField`. Each term must be linear in coupling constants defined using `DefConstantSymbol` from _xTensor_. Other allowed ingredients are `CD` acting on field(s) `F` and `G` used to contract indices. Do _not_ use an odd power of `epsilonG`, which will result in a parity-odd theory. Do _not_ include the term coupling the fields to their conjugate sources, this is automatically included.
 - `TheTheoryName` can be any string. This is used for labelling the output files.
 - `TheMethod` can be either of the strings `"Easy"` (default) or `"Hard"` (experimental, uses home-brewed implementations of the symbolic Moore-Penrose inverse and other innovations).
 - `MaxLaurentDepth` can be `1`, `2` or `3`. This sets the maximum positive integer $n$ for which the $1/k^{2n}$ null pole residues are requested. The default is `1`, from which the massless spectrum can be obtained. Setting higher $n$ naturally leads to longer runtimes, but also allows potential (pathological) higher-order/non-simple propagator poles to be identified, down to the requested depth.
