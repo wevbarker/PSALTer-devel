@@ -66,20 +66,24 @@ To summarise the physical information that is automatically computed:
 
 #### Function syntax 
 
-PSALTer defines _two_ functions. To define a tensor field:
+PSALTer defines _two_ functions. To define a tensor field you use `DefField`, which has a very similar syntax to `DefTensor` in `xTensor`:
 ```mathematica
-DefField[DefField[F_[Inds___],Symm_,PrintAs->FString_?String,PrintSourceAs->FSourceString_?String];
+DefField[
+    F_[Inds___],
+    Symm_,
+    PrintAs->PrintAsValue_?String,
+    PrintSourceAs->PrintSourceAsValue_?String
+];
 ```
 The arguments and options are as follows:
-- `F` is the symbolic name of your new field.
-- `Inds` are the indices of your new field, if any.
-- `Symm` is the intended index-symmetry on `Inds`.
-- `FString` is the string that you'd like `F` to format as.
-- `FSourceString` is the string that you'd like the source conjugate to `F` to format as.
+- `F` is the symbolic name of the new field.
+- `Inds` are the indices of `F`, if any.
+- `Symm` is the intended index-symmetry on `Inds`, the syntax is the same as in `DefTensor`.
+- `PrintAsValue` is the string that `F` will format as, the syntax is the same as in `DefTensor`.
+- `PrintSourceAsValue` is the string that the source conjugate to `F` will format as.
 
 To compute a spectrum:
 ```mathematica
-DefField[DefField[F_[Inds___]];
 ParticleSpectrum[
     L_,
     TheoryName->TheTheoryName_?String,
@@ -88,10 +92,10 @@ ParticleSpectrum[
 ];
 ```
 and the arguments and options are as follows:
-- `L` must be a valid linearised Lagrangian; do _not_ include the term coupling the fields to their conjugate sources, this will be automatically included by PSALTer.
+- `L` must be a valid linearised Lagrangian density. The expression must be a Lorentz-scalar. Each term must be quadratic in the field(s) `F` defined using `DefField`. Each term must be linear in coupling constants defined using `DefConstantSymbol`. Other allowed ingredients are `CD` acting on field(s) `F` and `G` used to contract indices. Do _not_ use an odd power of `epsilonG`, which will result in a parity-odd theory. Do _not_ include the term coupling the fields to their conjugate sources, this is automatically included.
 - `TheTheoryName` can be any string, this is used for labelling the output files.
 - `TheMethod` can be `"Easy"` (default) or `"Hard"` (experimental, uses home-brewed implementations of the symbolic Moore-Penrose inverse and other innovations).
-- `MaxLaurentDepth` can be `1`, `2` or `3`.
+- `MaxLaurentDepth` can be `1`, `2` or `3`. This sets the maximum positive integer $n$ for which the $1/k^{2n}$ null pole residues are requested. The default is `1`, from which the massless spectrum can be obtained. Setting higher $n$ naturally leads to longer runtimes, but also allows potential (pathological) higher-order/non-simple propagator poles to be identified, down to the requested depth.
 
 #### Basic geometry
 
