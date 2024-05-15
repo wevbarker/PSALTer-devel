@@ -125,7 +125,7 @@ _PSALTer_ has the following dependencies:
 	git clone https://github.com/wevbarker/PSALTer
 	cd PSALTer 
 	```
-3. Copy the `PSALTer/xAct/PSALTer` directory inside your _xAct_ installation alongside the dependencies such as _xTensor_. For a global _xAct_ installation the following may be sufficient: 
+3. Copy the `PSALTer/xAct/PSALTer` directory into your _xAct_ installation alongside the other dependencies such as _xTensor_. For a global _xAct_ installation the following may be sufficient: 
 	```bash
 	cp -r ./xAct/PSALTer /usr/share/Mathematica/Applications/xAct/
 	```
