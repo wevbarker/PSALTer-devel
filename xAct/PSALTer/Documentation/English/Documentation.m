@@ -3,6 +3,7 @@
 (*=================*)
 
 $ThisDirectory=If[NotebookDirectory[]==$Failed,Directory[],NotebookDirectory[],NotebookDirectory[]];
+SetOptions[$FrontEndSession, PrintingStyleEnvironment -> "Working"];
 
 Get@FileNameJoin@{$ThisDirectory,"Documentation","xPlain.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","HPC.m"};
