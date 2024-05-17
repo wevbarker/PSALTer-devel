@@ -7,7 +7,7 @@
 # Particle Spectrum for Any Tensor Lagrangian (_PSALTer_)
 ## Version 1.0.0
 
-- Initial release to accompany pre-print and docs.
+- Initial release to accompany pre-print and documentation.
 - Functionality for Weyl gauge theory and metric affine gravity removed due to ongoing collaborations with Tallinn and Tartu.
 
 ## License
@@ -29,7 +29,7 @@ where the ingredients are:
 - The wave operator $\mathcal{O}(\partial)$ is a real, second-order (Ostrogradsky's theorem discourages higher-derivative operators, but even if it did not we note that the apparent order may always be lowered by the introduction of extra fields) differential operator constructed from the flat-space metric $\eta_{\mu\nu}$ and partial derivative $\partial_\mu$ (but _not_ the totally antisymmetric $\epsilon^{\mu\nu\sigma\lambda}$ tensor), linearly parameterised by a collection of coupling coefficients.
 - The source currents $j(x)$ are conjugate to the fields $\zeta(x)$. They encode all external interactions to second order in fields, whilst keeping the external dynamics completely anonymous.
 
-### Example: massive gravity 
+## Example: massive gravity 
 
 As a demonstration, we consider the Fierz-Pauli linearised massive gravity theory
 ```math
@@ -79,13 +79,13 @@ The output should look like:
 
 <img src="xAct/PSALTer/Documentation/Logo/ParticleSpectrograph.png" width="1000">
 
-### Documentation 
+## Documentation 
 
 The documentation notebook is at `PSALTer/xAct/PSALTer/Documentation/English/Documentation.nb`.
 
-### General use 
+## General use 
 
-#### Pre-defined physics 
+### Pre-defined physics 
 
 _PSALTer_ pre-defines a flat, Minkowskian manifold with the following ingredients:
 
@@ -94,7 +94,7 @@ _PSALTer_ pre-defines a flat, Minkowskian manifold with the following ingredient
 |`G[-m,-n]`|$\eta_{\mu\nu}$|
 |`CD[-m]@`|$\partial_{\mu}$|
 
-#### Provided functions 
+### Provided functions 
 
 _PSALTer_ defines _two_ functions. To define a tensor field you use `DefField`, which has a very similar syntax to `DefTensor` in _xTensor_:
 ```mathematica
