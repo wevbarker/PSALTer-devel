@@ -55,7 +55,7 @@ DefField[
     PrintSourceAs->"\[ScriptCapitalT]"
 ];
 ```
-<img src="xAct/PSALTer/Documentation/Logo/DefField.png" width="1000">
+<img src="xAct/PSALTer/Documentation/Logo/FieldKinematics.png" width="1000">
 and plug the quadratic expansion directly into PSALTer:
 ```mathematica
 ParticleSpectrum[
