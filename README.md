@@ -1,4 +1,8 @@
 <img src="xAct/PSALTer/Documentation/Logo/GitHubLogo.png" width="1000">
+![license](https://img.shields.io/github/license/wevbarker/PSALTer)
+[![arXiv](https://img.shields.io/badge/arXiv-2311.11790-b31b1b.svg)](https://arxiv.org/abs/2311.11790)
+[![arXiv](https://img.shields.io/badge/arXiv-2402.07641-b31b1b.svg)](https://arxiv.org/abs/2402.07641)
+[![arXiv](https://img.shields.io/badge/arXiv-2402.14917-b31b1b.svg)](https://arxiv.org/abs/2402.14917)
 
 # Particle Spectrum for Any Tensor Lagrangian (_PSALTer_)
 ## Version 1.0.0
@@ -123,7 +127,7 @@ and the arguments and options are as follows:
 - `TheMethod` can be either of the strings `"Easy"` (default) or `"Hard"` (experimental, uses home-brewed implementations of the symbolic Moore-Penrose inverse and other innovations).
 - `MaxLaurentDepth` can be `1`, `2` or `3`. This sets the maximum positive integer $n$ for which the $1/k^{2n}$ null pole residues are requested. The default is `1`, from which the massless spectrum can be obtained. Setting higher $n$ naturally leads to longer runtimes, but also allows potential (pathological) higher-order/non-simple propagator poles to be identified, down to the requested depth.
 
-## Installation
+## Quickstart 
 
 ### Requirements 
 
@@ -134,7 +138,7 @@ _PSALTer_ has the following dependencies:
 - [_RectanglePacking_](https://resources.wolframcloud.com/PacletRepository/resources/JasonB/RectanglePacking/)
 - [_Inkscape_](https://inkscape.org/)
 
-### Install 
+### Installation
 
 1. Make sure you have satisfied all the dependencies.
 2. Download _PSALTer_:
