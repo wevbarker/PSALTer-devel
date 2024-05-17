@@ -87,7 +87,7 @@ The documentation notebook is at `PSALTer/xAct/PSALTer/Documentation/English/Doc
 
 ### Pre-defined geometry
 
-When you first run `<<xAct``PSALTer``` the software pre-defines a flat, Minkowskian manifold with the following ingredients:
+When you first run ``<<xAct`PSALTer``` the software pre-defines a flat, Minkowskian manifold with the following ingredients:
 
 |Wolfram Language|Output format|Meaning|
 |---|---|---|
