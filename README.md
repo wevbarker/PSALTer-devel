@@ -29,23 +29,39 @@ where the ingredients are:
 
 For theories of this form, the _spin-projection operator_ (SPO) algorithm applies and the _PSALTer_ package may be used. Of course, spectra can also be obtained for more exotic theories, but these require the algorithm to be modified beyond its minimal form.
 
-### Example: Melichev-Percacci theory
+### Example: massive gravity 
 
 As a demonstration, let's say our Lagrangian is the Kretschmann curvature scalar, plus the square of the torsion tensor
 ```math
 S_{\text{F}}=\int\mathrm{d}^4x\ \Big[\alpha_1\mathcal{R}^{\mu\nu\sigma\tau}\mathcal{R}_{\mu\nu\sigma\tau}+\beta_1\mathcal{T}^{\mu\nu\sigma}\mathcal{T}_{\mu\nu\sigma}+L_{\text{M}}\Big],
 ```
-where $L_{\text{M}}$ is the matter Lagrangian, and $\alpha_1$ (type `Alp1`) and $\beta_1$ (type `Bet1`) are coupling coefficients. The _free_ theory is the _linearisation_ of this action near Minkowski spacetime. Taking the perturbation of the tetrad field $f_{\mu\nu}$ (type `F[-m,-n]`) to be an _asymmetric_ rank-two tensor, and the perturbation of the independent connection field $A_{\mu\nu\sigma}$ (type `A[-m,-n,-s]`) to be a rank-three tensor _antisymmetric_ in the first two indices, we can expand the theory to quadratic order, with partial derivative `CD[-m]@`. Now in a notebook, load the package:
+where $L_{\text{M}}$ is the matter Lagrangian, and $\alpha_1$ (type `Alp1`) and $\beta_1$ (type `Bet1`) are coupling coefficients. The _free_ theory is the _linearisation_ of this action near Minkowski spacetime. Taking the perturbation of the tetrad field $f_{\mu\nu}$ (type `F[-m,-n]`) to be an _asymmetric_ rank-two tensor, and the perturbation of the independent connection field $A_{\mu\nu\sigma}$ (type `A[-m,-n,-s]`) to be a rank-three tensor _antisymmetric_ in the first two indices, we can expand the theory to quadratic order, with partial derivative `CD[-m]@`.
+
+In a fresh notebook we first load the package:
 ```
 <<xAct`PSALTer`;
 ```
+Next, we define Lagrangian couplings `Coupling1` and `Coupling2` using the command `DefConstantSymbol` from _xAct_:
+```mathematica
+	DefConstantSymbol[Coupling1,PrintAs->"\[Alpha]"];
+	DefConstantSymbol[Coupling2,PrintAs->"\[Beta]"];
+```
+Next, we use the command `DefField` from _PSALTer_ to define a perturbative, symmetric rank-two tensor field `LinearMetric`:
+```mathematica
+	DefField[LinearMetric[-a,-b],Symmetric[{-a,-b}],PrintAs->"\[ScriptH]",PrintSourceAs->"\[ScriptCapitalT]"];
+```
 and plug the quadratic expansion directly into PSALTer:
 ```mathematica
-ParticleSpectrum[
-    Alp1*A[-a,-b,-c]*CD[c]@F[a,b]+<many more terms>,
-    ClassName->"PoincareGaugeTheory",
-    TheoryName->"MelichevPercacciTheory",	
-    Method->"Hard",
+ParticleSpectrum[Coupling1*(
+	(1/2)*CD[-b]@LinearMetric[a,-a]*CD[b]@LinearMetric[c,-c]
+	-CD[a]@LinearMetric[-a,-b]*CD[b]@LinearMetric[c,-c]
+	-(1/2)*CD[-c]@LinearMetric[a,b]*CD[c]@LinearMetric[-a,-b]
+	+CD[-b]@LinearMetric[a,b]*CD[c]@LinearMetric[-a,-c]
+    )+Coupling2*(
+    LinearMetric[-a,-b]*LinearMetric[a,b]
+    -LinearMetric[a,-a]*LinearMetric[b,-b]), 
+    TheoryName->"MassiveGravity",	
+    Method->"Easy",
     MaxLaurentDepth->3
 ];
 ```
@@ -111,10 +127,11 @@ and the arguments and options are as follows:
 ### Requirements 
 
 _PSALTer_ has the following dependencies:
-- [_Linux x86_](https://www.linux.org/) (recommended distributions are [_Manjaro_](https://manjaro.org/), [_Arch_](https://archlinux.org/), [_RockyLinux 8 (RHEL8)_](https://rockylinux.org/), [_CentOS7 (RHEL7)_](https://www.centos.org/))
+- [_Linux x86_](https://www.linux.org/) (recommended distributions are [_Manjaro_](https://manjaro.org/), [_Arch_](https://archlinux.org/), [_RockyLinux 8 (RHEL8)_](https://rockylinux.org/) and [_CentOS7 (RHEL7)_](https://www.centos.org/))
 - [_Mathematica v 14.0.0.0_](https://www.wolfram.com/mathematica/)
 - [_xAct v 1.2.0_](http://www.xact.es/) (required packages are [_xTensor_](http://www.xact.es/xCoba/index.html), [_SymManipulator_](http://www.xact.es/SymManipulator/index.html), [_xPerm_](http://www.xact.es/xPerm/index.html), [_xCore_](http://www.xact.es/xCore/index.html), [_xTras_](http://www.xact.es/xTras/index.html) and [_xCoba_](http://www.xact.es/xCoba/index.html))
 - [_RectanglePacking_](https://resources.wolframcloud.com/PacletRepository/resources/JasonB/RectanglePacking/)
+- [_Inkscape_](https://inkscape.org/)
 
 ### Install 
 

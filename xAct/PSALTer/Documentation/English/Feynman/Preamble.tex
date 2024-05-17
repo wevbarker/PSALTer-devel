@@ -5,13 +5,15 @@
 \usepackage[utf8]{inputenc}
 \usepackage[compat=1.1.0]{tikz-feynman}
 \usetikzlibrary{positioning,arrows.meta}
+\usetikzlibrary{patterns.meta}
 
 \begin{document}
 \tikzfeynmanset{ 
 	blob/.append style={thick,
 		draw=gray!50,
-		pattern color=gray!50,
-		pattern={north east lines},
+		fill=gray!10,
+		%pattern color=gray!50,
+		%pattern={Lines[angle=45,line width=0.8pt]},
 		minimum size=0.6cm},
 	witharrow/.style={
 	   decoration={

@@ -1,19 +1,20 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023/Arch Linux)  (format=lualatex 2024.2.22)  15 MAY 2024 23:58
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024/Arch Linux)  (format=lualatex 2024.5.17)  17 MAY 2024 11:48
  restricted system commands enabled.
 **Even0.tex
 (./Even0.tex
-LaTeX2e <2022-11-01> patch level 1
-Lua module: luaotfload 2022-10-03 3.23 Lua based OpenType font support
-Lua module: lualibs 2022-10-04 2.75 ConTeXt Lua standard libraries.
-Lua module: lualibs-extended 2022-10-04 2.75 ConTeXt Lua libraries -- extended c
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-02-20>
+Lua module: luaotfload 2024-02-14 3.28 Lua based OpenType font support
+Lua module: lualibs 2023-07-13 2.76 ConTeXt Lua standard libraries.
+Lua module: lualibs-extended 2023-07-13 2.76 ConTeXt Lua libraries -- extended c
 ollection.
 luaotfload | conf : Root cache directory is "/home/williamb/.texlive/texmf-var/l
 uatex-cache/generic/names".
-luaotfload | init : Loading fontloader "fontloader-2022-10-03.lua" from kpse-res
-olved path "/usr/share/texmf-dist/tex/luatex/luaotfload/fontloader-2022-10-03.lu
+luaotfload | init : Loading fontloader "fontloader-2023-12-28.lua" from kpse-res
+olved path "/usr/share/texmf-dist/tex/luatex/luaotfload/fontloader-2023-12-28.lu
 a".
 Lua-only attribute luaotfload@noligature = 1
-luaotfload | init : Context OpenType loader version 3.120
+luaotfload | init : Context OpenType loader version 3.134
 Inserting `luaotfload.node_processor' in `pre_linebreak_filter'.
 Inserting `luaotfload.node_processor' in `hpack_filter'.
 Inserting `luaotfload.glyph_stream' in `glyph_stream_provider'.
@@ -37,14 +38,13 @@ Inserting `luaotfload.aux.patch_cambria_domh' in `luaotfload.patch_font'.
 Inserting `luaotfload.aux.fixup_fontdata' in `luaotfload.patch_font_unsafe'.
 Inserting `luaotfload.aux.set_capheight' in `luaotfload.patch_font'.
 Inserting `luaotfload.aux.set_xheight' in `luaotfload.patch_font'.
-Inserting `luaotfload.rewrite_fontname' in `luaotfload.patch_font'. L3 programm
-ing layer <2023-02-22>
-Inserting `tracingstacklevels' in `input_level_string'.
-(/usr/share/texmf-dist/tex/latex/standalone/standalone.cls
+Inserting `luaotfload.rewrite_fontname' in `luaotfload.patch_font'.
+Inserting `tracingstacklevels' in `input_level_string'. (/usr/share/texmf-dist/
+tex/latex/standalone/standalone.cls
 Document Class: standalone 2022/10/10 v1.3b Class to compile TeX sub-files stan
 dalone
 (/usr/share/texmf-dist/tex/latex/tools/shellesc.sty
-Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
+Package: shellesc 2023/07/08 v1.0d unified shell escape interface for LaTeX
 Package shellesc Info: Restricted shell escape enabled on input line 77.
 )
 (/usr/share/texmf-dist/tex/generic/iftex/ifluatex.sty
@@ -58,34 +58,34 @@ Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
 
 (/usr/share/texmf-dist/tex/generic/xkeyval/xkeyval.tex
 (/usr/share/texmf-dist/tex/generic/xkeyval/xkvutils.tex
-\XKV@toks=\toks16
-\XKV@tempa@toks=\toks17
+\XKV@toks=\toks17
+\XKV@tempa@toks=\toks18
 
 (/usr/share/texmf-dist/tex/generic/xkeyval/keyval.tex))
-\XKV@depth=\count183
+\XKV@depth=\count186
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
-\sa@internal=\count184
-\c@sapage=\count185
+\sa@internal=\count187
+\c@sapage=\count188
 
 (/usr/share/texmf-dist/tex/latex/standalone/standalone.cfg
 File: standalone.cfg 2022/10/10 v1.3b Default configuration file for 'standalon
 e' class
 )
 (/usr/share/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
+Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
 (/usr/share/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
+File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 luaotfload | db : Font names database loaded from /home/williamb/.texlive/texmf-
 var/luatex-cache/generic/names/luaotfload-names.luc.gz)
-\c@part=\count186
-\c@section=\count187
-\c@subsection=\count188
-\c@subsubsection=\count189
-\c@paragraph=\count190
-\c@subparagraph=\count191
-\c@figure=\count192
-\c@table=\count193
+\c@part=\count189
+\c@section=\count190
+\c@subsection=\count191
+\c@subsubsection=\count192
+\c@paragraph=\count193
+\c@subparagraph=\count194
+\c@figure=\count195
+\c@table=\count196
 \abovecaptionskip=\skip48
 \belowcaptionskip=\skip49
 \bibindent=\dimen139
@@ -101,18 +101,18 @@ Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
 (/usr/share/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
-Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-\pdftexcmds@toks=\toks18
+\pdftexcmds@toks=\toks19
 )
 (/usr/share/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
 (/usr/share/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
 (/usr/share/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
 (/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks19
+\pgfutil@everybye=\toks20
 \pgfutil@tempdima=\dimen140
 \pgfutil@tempdimb=\dimen141
 )
@@ -151,12 +151,12 @@ File: luatex.def 2022/09/22 v1.2d Graphics/color driver for luatex
 Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
 
 (/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks20
-\pgfkeys@temptoks=\toks21
+\pgfkeys@pathtoks=\toks21
+\pgfkeys@temptoks=\toks22
 
 (/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.te
 x
-\pgfkeys@tmptoks=\toks22
+\pgfkeys@tmptoks=\toks23
 ))
 \pgf@x=\dimen144
 \pgf@y=\dimen145
@@ -170,14 +170,14 @@ x
 \pgf@yd=\dimen153
 \w@pgf@writea=\write3
 \r@pgf@reada=\read2
-\c@pgf@counta=\count194
-\c@pgf@countb=\count195
-\c@pgf@countc=\count196
-\c@pgf@countd=\count197
-\t@pgf@toka=\toks23
-\t@pgf@tokb=\toks24
-\t@pgf@tokc=\toks25
-\pgf@sys@id@count=\count198
+\c@pgf@counta=\count197
+\c@pgf@countb=\count198
+\c@pgf@countc=\count199
+\c@pgf@countd=\count266
+\t@pgf@toka=\toks24
+\t@pgf@tokb=\toks25
+\t@pgf@tokc=\toks26
+\pgf@sys@id@count=\count267
  (/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
 )
@@ -191,30 +191,30 @@ File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
 )))
 (/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfsyssoftpath@smallbuffer@items=\count199
-\pgfsyssoftpath@bigbuffer@items=\count266
+\pgfsyssoftpath@smallbuffer@items=\count268
+\pgfsyssoftpath@bigbuffer@items=\count269
 )
 (/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ))
 (/usr/share/texmf-dist/tex/latex/xcolor/xcolor.sty
-Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
+Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
 
 (/usr/share/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package xcolor Info: Driver file: luatex.def on input line 227.
+Package xcolor Info: Driver file: luatex.def on input line 274.
 
 (/usr/share/texmf-dist/tex/latex/graphics/mathcolor.ltx)
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1357.
-Package xcolor Info: Model `RGB' extended on input line 1369.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1371.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1372.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1373.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1354.
+Package xcolor Info: Model `RGB' extended on input line 1366.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1368.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
 )
 (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
 Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
@@ -223,11 +223,11 @@ Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
 (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen154
-\pgfmath@count=\count267
+\pgfmath@count=\count270
 \pgfmath@box=\box52
-\pgfmath@toks=\toks26
-\pgfmath@stack@operand=\toks27
-\pgfmath@stack@operation=\toks28
+\pgfmath@toks=\toks27
+\pgfmath@stack@operand=\toks28
+\pgfmath@stack@operation=\toks29
 )
 (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex)
 (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex)
@@ -241,7 +241,7 @@ x) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex)
 (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics
 .code.tex) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)
 (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count268
+\c@pgfmathroundto@lastzeros=\count271
 ))
 (/usr/share/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
 (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
@@ -275,7 +275,7 @@ File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfpic=\box53
 \pgf@hbox=\box54
 \pgf@layerbox@main=\box55
-\pgf@picture@serial@count=\count269
+\pgf@picture@serial@count=\count272
 )
 (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -303,8 +303,8 @@ File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@max=\dimen178
-\pgf@sys@shading@range@num=\count270
-\pgf@shadingcount=\count271
+\pgf@sys@shading@range@num=\count273
+\pgf@shadingcount=\count274
 )
 (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -348,8 +348,8 @@ Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
 Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
 \pgffor@iter=\dimen181
 \pgffor@skip=\dimen182
-\pgffor@stack=\toks29
-\pgffor@toks=\toks30
+\pgffor@stack=\toks30
+\pgffor@toks=\toks31
 ))
 (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2023-01-15 v3.1.10 (3.1.10)
@@ -357,7 +357,7 @@ Package: tikz 2023-01-15 v3.1.10 (3.1.10)
 (/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.te
 x
 File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@plot@mark@count=\count272
+\pgf@plot@mark@count=\count275
 \pgfplotmarksize=\dimen183
 )
 \tikz@lastx=\dimen184
@@ -372,17 +372,17 @@ File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \tikz@figbox@bg=\box59
 \tikz@tempbox=\box60
 \tikz@tempbox@bg=\box61
-\tikztreelevel=\count273
-\tikznumberofchildren=\count274
-\tikznumberofcurrentchild=\count275
-\tikz@fig@count=\count276
+\tikztreelevel=\count276
+\tikznumberofchildren=\count277
+\tikznumberofcurrentchild=\count278
+\tikz@fig@count=\count279
  (/usr/share/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfmatrixcurrentrow=\count277
-\pgfmatrixcurrentcolumn=\count278
-\pgf@matrix@numberofcolumns=\count279
+\pgfmatrixcurrentrow=\count280
+\pgfmatrixcurrentcolumn=\count281
+\pgf@matrix@numberofcolumns=\count282
 )
-\tikz@expandcount=\count280
+\tikz@expandcount=\count283
 
 (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
 topaths.code.tex
@@ -392,8 +392,8 @@ File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (./Preamble.tex
 (/usr/share/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
-\inpenc@prehook=\toks31
-\inpenc@posthook=\toks32
+\inpenc@prehook=\toks32
+\inpenc@posthook=\toks33
 
 
 Package inputenc Warning: inputenc package ignored with utf8 based engines.
@@ -403,8 +403,8 @@ Package: tikz-feynman 2016/02/05v1.1.0Feynman diagrams with TikZ
 
 (/usr/share/texmf-dist/tex/latex/pgfopts/pgfopts.sty
 Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
-\pgfopts@list@add@a@toks=\toks33
-\pgfopts@list@add@b@toks=\toks34
+\pgfopts@list@add@a@toks=\toks34
+\pgfopts@list@add@b@toks=\toks35
 )
 (/usr/share/texmf-dist/tex/latex/tikz-feynman/tikzlibraryfeynman.code.tex
 (/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
@@ -426,7 +426,7 @@ decorations.code.tex
 \pgfdecoratedinputsegmentcompleteddistance=\dimen198
 \pgfdecoratedinputsegmentremainingdistance=\dimen199
 \pgf@decorate@distancetomove=\dimen256
-\pgf@decorate@repeatstate=\count281
+\pgf@decorate@repeatstate=\count284
 \pgfdecorationsegmentamplitude=\dimen257
 \pgfdecorationsegmentlength=\dimen258
 )
@@ -447,8 +447,8 @@ ons.pathreplacing.code.tex))
 (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/graphs/tikz
 librarygraphs.code.tex
 File: tikzlibrarygraphs.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\tikz@lib@auto@number=\count282
-\tikz@qnode@count=\count283
+\tikz@lib@auto@number=\count285
+\tikz@qnode@count=\count286
 )
 (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
 patterns.code.tex
@@ -476,56 +476,60 @@ File: tikzlibrarygraphdrawing.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (/usr/share/texmf-dist/tex/generic/pgf/graphdrawing/tex/pgflibrarygraphdrawing.
 code.tex
 File: pgflibrarygraphdrawing.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@gd@parameter@stack@height=\count284
+\pgf@gd@parameter@stack@height=\count287
 \pgf@gd@node@box=\box64
 \pgf@gd@edge@box=\box65
 \pgf@gd@prekind@box=\box66
 \pgf@gd@postkind@box=\box67
 ))
 (/usr/share/texmf-dist/tex/latex/tikz-feynman/tikzfeynman.keys.code.tex)))
-(/usr/share/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
-File: l3backend-luatex.def 2023-01-16 L3 backend support: PDF output (LuaTeX)
-\l__color_backend_stack_int=\count285
+(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
+patterns.meta.code.tex
+(/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibrarypatterns.meta.code.t
+ex)) (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
+File: l3backend-luatex.def 2024-02-20 L3 backend support: PDF output (LuaTeX)
+\l__color_backend_stack_int=\count288
+Inserting `l3color' in `luaotfload.parse_color'.
 \l__pdf_internal_box=\box68
-) (./Even0.aux)
+)
+(./Even0.aux)
 \openout1 = Even0.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 9.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 9
-.
-
-(/usr/share/texmf-dist/tex/latex/base/ts1cmr.fd
-File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 10.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 1
+0.
+ (/usr/share/texmf-dist/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count286
+\scratchcounter=\count289
 \scratchdimen=\dimen259
 \scratchbox=\box69
-\nofMPsegments=\count287
-\nofMParguments=\count288
-\everyMPshowfont=\toks35
-\MPscratchCnt=\count289
+\nofMPsegments=\count290
+\nofMParguments=\count291
+\everyMPshowfont=\toks36
+\MPscratchCnt=\count292
 \MPscratchDim=\dimen260
-\MPnumerator=\count290
-\makeMPintoPDFobject=\count291
-\everyMPtoPDFconversion=\toks36
+\MPnumerator=\count293
+\makeMPintoPDFobject=\count294
+\everyMPtoPDFconversion=\toks37
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -541,27 +545,32 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 16.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./Even0.aux))
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./Even0.aux)
+ ***********
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-02-20>
+ ***********
+)
 
 Here is how much of LuaTeX's memory you used:
- 17237 strings out of 478285
+ 17158 strings out of 476447
  125016,1977958 words of node,token memory allocated
  413 words of node memory still in use:
    3 hlist, 1 vlist, 1 rule, 2 glue, 3 kern, 1 glyph, 5 attribute, 48 glue_spec,
  5 attribute_list, 2 write nodes
    avail lists: 1:9,2:1565,3:864,4:178,5:28,6:2,7:2096,8:12,9:414
- 36756 multiletter control sequences out of 65536+600000
+ 38715 multiletter control sequences out of 65536+600000
  24 fonts using 1422063 bytes
- 115i,12n,111p,481b,1439s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 117i,12n,114p,481b,1439s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/shar
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.
 pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb>
-Output written on Even0.pdf (1 page, 41642 bytes).
+Output written on Even0.pdf (1 page, 41320 bytes).
 
-PDF statistics: 40 PDF objects out of 1000 (max. 8388607)
+PDF statistics: 39 PDF objects out of 1000 (max. 8388607)
  26 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
- 26 words of extra memory for PDF output out of 10000 (max. 100000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 100000000)
 

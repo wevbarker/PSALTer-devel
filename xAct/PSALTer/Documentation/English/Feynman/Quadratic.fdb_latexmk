@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1715813928 "Quadratic.tex" "Quadratic.pdf" "Quadratic" 1715813929 0
+["pdflatex"] 1715905420 "Quadratic.tex" "Quadratic.pdf" "Quadratic" 1715905422 0
   "/home/williamb/.texlive/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-regular.luc" 1708288315 127314 bd974006b1a2c5a606f48a85e2df1fa0 ""
   "/home/williamb/.texlive/texmf-var/luatex-cache/generic/fonts/otl/lmroman5-regular.luc" 1715809457 125954 8604b5c10ccdecd09af64bbad038d00e ""
   "/home/williamb/.texlive/texmf-var/luatex-cache/generic/names/luaotfload-names.luc.gz" 1686949093 408337 77855d5349ea6af5bd114bb0d53b2231 ""
@@ -43,6 +43,7 @@
   "/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex" 1704400182 321 cdd11262840e01e25374a2d458f15e99 ""
   "/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex" 1704400182 1319 0b2de5126c6cbc295f0eb77f7344b34d ""
   "/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypatterns.code.tex" 1704400182 770 82e332cc9cc48e06b8070d74393a185a ""
+  "/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypatterns.meta.code.tex" 1704400182 3036 674fecad0a872f955e3a17a315c67783 ""
   "/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex" 1704400182 3937 3f208572dd82c71103831da976d74f1a ""
   "/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.geometric.code.tex" 1704400182 339 be0fe46d92a80e3385dd6a83511a46f2 ""
   "/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex" 1704400182 11518 738408f795261b70ce8dd47459171309 ""
@@ -147,6 +148,7 @@
   "/usr/share/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex" 1704400182 7474 f05a7223b140f230922562ac6a9fede5 ""
   "/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex" 1704400182 58801 1e750fb0692eb99aaac45698bbec96b1 ""
   "/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibrarypatterns.code.tex" 1704400182 7936 49e55444d57eb69a380c6baa35094828 ""
+  "/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibrarypatterns.meta.code.tex" 1704400182 15474 b617114c75a45c2061a2d249f54a2d3e ""
   "/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex" 1704400182 32995 ac577023e12c0e4bd8aa420b2e852d1a ""
   "/usr/share/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.geometric.code.tex" 1704400182 161011 76ab54df0aa1a9d3b27a94864771d38d ""
   "/usr/share/texmf-dist/tex/generic/pgf/math/pgfint.code.tex" 1704400182 3063 8c415c68a0f3394e45cfeca0b65f6ee6 ""
@@ -270,9 +272,9 @@
   "/usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload.lua" 1704400182 13565 83bac25a8cf8630acccd6a7f8bb9f791 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1708641927 4482925 a1a254cacf5c7108f7b28226c8f3b19f ""
   "/var/lib/texmf/web2c/luahbtex/lualatex.fmt" 1708641919 11875097 10a6d68f2d4cc7488a4870bb8ad8d034 ""
-  "Preamble.tex" 1715813913 861 9c14c614fe2a2ae6d3799aad89dc037d ""
-  "Quadratic.aux" 1715813929 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
-  "Quadratic.tex" 1715812438 482 6e0f266bc1cd2491b08b6be4067dc2b4 ""
+  "Preamble.tex" 1715905419 926 7f6948e661a2900d66abc2aea7447c78 ""
+  "Quadratic.aux" 1715905422 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "Quadratic.tex" 1715904015 482 6e0f266bc1cd2491b08b6be4067dc2b4 ""
   (generated)
   "Quadratic.aux"
   "Quadratic.log"

@@ -18,10 +18,10 @@ Chapter@"Science applications";
 (*
 Get@FileNameJoin@{$ThisDirectory,"Documentation","ScalarTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","VectorTheory.m"};
-*)
 Get@FileNameJoin@{$ThisDirectory,"Documentation","AntisymmetricTensorTheory.m"};
-(*
+*)
 Get@FileNameJoin@{$ThisDirectory,"Documentation","TensorTheory.m"};
+(*
 Get@FileNameJoin@{$ThisDirectory,"Documentation","AsymmetricTensorTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","ScalarTensorTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","BiScalarVectorTensorTheory.m"};

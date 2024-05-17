@@ -15,29 +15,31 @@
   <defs
      id="defs1">
     <pattern
+       patternTransform="matrix(0.7071,0.7071,-0.7071,0.7071,0,0)"
        patternUnits="userSpaceOnUse"
        x="0"
        y="0"
-       width="4.98138"
-       height="4.98138"
+       width="2.98884"
+       height="2.98884"
        id="pattern25">
       <path
-         d="M 0,0 3.08846,3.08846"
-         style="fill:none;stroke:#bfbfbf;stroke-opacity:1;stroke-width:0.3985;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none"
-         transform="translate(0.99628,0.99628)"
+         d="M -1.49442,0 1.49442,0"
+         style="fill:none;stroke:#bfbfbf;stroke-opacity:1;stroke-width:0.79701;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none"
+         transform="translate(1.49442,1.49442)"
          id="path25" />
     </pattern>
     <pattern
+       patternTransform="matrix(0.7071,0.7071,-0.7071,0.7071,0,0)"
        patternUnits="userSpaceOnUse"
        x="0"
        y="0"
-       width="4.98138"
-       height="4.98138"
+       width="2.98884"
+       height="2.98884"
        id="pattern28">
       <path
-         d="M 0,0 3.08846,3.08846"
-         style="fill:none;stroke:#bfbfbf;stroke-opacity:1;stroke-width:0.3985;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none"
-         transform="translate(0.99628,0.99628)"
+         d="M -1.49442,0 1.49442,0"
+         style="fill:none;stroke:#bfbfbf;stroke-opacity:1;stroke-width:0.79701;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none"
+         transform="translate(1.49442,1.49442)"
          id="path28" />
     </pattern>
   </defs>
