@@ -87,13 +87,13 @@ The documentation notebook is at `PSALTer/xAct/PSALTer/Documentation/English/Doc
 
 ### Pre-defined geometry
 
-_PSALTer_ pre-defines a flat, Minkowskian manifold with the following ingredients:
+When you first run `<<xAct`PSALTer`` the software pre-defines a flat, Minkowskian manifold with the following ingredients:
 
-|Object|LaTeX|
-|---|---|
-|`a`, `b`, `c`, ... `z`|$\alpha$, $\beta$, $\gamma$, ... $\zeta$|
-|`G[-m,-n]`|$\eta_{\mu\nu}$|
-|`CD[-m]@`|$\partial_{\mu}$|
+|Wolfram Language|Output format|Meaning|
+|---|---|---|
+|`a`, `b`, `c`, ..., `z`|$\alpha$, $\beta$, $\gamma$, ... $\zeta$|Cartesian coordinate indices|
+|`G[-m,-n]`|$\eta_{\mu\nu}$|Minkowski metric|
+|`CD[-m]@`|$\partial_{\mu}$|Partial derivative|
 
 ### Provided functions 
 
