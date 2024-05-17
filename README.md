@@ -55,7 +55,10 @@ DefField[
     PrintSourceAs->"\[ScriptCapitalT]"
 ];
 ```
+The output should look like:
+
 <img src="xAct/PSALTer/Documentation/Logo/FieldKinematics.png" width="1000">
+
 and plug the quadratic expansion directly into PSALTer:
 ```mathematica
 ParticleSpectrum[
@@ -72,7 +75,7 @@ ParticleSpectrum[
     MaxLaurentDepth->3
 ];
 ```
-and execute the cell. The output should resemble:
+and execute the cell. The output should look like:
 
 <img src="xAct/PSALTer/Documentation/Logo/ParticleSpectrograph.png" width="1000">
 
