@@ -41,12 +41,12 @@ In a fresh notebook we first load the package:
 ```
 <<xAct`PSALTer`;
 ```
-Next, we define Lagrangian couplings `Coupling1` and `Coupling2` using the command `DefConstantSymbol` from _xAct_:
+Next, we define Lagrangian couplings $\alpha_1$ and $\alpha_2$ as `Coupling1` and `Coupling2` using the command `DefConstantSymbol` from _xAct_:
 ```mathematica
 DefConstantSymbol[Coupling1,PrintAs->"\[Alpha]"];
 DefConstantSymbol[Coupling2,PrintAs->"\[Beta]"];
 ```
-Next, we use the command `DefField` from _PSALTer_ to define a perturbative, symmetric rank-two tensor field `LinearMetric`:
+Next, we use the command `DefField` from _PSALTer_ to define the metric perturbation $h_{\mu\nu}$ as the symmetric, rank-two tensor field `LinearMetric`:
 ```mathematica
 DefField[
     LinearMetric[-a,-b],
