@@ -33,7 +33,7 @@ For theories of this form, the _spin-projection operator_ (SPO) algorithm applie
 
 As a demonstration, let's say our Lagrangian is the Kretschmann curvature scalar, plus the square of the torsion tensor
 ```math
-S_{\text{F}}=\int\mathrm{d}^4x\ \Big[\alpha_1\mathcal{R}^{\mu\nu\sigma\tau}\mathcal{R}_{\mu\nu\sigma\tau}+\beta_1\mathcal{T}^{\mu\nu\sigma}\mathcal{T}_{\mu\nu\sigma}+L_{\text{M}}\Big],
+S_{\text{F}}=\int\mathrm{d}^4x\ \Big[\alpha+\beta\big(h^{\mu\nu}h_{\mu\nu}-h^2\big)+h^{\mu\nu}T_{\mu\nu}\Big],
 ```
 where $L_{\text{M}}$ is the matter Lagrangian, and $\alpha_1$ (type `Alp1`) and $\beta_1$ (type `Bet1`) are coupling coefficients. The _free_ theory is the _linearisation_ of this action near Minkowski spacetime. Taking the perturbation of the tetrad field $f_{\mu\nu}$ (type `F[-m,-n]`) to be an _asymmetric_ rank-two tensor, and the perturbation of the independent connection field $A_{\mu\nu\sigma}$ (type `A[-m,-n,-s]`) to be a rank-three tensor _antisymmetric_ in the first two indices, we can expand the theory to quadratic order, with partial derivative `CD[-m]@`.
 
@@ -78,6 +78,10 @@ ParticleSpectrum[
 The output should look like:
 
 <img src="xAct/PSALTer/Documentation/Logo/ParticleSpectrograph.png" width="1000">
+
+### Further examples 
+
+Many further examples can be found in the documentation notebook at `PSALTer/xAct/PSALTer/Documentation/English/Documentation.nb`.
 
 ### General use 
 
@@ -146,9 +150,6 @@ _PSALTer_ has the following dependencies:
 	```bash
 	cp -r ./xAct/PSALTer /usr/share/Mathematica/Applications/xAct/
 	```
-## Quickstart 
-
-1. Open the example notebook at `PSALTer/xAct/PSALTer/Documentation/English/Documentation.nb`, scroll through *without running* to understand the capabilities and scope of _PSALTer_.
 
 ## Contribute
 
