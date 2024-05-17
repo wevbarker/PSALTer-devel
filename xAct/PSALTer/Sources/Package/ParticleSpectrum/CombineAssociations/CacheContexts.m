@@ -15,13 +15,22 @@ CacheContexts[]:=Module[{NewContextList=$AllFieldContexts~Join~{
 
 	Diagnostic@NewContextList;
 
-	LocalSummaryOfTheory=" ** LaunchKernels...";
-	CloseKernels[];
-	Off[LaunchKernels::nodef];
-	LaunchKernels[];	
-	On[LaunchKernels::nodef];
+	$KernelsLaunched=False;
+	While[!$KernelsLaunched,
+		TimeConstrained[
+			LocalSummaryOfTheory=" ** LaunchKernels...";
+			CloseKernels[];
+			Off[LaunchKernels::nodef];
+			LaunchKernels[];	
+			On[LaunchKernels::nodef];
 
-	LocalSummaryOfTheory=" ** Get...";
-	LoadContexts=({$WorkingDirectory,NewContextList}~PSALTerParallelSubmit~(Off@(RuleDelayed::rhs);Get@FileNameJoin@{$WorkingDirectory,"tmp",#<>".mx"}&/@NewContextList;On@(RuleDelayed::rhs);))~Table~{TheKernel,$KernelCount};	
-	LoadContexts//=MonitorParallel;	
+			LocalSummaryOfTheory=" ** Get...";
+			LoadContexts=({$WorkingDirectory,NewContextList}~PSALTerParallelSubmit~(Off@(RuleDelayed::rhs);Get@FileNameJoin@{$WorkingDirectory,"tmp",#<>".mx"}&/@NewContextList;On@(RuleDelayed::rhs);))~Table~{TheKernel,$KernelCount};	
+			LoadContexts//=MonitorParallel;	
+			$KernelsLaunched=True;
+		,
+			120
+		];
+	];
+
 ];

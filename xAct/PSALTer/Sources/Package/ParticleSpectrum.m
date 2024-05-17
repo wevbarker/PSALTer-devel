@@ -205,7 +205,6 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=If[
 					SourceConstraintComponents,
 					ConstraintComponentList,
 					ExportTheory->False];
-(*
 		ConstructUnitarityConditions[
 					"xAct`PSALTer`Private`ClassName",
 					MassiveAnalysis,
@@ -213,7 +212,6 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=If[
 					MasslessAnalysisValue,
 					QuarticAnalysisValue,
 					HexicAnalysisValue];
-*)
 		UpdateTheoryAssociation[
 					OptionValue@TheoryName,
 					PositiveSystem,

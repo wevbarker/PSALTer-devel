@@ -7,8 +7,8 @@ ConstructUnitarityConditions[ClassName_?StringQ,MassiveAnalysis_,MassiveGhostAna
 	Class,
 	PositiveSystem=Join[MassiveAnalysis,MassiveGhostAnalysis,MasslessAnalysisValue],
 	PathologicalSystem=Join[QuarticAnalysisValue,HexicAnalysisValue],
-	CouplingAssumptionsg
-gUnitarityTime=10
+	CouplingAssumptions,
+	UnitarityTime=60
 	},
 
 	LocalOverallUnitarity=" ** ConstructUnitarityConditions...";
@@ -30,10 +30,10 @@ gUnitarityTime=10
 	Diagnostic@PositiveSystem;
 	PositiveSystem=(#>0)&/@PositiveSystem;
 	Diagnostic@PositiveSystem;
-
 	PositiveSystem=PositiveSystem~Join~PathologicalSystem;
-
+	Diagnostic@PositiveSystem;
 	PositiveSystem=PositiveSystem/.{Mo->1,En->1,Def->1};	
+	Diagnostic@PositiveSystem;
 
 	If[LeafCount@MasslessAnalysisValue>=5000,
 		LocalOverallUnitarity=Text@"(Hidden for brevity)";
@@ -41,7 +41,16 @@ gUnitarityTime=10
 
 		TimeConstrained[
 		(
-			PositiveSystem//=Assuming[CouplingAssumptions,Reduce[#,Couplings,Reals]]&;
+			Diagnostic@PositiveSystem;
+			Diagnostic@CouplingAssumptions;
+			Diagnostic@Couplings;
+			(*PositiveSystem=Reduce[PositiveSystem,Couplings,Reals];*)
+(**)
+			Off@PrintAsCharacter::argx;
+			PositiveSystem=Assuming[CouplingAssumptions,
+					Reduce[PositiveSystem,Couplings,Reals]];
+			On@PrintAsCharacter::argx;
+			(**)
 			Diagnostic@PositiveSystem;
 (*
 			PositiveSystem//=LogicalExpand;

@@ -8,13 +8,19 @@ BuildPackage@"ParticleSpectrum/SummariseResults/PrintSpectrum/StripFactors.m";
 BuildPackage@"ParticleSpectrum/SummariseResults/PrintSpectrum/PrintMasslessSpectrum.m";
 BuildPackage@"ParticleSpectrum/SummariseResults/PrintSpectrum/PrintSecularEquation.m";
 
+PrintSpectrumMassive[Args___]:=PrintSpectrum[Args,ShellType->Massive];
+PrintSpectrumMassless[Args___]:=PrintSpectrum[Args,ShellType->Massless];
+
+Options@PrintSpectrum={ShellType->Massive};
+
 PrintSpectrum[
 		SquareMasses_,
 		MassivePropagatorResidues_,
 		MasslessEigenvalues_,
 		QuarticAnalysisValue_,
 		HexicAnalysisValue_,
-		SecularEquation_]:=Module[{ContentList},
+		SecularEquation_,
+		OptionsPattern[]]:=Module[{ContentList},
 	ContentList=(
 		(MapThread[If[!(#1==={}),
 					PrintParticle[First@#1,First@#2,#4,#3,2*#4+1],
@@ -33,11 +39,8 @@ PrintSpectrum[
 			(PrintSecularEquation/@SecularEquation)*)
 		]
 	);
-(*
-	If[!(ContentList=={}),
-		ContentList//=Grid[Partition[#,UpTo@2],Alignment->{Left,Top}]&;,
-		ContentList=DetailCell@Text@"(No particles)";
-	];
-*)
-	If[ContentList=={},ContentList=DetailCell@Text@"(No particles)"];
+	If[ContentList=={}&&(OptionValue@ShellType===Massless),
+		ContentList=DetailCell@Text@"(No massless particles)"];
+	If[ContentList=={}&&(OptionValue@ShellType===Massive),
+		ContentList=DetailCell@Text@"(No massive particles)"];
 ContentList];

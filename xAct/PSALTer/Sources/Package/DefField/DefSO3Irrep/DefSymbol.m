@@ -21,6 +21,8 @@ DefSymbol[TensorSymbol_,OptionsPattern[]]:=Module[{
 	ParitySymbol=ParitySymbols@(OptionValue@Parity);
 	SpinSymbol=ToString@(OptionValue@Spin);
 
-	IrrepSymbol="\!\(\*OverscriptBox[SuperscriptBox[\("<>SpinSymbol<>"\), \("<>ParitySymbol<>"\)],\(#"<>ToString@OptionValue@Duplicate<>"\)]\)";
-	FullSymbol=ColorString[IrrepSymbol,$IrrepColour]~StringJoin~ColorString[TensorSymbol,$TensorColour];
+	(*IrrepSymbol="\!\(\*OverscriptBox[SuperscriptBox[\("<>SpinSymbol<>"\), \("<>ParitySymbol<>"\)],\(#"<>ToString@OptionValue@Duplicate<>"\)]\)";*)
+	(*FullSymbol=ColorString[IrrepSymbol,$IrrepColour]~StringJoin~ColorString[TensorSymbol,$TensorColour];*)
+	(*FullSymbol=ColorString[IrrepSymbol,$IrrepColour]~StringJoin~ColorString[TensorSymbol,$TensorColour];*)
+	FullSymbol="\!\(\*SubsuperscriptBox["<>TensorSymbol<>",SuperscriptBox[\("<>SpinSymbol<>"\), \("<>ParitySymbol<>"\)],\(#"<>ToString@OptionValue@Duplicate<>"\)]\)";
 FullSymbol];
