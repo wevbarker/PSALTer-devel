@@ -41,7 +41,7 @@ In a fresh notebook we first load the package:
 ```
 <<xAct`PSALTer`;
 ```
-Next, we define Lagrangian couplings $\alpha_1$ and $\alpha_2$ as `Coupling1` and `Coupling2` using the command `DefConstantSymbol` from _xAct_:
+Next, we define Lagrangian couplings $\alpha$ and $\beta$ as `Coupling1` and `Coupling2` using the command `DefConstantSymbol` from _xAct_:
 ```mathematica
 DefConstantSymbol[Coupling1,PrintAs->"\[Alpha]"];
 DefConstantSymbol[Coupling2,PrintAs->"\[Beta]"];
