@@ -43,16 +43,22 @@ In a fresh notebook we first load the package:
 ```
 Next, we define Lagrangian couplings `Coupling1` and `Coupling2` using the command `DefConstantSymbol` from _xAct_:
 ```mathematica
-	DefConstantSymbol[Coupling1,PrintAs->"\[Alpha]"];
-	DefConstantSymbol[Coupling2,PrintAs->"\[Beta]"];
+DefConstantSymbol[Coupling1,PrintAs->"\[Alpha]"];
+DefConstantSymbol[Coupling2,PrintAs->"\[Beta]"];
 ```
 Next, we use the command `DefField` from _PSALTer_ to define a perturbative, symmetric rank-two tensor field `LinearMetric`:
 ```mathematica
-	DefField[LinearMetric[-a,-b],Symmetric[{-a,-b}],PrintAs->"\[ScriptH]",PrintSourceAs->"\[ScriptCapitalT]"];
+DefField[
+    LinearMetric[-a,-b],
+    Symmetric[{-a,-b}],
+    PrintAs->"\[ScriptH]",
+    PrintSourceAs->"\[ScriptCapitalT]"
+];
 ```
 and plug the quadratic expansion directly into PSALTer:
 ```mathematica
-ParticleSpectrum[Coupling1*(
+ParticleSpectrum[
+    Coupling1*(
 	(1/2)*CD[-b]@LinearMetric[a,-a]*CD[b]@LinearMetric[c,-c]
 	-CD[a]@LinearMetric[-a,-b]*CD[b]@LinearMetric[c,-c]
 	-(1/2)*CD[-c]@LinearMetric[a,b]*CD[c]@LinearMetric[-a,-b]
@@ -65,9 +71,9 @@ ParticleSpectrum[Coupling1*(
     MaxLaurentDepth->3
 ];
 ```
-and execute the cell. Ten minutes later, and voilà:
+and execute the cell. The output should resemble:
 
-<img src="xAct/PSALTer/Documentation/English/MelichevPercacciTheory.png" width="1000">
+<img src="xAct/PSALTer/Documentation/Logo/ParticleSpectrograph.png" width="1000">
 
 To summarise the physical information that is automatically computed:
 - *PSALTer results pannel:* The free action is quoted back to you.
