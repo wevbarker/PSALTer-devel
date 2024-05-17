@@ -8,7 +8,7 @@
 
 ## License
 
-Copyright © 2022 Will Barker, Stephanie Buttigieg, Carlo Marzo, Cillian Rew, Claire Rigouzzo, Zhiyuan Wei, David Yallup and Haoyang Ye
+Copyright © 2022 Will Barker, Stephanie Buttigieg, Carlo Marzo, Cillian Rew, Claire Rigouzzo, Zhiyuan Wei, David Yallup and Haoyang Ye.
 
 _PSALTer_ is distributed as free software under the [GNU General Public License (GPL)](https://www.gnu.org/licenses/gpl-3.0.en.html).
 
@@ -24,8 +24,6 @@ where the ingredients are:
 - The dynamical fields $\zeta(x)$ are real tensors, which may be a collection of distinct fields, each field having some collection of spacetime indices ($\mu$, $\nu$, etc.), perhaps with some symmetry among the indices. 
 - The wave operator $\mathcal{O}(x)$ is a real, second-order (Ostrogradsky's theorem discourages higher-derivative operators, but even if it did not we note that the apparent order may always be lowered by the introduction of extra fields) differential operator constructed from the flat-space metric $\eta_{\mu\nu}$ and partial derivative $\partial_\mu$ (but _not_ the totally antisymmetric $\epsilon^{\mu\nu\sigma\lambda}$ tensor), linearly parameterised by a collection of coupling coefficients.
 - The source currents $j(x)$ are conjugate to the fields $\zeta(x)$. They encode all external interactions to second order in fields, whilst keeping the external dynamics completely anonymous.
-
-For theories of this form, the _spin-projection operator_ (SPO) algorithm applies and the _PSALTer_ package may be used. Of course, spectra can also be obtained for more exotic theories, but these require the algorithm to be modified beyond its minimal form.
 
 ### Example: massive gravity 
 
@@ -57,7 +55,7 @@ The output should look like:
 
 <img src="xAct/PSALTer/Documentation/Logo/FieldKinematics.png" width="1000">
 
-To compute the particle spectrum, we plug the linearised lagrangian into the `ParticleSpectrum` function from _PSALTer_:
+To compute the spectrum, we plug the lagrangian into the `ParticleSpectrum` function from _PSALTer_:
 ```mathematica
 ParticleSpectrum[
     Coupling1*(
@@ -77,9 +75,9 @@ The output should look like:
 
 <img src="xAct/PSALTer/Documentation/Logo/ParticleSpectrograph.png" width="1000">
 
-### Further examples 
+### Documentation 
 
-Many further examples can be found in the documentation notebook at `PSALTer/xAct/PSALTer/Documentation/English/Documentation.nb`.
+The documentation notebook is at `PSALTer/xAct/PSALTer/Documentation/English/Documentation.nb`.
 
 ### General use 
 
@@ -151,7 +149,7 @@ _PSALTer_ has the following dependencies:
 
 ## Contribute
 
-Please do! I'm always responsive to emails (about science), so be sure to reach out at [wb263@cam.ac.uk](mailto:wb263@cam.ac.uk). I will also do my best to get your code working if you are just trying to use _PSALTer_.
+Please do! I'm always responsive to emails (about science), so be sure to reach out at [wb263@cam.ac.uk](mailto:wb263@cam.ac.uk).
 
 ## Acknowledgements
 
