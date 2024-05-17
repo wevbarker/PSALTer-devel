@@ -141,7 +141,7 @@ _PSALTer_ has the following dependencies:
 
 ### Installation
 
-1. Make sure you have satisfied all the dependencies.
+1. Make sure your system satisfies all the dependencies.
 2. Download _PSALTer_:
 	```bash, git
 	git clone https://github.com/wevbarker/PSALTer
