@@ -59,7 +59,7 @@ The output should look like:
 
 <img src="xAct/PSALTer/Documentation/Logo/FieldKinematics.png" width="1000">
 
-and plug the quadratic expansion directly into PSALTer:
+To compute the particle spectrum, we plug the linearised lagrangian into the `ParticleSpectrum` function from _PSALTer_:
 ```mathematica
 ParticleSpectrum[
     Coupling1*(
@@ -75,18 +75,9 @@ ParticleSpectrum[
     MaxLaurentDepth->3
 ];
 ```
-and execute the cell. The output should look like:
+The output should look like:
 
 <img src="xAct/PSALTer/Documentation/Logo/ParticleSpectrograph.png" width="1000">
-
-To summarise the physical information that is automatically computed:
-- *PSALTer results pannel:* The free action is quoted back to you.
-- *Wave operator:* The wave operator is presented as a hermitian matrix in $k$-space, block-decomposed over the $J^P$ sectors of definite spin $J$ and parity $P$.
-- *Saturated propagator:* The Moore-Penrose pseudoinverse of the wave operator is computed, and sandwiched between conserved source currents.
-- *Source constraints:* The null spaces of the wave operator blocks encode gauge symmetries of the theory, corresponding to conservation laws satisfied by the source currents, these are quoted.
-- *Massive spectrum:* There is listed the spectrum of massive states in the theory, with information about the square mass, pole residue, spin and parity of each state.
-- *Massless spectrum:* There is listed the spectrum of massless propagating polarisations. Also, the spectrum of (pathological) higher-order poles is computed, up to a depth specified by `MaxLaurentDepth`.
-- *Unitarity conditions:* From the requirement of positivity of the pole residues, and of the square masses, the inequality conditions on the parameters `Alp1` and `Bet1` needed to ensure unitarity of the S-matrix are computed (if the theory can be made to be unitary at all).
 
 ### General use 
 
