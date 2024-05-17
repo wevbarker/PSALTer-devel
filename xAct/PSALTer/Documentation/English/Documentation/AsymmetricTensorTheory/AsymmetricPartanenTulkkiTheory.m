@@ -4,7 +4,7 @@
 
 Subsection@"Partanen-Tulkki gravity";
 Comment@"We now examine the theory proposed in arXiv:2310.01460.";
-LinearisedLagrangian=-(1/(8*EinsteinConstant))*(
+LinearisedLagrangian=-(EinsteinConstant/(8))*(
 	(CD[-m]@AsymmetricF[-r,-n]-CD[-n]@AsymmetricF[-r,-m])*
 	(CD[m]@AsymmetricF[r,n]-CD[n]@AsymmetricF[r,m])
 );

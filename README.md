@@ -85,12 +85,13 @@ The documentation notebook is at `PSALTer/xAct/PSALTer/Documentation/English/Doc
 
 ## General use 
 
-### Pre-defined physics 
+### Pre-defined geometry
 
 _PSALTer_ pre-defines a flat, Minkowskian manifold with the following ingredients:
 
 |Object|LaTeX|
 |---|---|
+|`a`, `b`, `c`, ... `z`|$\alpha$, $\beta$, $\gamma$, ... $\zeta$|
 |`G[-m,-n]`|$\eta_{\mu\nu}$|
 |`CD[-m]@`|$\partial_{\mu}$|
 

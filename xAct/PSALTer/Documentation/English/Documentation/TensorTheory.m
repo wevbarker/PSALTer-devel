@@ -9,14 +9,10 @@ Code[
 	DefConstantSymbol[Coupling2,PrintAs->"\[Beta]"];
 	DefField[LinearMetric[-a,-b],Symmetric[{-a,-b}],PrintAs->"\[ScriptH]",PrintSourceAs->"\[ScriptCapitalT]"];
 ];
-(*
 Get@FileNameJoin@{$ThisDirectory,"Documentation","TensorTheory","FierzPauliTheory.m"};
-*)
 Get@FileNameJoin@{$ThisDirectory,"Documentation","TensorTheory","MassiveGravity.m"};
-(*
 Get@FileNameJoin@{$ThisDirectory,"Documentation","TensorTheory","SickFierzPauliTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","TensorTheory","MarzoTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","TensorTheory","SickMassiveGravity.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","TensorTheory","PartanenTulkkiTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","TensorTheory","SquareRicciTheory.m"};
-*)

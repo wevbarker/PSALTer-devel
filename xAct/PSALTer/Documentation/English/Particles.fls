@@ -1,4 +1,0 @@
-PWD /home/williamb/Documents/PSALTer-devel/xAct/PSALTer/Documentation/English
-INPUT /var/lib/texmf/web2c/luahbtex/lualatex.fmt
-INPUT ./Particles.tex
-OUTPUT Particles.log

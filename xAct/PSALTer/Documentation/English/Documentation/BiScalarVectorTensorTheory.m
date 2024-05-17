@@ -5,7 +5,10 @@
 Section@"Two scalars, a vector and a symmetric rank-two tensor";
 Comment@"Define a second scalar:";
 Code[
+	DefField[Phi[],PrintAs->"\[Phi]",PrintSourceAs->"\[Rho]"];
 	DefField[VarPhi[],PrintAs->"\[CurlyPhi]",PrintSourceAs->"\[CurlyRho]"];
+	DefField[B[-a],PrintAs->"\[ScriptCapitalB]",PrintSourceAs->"\[ScriptCapitalJ]"];
+	DefField[LinearMetric[-a,-b],Symmetric[{-a,-b}],PrintAs->"\[ScriptH]",PrintSourceAs->"\[ScriptCapitalT]"];
 ];
 Comment@"Define some constant symbols:";
 Code[

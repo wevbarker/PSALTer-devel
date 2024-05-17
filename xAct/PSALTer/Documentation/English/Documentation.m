@@ -19,19 +19,21 @@ Chapter@"Science applications";
 Get@FileNameJoin@{$ThisDirectory,"Documentation","ScalarTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","VectorTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","AntisymmetricTensorTheory.m"};
-*)
 Get@FileNameJoin@{$ThisDirectory,"Documentation","TensorTheory.m"};
-(*
+*)
 Get@FileNameJoin@{$ThisDirectory,"Documentation","AsymmetricTensorTheory.m"};
+(*
 Get@FileNameJoin@{$ThisDirectory,"Documentation","ScalarTensorTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","BiScalarVectorTensorTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","BimetricTensorTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","MetricAffineGravity.m"};
 *)
+(*
 (*Get@FileNameJoin@{$ThisDirectory,"Documentation","WeylGaugeTheory.m"};*)
 (*Get@FileNameJoin@{$ThisDirectory,"Documentation","SymmetricTensorTheory.m"};*)
 (*Get@FileNameJoin@{$ThisDirectory,"Documentation","ZeroTorsionPalatini.m"};*)
+*)
 (*
 Chapter@"Error messages";
 Get@FileNameJoin@{$ThisDirectory,"Documentation","ErrorMessages.m"};
