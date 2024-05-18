@@ -8,7 +8,7 @@ PrintSourceConstraints[SpinParitySourceConstraints_,
 	Multiplicities_]:=Module[{FinalGrid},
 	FinalGrid=Framed[Grid[
 		(
-		{{Text@"Spin-parity form",Text@"Covariant form",Text@"Multiplicities"}}~Join~
+		{{Text@"SO(3) irreps",Text@"Fundamental fields",Text@"Multiplicities"}}~Join~
 		MapThread[{#1,#2,#3}&,{Text/@SpinParitySourceConstraints,
 					Text/@CovariantSourceConstraints,
 					Text/@Multiplicities}]

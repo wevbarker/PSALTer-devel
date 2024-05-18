@@ -18,11 +18,11 @@ PrintParticle[
 	Switch[OptionValue@LaurentDepth,
 		1,	
 		(
-		TempGraphics=Column[{
-			Labeled[GetDiagram@"Quadratic.pdf",
-				Text@"Massless particle"],
+		TempGraphics=Row[{
+			GetDiagram@"Quadratic.pdf",
 			Framed[Grid[
 			{
+				{Text@"Quadratic pole",SpanFromLeft},
 				{Text@"Pole residue: ",Text@ShowIfSmall@(MassivePoleResidue>0)},
 				{Text@"Polarisations: ",Text@ShowIfSmall@(Polarisations)}
 			},
@@ -35,11 +35,11 @@ PrintParticle[
 		),
 		2,
 		(
-		TempGraphics=Column[{
-			Labeled[GetDiagram@"Quartic.pdf",
-				Text@"Quartic pole"],
+		TempGraphics=Row[{
+			GetDiagram@"Quartic.pdf",
 			Framed[Grid[
 			{
+				{Text@"Quartic pole",SpanFromLeft},
 				{Text@"Pole residue: ",Text@ShowIfSmall@(0<MassivePoleResidue>0)},
 				{Text@"Polarisations: ",Text@ShowIfSmall@(Polarisations)}
 			},
@@ -52,11 +52,11 @@ PrintParticle[
 		),
 		3,
 		(
-		TempGraphics=Column[{
-			Labeled[GetDiagram@"Hexic.pdf",
-				Text@"Hexic pole"],
+		TempGraphics=Row[{
+			GetDiagram@"Hexic.pdf",
 			Framed[Grid[
 			{
+				{Text@"Hexic pole",SpanFromLeft},
 				{Text@"Pole residue: ",Text@ShowIfSmall@(0<MassivePoleResidue>0)},
 				{Text@"Polarisations: ",Text@ShowIfSmall@(Polarisations)}
 			},
@@ -69,12 +69,13 @@ PrintParticle[
 		)
 	];
 	,
-	TempGraphics=Column[{
-		Labeled[GetDiagram@((ToString@Parity)<>(ToString@Spin)<>".pdf"),
-			Text@"Massive particle"],
+	TempGraphics=Row[{
+		GetDiagram@((ToString@Parity)<>(ToString@Spin)<>".pdf"),
 		Framed[Grid[
 		{
+			{Text@"Massive particle",SpanFromLeft},
 			{Text@"Pole residue: ",Text@ShowIfSmall@(MassivePoleResidue>0)},
+			{Text@"Polarisations: ",Text@(2*Spin+1)},
 			{Text@"Square mass: ",Text@ShowIfSmall@(SquareMass>0)},
 			{Text@"Spin: ",Text@(Spin)},
 			{Text@"Parity: ",Text@(Parity)}
