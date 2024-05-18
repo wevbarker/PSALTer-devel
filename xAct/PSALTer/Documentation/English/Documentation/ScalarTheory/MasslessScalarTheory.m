@@ -3,10 +3,8 @@
 (*========================*)
 
 Subsection@"Massless scalar (shift-symmetric field)";
-Comment@"A massless scalar field theory:";
-Code[
-	LinearisedLagrangian=Coupling1*CD[-a]@Phi[]CD[a]@Phi[];
-];
+Comment@"A massless scalar field theory.";
+LinearisedLagrangian=Coupling1*CD[-a]@Phi[]CD[a]@Phi[];
 DisplayExpression[LinearisedLagrangian,EqnLabel->"MasslessScalarTheory"];
 Code[LinearisedLagrangian,
 	ParticleSpectrum[

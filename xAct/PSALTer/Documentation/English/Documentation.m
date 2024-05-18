@@ -22,11 +22,10 @@ Get@FileNameJoin@{$ThisDirectory,"Documentation","AntisymmetricTensorTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","TensorTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","AsymmetricTensorTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","ScalarTensorTheory.m"};
-Get@FileNameJoin@{$ThisDirectory,"Documentation","BiScalarVectorTensorTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","BimetricTensorTheory.m"};
+xAct`PSALTer`Private`$Disabled=False;
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","MetricAffineGravity.m"};
-xAct`PSALTer`Private`$Disabled=False;
 
 Chapter@"Error messages";
 Get@FileNameJoin@{$ThisDirectory,"Documentation","ErrorMessages.m"};

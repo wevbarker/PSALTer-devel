@@ -12,7 +12,7 @@ ReductionRules={A1->0,A2->0,A3->0,A4->0,A5->0,A6->0,A7->0,A8->0,A9->0,A10->0,A11
 Comment@{"In the most general form",Cref@"ProjectiveTheory",", the theory has a symmetry which is cumbersome to express in terms of the remaining couplings. We therefore take an arbitrary case of the theory."};
 LinearLagrangian=LinearLagrangian/.ReductionRules;
 DisplayExpression[LinearLagrangian,EqnLabel->"ProjectiveTheoryReduced"];
-Comment@{"First we study",Cref@"ProjectiveTheoryReduced"," in the first-order formulation."};
+Comment@{"First we study",Cref@"ProjectiveTheoryReduced"," in the first-order formulation:"};
 LinearLagrangian*=Measure;
 LinearLagrangian//=MetricAffineLineariseLagrangian;
 Code[LinearLagrangian,
@@ -21,7 +21,7 @@ Code[LinearLagrangian,
 			Method->"Hard",
 			MaxLaurentDepth->1];
 ];
-Comment@{"Next we study",Cref@"ProjectiveTheory"," in the second-order formulation."};
+Comment@{"Next we study",Cref@"ProjectiveTheory"," in the second-order formulation:"};
 LinearLagrangian=MetricAffineLineariseLagrangian[LinearLagrangian,Formulation->SecondOrder];
 Code[LinearLagrangian,
 	ParticleSpectrum[LinearLagrangian,

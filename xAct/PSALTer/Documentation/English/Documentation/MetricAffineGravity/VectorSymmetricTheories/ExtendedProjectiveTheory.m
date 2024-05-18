@@ -10,7 +10,7 @@ LinearLagrangian=NonlinearLagrangian/.DefiningSystem;
 DisplayExpression[LinearLagrangian,EqnLabel->"ExtendedProjectiveTheory"];
 LinearLagrangian*=Measure;
 LinearLagrangian//=MetricAffineLineariseLagrangian;
-Comment@{"We study",Cref@"ExtendedProjectiveTheory"," in the second-order formulation."};
+Comment@{"We study",Cref@"ExtendedProjectiveTheory"," in the second-order formulation:"};
 LinearLagrangian=MetricAffineLineariseLagrangian[LinearLagrangian,Formulation->SecondOrder];
 Code[LinearLagrangian,
 	ParticleSpectrum[LinearLagrangian,

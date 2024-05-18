@@ -19,7 +19,7 @@ Code[LinearisedLagrangian,
 		MaxLaurentDepth->1
 	];
 ];
-Comment@{"So",Cref@"AsymmetricPartanenTulkkiTheory"," contains some ghosts. Now we try again with increased LaurentDepth."};
+Comment@{"So",Cref@"AsymmetricPartanenTulkkiTheory"," contains some ghosts. Now we try again but probe for higher-order poles."};
 Code[LinearisedLagrangian,
 	ParticleSpectrum[
 		LinearisedLagrangian,
@@ -28,4 +28,4 @@ Code[LinearisedLagrangian,
 		MaxLaurentDepth->3
 	];
 ];
-Comment@"We see that the problems are caused by higher-order poles.";
+Comment@"We see that the ghosts are indeed caused by higher-order poles.";

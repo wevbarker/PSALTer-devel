@@ -7,7 +7,7 @@ Comment@"Let's define a scalar field:";
 Code[
 	DefField[Phi[],PrintAs->"\[Phi]",PrintSourceAs->"\[Rho]"];
 ];
-Comment@"Also, we define a lot of coupling constants:";
+Comment@"Also, we define various coupling constants:";
 Code[
 	DefConstantSymbol[Coupling1,PrintAs->"\[Alpha]"];
 	DefConstantSymbol[Coupling2,PrintAs->"\[Beta]"];

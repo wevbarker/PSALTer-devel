@@ -2,7 +2,7 @@
 (*  FieldStrengthTensors  *)
 (*========================*)
 
-Comment@"In this section we analyse metric affine gravity (MAG). Our conventions closely follow arXiv:1912.01023, and also arXiv:2110.14788.";
+Comment@"Our conventions closely follow arXiv:1912.01023, and also arXiv:2110.14788.";
 Comment@"First we write out rules which define the field strength tensors.";
 Comment@"We want to define the curvature in Equation (2.1) on page 4 of arXiv:1912.01023.";
 DefTensor[MetricAffineCurvature[-m,-n,r,-s],M4,Antisymmetric[{-m,-n}],PrintAs->"\[ScriptCapitalF]"];

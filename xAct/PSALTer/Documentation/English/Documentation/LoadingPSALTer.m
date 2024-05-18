@@ -3,13 +3,13 @@
 (*==================*)
 
 Subsection@"Loading the package";
-Comment@"The first step is to load the PSALTer package:";
+Comment@"The first step after installing is to load the PSALTer package:";
 Code[<<xAct`PSALTer`;];
 Comment@"PSALTer is now loaded. It is helpful to briefly review all the symbols which are provided by the package:";
 Code[
 	Print@Names@"xAct`PSALTer`*";
 ];
-Comment@"We will now review these pre-defined symbols.";
+Comment@"To use the package we only need to know about a handful of these pre-defined symbols, which we will now review.";
 Subsection@"Pre-defined geometry";
 Comment@"We can see that the geometry of the spacetime has been pre-defined:";
 Code[
@@ -25,7 +25,7 @@ Comment@"Massive particles are associated with a rest-frame defined by their tim
 Code[
 	Print/@{V[-m],?V,P[-m],?P,Def,?Def,En,?En,Mo,?Mo};
 ];
-Comment@"The user should not have to interact with these quantities directly (though they appear in the output).";
+Comment@"The user should not have to interact with these quantities directly (though they may appear in the output).";
 Subsection@"Provided functions";
 Comment@"The package provides only two functions:";
 Code[
@@ -44,12 +44,9 @@ Code[
 	Options[AutomaticRules]={Verbose->False};
 	Protect@AutomaticRules;
 ];
-Comment@"We will also impose some global settings for PSALTer:";
+Comment@"We will also impose a global setting for PSALTer:";
 Code[
-	Print/@{?$DiagnosticMode,?$MonitorParallel,?$ExportPDF,?$ReadOnly};
-	$DiagnosticMode=False;
-	$MonitorParallel=False;
-	$ExportPDF=True;
+	Print@?$ReadOnly;
 	$ReadOnly=False;
 ];
 Comment@"With these settings in place the kernel is ready for science operations.";

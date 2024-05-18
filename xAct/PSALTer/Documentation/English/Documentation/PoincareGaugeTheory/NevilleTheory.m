@@ -15,4 +15,4 @@ Code[LinearLagrangian,
 		MaxLaurentDepth->3
 	];
 ];
-Comment@"Some comments can be made about Neville theory.";
+Comment@"As known from the literature, in the Neville model there is a massive pseudoscalar which propagates alongside the graviton.";

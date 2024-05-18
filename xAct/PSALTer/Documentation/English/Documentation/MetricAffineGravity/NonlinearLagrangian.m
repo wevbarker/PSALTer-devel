@@ -128,4 +128,4 @@ LinearLagrangian];
 Comment@"Now we attempt the linearization.";
 LinearLagrangian=Measure*NonlinearLagrangian//MetricAffineLineariseLagrangian;
 DisplayExpression[LinearLagrangian,EqnLabel->"MetricAffineLinearLagrangian"];
-Comment@{"We see that",Cref@"MetricAffineLinearLagrangian"," is generically quite a heavy expression, and there is not a very high degree of degeneracy among the coupling constants."};
+Comment@{"We see that",Cref@"MetricAffineLinearLagrangian"," is generically quite a complicated expression, and there is not a very high degree of degeneracy among the coupling constants."};

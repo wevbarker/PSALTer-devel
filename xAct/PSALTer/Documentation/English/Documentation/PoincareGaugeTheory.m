@@ -3,7 +3,7 @@
 (*=======================*)
 
 Section@"An asymmetric rank-two tensor and a pair-antisymmetric rank-three tensor";
-Comment@"This is the kinematic setup which is used in Poincaré gauge theory (PGT)";
+Comment@"This is the kinematic setup which is used in Poincaré gauge theory (PGT).";
 Comment@"We will set up an antisymmetric rank-three tensor field (the perturbation of the spin connection).";
 Code[
 	DefField[A[-a,-b,-c],Antisymmetric[{-a,-b}],PrintAs->"\[ScriptCapitalA]",PrintSourceAs->"\[Sigma]"];
@@ -76,30 +76,16 @@ BasicCriticalCases={
 	kR1==kR2==kR3==kR4==kR5==kT1==kT2==kT3==0
 };
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
-					"TeleparallelTheory.m"};
-Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
-					"NevilleTheory.m"};
-Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
-					"MarzoZellBarkerModel1.m"};
-Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
-					"MarzoZellBarkerModel2.m"};
-Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
-					"GeneralPGT.m"};
-Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 					"EinsteinCartanTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 					"GeneralRelativity.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
-					"MelichevPercacciTheory.m"};
+					"NevilleTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 					"YoNesterTheories.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 					"AnnalaRasanenTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
+					"GeneralPGT.m"};
+Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 					"LinHobsonLasenbyTheories.m"};
-(*
-Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
-					"GeneraleWGT.m"};
-Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
-					"AsymmetricPartanenTulkkiTheory.m"};
-*)

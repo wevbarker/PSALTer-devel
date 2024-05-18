@@ -9,7 +9,7 @@ Code[
 ];
 Comment@"Also define another coupling constant:";
 Code[
-	DefConstantSymbol[EinsteinConstant,PrintAs->"\[Kappa]"];
+	DefConstantSymbol[EinsteinConstant,PrintAs->"1/\[Kappa]"];
 ];
 Get@FileNameJoin@{$ThisDirectory,"Documentation","AsymmetricTensorTheory",
 				"AsymmetricPartanenTulkkiTheory.m"};

@@ -3,8 +3,8 @@
 (*=======================*)
 
 Section@"A symmetric rank-two tensor and an asymmetric rank-three tensor";
-Comment@"This is the kinematic setup which is used in metric-affine gravity (MAG)";
-Comment@"We will define a connection field:";
+Comment@"This is the kinematic setup which is used in metric-affine gravity (MAG).";
+Comment@"Let's define a connection field:";
 Code[
 	DefField[Connection[-a,-b,-c],PrintAs->"\[ScriptCapitalA]",PrintSourceAs->"\[CapitalDelta]"];
 ];
@@ -12,7 +12,7 @@ Comment@"Let's define another symmetric tensor field:";
 Code[
 	DefField[MetricPerturbation[-a,-b],Symmetric[{-a,-b}],PrintAs->"\[ScriptH]",PrintSourceAs->"\[ScriptCapitalT]"];
 ];
-Comment@"We will define some coupling constants:";
+Comment@"We will define some more coupling constants:";
 Code[
 	DefConstantSymbol[A0,PrintAs->"\!\(\*SubscriptBox[\(\[ScriptA]\), \(0\)]\)"];
 	DefConstantSymbol[A1,PrintAs->"\!\(\*SubscriptBox[\(\[ScriptA]\), \(1\)]\)"];
@@ -53,24 +53,6 @@ Get@FileNameJoin@{$ThisDirectory,"Documentation","MetricAffineGravity",
 Get@FileNameJoin@{$ThisDirectory,"Documentation","MetricAffineGravity",
 					"BarkerMarzoTheories.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","MetricAffineGravity",
-					"MarzoZellBarkerModel3.m"};
-Get@FileNameJoin@{$ThisDirectory,"Documentation","MetricAffineGravity",
 					"VectorSymmetricTheories.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","MetricAffineGravity",
 					"AnnalaRasanenTheories.m"};
-(*
-Get@FileNameJoin@{$ThisDirectory,"Documentation","MetricAffineGravity",
-					"IosifidisBarkerTheory.m"};
-Get@FileNameJoin@{$ThisDirectory,"Documentation","MetricAffineGravity",
-					"MetricAffineGaussBonnetTheory.m"};
-Get@FileNameJoin@{$ThisDirectory,"Documentation","MetricAffineGravity",
-					"QuadraticSymmetricRiemannTheory.m"};
-Get@FileNameJoin@{$ThisDirectory,"Documentation","MetricAffineGravity",
-					"BarkerKarananasZellTheory.m"};
-Get@FileNameJoin@{$ThisDirectory,"Documentation","MetricAffineGravity",
-					"CarloTheories.m"};
-Get@FileNameJoin@{$ThisDirectory,"Documentation","MetricAffineGravity",
-					"TypeI.m"};
-Get@FileNameJoin@{$ThisDirectory,"Documentation","MetricAffineGravity",
-					"TypeII.m"};
-*)

@@ -2,15 +2,6 @@
 (*  ErrorMessages  *)
 (*=================*)
 
-DefField[Phi[],PrintAs->"\[Phi]",PrintSourceAs->"\[Rho]"];
-DefField[AntisymmTensor[-a,-b],Antisymmetric[{-a,-b}],PrintAs->"\[ScriptCapitalB]",PrintSourceAs->"\[ScriptCapitalJ]"];
-DefConstantSymbol[Coupling1,PrintAs->"\[Alpha]"];
-DefConstantSymbol[Coupling2,PrintAs->"\[Beta]"];
-DefConstantSymbol[Coupling3,PrintAs->"\[Gamma]"];
-DefConstantSymbol[Coupling4,PrintAs->"\[Delta]"];
-DefConstantSymbol[Coupling5,PrintAs->"\[Epsilon]"];
-DefConstantSymbol[Coupling6,PrintAs->"\[Zeta]"];
-
 Comment@"We will test the error messages.";
 Comment@"Try passing a theory name that is not a string:";
 Catch@Code[
