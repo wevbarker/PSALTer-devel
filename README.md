@@ -133,10 +133,12 @@ The arguments and options are as follows:
 ### Requirements 
 
 _PSALTer_ has various dependencies (version numbers reflect tested configurations).
+
 The following dependencies are strictly required:
 - [_Linux v 6.9.1_](https://www.linux.org/) (recommended distributions are [_Manjaro_](https://manjaro.org/), [_Arch_](https://archlinux.org/), [_RockyLinux 8 (RHEL8)_](https://rockylinux.org/) and [_CentOS7 (RHEL7)_](https://www.centos.org/))
 - [_Mathematica v 14.0.0.0_](https://www.wolfram.com/mathematica/)
 - [_xAct v 1.2.0_](http://www.xact.es/) (required packages are [_xTensor_](http://www.xact.es/xCoba/index.html), [_SymManipulator_](http://www.xact.es/SymManipulator/index.html), [_xPerm_](http://www.xact.es/xPerm/index.html), [_xCore_](http://www.xact.es/xCore/index.html), [_xTras_](http://www.xact.es/xTras/index.html) and [_xCoba_](http://www.xact.es/xCoba/index.html))
+
 Other dependencies are only required for printing the output into publication-grade PDF figures:
 - [_RectanglePacking v 1.0.0_](https://resources.wolframcloud.com/PacletRepository/resources/JasonB/RectanglePacking/)
 - [_Inkscape v 1.3.2_](https://inkscape.org/)
