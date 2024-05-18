@@ -59,7 +59,7 @@ The output should look like:
 
 <img src="xAct/PSALTer/Documentation/Logo/FieldKinematics.png" width="1000">
 
-To compute the spectrum, we plug the lagrangian into the `ParticleSpectrum` function from _PSALTer_:
+To compute the spectrum, we plug the Lagrangian into the `ParticleSpectrum` function from _PSALTer_:
 ```mathematica
 ParticleSpectrum[
     Coupling1*(
@@ -117,16 +117,16 @@ To compute a spectrum use `ParticleSpectrum`:
 ```mathematica
 ParticleSpectrum[
     Lagrangian_,
-    TheoryName->TheTheoryName_?String,
-    Method->TheMethod_?String,
-    MaxLaurentDepth->TheMaxLaurentDepth_
+    TheoryName->TheoryNameValue_?String,
+    Method->MethodValue_?String,
+    MaxLaurentDepth->MaxLaurentDepthValue_
 ];
 ```
-and the arguments and options are as follows:
+The arguments and options are as follows:
 - `Lagrangian` must be a valid linearised Lagrangian density. The expression must be a Lorentz-scalar. Each term must be quadratic in the field(s) `FieldName` defined using `DefField`. Each term must be linear in coupling constants defined using `DefConstantSymbol` from _xTensor_. Other allowed ingredients are `CD` acting on field(s) `FieldName` and `G` used to contract indices. Do _not_ use an odd power of `epsilonG`, which will result in a parity-odd theory. Do _not_ include the term coupling the fields to their conjugate sources, this is automatically included.
-- `TheTheoryName` can be any string. This is used for labelling the output files.
-- `TheMethod` can be either of the strings `"Easy"` (default) or `"Hard"` (experimental, uses home-brewed implementations of the symbolic Moore-Penrose inverse and other innovations).
-- `MaxLaurentDepth` can be `1`, `2` or `3`. This sets the maximum positive integer $n$ for which the $1/k^{2n}$ null pole residues are requested. The default is `1`, from which the massless spectrum can be obtained. Setting higher $n$ naturally leads to longer runtimes, but also allows potential (pathological) higher-order/non-simple propagator poles to be identified, down to the requested depth.
+- `TheoryNameValue` can be any string. This is used for labelling the output files.
+- `MethodValue` can be either of the strings `"Easy"` (default) or `"Hard"` (experimental, uses home-brewed implementations of the symbolic Moore-Penrose inverse and other innovations).
+- `MaxLaurentDepthValue` can be `1`, `2` or `3`. This sets the maximum positive integer $n$ for which the $1/k^{2n}$ null pole residues are requested. The default is `1`, from which the massless spectrum can be obtained. Setting higher $n$ naturally leads to longer runtimes, but also allows potential (pathological) higher-order/non-simple propagator poles to be identified, down to the requested depth.
 
 ## Quickstart 
 
