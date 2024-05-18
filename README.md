@@ -2,7 +2,7 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2311.11790-b31b1b.svg)](https://arxiv.org/abs/2311.11790)
 [![arXiv](https://img.shields.io/badge/arXiv-2402.07641-b31b1b.svg)](https://arxiv.org/abs/2402.07641)
 [![arXiv](https://img.shields.io/badge/arXiv-2402.14917-b31b1b.svg)](https://arxiv.org/abs/2402.14917)
-[![arXiv](https://img.shields.io/badge/arXiv-2402.14917-b31b1b.svg)](https://arxiv.org/abs/2405.#####)
+[![arXiv](https://img.shields.io/badge/arXiv-2402.#####-b31b1b.svg)](https://arxiv.org/abs/2405.#####)
 <img src="xAct/PSALTer/Documentation/Logo/GitHubLogo.png" width="1000">
 
 # Particle Spectrum for Any Tensor Lagrangian (_PSALTer_)
