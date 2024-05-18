@@ -5,20 +5,20 @@
 \documentclass[crop,tikz]{standalone}
 \input{Preamble.tex}
 \feynmandiagram[medium,horizontal=a to b]{
-i1[particle=?,gray!50] --[thick,gray!50] a [blob],
-i2[particle=?,gray!50] --[thick,gray!50] a,
+i1[particle=?,black] --[thick,black] a [blob],
+i2[particle=?,black] --[thick,black] a,
 
 a --[red,photon,thick] b[blob],
 a --[draw=none,
 	red,
-	momentum'={[arrow style=red]\tiny{$k^{\mu}=(\mathcal{E},0,0,p)$}}] b,
+	momentum'={[arrow style=red]$k^{\mu}$}] b,
 a --[draw=none,
 	red,
 	half left,
 	looseness=0.3,
-	edge label = {\scriptsize{$J^{P}=1^+$}\vspace{1cm}}] b,
+	edge label = {$J^{P}=1^+$\vspace{1cm}}] b,
 
-b --[thick,gray!50] f1[particle=?,gray!50],
-b --[thick,gray!50] f2[particle=?,gray!50],
-b --[thick,gray!50] f3[particle=?,gray!50]};
+b --[thick,black] f1[particle=?,black],
+b --[thick,black] f2[particle=?,black],
+b --[thick,black] f3[particle=?,black]};
 \end{document}

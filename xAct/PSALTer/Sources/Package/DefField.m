@@ -10,15 +10,13 @@ BuildPackage@"DefField/SummariseField.m";
 
 Off[Set::write];
 Off[SetDelayed::write];
-Unprotect@DefField;
 
-Options@DefField={PrintAs->"\[Zeta]",PrintSourceAs->"\[ScriptJ]"};
+Options@DefFieldActual={PrintAs->"\[Zeta]",PrintSourceAs->"\[ScriptJ]"};
 
 DefField::UnstudiedKinetics="The SO(3) decomposition of tensors with indices `1` and symmetry `2` has not yet been implemented in PSALTer.";
 
-DefField[InputField_[Inds___],Opts___?OptionQ]:=DefField[InputField[Inds],GenSet[],Opts];
-
-DefField[InputField_[Inds___],SymmExpr_,OptionsPattern[]]:=Module[{
+DefFieldActual[InputField_[Inds___],Opts___?OptionQ]:=DefFieldActual[InputField[Inds],GenSet[],Opts];
+DefFieldActual[InputField_[Inds___],SymmExpr_,OptionsPattern[]]:=Module[{
 	Rank=Length@{Inds},
 	Type=Head@SymmExpr,
 	Pair,
@@ -69,4 +67,12 @@ DefField[InputField_[Inds___],SymmExpr_,OptionsPattern[]]:=Module[{
 ];
 On[Set::write];
 On[SetDelayed::write];
+
+Unprotect@DefField;
+Options@DefField={PrintAs->"\[Zeta]",PrintSourceAs->"\[ScriptJ]"};
+DefField[InputField_[Inds___],Opts___?OptionQ]:=DefField[InputField[Inds],GenSet[],Opts];
+DefField[InputField_[Inds___],SymmExpr_,Opts:OptionsPattern[]]:=If[$Disabled,
+	DefTensor[InputField[Inds],M4,SymmExpr,PrintAs->OptionValue@PrintAs],
+	DefFieldActual[InputField[Inds],Opts]
+];
 Protect@DefField;

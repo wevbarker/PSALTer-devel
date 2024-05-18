@@ -20,24 +20,17 @@ BuildPackage@"ParticleSpectrum/ConstructUnitarityConditions.m";
 
 Off[Set::write];
 Off[SetDelayed::write];
-Unprotect@ParticleSpectrum;
 
-Options@ParticleSpectrum={	
-	TheoryName->False,
-	Method->"Easy",
-	MaxLaurentDepth->1
-	};
+Options@ParticleSpectrumActual={TheoryName->False,Method->"Easy",MaxLaurentDepth->1};
 
-ParticleSpectrum[OptionsPattern[]]:=Module[{
+ParticleSpectrumActual[OptionsPattern[]]:=Module[{
 	SummaryOfResults,
 	PDFSummaryOfResults,
 	Class},
 
 	ValidateTheoryName@OptionValue@TheoryName;
-
 	Get@FileNameJoin@{$WorkingDirectory,"ParticleSpectrograph"<>OptionValue@TheoryName<>".mx"};
 	Class=Evaluate@Symbol@OptionValue@TheoryName;
-
 	SummaryOfResults=SummariseResults[
 		OptionValue@TheoryName,
 		Class@SavedWaveOperator,
@@ -47,29 +40,27 @@ ParticleSpectrum[OptionsPattern[]]:=Module[{
 		Class@SavedMasslessSpectrum,
 		Class@SavedOverallUnitarity,
 		Class@SavedSummaryOfTheory];
-	Print@SummaryOfResults;
-
-	If[$ExportPDF,
-		PDFSummaryOfResults=SummariseResults[
-				OptionValue@TheoryName,
-				Class@SavedWaveOperator,
-				Class@SavedPropagator,
-				Class@SavedSourceConstraints,
-				Class@SavedSpectrum,
-				Class@SavedMasslessSpectrum,
-				Class@SavedOverallUnitarity,
-				Class@SavedSummaryOfTheory,
-				SummaryType->ResultsCollage];
-		Print@PDFSummaryOfResults;
-		Export[FileNameJoin@{$WorkingDirectory,"ParticleSpectrograph"<>OptionValue@TheoryName<>".pdf"},
-			PDFSummaryOfResults
-		];
+	SummariseResultsOngoing=PrintTemporary@SummaryOfResults;
+	PDFSummaryOfResults=SummariseResults[
+			OptionValue@TheoryName,
+			Class@SavedWaveOperator,
+			Class@SavedPropagator,
+			Class@SavedSourceConstraints,
+			Class@SavedSpectrum,
+			Class@SavedMasslessSpectrum,
+			Class@SavedOverallUnitarity,
+			Class@SavedSummaryOfTheory,
+			SummaryType->ResultsCollage];
+	Export[FileNameJoin@{$WorkingDirectory,"ParticleSpectrograph"<>OptionValue@TheoryName<>".pdf"},
+		PDFSummaryOfResults
 	];
+	NotebookDelete@SummariseResultsOngoing;
+	Print@PDFSummaryOfResults;
 ];
 
-ParticleSpectrum[Expr_,OptionsPattern[]]:=If[
+ParticleSpectrumActual[Expr_,OptionsPattern[]]:=If[
 	$ReadOnly,
-	ParticleSpectrum[		
+	ParticleSpectrumActual[		
 		TheoryName->OptionValue@TheoryName,
 		Method->OptionValue@Method,
 		MaxLaurentDepth->OptionValue@MaxLaurentDepth],
@@ -121,7 +112,6 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=If[
 					LocalOverallUnitarity,
 					LocalSummaryOfTheory}]];
 		];
-			
 
 		Quiet@DeleteDirectory[FileNameJoin@{$WorkingDirectory,"tmp"},DeleteContents->True];
 		Quiet@CreateDirectory@FileNameJoin@{$WorkingDirectory,"tmp"};
@@ -221,12 +211,6 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=If[
 
 		If[$CLI,
 			TaskRemove@SummariseResultsOngoing;
-		,
-			FinishDynamic[];
-			NotebookDelete@SummariseResultsOngoing;
-		];
-
-		If[$CLI,
 			Run@("echo -e \"\n\n"<>CLIPrint[
 					OptionValue@TheoryName,
 					LocalWaveOperator,
@@ -236,19 +220,6 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=If[
 					LocalMasslessSpectrum,
 					LocalOverallUnitarity]<>"\"");
 		,
-			SummaryOfResults=SummariseResults[
-				OptionValue@TheoryName,
-				LocalWaveOperator,
-				LocalPropagator,
-				LocalSourceConstraints,
-				LocalSpectrum,
-				LocalMasslessSpectrum,
-				LocalOverallUnitarity,
-				LocalSummaryOfTheory];
-			Print@SummaryOfResults;
-		];
-
-		If[$ExportPDF,
 			PDFSummaryOfResults=SummariseResults[
 					OptionValue@TheoryName,
 					LocalWaveOperator,
@@ -259,10 +230,12 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=If[
 					LocalOverallUnitarity,
 					LocalSummaryOfTheory,
 					SummaryType->ResultsCollage];
-			Print@PDFSummaryOfResults;
 			Export[FileNameJoin@{$WorkingDirectory,"ParticleSpectrograph"<>OptionValue@TheoryName<>".pdf"},
 				PDFSummaryOfResults
 			];
+			FinishDynamic[];
+			NotebookDelete@SummariseResultsOngoing;
+			Print@PDFSummaryOfResults;
 		];
 
 		MapThread[
@@ -290,6 +263,11 @@ ParticleSpectrum[Expr_,OptionsPattern[]]:=If[
 		];
 	];
 ];
+
 On[Set::write];
 On[SetDelayed::write];
+
+Unprotect@ParticleSpectrum;
+Options@ParticleSpectrum={TheoryName->False,Method->"Easy",MaxLaurentDepth->1};
+ParticleSpectrum[Args___,Opts:OptionsPattern[]]:=If[!$Disabled,ParticleSpectrumActual[Args,Opts]];
 Protect@ParticleSpectrum;

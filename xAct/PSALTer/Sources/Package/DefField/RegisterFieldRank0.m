@@ -3,7 +3,7 @@
 (*======================*)
 
 xAct`PSALTer`Private`DefFiducialField[Rank0[]];
-xAct`PSALTer`Private`DefSO3Irrep[Rank00p[],Spin->0,Parity->Even];
+xAct`PSALTer`Private`DefSO3Irrep[Rank00p[],xAct`PSALTer`Private`Spin->0,xAct`PSALTer`Private`Parity->xAct`PSALTer`Private`Even];
 ExpandFieldsRules=Join[
 	MakeRule[{Rank00p[],Rank0[]},
 		MetricOn->All,ContractMetrics->True],

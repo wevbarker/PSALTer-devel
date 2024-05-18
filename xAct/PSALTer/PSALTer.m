@@ -33,9 +33,6 @@ If[$CLI,
 				"Documentation","Logo","ASCIILogo.txt"},
 	Print@Magnify[Import@FileNameJoin@{$PSALTerInstallDirectory,
 				"Documentation","Logo","GitLabLogo.png"},0.3]];
-$DiagnosticMode=False;
-$MonitorParallel=False;
-$ExportPDF=False;
 $ReadOnly=False;
 
 (*==============*)
@@ -75,25 +72,18 @@ Mo::usage="Mo is the constant symbol which represents the relativistic momentum,
 (*  Declaration of global variables  *)
 (*===================================*)
 
-$DiagnosticMode::usage="$DiagnosticMode is a boolean variable which controls whether internal variables are displayed during a computation. Default is False.";
-$MonitorParallel::usage="$MonitorParallel is a boolean variable which controls whether the progress of parallel computations is displayed. Default is False.";
-$ExportPDF::usage="$ExportPDF is a boolean variable which controls whether PDF files of the analysis are exported. Default is False.";
 $ReadOnly::usage="$ReadOnly is a boolean variable which controls whether the analysis is actually performed or simply read in from a PDF file. Default is False.";
-
-(*================*)
-(*  Undocumented  *)
-(*================*)
-
-Spin::usage="Spin is an option for DefSO3Irrep.";
-Parity::usage="Parity is an option for DefSO3Irrep.";
-Even::usage="Even is an association key which refers to even-parity spin states.";
-Odd::usage="Odd is an association key which refers to odd-parity spin states.";
 
 (*=========================*)
 (*  xAct`PSALTer`Private`  *)
 (*=========================*)
 
 Begin["xAct`PSALTer`Private`"];
+
+$DiagnosticMode=False;
+$MonitorParallel=False;
+$Disabled=False;
+
 BuildPackage[FileName_String]:=Get[FileNameJoin@{$PSALTerInstallDirectory,"Sources","Package",FileName}];
 BuildRebuild[FileName_String]:=Get[FileNameJoin@{$PSALTerInstallDirectory,"Sources","Rebuild",FileName}];
 

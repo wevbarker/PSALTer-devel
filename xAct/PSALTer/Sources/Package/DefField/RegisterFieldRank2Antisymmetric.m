@@ -3,8 +3,8 @@
 (*===================================*)
 
 xAct`PSALTer`Private`DefFiducialField[Rank2Antisymmetric[-a,-b],Antisymmetric[{-a,-b}]];
-xAct`PSALTer`Private`DefSO3Irrep[Rank2AntisymmetricPara1p[-a,-b],Antisymmetric[{-a,-b}],Spin->1,Parity->Even];
-xAct`PSALTer`Private`DefSO3Irrep[Rank2AntisymmetricPerp1m[-a],Spin->1,Parity->Odd];
+xAct`PSALTer`Private`DefSO3Irrep[Rank2AntisymmetricPara1p[-a,-b],Antisymmetric[{-a,-b}],xAct`PSALTer`Private`Spin->1,xAct`PSALTer`Private`Parity->xAct`PSALTer`Private`Even];
+xAct`PSALTer`Private`DefSO3Irrep[Rank2AntisymmetricPerp1m[-a],xAct`PSALTer`Private`Spin->1,xAct`PSALTer`Private`Parity->xAct`PSALTer`Private`Odd];
 
 DefTensor[ProjPerp[-a,-b],M4,Antisymmetric[{-a,-b}]];
 DefTensor[ProjPara[-a,-b],M4,Antisymmetric[{-a,-b}]];

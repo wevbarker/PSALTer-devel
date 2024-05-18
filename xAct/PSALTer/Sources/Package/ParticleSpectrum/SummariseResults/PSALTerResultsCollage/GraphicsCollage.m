@@ -34,7 +34,7 @@ GraphicsCollage[InputExpr_?ListQ,CollageWidth_?IntegerQ]:=Module[{
 	GraphicsContent=(If[#2,Rotate[#1,Pi/2],#1])&~MapThread~{InputExpr~Permute~Permutation,
 								Flipped};
 	PackedGraphicsCoordinates=(N/@Simplify@((1/2)*Plus@@#))&/@Packing;
-	Insets=MapThread[Inset[Magnify[#1,1],#2]&,
+	Insets=MapThread[Inset[Magnify[#1,0.95],#2]&,
 				{GraphicsContent,PackedGraphicsCoordinates}];
 	MakeGraphicsCollage[Insets_,ImageSizeScale_]:=Graphics[Insets,
 			Background->PanelColor,
