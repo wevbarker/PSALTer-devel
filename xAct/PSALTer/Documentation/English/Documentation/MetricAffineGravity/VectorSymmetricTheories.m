@@ -11,5 +11,7 @@ Get@FileNameJoin@{$ThisDirectory,"Documentation","MetricAffineGravity","VectorSy
 					"ExtendedProjectiveTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","MetricAffineGravity","VectorSymmetricTheories",
 					"ProjectiveTheory.m"};
+(*
 Get@FileNameJoin@{$ThisDirectory,"Documentation","MetricAffineGravity","VectorSymmetricTheories",
 					"ConcurrentTheory.m"};
+*)

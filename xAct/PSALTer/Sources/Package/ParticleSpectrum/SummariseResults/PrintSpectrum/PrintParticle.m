@@ -11,7 +11,9 @@ PrintParticle[
 	Spin_,
 	Parity_,
 	Polarisations_,
-	OptionsPattern[]]:=Module[{TempGraphics},
+	OptionsPattern[]]:=Module[{TempGraphics,TheParity},
+
+	TheParity=Switch[Parity,Even,"Even",Odd,"Odd"];
 
 	If[SquareMass===0,
 
@@ -70,7 +72,7 @@ PrintParticle[
 	];
 	,
 	TempGraphics=Row[{
-		GetDiagram@((ToString@Parity)<>(ToString@Spin)<>".pdf"),
+		GetDiagram@(TheParity<>(ToString@Spin)<>".pdf"),
 		Framed[Grid[
 		{
 			{Text@"Massive particle",SpanFromLeft},
@@ -78,7 +80,7 @@ PrintParticle[
 			{Text@"Polarisations: ",Text@(2*Spin+1)},
 			{Text@"Square mass: ",Text@ShowIfSmall@(SquareMass>0)},
 			{Text@"Spin: ",Text@(Spin)},
-			{Text@"Parity: ",Text@(Parity)}
+			{Text@"Parity: ",Text@TheParity}
 		},
 		Dividers->Center,
 		Alignment->Left,

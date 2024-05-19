@@ -51,8 +51,4 @@ Get@FileNameJoin@{$ThisDirectory,"Documentation","MetricAffineGravity",
 Get@FileNameJoin@{$ThisDirectory,"Documentation","MetricAffineGravity",
 					"MetricAffineEinsteinHilbertTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","MetricAffineGravity",
-					"BarkerMarzoTheories.m"};
-Get@FileNameJoin@{$ThisDirectory,"Documentation","MetricAffineGravity",
 					"VectorSymmetricTheories.m"};
-Get@FileNameJoin@{$ThisDirectory,"Documentation","MetricAffineGravity",
-					"AnnalaRasanenTheories.m"};

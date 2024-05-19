@@ -20,4 +20,4 @@ Code[LinearisedLagrangian,
 		MaxLaurentDepth->3
 	];
 ];
-Comment@{"As with",Cref@{"ThirdSickFierzPauliTheory","FourthSickFierzPauliTheory"},", this model appears to be viable."};
+Comment@{"This model appears to be viable."};

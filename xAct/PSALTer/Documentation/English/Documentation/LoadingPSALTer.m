@@ -47,6 +47,6 @@ Code[
 Comment@"We will also impose a global setting for PSALTer:";
 Code[
 	Print@?$ReadOnly;
-	$ReadOnly=False;
+	$ReadOnly=True;
 ];
 Comment@"With these settings in place the kernel is ready for science operations.";
