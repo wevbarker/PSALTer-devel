@@ -2,13 +2,13 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2311.11790-b31b1b.svg)](https://arxiv.org/abs/2311.11790)
 [![arXiv](https://img.shields.io/badge/arXiv-2402.07641-b31b1b.svg)](https://arxiv.org/abs/2402.07641)
 [![arXiv](https://img.shields.io/badge/arXiv-2402.14917-b31b1b.svg)](https://arxiv.org/abs/2402.14917)
+[![arXiv](https://img.shields.io/badge/arXiv-2402.00000-b31b1b.svg)](https://arxiv.org/abs/2405.00000)
 <img src="xAct/PSALTer/Documentation/Logo/GitHubLogo.png" width="1000">
 
 # Particle Spectrum for Any Tensor Lagrangian (_PSALTer_)
 ## Version 1.0.0
 
 - Initial release to accompany pre-print and documentation.
-- Functionality for Weyl gauge theory and metric affine gravity removed due to ongoing collaborations with Tallinn and Tartu.
 
 ## License
 
@@ -59,7 +59,7 @@ The output should look like:
 
 <img src="xAct/PSALTer/Documentation/Logo/FieldKinematics.png" width="1000">
 
-To compute the spectrum, we plug the lagrangian into the `ParticleSpectrum` function from _PSALTer_:
+To compute the spectrum, we plug the Lagrangian into the `ParticleSpectrum` function from _PSALTer_:
 ```mathematica
 ParticleSpectrum[
     Coupling1*(
@@ -85,62 +85,67 @@ The documentation notebook is at `PSALTer/xAct/PSALTer/Documentation/English/Doc
 
 ## General use 
 
-### Pre-defined physics 
+### Pre-defined geometry
 
-_PSALTer_ pre-defines a flat, Minkowskian manifold with the following ingredients:
+When you first run `` <<xAct`PSALTer` `` the software defines a Minkowski manifold with the ingredients:
 
-|Object|LaTeX|
-|---|---|
-|`G[-m,-n]`|$\eta_{\mu\nu}$|
-|`CD[-m]@`|$\partial_{\mu}$|
+|Wolfram Language|Output format|Meaning|
+|---|---|---|
+|`a`, `b`, `c`, ..., `z`|$\alpha$, $\beta$, $\gamma$, ... $\zeta$|Cartesian coordinate indices|
+|`G[-m,-n]`|$\eta_{\mu\nu}$|Minkowski metric|
+|`CD[-m]@`|$\partial_{\mu}$|Partial derivative|
 
 ### Provided functions 
 
 _PSALTer_ defines _two_ functions. To define a tensor field you use `DefField`, which has a very similar syntax to `DefTensor` in _xTensor_:
 ```mathematica
 DefField[
-    F_[Inds___],
+    FieldName_[Inds___],
     Symm_,
     PrintAs->PrintAsValue_?String,
     PrintSourceAs->PrintSourceAsValue_?String
 ];
 ```
 The arguments and options are as follows:
-- `F` is the symbolic name of the new field.
-- `Inds` are the indices of `F`, if any.
+- `FieldName` is the symbolic name of the new field.
+- `Inds` are the indices of `FieldName`, if any.
 - `Symm` is the intended index-symmetry on `Inds`. The syntax is the same as in `DefTensor`.
-- `PrintAsValue` is the string that `F` will format as. The syntax is the same as in `DefTensor`.
-- `PrintSourceAsValue` is the string that the source conjugate to `F` will format as.
+- `PrintAsValue` is the string that `FieldName` will format as. The syntax is the same as in `DefTensor`.
+- `PrintSourceAsValue` is the string that the source conjugate to `FieldName` will format as.
 
 To compute a spectrum use `ParticleSpectrum`:
 ```mathematica
 ParticleSpectrum[
-    L_,
-    TheoryName->TheTheoryName_?String,
-    Method->TheMethod_?String,
-    MaxLaurentDepth->TheMaxLaurentDepth_
+    Lagrangian_,
+    TheoryName->TheoryNameValue_?String,
+    Method->MethodValue_?String,
+    MaxLaurentDepth->MaxLaurentDepthValue_
 ];
 ```
-and the arguments and options are as follows:
-- `L` must be a valid linearised Lagrangian density. The expression must be a Lorentz-scalar. Each term must be quadratic in the field(s) `F` defined using `DefField`. Each term must be linear in coupling constants defined using `DefConstantSymbol` from _xTensor_. Other allowed ingredients are `CD` acting on field(s) `F` and `G` used to contract indices. Do _not_ use an odd power of `epsilonG`, which will result in a parity-odd theory. Do _not_ include the term coupling the fields to their conjugate sources, this is automatically included.
-- `TheTheoryName` can be any string. This is used for labelling the output files.
-- `TheMethod` can be either of the strings `"Easy"` (default) or `"Hard"` (experimental, uses home-brewed implementations of the symbolic Moore-Penrose inverse and other innovations).
-- `MaxLaurentDepth` can be `1`, `2` or `3`. This sets the maximum positive integer $n$ for which the $1/k^{2n}$ null pole residues are requested. The default is `1`, from which the massless spectrum can be obtained. Setting higher $n$ naturally leads to longer runtimes, but also allows potential (pathological) higher-order/non-simple propagator poles to be identified, down to the requested depth.
+The arguments and options are as follows:
+- `Lagrangian` must be a valid linearised Lagrangian density. The expression must be a Lorentz-scalar. Each term must be quadratic in the field(s) `FieldName` defined using `DefField`. Each term must be linear in coupling constants defined using `DefConstantSymbol` from _xTensor_. Other allowed ingredients are `CD` acting on field(s) `FieldName` and `G` used to contract indices. Do _not_ use an odd power of `epsilonG`, which will result in a parity-odd theory. Do _not_ include the term coupling the fields to their conjugate sources, this is automatically included.
+- `TheoryNameValue` can be any string. This is used for labelling the output files.
+- `MethodValue` can be either of the strings `"Easy"` (default) or `"Hard"` (experimental, uses home-brewed implementations of the symbolic Moore-Penrose inverse and other innovations).
+- `MaxLaurentDepthValue` can be `1`, `2` or `3`. This sets the maximum positive integer $n$ for which the $1/k^{2n}$ null pole residues are requested. The default is `1`, from which the massless spectrum can be obtained. Setting higher $n$ naturally leads to longer runtimes, but also allows potential (pathological) higher-order/non-simple propagator poles to be identified, down to the requested depth.
 
 ## Quickstart 
 
 ### Requirements 
 
-_PSALTer_ has the following dependencies:
-- [_Linux x86_](https://www.linux.org/) (recommended distributions are [_Manjaro_](https://manjaro.org/), [_Arch_](https://archlinux.org/), [_RockyLinux 8 (RHEL8)_](https://rockylinux.org/) and [_CentOS7 (RHEL7)_](https://www.centos.org/))
+_PSALTer_ has various dependencies (version numbers reflect tested configurations).
+
+The following dependencies are strictly required:
+- [_Linux v 6.9.1_](https://www.linux.org/) (recommended distributions are [_Manjaro_](https://manjaro.org/), [_Arch_](https://archlinux.org/), [_RockyLinux 8 (RHEL8)_](https://rockylinux.org/) and [_CentOS7 (RHEL7)_](https://www.centos.org/))
 - [_Mathematica v 14.0.0.0_](https://www.wolfram.com/mathematica/)
 - [_xAct v 1.2.0_](http://www.xact.es/) (required packages are [_xTensor_](http://www.xact.es/xCoba/index.html), [_SymManipulator_](http://www.xact.es/SymManipulator/index.html), [_xPerm_](http://www.xact.es/xPerm/index.html), [_xCore_](http://www.xact.es/xCore/index.html), [_xTras_](http://www.xact.es/xTras/index.html) and [_xCoba_](http://www.xact.es/xCoba/index.html))
-- [_RectanglePacking_](https://resources.wolframcloud.com/PacletRepository/resources/JasonB/RectanglePacking/)
-- [_Inkscape_](https://inkscape.org/)
+
+Other dependencies are only required for printing the output into publication-grade PDF figures:
+- [_RectanglePacking v 1.0.0_](https://resources.wolframcloud.com/PacletRepository/resources/JasonB/RectanglePacking/)
+- [_Inkscape v 1.3.2_](https://inkscape.org/)
 
 ### Installation
 
-1. Make sure you have satisfied all the dependencies.
+1. Make sure your system satisfies all the dependencies.
 2. Download _PSALTer_:
 	```bash, git
 	git clone https://github.com/wevbarker/PSALTer
@@ -157,7 +162,7 @@ Please do! I'm always responsive to emails (about science), so be sure to reach 
 
 ## Acknowledgements
 
-This work was performed using resources provided by the Cambridge Service for Data Driven Discovery (CSD3) operated by the University of Cambridge Research Computing Service ([www.csd3.cam.ac.uk](www.csd3.cam.ac.uk)), provided by Dell EMC and Intel using Tier-2 funding from the Engineering and Physical Sciences Research Council (capital grant EP/T022159/1), and DiRAC funding from the Science and Technology Facilities Council ([www.dirac.ac.uk](www.dirac.ac.uk)).
+This work used the DiRAC Data Intensive service (CSD3 [www.csd3.cam.ac.uk](www.csd3.cam.ac.uk)) at the University of Cambridge, managed by the University of Cambridge University Information Services on behalf of the STFC DiRAC HPC Facility ([www.dirac.ac.uk](www.dirac.ac.uk)). The DiRAC component of CSD3 at Cambridge was funded by BEIS, UKRI and STFC capital funding and STFC operations grants. DiRAC is part of the UKRI Digital Research Infrastructure.
 
 This work was also performed using the Newton server, access to which was provisioned by Will Handley.
 

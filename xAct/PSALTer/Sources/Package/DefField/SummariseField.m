@@ -64,11 +64,9 @@ SummariseField[]:=Module[{
 					BasicInfo,
 					TheDecompositionTable,
 					TheExpansionTable];
-		Print@ThePSALTerClassCollage;
-		If[$ExportPDF,
-			Export[FileNameJoin@{$WorkingDirectory,"FieldKinematics"<>(StringReplace[Context[],{"xAct"->"","PSALTer"->"","`"->""}])<>".pdf"},
-				ThePSALTerClassCollage
-			];
+		Export[FileNameJoin@{$WorkingDirectory,"FieldKinematics"<>(StringReplace[Context[],{"xAct"->"","PSALTer"->"","`"->""}])<>".pdf"},
+			ThePSALTerClassCollage
 		];
+		Print@ThePSALTerClassCollage;
 	];
 ];

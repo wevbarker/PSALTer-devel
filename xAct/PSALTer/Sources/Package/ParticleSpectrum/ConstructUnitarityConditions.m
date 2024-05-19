@@ -59,7 +59,7 @@ ConstructUnitarityConditions[ClassName_?StringQ,MassiveAnalysis_,MassiveGhostAna
 			Diagnostic@PositiveSystem;
 *)
 			If[PositiveSystem===False,
-				LocalOverallUnitarity=Text@"(Demonstrably impossible)";
+				LocalOverallUnitarity=Text@"(Unitarity is demonstrably impossible)";
 				,
 				If[ListQ@PositiveSystem,
 					LocalOverallUnitarity=PositiveSystem;

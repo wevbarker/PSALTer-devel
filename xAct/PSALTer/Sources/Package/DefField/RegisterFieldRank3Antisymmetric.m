@@ -3,14 +3,14 @@
 (*===================================*)
 
 xAct`PSALTer`Private`DefFiducialField[Rank3Antisymmetric[-a,-b,-c],Antisymmetric[{-a,-b}]];
-xAct`PSALTer`Private`DefSO3Irrep[Rank3AntisymmetricPara0p[],Spin->0,Parity->Even];
-xAct`PSALTer`Private`DefSO3Irrep[Rank3AntisymmetricPara0m[],Spin->0,Parity->Odd];
-xAct`PSALTer`Private`DefSO3Irrep[Rank3AntisymmetricPara1p[-a,-b],Antisymmetric[{-a,-b}],Spin->1,Parity->Even];
-xAct`PSALTer`Private`DefSO3Irrep[Rank3AntisymmetricPara1m[-a],Spin->1,Parity->Odd];
-xAct`PSALTer`Private`DefSO3Irrep[Rank3AntisymmetricPara2p[-a,-b],Symmetric[{-a,-b}],Spin->2,Parity->Even];
-xAct`PSALTer`Private`DefSO3Irrep[Rank3AntisymmetricPara2m[-a,-b,-c],Antisymmetric[{-a,-b}],Spin->2,Parity->Odd];
-xAct`PSALTer`Private`DefSO3Irrep[Rank3AntisymmetricPerp1p[-a,-b],Antisymmetric[{-a,-b}],Spin->1,Parity->Even];
-xAct`PSALTer`Private`DefSO3Irrep[Rank3AntisymmetricPerp1m[-a],Spin->1,Parity->Odd];
+xAct`PSALTer`Private`DefSO3Irrep[Rank3AntisymmetricPara0p[],xAct`PSALTer`Private`Spin->0,xAct`PSALTer`Private`Parity->xAct`PSALTer`Private`Even];
+xAct`PSALTer`Private`DefSO3Irrep[Rank3AntisymmetricPara0m[],xAct`PSALTer`Private`Spin->0,xAct`PSALTer`Private`Parity->xAct`PSALTer`Private`Odd];
+xAct`PSALTer`Private`DefSO3Irrep[Rank3AntisymmetricPara1p[-a,-b],Antisymmetric[{-a,-b}],xAct`PSALTer`Private`Spin->1,xAct`PSALTer`Private`Parity->xAct`PSALTer`Private`Even];
+xAct`PSALTer`Private`DefSO3Irrep[Rank3AntisymmetricPara1m[-a],xAct`PSALTer`Private`Spin->1,xAct`PSALTer`Private`Parity->xAct`PSALTer`Private`Odd];
+xAct`PSALTer`Private`DefSO3Irrep[Rank3AntisymmetricPara2p[-a,-b],Symmetric[{-a,-b}],xAct`PSALTer`Private`Spin->2,xAct`PSALTer`Private`Parity->xAct`PSALTer`Private`Even];
+xAct`PSALTer`Private`DefSO3Irrep[Rank3AntisymmetricPara2m[-a,-b,-c],Antisymmetric[{-a,-b}],xAct`PSALTer`Private`Spin->2,xAct`PSALTer`Private`Parity->xAct`PSALTer`Private`Odd];
+xAct`PSALTer`Private`DefSO3Irrep[Rank3AntisymmetricPerp1p[-a,-b],Antisymmetric[{-a,-b}],xAct`PSALTer`Private`Spin->1,xAct`PSALTer`Private`Parity->xAct`PSALTer`Private`Even];
+xAct`PSALTer`Private`DefSO3Irrep[Rank3AntisymmetricPerp1m[-a],xAct`PSALTer`Private`Spin->1,xAct`PSALTer`Private`Parity->xAct`PSALTer`Private`Odd];
 
 DefTensor[ProjPerp[-a,-b],M4,Symmetric[{-a,-b}]];
 DefTensor[ProjPara[-a,-b],M4,Symmetric[{-a,-b}]];

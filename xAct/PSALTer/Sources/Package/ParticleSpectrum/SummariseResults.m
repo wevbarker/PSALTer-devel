@@ -54,7 +54,9 @@ SummariseResults[TheoryName_?StringQ,WaveOperator_,Propagator_,SourceConstraints
 			FullWidth=First@Rasterize[Show[Graphics[Circle[]],
 							ImageSize->Full],"RasterSize"];
 
-			TheSummaryOfTheory=SummariseTheory@SummaryOfTheory;
+			If[SummaryOfTheory===Null,
+				TheSummaryOfTheory=Computing,
+				TheSummaryOfTheory=SummariseTheory@SummaryOfTheory];
 			If[WaveOperator===Null,
 				TheWaveOperator=Computing,
 				TheWaveOperator=WignerGrid@@WaveOperator];

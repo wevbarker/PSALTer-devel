@@ -9,10 +9,16 @@ PlasticBox[InputExpr_,PlasticBoxSize_]:=Framed[Grid[{{InputExpr}},
 					ItemSize->PlasticBoxSize],
 						Background->DetailColor,
 						FrameStyle->Directive[DetailColor,Thickness[4]]];
-RigidBox[InputExpr_]:=Framed[Grid[{{InputExpr}},
-					Background->DetailColor],
+RigidBox[InputExpr_]:=Framed[
+				Grid[
+					{{Text@"Quadratic (free) action"},{InputExpr}},
 						Background->DetailColor,
-						FrameStyle->Directive[DetailColor,Thickness[4]]];
+						Dividers->Center,
+						Alignment->Left
+				],
+				Background->DetailColor,
+				FrameStyle->Directive[DetailColor,Thickness[4]]
+			];
 PlasticBoxAspect[PlasticBoxFinal_]:=N@ImageAspectRatio@Rasterize@PlasticBoxFinal;
 SummariseTheory[Theory_?NotStringQ]:=Module[{
 		PlasticBoxFinal,
