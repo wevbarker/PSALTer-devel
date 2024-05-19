@@ -75,10 +75,12 @@ BasicCriticalCases={
 	kR1==kR2==kR3==kR4==kR5==kLambda/4+kT1/3+kT2/12==-kLambda/2-kT1/3+kT2/6==-kLambda-kT1/3+2*kT3/3==0,
 	kR1==kR2==kR3==kR4==kR5==kT1==kT2==kT3==0
 };
+xAct`PSALTer`Private`$Disabled=True;
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 					"EinsteinCartanTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 					"GeneralRelativity.m"};
+xAct`PSALTer`Private`$Disabled=False;
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 					"NevilleTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
