@@ -21,6 +21,16 @@ Print["Package xAct`PSALTer` version ",$Version[[1]],", ",$Version[[2]]];
 Print["CopyRight \[Copyright] 2022, Will Barker, Stephanie Buttigieg, Carlo Marzo, Cillian Rew, Claire Rigouzzo, Zhiyuan Wei, David Yallup and Haoyang Ye, under the General Public License."];
 
 (*====================*)
+(*  Package settings  *)
+(*====================*)
+
+SetOptions[$FrontEndSession,EvaluationCompletionAction->"ScrollToOutput"];
+$DefInfoQ=False;
+Unprotect@AutomaticRules;
+Options[AutomaticRules]={Verbose->False};
+Protect@AutomaticRules;
+
+(*====================*)
 (*  Global variables  *)
 (*====================*)
 
@@ -97,6 +107,7 @@ BuildPSALTerPackage[];
 Begin["xAct`PSALTer`"];
 	xAct`PSALTer`Private`BuildPSALTer[];
 	Quiet@If[NotebookDirectory[]==$Failed,$CLI=True,$CLI=False,$CLI=False];
+	$DefInfoQ=False;
 End[];
 End[];
 EndPackage[];
