@@ -20,6 +20,6 @@ ReparameteriseSources[InputMatrix_]:=Module[{
 	ReparameterisationMatrix=ExtractReparameterisationMatrix@ReparameterisedMatrix;
 	Print@MatrixForm@ReparameterisationMatrix;
 
-	(*ReparameterisedMatrix=ReparameterisationMatrix.ReparameterisedMatrix.ReparameterisationMatrix;*)
+	ReparameterisedMatrix=ReparameterisationMatrix.ReparameterisedMatrix.ReparameterisationMatrix;
 	ReparameterisedMatrix//=Simplify;	
 {ReparameterisedMatrix,OverallDenominator}];
