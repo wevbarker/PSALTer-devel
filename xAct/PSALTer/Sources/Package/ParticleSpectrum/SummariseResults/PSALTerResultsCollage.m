@@ -13,7 +13,8 @@ PSALTerResultsCollage[
 		TheSpectrum_,
 		TheMasslessSpectrum_,
 		TheOverallUnitarity_]:=Module[{
-	MatricesGroup=Join[TheWaveOperator,ThePropagator,{TheSourceConstraints},{TheSummaryOfTheory}],
+	MatricesGroup=Join[TheWaveOperator,ThePropagator,
+			{TheSourceConstraints},{TheSummaryOfTheory}],
 	SpectrumGroup=TheSpectrum~Join~TheMasslessSpectrum,
 	FinalElement,
 	MaxWidth,
@@ -33,15 +34,23 @@ PSALTerResultsCollage[
 	MatricesGroup=GraphicsCollage[MatricesGroup,MaxWidth];
 	SpectrumGroup=GraphicsCollage[SpectrumGroup,MaxWidth];
 
-	FinalGraphic={
-			MakeLabel["Particle spectrograph",20],
-			MakeLabel@"Wave operator and propagator",
-			MatricesGroup,
-			MakeLabel@"Massive and massless spectra",
-			SpectrumGroup,
-			MakeLabel@"Unitarity conditions",
-			TheOverallUnitarity
-	};
+	If[$MultiMass,
+		FinalGraphic={
+				MakeLabel["Particle spectrograph",20],
+				MakeLabel@"Wave operator and propagator",
+				MatricesGroup
+		};
+	,
+		FinalGraphic={
+				MakeLabel["Particle spectrograph",20],
+				MakeLabel@"Wave operator and propagator",
+				MatricesGroup,
+				MakeLabel@"Massive and massless spectra",
+				SpectrumGroup,
+				MakeLabel@"Unitarity conditions",
+				TheOverallUnitarity
+		};
+	];
 
 	FinalGraphic//=Column[#,
 			Alignment->{Left,Center},
