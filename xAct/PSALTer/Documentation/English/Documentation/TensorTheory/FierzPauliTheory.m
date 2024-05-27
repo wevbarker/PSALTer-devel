@@ -5,10 +5,10 @@
 Subsection@"Fierz-Pauli (linear gravity)";
 Comment@"The natural theory to check will be the Fierz-Pauli theory.";
 LinearisedLagrangian=Coupling1*(
-	(1/2)*CD[-b]@LinearMetric[a,-a]*CD[b]@LinearMetric[c,-c]
-	-CD[a]@LinearMetric[-a,-b]*CD[b]@LinearMetric[c,-c]
-	-(1/2)*CD[-c]@LinearMetric[a,b]*CD[c]@LinearMetric[-a,-b]
-	+CD[-b]@LinearMetric[a,b]*CD[c]@LinearMetric[-a,-c]
+	(1/2)*CD[-b]@MetricPerturbation[a,-a]*CD[b]@MetricPerturbation[c,-c]
+	-CD[a]@MetricPerturbation[-a,-b]*CD[b]@MetricPerturbation[c,-c]
+	-(1/2)*CD[-c]@MetricPerturbation[a,b]*CD[c]@MetricPerturbation[-a,-b]
+	+CD[-b]@MetricPerturbation[a,b]*CD[c]@MetricPerturbation[-a,-c]
 );
 DisplayExpression[LinearisedLagrangian,EqnLabel->"FierzPauliTheory"];
 LinearisedLagrangian//=ToCanonical;

@@ -5,11 +5,11 @@
 Subsection@"Sick massive gravity";
 Comment@{"We now break the Fierz-Pauli tuning in",Cref@"MassiveGravity","."};
 LinearisedLagrangian=Coupling1*(
-	(1/2)*CD[-b]@LinearMetric[a,-a]*CD[b]@LinearMetric[c,-c]
-	-CD[a]@LinearMetric[-a,-b]*CD[b]@LinearMetric[c,-c]
-	-(1/2)*CD[-c]@LinearMetric[a,b]*CD[c]@LinearMetric[-a,-b]
-	+CD[-b]@LinearMetric[a,b]*CD[c]@LinearMetric[-a,-c]
-)+Coupling2*LinearMetric[-a,-b]*LinearMetric[a,b]-Coupling3*LinearMetric[a,-a]*LinearMetric[b,-b];
+	(1/2)*CD[-b]@MetricPerturbation[a,-a]*CD[b]@MetricPerturbation[c,-c]
+	-CD[a]@MetricPerturbation[-a,-b]*CD[b]@MetricPerturbation[c,-c]
+	-(1/2)*CD[-c]@MetricPerturbation[a,b]*CD[c]@MetricPerturbation[-a,-b]
+	+CD[-b]@MetricPerturbation[a,b]*CD[c]@MetricPerturbation[-a,-c]
+)+Coupling2*MetricPerturbation[-a,-b]*MetricPerturbation[a,b]-Coupling3*MetricPerturbation[a,-a]*MetricPerturbation[b,-b];
 DisplayExpression[LinearisedLagrangian,EqnLabel->"SickMassiveGravity"];
 LinearisedLagrangian//=ToCanonical;
 LinearisedLagrangian//=CollectTensors;

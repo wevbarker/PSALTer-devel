@@ -5,7 +5,7 @@
 Section@"A single scalar";
 Comment@"Let's define a scalar field:";
 Code[
-	DefField[Phi[],PrintAs->"\[Phi]",PrintSourceAs->"\[Rho]"];
+	DefField[ScalarField[],PrintAs->"\[Phi]",PrintSourceAs->"\[Rho]"];
 ];
 Comment@"Also, we define various coupling constants:";
 Code[

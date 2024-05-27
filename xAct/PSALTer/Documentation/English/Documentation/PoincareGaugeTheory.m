@@ -6,11 +6,11 @@ Section@"An asymmetric rank-two tensor and a pair-antisymmetric rank-three tenso
 Comment@"This is the kinematic setup which is used in Poincaré gauge theory (PGT).";
 Comment@"We will set up an antisymmetric rank-three tensor field (the perturbation of the spin connection).";
 Code[
-	DefField[A[-a,-b,-c],Antisymmetric[{-a,-b}],PrintAs->"\[ScriptCapitalA]",PrintSourceAs->"\[Sigma]"];
+	DefField[SpinConnection[-a,-b,-c],Antisymmetric[{-a,-b}],PrintAs->"\[Omega]",PrintSourceAs->"\[Sigma]"];
 ];
 Comment@"We will also set up an asymmetric tensor field (the perturbation of the tetrad).";
 Code[
-	DefField[F[-a,-b],PrintAs->"\[ScriptF]",PrintSourceAs->"\[Tau]"];
+	DefField[TetradPerturbation[-a,-b],PrintAs->"\[ScriptF]",PrintSourceAs->"\[Tau]"];
 ];
 
 Comment@"Here is the inverse translational gauge field, or tetrad.";
@@ -20,8 +20,8 @@ Comment@"Here is the translational gauge field, or inverse tetrad.";
 DefTensor[BField[a,-c],M4,PrintAs->"\[ScriptB]"];
 DisplayExpression[BField[a,-c]];
 HBFieldToGF=Join[
-	MakeRule[{H[-i,-j],G[-i,-j]+F[-i,-j]},MetricOn->All,ContractMetrics->True],
-	MakeRule[{BField[-i,-j],G[-i,-j]-F[-j,-i]+F[-i,-m]F[m,-j]},MetricOn->All,ContractMetrics->True]
+	MakeRule[{H[-i,-j],G[-i,-j]+TetradPerturbation[-i,-j]},MetricOn->All,ContractMetrics->True],
+	MakeRule[{BField[-i,-j],G[-i,-j]-TetradPerturbation[-j,-i]+TetradPerturbation[-i,-m]TetradPerturbation[m,-j]},MetricOn->All,ContractMetrics->True]
 ];
 AutomaticRules[H,MakeRule[{H[-a,i]BField[a,-j],G[i,-j]},MetricOn->All,ContractMetrics->True]];
 AutomaticRules[H,MakeRule[{H[-a,i]BField[c,-i],G[-a,c]},MetricOn->All,ContractMetrics->True]];
@@ -30,8 +30,8 @@ AutomaticRules[H,MakeRule[{CD[-a][H[-j,n]],Evaluate[-H[-i,n]H[-j,m]CD[-a][BField
 DefTensor[R[a, b, -d, -e], M4, {Antisymmetric[{a, b}], Antisymmetric[{-d, -e}]},PrintAs->"\[ScriptCapitalR]"]; 
 DefTensor[T[a, -b, -c], M4, Antisymmetric[{-b, -c}],PrintAs->"\[ScriptCapitalT]"]; 
 RTToHBFieldACDBFieldCDA=Join[	
-	MakeRule[{R[a,b,-d,-e],H[-d,i]H[-e,j](CD[-i][A[a,b,-j]]-CD[-j][A[a,b,-i]]+A[a,-k,-i]A[k,b,-j]-A[a,-k,-j]A[k,b,-i])},MetricOn->All,ContractMetrics->True],
-	MakeRule[{T[a,-b,-c],H[-b,i]H[-c,j](CD[-i][BField[a,-j]]-CD[-j][BField[a,-i]]+A[a,-k,-i]BField[k,-j]-A[a,-k,-j]BField[k,-i])},MetricOn->All,ContractMetrics->True]
+	MakeRule[{R[a,b,-d,-e],H[-d,i]H[-e,j](CD[-i][SpinConnection[a,b,-j]]-CD[-j][SpinConnection[a,b,-i]]+SpinConnection[a,-k,-i]SpinConnection[k,b,-j]-SpinConnection[a,-k,-j]SpinConnection[k,b,-i])},MetricOn->All,ContractMetrics->True],
+	MakeRule[{T[a,-b,-c],H[-b,i]H[-c,j](CD[-i][BField[a,-j]]-CD[-j][BField[a,-i]]+SpinConnection[a,-k,-i]BField[k,-j]-SpinConnection[a,-k,-j]BField[k,-i])},MetricOn->All,ContractMetrics->True]
 ];
 
 Comment@"Here is the Riemann-Cartan tensor.";

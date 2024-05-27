@@ -4,7 +4,7 @@
 
 Subsection@"Sickly Proca field";
 Comment@{"We extend our analysis of",Cref@"SickMaxwellTheory"," to the general massive case."};
-LinearisedLagrangian=Coupling1*CD[-a]@B[-b]*CD[a]@B[b]+Coupling2*CD[-a]@B[a]*CD[-b]@B[b]+Coupling3*B[-a]*B[a];
+LinearisedLagrangian=Coupling1*CD[-a]@VectorField[-b]*CD[a]@VectorField[b]+Coupling2*CD[-a]@VectorField[a]*CD[-b]@VectorField[b]+Coupling3*VectorField[-a]*VectorField[a];
 DisplayExpression[LinearisedLagrangian,EqnLabel->"SickProcaTheory"];
 LinearisedLagrangian//=ToCanonical;
 LinearisedLagrangian//=CollectTensors;

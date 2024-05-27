@@ -5,11 +5,11 @@
 Subsection@"Einstein-Klein-Gordon theory";
 Comment@{"We check the Fierz-Pauli theory in",Cref@"FierzPauliTheory"," accompanied by (but not coupled to) the massless scalar in",Cref@"MasslessScalarTheory","."};
 LinearisedLagrangian=Coupling1*(
-	(1/2)*CD[-b]@LinearMetric[a,-a]*CD[b]@LinearMetric[c,-c]
-	-CD[a]@LinearMetric[-a,-b]*CD[b]@LinearMetric[c,-c]
-	-(1/2)*CD[-c]@LinearMetric[a,b]*CD[c]@LinearMetric[-a,-b]
-	+CD[-b]@LinearMetric[a,b]*CD[c]@LinearMetric[-a,-c]
-)+Coupling2*CD[-a]@Phi[]*CD[a]@Phi[];
+	(1/2)*CD[-b]@MetricPerturbation[a,-a]*CD[b]@MetricPerturbation[c,-c]
+	-CD[a]@MetricPerturbation[-a,-b]*CD[b]@MetricPerturbation[c,-c]
+	-(1/2)*CD[-c]@MetricPerturbation[a,b]*CD[c]@MetricPerturbation[-a,-b]
+	+CD[-b]@MetricPerturbation[a,b]*CD[c]@MetricPerturbation[-a,-c]
+)+Coupling2*CD[-a]@ScalarField[]*CD[a]@ScalarField[];
 DisplayExpression[LinearisedLagrangian,EqnLabel->"ScalarFierzPauliTheory"];
 LinearisedLagrangian//=ToCanonical;
 LinearisedLagrangian//=CollectTensors;

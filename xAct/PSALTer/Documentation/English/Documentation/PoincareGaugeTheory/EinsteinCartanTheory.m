@@ -4,12 +4,9 @@
 
 Subsection@"Einstein-Cartan theory (ECT)";
 Comment@"We would like to check the basic Einstein-Cartan theory.";
-Off[Solve::svars];
-CaseRules=(First/@(Solve[#,{kR1,kR2,kR3,kR4,kR5,kT1,kT2,kT3,kLambda}]&/@BasicCriticalCases))[[1]];
-On[Solve::svars];
-DisplayExpression[CollectTensors@ToCanonical[KNonlinearLagrangian/.CaseRules],
+DisplayExpression[CollectTensors@ToCanonical[HSNonlinearLagrangian/.{Alp1->0,Alp2->0,Alp3->0,Alp4->0,Alp5->0,Alp6->0,Bet1->0,Bet2->0,Bet3->0}],
 			EqnLabel->"EinsteinCartanTheory"];
-LinearLagrangian=LineariseLagrangian[KNonlinearLagrangian/.CaseRules];
+LinearLagrangian=LineariseLagrangian[HSNonlinearLagrangian/.{Alp1->0,Alp2->0,Alp3->0,Alp4->0,Alp5->0,Alp6->0,Bet1->0,Bet2->0,Bet3->0}];
 Code[LinearLagrangian,
 	ParticleSpectrum[
 		LinearLagrangian,

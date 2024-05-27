@@ -4,7 +4,7 @@
 
 Subsection@"Massive scalar (Higgs field, pions)";
 Comment@"A massive scalar field theory.";
-LinearisedLagrangian=Coupling1*CD[-a]@Phi[]CD[a]@Phi[]-Coupling2*Phi[]*Phi[];
+LinearisedLagrangian=Coupling1*CD[-a]@ScalarField[]CD[a]@ScalarField[]-Coupling2*ScalarField[]*ScalarField[];
 DisplayExpression@LinearisedLagrangian;
 Code[LinearisedLagrangian,
 	ParticleSpectrum[

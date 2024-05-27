@@ -4,7 +4,7 @@
 
 Subsection@"Maxwell field (quantum electrodynamics)";
 Comment@"If we contract the square of the Maxwell tensor, we get a viable kinetic term which propagates the two massless photon polarisations.";
-LinearisedLagrangian=Coupling1*(CD[-a]@B[-b]-CD[-b]@B[-a])*(CD[a]@B[b]-CD[b]@B[a]);
+LinearisedLagrangian=Coupling1*(CD[-a]@VectorField[-b]-CD[-b]@VectorField[-a])*(CD[a]@VectorField[b]-CD[b]@VectorField[a]);
 DisplayExpression[LinearisedLagrangian,EqnLabel->"MaxwellTheory"];
 LinearisedLagrangian//=ToCanonical;
 LinearisedLagrangian//=CollectTensors;

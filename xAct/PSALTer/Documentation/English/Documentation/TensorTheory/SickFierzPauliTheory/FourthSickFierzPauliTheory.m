@@ -5,10 +5,10 @@
 Subsection@"Sick Fierz-Pauli (fourth variation)";
 Comment@{"We allow the first term in",Cref@"FierzPauliTheory"," to float."};
 LinearisedLagrangian=Coupling1*(
-	-CD[a]@LinearMetric[-a,-b]*CD[b]@LinearMetric[c,-c]
-	-(1/2)*CD[-c]@LinearMetric[a,b]*CD[c]@LinearMetric[-a,-b]
-	+CD[-b]@LinearMetric[a,b]*CD[c]@LinearMetric[-a,-c]
-)+Coupling2*(1/2)*CD[-b]@LinearMetric[a,-a]*CD[b]@LinearMetric[c,-c];
+	-CD[a]@MetricPerturbation[-a,-b]*CD[b]@MetricPerturbation[c,-c]
+	-(1/2)*CD[-c]@MetricPerturbation[a,b]*CD[c]@MetricPerturbation[-a,-b]
+	+CD[-b]@MetricPerturbation[a,b]*CD[c]@MetricPerturbation[-a,-c]
+)+Coupling2*(1/2)*CD[-b]@MetricPerturbation[a,-a]*CD[b]@MetricPerturbation[c,-c];
 DisplayExpression[LinearisedLagrangian,EqnLabel->"FourthSickFierzPauliTheory"];
 LinearisedLagrangian//=ToCanonical;
 LinearisedLagrangian//=CollectTensors;

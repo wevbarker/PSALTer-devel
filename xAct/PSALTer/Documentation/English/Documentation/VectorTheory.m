@@ -5,7 +5,7 @@
 Section@"A single vector";
 Comment@"Let's define a vector field:";
 Code[
-	DefField[B[-a],PrintAs->"\[ScriptCapitalB]",PrintSourceAs->"\[ScriptCapitalJ]"];
+	DefField[VectorField[-a],PrintAs->"\[ScriptCapitalB]",PrintSourceAs->"\[ScriptCapitalJ]"];
 ];
 Get@FileNameJoin@{$ThisDirectory,"Documentation","VectorTheory","MaxwellTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","VectorTheory","ProcaTheory.m"};

@@ -4,7 +4,7 @@
 
 Subsection@"Sickly quantum electrodynamics";
 Comment@"Up to surface terms, there are two kinetic terms which are consistent with the basic requirement of Lorentz invariance in a vector theory.";
-LinearisedLagrangian=Coupling1*CD[-a]@B[-b]*CD[a]@B[b]+Coupling2*CD[-a]@B[a]*CD[-b]@B[b];
+LinearisedLagrangian=Coupling1*CD[-a]@VectorField[-b]*CD[a]@VectorField[b]+Coupling2*CD[-a]@VectorField[a]*CD[-b]@VectorField[b];
 DisplayExpression[LinearisedLagrangian,EqnLabel->"SickMaxwellTheory"];
 Commen@{"The two couplings we've used to parameteise",Cref@"SickMaxwellTheory"," must be equal in magnitude and opposite in sign in order for QED to emerge. When they are not assumed to be so, the theory is usually sick:"};
 LinearisedLagrangian//=ToCanonical;
