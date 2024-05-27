@@ -20,12 +20,10 @@ LinearLagrangian=Measure*NonlinearLagrangian/.{A1->0,A2->0,A3->0,A4->0,A5->0,A6-
 DisplayExpression[LinearLagrangian,EqnLabel->"MetricAffineEinsteinHilbertTheory"];
 LinearLagrangian=MetricAffineLineariseLagrangian[LinearLagrangian,Formulation->SecondOrder];
 DisplayExpression[LinearLagrangian,EqnLabel->"MetricAffineEinsteinHilbertTheorySecondOrder"];
-$ReadOnly=False;
 Code[LinearLagrangian,
 	ParticleSpectrum[LinearLagrangian,
 			TheoryName->"MetricAffineEinsteinHilbertTheorySecondOrder",	
 			Method->"Hard",
 			MaxLaurentDepth->3];
 ];
-$ReadOnly=True;
 Comment@"We note that the conclusions are identical.";
