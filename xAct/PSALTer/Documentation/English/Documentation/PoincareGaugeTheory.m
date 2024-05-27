@@ -89,8 +89,10 @@ Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 					"AnnalaRasanenTheory.m"};
 *)
+$ReadOnly=False;
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 					"GeneralPGT.m"};
+$ReadOnly=True;
 (*
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 					"LinHobsonLasenbyTheories.m"};
