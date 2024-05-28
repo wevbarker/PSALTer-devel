@@ -2,7 +2,7 @@
 (*  ValidateInverseField  *)
 (*========================*)
 
-DefField::NoInverseField="The fundamental field `1` appears not to be invertible using the provided rules; this can cause a catastropic error in the particle spectrum analysis.";
+DefField::NoInverseField="The fundamental field `1` appears not to be invertible using the provided rules.";
 ValidateInverseField[InputExpr_,Expanded_,Fundamental_]:=Catch@If[!(Expanded===Fundamental),
 			Print@Fundamental;
 			Print@Expanded;

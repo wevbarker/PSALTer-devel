@@ -23,13 +23,14 @@ Off[SetDelayed::write];
 
 Options@ParticleSpectrumActual={TheoryName->False,Method->"Easy",MaxLaurentDepth->1};
 
+ParticleSpectrum::NoFile="The file `1` cannot be found.";
 ParticleSpectrumActual[OptionsPattern[]]:=Module[{
 	SummaryOfResults,
 	PDFSummaryOfResults,
 	Class},
 
 	ValidateTheoryName@OptionValue@TheoryName;
-	Get@FileNameJoin@{$WorkingDirectory,"ParticleSpectrograph"<>OptionValue@TheoryName<>".mx"};
+	Check[Get@FileNameJoin@{$WorkingDirectory,"ParticleSpectrograph"<>OptionValue@TheoryName<>".mx"};,Throw@Message[ParticleSpectrum::NoFile,FileNameJoin@{$WorkingDirectory,"ParticleSpectrograph"<>OptionValue@TheoryName<>".mx"}]];
 	Class=Evaluate@Symbol@OptionValue@TheoryName;
 	SummaryOfResults=SummariseResults[
 		OptionValue@TheoryName,
