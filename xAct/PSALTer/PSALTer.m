@@ -34,7 +34,7 @@ Protect@AutomaticRules;
 (*  Global variables  *)
 (*====================*)
 
-Quiet@If[NotebookDirectory[]==$Failed,$CLI=True,$CLI=False,$CLI=False];
+Quiet@If[$FrontEnd==Null,$CLI=True,$CLI=False,$CLI=False];
 If[$CLI,$WorkingDirectory=Directory[],$WorkingDirectory=NotebookDirectory[]];
 $Path~AppendTo~$WorkingDirectory;
 $PSALTerInstallDirectory=Select[FileNameJoin[{#,"xAct/PSALTer"}]&/@$Path,DirectoryQ][[1]];
