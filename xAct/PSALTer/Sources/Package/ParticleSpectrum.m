@@ -23,13 +23,14 @@ Off[SetDelayed::write];
 
 Options@ParticleSpectrumActual={TheoryName->False,Method->"Easy",MaxLaurentDepth->1};
 
+ParticleSpectrum::NoFile="The file `1` cannot be found.";
 ParticleSpectrumActual[OptionsPattern[]]:=Module[{
 	SummaryOfResults,
 	PDFSummaryOfResults,
 	Class},
 
 	ValidateTheoryName@OptionValue@TheoryName;
-	Get@FileNameJoin@{$WorkingDirectory,"ParticleSpectrograph"<>OptionValue@TheoryName<>".mx"};
+	Check[Get@FileNameJoin@{$WorkingDirectory,"ParticleSpectrograph"<>OptionValue@TheoryName<>".mx"};,Throw@Message[ParticleSpectrum::NoFile,FileNameJoin@{$WorkingDirectory,"ParticleSpectrograph"<>OptionValue@TheoryName<>".mx"}]];
 	Class=Evaluate@Symbol@OptionValue@TheoryName;
 	SummaryOfResults=SummariseResults[
 		OptionValue@TheoryName,
@@ -116,97 +117,99 @@ ParticleSpectrumActual[Expr_,OptionsPattern[]]:=If[
 		Quiet@DeleteDirectory[FileNameJoin@{$WorkingDirectory,"tmp"},DeleteContents->True];
 		Quiet@CreateDirectory@FileNameJoin@{$WorkingDirectory,"tmp"};
 
-		CombineAssociations[Expr,TheoryContext];
-		ConstructLinearAction[
-					"xAct`PSALTer`Private`ClassName",
-					Expr];
-		ConstructWaveOperator[
-					"xAct`PSALTer`Private`ClassName",
-					Expr];
-		UpdateTheoryAssociation[
-					OptionValue@TheoryName,
-					BMatrices,
-					ValuesAllMatrices,
-					ExportTheory->False];
-		UpdateTheoryAssociation[
-					OptionValue@TheoryName,
-					MomentumSpaceLagrangian,
-					DecomposeFieldsdLagrangian,
-					ExportTheory->False];
-		ConstructSourceConstraints[
-					"xAct`PSALTer`Private`ClassName",
-					CouplingAssumptions,
-					Rescalings,
-					RaisedIndexSources,
-					MatrixLagrangian,
-					Method->OptionValue@Method];
-		UpdateTheoryAssociation[
-					OptionValue@TheoryName,
-					SourceConstraints,
-					ValuesOfSourceConstraints,
-					ExportTheory->False];
+		Catch[
+			CombineAssociations[Expr,TheoryContext];
+			ConstructLinearAction[
+						"xAct`PSALTer`Private`ClassName",
+						Expr];
+			ConstructWaveOperator[
+						"xAct`PSALTer`Private`ClassName",
+						Expr];
+			UpdateTheoryAssociation[
+						OptionValue@TheoryName,
+						BMatrices,
+						ValuesAllMatrices,
+						ExportTheory->False];
+			UpdateTheoryAssociation[
+						OptionValue@TheoryName,
+						MomentumSpaceLagrangian,
+						DecomposeFieldsdLagrangian,
+						ExportTheory->False];
+			ConstructSourceConstraints[
+						"xAct`PSALTer`Private`ClassName",
+						CouplingAssumptions,
+						Rescalings,
+						RaisedIndexSources,
+						MatrixLagrangian,
+						Method->OptionValue@Method];
+			UpdateTheoryAssociation[
+						OptionValue@TheoryName,
+						SourceConstraints,
+						ValuesOfSourceConstraints,
+						ExportTheory->False];
 
-		ConstructSaturatedPropagator[
-					"xAct`PSALTer`Private`ClassName",
-					MatrixLagrangian,
-					CouplingAssumptions,
-					BMatricesValues,
-					RaisedIndexSources,
-					LoweredIndexSources,
-					Method->OptionValue@Method];
-		UpdateTheoryAssociation[
-					OptionValue@TheoryName,
-					InverseBMatrices,
-					ValuesInverseBMatricesValues,
-					ExportTheory->False];
-		ConstructMassiveAnalysis[
-					"xAct`PSALTer`Private`ClassName",
-					ValuesSaturatedPropagator,
-					ValuesInverseBMatricesValues,
-					BlockMassSigns,
-					Method->OptionValue@Method];
-		UpdateTheoryAssociation[
-					OptionValue@TheoryName,
-					SquareMasses,
-					MassiveAnalysis,
-					ExportTheory->False];
-		ConstructMasslessAnalysis[
-					"xAct`PSALTer`Private`ClassName",
-					ValuesOfSourceConstraints,
-					ValuesSaturatedPropagator,
-					MaxLaurentDepth->OptionValue@MaxLaurentDepth];
-		UpdateTheoryAssociation[
-					OptionValue@TheoryName,
-					SecularSystem,
-					SecularSystemValue,
-					ExportTheory->False];
-		UpdateTheoryAssociation[
-					OptionValue@TheoryName,
-					MasslessEigenvalues,
-					MasslessAnalysisValue,
-					ExportTheory->False];
-		UpdateTheoryAssociation[
-					OptionValue@TheoryName,
-					SecularEquation,
-					SecularEquationValue,
-					ExportTheory->False];
-		UpdateTheoryAssociation[
-					OptionValue@TheoryName,
-					SourceConstraintComponents,
-					ConstraintComponentList,
-					ExportTheory->False];
-		ConstructUnitarityConditions[
-					"xAct`PSALTer`Private`ClassName",
-					MassiveAnalysis,
-					MassiveGhostAnalysis,
-					MasslessAnalysisValue,
-					QuarticAnalysisValue,
-					HexicAnalysisValue];
-		UpdateTheoryAssociation[
-					OptionValue@TheoryName,
-					PositiveSystem,
-					LocalOverallUnitarity,
-					ExportTheory->False];
+			ConstructSaturatedPropagator[
+						"xAct`PSALTer`Private`ClassName",
+						MatrixLagrangian,
+						CouplingAssumptions,
+						BMatricesValues,
+						RaisedIndexSources,
+						LoweredIndexSources,
+						Method->OptionValue@Method];
+			UpdateTheoryAssociation[
+						OptionValue@TheoryName,
+						InverseBMatrices,
+						ValuesInverseBMatricesValues,
+						ExportTheory->False];
+			ConstructMassiveAnalysis[
+						"xAct`PSALTer`Private`ClassName",
+						ValuesSaturatedPropagator,
+						ValuesInverseBMatricesValues,
+						BlockMassSigns,
+						Method->OptionValue@Method];
+			UpdateTheoryAssociation[
+						OptionValue@TheoryName,
+						SquareMasses,
+						MassiveAnalysis,
+						ExportTheory->False];
+			ConstructMasslessAnalysis[
+						"xAct`PSALTer`Private`ClassName",
+						ValuesOfSourceConstraints,
+						ValuesSaturatedPropagator,
+						MaxLaurentDepth->OptionValue@MaxLaurentDepth];
+			UpdateTheoryAssociation[
+						OptionValue@TheoryName,
+						SecularSystem,
+						SecularSystemValue,
+						ExportTheory->False];
+			UpdateTheoryAssociation[
+						OptionValue@TheoryName,
+						MasslessEigenvalues,
+						MasslessAnalysisValue,
+						ExportTheory->False];
+			UpdateTheoryAssociation[
+						OptionValue@TheoryName,
+						SecularEquation,
+						SecularEquationValue,
+						ExportTheory->False];
+			UpdateTheoryAssociation[
+						OptionValue@TheoryName,
+						SourceConstraintComponents,
+						ConstraintComponentList,
+						ExportTheory->False];
+			ConstructUnitarityConditions[
+						"xAct`PSALTer`Private`ClassName",
+						MassiveAnalysis,
+						MassiveGhostAnalysis,
+						MasslessAnalysisValue,
+						QuarticAnalysisValue,
+						HexicAnalysisValue];
+			UpdateTheoryAssociation[
+						OptionValue@TheoryName,
+						PositiveSystem,
+						LocalOverallUnitarity,
+						ExportTheory->False];
+		];
 		DeleteDirectory[FileNameJoin@{$WorkingDirectory,"tmp"},DeleteContents->True];
 
 		If[$CLI,

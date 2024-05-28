@@ -34,8 +34,13 @@ Protect@AutomaticRules;
 (*  Global variables  *)
 (*====================*)
 
-Quiet@If[NotebookDirectory[]==$Failed,$CLI=True,$CLI=False,$CLI=False];
-If[$CLI,$WorkingDirectory=Directory[],$WorkingDirectory=NotebookDirectory[]];
+If[$FrontEnd==Null,$CLI=True,$CLI=False,$CLI=False];
+Quiet@If[$CLI,
+	$WorkingDirectory=Directory[],
+	If[NotebookDirectory[]==$Failed,
+		$WorkingDirectory=Directory[],
+		$WorkingDirectory=NotebookDirectory[],
+		$WorkingDirectory=NotebookDirectory[]]];
 $Path~AppendTo~$WorkingDirectory;
 $PSALTerInstallDirectory=Select[FileNameJoin[{#,"xAct/PSALTer"}]&/@$Path,DirectoryQ][[1]];
 If[$CLI,	
@@ -106,7 +111,7 @@ BuildPSALTerPackage[]:=BuildPackage/@{
 BuildPSALTerPackage[];
 Begin["xAct`PSALTer`"];
 	xAct`PSALTer`Private`BuildPSALTer[];
-	Quiet@If[NotebookDirectory[]==$Failed,$CLI=True,$CLI=False,$CLI=False];
+	Quiet@If[$FrontEndSession==Null,$CLI=True,$CLI=False,$CLI=False];
 	$DefInfoQ=False;
 End[];
 End[];

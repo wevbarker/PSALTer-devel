@@ -2,6 +2,8 @@
 (*  IsolatePoles  *)
 (*================*)
 
+ParticleSpectrum::MultiMass="One of the SO(3) sectors appears to have multiple massive poles.";
+$MultiMass=False;
 IsolatePoles[InputDenominator_,CouplingAssumptions_]:=Module[{
 	Poly=InputDenominator,
 	NewCouplingAssumptions=CouplingAssumptions},
@@ -26,4 +28,6 @@ IsolatePoles[InputDenominator_,CouplingAssumptions_]:=Module[{
 		Diagnostic@ListOfRoots;,
 		ListOfRoots={};
 	];
+	$MultiMass=False;
+	If[Length@ListOfRoots>=2,$MultiMass=True;Throw@Message@ParticleSpectrum::MultiMass;];
 ListOfRoots];
