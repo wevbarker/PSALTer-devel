@@ -34,19 +34,22 @@ Protect@AutomaticRules;
 (*  Global variables  *)
 (*====================*)
 
-If[$FrontEnd==Null,$CLI=True,$CLI=False,$CLI=False];
-Quiet@If[$CLI,
-	$WorkingDirectory=Directory[],
+If[$FrontEnd==Null,
+	xAct`PSALTer`Private`$CLI=True,
+	xAct`PSALTer`Private`$CLI=False,
+	xAct`PSALTer`Private`$CLI=False];
+Quiet@If[xAct`PSALTer`Private`$CLI,
+	xAct`PSALTer`Private`$WorkingDirectory=Directory[],
 	If[NotebookDirectory[]==$Failed,
-		$WorkingDirectory=Directory[],
-		$WorkingDirectory=NotebookDirectory[],
-		$WorkingDirectory=NotebookDirectory[]]];
-$Path~AppendTo~$WorkingDirectory;
-$PSALTerInstallDirectory=Select[FileNameJoin[{#,"xAct/PSALTer"}]&/@$Path,DirectoryQ][[1]];
-If[$CLI,	
-	Print@Import@FileNameJoin@{$PSALTerInstallDirectory,
+		xAct`PSALTer`Private`$WorkingDirectory=Directory[],
+		xAct`PSALTer`Private`$WorkingDirectory=NotebookDirectory[],
+		xAct`PSALTer`Private`$WorkingDirectory=NotebookDirectory[]]];
+$Path~AppendTo~xAct`PSALTer`Private`$WorkingDirectory;
+xAct`PSALTer`Private`$PSALTerInstallDirectory=Select[FileNameJoin[{#,"xAct/PSALTer"}]&/@$Path,DirectoryQ][[1]];
+If[xAct`PSALTer`Private`$CLI,	
+	Print@Import@FileNameJoin@{xAct`PSALTer`Private`$PSALTerInstallDirectory,
 				"Documentation","Logo","ASCIILogo.txt"},
-	Print@Magnify[Import@FileNameJoin@{$PSALTerInstallDirectory,
+	Print@Magnify[Import@FileNameJoin@{xAct`PSALTer`Private`$PSALTerInstallDirectory,
 				"Documentation","Logo","GitLabLogo.png"},0.3]];
 $ReadOnly=False;
 
@@ -94,24 +97,31 @@ $ReadOnly::usage="$ReadOnly is a boolean variable which controls whether the ana
 (*=========================*)
 
 Begin["xAct`PSALTer`Private`"];
-
 $DiagnosticMode=False;
 $MonitorParallel=False;
 $Disabled=False;
-
-BuildPackage[FileName_String]:=Get[FileNameJoin@{$PSALTerInstallDirectory,"Sources","Package",FileName}];
-BuildRebuild[FileName_String]:=Get[FileNameJoin@{$PSALTerInstallDirectory,"Sources","Rebuild",FileName}];
-
-BuildPSALTerPackage[]:=BuildPackage/@{
-	"BuildPSALTer.m",
+IncludeHeader[FunctionName_]:=Module[{PathName},
+	PathName=$InputFileName~StringDrop~(-2);
+	PathName=FileNameJoin@{PathName,FunctionName<>".m"};
+	PathName//=Get;
+];
+ReadAtRuntime[FunctionName_]:=Module[{PathName,FunctionSymbol=Symbol@FunctionName},
+	PathName=$InputFileName~StringDrop~(-2);
+	PathName=FileNameJoin@{PathName,FunctionName<>".m"};
+	FunctionSymbol[]:=PathName//Get;
+];
+RereadSources[]:=(Get@FileNameJoin@{$PSALTerInstallDirectory,"Sources",#})&/@{
+	"ReloadPackage.m",
 	"DefField.m",
 	"ParticleSpectrum.m"
 };
-
-BuildPSALTerPackage[];
+RereadSources[];
 Begin["xAct`PSALTer`"];
-	xAct`PSALTer`Private`BuildPSALTer[];
-	Quiet@If[$FrontEndSession==Null,$CLI=True,$CLI=False,$CLI=False];
+	xAct`PSALTer`Private`ReloadPackage[];
+	Quiet@If[$FrontEndSession==Null,
+		xAct`PSALTer`Private`$CLI=True,
+		xAct`PSALTer`Private`$CLI=False,
+		xAct`PSALTer`Private`$CLI=False];
 	$DefInfoQ=False;
 End[];
 End[];
