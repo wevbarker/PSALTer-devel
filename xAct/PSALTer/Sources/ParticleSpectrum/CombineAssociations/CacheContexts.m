@@ -29,7 +29,7 @@ CacheContexts[]:=Module[{NewContextList=$AllFieldContexts~Join~{
 			LoadContexts//=MonitorParallel;	
 			$KernelsLaunched=True;
 		,
-			120
+			360
 		];
 	];
 
