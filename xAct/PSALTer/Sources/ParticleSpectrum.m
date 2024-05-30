@@ -223,8 +223,8 @@ ParticleSpectrumActual[Expr_,OptionsPattern[]]:=If[
 					LocalMasslessSpectrum,
 					LocalOverallUnitarity]<>"\"");
 		,
-			PDFSummaryOfResults=Check[
-				SummariseResults[
+			Check[
+				PDFSummaryOfResults=SummariseResults[
 						OptionValue@TheoryName,
 						LocalWaveOperator,
 						LocalPropagator,
@@ -235,7 +235,7 @@ ParticleSpectrumActual[Expr_,OptionsPattern[]]:=If[
 						LocalSummaryOfTheory,
 						SummaryType->ResultsCollage];
 			,
-				SummariseResults[
+				PDFSummaryOfResults=SummariseResults[
 						OptionValue@TheoryName,
 						LocalWaveOperator,
 						LocalPropagator,
