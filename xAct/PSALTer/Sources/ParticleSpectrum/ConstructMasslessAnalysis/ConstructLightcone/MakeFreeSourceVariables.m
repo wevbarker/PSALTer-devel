@@ -14,6 +14,8 @@ MakeFreeSourceVariables[NullSpace_List,SourceComponents_List]:=Module[{
 		{i,NullSpaceDimension}];
 	Diagnostic@FreeSourceVariables;
 	SourceComponentsAsFreeSourceVariables=(Transpose@FreeSourceVariables) . NullSpace;
+	Diagnostic@NullSpace;
+	Diagnostic@SourceComponents;
 	Diagnostic@SourceComponentsAsFreeSourceVariables;
 	SourceComponentsToFreeSourceVariables=Flatten@MapThread[#1->#2&,
 		{SourceComponents,SourceComponentsAsFreeSourceVariables}];
