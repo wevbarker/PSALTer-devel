@@ -2,6 +2,8 @@
 (*  MakeFreeSourceVariables  *)
 (*===========================*)
 
+IncludeHeader@"DefFreeSourceVariables";
+
 MakeFreeSourceVariables[NullSpace_List,SourceComponents_List]:=Module[{
 	NullSpaceDimension,
 	FreeSourceVariables,
@@ -10,17 +12,19 @@ MakeFreeSourceVariables[NullSpace_List,SourceComponents_List]:=Module[{
 
 	NullSpaceDimension=(Dimensions@NullSpace)[[1]];
 	Diagnostic@NullSpaceDimension;
+	DefFreeSourceVariables@NullSpaceDimension;
+	Map[
+		(xAct`PSALTer`Private`PSALTerParallelSubmit@(DefFreeSourceVariables[#]))&,
+		NullSpaceDimension~Table~$KernelCount];
 	FreeSourceVariables=Table[Symbol["xAct`PSALTer`Private`X"<>ToString@i],
 		{i,NullSpaceDimension}];
 	Diagnostic@FreeSourceVariables;
 	SourceComponentsAsFreeSourceVariables=(Transpose@FreeSourceVariables) . NullSpace;
-	Diagnostic@NullSpace;
-	Diagnostic@SourceComponents;
 	Diagnostic@SourceComponentsAsFreeSourceVariables;
 	SourceComponentsToFreeSourceVariables=Flatten@MapThread[#1->#2&,
 		{SourceComponents,SourceComponentsAsFreeSourceVariables}];
 	Diagnostic@SourceComponentsToFreeSourceVariables;
 	SourceComponentsToFreeSourceVariables=SourceComponentsToFreeSourceVariables~Join~Flatten@MapThread[Evaluate@Dagger@#1->Evaluate@Dagger@#2&,
 		{SourceComponents,SourceComponentsAsFreeSourceVariables}];
-	Diagnostic@SourceComponentsAsFreeSourceVariables;
+	Diagnostic@SourceComponentsToFreeSourceVariables;
 SourceComponentsToFreeSourceVariables];
