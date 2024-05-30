@@ -19,7 +19,7 @@ MakeFreeSourceVariables[NullSpace_List,SourceComponents_List]:=Module[{
 	Diagnostic@SourceComponentsAsFreeSourceVariables;
 	SourceComponentsToFreeSourceVariables=Flatten@MapThread[#1->#2&,
 		{SourceComponents,SourceComponentsAsFreeSourceVariables}];
-	Diagnostic@SourceComponentsAsFreeSourceVariables;
+	Diagnostic@SourceComponentsToFreeSourceVariables;
 	SourceComponentsToFreeSourceVariables=SourceComponentsToFreeSourceVariables~Join~Flatten@MapThread[Evaluate@Dagger@#1->Evaluate@Dagger@#2&,
 		{SourceComponents,SourceComponentsAsFreeSourceVariables}];
 	Diagnostic@SourceComponentsAsFreeSourceVariables;
