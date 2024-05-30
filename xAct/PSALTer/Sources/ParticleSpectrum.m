@@ -223,16 +223,28 @@ ParticleSpectrumActual[Expr_,OptionsPattern[]]:=If[
 					LocalMasslessSpectrum,
 					LocalOverallUnitarity]<>"\"");
 		,
-			PDFSummaryOfResults=SummariseResults[
-					OptionValue@TheoryName,
-					LocalWaveOperator,
-					LocalPropagator,
-					LocalSourceConstraints,
-					LocalSpectrum,
-					LocalMasslessSpectrum,
-					LocalOverallUnitarity,
-					LocalSummaryOfTheory,
-					SummaryType->ResultsCollage];
+			PDFSummaryOfResults=Check[
+				SummariseResults[
+						OptionValue@TheoryName,
+						LocalWaveOperator,
+						LocalPropagator,
+						LocalSourceConstraints,
+						LocalSpectrum,
+						LocalMasslessSpectrum,
+						LocalOverallUnitarity,
+						LocalSummaryOfTheory,
+						SummaryType->ResultsCollage];
+			,
+				SummariseResults[
+						OptionValue@TheoryName,
+						LocalWaveOperator,
+						LocalPropagator,
+						LocalSourceConstraints,
+						LocalSpectrum,
+						LocalMasslessSpectrum,
+						LocalOverallUnitarity,
+						LocalSummaryOfTheory];
+			];
 			Export[FileNameJoin@{$WorkingDirectory,"ParticleSpectrograph"<>OptionValue@TheoryName<>".pdf"},
 				PDFSummaryOfResults
 			];
