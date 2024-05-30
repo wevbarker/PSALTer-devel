@@ -1,9 +1,20 @@
-If[(ReadList@OpenRead@("if ! command -v inkscape &> /dev/null then echo "1" exit 1 else echo "0" exit 0 fi"))===1,Message[Get::noopen,"inkscape"]];
+(*========*)
+(*  Test  *)
+(*========*)
 
+IncludeHeader[FunctionName_]:=Module[{PathName},
+	PathName=$InputFileName~StringDrop~(-2);
+	Print@PathName;
+	PathName=FileNameJoin@{PathName,FunctionName<>".m"};
+	Print@PathName;
+	PathName//=Get;
+];
 
-SetAttributes
+Get@"Test/NewFunction.m";
 
-IfPDF[InputExpr_]:=Module[{},
-	];
+Expr=2;
+Print@Expr;
+Expr//=DependentFunction;
+Print@Expr;
 
 Quit[];
