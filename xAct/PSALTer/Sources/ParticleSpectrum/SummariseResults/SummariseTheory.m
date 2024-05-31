@@ -28,12 +28,5 @@ SummariseTheory[Theory_?NotStringQ]:=Module[{
 	PlasticBoxContent=(Action==Integrate@@({((CollectConstants@Theory))@@#}~Join~(#[[1;;4]]))&@{TCoordinate,XCoordinate,YCoordinate,ZCoordinate});
 	PlasticBoxContent//=Evaluate;
 	PlasticBoxContent//=Text;
-(*
-	PlasticBoxFinal=PlasticBox[PlasticBoxContent,PlasticBoxSize];
-	While[PlasticBoxAspect@PlasticBoxFinal<=0.1,
-		PlasticBoxSize-=10;
-		PlasticBoxFinal=PlasticBox[PlasticBoxContent,PlasticBoxSize];
-	];
-*)
 	PlasticBoxFinal=RigidBox[PlasticBoxContent];
 PlasticBoxFinal];
