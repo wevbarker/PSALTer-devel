@@ -8,6 +8,7 @@ Vectorize[InputExpr_]:=Module[{TemporaryFileNameEPS,TemporaryFileNamePDF,Tempora
 	TemporaryFileNameTXT=FileNameJoin@{$WorkingDirectory,"tmp","Vectorized"<>".txt"};
 	Export[TemporaryFileNamePDF,InputExpr,AllowRasterization->False];
 	Run@("where /r \"C:\" inkscape.com > \""<>TemporaryFileNameTXT<>"\" & set /p myvar= < \""<>TemporaryFileNameTXT<>"\" & \"%myvar%\" "<>TemporaryFileNamePDF<>" --export-eps="<>TemporaryFileNameEPS);
+	Print@("where /r \"C:\" inkscape.com > \""<>TemporaryFileNameTXT<>"\" & set /p myvar= < \""<>TemporaryFileNameTXT<>"\" & \"%myvar%\" "<>TemporaryFileNamePDF<>" --export-eps="<>TemporaryFileNameEPS);
 	Run@("inkscape "<>TemporaryFileNamePDF<>" --export-eps="<>TemporaryFileNameEPS);
 	Expr=TemporaryFileNameEPS~Import~"Graphics";
 Expr];
