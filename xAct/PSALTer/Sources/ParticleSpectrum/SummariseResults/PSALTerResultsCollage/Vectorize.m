@@ -13,5 +13,5 @@ Vectorize[InputExpr_]:=Module[{TemporaryFileNameEPS,TemporaryFileNamePDF,Tempora
 	Run@("inkscape "<>TemporaryFileNamePDF<>" --export-eps="<>TemporaryFileNameEPS);
 *)
 	(*Expr=TemporaryFileNameEPS~Import~"Graphics";*)
-	Expr=TemporaryFileNamePDF~Import~"Graphics";
+	Expr=TemporaryFileNamePDF~Import~"PageGraphics";
 Expr];
