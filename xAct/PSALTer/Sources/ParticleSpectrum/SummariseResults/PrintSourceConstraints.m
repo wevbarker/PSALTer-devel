@@ -11,7 +11,7 @@ PrintSourceConstraints[SpinParitySourceConstraints_,
 		{
 		{Text@"Source constraints",SpanFromLeft},
 		{Text@"SO(3) irreps",Text@"Multiplicities"}}~Join~
-		MapThread[{#1,#2,#3}&,{Text/@SpinParitySourceConstraints,
+		MapThread[{#1,#2}&,{Text/@SpinParitySourceConstraints,
 					Text/@Multiplicities}]
 		)~Join~
 		{{Text@"Total constraints/gauge generators:",Text/@(Total@Multiplicities)}},
