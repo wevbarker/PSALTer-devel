@@ -28,8 +28,7 @@ ConstructMassiveAnalysis[ClassName_?StringQ,ValuesSaturatedPropagator_,ValuesInv
 	SpinParitySectorFileNames=Table[0,{i,Length@(ValuesSaturatedPropagator)}];
 	Table[
 		SpinParitySector=ValuesSaturatedPropagator[[i]];
-		SpinParitySectorFileName=FileNameJoin@{$WorkingDirectory,
-				"tmp",
+		SpinParitySectorFileName=FileNameJoin@{$TemporaryDirectory,
 				"SpinParitySector"<>ToString@i<>".mx"};
 		SpinParitySectorFileNames[[i]]=SpinParitySectorFileName;
 		DumpSave[SpinParitySectorFileName,SpinParitySector];

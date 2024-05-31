@@ -114,9 +114,6 @@ ParticleSpectrumActual[Expr_,OptionsPattern[]]:=Catch@If[
 					LocalSummaryOfTheory}]];
 		];
 
-		Quiet@DeleteDirectory[FileNameJoin@{$WorkingDirectory,"tmp"},DeleteContents->True];
-		Quiet@CreateDirectory@FileNameJoin@{$WorkingDirectory,"tmp"};
-
 		Catch[
 			CombineAssociations[Expr,TheoryContext];
 			ConstructLinearAction[
@@ -210,7 +207,6 @@ ParticleSpectrumActual[Expr_,OptionsPattern[]]:=Catch@If[
 						LocalOverallUnitarity,
 						ExportTheory->False];
 		];
-		DeleteDirectory[FileNameJoin@{$WorkingDirectory,"tmp"},DeleteContents->True];
 
 		If[$CLI,
 			TaskRemove@SummariseResultsOngoing;
