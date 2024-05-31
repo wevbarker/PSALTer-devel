@@ -13,21 +13,31 @@ WignerGrid[AllMatrices_,Sizes_,Spins_,Sides_,Tops_]:=Module[{
 	Cols
 	},
 
+
+	$DiagnosticMode=True;
+	Diagnostic@Sizes;
 	SpinParities=Table[Superscript[ToString@i,j],{i,Spins},{j,{"+","-"}}]~Take~Length@Spins;
+	Diagnostic@SpinParities;
 	TheSides=Sides~Take~Length@Spins;
+	Diagnostic@TheSides;
 	TheTops=Tops~Take~Length@Spins;
+	Diagnostic@TheTops;
 	Mask=ArrayPad[Normal@BlockDiagonalMatrix@Map[(True)&,AllMatrices,{3}],{{1,0},{1,0}}]/.{0->False};
 	AllElements=Normal@BlockDiagonalMatrix@AllMatrices;
 	AllElements=ArrayPad[AllElements,{{1,0},{1,0}}];
 	AllElements=MapThread[If[#2,#1,Null]&,{AllElements,Mask},2];
 
 	EndCells=(Accumulate@Flatten@Sizes)~Partition~2;
+	Diagnostic@EndCells;
 	StartCells=EndCells-(Sizes/.{0->1});
+	Diagnostic@StartCells;
 	StartCells=Map[(#+1)&,StartCells,{2}];
+	Diagnostic@StartCells;
+	$DiagnosticMode=False;
 
 	Alignments={};
 
-	Quiet@MapThread[
+	MapThread[
 	(
 	Which[
 	#4[[1]]==0,
