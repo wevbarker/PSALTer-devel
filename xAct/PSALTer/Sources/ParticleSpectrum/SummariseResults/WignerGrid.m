@@ -4,6 +4,8 @@
 
 WignerGrid[AllMatrices_,Sizes_,Spins_,Sides_,Tops_]:=Module[{
 	SpinParities,
+	TheSides,
+	TheTops,
 	Mask,
 	AllElements,
 	EndCells,
