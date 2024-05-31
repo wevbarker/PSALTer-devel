@@ -3,7 +3,7 @@
 (*==============*)
 
 GetDiagram[FileName_]:=Module[{TemporaryFileName,Expr},
-	TemporaryFileName=FileNameJoin@{$PSALTerInstallDirectory,
+	TemporaryFileName=FileNameJoin@{$InstallDirectory,
 		"Sources",
 		"ParticleSpectrum",
 		"SummariseResults",

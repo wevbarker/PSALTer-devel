@@ -3,7 +3,7 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2402.07641-b31b1b.svg)](https://arxiv.org/abs/2402.07641)
 [![arXiv](https://img.shields.io/badge/arXiv-2402.14917-b31b1b.svg)](https://arxiv.org/abs/2402.14917)
 [![arXiv](https://img.shields.io/badge/arXiv-2402.00000-b31b1b.svg)](https://arxiv.org/abs/2405.00000)
-<img src="xAct/PSALTer/Documentation/Logo/GitHubLogo.png" width="1000">
+<img src="xAct/PSALTer/Logos/GitHubLogo.png" width="1000">
 
 # Particle Spectrum for Any Tensor Lagrangian (_PSALTer_)
 ## Version 1.0.0
@@ -12,7 +12,7 @@
 
 ## License
 
-Copyright © 2022 Will Barker, Stephanie Buttigieg, Carlo Marzo, Cillian Rew, Claire Rigouzzo, Zhiyuan Wei, David Yallup and Haoyang Ye.
+Copyright © 2022 Will Barker, Carlo Marzo and Claire Rigouzzo.
 
 _PSALTer_ is distributed as free software under the [GNU General Public License (GPL)](https://www.gnu.org/licenses/gpl-3.0.en.html).
 
@@ -57,7 +57,7 @@ DefField[
 ```
 The output should look like:
 
-<img src="xAct/PSALTer/Documentation/Logo/FieldKinematics.png" width="1000">
+<img src="xAct/PSALTer/Logos/FieldKinematics.png" width="1000">
 
 To compute the spectrum, we plug the Lagrangian into the `ParticleSpectrum` function from _PSALTer_:
 ```mathematica
@@ -77,7 +77,7 @@ ParticleSpectrum[
 ```
 The output should look like:
 
-<img src="xAct/PSALTer/Documentation/Logo/ParticleSpectrograph.png" width="1000">
+<img src="xAct/PSALTer/Logos/ParticleSpectrograph.png" width="1000">
 
 ## Documentation 
 

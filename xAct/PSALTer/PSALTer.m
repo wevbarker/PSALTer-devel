@@ -6,7 +6,7 @@
 (*  Version  *)
 (*===========*)
 
-xAct`PSALTer`$Version={"1.0.0",{2024,6,1}};
+xAct`PSALTer`Private`$Version={"1.0.0",{2024,6,1}};
 If[Unevaluated[xAct`xCore`Private`$LastPackage]===xAct`xCore`Private`$LastPackage,xAct`xCore`Private`$LastPackage="xAct`PSALTer`"];
 Off@(Solve::fulldim);
 
@@ -17,8 +17,8 @@ Off@(Solve::fulldim);
 BeginPackage["xAct`PSALTer`",{"xAct`xTensor`","xAct`SymManipulator`","xAct`xPerm`","xAct`xCore`","xAct`xTras`","xAct`xCoba`","JasonB`RectanglePacking`"}];
 ParallelNeeds["xAct`PSALTer`"];
 Print[xAct`xCore`Private`bars];
-Print["Package xAct`PSALTer` version ",$Version[[1]],", ",$Version[[2]]];
-Print["CopyRight \[Copyright] 2022, Will Barker, Stephanie Buttigieg, Carlo Marzo, Cillian Rew, Claire Rigouzzo, Zhiyuan Wei, David Yallup and Haoyang Ye, under the General Public License."];
+Print["Package xAct`PSALTer` version ",xAct`PSALTer`Private`$Version[[1]],", ",xAct`PSALTer`Private`$Version[[2]]];
+Print["CopyRight \[Copyright] 2022, Will Barker, Carlo Marzo and Claire Rigouzzo, under the General Public License."];
 
 (*====================*)
 (*  Package settings  *)
@@ -45,12 +45,12 @@ Quiet@If[xAct`PSALTer`Private`$CLI,
 		xAct`PSALTer`Private`$WorkingDirectory=NotebookDirectory[],
 		xAct`PSALTer`Private`$WorkingDirectory=NotebookDirectory[]]];
 $Path~AppendTo~xAct`PSALTer`Private`$WorkingDirectory;
-xAct`PSALTer`Private`$PSALTerInstallDirectory=Select[FileNameJoin[{#,"xAct/PSALTer"}]&/@$Path,DirectoryQ][[1]];
+xAct`PSALTer`Private`$InstallDirectory=Select[FileNameJoin[{#,"xAct/PSALTer"}]&/@$Path,DirectoryQ][[1]];
 If[xAct`PSALTer`Private`$CLI,	
-	Print@Import@FileNameJoin@{xAct`PSALTer`Private`$PSALTerInstallDirectory,
-				"Documentation","Logo","ASCIILogo.txt"},
-	Print@Magnify[Import@FileNameJoin@{xAct`PSALTer`Private`$PSALTerInstallDirectory,
-				"Documentation","Logo","GitLabLogo.png"},0.3]];
+	Print@Import@FileNameJoin@{xAct`PSALTer`Private`$InstallDirectory,
+				"Logos","ASCIILogo.txt"},
+	Print@Magnify[Import@FileNameJoin@{xAct`PSALTer`Private`$InstallDirectory,
+				"Logos","GitLabLogo.png"},0.3]];
 $ReadOnly=False;
 
 (*==============*)
@@ -110,7 +110,7 @@ ReadAtRuntime[FunctionName_]:=Module[{PathName,FunctionSymbol=Symbol@FunctionNam
 	PathName=FileNameJoin@{PathName,FunctionName<>".m"};
 	FunctionSymbol[]:=PathName//Get;
 ];
-RereadSources[]:=(Off@Syntax::stresc;(Get@FileNameJoin@{$PSALTerInstallDirectory,"Sources",#})&/@{
+RereadSources[]:=(Off@Syntax::stresc;(Get@FileNameJoin@{$InstallDirectory,"Sources",#})&/@{
 	"ReloadPackage.m",
 	"DefField.m",
 	"ParticleSpectrum.m"
