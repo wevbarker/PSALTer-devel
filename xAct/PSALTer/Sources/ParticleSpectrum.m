@@ -24,7 +24,7 @@ Off[SetDelayed::write];
 Options@ParticleSpectrumActual={TheoryName->False,Method->"Easy",MaxLaurentDepth->1};
 
 ParticleSpectrum::NoFile="The file `1` cannot be found.";
-ParticleSpectrumActual[OptionsPattern[]]:=Module[{
+ParticleSpectrumActual[OptionsPattern[]]:=Catch@Module[{
 	SummaryOfResults,
 	PDFSummaryOfResults,
 	Class},
@@ -59,7 +59,7 @@ ParticleSpectrumActual[OptionsPattern[]]:=Module[{
 	Print@PDFSummaryOfResults;
 ];
 
-ParticleSpectrumActual[Expr_,OptionsPattern[]]:=If[
+ParticleSpectrumActual[Expr_,OptionsPattern[]]:=Catch@If[
 	$ReadOnly,
 	ParticleSpectrumActual[		
 		TheoryName->OptionValue@TheoryName,
