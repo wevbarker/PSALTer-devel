@@ -16,30 +16,17 @@ WignerGrid[AllMatrices_,Sizes_,Spins_,Sides_,Tops_]:=Module[{
 	},
 
 
-	$PrintMode=True;
-	Print@Sizes;
 	SpinParities=Table[Superscript[ToString@i,j],{i,Spins},{j,{"+","-"}}]~Take~Length@Spins;
-	Print@SpinParities;
 	TheSides=Sides~Take~Length@Spins;
-	Print@TheSides;
 	TheTops=Tops~Take~Length@Spins;
-	Print@TheTops;
 	Mask=ArrayPad[Normal@BlockDiagonalMatrix@Map[(True)&,AllMatrices,{3}],{{1,0},{1,0}}]/.{0->False};
-	Print@Mask;
 	AllElements=Normal@BlockDiagonalMatrix@AllMatrices;
-	Print@AllElements;
 	AllElements=ArrayPad[AllElements,{{1,0},{1,0}}];
-	Print@AllElements;
 	AllElements=MapThread[If[#2,#1,Null]&,{AllElements,Mask},2];
-	Print@AllElements;
 
 	EndCells=(Accumulate@Flatten@Sizes)~Partition~2;
-	Print@EndCells;
 	StartCells=EndCells-(Sizes/.{0->1});
-	Print@StartCells;
 	StartCells=Map[(#+1)&,StartCells,{2}];
-	Print@StartCells;
-	$PrintMode=False;
 
 	Alignments={};
 
@@ -64,7 +51,6 @@ WignerGrid[AllMatrices_,Sizes_,Spins_,Sides_,Tops_]:=Module[{
 	];
 	)&,
 	{StartCells,EndCells,SpinParities,Sizes,TheSides,TheTops},1];
-	Print@{StartCells,EndCells,SpinParities,Sizes,TheSides,TheTops};
 
 	OuterDirective=Directive[Black,Thick];
 	InnerDirective=Directive[Black,Thickness@Medium];
