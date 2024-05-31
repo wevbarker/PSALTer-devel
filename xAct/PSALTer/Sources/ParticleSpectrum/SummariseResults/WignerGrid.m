@@ -62,6 +62,7 @@ WignerGrid[AllMatrices_,Sizes_,Spins_,Sides_,Tops_]:=Module[{
 	];
 	)&,
 	{StartCells,EndCells,SpinParities,Sizes,TheSides,TheTops},1];
+	Print@{StartCells,EndCells,SpinParities,Sizes,TheSides,TheTops};
 
 	OuterDirective=Directive[Black,Thick];
 	InnerDirective=Directive[Black,Thickness@Medium];
