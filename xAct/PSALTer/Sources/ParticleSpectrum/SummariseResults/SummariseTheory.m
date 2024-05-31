@@ -12,6 +12,7 @@ PlasticBox[InputExpr_,PlasticBoxSize_]:=Framed[Grid[{{InputExpr}},
 RigidBox[InputExpr_]:=Framed[
 				Grid[
 					{{Text@"Quadratic (free) action"},{InputExpr}},
+						ItemStyle->{LineIndent->0},
 						Background->DetailColor,
 						Dividers->Center,
 						Alignment->Left
