@@ -23,9 +23,13 @@ WignerGrid[AllMatrices_,Sizes_,Spins_,Sides_,Tops_]:=Module[{
 	TheTops=Tops~Take~Length@Spins;
 	Diagnostic@TheTops;
 	Mask=ArrayPad[Normal@BlockDiagonalMatrix@Map[(True)&,AllMatrices,{3}],{{1,0},{1,0}}]/.{0->False};
+	Diagnostic@Mask;
 	AllElements=Normal@BlockDiagonalMatrix@AllMatrices;
+	Diagnostic@AllElements;
 	AllElements=ArrayPad[AllElements,{{1,0},{1,0}}];
+	Diagnostic@AllElements;
 	AllElements=MapThread[If[#2,#1,Null]&,{AllElements,Mask},2];
+	Diagnostic@AllElements;
 
 	EndCells=(Accumulate@Flatten@Sizes)~Partition~2;
 	Diagnostic@EndCells;
