@@ -14,30 +14,30 @@ WignerGrid[AllMatrices_,Sizes_,Spins_,Sides_,Tops_]:=Module[{
 	},
 
 
-	$DiagnosticMode=True;
-	Diagnostic@Sizes;
+	$PrintMode=True;
+	Print@Sizes;
 	SpinParities=Table[Superscript[ToString@i,j],{i,Spins},{j,{"+","-"}}]~Take~Length@Spins;
-	Diagnostic@SpinParities;
+	Print@SpinParities;
 	TheSides=Sides~Take~Length@Spins;
-	Diagnostic@TheSides;
+	Print@TheSides;
 	TheTops=Tops~Take~Length@Spins;
-	Diagnostic@TheTops;
+	Print@TheTops;
 	Mask=ArrayPad[Normal@BlockDiagonalMatrix@Map[(True)&,AllMatrices,{3}],{{1,0},{1,0}}]/.{0->False};
-	Diagnostic@Mask;
+	Print@Mask;
 	AllElements=Normal@BlockDiagonalMatrix@AllMatrices;
-	Diagnostic@AllElements;
+	Print@AllElements;
 	AllElements=ArrayPad[AllElements,{{1,0},{1,0}}];
-	Diagnostic@AllElements;
+	Print@AllElements;
 	AllElements=MapThread[If[#2,#1,Null]&,{AllElements,Mask},2];
-	Diagnostic@AllElements;
+	Print@AllElements;
 
 	EndCells=(Accumulate@Flatten@Sizes)~Partition~2;
-	Diagnostic@EndCells;
+	Print@EndCells;
 	StartCells=EndCells-(Sizes/.{0->1});
-	Diagnostic@StartCells;
+	Print@StartCells;
 	StartCells=Map[(#+1)&,StartCells,{2}];
-	Diagnostic@StartCells;
-	$DiagnosticMode=False;
+	Print@StartCells;
+	$PrintMode=False;
 
 	Alignments={};
 
