@@ -110,11 +110,11 @@ ReadAtRuntime[FunctionName_]:=Module[{PathName,FunctionSymbol=Symbol@FunctionNam
 	PathName=FileNameJoin@{PathName,FunctionName<>".m"};
 	FunctionSymbol[]:=PathName//Get;
 ];
-RereadSources[]:=(Get@FileNameJoin@{$PSALTerInstallDirectory,"Sources",#})&/@{
+RereadSources[]:=(Off@Syntax::stresc;(Get@FileNameJoin@{$PSALTerInstallDirectory,"Sources",#})&/@{
 	"ReloadPackage.m",
 	"DefField.m",
 	"ParticleSpectrum.m"
-};
+};On@Syntax::stresc;);
 RereadSources[];
 Begin["xAct`PSALTer`"];
 	xAct`PSALTer`Private`ReloadPackage[];

@@ -24,7 +24,7 @@ Off[SetDelayed::write];
 Options@ParticleSpectrumActual={TheoryName->False,Method->"Easy",MaxLaurentDepth->1};
 
 ParticleSpectrum::NoFile="The file `1` cannot be found.";
-ParticleSpectrumActual[OptionsPattern[]]:=Module[{
+ParticleSpectrumActual[OptionsPattern[]]:=Catch@Module[{
 	SummaryOfResults,
 	PDFSummaryOfResults,
 	Class},
@@ -59,7 +59,7 @@ ParticleSpectrumActual[OptionsPattern[]]:=Module[{
 	Print@PDFSummaryOfResults;
 ];
 
-ParticleSpectrumActual[Expr_,OptionsPattern[]]:=If[
+ParticleSpectrumActual[Expr_,OptionsPattern[]]:=Catch@If[
 	$ReadOnly,
 	ParticleSpectrumActual[		
 		TheoryName->OptionValue@TheoryName,
@@ -113,9 +113,6 @@ ParticleSpectrumActual[Expr_,OptionsPattern[]]:=If[
 					LocalOverallUnitarity,
 					LocalSummaryOfTheory}]];
 		];
-
-		Quiet@DeleteDirectory[FileNameJoin@{$WorkingDirectory,"tmp"},DeleteContents->True];
-		Quiet@CreateDirectory@FileNameJoin@{$WorkingDirectory,"tmp"};
 
 		Catch[
 			CombineAssociations[Expr,TheoryContext];
@@ -210,7 +207,6 @@ ParticleSpectrumActual[Expr_,OptionsPattern[]]:=If[
 						LocalOverallUnitarity,
 						ExportTheory->False];
 		];
-		DeleteDirectory[FileNameJoin@{$WorkingDirectory,"tmp"},DeleteContents->True];
 
 		If[$CLI,
 			TaskRemove@SummariseResultsOngoing;

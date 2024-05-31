@@ -11,7 +11,7 @@ CacheContexts[]:=Module[{NewContextList=$AllFieldContexts~Join~{
 	LoadContexts},
 
 	LocalSummaryOfTheory=" ** DumpSave...";
-	DumpSave[FileNameJoin@{$WorkingDirectory,"tmp",#<>".mx"},#]&/@NewContextList;
+	DumpSave[FileNameJoin@{$TemporaryDirectory,#<>".mx"},#]&/@NewContextList;
 
 	Diagnostic@NewContextList;
 
@@ -25,7 +25,7 @@ CacheContexts[]:=Module[{NewContextList=$AllFieldContexts~Join~{
 			On[LaunchKernels::nodef];
 
 			LocalSummaryOfTheory=" ** Get...";
-			LoadContexts=({$WorkingDirectory,NewContextList}~PSALTerParallelSubmit~(Off@(RuleDelayed::rhs);Get@FileNameJoin@{$WorkingDirectory,"tmp",#<>".mx"}&/@NewContextList;On@(RuleDelayed::rhs);))~Table~{TheKernel,$KernelCount};	
+			LoadContexts=({$WorkingDirectory,NewContextList}~PSALTerParallelSubmit~(Off@(RuleDelayed::rhs);Get@FileNameJoin@{$TemporaryDirectory,#<>".mx"}&/@NewContextList;On@(RuleDelayed::rhs);))~Table~{TheKernel,$KernelCount};	
 			LoadContexts//=MonitorParallel;	
 			$KernelsLaunched=True;
 		,

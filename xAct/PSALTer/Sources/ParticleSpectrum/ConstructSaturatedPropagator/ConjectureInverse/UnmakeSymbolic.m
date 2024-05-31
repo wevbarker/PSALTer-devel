@@ -33,8 +33,7 @@ UnmakeSymbolic[InverseSymbolicMatrix_,
 			MatrixElement={CouplingAssumptions,Evaluate@(TheInverseSymbolicMatrix[[i,j]])},
 			MatrixElement={CouplingAssumptions,0}
 		];
-		MatrixElementFileName=FileNameJoin@{$WorkingDirectory,
-				"tmp",
+		MatrixElementFileName=FileNameJoin@{$TemporaryDirectory,
 				"MatrixElement"<>ToString@i<>"By"<>ToString@j<>".mx"};
 		MatrixElementFileNames[[i,j]]=MatrixElementFileName;
 		DumpSave[MatrixElementFileName,MatrixElement];

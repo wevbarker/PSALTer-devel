@@ -29,8 +29,8 @@ Options@DefFieldActual={PrintAs->"\[Zeta]",PrintSourceAs->"\[ScriptJ]"};
 
 DefField::UnstudiedKinetics="The SO(3) decomposition of tensors with indices `1` and symmetry `2` has not yet been implemented in PSALTer.";
 
-DefFieldActual[InputField_[Inds___],Opts___?OptionQ]:=DefFieldActual[InputField[Inds],GenSet[],Opts];
-DefFieldActual[InputField_[Inds___],SymmExpr_,OptionsPattern[]]:=Module[{
+DefFieldActual[InputField_[Inds___],Opts___?OptionQ]:=Catch@DefFieldActual[InputField[Inds],GenSet[],Opts];
+DefFieldActual[InputField_[Inds___],SymmExpr_,OptionsPattern[]]:=Catch@Module[{
 	Rank=Length@{Inds},
 	Type=Head@SymmExpr,
 	Pair,
