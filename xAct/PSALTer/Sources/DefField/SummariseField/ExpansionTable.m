@@ -17,5 +17,5 @@ ExpansionTable[FieldSpinParityTensors_,
 			ItemSize->{Full,Full,{1,3}->70},
 			Dividers->Center,
 			Alignment->{Left,Center},
-			Background->DetailColor],Background->DetailColor,FrameStyle->Directive[DetailColor,Thickness[4]]];
+			Background->DetailColor],Background->DetailColor,FrameStyle->Directive[DetailColor,Thickness[4]],RoundingRadius->$FrameRoundingRadius];
 FinalGrid];
