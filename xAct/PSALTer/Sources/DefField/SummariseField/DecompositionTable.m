@@ -14,7 +14,7 @@ DecompositionTable[FieldTensors_,
 					Text/@FieldTensorsExpanded,
 					Text/@SourceTensors}]
 		),
-			ItemSize->{Full,Full,{1,3}->50},
+			ItemSize->{Full,Full,{1,3}->70},
 			Dividers->Center,
 			Alignment->{Left,Center},
 			Background->DetailColor],Background->DetailColor,FrameStyle->Directive[DetailColor,Thickness[4]]];
