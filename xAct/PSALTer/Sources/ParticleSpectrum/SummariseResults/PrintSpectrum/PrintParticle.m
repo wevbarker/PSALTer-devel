@@ -29,10 +29,9 @@ PrintParticle[
 				{Text@"Polarisations: ",Text@ShowIfSmall@(Polarisations)}
 			},
 			Dividers->Center,
-			Alignment->Left,
-			Background->DetailColor],
+			Alignment->Left],
 				Background->DetailColor,
-				FrameStyle->Directive[DetailColor,Thickness[4]]]
+				FrameStyle->Directive[DetailColor,Thickness[4]],RoundingRadius->$FrameRoundingRadius]
 		},Alignment->Center];
 		),
 		2,
@@ -46,10 +45,9 @@ PrintParticle[
 				{Text@"Polarisations: ",Text@ShowIfSmall@(Polarisations)}
 			},
 			Dividers->Center,
-			Alignment->Left,
-			Background->DetailColor],
+			Alignment->Left],
 				Background->DetailColor,
-				FrameStyle->Directive[DetailColor,Thickness[4]]]
+				FrameStyle->Directive[DetailColor,Thickness[4]],RoundingRadius->$FrameRoundingRadius]
 		},Alignment->Center];
 		),
 		3,
@@ -63,10 +61,9 @@ PrintParticle[
 				{Text@"Polarisations: ",Text@ShowIfSmall@(Polarisations)}
 			},
 			Dividers->Center,
-			Alignment->Left,
-			Background->DetailColor],
+			Alignment->Left],
 				Background->DetailColor,
-				FrameStyle->Directive[DetailColor,Thickness[4]]]
+				FrameStyle->Directive[DetailColor,Thickness[4]],RoundingRadius->$FrameRoundingRadius]
 		},Alignment->Center];
 		)
 	];
@@ -83,10 +80,9 @@ PrintParticle[
 			{Text@"Parity: ",Text@TheParity}
 		},
 		Dividers->Center,
-		Alignment->Left,
-		Background->DetailColor],
+		Alignment->Left],
 			Background->DetailColor,
-			FrameStyle->Directive[DetailColor,Thickness[4]]]
+			FrameStyle->Directive[DetailColor,Thickness[4]],RoundingRadius->$FrameRoundingRadius]
 	},Alignment->Center];
 	];
 TempGraphics];
