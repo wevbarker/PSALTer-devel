@@ -14,7 +14,7 @@ DecompositionTable[FieldTensors_,
 					Text/@FieldTensorsExpanded,
 					Text/@SourceTensors}]
 		),
-			ItemSize->{Full,Full,{1,3}->Automatic},
+			ItemSize->{Full,Full,{1,-1}->Automatic},
 			(*ItemSize->{{1,2}->Full,{1,3}->Full},*)
 			(*ItemSize->{Full,Full,{1,3}->90},*)
 			Dividers->Center,
