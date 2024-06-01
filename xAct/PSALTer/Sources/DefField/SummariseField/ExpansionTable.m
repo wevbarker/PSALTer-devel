@@ -14,7 +14,7 @@ ExpansionTable[FieldSpinParityTensors_,
 					Text/@FieldSpinParityTensorsExpanded,
 					Text/@SourceSpinParityTensors}]
 		),
-			ItemSize->{Full,Full,{1,-1}->Automatic},
+			ItemSize->{Full,Full,{-1,3}->Automatic},
 			Dividers->Center,
 			Alignment->Left,
 			Background->DetailColor],Background->DetailColor,FrameStyle->Directive[DetailColor,Thickness[4]]];
