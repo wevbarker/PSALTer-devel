@@ -17,7 +17,7 @@ Get@FileNameJoin@{$ThisDirectory,"Documentation","LoadingPSALTer.m"};
 Chapter@"Science applications";
 (*xAct`PSALTer`Private`$Disabled=True;*)
 (*xAct`PSALTer`Private`$DiagnosticMode=True;*)
-$ReadOnly=False;
+$ReadOnly=True;
 Get@FileNameJoin@{$ThisDirectory,"Documentation","ScalarTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","VectorTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","AntisymmetricTensorTheory.m"};
