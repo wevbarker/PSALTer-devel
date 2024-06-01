@@ -26,7 +26,8 @@ SummariseField[]:=Module[{
 
 	FieldSpinParityTensors=Flatten@Values@(Flatten/@(Values/@(Values/@(Class@FieldSpinParityTensorHeads))));
 	FieldSpinParityTensors//=((FromIndexFree@ToIndexFree@#)&/@#)&;
-	FieldSpinParityTensorsSymmetries=SymmetryGroupOfTensor/@FieldSpinParityTensors;
+	FieldSpinParityTensorsSymmetries=SymmetryOf/@FieldSpinParityTensors;
+	(*FieldSpinParityTensorsSymmetries=SymmetryGroupOfTensor/@FieldSpinParityTensors;*)
 	FieldSpinParityTensorsExpanded=(Class@ExpandFields)/@FieldSpinParityTensors;
 	SourceSpinParityTensors=Flatten@Values@(Flatten/@(Values/@(Values/@(Class@SourceSpinParityTensorHeads))));
 	SourceSpinParityTensors//=((FromIndexFree@ToIndexFree@#)&/@#)&;
@@ -38,7 +39,8 @@ SummariseField[]:=Module[{
 
 	FieldTensors=Class@Tensors;
 	FieldTensors//=((FromIndexFree@ToIndexFree@#)&/@#)&;
-	FieldTensorsSymmetries=SymmetryGroupOfTensor/@FieldTensors;
+	FieldTensorsSymmetries=SymmetryOf/@FieldTensors;
+	(*FieldTensorsSymmetries=SymmetryGroupOfTensor/@FieldTensors;*)
 	FieldTensorsDecomposed=(Class@DecomposeFields)/@FieldTensors;
 	SourceTensors=Class@Sources;
 	SourceTensors//=((FromIndexFree@ToIndexFree@#)&/@#)&;
