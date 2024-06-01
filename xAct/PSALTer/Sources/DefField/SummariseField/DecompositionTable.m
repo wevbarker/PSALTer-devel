@@ -14,10 +14,11 @@ DecompositionTable[FieldTensors_,
 					Text/@FieldTensorsExpanded,
 					Text/@SourceTensors}]
 		),
-			ItemSize->Automatic,
+			ItemSize->{Full,Full,{1,3}->90},
+			(*ItemSize->Automatic,*)
 			(*ItemSize->{{1,2}->Full,{1,3}->Full},*)
 			(*ItemSize->{Full,Full,{1,3}->90},*)
 			Dividers->Center,
-			Alignment->Left,
+			Alignment->{Left,Center},
 			Background->DetailColor],Background->DetailColor,FrameStyle->Directive[DetailColor,Thickness[4]]];
 FinalGrid];
