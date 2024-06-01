@@ -19,15 +19,11 @@ Chapter@"Science applications";
 (*xAct`PSALTer`Private`$DiagnosticMode=True;*)
 $ReadOnly=True;
 Get@FileNameJoin@{$ThisDirectory,"Documentation","ScalarTheory.m"};
-xAct`PSALTer`Private`$Disabled=True;
-(*
 Get@FileNameJoin@{$ThisDirectory,"Documentation","VectorTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","AntisymmetricTensorTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","TensorTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","ScalarTensorTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory.m"};
-*)
-xAct`PSALTer`Private`$Disabled=False;
 Get@FileNameJoin@{$ThisDirectory,"Documentation","MetricAffineGravity.m"};
 $ReadOnly=False;
 (*xAct`PSALTer`Private`$Disabled=False;*)
