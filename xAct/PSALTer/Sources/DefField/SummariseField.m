@@ -45,10 +45,24 @@ SummariseField[]:=Module[{
 	SourceTensors=Class@Sources;
 	SourceTensors//=((FromIndexFree@ToIndexFree@#)&/@#)&;
 
-	BasicInfo=Framed[Grid[{{Text@"Momentum",
+	BasicInfo=Framed[Grid[{
+	{
+		Text@"Basic conventions",
+		SpanFromLeft,
+		SpanFromLeft,
+		SpanFromLeft,
+		SpanFromLeft
+	},
+		{
+		Text@"Minkowski metric tensor",
+		Text@"Totally antisymmetric tensor",
+		Text@"Momentum",
 		Text@"Norm",
 		Text@"Frame"},
-		{Text@(P[m]),
+		{
+		Text@(G[-m,-n]),
+		Text@(epsilonG[-m,-n,-r,-s]),
+		Text@(P[m]),
 		Text@(Def^2==P[m]*P[-m]),
 		Text@(V[m]==P[m]/Def)}},
 		ItemSize->Large,
