@@ -11,7 +11,7 @@ PlasticBox[InputExpr_,PlasticBoxSize_]:=Framed[Grid[{{InputExpr}},
 						FrameStyle->Directive[DetailColor,Thickness[4]]];
 RigidBox[InputExpr_]:=Framed[
 				Grid[
-					{{Text@"Quadratic (free) action"},{InputExpr}},
+					{{Text@"Quadratic (free) Lagrangian density"},{InputExpr}},
 						ItemStyle->{LineIndent->0},	
 						Dividers->Center,
 						Alignment->Left],
@@ -24,7 +24,8 @@ SummariseTheory[Theory_?NotStringQ]:=Module[{
 		PlasticBoxContent,
 		PlasticBoxSize},
 	PlasticBoxSize=50*Floor@Sqrt@(Length@(Expand@Theory/.{Plus->List}));
-	PlasticBoxContent=(Action==Integrate@@({((Theory))@@#}~Join~(#[[1;;4]]))&@{TCoordinate,XCoordinate,YCoordinate,ZCoordinate});
+	PlasticBoxContent=(Theory);
+	(*PlasticBoxContent=(Action==Integrate@@({((Theory))@@#}~Join~(#[[1;;4]]))&@{TCoordinate,XCoordinate,YCoordinate,ZCoordinate});*)
 	PlasticBoxContent//=Evaluate;
 	PlasticBoxContent//=ExpandAll;
 	(*PlasticBoxContent//=TraditionalForm;*)
