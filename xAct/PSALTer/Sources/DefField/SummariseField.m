@@ -27,7 +27,6 @@ SummariseField[]:=Module[{
 	FieldSpinParityTensors=Flatten@Values@(Flatten/@(Values/@(Values/@(Class@FieldSpinParityTensorHeads))));
 	FieldSpinParityTensors//=((FromIndexFree@ToIndexFree@#)&/@#)&;
 	FieldSpinParityTensorsSymmetries=SymmetryOf/@FieldSpinParityTensors;
-	(*FieldSpinParityTensorsSymmetries=SymmetryGroupOfTensor/@FieldSpinParityTensors;*)
 	FieldSpinParityTensorsExpanded=(Class@ExpandFields)/@FieldSpinParityTensors;
 	SourceSpinParityTensors=Flatten@Values@(Flatten/@(Values/@(Values/@(Class@SourceSpinParityTensorHeads))));
 	SourceSpinParityTensors//=((FromIndexFree@ToIndexFree@#)&/@#)&;
@@ -40,7 +39,6 @@ SummariseField[]:=Module[{
 	FieldTensors=Class@Tensors;
 	FieldTensors//=((FromIndexFree@ToIndexFree@#)&/@#)&;
 	FieldTensorsSymmetries=SymmetryOf/@FieldTensors;
-	(*FieldTensorsSymmetries=SymmetryGroupOfTensor/@FieldTensors;*)
 	FieldTensorsDecomposed=(Class@DecomposeFields)/@FieldTensors;
 	SourceTensors=Class@Sources;
 	SourceTensors//=((FromIndexFree@ToIndexFree@#)&/@#)&;
@@ -56,9 +54,9 @@ SummariseField[]:=Module[{
 		{
 		Text@"Minkowski metric tensor",
 		Text@"Totally antisymmetric tensor",
-		Text@"Momentum",
-		Text@"Norm",
-		Text@"Frame"},
+		Text@"Four-momentum",
+		Text@"Four-momentum norm",
+		Text@"Massive rest-frame"},
 		{
 		Text@(G[-m,-n]),
 		Text@(epsilonG[-m,-n,-r,-s]),

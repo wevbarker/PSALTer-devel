@@ -14,11 +14,10 @@ RigidBox[InputExpr_]:=Framed[
 					{{Text@"Quadratic (free) action"},{InputExpr}},
 						ItemStyle->{LineIndent->0},	
 						Dividers->Center,
-						Alignment->Left
-				],
+						Alignment->Left],
 				Background->DetailColor,
-				FrameStyle->Directive[DetailColor,Thickness[4],RoundingRadius->$FrameRoundingRadius]
-			];
+				FrameStyle->Directive[DetailColor,Thickness[4]],
+				RoundingRadius->$FrameRoundingRadius];
 PlasticBoxAspect[PlasticBoxFinal_]:=N@ImageAspectRatio@Rasterize@PlasticBoxFinal;
 SummariseTheory[Theory_?NotStringQ]:=Module[{
 		PlasticBoxFinal,
