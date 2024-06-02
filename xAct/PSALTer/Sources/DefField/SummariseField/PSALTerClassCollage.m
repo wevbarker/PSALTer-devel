@@ -27,6 +27,6 @@ PSALTerClassCollage[
 	FinalGraphic//=Column[#,
 			Alignment->{Left,Center},
 			Background->PanelColor,
-			Frame->True,
+			Frame->False,
 			Spacings->{1,1}]&;
 FinalGraphic];
