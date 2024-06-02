@@ -26,7 +26,7 @@ SummariseTheory[Theory_?NotStringQ]:=Module[{
 		PlasticBoxSize},
 	PlasticBoxSize=50*Floor@Sqrt@(Length@(Expand@Theory/.{Plus->List}));
 	PlasticBoxContent=(Action==Integrate@@({((Theory))@@#}~Join~(#[[1;;4]]))&@{TCoordinate,XCoordinate,YCoordinate,ZCoordinate});
-	(*PlasticBoxContent//=Evaluate;*)
+	PlasticBoxContent//=Evaluate;
 	PlasticBoxContent//=TraditionalForm;
 	PlasticBoxContent//=Text;
 	PlasticBoxFinal=RigidBox[PlasticBoxContent];
