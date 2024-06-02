@@ -4,8 +4,7 @@
 
 Subsection@"Massive two-form theory";
 Comment@"We now add a mass-term.";
-LinearisedLagrangian=Coupling3*Antisymmetrize[CD[-a]@TwoFormField[-b,-c],{-a,-b,-c}]*CD[a]@TwoFormField[b,c]+Coupling4*TwoFormField[-a,-b]*TwoFormField[a,b];
-(*LinearisedLagrangian+=Coupling1*CD[-a]@Phi[]CD[a]@Phi[]-Coupling2*Phi[]*Phi[];*)
+LinearisedLagrangian=Coupling1*Antisymmetrize[CD[-a]@TwoFormField[-b,-c],{-a,-b,-c}]*CD[a]@TwoFormField[b,c]+Coupling2*TwoFormField[-a,-b]*TwoFormField[a,b];
 DisplayExpression[LinearisedLagrangian,EqnLabel->"TwoFormEectrodynamicsMassive"];
 LinearisedLagrangian//=ToCanonical;
 LinearisedLagrangian//=CollectTensors;
