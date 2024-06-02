@@ -20,57 +20,57 @@ PrintParticle[
 	Switch[OptionValue@LaurentDepth,
 		1,	
 		(
-		TempGraphics=Row[{
+		TempGraphics=Framed[Row[{
 			GetDiagram@"Quadratic.pdf",
-			Framed[Grid[
+			Grid[
 			{
 				{Text@"Quadratic pole",SpanFromLeft},
 				{Text@"Pole residue: ",Text@ShowIfSmall@(MassivePoleResidue>0)},
 				{Text@"Polarisations: ",Text@ShowIfSmall@(Polarisations)}
 			},
 			Dividers->Center,
-			Alignment->Left],
+			Alignment->Left]
+		},Alignment->Center],
 				Background->DetailColor,
-				FrameStyle->Directive[DetailColor,Thickness[4]],RoundingRadius->$FrameRoundingRadius]
-		},Alignment->Center];
+				FrameStyle->Directive[DetailColor,Thickness[4]],RoundingRadius->$FrameRoundingRadius];
 		),
 		2,
 		(
-		TempGraphics=Row[{
+		TempGraphics=Framed[Row[{
 			GetDiagram@"Quartic.pdf",
-			Framed[Grid[
+			Grid[
 			{
 				{Text@"Quartic pole",SpanFromLeft},
 				{Text@"Pole residue: ",Text@ShowIfSmall@(0<MassivePoleResidue>0)},
 				{Text@"Polarisations: ",Text@ShowIfSmall@(Polarisations)}
 			},
 			Dividers->Center,
-			Alignment->Left],
+			Alignment->Left]
+		},Alignment->Center],
 				Background->DetailColor,
-				FrameStyle->Directive[DetailColor,Thickness[4]],RoundingRadius->$FrameRoundingRadius]
-		},Alignment->Center];
+				FrameStyle->Directive[DetailColor,Thickness[4]],RoundingRadius->$FrameRoundingRadius];
 		),
 		3,
 		(
-		TempGraphics=Row[{
+		TempGraphics=Framed[Row[{
 			GetDiagram@"Hexic.pdf",
-			Framed[Grid[
+			Grid[
 			{
 				{Text@"Hexic pole",SpanFromLeft},
 				{Text@"Pole residue: ",Text@ShowIfSmall@(0<MassivePoleResidue>0)},
 				{Text@"Polarisations: ",Text@ShowIfSmall@(Polarisations)}
 			},
 			Dividers->Center,
-			Alignment->Left],
+			Alignment->Left]
+		},Alignment->Center],
 				Background->DetailColor,
-				FrameStyle->Directive[DetailColor,Thickness[4]],RoundingRadius->$FrameRoundingRadius]
-		},Alignment->Center];
+				FrameStyle->Directive[DetailColor,Thickness[4]],RoundingRadius->$FrameRoundingRadius];
 		)
 	];
 	,
-	TempGraphics=Row[{
+	TempGraphics=Framed[Row[{
 		GetDiagram@(TheParity<>(ToString@Spin)<>".pdf"),
-		Framed[Grid[
+		Grid[
 		{
 			{Text@"Massive particle",SpanFromLeft},
 			{Text@"Pole residue: ",Text@ShowIfSmall@(MassivePoleResidue>0)},
@@ -80,9 +80,9 @@ PrintParticle[
 			{Text@"Parity: ",Text@TheParity}
 		},
 		Dividers->Center,
-		Alignment->Left],
+		Alignment->Left]
+	},Alignment->Center],
 			Background->DetailColor,
-			FrameStyle->Directive[DetailColor,Thickness[4]],RoundingRadius->$FrameRoundingRadius]
-	},Alignment->Center];
+			FrameStyle->Directive[DetailColor,Thickness[4]],RoundingRadius->$FrameRoundingRadius];
 	];
 TempGraphics];
