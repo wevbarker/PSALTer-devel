@@ -24,6 +24,7 @@ ConstructLinearAction[ClassName_?StringQ,Expr_]:=Module[{
 	SourceCoupling//=Total;
 	Diagnostic@SourceCoupling;
 	SourceCoupling//=ToNewCanonical;
+	SourceCoupling//=Expand;
 	Diagnostic@SourceCoupling;
 	LocalSummaryOfTheory=NewExpr+SourceCoupling;
 	Diagnostic@LocalSummaryOfTheory;

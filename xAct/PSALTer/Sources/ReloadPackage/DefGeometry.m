@@ -45,7 +45,8 @@ DefTensor[Eps[-a,-b,-c],M4,Antisymmetric[{-a,-b,-c}],
 	PrintAs->"\!\(\*SuperscriptBox[\(\[Epsilon]\), \(\[DoubleVerticalBar]\)]\)"];
 DefConstantSymbol[Def,PrintAs->"\[ScriptK]"];
 DefConstantSymbol[xAct`PSALTer`Private`DefSquared,PrintAs->"\[ScriptX]"];
-DefConstantSymbol[Action,PrintAs->"\[ScriptCapitalS]"];
+DefConstantSymbol[Action,PrintAs->"\!\(\*SuperscriptBox[\(\[ScriptCapitalS]\), \(F\)]\)"];
+	(*PrintAs->"\[ScriptCapitalS]"];*)
 DefConstantSymbol[xAct`PSALTer`Private`TCoordinate,PrintAs->"\[ScriptT]"];
 DefConstantSymbol[xAct`PSALTer`Private`XCoordinate,PrintAs->"\[ScriptX]"];
 DefConstantSymbol[xAct`PSALTer`Private`YCoordinate,PrintAs->"\[ScriptY]"];

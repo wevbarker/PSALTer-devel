@@ -12,13 +12,12 @@ PlasticBox[InputExpr_,PlasticBoxSize_]:=Framed[Grid[{{InputExpr}},
 RigidBox[InputExpr_]:=Framed[
 				Grid[
 					{{Text@"Quadratic (free) action"},{InputExpr}},
-						ItemStyle->{LineIndent->0},
-						Background->DetailColor,
+						ItemStyle->{LineIndent->0},	
 						Dividers->Center,
 						Alignment->Left
 				],
 				Background->DetailColor,
-				FrameStyle->Directive[DetailColor,Thickness[4]]
+				FrameStyle->Directive[DetailColor,Thickness[4],RoundingRadius->$FrameRoundingRadius]
 			];
 PlasticBoxAspect[PlasticBoxFinal_]:=N@ImageAspectRatio@Rasterize@PlasticBoxFinal;
 SummariseTheory[Theory_?NotStringQ]:=Module[{
@@ -26,8 +25,9 @@ SummariseTheory[Theory_?NotStringQ]:=Module[{
 		PlasticBoxContent,
 		PlasticBoxSize},
 	PlasticBoxSize=50*Floor@Sqrt@(Length@(Expand@Theory/.{Plus->List}));
-	PlasticBoxContent=(Action==Integrate@@({((CollectConstants@Theory))@@#}~Join~(#[[1;;4]]))&@{TCoordinate,XCoordinate,YCoordinate,ZCoordinate});
-	PlasticBoxContent//=Evaluate;
+	PlasticBoxContent=(Action==Integrate@@({((Theory))@@#}~Join~(#[[1;;4]]))&@{TCoordinate,XCoordinate,YCoordinate,ZCoordinate});
+	(*PlasticBoxContent//=Evaluate;*)
+	PlasticBoxContent//=TraditionalForm;
 	PlasticBoxContent//=Text;
 	PlasticBoxFinal=RigidBox[PlasticBoxContent];
 PlasticBoxFinal];
