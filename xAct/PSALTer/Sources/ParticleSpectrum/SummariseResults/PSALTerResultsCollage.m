@@ -33,18 +33,18 @@ PSALTerResultsCollage[
 
 	If[$MultiMass,
 		FinalGraphic={
-				MakeLabel["Particle spectrograph",20],
-				MakeLabel@"Wave operator and propagator",
+				(*MakeLabel["Particle spectrograph",20],
+				MakeLabel@"Wave operator and propagator",*)
 				MatricesGroup
 		};
 	,
 		FinalGraphic={
-				MakeLabel["Particle spectrograph",20],
-				MakeLabel@"Wave operator and propagator",
+				(*MakeLabel["Particle spectrograph",20],
+				MakeLabel@"Wave operator and propagator",*)
 				MatricesGroup,
-				MakeLabel@"Massive and massless spectra",
+				(*MakeLabel@"Massive and massless spectra",*)
 				SpectrumGroup,
-				MakeLabel@"Unitarity conditions",
+				(*MakeLabel@"Unitarity conditions",*)
 				TheOverallUnitarity
 		};
 	];

@@ -9,12 +9,12 @@ PrintSourceConstraints[SpinParitySourceConstraints_,
 	FinalGrid=Framed[Grid[
 		(
 		{
-		{Text@"Source constraints/gauge generators",SpanFromLeft},
-		{Text@"SO(3) irreps",Text@"Multiplicities"}}~Join~
+		{Text@"Source constraints",SpanFromLeft},
+		{Text@"SO(3) irreps",Text@"#"}}~Join~
 		MapThread[{#1,#2}&,{Text/@SpinParitySourceConstraints,
 					Text/@Multiplicities}]
 		)~Join~
-		{{Text@"Total constraints:",Text/@(Total@Multiplicities)}},
+		{{Text@"Total #:",Text/@(Total@Multiplicities)}},
 			Dividers->Center,
 			Alignment->Left],Background->DetailColor,FrameStyle->Directive[DetailColor,Thickness[4]],RoundingRadius->$FrameRoundingRadius];
 FinalGrid];

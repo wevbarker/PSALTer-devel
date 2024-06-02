@@ -11,7 +11,7 @@ PlasticBox[InputExpr_,PlasticBoxSize_]:=Framed[Grid[{{InputExpr}},
 						FrameStyle->Directive[DetailColor,Thickness[4]]];
 RigidBox[InputExpr_]:=Framed[
 				Grid[
-					{{Text@"Quadratic (free) Lagrangian density"},{InputExpr}},
+					{{Text@"Lagrangian density"},{InputExpr}},
 						ItemStyle->{LineIndent->0},	
 						Dividers->Center,
 						Alignment->Left],

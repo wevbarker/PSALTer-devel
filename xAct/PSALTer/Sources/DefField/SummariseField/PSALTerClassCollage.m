@@ -16,11 +16,11 @@ PSALTerClassCollage[
 	ExpansionGroup//=Vectorize;
 
 	FinalGraphic={
-			MakeLabel["Field kinematics",20],
+			(*MakeLabel["Field kinematics",20],*)
 			BasicInfoGroup,
-			MakeLabel@"Fundamental fields",
+			(*MakeLabel@"Fundamental fields",*)
 			DecompositionGroup,
-			MakeLabel@"SO(3) irreps",
+			(*MakeLabel@"SO(3) irreps",*)
 			ExpansionGroup	
 	};
 

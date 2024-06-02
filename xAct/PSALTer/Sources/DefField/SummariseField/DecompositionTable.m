@@ -14,7 +14,7 @@ DecompositionTable[FieldTensors_,
 					Text/@FieldTensorsExpanded,
 					Text/@SourceTensors}]
 		),
-			ItemSize->{Full,Full,{1,3}->70},
+			ItemSize->{Full,Full,{1,3}->60},
 			Dividers->Center,
 			Alignment->{Left,Center}],Background->DetailColor,FrameStyle->Directive[DetailColor,Thickness[4]],RoundingRadius->$FrameRoundingRadius];
 FinalGrid];
