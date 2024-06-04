@@ -19,7 +19,8 @@ PSALTerResultsCollage[
 	FinalElement,
 	MaxWidth,
 	FinalGraphic},
-	
+
+	SpectrumGroup~AppendTo~TheOverallUnitarity;	
 	MatricesGroup=Vectorize/@MatricesGroup;
 	SpectrumGroup=Vectorize/@SpectrumGroup;
 
@@ -45,13 +46,13 @@ PSALTerResultsCollage[
 				(*MakeLabel@"Massive and massless spectra",*)
 				SpectrumGroup,
 				(*MakeLabel@"Unitarity conditions",*)
-				TheOverallUnitarity
+				(*TheOverallUnitarity*)
 		};
 	];
 
 	FinalGraphic//=Column[#,
 			Alignment->{Left,Center},
-			Background->PanelColor,
+			Background->$PanelColor,
 			Frame->False,
 			Spacings->{1,1}]&;
 FinalGraphic];

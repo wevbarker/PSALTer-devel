@@ -37,7 +37,7 @@ GraphicsCollage[InputExpr_?ListQ,CollageWidth_?IntegerQ]:=Module[{
 	Insets=MapThread[Inset[Magnify[#1,0.95],#2]&,
 				{GraphicsContent,PackedGraphicsCoordinates}];
 	MakeGraphicsCollage[Insets_,ImageSizeScale_]:=Graphics[Insets,
-			Background->PanelColor,
+			Background->$PanelColor,
 			Frame->False,
 			PlotRange->{{0,CollageSize[[1]]},{0,CollageSize[[2]]}},
 			ImagePadding->None,

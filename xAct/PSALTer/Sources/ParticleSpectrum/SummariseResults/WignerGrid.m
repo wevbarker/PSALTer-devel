@@ -113,15 +113,15 @@ WignerGrid[AllMatrices_,Sizes_,Spins_,Sides_,Tops_]:=Module[{
 	(
 	Which[
 	#3[[1]]==0,
-		Table[{i,j}->ParityOddColor,{i,#1[[2]]+1,#2[[2]]+1},{j,#1[[2]]+1,#2[[2]]+1}],
+		Table[{i,j}->$ParityOddColor,{i,#1[[2]]+1,#2[[2]]+1},{j,#1[[2]]+1,#2[[2]]+1}],
 	#3[[2]]==0,
-		Table[{i,j}->ParityEvenColor,{i,#1[[1]]+1,#2[[1]]+1},{j,#1[[1]]+1,#2[[1]]+1}],
+		Table[{i,j}->$ParityEvenColor,{i,#1[[1]]+1,#2[[1]]+1},{j,#1[[1]]+1,#2[[1]]+1}],
 	(!(#3[[1]]==0))&&(!(#3[[2]]==0)),
 		Join[
-		Table[{i,j}->ParityEvenColor,{i,#1[[1]]+1,#2[[1]]+1},{j,#1[[1]]+1,#2[[1]]+1}],
-		Table[{i,j}->ParityOddColor,{i,#1[[2]]+1,#2[[2]]+1},{j,#1[[2]]+1,#2[[2]]+1}],
-		Table[{i,j}->ParityMixColor,{i,#1[[1]]+1,#2[[1]]+1},{j,#1[[2]]+1,#2[[2]]+1}],
-		Table[{i,j}->ParityMixColor,{i,#1[[2]]+1,#2[[2]]+1},{j,#1[[1]]+1,#2[[1]]+1}]
+		Table[{i,j}->$ParityEvenColor,{i,#1[[1]]+1,#2[[1]]+1},{j,#1[[1]]+1,#2[[1]]+1}],
+		Table[{i,j}->$ParityOddColor,{i,#1[[2]]+1,#2[[2]]+1},{j,#1[[2]]+1,#2[[2]]+1}],
+		Table[{i,j}->$ParityMixColor,{i,#1[[1]]+1,#2[[1]]+1},{j,#1[[2]]+1,#2[[2]]+1}],
+		Table[{i,j}->$ParityMixColor,{i,#1[[2]]+1,#2[[2]]+1},{j,#1[[1]]+1,#2[[1]]+1}]
 		]
 	]
 	)&,
@@ -130,4 +130,4 @@ WignerGrid[AllMatrices_,Sizes_,Spins_,Sides_,Tops_]:=Module[{
 	Cols//=Flatten;
 	Frames=InnerFrames~Join~Frames;
 
-	Framed[Grid[Map[If[#==Null,Null,Text@#,Text@#]&,AllElements,{2}],Background->{None,None,Cols},Frame->{None,None,Frames},Alignment->{Center,Center,Alignments},ItemSize->Full],Background->DetailColor,FrameStyle->Directive[DetailColor,Thickness[4]],RoundingRadius->$FrameRoundingRadius]];
+	Framed[Grid[Map[If[#==Null,Null,Text@#,Text@#]&,AllElements,{2}],Background->{None,None,Cols},Frame->{None,None,Frames},Alignment->{Center,Center,Alignments},ItemSize->Full],Background->$DetailColor,FrameStyle->Directive[$DetailColor,Thickness[4]],RoundingRadius->$FrameRoundingRadius]];

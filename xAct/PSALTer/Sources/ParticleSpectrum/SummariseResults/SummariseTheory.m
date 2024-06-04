@@ -5,18 +5,18 @@
 SummariseTheory[Theory_?StringQ]:=Theory;
 NotStringQ[InputExpr_]:=!StringQ@InputExpr;
 PlasticBox[InputExpr_,PlasticBoxSize_]:=Framed[Grid[{{InputExpr}},
-					Background->DetailColor,
+					Background->$DetailColor,
 					ItemSize->PlasticBoxSize],
-						Background->DetailColor,
-						FrameStyle->Directive[DetailColor,Thickness[4]]];
+						Background->$DetailColor,
+						FrameStyle->Directive[$DetailColor,Thickness[4]]];
 RigidBox[InputExpr_]:=Framed[
 				Grid[
 					{{Text@"Lagrangian density"},{InputExpr}},
 						ItemStyle->{LineIndent->0},	
 						Dividers->Center,
 						Alignment->Left],
-				Background->DetailColor,
-				FrameStyle->Directive[DetailColor,Thickness[4]],
+				Background->$DetailColor,
+				FrameStyle->Directive[$DetailColor,Thickness[4]],
 				RoundingRadius->$FrameRoundingRadius];
 PlasticBoxAspect[PlasticBoxFinal_]:=N@ImageAspectRatio@Rasterize@PlasticBoxFinal;
 SummariseTheory[Theory_?NotStringQ]:=Module[{
@@ -25,10 +25,8 @@ SummariseTheory[Theory_?NotStringQ]:=Module[{
 		PlasticBoxSize},
 	PlasticBoxSize=50*Floor@Sqrt@(Length@(Expand@Theory/.{Plus->List}));
 	PlasticBoxContent=(Theory);
-	(*PlasticBoxContent=(Action==Integrate@@({((Theory))@@#}~Join~(#[[1;;4]]))&@{TCoordinate,XCoordinate,YCoordinate,ZCoordinate});*)
 	PlasticBoxContent//=Evaluate;
 	PlasticBoxContent//=ExpandAll;
-	(*PlasticBoxContent//=TraditionalForm;*)
 	PlasticBoxContent//=Text;
 	PlasticBoxFinal=RigidBox[PlasticBoxContent];
 PlasticBoxFinal];

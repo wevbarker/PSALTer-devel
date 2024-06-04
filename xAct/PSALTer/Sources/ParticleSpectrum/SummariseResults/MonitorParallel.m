@@ -11,7 +11,7 @@ MonitorParallel[ParallelisedArray_]:=Module[{
 			ReMagnify@ParallelGrid@ParallelisedArray},
 			Spacings->{2,2},
 			Frame->True,
-			Background->PanelColor,
+			Background->$PanelColor,
 			Alignment->{Left,Center}];
 	];
 	ParallelisedArrayValue=WaitAll@ParallelisedArray;

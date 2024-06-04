@@ -16,5 +16,5 @@ PrintSourceConstraints[SpinParitySourceConstraints_,
 		)~Join~
 		{{Text@"Total #:",Text/@(Total@Multiplicities)}},
 			Dividers->Center,
-			Alignment->Left],Background->DetailColor,FrameStyle->Directive[DetailColor,Thickness[4]],RoundingRadius->$FrameRoundingRadius];
+			Alignment->Left],Background->$DetailColor,FrameStyle->Directive[$DetailColor,Thickness[4]],RoundingRadius->$FrameRoundingRadius];
 FinalGrid];

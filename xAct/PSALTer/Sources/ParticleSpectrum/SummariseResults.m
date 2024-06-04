@@ -96,7 +96,7 @@ SummariseResults[TheoryName_?StringQ,WaveOperator_,Propagator_,SourceConstraints
 				TheOverallUnitarity},
 				Spacings->{1,1},
 				Frame->True,
-				Background->PanelColor,
+				Background->$PanelColor,
 				Alignment->{Left,Center}];
 		];
 	];

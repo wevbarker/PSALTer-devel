@@ -10,7 +10,7 @@ RaggedBlock[SomeList_,SomeWidth_]:=Module[{DataArray,PaddedArray,FrameRules,Back
 			Flatten@Map[((First@Evaluate@Position[Evaluate@DataArray,#])->True)&,
 			DataArray,{2}],Null];
 	BackgroundRules=DeleteCases[
-			Flatten@Map[((First@Evaluate@Position[Evaluate@DataArray,#])->DetailColor)&,
+			Flatten@Map[((First@Evaluate@Position[Evaluate@DataArray,#])->$DetailColor)&,
 			DataArray,{2}],Null];
 	Expr=TextGrid[DataArray,
 			Frame->{None,None,FrameRules},

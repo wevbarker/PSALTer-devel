@@ -31,8 +31,8 @@ PrintParticle[
 			Dividers->Center,
 			Alignment->Left]
 		},Alignment->Center],
-				Background->DetailColor,
-				FrameStyle->Directive[DetailColor,Thickness[4]],RoundingRadius->$FrameRoundingRadius];
+				Background->$DetailColor,
+				FrameStyle->Directive[$DetailColor,Thickness[4]],RoundingRadius->$FrameRoundingRadius];
 		),
 		2,
 		(
@@ -47,8 +47,8 @@ PrintParticle[
 			Dividers->Center,
 			Alignment->Left]
 		},Alignment->Center],
-				Background->DetailColor,
-				FrameStyle->Directive[DetailColor,Thickness[4]],RoundingRadius->$FrameRoundingRadius];
+				Background->$DetailColor,
+				FrameStyle->Directive[$DetailColor,Thickness[4]],RoundingRadius->$FrameRoundingRadius];
 		),
 		3,
 		(
@@ -63,8 +63,8 @@ PrintParticle[
 			Dividers->Center,
 			Alignment->Left]
 		},Alignment->Center],
-				Background->DetailColor,
-				FrameStyle->Directive[DetailColor,Thickness[4]],RoundingRadius->$FrameRoundingRadius];
+				Background->$DetailColor,
+				FrameStyle->Directive[$DetailColor,Thickness[4]],RoundingRadius->$FrameRoundingRadius];
 		)
 	];
 	,
@@ -82,7 +82,7 @@ PrintParticle[
 		Dividers->Center,
 		Alignment->Left]
 	},Alignment->Center],
-			Background->DetailColor,
-			FrameStyle->Directive[DetailColor,Thickness[4]],RoundingRadius->$FrameRoundingRadius];
+			Background->$DetailColor,
+			FrameStyle->Directive[$DetailColor,Thickness[4]],RoundingRadius->$FrameRoundingRadius];
 	];
 TempGraphics];

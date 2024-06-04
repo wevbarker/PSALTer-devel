@@ -65,8 +65,8 @@ SummariseField[]:=Module[{
 		Text@(V[m]==P[m]/Def)}},
 		ItemSize->Large,
 		Dividers->Center,
-		Alignment->Left],Background->DetailColor,
-			FrameStyle->Directive[DetailColor,Thickness[4]],RoundingRadius->$FrameRoundingRadius];
+		Alignment->Left],Background->$DetailColor,
+			FrameStyle->Directive[$DetailColor,Thickness[4]],RoundingRadius->$FrameRoundingRadius];
 
 	TheDecompositionTable=DecompositionTable[FieldTensors,
 		FieldTensorsSymmetries,
