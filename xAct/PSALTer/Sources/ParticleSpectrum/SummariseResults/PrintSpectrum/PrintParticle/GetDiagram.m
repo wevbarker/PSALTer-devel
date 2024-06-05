@@ -9,6 +9,11 @@ GetDiagram[FileName_]:=Module[{TemporaryFileName,Expr},
 		"SummariseResults",
 		"PrintSpectrum",
 		"PrintParticle",FileName};
-	Expr=TemporaryFileName~Import~{"PDF","PageGraphics"};
+	Expr=$Failed;
+	While[Expr===$Failed,
+		(*Expr=TemporaryFileName~Import~"Graphics";*)
+		Expr=TemporaryFileName~Import~{"PDF","PageGraphics"};
+	];
 	Expr//=First;
+	Expr=Magnify[Expr,1.1];
 Expr];

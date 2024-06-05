@@ -4,6 +4,16 @@
 
 IncludeHeader@"GetDiagram";
 
+Options@PrintParticleList={LaurentDepth->1};
+PrintParticleList[
+	MassivePoleResidue_,
+	SquareMass_,
+	Spin_,
+	Parity_,
+	Polarisations_,
+	Opts:OptionsPattern[]]:=MapThread[PrintParticle[#1,#2,Spin,Parity,Polarisations,Opts]&,
+			{MassivePoleResidue,SquareMass}];
+
 Options@PrintParticle={LaurentDepth->1};
 PrintParticle[
 	MassivePoleResidue_,
