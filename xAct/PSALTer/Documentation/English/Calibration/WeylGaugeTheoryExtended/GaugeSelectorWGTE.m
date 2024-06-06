@@ -9,18 +9,16 @@ Supercomment@"We now have four gauge choices/field reformulations that must give
 (*====================================*)
 
 GaugeSelectorWGTELegend={
-	"Original variables",(*Orig,1*)
-	"Natural variables",(*Nat,2*)
-	"Scale-invariant variables",(*SIV,3*)
+	"original variables",(*Orig,1*)
+	"natural variables",(*Nat,2*)
+	"scale-invariant variables",(*SIV,3*)
 	"Einstein gauge",(*EG,4*)
-	"Perturbation around the Einstein gauge"(*EP,5*),
+	"perturbation around the Einstein gauge"(*EP,5*),
 	"NA"(*SIV,6*)
 };
 
 GaugeSelectorWGTEPrint[TSGNumber_Integer,WeylNumber_Integer]:=Module[{i=TSGNumber,j=WeylNumber},
-	Comment@("The gauge choices are");
-	Print@("TSG: "<>ToString@GaugeSelectorWGTELegend[[i]]<>" ");
-	Print@("Weyl: "<>ToString@GaugeSelectorWGTELegend[[j]]<>" ");
+	Comment@("The gauge choices are: TSG - "<>ToString@GaugeSelectorWGTELegend[[i]]<>"; Weyl - "<>ToString@GaugeSelectorWGTELegend[[j]]<>".");
 ];
 
 (*====================================*)

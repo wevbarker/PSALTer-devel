@@ -59,5 +59,5 @@ DisplayExpression[LinearisedLagrangianWGTENat/.WGTEToNaturalVariables,EqnLabel->
 DiffLagrangianWGTENatSIV=LinearisedLagrangianWGTESIV-LinearisedLagrangianWGTENat;
 DiffLagrangianWGTENatSIV//=xAct`PSALTer`Private`ToNewCanonical;
 DiffLagrangianWGTENatSIV//=CollectTensors;
-Comment@"This is the difference between the two Lagrangians. We can clearly see that they are the same!";
+Comment@"This is the difference between the two Lagrangians. We can clearly see that they are the same.";
 DisplayExpression[DiffLagrangianWGTENatSIV];
