@@ -7,7 +7,7 @@ ToCovariantForm[ClassName_?StringQ,InputExpr_,SourceSpinParityTensorHeadsValue_]
 	Expr=InputExpr,
 	Class},
 
-	LocalSourceConstraints=" ** ToCovariantForm...";
+	$LocalSourceConstraints=" ** ToCovariantForm...";
 
 	Class=Evaluate@Symbol@ClassName;
 	

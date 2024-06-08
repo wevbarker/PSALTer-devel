@@ -16,8 +16,7 @@ ValidateLagrangian[InputExpr_]:=Module[{
 	TensorsValue
 	},
 
-	If[PossibleZeroQ@Expr,Throw@Message@ParticleSpectrum::UnknownCoupling];
-
+	If[PossibleZeroQ@Expr,Throw@Message@ParticleSpectrum::Zero];
 	Expr=Expr/.{Plus->List};
 	(!(ListQ@Expr))~If~(Expr//=List);
 	Expr//=ToIndexFree;
@@ -27,18 +26,12 @@ ValidateLagrangian[InputExpr_]:=Module[{
 	Expr=Expr.Table[0.1*Exp@ii,{ii,Length@Expr}];
 	Expr//=Variables;	
 	Expr//=DeleteDuplicates;
-
 	LagrangianCouplingsValue=DeleteCases[Expr,_?xTensorQ];
 	Unknowns=DeleteCases[LagrangianCouplingsValue,_?ConstantSymbolQ];
 	(Length@Unknowns>=1)~If~(Throw@Message[ParticleSpectrum::UnknownCoupling,First@Unknowns]);
-
 	TensorsValue=DeleteCases[Expr,_?ConstantSymbolQ];
 	(MemberQ[TensorsValue,epsilonG])~If~(Throw@Message@ParticleSpectrum::ParityOdd);
-
 	(((Length@Names@("xAct`PSALTer`"<>ToString@#<>"`*"))===0)~If~(Throw@Message[ParticleSpectrum::UnknownField,#]))&/@TensorsValue;
-
 	((ResourceFunction["PolynomialDegree"][#,LagrangianCouplingsValue]!=1)~If~(Throw@Message[ParticleSpectrum::NonLinearCouplings,#]))&/@PolyExpr;
-
 	((ResourceFunction["PolynomialDegree"][#,TensorsValue]>2)~If~(Throw@Message[ParticleSpectrum::NonQuadraticFields,#]))&/@PolyExpr;
-
 ];	

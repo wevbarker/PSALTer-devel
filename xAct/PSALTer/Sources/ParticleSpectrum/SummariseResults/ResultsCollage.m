@@ -1,11 +1,10 @@
-(*=========================*)
-(*  PSALTerResultsCollage  *)
-(*=========================*)
+(*==================*)
+(*  ResultsCollage  *)
+(*==================*)
 
-IncludeHeader@"Vectorize";
 IncludeHeader@"GraphicsCollage";
 
-PSALTerResultsCollage[
+ResultsCollage[
 		TheSummaryOfTheory_,
 		TheWaveOperator_,
 		ThePropagator_,

@@ -13,7 +13,7 @@ ConstructLightcone[ClassName_?StringQ,ValuesOfSourceConstraints_]:=Module[{
 	RescaledNullSpace
 	},
 	
-	LocalMasslessSpectrum=" ** ConstructLightcone...";
+	$LocalMasslessSpectrum=" ** ConstructLightcone...";
 
 	ConstraintComponentList=MakeConstraintComponentList[ClassName,ValuesOfSourceConstraints];
 	Diagnostic@ConstraintComponentList;

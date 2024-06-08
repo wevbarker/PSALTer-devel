@@ -26,7 +26,7 @@ ConstructSourceConstraints[ClassName_?StringQ,
 	MatrixPropagator,
 	Class},
 
-	LocalSourceConstraints=" ** ConstructSourceConstraints...";
+	$LocalSourceConstraints=" ** ConstructSourceConstraints...";
 
 	Class=Evaluate@Symbol@ClassName;
 	SourceSpinParityTensorHeadsValue=Class@SourceSpinParityTensorHeads;
@@ -84,5 +84,5 @@ ConstructSourceConstraints[ClassName_?StringQ,
 	];
 
 	Diagnostic@NewValuesOfSourceConstraints;
-	LocalSourceConstraints=NewValuesOfSourceConstraints;
+	$LocalSourceConstraints=NewValuesOfSourceConstraints;
 ];

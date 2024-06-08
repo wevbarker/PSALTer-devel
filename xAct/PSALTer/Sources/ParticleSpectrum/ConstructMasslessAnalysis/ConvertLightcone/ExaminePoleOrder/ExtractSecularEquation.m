@@ -25,7 +25,7 @@ ExtractSecularEquation[InputMatrix_,LaurentDepth_]:=Module[{
 		TheSecularEquationCoefficients=TheSecularEquation~CoefficientList~PoleResidue;
 		Diagnostic@TheSecularEquationCoefficients;
 
-		LocalMasslessSpectrum=" ** GradualExpand...";
+		$LocalMasslessSpectrum=" ** GradualExpand...";
 		TheSymbolicToUnique=TheSymbolicInputMatrix@SymbolicToUnique;
 		Diagnostic@TheSymbolicToUnique;
 		TheSecularEquationCoefficients=MapThread[
@@ -39,7 +39,7 @@ ExtractSecularEquation[InputMatrix_,LaurentDepth_]:=Module[{
 		TheSecularEquationCoefficients//=MonitorParallel;
 		Diagnostic@TheSecularEquationCoefficients;
 
-		LocalMasslessSpectrum=" ** FullSimplify...";
+		$LocalMasslessSpectrum=" ** FullSimplify...";
 		TheSecularEquation=(Reverse@TheSecularEquationCoefficients)~FromDigits~PoleResidue;
 		Diagnostic@TheSecularEquation;
 

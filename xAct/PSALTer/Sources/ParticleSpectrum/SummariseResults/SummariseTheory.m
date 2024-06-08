@@ -4,18 +4,13 @@
 
 SummariseTheory[Theory_?StringQ]:=Theory;
 NotStringQ[InputExpr_]:=!StringQ@InputExpr;
-RigidBox[InputExpr_]:=Framed[
-				Grid[
+RigidBox[InputExpr_]:=NewFramed@Grid[
 					{{Text@"Lagrangian density",SpanFromLeft},
 					{InputExpr[[1]],SpanFromLeft},
 					{Text@"Added source term:",InputExpr[[2]]}},
 						ItemStyle->{LineIndent->0},	
 						Dividers->Center,
-						Alignment->Left],
-				Background->$DetailColor,
-				FrameStyle->Directive[$DetailColor,Thickness[4]],
-				RoundingRadius->$FrameRoundingRadius];
-PlasticBoxAspect[PlasticBoxFinal_]:=N@ImageAspectRatio@Rasterize@PlasticBoxFinal;
+						Alignment->Left];
 SummariseTheory[Theory_?NotStringQ]:=Module[{
 		PlasticBoxFinal,
 		PlasticBoxContent,

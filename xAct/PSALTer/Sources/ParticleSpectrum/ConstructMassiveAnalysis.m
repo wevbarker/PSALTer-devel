@@ -22,12 +22,12 @@ ConstructMassiveAnalysis[ClassName_?StringQ,
 	NewMassiveGhostAnalysis
 	},
 
-	LocalSpectrum=" ** ConstructMassiveAnalysis...";
+	$LocalSpectrum=" ** ConstructMassiveAnalysis...";
 
 	Class=Evaluate@Symbol@ClassName;
 	Couplings=Class@LagrangianCouplings;
 
-	LocalSpectrum=" ** MassiveAnalysisOfSector...";
+	$LocalSpectrum=" ** MassiveAnalysisOfSector...";
 
 	SpinParitySectorFileNames=Table[0,{i,Length@(ValuesSaturatedPropagator)}];
 	Table[
@@ -51,7 +51,7 @@ ConstructMassiveAnalysis[ClassName_?StringQ,
 
 	Diagnostic@MassiveAnalysis;
 
-	LocalSpectrum=" ** SimplifyMasses...";
+	$LocalSpectrum=" ** SimplifyMasses...";
 
 	MassiveAnalysis//=PadRight[#,{Length@#,Max@(Length/@#)}]&;
 	MassiveAnalysis=MapThread[
@@ -63,7 +63,7 @@ ConstructMassiveAnalysis[ClassName_?StringQ,
 
 	Diagnostic@MassiveAnalysis;
 
-	LocalSpectrum=" ** MassiveGhost...";
+	$LocalSpectrum=" ** MassiveGhost...";
 
 	SignedInverseBMatrices=Times~MapThread~{(ValuesInverseBMatricesValues),(BlockMassSigns)};
 	ksmsm=MapThread[ConstantArray[#1,Length@#2]&,{SignedInverseBMatrices,MassiveAnalysis},1];
@@ -101,7 +101,7 @@ ConstructMassiveAnalysis[ClassName_?StringQ,
 		AppendTo[NewMassiveGhostAnalysis,{}];
 	]&/@RequiredSpins;
 
-	LocalSpectrum={NewMassiveAnalysis,
+	$LocalSpectrum={NewMassiveAnalysis,
 			NewMassiveGhostAnalysis,{},{},{},{}};
-	Diagnostic@LocalSpectrum;
+	Diagnostic@$LocalSpectrum;
 ];

@@ -12,7 +12,7 @@ IncludeHeader@"SummariseTheory";
 IncludeHeader@"PrintSpectrum";
 IncludeHeader@"PrintUnitarityConditions";
 IncludeHeader@"SplitWignerGrid";
-IncludeHeader@"PSALTerResultsCollage";
+IncludeHeader@"ResultsCollage";
 
 Options@SummariseResults={SummaryType->ResultsPanel};
 
@@ -89,7 +89,6 @@ SummariseResults[TheoryName_?StringQ,WaveOperator_,Propagator_,SourceConstraints
 				MakeLabel@"Unitarity conditions",
 				TheOverallUnitarity},
 				Spacings->{1,1},
-				Frame->True,
 				Background->$PanelColor,
 				Alignment->{Left,Center}];
 		];
@@ -108,7 +107,7 @@ SummariseResults[TheoryName_?StringQ,WaveOperator_,Propagator_,SourceConstraints
 		TheMasslessSpectrum=If[ListQ@#,#,{#},{#}]&@(PrintSpectrumMassless@@MasslessSpectrum);
 		TheOverallUnitarity=DetailCell@(PrintUnitarityConditions@OverallUnitarity);
 
-		SummaryOfResults=PSALTerResultsCollage[
+		SummaryOfResults=ResultsCollage[
 				TheSummaryOfTheory,
 				TheWaveOperator,
 				ThePropagator,

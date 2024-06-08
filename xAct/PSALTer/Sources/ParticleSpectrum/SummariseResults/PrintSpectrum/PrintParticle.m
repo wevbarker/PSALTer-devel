@@ -30,7 +30,7 @@ PrintParticle[
 	Switch[OptionValue@LaurentDepth,
 		1,	
 		(
-		TempGraphics=Framed[Row[{
+		TempGraphics=NewFramed@Row[{
 			GetDiagram@"Quadratic.pdf",
 			Grid[
 			{
@@ -40,13 +40,11 @@ PrintParticle[
 			},
 			Dividers->Center,
 			Alignment->Left]
-		},Alignment->Center],
-				Background->$DetailColor,
-				FrameStyle->Directive[$DetailColor,Thickness[4]],RoundingRadius->$FrameRoundingRadius];
+		},Alignment->Center];
 		),
 		2,
 		(
-		TempGraphics=Framed[Row[{
+		TempGraphics=NewFramed@Row[{
 			GetDiagram@"Quartic.pdf",
 			Grid[
 			{
@@ -56,13 +54,11 @@ PrintParticle[
 			},
 			Dividers->Center,
 			Alignment->Left]
-		},Alignment->Center],
-				Background->$DetailColor,
-				FrameStyle->Directive[$DetailColor,Thickness[4]],RoundingRadius->$FrameRoundingRadius];
+		},Alignment->Center];
 		),
 		3,
 		(
-		TempGraphics=Framed[Row[{
+		TempGraphics=NewFramed@Row[{
 			GetDiagram@"Hexic.pdf",
 			Grid[
 			{
@@ -72,13 +68,11 @@ PrintParticle[
 			},
 			Dividers->Center,
 			Alignment->Left]
-		},Alignment->Center],
-				Background->$DetailColor,
-				FrameStyle->Directive[$DetailColor,Thickness[4]],RoundingRadius->$FrameRoundingRadius];
+		},Alignment->Center];
 		)
 	];
 	,
-	TempGraphics=Framed[Row[{
+	TempGraphics=NewFramed@Row[{
 		GetDiagram@(TheParity<>(ToString@Spin)<>".pdf"),
 		Grid[
 		{
@@ -91,8 +85,6 @@ PrintParticle[
 		},
 		Dividers->Center,
 		Alignment->Left]
-	},Alignment->Center],
-			Background->$DetailColor,
-			FrameStyle->Directive[$DetailColor,Thickness[4]],RoundingRadius->$FrameRoundingRadius];
+	},Alignment->Center];
 	];
 TempGraphics];

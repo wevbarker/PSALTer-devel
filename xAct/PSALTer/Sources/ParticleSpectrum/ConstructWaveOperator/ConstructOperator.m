@@ -20,7 +20,7 @@ ConstructOperator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 	InverseBMatricesValues,
 	CombinedSectors},
 
-	LocalWaveOperator=" ** ConstructOperator...";
+	$LocalWaveOperator=" ** ConstructOperator...";
 	
 	CouplingAssumptions=(#~Element~Reals)&/@Couplings;
 	Diagnostic@CouplingAssumptions;
@@ -148,5 +148,5 @@ ConstructOperator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 	Sizes=Map[Length,Values@(Values/@(CombinedSectors)),{2}];
 	TheSpins=Keys@CombinedSectors;
 
-	LocalWaveOperator={((Plus@@#)&/@Partition[ValuesAllMatrices,2]),Sizes,TheSpins,FieldsLeft,FieldsTop};
+	$LocalWaveOperator={((Plus@@#)&/@Partition[ValuesAllMatrices,2]),Sizes,TheSpins,FieldsLeft,FieldsTop};
 ];

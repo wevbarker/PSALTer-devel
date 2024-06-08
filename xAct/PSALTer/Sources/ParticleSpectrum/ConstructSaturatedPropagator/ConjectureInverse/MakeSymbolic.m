@@ -8,7 +8,7 @@ MakeSymbolic[InputMatrix_,CouplingAssumptions_]:=Module[{
 	SymbolicRules
 	},
 
-	LocalPropagator=" ** MakeSymbolic...";
+	$LocalPropagator=" ** MakeSymbolic...";
 
 	DimensionOfMatrix=Length@InputMatrix;
 	SymbolicMatrix=Table[0,{i,DimensionOfMatrix},{j,DimensionOfMatrix}];	

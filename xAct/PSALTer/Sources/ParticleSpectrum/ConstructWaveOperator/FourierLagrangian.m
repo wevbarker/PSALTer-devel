@@ -10,7 +10,7 @@ FourierLagrangian[ClassName_?StringQ,Expr_,Tensors_]:=Module[{
 	Tensors1,
 	Tensors2},
 
-	LocalWaveOperator=" ** FourierLagrangian...";
+	$LocalWaveOperator=" ** FourierLagrangian...";
 
 	Class=Evaluate@Symbol@ClassName;
 

@@ -8,7 +8,7 @@ MakeSaturatedMatrix[RawMasslessPropagatorResidue_,NullSpace_List]:=Module[{
 	FreeSourceVariables,
 	NumeratorFreeSourceCoefficientMatrix},
 
-	LocalMasslessSpectrum=" ** MakeSaturatedMatrix...";
+	$LocalMasslessSpectrum=" ** MakeSaturatedMatrix...";
 
 	Diagnostic@MasslessPropagatorResidue;
 	MasslessPropagatorResidue//=Expand;

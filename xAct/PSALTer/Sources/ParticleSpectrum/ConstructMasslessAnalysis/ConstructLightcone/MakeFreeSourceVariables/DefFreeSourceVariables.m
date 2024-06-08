@@ -4,7 +4,7 @@
 
 DefFreeSourceVariables[Num_]:=Module[{},
 	
-	LocalMasslessSpectrum=" ** DefFreeSourceVariables...";
+	$LocalMasslessSpectrum=" ** DefFreeSourceVariables...";
 	Begin["xAct`PSALTer`Private`"];
 		Quiet@DefConstantSymbol[
 			Symbol["X"<>ToString@#],

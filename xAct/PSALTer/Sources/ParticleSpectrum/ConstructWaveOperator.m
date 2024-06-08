@@ -11,7 +11,7 @@ ConstructWaveOperator[ClassName_?StringQ,Expr_]:=Module[{
 	TheTensors
 	},
 
-	LocalWaveOperator=" ** ConstructWaveOperator...";	
+	$LocalWaveOperator=" ** ConstructWaveOperator...";	
 	Class=Evaluate@Symbol@ClassName;
 	TheTensors=Class@Tensors;
 	Couplings=Class@LagrangianCouplings;

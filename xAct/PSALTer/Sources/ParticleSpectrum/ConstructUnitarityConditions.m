@@ -16,7 +16,7 @@ ConstructUnitarityConditions[ClassName_?StringQ,
 	UnitarityTime=60
 	},
 
-	LocalOverallUnitarity=" ** ConstructUnitarityConditions...";
+	$LocalOverallUnitarity=" ** ConstructUnitarityConditions...";
 
 	Class=Evaluate@Symbol@ClassName;
 	Couplings=Class@LagrangianCouplings;
@@ -41,7 +41,7 @@ ConstructUnitarityConditions[ClassName_?StringQ,
 	Diagnostic@PositiveSystem;
 
 	If[LeafCount@MasslessAnalysisValue>=5000,
-		LocalOverallUnitarity=Text@"(Hidden for brevity)";
+		$LocalOverallUnitarity=Text@"(Hidden for brevity)";
 		PositiveSystemValue=Text@"(Hidden for brevity)";,
 
 		TimeConstrained[
@@ -55,19 +55,19 @@ ConstructUnitarityConditions[ClassName_?StringQ,
 			On@PrintAsCharacter::argx;
 			Diagnostic@PositiveSystem;
 			If[PositiveSystem===False,
-				LocalOverallUnitarity=Text@"(Unitarity is demonstrably impossible)";
+				$LocalOverallUnitarity=Text@"(Unitarity is demonstrably impossible)";
 				,
 				If[ListQ@PositiveSystem,
-					LocalOverallUnitarity=PositiveSystem;
+					$LocalOverallUnitarity=PositiveSystem;
 					,
-					LocalOverallUnitarity={PositiveSystem};
+					$LocalOverallUnitarity={PositiveSystem};
 				];
 			];
 		)
 		,
 		UnitarityTime,
 		(
-			LocalOverallUnitarity=Text@("(Timeout after "<>ToString@UnitarityTime<>" seconds)");
+			$LocalOverallUnitarity=Text@("(Timeout after "<>ToString@UnitarityTime<>" seconds)");
 		)
 		];
 	];

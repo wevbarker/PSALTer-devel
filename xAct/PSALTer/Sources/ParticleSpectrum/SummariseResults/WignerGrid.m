@@ -130,4 +130,4 @@ WignerGrid[AllMatrices_,Sizes_,Spins_,Sides_,Tops_]:=Module[{
 	Cols//=Flatten;
 	Frames=InnerFrames~Join~Frames;
 
-	Framed[Grid[Map[If[#==Null,Null,Text@#,Text@#]&,AllElements,{2}],Background->{None,None,Cols},Frame->{None,None,Frames},Alignment->{Center,Center,Alignments},ItemSize->Full],Background->$DetailColor,FrameStyle->Directive[$DetailColor,Thickness[4]],RoundingRadius->$FrameRoundingRadius]];
+	NewFramed@Grid[Map[If[#==Null,Null,Text@#,Text@#]&,AllElements,{2}],Background->{None,None,Cols},Frame->{None,None,Frames},Alignment->{Center,Center,Alignments},ItemSize->Full]];

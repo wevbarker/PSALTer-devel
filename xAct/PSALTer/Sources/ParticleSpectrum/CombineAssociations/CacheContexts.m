@@ -10,7 +10,7 @@ CacheContexts[]:=Module[{NewContextList=$AllFieldContexts~Join~{
 	"TangentM4`"},
 	LoadContexts},
 
-	LocalSummaryOfTheory=" ** DumpSave...";
+	$LocalSummaryOfTheory=" ** DumpSave...";
 	DumpSave[FileNameJoin@{$TemporaryDirectory,#<>".mx"},#]&/@NewContextList;
 
 	Diagnostic@NewContextList;
@@ -18,13 +18,13 @@ CacheContexts[]:=Module[{NewContextList=$AllFieldContexts~Join~{
 	$KernelsLaunched=False;
 	While[!$KernelsLaunched,
 		TimeConstrained[
-			LocalSummaryOfTheory=" ** LaunchKernels...";
+			$LocalSummaryOfTheory=" ** LaunchKernels...";
 			CloseKernels[];
 			Off[LaunchKernels::nodef];
 			LaunchKernels[];	
 			On[LaunchKernels::nodef];
 
-			LocalSummaryOfTheory=" ** Get...";
+			$LocalSummaryOfTheory=" ** Get...";
 			LoadContexts=({$WorkingDirectory,NewContextList}~NewParallelSubmit~(Off@(RuleDelayed::rhs);Get@FileNameJoin@{$TemporaryDirectory,#<>".mx"}&/@NewContextList;On@(RuleDelayed::rhs);))~Table~{TheKernel,$KernelCount};	
 			LoadContexts//=MonitorParallel;	
 			$KernelsLaunched=True;

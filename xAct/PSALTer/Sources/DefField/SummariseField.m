@@ -43,7 +43,7 @@ SummariseField[]:=Module[{
 	SourceTensors=Class@Sources;
 	SourceTensors//=((FromIndexFree@ToIndexFree@#)&/@#)&;
 
-	BasicInfo=Framed[Grid[{
+	BasicInfo=NewFramed@Grid[{
 	{
 		Text@"Basic conventions",
 		SpanFromLeft,
@@ -65,8 +65,7 @@ SummariseField[]:=Module[{
 		Text@(V[m]==P[m]/Def)}},
 		ItemSize->Large,
 		Dividers->Center,
-		Alignment->Left],Background->$DetailColor,
-			FrameStyle->Directive[$DetailColor,Thickness[4]],RoundingRadius->$FrameRoundingRadius];
+		Alignment->Left];
 
 	TheDecompositionTable=DecompositionTable[FieldTensors,
 		FieldTensorsSymmetries,

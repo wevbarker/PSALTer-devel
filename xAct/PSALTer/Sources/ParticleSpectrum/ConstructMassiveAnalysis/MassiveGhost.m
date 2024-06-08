@@ -9,7 +9,7 @@ MassiveGhost[InverseBMatrix_,SquareMassesValue_,Couplings_]:=Module[{
 	SquareDef,
 	TraceResidue},
 
-	LocalSpectrum=" ** MassiveGhost...";
+	$LocalSpectrum=" ** MassiveGhost...";
 
 	NotZero=!(PossibleZeroQ@SquareMassesValue);
 	Diagnostic@NotZero;

@@ -20,7 +20,7 @@ UnmakeSymbolic[InverseSymbolicMatrix_,
 		CombinedRules,
 		TheInverseSymbolicMatrix},
 
-	LocalPropagator=" ** UnmakeSymbolic...";
+	$LocalPropagator=" ** UnmakeSymbolic...";
 
 	RankOfMatrix=Length@InverseSymbolicMatrix;
 
@@ -47,7 +47,7 @@ UnmakeSymbolic[InverseSymbolicMatrix_,
 			FirstIntermediateSymbolsToSecondIntermediateSymbols,
 			SecondIntermediateSymbolsToCouplingConstants};
 
-	LocalPropagator=" ** InitialExpand...";
+	$LocalPropagator=" ** InitialExpand...";
 	SubTaskFileNames=MapThread[
 		(xAct`PSALTer`Private`NewParallelSubmit@(InitialExpand[#1,#2]))&,
 		{Map[(CombinedRules)&,MatrixElementFileNames,{2}],
@@ -55,12 +55,12 @@ UnmakeSymbolic[InverseSymbolicMatrix_,
 	SubTaskFileNames=MonitorParallel@SubTaskFileNames;
 	Diagnostic@SubTaskFileNames;
 
-	LocalPropagator=" ** GradualExpandSubTask...";
+	$LocalPropagator=" ** GradualExpandSubTask...";
 	MonitorParallel@Map[
 		(xAct`PSALTer`Private`NewParallelSubmit@(GradualExpandSubTask[#1]))&,
 		SubTaskFileNames,{4}];
 
-	LocalPropagator=" ** ConsolidateUnmakeSymbolic...";
+	$LocalPropagator=" ** ConsolidateUnmakeSymbolic...";
 	InverseMatrix=Map[
 		(xAct`PSALTer`Private`NewParallelSubmit@(ConsolidateUnmakeSymbolic[#1]))&,
 		SubTaskFileNames,{2}];
@@ -69,14 +69,14 @@ UnmakeSymbolic[InverseSymbolicMatrix_,
 
 	InverseMatrix=InverseMatrix[[1;;RankOfMatrix,1;;RankOfMatrix]]/InverseMatrix[[RankOfMatrix+1,RankOfMatrix+1]];
 
-	LocalPropagator=" ** ConsolidateFinalElement...";
+	$LocalPropagator=" ** ConsolidateFinalElement...";
 	InverseMatrix=Map[
 		(xAct`PSALTer`Private`NewParallelSubmit@(ConsolidateFinalElement[#1]))&,
 		Map[{CouplingAssumptions,#}&,InverseMatrix,{2}],{2}];
 	InverseMatrix=MonitorParallel@InverseMatrix;
 	Diagnostic@InverseMatrix;
 
-	LocalPropagator=" ** Conjugate...";
+	$LocalPropagator=" ** Conjugate...";
 	Table[
 		If[j<i,
 			InverseMatrix[[i,j]]=Assuming[
@@ -86,7 +86,7 @@ UnmakeSymbolic[InverseSymbolicMatrix_,
 	{i,RankOfMatrix},
 	{j,RankOfMatrix}];
 
-	LocalPropagator=" ** ConsolidateFinalElement...";
+	$LocalPropagator=" ** ConsolidateFinalElement...";
 	InverseMatrix=Map[
 		(xAct`PSALTer`Private`NewParallelSubmit@(ConsolidateFinalElement[#1]))&,
 		Map[{CouplingAssumptions,#}&,InverseMatrix,{2}],{2}];

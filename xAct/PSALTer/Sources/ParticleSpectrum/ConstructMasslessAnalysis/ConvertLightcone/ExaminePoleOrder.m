@@ -17,7 +17,7 @@ ExaminePoleOrder[LightconePropagator_,LaurentDepth_]:=Module[{
 	SecularEquation
 	},
 
-	LocalMasslessSpectrum=" ** NullResidue...";
+	$LocalMasslessSpectrum=" ** NullResidue...";
 	SymbolicLightconePropagator=LightconePropagatorValue//MatrixToSymbolic;
 	Diagnostic@SymbolicLightconePropagator;
 	Diagnostic@(SymbolicLightconePropagator@UniqueMatrixElements);
@@ -36,11 +36,11 @@ ExaminePoleOrder[LightconePropagator_,LaurentDepth_]:=Module[{
 	{InputMatrix,InputDenominator}=LightconePropagatorValue//ReparameteriseSources;
 	(*{InputMatrix,InputDenominator}={LightconePropagatorValue,1};*)
 
-	LocalMasslessSpectrum=" ** ExtractSecularEquation...";
+	$LocalMasslessSpectrum=" ** ExtractSecularEquation...";
 	SecularEquation=ExtractSecularEquation[InputMatrix,LaurentDepth];
 	Diagnostic@SecularEquation;
 
-	LocalMasslessSpectrum=" ** MasslessAnalysisOfTotal...";
+	$LocalMasslessSpectrum=" ** MasslessAnalysisOfTotal...";
 	NumeratorFreeSourceEigenvalues=MasslessAnalysisOfTotal[InputMatrix,InputDenominator];
 	Diagnostic@NumeratorFreeSourceEigenvalues;
 
