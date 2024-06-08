@@ -51,8 +51,8 @@ UnmakeSymbolic[InverseSymbolicMatrix_,
 		{Map[(CombinedRules)&,MatrixElementFileNames,{2}],
 		MatrixElementFileNames},2];
 	SubTaskFileNames=MonitorParallel@SubTaskFileNames;
-	DeleteFile/@Flatten@MapSpinParitySectorFileNames;
-	Diagnostic@MatrixElementFileNames;
+	DeleteFile/@Flatten@MatrixElementFileNames;
+	Diagnostic@SubTaskFileNames;
 
 	$LocalPropagator=" ** GradualExpandSubTask...";
 	MonitorParallel@Map[
