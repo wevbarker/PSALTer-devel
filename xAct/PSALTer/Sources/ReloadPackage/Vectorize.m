@@ -4,7 +4,6 @@
 
 Vectorize[InputExpr_]:=Module[{TemporaryFileNameEPS,TemporaryFileNamePDF,TemporaryFileNameTXT,Vectorized=ResourceFunction["RandomString"][10],Expr},
 
-	(*TemporaryFileNamePDF=FileNameJoin@{$TemporaryDirectory,Vectorized<>".pdf"};*)
 	TemporaryFileNamePDF=CreateFile[];
 	TemporaryFileNamePDF//=(#~RenameFile~(#<>".pdf"))&;
 	Export[TemporaryFileNamePDF,InputExpr,"PDF",AllowRasterization->False];
@@ -12,7 +11,6 @@ Vectorize[InputExpr_]:=Module[{TemporaryFileNameEPS,TemporaryFileNamePDF,Tempora
 	Which[
 		($OperatingSystem==="Unix")||($OperatingSystem==="MacOSX")
 	,
-		(*TemporaryFileNameEPS=FileNameJoin@{$TemporaryDirectory,Vectorized<>".eps"};*)
 		TemporaryFileNameEPS=CreateFile[];
 		TemporaryFileNameEPS//=(#~RenameFile~(#<>".eps"))&;
 		Run@("inkscape "<>TemporaryFileNamePDF<>" --export-eps="<>TemporaryFileNameEPS);
