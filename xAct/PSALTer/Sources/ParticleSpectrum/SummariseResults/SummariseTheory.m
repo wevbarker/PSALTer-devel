@@ -4,14 +4,11 @@
 
 SummariseTheory[Theory_?StringQ]:=Theory;
 NotStringQ[InputExpr_]:=!StringQ@InputExpr;
-PlasticBox[InputExpr_,PlasticBoxSize_]:=Framed[Grid[{{InputExpr}},
-					Background->$DetailColor,
-					ItemSize->PlasticBoxSize],
-						Background->$DetailColor,
-						FrameStyle->Directive[$DetailColor,Thickness[4]]];
 RigidBox[InputExpr_]:=Framed[
 				Grid[
-					{{Text@"Lagrangian density"},{InputExpr}},
+					{{Text@"Lagrangian density",SpanFromLeft},
+					{InputExpr[[1]],SpanFromLeft},
+					{Text@"Added source term:",InputExpr[[2]]}},
 						ItemStyle->{LineIndent->0},	
 						Dividers->Center,
 						Alignment->Left],
@@ -24,9 +21,9 @@ SummariseTheory[Theory_?NotStringQ]:=Module[{
 		PlasticBoxContent,
 		PlasticBoxSize},
 	PlasticBoxSize=50*Floor@Sqrt@(Length@(Expand@Theory/.{Plus->List}));
-	PlasticBoxContent=(Theory);
-	PlasticBoxContent//=Evaluate;
-	PlasticBoxContent//=ExpandAll;
-	PlasticBoxContent//=Text;
+	PlasticBoxContent=Theory;
+	PlasticBoxContent//=(Evaluate/@#)&;
+	PlasticBoxContent//=(ExpandAll/@#)&;
+	PlasticBoxContent//=(Text/@#)&;
 	PlasticBoxFinal=RigidBox[PlasticBoxContent];
 PlasticBoxFinal];
