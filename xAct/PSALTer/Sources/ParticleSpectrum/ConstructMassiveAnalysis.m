@@ -32,8 +32,6 @@ ConstructMassiveAnalysis[ClassName_?StringQ,
 	SpinParitySectorFileNames=Table[0,{i,Length@(ValuesSaturatedPropagator)}];
 	Table[
 		SpinParitySector=ValuesSaturatedPropagator[[i]];
-		(*SpinParitySectorFileName=FileNameJoin@{$TemporaryDirectory,
-				"SpinParitySector"<>ToString@i<>".mx"};*)
 		SpinParitySectorFileName=CreateFile[];
 		SpinParitySectorFileNames[[i]]=SpinParitySectorFileName;
 		DumpSave[SpinParitySectorFileName,SpinParitySector];
@@ -49,11 +47,10 @@ ConstructMassiveAnalysis[ClassName_?StringQ,
 		Map[(Couplings)&,SpinParitySectorFileNames],
 		Map[(OptionValue@Method)&,SpinParitySectorFileNames]}];
 	MassiveAnalysis=MonitorParallel@MassiveAnalysis;
-
+	DeleteFile/@Flatten@MapSpinParitySectorFileNames;
 	Diagnostic@MassiveAnalysis;
 
 	$LocalSpectrum=" ** SimplifyMasses...";
-
 	MassiveAnalysis//=PadRight[#,{Length@#,Max@(Length/@#)}]&;
 	MassiveAnalysis=MapThread[
 		(xAct`PSALTer`Private`NewParallelSubmit@(SimplifyMasses[#1,#2,Method->#3]))&,

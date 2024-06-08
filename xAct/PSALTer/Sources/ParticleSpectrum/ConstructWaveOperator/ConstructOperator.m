@@ -140,9 +140,6 @@ ConstructOperator[ClassName_?StringQ,Expr_,Couplings_]:=Module[{
 			BMatricesValues}];
 	Diagnostic@BMatricesValues;
 	ValuesAllMatrices=Flatten[Values@BMatricesValues,{1,2}];
-(*
-	DumpSave[FileNameJoin@{$WorkingDirectory,"ValuesAllMatrices.mx"},ValuesAllMatrices];
-*)
 
 	CombinedSectors=Map[Flatten,Merge[#,Identity]&/@Merge[Values@FieldSpinParityTensorHeadsValue,Identity],{2}];
 	Sizes=Map[Length,Values@(Values/@(CombinedSectors)),{2}];

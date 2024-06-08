@@ -21,7 +21,8 @@ BatchExpanded[InputExpr_,Prefix_,SymbolicRules_,MatrixElementFileName_]:=Module[
 	NumberOfSubTasks=Length@Expr;
 
 	NewFileNames=Table[
-		StringDrop[MatrixElementFileName,-3]<>Prefix<>ToString@SubTask<>".mx",
+		(*StringDrop[MatrixElementFileName,-3]<>Prefix<>ToString@SubTask<>".mx",*)
+		CreateFile[],
 				{SubTask,NumberOfSubTasks}];
 	Table[
 		MatrixElementSubTask=Evaluate@Expr[[SubTask]];

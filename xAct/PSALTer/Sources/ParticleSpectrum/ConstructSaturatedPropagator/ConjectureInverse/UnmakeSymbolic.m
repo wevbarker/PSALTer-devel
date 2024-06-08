@@ -33,8 +33,6 @@ UnmakeSymbolic[InverseSymbolicMatrix_,
 			MatrixElement={CouplingAssumptions,Evaluate@(TheInverseSymbolicMatrix[[i,j]])},
 			MatrixElement={CouplingAssumptions,0}
 		];
-		(*MatrixElementFileName=FileNameJoin@{$TemporaryDirectory,
-				"MatrixElement"<>ToString@i<>"By"<>ToString@j<>".mx"};*)
 		MatrixElementFileName=CreateFile[];
 		MatrixElementFileNames[[i,j]]=MatrixElementFileName;
 		DumpSave[MatrixElementFileName,MatrixElement];
@@ -54,7 +52,8 @@ UnmakeSymbolic[InverseSymbolicMatrix_,
 		{Map[(CombinedRules)&,MatrixElementFileNames,{2}],
 		MatrixElementFileNames},2];
 	SubTaskFileNames=MonitorParallel@SubTaskFileNames;
-	Diagnostic@SubTaskFileNames;
+	DeleteFile/@Flatten@MapSpinParitySectorFileNames;
+	Diagnostic@MatrixElementFileNames;
 
 	$LocalPropagator=" ** GradualExpandSubTask...";
 	MonitorParallel@Map[
@@ -66,6 +65,7 @@ UnmakeSymbolic[InverseSymbolicMatrix_,
 		(xAct`PSALTer`Private`NewParallelSubmit@(ConsolidateUnmakeSymbolic[#1]))&,
 		SubTaskFileNames,{2}];
 	InverseMatrix=MonitorParallel@InverseMatrix;
+	DeleteFile/@Flatten@SubTaskFileNames;
 	Diagnostic@InverseMatrix;
 
 	InverseMatrix=InverseMatrix[[1;;RankOfMatrix,1;;RankOfMatrix]]/InverseMatrix[[RankOfMatrix+1,RankOfMatrix+1]];
