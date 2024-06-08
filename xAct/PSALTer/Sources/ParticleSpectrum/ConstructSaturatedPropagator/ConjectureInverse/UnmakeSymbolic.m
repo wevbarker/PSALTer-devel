@@ -21,16 +21,15 @@ UnmakeSymbolic[InverseSymbolicMatrix_,
 		TheInverseSymbolicMatrix},
 
 	$LocalPropagator=" ** UnmakeSymbolic...";
-
 	RankOfMatrix=Length@InverseSymbolicMatrix;
-
 	MatrixElementFileNames=Table[0,{i,RankOfMatrix+1},{j,RankOfMatrix+1}];
 	TheInverseSymbolicMatrix=InverseSymbolicMatrix~PadRight~{RankOfMatrix+1,RankOfMatrix+1};
 	TheInverseSymbolicMatrix[[RankOfMatrix+1,RankOfMatrix+1]]=Evaluate@(DeterminantSymbolic);
 
 	Table[
 		If[j>=i,
-			MatrixElement={CouplingAssumptions,Evaluate@(TheInverseSymbolicMatrix[[i,j]])},
+			MatrixElement={CouplingAssumptions,Evaluate@(TheInverseSymbolicMatrix[[i,j]])}
+			,
 			MatrixElement={CouplingAssumptions,0}
 		];
 		MatrixElementFileName=CreateFile[];

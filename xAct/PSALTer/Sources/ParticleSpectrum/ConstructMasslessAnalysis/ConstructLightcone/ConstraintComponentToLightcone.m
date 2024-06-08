@@ -51,9 +51,7 @@ ConstraintComponentToLightcone[ClassName_?StringQ,ConstraintComponent_]:=Module[
 	Constraint=Constraint/.xAct`xCoba`TensorValues[P];
 	Constraint=Constraint/.xAct`xCoba`TensorValues[G];
 	Diagnostic@Constraint;
-
 	(Constraint=Constraint/.xAct`xCoba`TensorValues[#])&/@(Class@Sources);
-
 	Constraint=Constraint/.{Def->Sqrt[En^2-Mo^2]};
 	Constraint/=(2*3*5*7*11*En Mo)^10;
 	Diagnostic@Constraint;

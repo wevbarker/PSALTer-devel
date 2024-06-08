@@ -35,11 +35,9 @@ ConstructSaturatedPropagator[ClassName_?StringQ,
 
 	NewCouplingAssumptions=CouplingAssumptions~Join~{(xAct`PSALTer`Def~Element~Reals)};
 
-	LocalSaturatedPropagator=" ** ConstructSaturatedPropagator...";
-
+	$LocalPropagator=" ** ConstructSaturatedPropagator...";
 	Class=Evaluate@Symbol@ClassName;
 	Couplings=Class@LagrangianCouplings;
-
 	Switch[OptionValue@Method,
 		"Easy",
 		(
@@ -63,21 +61,18 @@ ConstructSaturatedPropagator[ClassName_?StringQ,
 	];
 
 	InverseBMatricesValues=MatrixPropagator;
-
 	AntiMaskMatrixValue=Class@AntiMaskMatrix;
 	InverseBMatricesValues=MapThread[
 			({MapThread[Times,{#1@Even,#2}],MapThread[Times,{#1@Odd,#2}]})&,
 			{AntiMaskMatrixValue,
 			InverseBMatricesValues}];
 	Diagnostic@InverseBMatricesValues;
-
 	MatrixPropagator=MapThread[
 		MapThread[(#1*#2)&,{#1,#2}]&,
 			{MatrixPropagator,
 			Class@RescalingMatrix}
 	]/.Class@RescalingSolutions;
 	Diagnostic@MatrixPropagator;
-
 	MaskMatrixValue=Class@MaskMatrix;
 	Diagnostic@MaskMatrixValue;
 	MaskedMatrixPropagator=MapThread[
@@ -85,7 +80,6 @@ ConstructSaturatedPropagator[ClassName_?StringQ,
 			{MaskMatrixValue,
 			MatrixPropagator}];
 	Diagnostic@MaskedMatrixPropagator;
-
 	AntiMaskMatrixValue=Class@AntiMaskMatrix;
 	Diagnostic@AntiMaskMatrixValue;
 	MatrixPropagator=MapThread[
@@ -93,7 +87,6 @@ ConstructSaturatedPropagator[ClassName_?StringQ,
 			{AntiMaskMatrixValue,
 			MatrixPropagator}];
 	Diagnostic@MatrixPropagator;
-
 	SaturatedPropagator=MapThread[{#1 . #2[[1]] . #3,#1 . #2[[2]] . #3}&,
 			{Dagger/@RaisedIndexSources,
 			MatrixPropagator,
@@ -102,12 +95,9 @@ ConstructSaturatedPropagator[ClassName_?StringQ,
 	SaturatedPropagator=ToNewCanonical/@SaturatedPropagator;
 	SaturatedPropagator=CollectTensors/@SaturatedPropagator;
 	Diagnostic@SaturatedPropagator;
-
 	Diagnostic@ValuesAllMatrices;
-
 	BlockMassSigns=Table[-(-1)^n,{n,1,2*Length@SaturatedPropagator}];
 	Diagnostic@BlockMassSigns;
-
 	ValuesSaturatedPropagator=Flatten[Values@SaturatedPropagator,{1,2}];
 	ValuesInverseBMatricesValues=Flatten[Values@InverseBMatricesValues,{1,2}];
 

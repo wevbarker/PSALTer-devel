@@ -47,7 +47,7 @@ ConstructMassiveAnalysis[ClassName_?StringQ,
 		Map[(Couplings)&,SpinParitySectorFileNames],
 		Map[(OptionValue@Method)&,SpinParitySectorFileNames]}];
 	MassiveAnalysis=MonitorParallel@MassiveAnalysis;
-	DeleteFile/@Flatten@MapSpinParitySectorFileNames;
+	DeleteFile/@Flatten@SpinParitySectorFileNames;
 	Diagnostic@MassiveAnalysis;
 
 	$LocalSpectrum=" ** SimplifyMasses...";

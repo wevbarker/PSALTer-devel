@@ -10,7 +10,6 @@ SimplifyMasses[InputRoot_,Couplings_,OptionsPattern[]]:=Module[{
 
 	CouplingAssumptions=(#~Element~Reals)&/@Couplings;
 	RootValue=Assuming[CouplingAssumptions,Simplify@RootValue];
-
 	Switch[OptionValue@Method,
 		"Careful",
 		(

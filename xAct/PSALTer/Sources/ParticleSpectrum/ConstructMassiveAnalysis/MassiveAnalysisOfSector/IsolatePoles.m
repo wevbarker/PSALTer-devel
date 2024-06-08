@@ -30,6 +30,5 @@ IsolatePoles[InputDenominator_,CouplingAssumptions_]:=Module[{
 	];
 	$MultiMass=False;
 	If[Length@ListOfRoots>=2,Message@ParticleSpectrum::MultiMass;];
-	(*If[Length@ListOfRoots>=2,$MultiMass=True;Throw@Message@ParticleSpectrum::MultiMass;];*)
 	Diagnostic@ListOfRoots;
 ListOfRoots];

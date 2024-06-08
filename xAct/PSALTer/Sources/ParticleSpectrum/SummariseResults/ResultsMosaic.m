@@ -45,6 +45,6 @@ ResultsMosaic[
 	FinalGraphic//=Column[#,
 			Alignment->{Left,Center},
 			Background->$PanelColor,
-			Frame->False,
-			Spacings->{1,1}]&;
+			Frame->False]&;
+			(*Spacings->{1,1}]&;*)
 FinalGraphic];

@@ -2,6 +2,7 @@
 (*  ExtractSecularEquation  *)
 (*==========================*)
 
+$SecularEquationTime=10;
 ExtractSecularEquation[InputMatrix_,LaurentDepth_]:=Module[{
 	TheInputMatrix=InputMatrix,
 	TheSecularEquation,
@@ -49,7 +50,7 @@ ExtractSecularEquation[InputMatrix_,LaurentDepth_]:=Module[{
 		TheSecularEquation//=Collect[#,PoleResidue,FullSimplify]&;
 		Diagnostic@TheSecularEquation;
 	),
-	10,
+	$SecularEquationTime,
 	(
 		TheSecularEquation="(Timeout)";
 	)

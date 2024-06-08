@@ -2,38 +2,8 @@
 (*  ManualPseudoInverse  *)
 (*=======================*)
 
-ParameterisedNullVectorQ[NullVector_]:=Module[{
-	VariablesPresent,
-	Finding},
-
-	VariablesPresent=Join@@(Variables/@NullVector);
-	VariablesPresent//=DeleteDuplicates;
-	If[(VariablesPresent=={xAct`PSALTer`Def})||(VariablesPresent=={}),
-		Finding=False;,
-		Finding=True;,
-		Finding=True;
-	];
-Finding];
-
-CarefullyOrthogonalise[InputNullSpace_]:=Module[{
-	Expr=InputNullSpace,
-	ParameterisedNullVectors,
-	NonParameterisedNullVectors
-	},
-	
-	If[(ParameterisedNullVectorQ/@Expr)~MemberQ~True,
-		LocalSaturatedPropagator=" ** SplitBy...";
-		{ParameterisedNullVectors,NonParameterisedNullVectors}=Expr~SplitBy~ParameterisedNullVectorQ;
-		LocalSaturatedPropagator=" ** Orthogonalize...";
-		Assuming[xAct`PSALTer`Def>0,
-			NonParameterisedNullVectors=FullSimplify@Orthogonalize@NonParameterisedNullVectors];
-		Expr=ParameterisedNullVectors~Join~NonParameterisedNullVectors;
-	,
-		LocalSaturatedPropagator=" ** Orthogonalize...";
-		Assuming[xAct`PSALTer`Def>0,
-			Expr=FullSimplify@Orthogonalize@Expr];
-	];
-Expr];
+IncludeHeader@"ParameterisedNullVectorQ";
+IncludeHeader@"CarefullyOrthogonalise";
 
 ManualPseudoInverse[TheInputMatrix_List?MatrixQ/;Precision[TheInputMatrix]===Infinity,TheConjecturedNullSpace_]:=Module[{
 	DimensionsOfMatrix,
@@ -47,9 +17,7 @@ ManualPseudoInverse[TheInputMatrix_List?MatrixQ/;Precision[TheInputMatrix]===Inf
 	PseudoDeterminant},
 	
 	$LocalPropagator=" ** ManualPseudoInverse...";
-
 	DimensionsOfMatrix=Length@TheInputMatrix;
-
 	OriginalNullSpace=If[OriginalNullSpace==={},
 			{Table[0,{DimensionsOfMatrix}]},OriginalNullSpace];
 	Diagnostic@OriginalNullSpace;
@@ -64,12 +32,10 @@ ManualPseudoInverse[TheInputMatrix_List?MatrixQ/;Precision[TheInputMatrix]===Inf
 	Diagnostic@RowNullSpace;
 	Diagnostic@(MatrixForm@Assuming[xAct`PSALTer`Def>0,
 			FullSimplify@(RowNullSpace.ColumnNullSpace)]);
-
 	CompensatorMatrix=ColumnNullSpace.RowNullSpace;
 	Diagnostic@CompensatorMatrix;
 	Assuming[xAct`PSALTer`Def>0,CompensatorMatrix//=FullSimplify];
 	Diagnostic@CompensatorMatrix;
-
 	Similarity=(IdentityMatrix@DimensionsOfMatrix)-CompensatorMatrix;
 	Diagnostic@Similarity;
 	Diagnostic@(MatrixForm@Assuming[xAct`PSALTer`Def>0,
@@ -78,19 +44,17 @@ ManualPseudoInverse[TheInputMatrix_List?MatrixQ/;Precision[TheInputMatrix]===Inf
 	$LocalPropagator=" ** Adjugate...";
 	PseudoInverseMatrix=Assuming[xAct`PSALTer`Def>0,
 				Adjugate[TheInputMatrix+CompensatorMatrix]];
-	(*Diagnostic@PseudoInverseMatrix;*)
+	Diagnostic@PseudoInverseMatrix;
 
 	$LocalPropagator=" ** Det...";
 	PseudoDeterminant=Det[TheInputMatrix+CompensatorMatrix];
-	(*Diagnostic@PseudoDeterminant;*)
-
+	Diagnostic@PseudoDeterminant;
 	PseudoInverseMatrix=Assuming[xAct`PSALTer`Def>0,
 				PseudoInverseMatrix.Similarity];
-	(*Diagnostic@PseudoInverseMatrix;*)
+	Diagnostic@PseudoInverseMatrix;
 
 	$LocalPropagator=" ** ConjugateTranspose...";
 	PseudoInverseMatrix=Assuming[xAct`PSALTer`Def>0,
 				(ConjugateTranspose@Similarity).PseudoInverseMatrix];
-	(*Diagnostic@PseudoInverseMatrix;*)
-
+	Diagnostic@PseudoInverseMatrix;
 {PseudoInverseMatrix,PseudoDeterminant}];

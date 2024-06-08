@@ -3,6 +3,7 @@
 (*===================================*)
 
 ExtractReparameterisationMatrix[InputMatrix_]:=Module[{ReparameterisationMatrix},
+
 	ReparameterisationMatrix=InputMatrix;
 	ReparameterisationMatrix//=Diagonal;
 	ReparameterisationMatrix//=(FactorList/@#)&;

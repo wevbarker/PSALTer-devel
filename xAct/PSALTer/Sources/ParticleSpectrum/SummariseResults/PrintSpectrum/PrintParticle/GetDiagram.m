@@ -11,7 +11,6 @@ GetDiagram[FileName_]:=Module[{TemporaryFileName,Expr},
 		"PrintParticle",FileName};
 	Expr=$Failed;
 	While[Expr===$Failed,
-		(*Expr=TemporaryFileName~Import~"Graphics";*)
 		Expr=TemporaryFileName~Import~{"PDF","PageGraphics"};
 	];
 	Expr//=First;

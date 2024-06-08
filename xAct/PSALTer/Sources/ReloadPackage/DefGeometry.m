@@ -64,6 +64,6 @@ AllComponentValues[P[{a,cartesian}],{En,0,0,Mo}];
 AllComponentValues[P[{-a,-cartesian}],{En,0,0,-Mo}];
 AllComponentValues[G[{a,cartesian},{b,cartesian}],DiagonalMatrix@{1,-1,-1,-1}];
 AllComponentValues[G[{-a,-cartesian},{-b,-cartesian}],DiagonalMatrix@{1,-1,-1,-1}];
-DefConstantSymbol[PoleResidue,PrintAs->"\[Lambda]"];
+(*DefConstantSymbol[PoleResidue,PrintAs->"\[Lambda]"];*)
 $CVVerbose=True;
 $DefInfoQ=True;
