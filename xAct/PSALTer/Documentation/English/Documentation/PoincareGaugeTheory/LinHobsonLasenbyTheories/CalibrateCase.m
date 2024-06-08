@@ -12,7 +12,7 @@ CalibrateCase[CaseNumber_,CaseRules_List,CaseConditions_List]:=Module[{
 	Comment@{"Here is the full nonlinear Lagrangian for Case "<>ToString@CaseNumber<>" as defined by the second column of TABLE V. in arXiv:1910.14197, using the general formulation in",Cref@"CleanKarananas","."};
 	DisplayExpression@CollectTensors@ToCanonical[KNonlinearLagrangian/.CaseRules];
 	LinearLagrangian=LineariseLagrangian[KNonlinearLagrangian/.CaseRules];
-	If[CaseNumber===18,$ReadOnly=False];
+	(*If[CaseNumber===18,$ReadOnly=False];*)
 	Code[LinearLagrangian,
 		ParticleSpectrum[
 			LinearLagrangian,
@@ -21,7 +21,7 @@ CalibrateCase[CaseNumber_,CaseRules_List,CaseConditions_List]:=Module[{
 			MaxLaurentDepth->3
 		];
 	];
-	If[CaseNumber===18,$ReadOnly=True];
+	(*If[CaseNumber===18,$ReadOnly=True];*)
 	Comment@"The particle content can be checked against TABLE IV. in arXiv:1910.14197. If the overall unitarity conditions are taken from the final column in TABLE V., and decomposed using Mathematica's Reduce function, the following conditions are produced (to be compared with the predictions above).";
 	CouplingAssumptions=(#~Element~Reals)&/@Couplings;
 	DisplayExpression@Quiet@Assuming[CouplingAssumptions,Reduce[CaseConditions,Couplings]];
