@@ -49,7 +49,7 @@ UnmakeSymbolic[InverseSymbolicMatrix_,
 
 	LocalPropagator=" ** InitialExpand...";
 	SubTaskFileNames=MapThread[
-		(xAct`PSALTer`Private`PSALTerParallelSubmit@(InitialExpand[#1,#2]))&,
+		(xAct`PSALTer`Private`NewParallelSubmit@(InitialExpand[#1,#2]))&,
 		{Map[(CombinedRules)&,MatrixElementFileNames,{2}],
 		MatrixElementFileNames},2];
 	SubTaskFileNames=MonitorParallel@SubTaskFileNames;
@@ -57,12 +57,12 @@ UnmakeSymbolic[InverseSymbolicMatrix_,
 
 	LocalPropagator=" ** GradualExpandSubTask...";
 	MonitorParallel@Map[
-		(xAct`PSALTer`Private`PSALTerParallelSubmit@(GradualExpandSubTask[#1]))&,
+		(xAct`PSALTer`Private`NewParallelSubmit@(GradualExpandSubTask[#1]))&,
 		SubTaskFileNames,{4}];
 
 	LocalPropagator=" ** ConsolidateUnmakeSymbolic...";
 	InverseMatrix=Map[
-		(xAct`PSALTer`Private`PSALTerParallelSubmit@(ConsolidateUnmakeSymbolic[#1]))&,
+		(xAct`PSALTer`Private`NewParallelSubmit@(ConsolidateUnmakeSymbolic[#1]))&,
 		SubTaskFileNames,{2}];
 	InverseMatrix=MonitorParallel@InverseMatrix;
 	Diagnostic@InverseMatrix;
@@ -71,7 +71,7 @@ UnmakeSymbolic[InverseSymbolicMatrix_,
 
 	LocalPropagator=" ** ConsolidateFinalElement...";
 	InverseMatrix=Map[
-		(xAct`PSALTer`Private`PSALTerParallelSubmit@(ConsolidateFinalElement[#1]))&,
+		(xAct`PSALTer`Private`NewParallelSubmit@(ConsolidateFinalElement[#1]))&,
 		Map[{CouplingAssumptions,#}&,InverseMatrix,{2}],{2}];
 	InverseMatrix=MonitorParallel@InverseMatrix;
 	Diagnostic@InverseMatrix;
@@ -88,7 +88,7 @@ UnmakeSymbolic[InverseSymbolicMatrix_,
 
 	LocalPropagator=" ** ConsolidateFinalElement...";
 	InverseMatrix=Map[
-		(xAct`PSALTer`Private`PSALTerParallelSubmit@(ConsolidateFinalElement[#1]))&,
+		(xAct`PSALTer`Private`NewParallelSubmit@(ConsolidateFinalElement[#1]))&,
 		Map[{CouplingAssumptions,#}&,InverseMatrix,{2}],{2}];
 	InverseMatrix=MonitorParallel@InverseMatrix;
 	Diagnostic@InverseMatrix;

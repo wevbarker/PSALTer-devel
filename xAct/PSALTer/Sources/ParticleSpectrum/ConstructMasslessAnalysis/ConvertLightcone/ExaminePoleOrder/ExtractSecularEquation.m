@@ -29,7 +29,7 @@ ExtractSecularEquation[InputMatrix_,LaurentDepth_]:=Module[{
 		TheSymbolicToUnique=TheSymbolicInputMatrix@SymbolicToUnique;
 		Diagnostic@TheSymbolicToUnique;
 		TheSecularEquationCoefficients=MapThread[
-			(xAct`PSALTer`Private`PSALTerParallelSubmit@(GradualExpand[
+			(xAct`PSALTer`Private`NewParallelSubmit@(GradualExpand[
 								#1,#2,#3]))&,
 			{
 			(PoleResidue>0)~ConstantArray~(Length@TheSecularEquationCoefficients),

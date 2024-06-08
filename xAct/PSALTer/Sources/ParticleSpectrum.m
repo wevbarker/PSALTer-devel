@@ -8,7 +8,6 @@ IncludeHeader@"ValidateMaxLaurentDepth";
 IncludeHeader@"ValidateLagrangian";
 IncludeHeader@"CombineAssociations";
 IncludeHeader@"UpdateTheoryAssociation";
-IncludeHeader@"PSALTerParallelSubmit";
 IncludeHeader@"SummariseResults";
 IncludeHeader@"ConstructLinearAction";
 IncludeHeader@"ConstructWaveOperator";
@@ -22,7 +21,6 @@ Off[Set::write];
 Off[SetDelayed::write];
 
 Options@ParticleSpectrumActual={TheoryName->False,Method->"Easy",MaxLaurentDepth->1};
-
 ParticleSpectrum::NoFile="The file `1` cannot be found.";
 ParticleSpectrumActual[OptionsPattern[]]:=Catch@Module[{
 	SummaryOfResults,

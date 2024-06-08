@@ -4,11 +4,9 @@
 
 DefAllComponentValues[]:=Module[{
 	Class,
-	TensorsWhoseComponentsWeNeed,
-	PrintVariable},
+	TensorsWhoseComponentsWeNeed},
 
 	Class=FieldAssociation@Context[];
-
 	TensorsWhoseComponentsWeNeed=Flatten@Map[Values,Evaluate@(Class@SourceSpinParityTensorHeads),{0,2}];
 	TensorsWhoseComponentsWeNeed=(FromIndexFree@ToIndexFree@#)&/@TensorsWhoseComponentsWeNeed;
 	TensorsWhoseComponentsWeNeed=DeleteCases[TensorsWhoseComponentsWeNeed,xTensor_[]];
@@ -23,14 +21,10 @@ DefAllComponentValues[]:=Module[{
 			)
 		);
 
-
 	Block[{Print},
-
 		Unprotect@Print;
 		Print[Expr_]:=NoPrint[Expr];
-
 		(AllComponentValues@FreeToBasis[xAct`PSALTer`cartesian]@#;)&/@TensorsWhoseComponentsWeNeed;
-
 		Protect@Print;
 	];
 ];

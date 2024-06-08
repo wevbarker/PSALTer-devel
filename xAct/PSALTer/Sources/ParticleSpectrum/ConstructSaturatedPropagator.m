@@ -8,7 +8,13 @@ IncludeHeader@"ConjectureInverse";
 Options@ConstructSaturatedPropagator={
 	Method->"Easy"};
 
-ConstructSaturatedPropagator[ClassName_?StringQ,MatrixLagrangian_,CouplingAssumptions_,BMatricesValues_,RaisedIndexSources_,LoweredIndexSources_,OptionsPattern[]]:=Module[{
+ConstructSaturatedPropagator[ClassName_?StringQ,
+		MatrixLagrangian_,
+		CouplingAssumptions_,
+		BMatricesValues_,
+		RaisedIndexSources_,
+		LoweredIndexSources_,
+		OptionsPattern[]]:=Module[{
 	NewCouplingAssumptions,
 	Couplings,
 	SourceSpinParityTensorHeadsValue,
@@ -53,10 +59,6 @@ ConstructSaturatedPropagator[ClassName_?StringQ,MatrixLagrangian_,CouplingAssump
 			ManualMatrixPropagator=(#[[1]]+#[[2]])&/@ManualMatrixPropagator;
 			Diagnostic@ManualMatrixPropagator;
 			MatrixPropagator=ManualMatrixPropagator;
-		),
-		"Both",
-		(
-			Print@Null;
 		)
 	];
 

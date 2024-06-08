@@ -2,9 +2,7 @@
 (*  ToNewCanonical  *)
 (*==================*)
 
-ToNewCanonical[Expr_]:=Module[{
-	CanonicalisedExpr=Expr,
-	PrintVariable},
+ToNewCanonical[Expr_]:=Module[{CanonicalisedExpr=Expr},
 
 	CanonicalisedExpr//=NoScalar;
 	CanonicalisedExpr//=ToCanonical;

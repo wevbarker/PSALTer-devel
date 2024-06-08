@@ -4,7 +4,7 @@
 
 IncludeHeader@"ExpansionTable";
 IncludeHeader@"DecompositionTable";
-IncludeHeader@"PSALTerClassCollage";
+IncludeHeader@"FieldCollage";
 
 SummariseField[]:=Module[{
 	Class,
@@ -19,7 +19,7 @@ SummariseField[]:=Module[{
 	FieldTensorsDecomposed,
 	SourceTensors,
 	TheDecompositionTable,
-	ThePSALTerClassCollage
+	TheFieldCollage
 	},
 
 	Class=FieldAssociation@Context[];
@@ -73,13 +73,13 @@ SummariseField[]:=Module[{
 		FieldTensorsDecomposed,
 		SourceTensors];
 	If[!$CLI,
-		ThePSALTerClassCollage=PSALTerClassCollage[
+		TheFieldCollage=FieldCollage[
 					BasicInfo,
 					TheDecompositionTable,
 					TheExpansionTable];
 		Export[FileNameJoin@{$WorkingDirectory,"FieldKinematics"<>(StringReplace[Context[],{"xAct"->"","PSALTer"->"","`"->""}])<>".pdf"},
-			ThePSALTerClassCollage
+			TheFieldCollage
 		];
-		Print@ThePSALTerClassCollage;
+		Print@TheFieldCollage;
 	];
 ];

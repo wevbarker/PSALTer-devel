@@ -31,7 +31,7 @@ ConvertLightcone[ClassName_?StringQ,
 
 	LocalMasslessSpectrum=" ** FullyExpandSources...";
 	LightconePropagator=Map[
-		(xAct`PSALTer`Private`PSALTerParallelSubmit@(FullyExpandSources[ClassName,#]))&,
+		(xAct`PSALTer`Private`NewParallelSubmit@(FullyExpandSources[ClassName,#]))&,
 		LightconePropagator];
 	LightconePropagator=MonitorParallel@LightconePropagator;
 	Diagnostic@LightconePropagator;
@@ -41,7 +41,7 @@ ConvertLightcone[ClassName_?StringQ,
 
 	LocalMasslessSpectrum=" ** FullyCanonicalise...";
 	LightconePropagator=Map[
-		(xAct`PSALTer`Private`PSALTerParallelSubmit@(FullyCanonicalise[#]))&,
+		(xAct`PSALTer`Private`NewParallelSubmit@(FullyCanonicalise[#]))&,
 		LightconePropagator];
 	LightconePropagator=MonitorParallel@LightconePropagator;
 	Diagnostic@LightconePropagator;
@@ -51,7 +51,7 @@ ConvertLightcone[ClassName_?StringQ,
 
 	LocalMasslessSpectrum=" ** ExpressInLightcone...";
 	LightconePropagator=Map[
-		(xAct`PSALTer`Private`PSALTerParallelSubmit@(ExpressInLightcone[ClassName,#]))&,
+		(xAct`PSALTer`Private`NewParallelSubmit@(ExpressInLightcone[ClassName,#]))&,
 		LightconePropagator];
 	LightconePropagator=MonitorParallel@LightconePropagator;
 	Diagnostic@LightconePropagator;
@@ -61,7 +61,7 @@ ConvertLightcone[ClassName_?StringQ,
 
 	LocalMasslessSpectrum=" ** ConstrainInLightcone...";
 	LightconePropagator=MapThread[
-		(xAct`PSALTer`Private`PSALTerParallelSubmit@(ConstrainInLightcone[#1,#2]))&,
+		(xAct`PSALTer`Private`NewParallelSubmit@(ConstrainInLightcone[#1,#2]))&,
 		{LightconePropagator,
 		Map[((SourceComponentsToFreeSourceVariables)&),LightconePropagator]}];
 	LightconePropagator=MonitorParallel@LightconePropagator;

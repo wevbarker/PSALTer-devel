@@ -20,7 +20,7 @@ ConstructLightcone[ClassName_?StringQ,ValuesOfSourceConstraints_]:=Module[{
 	ConstraintComponentList=xAct`xCoba`SeparateBasis[AIndex][#]&/@ConstraintComponentList;
 	Diagnostic@ConstraintComponentList;
 
-	ConstraintComponentList=(xAct`PSALTer`Private`PSALTerParallelSubmit@(ConstraintComponentToLightcone[ClassName,#]))&/@ConstraintComponentList;
+	ConstraintComponentList=(xAct`PSALTer`Private`NewParallelSubmit@(ConstraintComponentToLightcone[ClassName,#]))&/@ConstraintComponentList;
 	ConstraintComponentList=MonitorParallel@ConstraintComponentList;
 	Diagnostic@ConstraintComponentList;
 

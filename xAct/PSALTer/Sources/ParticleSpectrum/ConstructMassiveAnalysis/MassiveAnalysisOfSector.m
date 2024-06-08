@@ -45,10 +45,6 @@ MassiveAnalysisOfSector[SpinParitySectorFileName_,Couplings_,OptionsPattern[]]:=
 		"Hard",
 		(
 			SquareMassesValues=IsolatePoles[InputDenominator,CouplingAssumptions];
-		),
-		"Both",
-		(
-			Print@Null;
 		)
 	];
 SquareMassesValues];

@@ -22,7 +22,7 @@ ExaminePoleOrder[LightconePropagator_,LaurentDepth_]:=Module[{
 	Diagnostic@SymbolicLightconePropagator;
 	Diagnostic@(SymbolicLightconePropagator@UniqueMatrixElements);
 	TheUniqueMatrixElements=Map[
-		(xAct`PSALTer`Private`PSALTerParallelSubmit@(NullResidue[#,LaurentDepth]))&,
+		(xAct`PSALTer`Private`NewParallelSubmit@(NullResidue[#,LaurentDepth]))&,
 	({#})&/@(SymbolicLightconePropagator@UniqueMatrixElements),{2}];
 	TheUniqueMatrixElements=MonitorParallel@TheUniqueMatrixElements;
 	Diagnostic@TheUniqueMatrixElements;

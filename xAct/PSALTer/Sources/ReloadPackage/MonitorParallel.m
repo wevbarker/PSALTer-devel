@@ -2,6 +2,9 @@
 (*  MonitorParallel  *)
 (*===================*)
 
+IncludeHeader@"ReMagnify";
+IncludeHeader@"ParallelGrid";
+
 MonitorParallel[ParallelisedArray_]:=Module[{
 	PrintVariable,
 	ParallelisedArrayValue},

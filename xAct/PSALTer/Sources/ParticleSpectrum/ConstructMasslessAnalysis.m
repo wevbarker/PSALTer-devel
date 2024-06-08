@@ -9,7 +9,10 @@ Options@ConstructMasslessAnalysis={
 	MaxLaurentDepth->1
 	};
 
-ConstructMasslessAnalysis[ClassName_?StringQ,ValuesOfSourceConstraints_,ValuesSaturatedPropagator_,OptionsPattern[]]:=Module[{},
+ConstructMasslessAnalysis[ClassName_?StringQ,
+	ValuesOfSourceConstraints_,
+	ValuesSaturatedPropagator_,
+	OptionsPattern[]]:=Module[{},
 
 	LocalMasslessSpectrum=" ** ConstructMasslessAnalysis...";
 	ConstructLightcone[ClassName,ValuesOfSourceConstraints];

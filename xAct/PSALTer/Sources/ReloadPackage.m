@@ -2,8 +2,10 @@
 (*  ReloadPackage  *)
 (*=================*)
 
-IncludeHeader@"SymbolBuild";
 IncludeHeader@"ToNewCanonical";
+IncludeHeader@"NewParallelSubmit";
+IncludeHeader@"Colours";
+IncludeHeader@"MonitorParallel";
 IncludeHeader@"Diagnostic";
 ReadAtRuntime@"DefGeometry";
 

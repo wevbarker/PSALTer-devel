@@ -8,7 +8,11 @@ IncludeHeader@"MassiveGhost";
 
 Options@ConstructMassiveAnalysis={
 	Method->"Easy"};
-ConstructMassiveAnalysis[ClassName_?StringQ,ValuesSaturatedPropagator_,ValuesInverseBMatricesValues_,BlockMassSigns_,OptionsPattern[]]:=Module[{	
+ConstructMassiveAnalysis[ClassName_?StringQ,
+		ValuesSaturatedPropagator_,
+		ValuesInverseBMatricesValues_,
+		BlockMassSigns_,
+		OptionsPattern[]]:=Module[{	
 	Couplings,
 	Class,
 	SignedInverseBMatrices,
@@ -51,7 +55,7 @@ ConstructMassiveAnalysis[ClassName_?StringQ,ValuesSaturatedPropagator_,ValuesInv
 
 	MassiveAnalysis//=PadRight[#,{Length@#,Max@(Length/@#)}]&;
 	MassiveAnalysis=MapThread[
-		(xAct`PSALTer`Private`PSALTerParallelSubmit@(SimplifyMasses[#1,#2,Method->#3]))&,
+		(xAct`PSALTer`Private`NewParallelSubmit@(SimplifyMasses[#1,#2,Method->#3]))&,
 		{(MassiveAnalysis),
 		Map[(Couplings)&,MassiveAnalysis,{2}],
 		Map[(OptionValue@Method)&,MassiveAnalysis,{2}]},2];
@@ -67,7 +71,7 @@ ConstructMassiveAnalysis[ClassName_?StringQ,ValuesSaturatedPropagator_,ValuesInv
 	ksmsm=Map[(Couplings)&,MassiveAnalysis,{2}];
 	Diagnostic@ksmsm;
 	MassiveGhostAnalysis=MapThread[
-		(xAct`PSALTer`Private`PSALTerParallelSubmit@(MassiveGhost[#1,#2,#3]))&,
+		(xAct`PSALTer`Private`NewParallelSubmit@(MassiveGhost[#1,#2,#3]))&,
 		{MapThread[ConstantArray[#1,Length@#2]&,{SignedInverseBMatrices,MassiveAnalysis},1],
 		MassiveAnalysis,
 		Map[(Couplings)&,MassiveAnalysis,{2}]},2];

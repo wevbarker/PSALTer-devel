@@ -1,8 +1,8 @@
-(*=======================*)
-(*  PSALTerClassCollage  *)
-(*=======================*)
+(*================*)
+(*  FieldCollage  *)
+(*================*)
 
-PSALTerClassCollage[
+FieldCollage[
 		BasicInfo_,
 		TheDecompositionTable_,
 		TheExpansionTable_]:=Module[{
@@ -16,11 +16,8 @@ PSALTerClassCollage[
 	ExpansionGroup//=Vectorize;
 
 	FinalGraphic={
-			(*MakeLabel["Field kinematics",20],*)
 			BasicInfoGroup,
-			(*MakeLabel@"Fundamental fields",*)
 			DecompositionGroup,
-			(*MakeLabel@"SO(3) irreps",*)
 			ExpansionGroup	
 	};
 

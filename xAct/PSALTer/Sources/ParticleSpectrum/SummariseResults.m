@@ -2,18 +2,12 @@
 (*  SummariseResults  *)
 (*====================*)
 
-IncludeHeader@"Status";
 IncludeHeader@"CLIPrint";
 IncludeHeader@"ShowIfSmall";
-IncludeHeader@"Colours";
 IncludeHeader@"DetailCell";
 IncludeHeader@"MakeLabel";
 IncludeHeader@"WignerGrid";
-IncludeHeader@"RaggedBlock";
 IncludeHeader@"PrintSourceConstraints";
-IncludeHeader@"ReMagnify";
-IncludeHeader@"ParallelGrid";
-IncludeHeader@"MonitorParallel";
 IncludeHeader@"SummariseTheory";
 IncludeHeader@"PrintSpectrum";
 IncludeHeader@"PrintUnitarityConditions";

@@ -2,7 +2,12 @@
 (*  ConstructUnitarityConditions  *)
 (*================================*)
 
-ConstructUnitarityConditions[ClassName_?StringQ,MassiveAnalysis_,MassiveGhostAnalysis_,MasslessAnalysisValue_,QuarticAnalysisValue_,HexicAnalysisValue_]:=Module[{
+ConstructUnitarityConditions[ClassName_?StringQ,
+		MassiveAnalysis_,
+		MassiveGhostAnalysis_,
+		MasslessAnalysisValue_,
+		QuarticAnalysisValue_,
+		HexicAnalysisValue_]:=Module[{
 	Couplings,
 	Class,
 	PositiveSystem=Join[MassiveAnalysis,MassiveGhostAnalysis,MasslessAnalysisValue],
@@ -44,20 +49,11 @@ ConstructUnitarityConditions[ClassName_?StringQ,MassiveAnalysis_,MassiveGhostAna
 			Diagnostic@PositiveSystem;
 			Diagnostic@CouplingAssumptions;
 			Diagnostic@Couplings;
-			(*PositiveSystem=Reduce[PositiveSystem,Couplings,Reals];*)
-(**)
 			Off@PrintAsCharacter::argx;
 			PositiveSystem=Assuming[CouplingAssumptions,
 					Reduce[PositiveSystem,Couplings,Reals]];
 			On@PrintAsCharacter::argx;
-			(**)
 			Diagnostic@PositiveSystem;
-(*
-			PositiveSystem//=LogicalExpand;
-			Diagnostic@PositiveSystem;
-			PositiveSystem=PositiveSystem/.{Or->List};
-			Diagnostic@PositiveSystem;
-*)
 			If[PositiveSystem===False,
 				LocalOverallUnitarity=Text@"(Unitarity is demonstrably impossible)";
 				,

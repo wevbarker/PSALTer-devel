@@ -8,8 +8,11 @@ IncludeHeader@"ToCovariantForm";
 
 Options@ConstructSourceConstraints={
 	Method->"Easy"};
-
-ConstructSourceConstraints[ClassName_?StringQ,CouplingAssumptions_,Rescalings_,RaisedIndexSources_,MatrixLagrangian_,OptionsPattern[]]:=Module[{
+ConstructSourceConstraints[ClassName_?StringQ,
+		CouplingAssumptions_,
+		Rescalings_,
+		RaisedIndexSources_,
+		MatrixLagrangian_,OptionsPattern[]]:=Module[{
 	SourceSpinParityTensorHeadsValue,
 	SymbolicLagrangian,
 	Symbols,
@@ -42,10 +45,6 @@ ConstructSourceConstraints[ClassName_?StringQ,CouplingAssumptions_,Rescalings_,R
 						Couplings,
 						CouplingAssumptions]&/@(MatrixLagrangian);
 			Diagnostic@NullSpaces;
-		),
-		"Both",
-		(
-			Print@Null;
 		)
 	];
 

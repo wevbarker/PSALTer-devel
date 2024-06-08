@@ -2,6 +2,8 @@
 (*  CLIPrint  *)
 (*============*)
 
+IncludeHeader@"Status";
+
 CLIPrint[TheoryName_?StringQ,WaveOperator_,Propagator_,SourceConstraints_,Spectrum_,MasslessSpectrum_,OverallUnitarity_]:=Module[{
 	TextTotal,
 	TextASCIILogo=Import@FileNameJoin@{$InstallDirectory,"Logos","ASCIILogo.txt"}},
