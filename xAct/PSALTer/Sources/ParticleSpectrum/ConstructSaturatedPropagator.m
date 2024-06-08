@@ -8,7 +8,13 @@ IncludeHeader@"ConjectureInverse";
 Options@ConstructSaturatedPropagator={
 	Method->"Easy"};
 
-ConstructSaturatedPropagator[ClassName_?StringQ,MatrixLagrangian_,CouplingAssumptions_,BMatricesValues_,RaisedIndexSources_,LoweredIndexSources_,OptionsPattern[]]:=Module[{
+ConstructSaturatedPropagator[ClassName_?StringQ,
+		MatrixLagrangian_,
+		CouplingAssumptions_,
+		BMatricesValues_,
+		RaisedIndexSources_,
+		LoweredIndexSources_,
+		OptionsPattern[]]:=Module[{
 	NewCouplingAssumptions,
 	Couplings,
 	SourceSpinParityTensorHeadsValue,
@@ -29,11 +35,9 @@ ConstructSaturatedPropagator[ClassName_?StringQ,MatrixLagrangian_,CouplingAssump
 
 	NewCouplingAssumptions=CouplingAssumptions~Join~{(xAct`PSALTer`Def~Element~Reals)};
 
-	LocalSaturatedPropagator=" ** ConstructSaturatedPropagator...";
-
+	$LocalPropagator=" ** ConstructSaturatedPropagator...";
 	Class=Evaluate@Symbol@ClassName;
 	Couplings=Class@LagrangianCouplings;
-
 	Switch[OptionValue@Method,
 		"Easy",
 		(
@@ -53,29 +57,22 @@ ConstructSaturatedPropagator[ClassName_?StringQ,MatrixLagrangian_,CouplingAssump
 			ManualMatrixPropagator=(#[[1]]+#[[2]])&/@ManualMatrixPropagator;
 			Diagnostic@ManualMatrixPropagator;
 			MatrixPropagator=ManualMatrixPropagator;
-		),
-		"Both",
-		(
-			Print@Null;
 		)
 	];
 
 	InverseBMatricesValues=MatrixPropagator;
-
 	AntiMaskMatrixValue=Class@AntiMaskMatrix;
 	InverseBMatricesValues=MapThread[
 			({MapThread[Times,{#1@Even,#2}],MapThread[Times,{#1@Odd,#2}]})&,
 			{AntiMaskMatrixValue,
 			InverseBMatricesValues}];
 	Diagnostic@InverseBMatricesValues;
-
 	MatrixPropagator=MapThread[
 		MapThread[(#1*#2)&,{#1,#2}]&,
 			{MatrixPropagator,
 			Class@RescalingMatrix}
 	]/.Class@RescalingSolutions;
 	Diagnostic@MatrixPropagator;
-
 	MaskMatrixValue=Class@MaskMatrix;
 	Diagnostic@MaskMatrixValue;
 	MaskedMatrixPropagator=MapThread[
@@ -83,7 +80,6 @@ ConstructSaturatedPropagator[ClassName_?StringQ,MatrixLagrangian_,CouplingAssump
 			{MaskMatrixValue,
 			MatrixPropagator}];
 	Diagnostic@MaskedMatrixPropagator;
-
 	AntiMaskMatrixValue=Class@AntiMaskMatrix;
 	Diagnostic@AntiMaskMatrixValue;
 	MatrixPropagator=MapThread[
@@ -91,7 +87,6 @@ ConstructSaturatedPropagator[ClassName_?StringQ,MatrixLagrangian_,CouplingAssump
 			{AntiMaskMatrixValue,
 			MatrixPropagator}];
 	Diagnostic@MatrixPropagator;
-
 	SaturatedPropagator=MapThread[{#1 . #2[[1]] . #3,#1 . #2[[2]] . #3}&,
 			{Dagger/@RaisedIndexSources,
 			MatrixPropagator,
@@ -100,14 +95,11 @@ ConstructSaturatedPropagator[ClassName_?StringQ,MatrixLagrangian_,CouplingAssump
 	SaturatedPropagator=ToNewCanonical/@SaturatedPropagator;
 	SaturatedPropagator=CollectTensors/@SaturatedPropagator;
 	Diagnostic@SaturatedPropagator;
-
 	Diagnostic@ValuesAllMatrices;
-
 	BlockMassSigns=Table[-(-1)^n,{n,1,2*Length@SaturatedPropagator}];
 	Diagnostic@BlockMassSigns;
-
 	ValuesSaturatedPropagator=Flatten[Values@SaturatedPropagator,{1,2}];
 	ValuesInverseBMatricesValues=Flatten[Values@InverseBMatricesValues,{1,2}];
 
-	LocalPropagator={((Plus@@#)&/@Partition[ValuesInverseBMatricesValues,2]),Sizes,TheSpins,SourcesLeft,SourcesTop};
+	$LocalPropagator={((Plus@@#)&/@Partition[ValuesInverseBMatricesValues,2]),Sizes,TheSpins,SourcesLeft,SourcesTop};
 ];

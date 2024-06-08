@@ -3,7 +3,6 @@
 (*==============================*)
 
 DefField::MakeTraceless="Can't remove trace `1`.";
-
 MakeAutomaticallyTraceless[InputExpr_?xTensorQ]:=Module[{
 	TensorName=InputExpr,
 	TensorIndexed=InputExpr,
@@ -16,25 +15,21 @@ MakeAutomaticallyTraceless[InputExpr_?xTensorQ]:=Module[{
 		TensorIndexed//=FromIndexFree;	
 		TensorContractions=AllContractions[TensorIndexed,UncontractedIndices->(NumberOfIndices-2),Parallelization->False];
 		Diagnostic@TensorContractions;
-
 		(
 		TensorTrace=#;
 		Diagnostic@TensorTrace;
 		DaggerTensorTrace=Dagger@TensorTrace;
 		Diagnostic@DaggerTensorTrace;
-
 		Quiet@AutomaticRules[
 			Evaluate@(Dagger@TensorName),
 			MakeRule[{Evaluate@DaggerTensorTrace,0},
 			MetricOn->All,
 			ContractMetrics->True]];
-
 		Quiet@AutomaticRules[
 			Evaluate@TensorName,
 			MakeRule[{Evaluate@TensorTrace,0},
 			MetricOn->All,
 			ContractMetrics->True]];
-
 		If[!(ToCanonical@TensorTrace===0),
 			Throw[Message[DefField::MakeTraceless,TensorTrace],
 				HaltBuild]
@@ -43,7 +38,6 @@ MakeAutomaticallyTraceless[InputExpr_?xTensorQ]:=Module[{
 			Throw[Message[DefField::MakeTraceless,DaggerTensorTrace],
 				HaltBuild]
 			];
-
 		)&/@TensorContractions;
 	];	
 ];

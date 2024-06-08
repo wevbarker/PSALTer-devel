@@ -10,7 +10,7 @@ ConstructLinearAction[ClassName_?StringQ,Expr_]:=Module[{
 	SourceCoupling
 	},
 
-	LocalSummaryOfTheory=" ** ConstructLinearAction...";
+	$LocalSummaryOfTheory=" ** ConstructLinearAction...";
 	
 	Class=Evaluate@Symbol@ClassName;
 	NewExpr=Expr/.(Class@FieldToFiducialField);
@@ -24,7 +24,8 @@ ConstructLinearAction[ClassName_?StringQ,Expr_]:=Module[{
 	SourceCoupling//=Total;
 	Diagnostic@SourceCoupling;
 	SourceCoupling//=ToNewCanonical;
+	SourceCoupling//=Expand;
 	Diagnostic@SourceCoupling;
-	LocalSummaryOfTheory=NewExpr+SourceCoupling;
-	Diagnostic@LocalSummaryOfTheory;
+	$LocalSummaryOfTheory={NewExpr,SourceCoupling};
+	Diagnostic@$LocalSummaryOfTheory;
 ];

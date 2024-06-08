@@ -2,6 +2,7 @@
 (*  ExtractSecularEquation  *)
 (*==========================*)
 
+$SecularEquationTime=10;
 ExtractSecularEquation[InputMatrix_,LaurentDepth_]:=Module[{
 	TheInputMatrix=InputMatrix,
 	TheSecularEquation,
@@ -25,11 +26,11 @@ ExtractSecularEquation[InputMatrix_,LaurentDepth_]:=Module[{
 		TheSecularEquationCoefficients=TheSecularEquation~CoefficientList~PoleResidue;
 		Diagnostic@TheSecularEquationCoefficients;
 
-		LocalMasslessSpectrum=" ** GradualExpand...";
+		$LocalMasslessSpectrum=" ** GradualExpand...";
 		TheSymbolicToUnique=TheSymbolicInputMatrix@SymbolicToUnique;
 		Diagnostic@TheSymbolicToUnique;
 		TheSecularEquationCoefficients=MapThread[
-			(xAct`PSALTer`Private`PSALTerParallelSubmit@(GradualExpand[
+			(xAct`PSALTer`Private`NewParallelSubmit@(GradualExpand[
 								#1,#2,#3]))&,
 			{
 			(PoleResidue>0)~ConstantArray~(Length@TheSecularEquationCoefficients),
@@ -39,7 +40,7 @@ ExtractSecularEquation[InputMatrix_,LaurentDepth_]:=Module[{
 		TheSecularEquationCoefficients//=MonitorParallel;
 		Diagnostic@TheSecularEquationCoefficients;
 
-		LocalMasslessSpectrum=" ** FullSimplify...";
+		$LocalMasslessSpectrum=" ** FullSimplify...";
 		TheSecularEquation=(Reverse@TheSecularEquationCoefficients)~FromDigits~PoleResidue;
 		Diagnostic@TheSecularEquation;
 
@@ -49,7 +50,7 @@ ExtractSecularEquation[InputMatrix_,LaurentDepth_]:=Module[{
 		TheSecularEquation//=Collect[#,PoleResidue,FullSimplify]&;
 		Diagnostic@TheSecularEquation;
 	),
-	10,
+	$SecularEquationTime,
 	(
 		TheSecularEquation="(Timeout)";
 	)

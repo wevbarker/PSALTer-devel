@@ -8,14 +8,12 @@ MakeSymbolic[InputMatrix_,CouplingAssumptions_]:=Module[{
 	SymbolicRules
 	},
 
-	LocalPropagator=" ** MakeSymbolic...";
+	$LocalPropagator=" ** MakeSymbolic...";
 
 	DimensionOfMatrix=Length@InputMatrix;
 	SymbolicMatrix=Table[0,{i,DimensionOfMatrix},{j,DimensionOfMatrix}];	
 	SymbolicRules={};
-
 	Diagnostic@CouplingAssumptions;
-
 	ReplaceReal[i_,j_]:=Module[{RealPart,NewSymbol},	
 		Assuming[CouplingAssumptions,RealPart=Simplify@Re@(Evaluate@InputMatrix[[i,j]])];
 		NewSymbol=Symbol["xAct`PSALTer`Private`r"<>ToString@i<>ToString@j];
@@ -27,7 +25,6 @@ MakeSymbolic[InputMatrix_,CouplingAssumptions_]:=Module[{
 			];
 		];
 	];
-
 	ReplaceImaginary[i_,j_]:=Module[{ImaginaryPart,NewSymbol},
 		Assuming[CouplingAssumptions,ImaginaryPart=Simplify@Im@(Evaluate@InputMatrix[[i,j]])];
 		NewSymbol=Symbol["xAct`PSALTer`Private`i"<>ToString@i<>ToString@j];
@@ -38,13 +35,11 @@ MakeSymbolic[InputMatrix_,CouplingAssumptions_]:=Module[{
 				SymbolicMatrix[[j,i]]+=-I*NewSymbol;
 			];
 		];
-	];
-	
+	];	
 	Table[
 		(
 			ReplaceReal[i,j];
 			ReplaceImaginary[i,j];
 		),
 		{i,DimensionOfMatrix},{j,i,DimensionOfMatrix}];	
-
 {SymbolicMatrix,SymbolicRules}];

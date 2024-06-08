@@ -10,14 +10,12 @@ ConstructWaveOperator[ClassName_?StringQ,Expr_]:=Module[{
 	Class,
 	TheTensors
 	},
-	LocalWaveOperator=" ** ConstructWaveOperator...";
-	
+
+	$LocalWaveOperator=" ** ConstructWaveOperator...";	
 	Class=Evaluate@Symbol@ClassName;
 	TheTensors=Class@Tensors;
 	Couplings=Class@LagrangianCouplings;
-
 	DecomposeFieldsdLagrangian=FourierLagrangian[ClassName,Expr,TheTensors];
 	Diagnostic@DecomposeFieldsdLagrangian;
-
 	ConstructOperator[ClassName,DecomposeFieldsdLagrangian,Couplings];
 ];

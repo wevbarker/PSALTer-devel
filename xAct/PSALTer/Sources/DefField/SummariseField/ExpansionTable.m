@@ -6,16 +6,15 @@ ExpansionTable[FieldSpinParityTensors_,
 	FieldSpinParityTensorsSymmetries_,
 	FieldSpinParityTensorsExpanded_,
 	SourceSpinParityTensors_]:=Module[{FinalGrid},
-	FinalGrid=Framed[Grid[
+	FinalGrid=NewFramed@Grid[
 		(
-		{{Text@"SO(3) irrep",Text@"Symmetries",Text@"Expansion in fundamental field",Text@"Source"}}~Join~
+		{{Text@"SO(3) irrep",Text@"Symmetries",Text@"Expansion in terms of the fundamental field",Text@"Source"}}~Join~
 		MapThread[{#1,#2,#3,#4}&,{Text/@FieldSpinParityTensors,
 					Text/@FieldSpinParityTensorsSymmetries,
 					Text/@FieldSpinParityTensorsExpanded,
 					Text/@SourceSpinParityTensors}]
 		),
-			ItemSize->{{1,2}->Full,{1,3}->Full},
-			Dividers->Center,
-			Alignment->Left,
-			Background->DetailColor],Background->DetailColor,FrameStyle->Directive[DetailColor,Thickness[4]]];
+		ItemSize->{Full,Full,{1,3}->60},
+		Dividers->Center,
+		Alignment->{Left,Center}];
 FinalGrid];

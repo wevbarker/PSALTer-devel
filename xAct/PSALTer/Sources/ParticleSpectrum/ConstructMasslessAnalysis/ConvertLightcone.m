@@ -22,46 +22,46 @@ ConvertLightcone[ClassName_?StringQ,
 		OptionsPattern[]]:=Module[{	
 	SaturatedPropagatorArray
 	},
-	LocalMasslessSpectrum=" ** ConvertLightcone...";
+	$LocalMasslessSpectrum=" ** ConvertLightcone...";
 	LightconePropagator=ValuesSaturatedPropagator;
 	Diagnostic@LightconePropagator;
 
-	LocalMasslessSpectrum=" ** Repartition...";
+	$LocalMasslessSpectrum=" ** Repartition...";
 	LightconePropagator//=Repartition[#,1]&;
 
-	LocalMasslessSpectrum=" ** FullyExpandSources...";
+	$LocalMasslessSpectrum=" ** FullyExpandSources...";
 	LightconePropagator=Map[
-		(xAct`PSALTer`Private`PSALTerParallelSubmit@(FullyExpandSources[ClassName,#]))&,
+		(xAct`PSALTer`Private`NewParallelSubmit@(FullyExpandSources[ClassName,#]))&,
 		LightconePropagator];
 	LightconePropagator=MonitorParallel@LightconePropagator;
 	Diagnostic@LightconePropagator;
 
-	LocalMasslessSpectrum=" ** Repartition...";
+	$LocalMasslessSpectrum=" ** Repartition...";
 	LightconePropagator//=Repartition[#,10,ExpandAll->False]&;
 
-	LocalMasslessSpectrum=" ** FullyCanonicalise...";
+	$LocalMasslessSpectrum=" ** FullyCanonicalise...";
 	LightconePropagator=Map[
-		(xAct`PSALTer`Private`PSALTerParallelSubmit@(FullyCanonicalise[#]))&,
+		(xAct`PSALTer`Private`NewParallelSubmit@(FullyCanonicalise[#]))&,
 		LightconePropagator];
 	LightconePropagator=MonitorParallel@LightconePropagator;
 	Diagnostic@LightconePropagator;
 
-	LocalMasslessSpectrum=" ** Repartition...";
+	$LocalMasslessSpectrum=" ** Repartition...";
 	LightconePropagator//=Repartition[#,10,ExpandAll->False]&;
 
-	LocalMasslessSpectrum=" ** ExpressInLightcone...";
+	$LocalMasslessSpectrum=" ** ExpressInLightcone...";
 	LightconePropagator=Map[
-		(xAct`PSALTer`Private`PSALTerParallelSubmit@(ExpressInLightcone[ClassName,#]))&,
+		(xAct`PSALTer`Private`NewParallelSubmit@(ExpressInLightcone[ClassName,#]))&,
 		LightconePropagator];
 	LightconePropagator=MonitorParallel@LightconePropagator;
 	Diagnostic@LightconePropagator;
 
-	LocalMasslessSpectrum=" ** Repartition...";
+	$LocalMasslessSpectrum=" ** Repartition...";
 	LightconePropagator//=Repartition[#,200]&;
 
-	LocalMasslessSpectrum=" ** ConstrainInLightcone...";
+	$LocalMasslessSpectrum=" ** ConstrainInLightcone...";
 	LightconePropagator=MapThread[
-		(xAct`PSALTer`Private`PSALTerParallelSubmit@(ConstrainInLightcone[#1,#2]))&,
+		(xAct`PSALTer`Private`NewParallelSubmit@(ConstrainInLightcone[#1,#2]))&,
 		{LightconePropagator,
 		Map[((SourceComponentsToFreeSourceVariables)&),LightconePropagator]}];
 	LightconePropagator=MonitorParallel@LightconePropagator;
@@ -70,7 +70,7 @@ ConvertLightcone[ClassName_?StringQ,
 	LightconePropagator//=Total;
 	LightconePropagator//=Expand;
 
-	LocalMasslessSpectrum=" ** MakeSaturatedMatrix...";
+	$LocalMasslessSpectrum=" ** MakeSaturatedMatrix...";
 
 	LightconePropagator//=MakeSaturatedMatrix[#,UnscaledNullSpace]&;
 	Diagnostic@LightconePropagator;
@@ -80,7 +80,7 @@ ConvertLightcone[ClassName_?StringQ,
 	QuarticAnalysisValue={};
 	HexicAnalysisValue={};
 
-	LocalMasslessSpectrum={{},{},
+	$LocalMasslessSpectrum={{},{},
 		MasslessAnalysisValue,
 		QuarticAnalysisValue,
 		HexicAnalysisValue,
@@ -89,7 +89,7 @@ ConvertLightcone[ClassName_?StringQ,
 	If[(OptionValue@MaxLaurentDepth)>1,
 		QuarticAnalysisValue=First@ExaminePoleOrder[LightconePropagator,2];
 
-		LocalMasslessSpectrum={{},{},
+		$LocalMasslessSpectrum={{},{},
 			MasslessAnalysisValue,
 			QuarticAnalysisValue,
 			HexicAnalysisValue,
@@ -99,7 +99,7 @@ ConvertLightcone[ClassName_?StringQ,
 	If[(OptionValue@MaxLaurentDepth)>2,
 		HexicAnalysisValue=First@ExaminePoleOrder[LightconePropagator,3];
 
-		LocalMasslessSpectrum={{},{},
+		$LocalMasslessSpectrum={{},{},
 			MasslessAnalysisValue,
 			QuarticAnalysisValue,
 			HexicAnalysisValue,

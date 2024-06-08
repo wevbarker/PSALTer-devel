@@ -15,7 +15,7 @@ MassiveAnalysisOfSector[SpinParitySectorFileName_,Couplings_,OptionsPattern[]]:=
 	Singularities,
 	SquareMassesValues},
 
-	LocalSpectrum=" ** MassiveAnalysisOfSector...";
+	$LocalSpectrum=" ** MassiveAnalysisOfSector...";
 
 	Get@SpinParitySectorFileName;
 	Sector=ToExpression@"xAct`PSALTer`Private`SpinParitySector";
@@ -45,10 +45,6 @@ MassiveAnalysisOfSector[SpinParitySectorFileName_,Couplings_,OptionsPattern[]]:=
 		"Hard",
 		(
 			SquareMassesValues=IsolatePoles[InputDenominator,CouplingAssumptions];
-		),
-		"Both",
-		(
-			Print@Null;
 		)
 	];
 SquareMassesValues];

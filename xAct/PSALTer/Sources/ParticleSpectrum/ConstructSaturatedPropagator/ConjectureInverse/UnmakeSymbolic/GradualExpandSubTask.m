@@ -14,10 +14,8 @@ GradualExpandSubTask[MatrixElementSubTaskFileName_]:=Module[{
 	},
 
 	Get@MatrixElementSubTaskFileName;
-	{CouplingAssumptions,SymbolicRules,SubTaskExpr}=ToExpression@"xAct`PSALTer`Private`MatrixElementSubTask";
-	
+	{CouplingAssumptions,SymbolicRules,SubTaskExpr}=ToExpression@"xAct`PSALTer`Private`MatrixElementSubTask";	
 	{ReduceFirstIntermediateSymbols,FirstIntermediateSymbolsToSecondIntermediateSymbols,SecondIntermediateSymbolsToCouplingConstants}=SymbolicRules;
-
 	SubTaskExpr=GradualExpand[CouplingAssumptions,
 				SubTaskExpr,
 				ReduceFirstIntermediateSymbols];

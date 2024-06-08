@@ -52,11 +52,9 @@ ValidateSO3Irreps[]:=Catch@Module[{
 	ListOfModes=Flatten/@(Values/@(Values/@FieldSpinParityTensorHeadsValue));
 
 	Off[General::stop];
-
 	(
 		DecomposeAndExpandFields@Tensor;
 		ExpandAndDecomposeFields/@(ListOfModes@Tensor);
 	)~Table~{Tensor,Class@Tensors};
-
 	On[General::stop];
 ];

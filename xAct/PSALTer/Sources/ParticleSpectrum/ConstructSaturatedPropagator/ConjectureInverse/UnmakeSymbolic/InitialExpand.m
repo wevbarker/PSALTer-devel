@@ -13,17 +13,12 @@ InitialExpand[SymbolicRules_,MatrixElementFileName_]:=Module[{
 	},
 
 	Get@MatrixElementFileName;
-
-	{CouplingAssumptions,FullElement}=ToExpression@"xAct`PSALTer`Private`MatrixElement";
-	
+	{CouplingAssumptions,FullElement}=ToExpression@"xAct`PSALTer`Private`MatrixElement";	
 	FullElement//=Together;
-
 	ReducedNumerator=Numerator@FullElement;
 	Assuming[CouplingAssumptions,ReducedNumerator//=Expand];
-
 	ReducedDenominator=Denominator@FullElement;
 	Assuming[CouplingAssumptions,ReducedDenominator//=Expand];
-
 	ListOfFileNames=
 		{BatchExpanded[{CouplingAssumptions,ReducedNumerator},
 				"Numerator",

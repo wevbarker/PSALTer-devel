@@ -17,12 +17,12 @@ ExaminePoleOrder[LightconePropagator_,LaurentDepth_]:=Module[{
 	SecularEquation
 	},
 
-	LocalMasslessSpectrum=" ** NullResidue...";
+	$LocalMasslessSpectrum=" ** NullResidue...";
 	SymbolicLightconePropagator=LightconePropagatorValue//MatrixToSymbolic;
 	Diagnostic@SymbolicLightconePropagator;
 	Diagnostic@(SymbolicLightconePropagator@UniqueMatrixElements);
 	TheUniqueMatrixElements=Map[
-		(xAct`PSALTer`Private`PSALTerParallelSubmit@(NullResidue[#,LaurentDepth]))&,
+		(xAct`PSALTer`Private`NewParallelSubmit@(NullResidue[#,LaurentDepth]))&,
 	({#})&/@(SymbolicLightconePropagator@UniqueMatrixElements),{2}];
 	TheUniqueMatrixElements=MonitorParallel@TheUniqueMatrixElements;
 	Diagnostic@TheUniqueMatrixElements;
@@ -34,13 +34,12 @@ ExaminePoleOrder[LightconePropagator_,LaurentDepth_]:=Module[{
 			TheUniqueMatrixElements];
 
 	{InputMatrix,InputDenominator}=LightconePropagatorValue//ReparameteriseSources;
-	(*{InputMatrix,InputDenominator}={LightconePropagatorValue,1};*)
 
-	LocalMasslessSpectrum=" ** ExtractSecularEquation...";
+	$LocalMasslessSpectrum=" ** ExtractSecularEquation...";
 	SecularEquation=ExtractSecularEquation[InputMatrix,LaurentDepth];
 	Diagnostic@SecularEquation;
 
-	LocalMasslessSpectrum=" ** MasslessAnalysisOfTotal...";
+	$LocalMasslessSpectrum=" ** MasslessAnalysisOfTotal...";
 	NumeratorFreeSourceEigenvalues=MasslessAnalysisOfTotal[InputMatrix,InputDenominator];
 	Diagnostic@NumeratorFreeSourceEigenvalues;
 

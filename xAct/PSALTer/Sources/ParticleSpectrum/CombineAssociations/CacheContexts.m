@@ -8,25 +8,28 @@ CacheContexts[]:=Module[{NewContextList=$AllFieldContexts~Join~{
 	"xAct`xTensor`",
 	"xAct`xTensor`Private`",
 	"TangentM4`"},
-	LoadContexts},
+	LoadContexts,
+	NewContextFileList},
 
-	LocalSummaryOfTheory=" ** DumpSave...";
-	DumpSave[FileNameJoin@{$TemporaryDirectory,#<>".mx"},#]&/@NewContextList;
+	$LocalSummaryOfTheory=" ** DumpSave...";
+	NewContextFileList=Module[{FileName=CreateFile[]},
+			DumpSave[FileName,#];FileName]&/@NewContextList;
 
 	Diagnostic@NewContextList;
 
 	$KernelsLaunched=False;
 	While[!$KernelsLaunched,
 		TimeConstrained[
-			LocalSummaryOfTheory=" ** LaunchKernels...";
+			$LocalSummaryOfTheory=" ** LaunchKernels...";
 			CloseKernels[];
 			Off[LaunchKernels::nodef];
 			LaunchKernels[];	
 			On[LaunchKernels::nodef];
 
-			LocalSummaryOfTheory=" ** Get...";
-			LoadContexts=({$WorkingDirectory,NewContextList}~PSALTerParallelSubmit~(Off@(RuleDelayed::rhs);Get@FileNameJoin@{$TemporaryDirectory,#<>".mx"}&/@NewContextList;On@(RuleDelayed::rhs);))~Table~{TheKernel,$KernelCount};	
+			$LocalSummaryOfTheory=" ** Get...";
+			LoadContexts=({NewContextFileList}~NewParallelSubmit~(Off@(RuleDelayed::rhs);Get/@NewContextFileList;On@(RuleDelayed::rhs);))~Table~{TheKernel,$KernelCount};
 			LoadContexts//=MonitorParallel;	
+			DeleteFile/@NewContextFileList;
 			$KernelsLaunched=True;
 		,
 			360

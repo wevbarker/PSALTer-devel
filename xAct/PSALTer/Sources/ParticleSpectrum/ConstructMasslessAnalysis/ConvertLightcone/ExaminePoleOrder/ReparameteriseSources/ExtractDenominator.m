@@ -3,6 +3,7 @@
 (*======================*)
 
 ExtractDenominator[InputMatrix_]:=Module[{OverallDenominator,Expr},
+
 	OverallDenominator=InputMatrix;
 	OverallDenominator//=Flatten;
 	OverallDenominator//=Total;

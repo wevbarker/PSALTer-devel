@@ -8,7 +8,11 @@ IncludeHeader@"MassiveGhost";
 
 Options@ConstructMassiveAnalysis={
 	Method->"Easy"};
-ConstructMassiveAnalysis[ClassName_?StringQ,ValuesSaturatedPropagator_,ValuesInverseBMatricesValues_,BlockMassSigns_,OptionsPattern[]]:=Module[{	
+ConstructMassiveAnalysis[ClassName_?StringQ,
+		ValuesSaturatedPropagator_,
+		ValuesInverseBMatricesValues_,
+		BlockMassSigns_,
+		OptionsPattern[]]:=Module[{	
 	Couplings,
 	Class,
 	SignedInverseBMatrices,
@@ -18,18 +22,17 @@ ConstructMassiveAnalysis[ClassName_?StringQ,ValuesSaturatedPropagator_,ValuesInv
 	NewMassiveGhostAnalysis
 	},
 
-	LocalSpectrum=" ** ConstructMassiveAnalysis...";
+	$LocalSpectrum=" ** ConstructMassiveAnalysis...";
 
 	Class=Evaluate@Symbol@ClassName;
 	Couplings=Class@LagrangianCouplings;
 
-	LocalSpectrum=" ** MassiveAnalysisOfSector...";
+	$LocalSpectrum=" ** MassiveAnalysisOfSector...";
 
 	SpinParitySectorFileNames=Table[0,{i,Length@(ValuesSaturatedPropagator)}];
 	Table[
 		SpinParitySector=ValuesSaturatedPropagator[[i]];
-		SpinParitySectorFileName=FileNameJoin@{$TemporaryDirectory,
-				"SpinParitySector"<>ToString@i<>".mx"};
+		SpinParitySectorFileName=CreateFile[];
 		SpinParitySectorFileNames[[i]]=SpinParitySectorFileName;
 		DumpSave[SpinParitySectorFileName,SpinParitySector];
 		SpinParitySector=0;
@@ -40,19 +43,17 @@ ConstructMassiveAnalysis[ClassName_?StringQ,ValuesSaturatedPropagator_,ValuesInv
 
 	MassiveAnalysis=MapThread[
 		((MassiveAnalysisOfSector[#1,#2,Method->#3]))&,
-		(*(xAct`PSALTer`Private`PSALTerParallelSubmit@(MassiveAnalysisOfSector[#1,#2,Method->#3]))&,*)
 		{(SpinParitySectorFileNames),
 		Map[(Couplings)&,SpinParitySectorFileNames],
 		Map[(OptionValue@Method)&,SpinParitySectorFileNames]}];
 	MassiveAnalysis=MonitorParallel@MassiveAnalysis;
-
+	DeleteFile/@Flatten@SpinParitySectorFileNames;
 	Diagnostic@MassiveAnalysis;
 
-	LocalSpectrum=" ** SimplifyMasses...";
-
+	$LocalSpectrum=" ** SimplifyMasses...";
 	MassiveAnalysis//=PadRight[#,{Length@#,Max@(Length/@#)}]&;
 	MassiveAnalysis=MapThread[
-		(xAct`PSALTer`Private`PSALTerParallelSubmit@(SimplifyMasses[#1,#2,Method->#3]))&,
+		(xAct`PSALTer`Private`NewParallelSubmit@(SimplifyMasses[#1,#2,Method->#3]))&,
 		{(MassiveAnalysis),
 		Map[(Couplings)&,MassiveAnalysis,{2}],
 		Map[(OptionValue@Method)&,MassiveAnalysis,{2}]},2];
@@ -60,7 +61,7 @@ ConstructMassiveAnalysis[ClassName_?StringQ,ValuesSaturatedPropagator_,ValuesInv
 
 	Diagnostic@MassiveAnalysis;
 
-	LocalSpectrum=" ** MassiveGhost...";
+	$LocalSpectrum=" ** MassiveGhost...";
 
 	SignedInverseBMatrices=Times~MapThread~{(ValuesInverseBMatricesValues),(BlockMassSigns)};
 	ksmsm=MapThread[ConstantArray[#1,Length@#2]&,{SignedInverseBMatrices,MassiveAnalysis},1];
@@ -68,22 +69,19 @@ ConstructMassiveAnalysis[ClassName_?StringQ,ValuesSaturatedPropagator_,ValuesInv
 	ksmsm=Map[(Couplings)&,MassiveAnalysis,{2}];
 	Diagnostic@ksmsm;
 	MassiveGhostAnalysis=MapThread[
-		(*((MassiveGhost[#1,#2,#3]))&,*)
-		(xAct`PSALTer`Private`PSALTerParallelSubmit@(MassiveGhost[#1,#2,#3]))&,
+		(xAct`PSALTer`Private`NewParallelSubmit@(MassiveGhost[#1,#2,#3]))&,
 		{MapThread[ConstantArray[#1,Length@#2]&,{SignedInverseBMatrices,MassiveAnalysis},1],
 		MassiveAnalysis,
 		Map[(Couplings)&,MassiveAnalysis,{2}]},2];
 	MassiveGhostAnalysis=MonitorParallel@MassiveGhostAnalysis;
 	MassiveGhostAnalysis=DeleteCases[#,0,Infinity]&/@MassiveGhostAnalysis;
-
 	Diagnostic@MassiveGhostAnalysis;
-
 	MassiveAnalysis=DeleteCases[#,0,Infinity]&/@MassiveAnalysis;
-
 	Diagnostic@MassiveAnalysis;
-
 	TheSpins=Class@Spins;
+	Diagnostic@TheSpins;
 	RequiredSpins={0,1,2,3};
+	Diagnostic@RequiredSpins;
 	NewMassiveAnalysis={};
 	NewMassiveGhostAnalysis={};
 	If[MemberQ[TheSpins,#],
@@ -101,6 +99,7 @@ ConstructMassiveAnalysis[ClassName_?StringQ,ValuesSaturatedPropagator_,ValuesInv
 		AppendTo[NewMassiveGhostAnalysis,{}];
 	]&/@RequiredSpins;
 
-	LocalSpectrum={NewMassiveAnalysis,
+	$LocalSpectrum={NewMassiveAnalysis,
 			NewMassiveGhostAnalysis,{},{},{},{}};
+	Diagnostic@$LocalSpectrum;
 ];

@@ -2,23 +2,17 @@
 (*  SummariseResults  *)
 (*====================*)
 
-IncludeHeader@"Status";
 IncludeHeader@"CLIPrint";
 IncludeHeader@"ShowIfSmall";
-IncludeHeader@"Colours";
 IncludeHeader@"DetailCell";
 IncludeHeader@"MakeLabel";
 IncludeHeader@"WignerGrid";
-IncludeHeader@"RaggedBlock";
 IncludeHeader@"PrintSourceConstraints";
-IncludeHeader@"ReMagnify";
-IncludeHeader@"ParallelGrid";
-IncludeHeader@"MonitorParallel";
 IncludeHeader@"SummariseTheory";
 IncludeHeader@"PrintSpectrum";
 IncludeHeader@"PrintUnitarityConditions";
 IncludeHeader@"SplitWignerGrid";
-IncludeHeader@"PSALTerResultsCollage";
+IncludeHeader@"ResultsMosaic";
 
 Options@SummariseResults={SummaryType->ResultsPanel};
 
@@ -95,13 +89,12 @@ SummariseResults[TheoryName_?StringQ,WaveOperator_,Propagator_,SourceConstraints
 				MakeLabel@"Unitarity conditions",
 				TheOverallUnitarity},
 				Spacings->{1,1},
-				Frame->True,
-				Background->PanelColor,
+				Background->$PanelColor,
 				Alignment->{Left,Center}];
 		];
 	];
 
-	If[OptionValue@SummaryType==ResultsCollage,	
+	If[OptionValue@SummaryType==ResultsMosaic,	
 
 		FullWidth=First@Rasterize[Show[Graphics[Circle[]],
 						ImageSize->Full],"RasterSize"];
@@ -114,7 +107,7 @@ SummariseResults[TheoryName_?StringQ,WaveOperator_,Propagator_,SourceConstraints
 		TheMasslessSpectrum=If[ListQ@#,#,{#},{#}]&@(PrintSpectrumMassless@@MasslessSpectrum);
 		TheOverallUnitarity=DetailCell@(PrintUnitarityConditions@OverallUnitarity);
 
-		SummaryOfResults=PSALTerResultsCollage[
+		SummaryOfResults=ResultsMosaic[
 				TheSummaryOfTheory,
 				TheWaveOperator,
 				ThePropagator,

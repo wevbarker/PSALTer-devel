@@ -14,7 +14,7 @@ MakeFreeSourceVariables[NullSpace_List,SourceComponents_List]:=Module[{
 	Diagnostic@NullSpaceDimension;
 	DefFreeSourceVariables@NullSpaceDimension;
 	Map[
-		(xAct`PSALTer`Private`PSALTerParallelSubmit@(DefFreeSourceVariables[#]))&,
+		(xAct`PSALTer`Private`NewParallelSubmit@(DefFreeSourceVariables[#]))&,
 		NullSpaceDimension~Table~$KernelCount];
 	FreeSourceVariables=Table[Symbol["xAct`PSALTer`Private`X"<>ToString@i],
 		{i,NullSpaceDimension}];

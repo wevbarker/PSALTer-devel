@@ -13,7 +13,7 @@ IntermediateRules[FirstIntermediateSymbolsToCouplingConstants_,Couplings_]:=Modu
 	TotalExpr
 	},
 
-	LocalPropagator=" ** IntermediateRules...";
+	$LocalPropagator=" ** IntermediateRules...";
 	
 	NewIndex=1;
 	FirstIntermediateSymbols=First/@FirstIntermediateSymbolsToCouplingConstants;	

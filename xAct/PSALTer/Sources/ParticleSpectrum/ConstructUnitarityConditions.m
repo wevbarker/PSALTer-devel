@@ -2,7 +2,12 @@
 (*  ConstructUnitarityConditions  *)
 (*================================*)
 
-ConstructUnitarityConditions[ClassName_?StringQ,MassiveAnalysis_,MassiveGhostAnalysis_,MasslessAnalysisValue_,QuarticAnalysisValue_,HexicAnalysisValue_]:=Module[{
+ConstructUnitarityConditions[ClassName_?StringQ,
+		MassiveAnalysis_,
+		MassiveGhostAnalysis_,
+		MasslessAnalysisValue_,
+		QuarticAnalysisValue_,
+		HexicAnalysisValue_]:=Module[{
 	Couplings,
 	Class,
 	PositiveSystem=Join[MassiveAnalysis,MassiveGhostAnalysis,MasslessAnalysisValue],
@@ -11,7 +16,7 @@ ConstructUnitarityConditions[ClassName_?StringQ,MassiveAnalysis_,MassiveGhostAna
 	UnitarityTime=60
 	},
 
-	LocalOverallUnitarity=" ** ConstructUnitarityConditions...";
+	$LocalOverallUnitarity=" ** ConstructUnitarityConditions...";
 
 	Class=Evaluate@Symbol@ClassName;
 	Couplings=Class@LagrangianCouplings;
@@ -36,7 +41,7 @@ ConstructUnitarityConditions[ClassName_?StringQ,MassiveAnalysis_,MassiveGhostAna
 	Diagnostic@PositiveSystem;
 
 	If[LeafCount@MasslessAnalysisValue>=5000,
-		LocalOverallUnitarity=Text@"(Hidden for brevity)";
+		$LocalOverallUnitarity=Text@"(Hidden for brevity)";
 		PositiveSystemValue=Text@"(Hidden for brevity)";,
 
 		TimeConstrained[
@@ -44,34 +49,25 @@ ConstructUnitarityConditions[ClassName_?StringQ,MassiveAnalysis_,MassiveGhostAna
 			Diagnostic@PositiveSystem;
 			Diagnostic@CouplingAssumptions;
 			Diagnostic@Couplings;
-			(*PositiveSystem=Reduce[PositiveSystem,Couplings,Reals];*)
-(**)
 			Off@PrintAsCharacter::argx;
 			PositiveSystem=Assuming[CouplingAssumptions,
 					Reduce[PositiveSystem,Couplings,Reals]];
 			On@PrintAsCharacter::argx;
-			(**)
 			Diagnostic@PositiveSystem;
-(*
-			PositiveSystem//=LogicalExpand;
-			Diagnostic@PositiveSystem;
-			PositiveSystem=PositiveSystem/.{Or->List};
-			Diagnostic@PositiveSystem;
-*)
 			If[PositiveSystem===False,
-				LocalOverallUnitarity=Text@"(Unitarity is demonstrably impossible)";
+				$LocalOverallUnitarity=Text@"(Unitarity is demonstrably impossible)";
 				,
 				If[ListQ@PositiveSystem,
-					LocalOverallUnitarity=PositiveSystem;
+					$LocalOverallUnitarity=PositiveSystem;
 					,
-					LocalOverallUnitarity={PositiveSystem};
+					$LocalOverallUnitarity={PositiveSystem};
 				];
 			];
 		)
 		,
 		UnitarityTime,
 		(
-			LocalOverallUnitarity=Text@("(Timeout after "<>ToString@UnitarityTime<>" seconds)");
+			$LocalOverallUnitarity=Text@("(Timeout after "<>ToString@UnitarityTime<>" seconds)");
 		)
 		];
 	];

@@ -4,7 +4,7 @@
 
 IncludeHeader@"ExpansionTable";
 IncludeHeader@"DecompositionTable";
-IncludeHeader@"PSALTerClassCollage";
+IncludeHeader@"FieldMosaic";
 
 SummariseField[]:=Module[{
 	Class,
@@ -19,14 +19,14 @@ SummariseField[]:=Module[{
 	FieldTensorsDecomposed,
 	SourceTensors,
 	TheDecompositionTable,
-	ThePSALTerClassCollage
+	TheFieldMosaic
 	},
 
 	Class=FieldAssociation@Context[];
 
 	FieldSpinParityTensors=Flatten@Values@(Flatten/@(Values/@(Values/@(Class@FieldSpinParityTensorHeads))));
 	FieldSpinParityTensors//=((FromIndexFree@ToIndexFree@#)&/@#)&;
-	FieldSpinParityTensorsSymmetries=SymmetryGroupOfTensor/@FieldSpinParityTensors;
+	FieldSpinParityTensorsSymmetries=SymmetryOf/@FieldSpinParityTensors;
 	FieldSpinParityTensorsExpanded=(Class@ExpandFields)/@FieldSpinParityTensors;
 	SourceSpinParityTensors=Flatten@Values@(Flatten/@(Values/@(Values/@(Class@SourceSpinParityTensorHeads))));
 	SourceSpinParityTensors//=((FromIndexFree@ToIndexFree@#)&/@#)&;
@@ -38,35 +38,47 @@ SummariseField[]:=Module[{
 
 	FieldTensors=Class@Tensors;
 	FieldTensors//=((FromIndexFree@ToIndexFree@#)&/@#)&;
-	FieldTensorsSymmetries=SymmetryGroupOfTensor/@FieldTensors;
+	FieldTensorsSymmetries=SymmetryOf/@FieldTensors;
 	FieldTensorsDecomposed=(Class@DecomposeFields)/@FieldTensors;
 	SourceTensors=Class@Sources;
 	SourceTensors//=((FromIndexFree@ToIndexFree@#)&/@#)&;
 
-	BasicInfo=Framed[Grid[{{Text@"Momentum",
-		Text@"Norm",
-		Text@"Frame"},
-		{Text@(P[m]),
+	BasicInfo=NewFramed@Grid[{
+	{
+		Text@"Basic conventions",
+		SpanFromLeft,
+		SpanFromLeft,
+		SpanFromLeft,
+		SpanFromLeft
+	},
+		{
+		Text@"Minkowski metric tensor",
+		Text@"Totally antisymmetric tensor",
+		Text@"Four-momentum",
+		Text@"Four-momentum norm",
+		Text@"Massive rest-frame"},
+		{
+		Text@(G[-m,-n]),
+		Text@(epsilonG[-m,-n,-r,-s]),
+		Text@(P[m]),
 		Text@(Def^2==P[m]*P[-m]),
 		Text@(V[m]==P[m]/Def)}},
 		ItemSize->Large,
 		Dividers->Center,
-		Alignment->Left,
-		Background->DetailColor],Background->DetailColor,
-			FrameStyle->Directive[DetailColor,Thickness[4]]];
+		Alignment->Left];
 
 	TheDecompositionTable=DecompositionTable[FieldTensors,
 		FieldTensorsSymmetries,
 		FieldTensorsDecomposed,
 		SourceTensors];
 	If[!$CLI,
-		ThePSALTerClassCollage=PSALTerClassCollage[
+		TheFieldMosaic=FieldMosaic[
 					BasicInfo,
 					TheDecompositionTable,
 					TheExpansionTable];
 		Export[FileNameJoin@{$WorkingDirectory,"FieldKinematics"<>(StringReplace[Context[],{"xAct"->"","PSALTer"->"","`"->""}])<>".pdf"},
-			ThePSALTerClassCollage
+			TheFieldMosaic
 		];
-		Print@ThePSALTerClassCollage;
+		Print@TheFieldMosaic;
 	];
 ];

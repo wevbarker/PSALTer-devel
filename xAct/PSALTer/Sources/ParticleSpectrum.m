@@ -8,7 +8,6 @@ IncludeHeader@"ValidateMaxLaurentDepth";
 IncludeHeader@"ValidateLagrangian";
 IncludeHeader@"CombineAssociations";
 IncludeHeader@"UpdateTheoryAssociation";
-IncludeHeader@"PSALTerParallelSubmit";
 IncludeHeader@"SummariseResults";
 IncludeHeader@"ConstructLinearAction";
 IncludeHeader@"ConstructWaveOperator";
@@ -22,7 +21,6 @@ Off[Set::write];
 Off[SetDelayed::write];
 
 Options@ParticleSpectrumActual={TheoryName->False,Method->"Easy",MaxLaurentDepth->1};
-
 ParticleSpectrum::NoFile="The file `1` cannot be found.";
 ParticleSpectrumActual[OptionsPattern[]]:=Catch@Module[{
 	SummaryOfResults,
@@ -51,7 +49,7 @@ ParticleSpectrumActual[OptionsPattern[]]:=Catch@Module[{
 			Class@SavedMasslessSpectrum,
 			Class@SavedOverallUnitarity,
 			Class@SavedSummaryOfTheory,
-			SummaryType->ResultsCollage];
+			SummaryType->ResultsMosaic];
 	Export[FileNameJoin@{$WorkingDirectory,"ParticleSpectrograph"<>OptionValue@TheoryName<>".pdf"},
 		PDFSummaryOfResults
 	];
@@ -75,43 +73,43 @@ ParticleSpectrumActual[Expr_,OptionsPattern[]]:=Catch@If[
 		ValidateMaxLaurentDepth@OptionValue@MaxLaurentDepth;
 		ValidateLagrangian@Expr;
 
-		LocalWaveOperator=Null;
-		LocalPropagator=Null;
-		LocalSourceConstraints=Null;
-		LocalSpectrum=Null;
-		LocalMasslessSpectrum=Null;
-		LocalOverallUnitarity=Null;
-		LocalSummaryOfTheory=Null;
+		$LocalWaveOperator=Null;
+		$LocalPropagator=Null;
+		$LocalSourceConstraints=Null;
+		$LocalSpectrum=Null;
+		$LocalMasslessSpectrum=Null;
+		$LocalOverallUnitarity=Null;
+		$LocalSummaryOfTheory=Null;
 
 		If[$CLI,
 			SummariseResultsOngoing=SessionSubmit[ScheduledTask[(
 			Run@("echo -e \"\n\n"<>CLIPrint[
 					OptionValue@TheoryName,
-					LocalWaveOperator,
-					LocalPropagator,
-					LocalSourceConstraints,
-					LocalSpectrum,
-					LocalMasslessSpectrum,
-					LocalOverallUnitarity]<>"\"");
+					$LocalWaveOperator,
+					$LocalPropagator,
+					$LocalSourceConstraints,
+					$LocalSpectrum,
+					$LocalMasslessSpectrum,
+					$LocalOverallUnitarity]<>"\"");
 			), Quantity[1, "Seconds"]]];
 		,
 			SummariseResultsOngoing=PrintTemporary@Dynamic[Refresh[SummariseResults[
 					OptionValue@TheoryName,
-					LocalWaveOperator,
-					LocalPropagator,
-					LocalSourceConstraints,
-					LocalSpectrum,
-					LocalMasslessSpectrum,
-					LocalOverallUnitarity,
-					LocalSummaryOfTheory],
+					$LocalWaveOperator,
+					$LocalPropagator,
+					$LocalSourceConstraints,
+					$LocalSpectrum,
+					$LocalMasslessSpectrum,
+					$LocalOverallUnitarity,
+					$LocalSummaryOfTheory],
 				TrackedSymbols->{
-					LocalWaveOperator,
-					LocalPropagator,
-					LocalSourceConstraints,
-					LocalSpectrum,
-					LocalMasslessSpectrum,
-					LocalOverallUnitarity,
-					LocalSummaryOfTheory}]];
+					$LocalWaveOperator,
+					$LocalPropagator,
+					$LocalSourceConstraints,
+					$LocalSpectrum,
+					$LocalMasslessSpectrum,
+					$LocalOverallUnitarity,
+					$LocalSummaryOfTheory}]];
 		];
 
 		Catch[
@@ -204,7 +202,7 @@ ParticleSpectrumActual[Expr_,OptionsPattern[]]:=Catch@If[
 			UpdateTheoryAssociation[
 						OptionValue@TheoryName,
 						PositiveSystem,
-						LocalOverallUnitarity,
+						$LocalOverallUnitarity,
 						ExportTheory->False];
 		];
 
@@ -212,34 +210,34 @@ ParticleSpectrumActual[Expr_,OptionsPattern[]]:=Catch@If[
 			TaskRemove@SummariseResultsOngoing;
 			Run@("echo -e \"\n\n"<>CLIPrint[
 					OptionValue@TheoryName,
-					LocalWaveOperator,
-					LocalPropagator,
-					LocalSourceConstraints,
-					LocalSpectrum,
-					LocalMasslessSpectrum,
-					LocalOverallUnitarity]<>"\"");
+					$LocalWaveOperator,
+					$LocalPropagator,
+					$LocalSourceConstraints,
+					$LocalSpectrum,
+					$LocalMasslessSpectrum,
+					$LocalOverallUnitarity]<>"\"");
 		,
 			Check[
 				PDFSummaryOfResults=SummariseResults[
 						OptionValue@TheoryName,
-						LocalWaveOperator,
-						LocalPropagator,
-						LocalSourceConstraints,
-						LocalSpectrum,
-						LocalMasslessSpectrum,
-						LocalOverallUnitarity,
-						LocalSummaryOfTheory,
-						SummaryType->ResultsCollage];
+						$LocalWaveOperator,
+						$LocalPropagator,
+						$LocalSourceConstraints,
+						$LocalSpectrum,
+						$LocalMasslessSpectrum,
+						$LocalOverallUnitarity,
+						$LocalSummaryOfTheory,
+						SummaryType->ResultsMosaic];
 			,
 				PDFSummaryOfResults=SummariseResults[
 						OptionValue@TheoryName,
-						LocalWaveOperator,
-						LocalPropagator,
-						LocalSourceConstraints,
-						LocalSpectrum,
-						LocalMasslessSpectrum,
-						LocalOverallUnitarity,
-						LocalSummaryOfTheory];
+						$LocalWaveOperator,
+						$LocalPropagator,
+						$LocalSourceConstraints,
+						$LocalSpectrum,
+						$LocalMasslessSpectrum,
+						$LocalOverallUnitarity,
+						$LocalSummaryOfTheory];
 			];
 			Export[FileNameJoin@{$WorkingDirectory,"ParticleSpectrograph"<>OptionValue@TheoryName<>".pdf"},
 				PDFSummaryOfResults
@@ -264,13 +262,13 @@ ParticleSpectrumActual[Expr_,OptionsPattern[]]:=Catch@If[
 			SavedOverallUnitarity,
 			SavedSummaryOfTheory},
 		{
-			LocalWaveOperator,
-			LocalPropagator,
-			LocalSourceConstraints,
-			LocalSpectrum,
-			LocalMasslessSpectrum,
-			LocalOverallUnitarity,
-			LocalSummaryOfTheory}}
+			$LocalWaveOperator,
+			$LocalPropagator,
+			$LocalSourceConstraints,
+			$LocalSpectrum,
+			$LocalMasslessSpectrum,
+			$LocalOverallUnitarity,
+			$LocalSummaryOfTheory}}
 		];
 	];
 ];

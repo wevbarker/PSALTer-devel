@@ -5,8 +5,7 @@
 Options@UpdateTheoryAssociation={Advertise->False,ExportTheory->False};
 
 UpdateTheoryAssociation[Name_?StringQ,AssocKey_,Val_,OptionsPattern[]]:=Module[{
-	TheoryAssociation,
-	PrintVariable},
+	TheoryAssociation},
 
 	If[!(AssociationQ@Evaluate@Symbol@Name),(Evaluate@Symbol@Name)=<||>];
 	TheoryAssociation=Evaluate@Symbol@Name;

@@ -2,6 +2,7 @@
 (*  SimplifyIfSmall  *)
 (*===================*)
 
+$SimplifyIfSmallLength=500;
 SimplifyIfSmall[InputAssume_,InputExpr_]:=Module[{
 	Expr=InputExpr,
 	Numer,
@@ -21,7 +22,7 @@ SimplifyIfSmall[InputAssume_,InputExpr_]:=Module[{
 	ExprLength//=Flatten;
 	ExprLength//=Length;
 
-	If[ExprLength<=500,
+	If[ExprLength<=$SimplifyIfSmallLength,
 		Assuming[InputAssume,Numer//=Simplify];
 		Assuming[InputAssume,Denom//=Simplify];
 		Expr=Numer/Denom;

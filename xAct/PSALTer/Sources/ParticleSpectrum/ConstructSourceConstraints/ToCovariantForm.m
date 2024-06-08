@@ -7,20 +7,18 @@ ToCovariantForm[ClassName_?StringQ,InputExpr_,SourceSpinParityTensorHeadsValue_]
 	Expr=InputExpr,
 	Class},
 
-	LocalSourceConstraints=" ** ToCovariantForm...";
+	$LocalSourceConstraints=" ** ToCovariantForm...";
 
 	Class=Evaluate@Symbol@ClassName;
 	
 	MomentumToDerivativeRules=(P[Ind_]*#[OtherInds___]->-I*CD[Ind]@#[OtherInds])&/@(Keys@(SourceSpinParityTensorHeadsValue));
 	MomentumToDerivativeRules=MomentumToDerivativeRules~Join~{P[Ind_]*CD[OtherInds_]@Anything_->-I*CD[Ind]@CD[OtherInds]@Anything};
 	Diagnostic@MomentumToDerivativeRules;
-
 	Expr//=(Class@ExpandSources);
 	Expr=Expr/.ToP;
 	Expr//=(Numerator@Together@(#/(2*3*5*7*11*Def^2)^9)&);
 	Expr//=ToCanonical;
 	Diagnostic@Expr;
-
 	Expr=Expr/.{Def^2->Scalar[P[-a]P[a]]};
 	Expr//=NoScalar;
 	Expr//=ToCanonical;
@@ -30,7 +28,6 @@ ToCovariantForm[ClassName_?StringQ,InputExpr_,SourceSpinParityTensorHeadsValue_]
 	Expr=Expr/.{Def^6->Scalar[P[-a]P[a]]^3};
 	Expr//=NoScalar;
 	Expr//=ToCanonical;
-
 	Expr//=ScreenDollarIndices;
 	Expr=Expr/.MomentumToDerivativeRules;
 	Expr//=ToCanonical;

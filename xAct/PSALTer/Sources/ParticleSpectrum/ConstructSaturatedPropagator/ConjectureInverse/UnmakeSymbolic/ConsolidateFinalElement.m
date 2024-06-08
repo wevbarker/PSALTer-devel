@@ -2,6 +2,7 @@
 (*  ConsolidateFinalElement  *)
 (*===========================*)
 
+$ConsolidateFinalElementTime=500;
 ConsolidateFinalElement[FinalElement_]:=Module[{
 	CouplingAssumptions,
 	FullElement},
@@ -12,12 +13,12 @@ ConsolidateFinalElement[FinalElement_]:=Module[{
 		Assuming[CouplingAssumptions,FullElement//=FullSimplify];	
 	)
 	,
-	500,
+	$ConsolidateFinalElementTime,
 	(
 		TimeConstrained[
 		(
 			Assuming[CouplingAssumptions,FullElement//=Simplify];	
-		),500];
+		),$ConsolidateFinalElementTime];
 	)
 	];
 FullElement];
