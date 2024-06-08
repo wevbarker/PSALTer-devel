@@ -6,7 +6,7 @@ Vectorize[InputExpr_]:=Module[{TemporaryFileNameEPS,TemporaryFileNamePDF,Tempora
 
 	(*TemporaryFileNamePDF=FileNameJoin@{$TemporaryDirectory,Vectorized<>".pdf"};*)
 	TemporaryFileNamePDF=CreateFile[];
-	Export[TemporaryFileNamePDF,InputExpr,AllowRasterization->False];
+	Export[TemporaryFileNamePDF,InputExpr,"PDF",AllowRasterization->False];
 
 	Which[
 		($OperatingSystem==="Unix")||($OperatingSystem==="MacOSX")
