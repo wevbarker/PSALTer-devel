@@ -12,7 +12,7 @@ IncludeHeader@"SummariseTheory";
 IncludeHeader@"PrintSpectrum";
 IncludeHeader@"PrintUnitarityConditions";
 IncludeHeader@"SplitWignerGrid";
-IncludeHeader@"ResultsCollage";
+IncludeHeader@"ResultsMosaic";
 
 Options@SummariseResults={SummaryType->ResultsPanel};
 
@@ -94,7 +94,7 @@ SummariseResults[TheoryName_?StringQ,WaveOperator_,Propagator_,SourceConstraints
 		];
 	];
 
-	If[OptionValue@SummaryType==ResultsCollage,	
+	If[OptionValue@SummaryType==ResultsMosaic,	
 
 		FullWidth=First@Rasterize[Show[Graphics[Circle[]],
 						ImageSize->Full],"RasterSize"];
@@ -107,7 +107,7 @@ SummariseResults[TheoryName_?StringQ,WaveOperator_,Propagator_,SourceConstraints
 		TheMasslessSpectrum=If[ListQ@#,#,{#},{#}]&@(PrintSpectrumMassless@@MasslessSpectrum);
 		TheOverallUnitarity=DetailCell@(PrintUnitarityConditions@OverallUnitarity);
 
-		SummaryOfResults=ResultsCollage[
+		SummaryOfResults=ResultsMosaic[
 				TheSummaryOfTheory,
 				TheWaveOperator,
 				ThePropagator,

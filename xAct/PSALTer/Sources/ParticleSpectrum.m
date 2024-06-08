@@ -49,7 +49,7 @@ ParticleSpectrumActual[OptionsPattern[]]:=Catch@Module[{
 			Class@SavedMasslessSpectrum,
 			Class@SavedOverallUnitarity,
 			Class@SavedSummaryOfTheory,
-			SummaryType->ResultsCollage];
+			SummaryType->ResultsMosaic];
 	Export[FileNameJoin@{$WorkingDirectory,"ParticleSpectrograph"<>OptionValue@TheoryName<>".pdf"},
 		PDFSummaryOfResults
 	];
@@ -227,7 +227,7 @@ ParticleSpectrumActual[Expr_,OptionsPattern[]]:=Catch@If[
 						$LocalMasslessSpectrum,
 						$LocalOverallUnitarity,
 						$LocalSummaryOfTheory,
-						SummaryType->ResultsCollage];
+						SummaryType->ResultsMosaic];
 			,
 				PDFSummaryOfResults=SummariseResults[
 						OptionValue@TheoryName,

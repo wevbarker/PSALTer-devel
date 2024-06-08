@@ -1,8 +1,8 @@
-(*================*)
-(*  FieldCollage  *)
-(*================*)
+(*===============*)
+(*  FieldMosaic  *)
+(*===============*)
 
-FieldCollage[
+FieldMosaic[
 		BasicInfo_,
 		TheDecompositionTable_,
 		TheExpansionTable_]:=Module[{

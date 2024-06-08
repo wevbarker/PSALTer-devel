@@ -1,10 +1,10 @@
-(*==================*)
-(*  ResultsCollage  *)
-(*==================*)
+(*=================*)
+(*  ResultsMosaic  *)
+(*=================*)
 
-IncludeHeader@"GraphicsCollage";
+IncludeHeader@"GraphicsMosaic";
 
-ResultsCollage[
+ResultsMosaic[
 		TheSummaryOfTheory_,
 		TheWaveOperator_,
 		ThePropagator_,
@@ -28,24 +28,17 @@ ResultsCollage[
 	MatricesGroup//=(#~Join~{FinalElement})&;
 	MaxWidth=Max@((First/@(ImageDimensions/@(MatricesGroup~Join~SpectrumGroup)))~Join~{500});
 
-	MatricesGroup=GraphicsCollage[MatricesGroup,MaxWidth];
-	SpectrumGroup=GraphicsCollage[SpectrumGroup,MaxWidth];
+	MatricesGroup=GraphicsMosaic[MatricesGroup,MaxWidth];
+	SpectrumGroup=GraphicsMosaic[SpectrumGroup,MaxWidth];
 
 	If[$MultiMass,
 		FinalGraphic={
-				(*MakeLabel["Particle spectrograph",20],
-				MakeLabel@"Wave operator and propagator",*)
 				MatricesGroup
 		};
 	,
 		FinalGraphic={
-				(*MakeLabel["Particle spectrograph",20],
-				MakeLabel@"Wave operator and propagator",*)
 				MatricesGroup,
-				(*MakeLabel@"Massive and massless spectra",*)
 				SpectrumGroup,
-				(*MakeLabel@"Unitarity conditions",*)
-				(*TheOverallUnitarity*)
 		};
 	];
 

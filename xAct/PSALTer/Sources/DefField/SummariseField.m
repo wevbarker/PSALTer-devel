@@ -4,7 +4,7 @@
 
 IncludeHeader@"ExpansionTable";
 IncludeHeader@"DecompositionTable";
-IncludeHeader@"FieldCollage";
+IncludeHeader@"FieldMosaic";
 
 SummariseField[]:=Module[{
 	Class,
@@ -19,7 +19,7 @@ SummariseField[]:=Module[{
 	FieldTensorsDecomposed,
 	SourceTensors,
 	TheDecompositionTable,
-	TheFieldCollage
+	TheFieldMosaic
 	},
 
 	Class=FieldAssociation@Context[];
@@ -72,13 +72,13 @@ SummariseField[]:=Module[{
 		FieldTensorsDecomposed,
 		SourceTensors];
 	If[!$CLI,
-		TheFieldCollage=FieldCollage[
+		TheFieldMosaic=FieldMosaic[
 					BasicInfo,
 					TheDecompositionTable,
 					TheExpansionTable];
 		Export[FileNameJoin@{$WorkingDirectory,"FieldKinematics"<>(StringReplace[Context[],{"xAct"->"","PSALTer"->"","`"->""}])<>".pdf"},
-			TheFieldCollage
+			TheFieldMosaic
 		];
-		Print@TheFieldCollage;
+		Print@TheFieldMosaic;
 	];
 ];
