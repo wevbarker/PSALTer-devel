@@ -14,6 +14,7 @@ Vectorize[InputExpr_]:=Module[{TemporaryFileNameEPS,TemporaryFileNamePDF,Tempora
 	,
 		(*TemporaryFileNameEPS=FileNameJoin@{$TemporaryDirectory,Vectorized<>".eps"};*)
 		TemporaryFileNameEPS=CreateFile[];
+		TemporaryFileNameEPS//=(#~RenameFile~(#<>".eps"))&;
 		Run@("inkscape "<>TemporaryFileNamePDF<>" --export-eps="<>TemporaryFileNameEPS);
 		TemporaryFileNamePDF//DeleteFile;
 		Expr=TemporaryFileNameEPS~Import~{"EPS","Graphics"};
