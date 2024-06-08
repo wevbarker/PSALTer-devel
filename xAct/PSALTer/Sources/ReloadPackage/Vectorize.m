@@ -15,12 +15,12 @@ Vectorize[InputExpr_]:=Module[{TemporaryFileNameEPS,TemporaryFileNamePDF,Tempora
 		TemporaryFileNameEPS=CreateFile[];
 		Run@("inkscape "<>TemporaryFileNamePDF<>" --export-eps="<>TemporaryFileNameEPS);
 		TemporaryFileNamePDF//DeleteFile;
-		Expr=TemporaryFileNameEPS~Import~"Graphics";
+		Expr=TemporaryFileNameEPS~Import~{"EPS","Graphics"};
 		TemporaryFileNameEPS//DeleteFile;
 	,
 		$OperatingSystem==="Windows"
 	,
-		Expr=TemporaryFileNamePDF~Import~"PageGraphics";
+		Expr=TemporaryFileNamePDF~Import~{"PDF","PageGraphics"};
 		TemporaryFileNamePDF//DeleteFile;
 		Expr//=First;
 		(*Run@("where /r \"C:\\Program Files\" inkscape.com > \""<>TemporaryFileNameTXT<>"\" & set /p myvar= < \""<>TemporaryFileNameTXT<>"\" & \"%myvar%\" "<>TemporaryFileNamePDF<>" --export-eps="<>TemporaryFileNameEPS);*)
