@@ -132,12 +132,15 @@ The arguments and options are as follows:
 
 ### Requirements 
 
-_PSALTer_ has various dependencies (version numbers reflect tested configurations).
+_PSALTer_ has various dependencies.
+
+The following operating systems:
+- [_Linux_](https://www.linux.org/) (tested on _Linux v 6.9.1_ via [_Manjaro_](https://manjaro.org/), [_Arch_](https://archlinux.org/), [_RockyLinux 8 (RHEL8)_](https://rockylinux.org/) and [_CentOS7 (RHEL7)_](https://www.centos.org/) distributions)
+- [_Windows_](https://www.microsoft.com/en-gb/windows?r=1) (tested on _Windows 10_)
 
 The following dependencies are strictly required:
-- [_Linux v 6.9.1_](https://www.linux.org/) (recommended distributions are [_Manjaro_](https://manjaro.org/), [_Arch_](https://archlinux.org/), [_RockyLinux 8 (RHEL8)_](https://rockylinux.org/) and [_CentOS7 (RHEL7)_](https://www.centos.org/))
-- [_Mathematica v 14.0.0.0_](https://www.wolfram.com/mathematica/)
-- [_xAct v 1.2.0_](http://www.xact.es/) (required packages are [_xTensor_](http://www.xact.es/xCoba/index.html), [_SymManipulator_](http://www.xact.es/SymManipulator/index.html), [_xPerm_](http://www.xact.es/xPerm/index.html), [_xCore_](http://www.xact.es/xCore/index.html), [_xTras_](http://www.xact.es/xTras/index.html) and [_xCoba_](http://www.xact.es/xCoba/index.html))
+- [_Mathematica_](https://www.wolfram.com/mathematica/) (tested on _Mathematica v 14.0.0.0_)
+- [_xAct_](http://www.xact.es/) (tested on _xAct v 1.2.0_ with required packages [_xTensor_](http://www.xact.es/xCoba/index.html), [_SymManipulator_](http://www.xact.es/SymManipulator/index.html), [_xPerm_](http://www.xact.es/xPerm/index.html), [_xCore_](http://www.xact.es/xCore/index.html), [_xTras_](http://www.xact.es/xTras/index.html) and [_xCoba_](http://www.xact.es/xCoba/index.html))
 
 Other dependencies are only required for printing the output into publication-grade PDF figures:
 - [_RectanglePacking v 1.0.0_](https://resources.wolframcloud.com/PacletRepository/resources/JasonB/RectanglePacking/)
@@ -163,7 +166,6 @@ Alternatively, if you have _git_ installed you can clone the repository directly
 [user@system Downloads]$ cd PSALTer 
 [user@system PSALTer]$ cp -r ./xAct/PSALTer /usr/share/Mathematica/Applications/xAct/
 ```
-_PSALTer_ should now be installed, and you can try [the examples](##example:-massive-gravity).
 
 #### Microsoft Windows 
 
@@ -177,7 +179,6 @@ C:\Users\user\Downloads> git clone https://github.com/wevbarker/PSALTer
 C:\Users\user\Downloads> cd PSALTer 
 C:\Users\user\Downloads\PSALTer> xcopy /e /k /h /i xAct\PSALTer "C:\Program Files\Wolfram Research\Mathematica\14.0\AddOns\Applications\xAct"
 ```
-_PSALTer_ should now be installed, and you can try [the examples](##example:-massive-gravity).
 
 ## Contribute
 
