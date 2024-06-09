@@ -158,6 +158,14 @@ Other dependencies are only required for printing the output into publication-gr
 	user@system:~$ cp -r ./xAct/PSALTer /usr/share/Mathematica/Applications/xAct/
 	```
 
+
+
+
+```console
+foo@bar:~$ whoami
+foo
+```
+
 #### Microsoft Windows 
 
 1. Make sure your system satisfies all the dependencies.
