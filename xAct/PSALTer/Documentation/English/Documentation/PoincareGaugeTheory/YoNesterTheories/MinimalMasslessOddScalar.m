@@ -26,7 +26,7 @@ xAct`PSALTer`Private`$Disabled=False;
 	ParticleSpectrum[
 		LinearLagrangian,
 		TheoryName->"MinimalMasslessOddScalar",	
-		Method->"Hard",
+		Method->"Easy",
 		MaxLaurentDepth->3
 	];
 xAct`PSALTer`Private`$Disabled=True;

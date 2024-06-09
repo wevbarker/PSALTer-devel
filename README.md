@@ -145,6 +145,8 @@ Other dependencies are only required for printing the output into publication-gr
 
 ### Installation
 
+#### Linux and MacOS
+
 1. Make sure your system satisfies all the dependencies.
 2. Download _PSALTer_:
 	```bash, git
@@ -154,6 +156,19 @@ Other dependencies are only required for printing the output into publication-gr
 3. Copy the `PSALTer/xAct/PSALTer` directory into your _xAct_ installation alongside the other dependencies such as _xTensor_. For a global _xAct_ installation the following may be sufficient: 
 	```bash
 	cp -r ./xAct/PSALTer /usr/share/Mathematica/Applications/xAct/
+	```
+
+#### Microsoft Windows 
+
+1. Make sure your system satisfies all the dependencies.
+2. Download _PSALTer_:
+	```bash, git
+	git clone https://github.com/wevbarker/PSALTer
+	cd PSALTer 
+	```
+3. Copy the `PSALTer/xAct/PSALTer` directory into your _xAct_ installation alongside the other dependencies such as _xTensor_. For a global _xAct_ installation the following may be sufficient: 
+	```bash
+	xcopy /e /k /h /i xAct\PSALTer /usr/share/Mathematica/Applications/xAct/
 	```
 
 ## Contribute
