@@ -133,7 +133,7 @@ The arguments and options are as follows:
 ### Requirements 
 
 Basic hardware requirements:
-- A multi-core processor (recommended, most modern PCs are multi-core)
+- A multi-core processor (recommended, note that most modern PCs are multi-core)
 - An internet connection (recommended for _PSALTer_ to interrogate the [Wolfram Function Repository](https://resources.wolframcloud.com/FunctionRepository))
 
 Operating systems:
