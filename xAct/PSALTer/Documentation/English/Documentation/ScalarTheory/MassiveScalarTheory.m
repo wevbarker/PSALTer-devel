@@ -25,4 +25,5 @@ DisplayExpression@LinearisedLagrangian;
 		Method->"Easy",
 		MaxLaurentDepth->3
 	];
+Quit[];
 (*];*)
