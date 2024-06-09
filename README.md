@@ -151,24 +151,24 @@ Other dependencies are only required for printing the output into publication-gr
 2. Download _PSALTer_:
 ```console, bash, git
 [user@system Documents]$ git clone https://github.com/wevbarker/PSALTer
-[user@system Documents]$ cd PSALTer 
 ```
 
 3. Copy the `PSALTer/xAct/PSALTer` directory into your _xAct_ installation alongside the other dependencies such as _xTensor_. For a global _xAct_ installation the following may be sufficient: 
 ```console, bash
+[user@system Documents]$ cd PSALTer 
 [user@system PSALTer]$ cp -r ./xAct/PSALTer /usr/share/Mathematica/Applications/xAct/
 ```
 
 #### Microsoft Windows 
 
 1. Make sure your system satisfies all the dependencies.
-2. Download _PSALTer_:
+2. Download _PSALTer_. You can [click to download a zip file](https://github.com/wevbarker/PSALTer-devel/archive/refs/heads/README.zip), and unzip in File Explorer using right-click and *Extract All*. Otherwise, if you have git installed you can clone the repository from cmd:
 ```console, cmd, git
 C:\Users\user\Documents> git clone https://github.com/wevbarker/PSALTer
-C:\Users\user\Documents> cd PSALTer 
 ```
 3. Copy the `PSALTer\xAct\PSALTer` directory into your _xAct_ installation alongside the other dependencies such as _xTensor_. For a global _xAct_ installation the following may be sufficient: 
 ```console, cmd
+C:\Users\user\Documents> cd PSALTer 
 C:\Users\user\Documents\PSALTer> xcopy /e /k /h /i xAct\PSALTer "C:\Program Files\Wolfram Research\Mathematica\14.0\AddOns\Applications\xAct"
 ```
 
@@ -182,6 +182,6 @@ This work used the DiRAC Data Intensive service (CSD3 [www.csd3.cam.ac.uk](www.c
 
 This work was also performed using the Newton server, access to which was provisioned by Will Handley.
 
-_PSALTer_ was improved by many useful discussions with Jaakko Annala, Stephanie Buttigieg, Mike Hobson, Manuel Hohmann, Damianos Iosifidis, Georgios Karananas, Anthony Lasenby, Yun-Cherng Lin, Carlo Marzo, Vijay Nenmeli, Roberto Percacci, Syksy Räsänen, Cillian Rew, Claire Rigouzzo, Zhiyuan Wei, David Yallup, and Sebastian Zell.
+_PSALTer_ was improved by many useful discussions with Jaakko Annala, Stephanie Buttigieg, Mike Hobson, Manuel Hohmann, Damianos Iosifidis, Georgios Karananas, Anthony Lasenby, Yun-Cherng Lin, Oleg Melichev, Vijay Nenmeli, Roberto Percacci, Syksy Räsänen, Cillian Rew, Zhiyuan Wei, David Yallup, and Sebastian Zell.
 
 I am grateful for the kind hospitality of Leiden University and the [Lorentz Institute](https://www.lorentz.leidenuniv.nl/), and am supported by [Girton College, Cambridge](https://www.girton.cam.ac.uk/).
