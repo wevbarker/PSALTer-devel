@@ -148,14 +148,18 @@ Other dependencies are only required for printing the output into publication-gr
 #### Linux and MacOS
 
 1. Make sure your system satisfies all the dependencies.
-2. Download _PSALTer_:
+2. Download _PSALTer_. You can click to download [`PSALTer.zip`](https://github.com/wevbarker/PSALTer-devel/archive/refs/heads/README.zip), and unzip using:
+```console, bash
+[user@system Downloads]$ unzip ./PSALTer.zip
+```
+Alternatively, if you have _git_ installed you can clone the repository from _bash_:
 ```console, bash, git
-[user@system Documents]$ git clone https://github.com/wevbarker/PSALTer
+[user@system Downloads]$ git clone https://github.com/wevbarker/PSALTer
 ```
 
 3. Copy the `PSALTer/xAct/PSALTer` directory into your _xAct_ installation alongside the other dependencies such as _xTensor_. For a global _xAct_ installation the following may be sufficient: 
 ```console, bash
-[user@system Documents]$ cd PSALTer 
+[user@system Downloads]$ cd PSALTer 
 [user@system PSALTer]$ cp -r ./xAct/PSALTer /usr/share/Mathematica/Applications/xAct/
 ```
 
