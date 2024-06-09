@@ -16,7 +16,7 @@ Code[LinearLagrangian,
 	];
 ];
 Comment@"Thus we see that only the Einstein graviton is moving, with no extra species whatever. This might seem strange, since we have taken the massless limit of the pseudoscalar mode, but the fact that the spectrum empties discontinuously in this scenario is already predicted in the Hamiltonian analysis, see the second paragraph on page 20 of arXiv:9902032.";
-
+(*
 Comment@"We now repeat that last theory but with non-linear couplings.";
 NonlinearLagrangian=HSNonlinearLagrangian/.{Alp0->4*Bet1,Alp1->0,Alp2->0,Alp4->0,Alp5->0,Alp6->0,Bet2->-2*Bet1,Bet3->-Bet1/2};
 NonlinearLagrangian=NonlinearLagrangian/.{Bet1->Bet1^2,Alp3->1};
@@ -30,3 +30,4 @@ xAct`PSALTer`Private`$Disabled=False;
 		MaxLaurentDepth->3
 	];
 xAct`PSALTer`Private`$Disabled=True;
+*)
