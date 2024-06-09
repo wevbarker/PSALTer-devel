@@ -49,11 +49,10 @@ DefConstantSymbol[Coupling2,PrintAs->"\[Beta]"];
 Next, we use the command `DefField` from _PSALTer_ to define the metric perturbation $h_{\mu\nu}$ as the symmetric, rank-two tensor field `LinearMetric`:
 ```mathematica
 DefField[
-    LinearMetric[-a,-b],
+    MetricPerturbation[-a,-b],
     Symmetric[{-a,-b}],
     PrintAs->"\[ScriptH]",
-    PrintSourceAs->"\[ScriptCapitalT]"
-];
+    PrintSourceAs->"\[ScriptCapitalT]"];
 ```
 The output should look like:
 
@@ -63,13 +62,15 @@ To compute the spectrum, we plug the Lagrangian into the `ParticleSpectrum` func
 ```mathematica
 ParticleSpectrum[
     Coupling1*(
-	(1/2)*CD[-b]@LinearMetric[a,-a]*CD[b]@LinearMetric[c,-c]
-	-CD[a]@LinearMetric[-a,-b]*CD[b]@LinearMetric[c,-c]
-	-(1/2)*CD[-c]@LinearMetric[a,b]*CD[c]@LinearMetric[-a,-b]
-	+CD[-b]@LinearMetric[a,b]*CD[c]@LinearMetric[-a,-c]
-    )+Coupling2*(
-    LinearMetric[-a,-b]*LinearMetric[a,b]
-    -LinearMetric[a,-a]*LinearMetric[b,-b]), 
+	(1/2)*CD[-b]@MetricPerturbation[a,-a]*CD[b]@MetricPerturbation[c,-c]
+	-CD[a]@MetricPerturbation[-a,-b]*CD[b]@MetricPerturbation[c,-c]
+	-(1/2)*CD[-c]@MetricPerturbation[a,b]*CD[c]@MetricPerturbation[-a,-b]
+	+CD[-b]@MetricPerturbation[a,b]*CD[c]@MetricPerturbation[-a,-c]
+    )
+    +Coupling2*(
+        MetricPerturbation[-a,-b]*MetricPerturbation[a,b]
+        -MetricPerturbation[a,-a]*MetricPerturbation[b,-b]
+    ),
     TheoryName->"MassiveGravity",	
     Method->"Easy",
     MaxLaurentDepth->3
