@@ -154,17 +154,9 @@ Other dependencies are only required for printing the output into publication-gr
 	[user@system Documents]$cd PSALTer 
 	```
 3. Copy the `PSALTer/xAct/PSALTer` directory into your _xAct_ installation alongside the other dependencies such as _xTensor_. For a global _xAct_ installation the following may be sufficient: 
-	```console, bash
+	```console
 	user@system:~$ cp -r ./xAct/PSALTer /usr/share/Mathematica/Applications/xAct/
 	```
-
-
-
-
-```console
-foo@bar:~$ whoami
-foo
-```
 
 #### Microsoft Windows 
 
