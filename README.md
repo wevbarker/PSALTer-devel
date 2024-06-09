@@ -132,19 +132,19 @@ The arguments and options are as follows:
 
 ### Requirements 
 
-_PSALTer_ has various dependencies.
+Basic hardware requirements:
+- A multi-core processor (recommended, most modern PCs are multi-core)
+- An internet connection (recommended, this allows _PSALTer_ can interrogate the [Wolfram Function Repository](https://resources.wolframcloud.com/FunctionRepository))
 
-The following operating systems:
-- [_Linux_](https://www.linux.org/) (tested on _Linux v 6.9.1_ via [_Manjaro_](https://manjaro.org/), [_Arch_](https://archlinux.org/), [_RockyLinux 8 (RHEL8)_](https://rockylinux.org/) and [_CentOS7 (RHEL7)_](https://www.centos.org/) distributions)
-- [_Windows_](https://www.microsoft.com/en-gb/windows?r=1) (tested on _Windows 10_)
+Operating systems:
+- [_Linux_](https://www.linux.org/) (recommended, tested on _Linux v 6.9.1_ via [_Manjaro_](https://manjaro.org/), [_Arch_](https://archlinux.org/), [_RockyLinux 8 (RHEL8)_](https://rockylinux.org/) and [_CentOS7 (RHEL7)_](https://www.centos.org/) distributions)
+- [_Windows_](https://www.microsoft.com/en-gb/windows?r=1) (not recommended, tested on _Windows 10_)
 
-The following dependencies are strictly required:
-- [_Mathematica_](https://www.wolfram.com/mathematica/) (tested on _Mathematica v 14.0.0.0_)
-- [_xAct_](http://www.xact.es/) (tested on _xAct v 1.2.0_ with required packages [_xTensor_](http://www.xact.es/xCoba/index.html), [_SymManipulator_](http://www.xact.es/SymManipulator/index.html), [_xPerm_](http://www.xact.es/xPerm/index.html), [_xCore_](http://www.xact.es/xCore/index.html), [_xTras_](http://www.xact.es/xTras/index.html) and [_xCoba_](http://www.xact.es/xCoba/index.html))
-
-Other dependencies are only required for printing the output into publication-grade PDF figures:
-- [_RectanglePacking v 1.0.0_](https://resources.wolframcloud.com/PacletRepository/resources/JasonB/RectanglePacking/)
-- [_Inkscape v 1.3.2_](https://inkscape.org/)
+Software dependencies:
+- [_Mathematica_](https://www.wolfram.com/mathematica/) (required, tested on _Mathematica v 14.0.0.0_)
+- [_xAct_](http://www.xact.es/) (required, tested on _xAct v 1.2.0_ with required packages [_xTensor_](http://www.xact.es/xCoba/index.html), [_SymManipulator_](http://www.xact.es/SymManipulator/index.html), [_xPerm_](http://www.xact.es/xPerm/index.html), [_xCore_](http://www.xact.es/xCore/index.html), [_xTras_](http://www.xact.es/xTras/index.html) and [_xCoba_](http://www.xact.es/xCoba/index.html))
+- [_RectanglePacking v 1.0.0_](https://resources.wolframcloud.com/PacletRepository/resources/JasonB/RectanglePacking/) (recommended)
+- [_Inkscape v 1.3.2_](https://inkscape.org/) (recommended for _Linux_ only)
 
 ### Installation
 
