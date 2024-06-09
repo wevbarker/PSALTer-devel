@@ -164,12 +164,12 @@ Other dependencies are only required for printing the output into publication-gr
 1. Make sure your system satisfies all the dependencies.
 2. Download _PSALTer_:
 ```console, cmd, git
-C:\Users\user\Documents>git clone https://github.com/wevbarker/PSALTer
-C:\Users\user\Documents>cd PSALTer 
+C:\Users\user\Documents> git clone https://github.com/wevbarker/PSALTer
+C:\Users\user\Documents> cd PSALTer 
 ```
 3. Copy the `PSALTer\xAct\PSALTer` directory into your _xAct_ installation alongside the other dependencies such as _xTensor_. For a global _xAct_ installation the following may be sufficient: 
 ```console, cmd
-C:\Users\user\Documents\PSALTer>xcopy /e /k /h /i xAct\PSALTer "C:\Program Files\Wolfram Research\Mathematica\14.0\AddOns\Applications\xAct"
+C:\Users\user\Documents\PSALTer> xcopy /e /k /h /i xAct\PSALTer "C:\Program Files\Wolfram Research\Mathematica\14.0\AddOns\Applications\xAct"
 ```
 
 ## Contribute
