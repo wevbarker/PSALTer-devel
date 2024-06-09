@@ -147,7 +147,7 @@ Other dependencies are only required for printing the output into publication-gr
 
 #### Linux and MacOS
 
-1. ***Prepare.*** Make sure your system satisfies all the [requirements](#requirements).
+1. ***Prepare.*** Make sure your system satisfies all the [requirements](#-requirements).
 2. ***Download.*** You can click to download [`PSALTer.zip`](https://github.com/wevbarker/PSALTer-devel/archive/refs/heads/README.zip), and unzip using:
 ```console, bash
 [user@system Downloads]$ unzip ./PSALTer.zip
@@ -163,10 +163,11 @@ Alternatively, if you have _git_ installed you can clone the repository directly
 [user@system Downloads]$ cd PSALTer 
 [user@system PSALTer]$ cp -r ./xAct/PSALTer /usr/share/Mathematica/Applications/xAct/
 ```
+_PSALTer_ should now be installed, and you can try [the examples](##-example:-massive-gravity).
 
 #### Microsoft Windows 
 
-1. ***Prepare.*** Make sure your system satisfies all the [requirements](#requirements).
+1. ***Prepare.*** Make sure your system satisfies all the [requirements](#-requirements).
 2. ***Download.*** You can click to download [`PSALTer.zip`](https://github.com/wevbarker/PSALTer-devel/archive/refs/heads/README.zip), and unzip in _File Explorer_ using _right-click_ and _Extract All_. Alternatively, if you have _git_ installed you can clone the repository directly from _cmd_:
 ```console, cmd, git
 C:\Users\user\Downloads> git clone https://github.com/wevbarker/PSALTer
@@ -176,6 +177,7 @@ C:\Users\user\Downloads> git clone https://github.com/wevbarker/PSALTer
 C:\Users\user\Downloads> cd PSALTer 
 C:\Users\user\Downloads\PSALTer> xcopy /e /k /h /i xAct\PSALTer "C:\Program Files\Wolfram Research\Mathematica\14.0\AddOns\Applications\xAct"
 ```
+_PSALTer_ should now be installed, and you can try [the examples](##-example:-massive-gravity).
 
 ## Contribute
 
