@@ -147,18 +147,18 @@ Other dependencies are only required for printing the output into publication-gr
 
 #### Linux and MacOS
 
-1. Make sure your system satisfies all the dependencies.
-2. Download _PSALTer_. You can click to download [`PSALTer.zip`](https://github.com/wevbarker/PSALTer-devel/archive/refs/heads/README.zip), and unzip using:
+1. ***Prepare.*** Make sure your system satisfies all the dependencies.
+2. ***Download.*** You can click to download [`PSALTer.zip`](https://github.com/wevbarker/PSALTer-devel/archive/refs/heads/README.zip), and unzip using:
 ```console, bash
 [user@system Downloads]$ unzip ./PSALTer.zip
 [user@system Downloads]$ mv PSALTer-README PSALTer
 ```
-Alternatively, if you have _git_ installed you can clone the repository from _bash_:
+Alternatively, if you have _git_ installed you can clone the repository directly from _bash_:
 ```console, bash, git
 [user@system Downloads]$ git clone https://github.com/wevbarker/PSALTer
 ```
 
-3. Copy the `PSALTer/xAct/PSALTer` directory into your _xAct_ installation alongside the other dependencies such as _xTensor_. For a global _xAct_ installation the following may be sufficient: 
+3. ***Install.*** Copy the `PSALTer/xAct/PSALTer` directory into your _xAct_ installation alongside the other dependencies such as _xTensor_. For a global _xAct_ installation the following may be sufficient: 
 ```console, bash
 [user@system Downloads]$ cd PSALTer 
 [user@system PSALTer]$ cp -r ./xAct/PSALTer /usr/share/Mathematica/Applications/xAct/
@@ -166,12 +166,12 @@ Alternatively, if you have _git_ installed you can clone the repository from _ba
 
 #### Microsoft Windows 
 
-1. Make sure your system satisfies all the dependencies.
-2. Download _PSALTer_. You can click to download [`PSALTer.zip`](https://github.com/wevbarker/PSALTer-devel/archive/refs/heads/README.zip), and unzip in _File Explorer_ using __right-click__ and __Extract All__. Alternatively, if you have _git_ installed you can clone the repository from _cmd_:
+1. ***Prepare.*** Make sure your system satisfies all the dependencies.
+2. ***Download.*** You can click to download [`PSALTer.zip`](https://github.com/wevbarker/PSALTer-devel/archive/refs/heads/README.zip), and unzip in _File Explorer_ using __right-click__ and __Extract All__. Alternatively, if you have _git_ installed you can clone the repository directly from _cmd_:
 ```console, cmd, git
 C:\Users\user\Downloads> git clone https://github.com/wevbarker/PSALTer
 ```
-3. Copy the `PSALTer\xAct\PSALTer` directory into your _xAct_ installation alongside the other dependencies such as _xTensor_. You may need to open _File Explorer_ using __right-click__ and __Run as administrator__ for a global _xAct_ installation. Alternatively, use the following _cmd_ commands: 
+3. ***Install.*** Copy the `PSALTer\xAct\PSALTer` directory into your _xAct_ installation alongside the other dependencies such as _xTensor_. You may need to open _File Explorer_ using __right-click__ and __Run as administrator__ for a global _xAct_ installation. Alternatively, use the following _cmd_ commands: 
 ```console, cmd
 C:\Users\user\Downloads> cd PSALTer 
 C:\Users\user\Downloads\PSALTer> xcopy /e /k /h /i xAct\PSALTer "C:\Program Files\Wolfram Research\Mathematica\14.0\AddOns\Applications\xAct"
