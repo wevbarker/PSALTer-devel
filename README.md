@@ -150,8 +150,8 @@ Other dependencies are only required for printing the output into publication-gr
 1. Make sure your system satisfies all the dependencies.
 2. Download _PSALTer_:
 ```console, bash, git
-[user@system Documents]$git clone https://github.com/wevbarker/PSALTer
-[user@system Documents]$cd PSALTer 
+[user@system Documents]$ git clone https://github.com/wevbarker/PSALTer
+[user@system Documents]$ cd PSALTer 
 ```
 
 3. Copy the `PSALTer/xAct/PSALTer` directory into your _xAct_ installation alongside the other dependencies such as _xTensor_. For a global _xAct_ installation the following may be sufficient: 
