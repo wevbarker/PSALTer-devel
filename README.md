@@ -151,6 +151,7 @@ Other dependencies are only required for printing the output into publication-gr
 2. Download _PSALTer_. You can click to download [`PSALTer.zip`](https://github.com/wevbarker/PSALTer-devel/archive/refs/heads/README.zip), and unzip using:
 ```console, bash
 [user@system Downloads]$ unzip ./PSALTer.zip
+[user@system Downloads]$ mv PSALTer-README PSALTer
 ```
 Alternatively, if you have _git_ installed you can clone the repository from _bash_:
 ```console, bash, git
