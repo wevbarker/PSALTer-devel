@@ -91,5 +91,7 @@ Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 *)
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 					"GeneralPGT.m"};
+(*
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 					"LinHobsonLasenbyTheories.m"};
+*)
