@@ -3,12 +3,14 @@
 (*======================*)
 
 ParticleSpectrum::Zero="The Lagrangian density is zero.";
-ParticleSpectrum::NonLinearCouplings="The Lagrangian density contains the monomial `1` which is not linear in constant symbols.";
+ParticleSpectrum::NonLinearCouplings="The method \"Hard\" was selected but the Lagrangian density contains the monomial `1` which is not linear in constant symbols.";
 ParticleSpectrum::NonQuadraticFields="The Lagrangian density contains the monomial `1` which is not quadratic in fields or their derivatives.";
 ParticleSpectrum::UnknownField="The Lagrangian density contains a tensor `1` which was not defined using DefField.";
 ParticleSpectrum::UnknownCoupling="The Lagrangian density contains a symbol `1` which was not defined using DefConstantSymbol.";
 ParticleSpectrum::ParityOdd="The Lagrangian density contains at least one term with an odd power of totally antisymmetric tensors.";
-ValidateLagrangian[InputExpr_]:=Module[{
+
+Options@ValidateLagrangian={Method->"Easy"};
+ValidateLagrangian[InputExpr_,OptionsPattern[]]:=Module[{
 	Expr=InputExpr,
 	PolyExpr,
 	LagrangianCouplingsValue,
@@ -32,6 +34,6 @@ ValidateLagrangian[InputExpr_]:=Module[{
 	TensorsValue=DeleteCases[Expr,_?ConstantSymbolQ];
 	(MemberQ[TensorsValue,epsilonG])~If~(Throw@Message@ParticleSpectrum::ParityOdd);
 	(((Length@Names@("xAct`PSALTer`"<>ToString@#<>"`*"))===0)~If~(Throw@Message[ParticleSpectrum::UnknownField,#]))&/@TensorsValue;
-	((ResourceFunction["PolynomialDegree"][#,LagrangianCouplingsValue]!=1)~If~(Throw@Message[ParticleSpectrum::NonLinearCouplings,#]))&/@PolyExpr;
+	(((ResourceFunction["PolynomialDegree"][#,LagrangianCouplingsValue]!=1)&&(OptionValue@Method==="Hard"))~If~(Throw@Message[ParticleSpectrum::NonLinearCouplings,#]))&/@PolyExpr;
 	((ResourceFunction["PolynomialDegree"][#,TensorsValue]>2)~If~(Throw@Message[ParticleSpectrum::NonQuadraticFields,#]))&/@PolyExpr;
 ];	

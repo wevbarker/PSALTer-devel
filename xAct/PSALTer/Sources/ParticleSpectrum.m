@@ -71,7 +71,7 @@ ParticleSpectrumActual[Expr_,OptionsPattern[]]:=Catch@If[
 		ValidateTheoryName@OptionValue@TheoryName;
 		ValidateMethod@OptionValue@Method;
 		ValidateMaxLaurentDepth@OptionValue@MaxLaurentDepth;
-		ValidateLagrangian@Expr;
+		ValidateLagrangian[Expr,Method->OptionValue@Method];
 
 		$LocalWaveOperator=Null;
 		$LocalPropagator=Null;

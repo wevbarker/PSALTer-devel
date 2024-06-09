@@ -88,7 +88,8 @@ On[SetDelayed::write];
 Unprotect@DefField;
 Options@DefField={PrintAs->"\[Zeta]",PrintSourceAs->"\[ScriptJ]"};
 DefField[InputField_[Inds___],Opts___?OptionQ]:=DefField[InputField[Inds],GenSet[],Opts];
-DefField[InputField_[Inds___],SymmExpr_,Opts:OptionsPattern[]]:=If[$Disabled,
+DefField[InputField_[Inds___],SymmExpr_,Opts:OptionsPattern[]]:=If[False,
+	(*DefField[InputField_[Inds___],SymmExpr_,Opts:OptionsPattern[]]:=If[$Disabled,*)
 	DefTensor[InputField[Inds],M4,SymmExpr,PrintAs->OptionValue@PrintAs],
 	DefFieldActual[InputField[Inds],SymmExpr,Opts]
 ];

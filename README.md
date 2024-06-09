@@ -3,7 +3,7 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2402.07641-b31b1b.svg)](https://arxiv.org/abs/2402.07641)
 [![arXiv](https://img.shields.io/badge/arXiv-2402.14917-b31b1b.svg)](https://arxiv.org/abs/2402.14917)
 [![arXiv](https://img.shields.io/badge/arXiv-2402.00000-b31b1b.svg)](https://arxiv.org/abs/2405.00000)
-<img src="xAct/PSALTer/Documentation/Logo/GitHubLogo.png" width="1000">
+<img src="xAct/PSALTer/Logos/GitHubLogo.png" width="1000">
 
 # Particle Spectrum for Any Tensor Lagrangian (_PSALTer_)
 ## Version 1.0.0
@@ -12,7 +12,7 @@
 
 ## License
 
-Copyright © 2022 Will Barker, Stephanie Buttigieg, Carlo Marzo, Cillian Rew, Claire Rigouzzo, Zhiyuan Wei, David Yallup and Haoyang Ye.
+Copyright © 2022 Will Barker, Carlo Marzo and Claire Rigouzzo.
 
 _PSALTer_ is distributed as free software under the [GNU General Public License (GPL)](https://www.gnu.org/licenses/gpl-3.0.en.html).
 
@@ -57,7 +57,7 @@ DefField[
 ```
 The output should look like:
 
-<img src="xAct/PSALTer/Documentation/Logo/FieldKinematics.png" width="1000">
+<img src="xAct/PSALTer/Logos/FieldKinematics.png" width="1000">
 
 To compute the spectrum, we plug the Lagrangian into the `ParticleSpectrum` function from _PSALTer_:
 ```mathematica
@@ -77,7 +77,7 @@ ParticleSpectrum[
 ```
 The output should look like:
 
-<img src="xAct/PSALTer/Documentation/Logo/ParticleSpectrograph.png" width="1000">
+<img src="xAct/PSALTer/Logos/ParticleSpectrograph.png" width="1000">
 
 ## Documentation 
 
@@ -132,29 +132,53 @@ The arguments and options are as follows:
 
 ### Requirements 
 
-_PSALTer_ has various dependencies (version numbers reflect tested configurations).
+Basic hardware requirements:
+- A multi-core processor (recommended, note that most modern PCs are multi-core)
+- An internet connection (recommended for _PSALTer_ to interrogate the [Wolfram Function Repository](https://resources.wolframcloud.com/FunctionRepository))
 
-The following dependencies are strictly required:
-- [_Linux v 6.9.1_](https://www.linux.org/) (recommended distributions are [_Manjaro_](https://manjaro.org/), [_Arch_](https://archlinux.org/), [_RockyLinux 8 (RHEL8)_](https://rockylinux.org/) and [_CentOS7 (RHEL7)_](https://www.centos.org/))
-- [_Mathematica v 14.0.0.0_](https://www.wolfram.com/mathematica/)
-- [_xAct v 1.2.0_](http://www.xact.es/) (required packages are [_xTensor_](http://www.xact.es/xCoba/index.html), [_SymManipulator_](http://www.xact.es/SymManipulator/index.html), [_xPerm_](http://www.xact.es/xPerm/index.html), [_xCore_](http://www.xact.es/xCore/index.html), [_xTras_](http://www.xact.es/xTras/index.html) and [_xCoba_](http://www.xact.es/xCoba/index.html))
+Operating systems:
+- [_Linux_](https://www.linux.org/) (recommended, tested on _Linux v 6.9.1_ via [_Manjaro_](https://manjaro.org/), [_Arch_](https://archlinux.org/), [_RockyLinux 8 (RHEL8)_](https://rockylinux.org/) and [_CentOS7 (RHEL7)_](https://www.centos.org/))
+- [_Windows_](https://www.microsoft.com/en-gb/windows?r=1) (not recommended, tested on _Windows 10_)
 
-Other dependencies are only required for printing the output into publication-grade PDF figures:
-- [_RectanglePacking v 1.0.0_](https://resources.wolframcloud.com/PacletRepository/resources/JasonB/RectanglePacking/)
-- [_Inkscape v 1.3.2_](https://inkscape.org/)
+Software dependencies:
+- [_Mathematica_](https://www.wolfram.com/mathematica/) (required, tested on _Mathematica v 14.0.0.0_)
+- [_xAct_](http://www.xact.es/) (required packages [_xTensor_](http://www.xact.es/xCoba/index.html), [_SymManipulator_](http://www.xact.es/SymManipulator/index.html), [_xPerm_](http://www.xact.es/xPerm/index.html), [_xCore_](http://www.xact.es/xCore/index.html), [_xTras_](http://www.xact.es/xTras/index.html) and [_xCoba_](http://www.xact.es/xCoba/index.html), tested on _xAct v 1.2.0_)
+- [_RectanglePacking v 1.0.0_](https://resources.wolframcloud.com/PacletRepository/resources/JasonB/RectanglePacking/) (recommended)
+- [_Inkscape v 1.3.2_](https://inkscape.org/) (recommended for _Linux_ only)
 
 ### Installation
 
-1. Make sure your system satisfies all the dependencies.
-2. Download _PSALTer_:
-	```bash, git
-	git clone https://github.com/wevbarker/PSALTer
-	cd PSALTer 
-	```
-3. Copy the `PSALTer/xAct/PSALTer` directory into your _xAct_ installation alongside the other dependencies such as _xTensor_. For a global _xAct_ installation the following may be sufficient: 
-	```bash
-	cp -r ./xAct/PSALTer /usr/share/Mathematica/Applications/xAct/
-	```
+#### Linux and MacOS
+
+1. ***Prepare.*** Make sure your system satisfies all the [requirements](#requirements).
+2. ***Download.*** You can click to download [`PSALTer.zip`](https://github.com/wevbarker/PSALTer-devel/archive/refs/heads/README.zip), and unzip using:
+```console, bash
+[user@system Downloads]$ unzip ./PSALTer.zip
+[user@system Downloads]$ mv PSALTer-README PSALTer
+```
+Alternatively, if you have _git_ installed you can clone the repository directly from _bash_:
+```console, bash, git
+[user@system Downloads]$ git clone https://github.com/wevbarker/PSALTer
+```
+
+3. ***Install.*** Copy the `PSALTer/xAct/PSALTer` directory into your _xAct_ installation alongside the other dependencies such as _xTensor_. For a global _xAct_ installation the following may be sufficient: 
+```console, bash
+[user@system Downloads]$ cd PSALTer 
+[user@system PSALTer]$ cp -r ./xAct/PSALTer /usr/share/Mathematica/Applications/xAct/
+```
+
+#### Microsoft Windows 
+
+1. ***Prepare.*** Make sure your system satisfies all the [requirements](#requirements).
+2. ***Download.*** You can click to download [`PSALTer.zip`](https://github.com/wevbarker/PSALTer-devel/archive/refs/heads/README.zip), and unzip in _File Explorer_ using _right-click_ and _Extract All_. Alternatively, if you have _git_ installed you can clone the repository directly from _cmd_:
+```console, cmd, git
+C:\Users\user\Downloads> git clone https://github.com/wevbarker/PSALTer
+```
+3. ***Install.*** Copy the `PSALTer\xAct\PSALTer` directory into your _xAct_ installation alongside the other dependencies such as _xTensor_. You may need to open _File Explorer_ using _right-click_ and _Run as administrator_ for a global _xAct_ installation. Alternatively, use the following _cmd_ commands: 
+```console, cmd
+C:\Users\user\Downloads> cd PSALTer 
+C:\Users\user\Downloads\PSALTer> xcopy /e /k /h /i xAct\PSALTer "C:\Program Files\Wolfram Research\Mathematica\14.0\AddOns\Applications\xAct"
+```
 
 ## Contribute
 
@@ -166,6 +190,6 @@ This work used the DiRAC Data Intensive service (CSD3 [www.csd3.cam.ac.uk](www.c
 
 This work was also performed using the Newton server, access to which was provisioned by Will Handley.
 
-_PSALTer_ was improved by many useful discussions with Jaakko Annala, Stephanie Buttigieg, Mike Hobson, Manuel Hohmann, Damianos Iosifidis, Georgios Karananas, Anthony Lasenby, Yun-Cherng Lin, Carlo Marzo, Vijay Nenmeli, Roberto Percacci, Syksy Räsänen, Cillian Rew, Claire Rigouzzo, Zhiyuan Wei, David Yallup, and Sebastian Zell.
+_PSALTer_ was improved by many useful discussions with Jaakko Annala, Stephanie Buttigieg, Mike Hobson, Manuel Hohmann, Damianos Iosifidis, Georgios Karananas, Anthony Lasenby, Yun-Cherng Lin, Oleg Melichev, Vijay Nenmeli, Roberto Percacci, Syksy Räsänen, Cillian Rew, Zhiyuan Wei, David Yallup, and Sebastian Zell.
 
 I am grateful for the kind hospitality of Leiden University and the [Lorentz Institute](https://www.lorentz.leidenuniv.nl/), and am supported by [Girton College, Cambridge](https://www.girton.cam.ac.uk/).
