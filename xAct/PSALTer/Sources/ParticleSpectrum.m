@@ -156,7 +156,7 @@ ParticleSpectrumActual[Expr_,OptionsPattern[]]:=Catch@If[
 						InverseBMatrices,
 						ValuesInverseBMatricesValues,
 						ExportTheory->False];
-			$MatricesOnly~If~Throw[];
+			$MatricesOnly~If~Throw["$MatricesOnly"];
 			ConstructMassiveAnalysis[
 						"xAct`PSALTer`Private`ClassName",
 						ValuesSaturatedPropagator,
