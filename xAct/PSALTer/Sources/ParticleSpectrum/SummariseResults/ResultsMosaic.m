@@ -31,7 +31,7 @@ ResultsMosaic[
 	MatricesGroup=GraphicsMosaic[MatricesGroup,MaxWidth];
 	SpectrumGroup=GraphicsMosaic[SpectrumGroup,MaxWidth];
 
-	If[$MultiMass,
+	If[$MatricesOnly,
 		FinalGraphic={
 				MatricesGroup
 		};
