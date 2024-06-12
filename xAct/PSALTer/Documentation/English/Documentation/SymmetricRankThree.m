@@ -27,6 +27,7 @@ LagrangianDensity//=ToCanonical
 LagrangianDensity//=CollectTensors;
 LagrangianDensity//DisplayExpression;
 
+$ReadOnly=False;
 Comment@"Now we try to compute the particle spectrum:";
 Code[LagrangianDensity,
 	ParticleSpectrum[
