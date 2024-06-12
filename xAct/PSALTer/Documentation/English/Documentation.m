@@ -15,7 +15,7 @@ Get@FileNameJoin@{$ThisDirectory,"Documentation","HowToUse.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","LoadingPSALTer.m"};
 
 Chapter@"Science applications";
-xAct`PSALTer`Private`$Disabled=False;
+xAct`PSALTer`Private`$Disabled=True;
 xAct`PSALTer`Private`$DiagnosticMode=False;
 $ReadOnly=True;
 Get@FileNameJoin@{$ThisDirectory,"Documentation","ScalarTheory.m"};
@@ -24,6 +24,9 @@ Get@FileNameJoin@{$ThisDirectory,"Documentation","AntisymmetricTensorTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","TensorTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","ScalarTensorTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory.m"};
+xAct`PSALTer`Private`$Disabled=False;
+Get@FileNameJoin@{$ThisDirectory,"Documentation","SymmetricRankThree.m"};
+xAct`PSALTer`Private`$Disabled=True;
 Get@FileNameJoin@{$ThisDirectory,"Documentation","MetricAffineGravity.m"};
 $ReadOnly=False;
 xAct`PSALTer`Private`$Disabled=False;
