@@ -22,7 +22,7 @@ Module[{x2=1/Coupling1,x3=1},
 ];
 
 LagrangianDensity//=CollectTensors;
-LagrangianDensity//=//ReplaceAll[{}];
+LagrangianDensity//=ReplaceAll[{}];
 LagrangianDensity//=ToCanonical
 LagrangianDensity//=CollectTensors;
 LagrangianDensity//DisplayExpression;
