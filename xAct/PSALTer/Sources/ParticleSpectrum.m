@@ -71,7 +71,7 @@ ParticleSpectrumActual[Expr_,OptionsPattern[]]:=Catch@If[
 		ValidateTheoryName@OptionValue@TheoryName;
 		ValidateMethod@OptionValue@Method;
 		ValidateMaxLaurentDepth@OptionValue@MaxLaurentDepth;
-		ValidateLagrangian[Expr,Method->OptionValue@Method];
+		ValidateLagrangian@Expr;
 
 		$LocalWaveOperator=Null;
 		$LocalPropagator=Null;
@@ -156,6 +156,7 @@ ParticleSpectrumActual[Expr_,OptionsPattern[]]:=Catch@If[
 						InverseBMatrices,
 						ValuesInverseBMatricesValues,
 						ExportTheory->False];
+			$MatricesOnly~If~Throw["$MatricesOnly"];
 			ConstructMassiveAnalysis[
 						"xAct`PSALTer`Private`ClassName",
 						ValuesSaturatedPropagator,

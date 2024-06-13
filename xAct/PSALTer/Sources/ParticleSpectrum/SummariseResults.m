@@ -72,25 +72,39 @@ SummariseResults[TheoryName_?StringQ,WaveOperator_,Propagator_,SourceConstraints
 			If[OverallUnitarity===Null,
 				TheOverallUnitarity=Computing,
 				TheOverallUnitarity=DetailCell@(PrintUnitarityConditions@OverallUnitarity)];
-
-			SummaryOfResults=Column[{
-				MakeLabel["Particle spectrograph",20],
-				TheSummaryOfTheory,
-				MakeLabel@"Wave operator",
-				TheWaveOperator,
-				MakeLabel@"Saturated propagator",
-				ThePropagator,
-				MakeLabel@"Source constraints",
-				TheSourceConstraints,
-				MakeLabel@"Massive spectrum",
-				TheSpectrum,
-				MakeLabel@"Massless spectrum",
-				TheMasslessSpectrum,
-				MakeLabel@"Unitarity conditions",
-				TheOverallUnitarity},
-				Spacings->{1,1},
-				Background->$PanelColor,
-				Alignment->{Left,Center}];
+			If[$MatricesOnly,
+				SummaryOfResults=Column[{
+					MakeLabel["Particle spectrograph",20],
+					TheSummaryOfTheory,
+					MakeLabel@"Wave operator",
+					TheWaveOperator,
+					MakeLabel@"Saturated propagator",
+					ThePropagator,
+					MakeLabel@"Source constraints",
+					TheSourceConstraints},
+					Spacings->{1,1},
+					Background->$PanelColor,
+					Alignment->{Left,Center}];
+			,
+				SummaryOfResults=Column[{
+					MakeLabel["Particle spectrograph",20],
+					TheSummaryOfTheory,
+					MakeLabel@"Wave operator",
+					TheWaveOperator,
+					MakeLabel@"Saturated propagator",
+					ThePropagator,
+					MakeLabel@"Source constraints",
+					TheSourceConstraints,
+					MakeLabel@"Massive spectrum",
+					TheSpectrum,
+					MakeLabel@"Massless spectrum",
+					TheMasslessSpectrum,
+					MakeLabel@"Unitarity conditions",
+					TheOverallUnitarity},
+					Spacings->{1,1},
+					Background->$PanelColor,
+					Alignment->{Left,Center}];
+			];
 		];
 	];
 

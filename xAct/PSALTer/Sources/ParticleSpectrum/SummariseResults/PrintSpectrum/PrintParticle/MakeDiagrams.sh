@@ -4,7 +4,7 @@
 #  MakeDiagrams  #
 #================#
 
-for f in Quadratic.tex Quartic.tex Hexic.tex Even0.tex Odd0.tex Even1.tex Odd1.tex Even2.tex Odd2.tex Even3.tex Odd3.tex; do latexmk -pdf -interaction=nonstopmode -pdflatex=lualatex $f; done
+for f in FeynmanDiagramQuadratic.tex FeynmanDiagramQuartic.tex FeynmanDiagramHexic.tex FeynmanDiagramSpin0ParityEven.tex FeynmanDiagramSpin0ParityOdd.tex FeynmanDiagramSpin1ParityEven.tex FeynmanDiagramSpin1ParityOdd.tex FeynmanDiagramSpin2ParityEven.tex FeynmanDiagramSpin2ParityOdd.tex FeynmanDiagramSpin3ParityEven.tex FeynmanDiagramSpin3ParityOdd.tex; do latexmk -pdf -interaction=nonstopmode -pdflatex=lualatex $f; done
 rm -rf *.aux
 rm -rf *.fdb_latexmk
 rm -rf *.fls

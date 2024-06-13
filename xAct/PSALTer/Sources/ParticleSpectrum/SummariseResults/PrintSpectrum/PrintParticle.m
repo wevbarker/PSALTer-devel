@@ -31,7 +31,7 @@ PrintParticle[
 		1,	
 		(
 		TempGraphics=NewFramed@Row[{
-			GetDiagram@"Quadratic.pdf",
+			GetDiagram@"FeynmanDiagramQuadratic.pdf",
 			Grid[
 			{
 				{Text@"Quadratic pole",SpanFromLeft},
@@ -45,7 +45,7 @@ PrintParticle[
 		2,
 		(
 		TempGraphics=NewFramed@Row[{
-			GetDiagram@"Quartic.pdf",
+			GetDiagram@"FeynmanDiagramQuartic.pdf",
 			Grid[
 			{
 				{Text@"Quartic pole",SpanFromLeft},
@@ -59,7 +59,7 @@ PrintParticle[
 		3,
 		(
 		TempGraphics=NewFramed@Row[{
-			GetDiagram@"Hexic.pdf",
+			GetDiagram@"FeynmanDiagramHexic.pdf",
 			Grid[
 			{
 				{Text@"Hexic pole",SpanFromLeft},
@@ -73,7 +73,7 @@ PrintParticle[
 	];
 	,
 	TempGraphics=NewFramed@Row[{
-		GetDiagram@(TheParity<>(ToString@Spin)<>".pdf"),
+		GetDiagram@("FeynmanDiagramSpin"<>(ToString@Spin)<>"Parity"<>TheParity<>".pdf"),
 		Grid[
 		{
 			{Text@"Massive particle",SpanFromLeft},
