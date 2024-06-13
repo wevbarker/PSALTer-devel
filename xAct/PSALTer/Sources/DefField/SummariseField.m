@@ -19,6 +19,7 @@ SummariseField[]:=Module[{
 	FieldTensorsDecomposed,
 	SourceTensors,
 	TheDecompositionTable,
+	DecompositionExpansionTable,
 	TheFieldMosaic
 	},
 
@@ -71,11 +72,21 @@ SummariseField[]:=Module[{
 		FieldTensorsSymmetries,
 		FieldTensorsDecomposed,
 		SourceTensors];
+
+	DecompositionExpansionTable=NewFramed@Grid[
+		(
+		TheDecompositionTable~Join~TheExpansionTable
+		),
+		ItemSize->{Full,Full,{1,3}->60},
+		Dividers->Center,
+		Alignment->{Left,Center}];
+
 	If[!$CLI,
 		TheFieldMosaic=FieldMosaic[
-					BasicInfo,
+					DecompositionExpansionTable
+					(*BasicInfo,
 					TheDecompositionTable,
-					TheExpansionTable];
+					TheExpansionTable*)];
 		Export[FileNameJoin@{$WorkingDirectory,"FieldKinematics"<>(StringReplace[Context[],{"xAct"->"","PSALTer"->"","`"->""}])<>".pdf"},
 			TheFieldMosaic
 		];

@@ -16,9 +16,9 @@ Get@FileNameJoin@{$ThisDirectory,"Documentation","PoincareGaugeTheory",
 DocumentationTimingData=MapThread[
 		AbsoluteTiming@CalibrateCase[#1,#2,#3]&,
 		{
-			Table[i,{i,1,58}],
-			CriticalCasesSolutions[[1;;58]],
-			Unitarity[[1;;58]]
+			Table[i,{i,1,19}],
+			CriticalCasesSolutions[[1;;19]],
+			Unitarity[[1;;19]]
 		}];
 (*
 Section@"How long did this take?";
