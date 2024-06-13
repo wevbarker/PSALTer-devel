@@ -38,7 +38,7 @@ ResultsMosaic[
 	,
 		FinalGraphic={
 				MatricesGroup,
-				SpectrumGroup,
+				SpectrumGroup
 		};
 	];
 
