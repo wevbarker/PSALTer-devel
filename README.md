@@ -152,7 +152,7 @@ Software dependencies:
 #### Linux and MacOS
 
 1. ***Prepare.*** Make sure your system satisfies all the [requirements](#requirements).
-2. ***Download.*** You can click to download [`PSALTer.zip`](https://github.com/wevbarker/PSALTer-devel/archive/refs/heads/README.zip), and unzip using:
+2. ***Download.*** You can click to download [`PSALTer.zip`](https://github.com/wevbarker/PSALTer/archive/refs/heads/README.zip), and unzip using:
 ```console, bash
 [user@system Downloads]$ unzip ./PSALTer.zip
 [user@system Downloads]$ mv PSALTer-README PSALTer
