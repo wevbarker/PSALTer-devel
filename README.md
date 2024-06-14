@@ -196,14 +196,14 @@ user@system xAct % cp -r PSALTer ~/Library/Mathematica/Applications/xAct/
 #### Microsoft Windows 
 
 1. ***Prepare.*** Make sure your system satisfies all the [requirements](#requirements).
-2. ***Download.*** You can click to download [`PSALTer.zip`](https://github.com/wevbarker/PSALTer-devel/archive/refs/heads/README.zip), and unzip in _File Explorer_ using _right-click_ and _Extract All_. Alternatively, if you have _git_ installed you can clone the repository directly from _cmd_:
+2. ***Download.*** You can click to download [`PSALTer.zip`](https://github.com/wevbarker/PSALTer-devel/archive/refs/heads/README.zip), and unzip in _File Explorer_ using _right-click_ and _Extract All_. Alternatively, if you have _git_ installed, the following _cmd_ command will download _PSALTer_ into the home directory:
 ```console, cmd, git
-C:\Users\user\Downloads> git clone https://github.com/wevbarker/PSALTer
+C:\Users\user> git clone https://github.com/wevbarker/PSALTer
 ```
-3. ***Install.*** Copy the `PSALTer\xAct\PSALTer` directory into your _xAct_ installation alongside the other dependencies such as _xTensor_. You may need to open _File Explorer_ using _right-click_ and _Run as administrator_ for a global _xAct_ installation. Alternatively, use the following _cmd_ commands: 
+3. ***Install.*** To perform the installation, the sources need only be copied to the location of the other _xAct_ sources. For a global installation of _xAct_, you may need to open _File Explorer_ using _right-click_ and _Run as administrator_. Alternatively, use the following _cmd_ commands: 
 ```console, cmd
-C:\Users\user\Downloads> cd PSALTer 
-C:\Users\user\Downloads\PSALTer> xcopy /e /k /h /i xAct\PSALTer "C:\Program Files\Wolfram Research\Mathematica\14.0\AddOns\Applications\xAct"
+C:\Users\user> cd PSALTer\xAct
+C:\Users\user\PSALTer\xAct> xcopy /e /k /h /i xAct\PSALTer "C:\Program Files\Wolfram Research\Mathematica\14.0\AddOns\Applications\xAct"
 ```
 
 ## Contribute
