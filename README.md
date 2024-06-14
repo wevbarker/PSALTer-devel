@@ -153,9 +153,10 @@ Software dependencies:
 #### Linux
 
 1. ***Prepare.*** Make sure your system satisfies all the [requirements](#requirements).
-2. ***Download.*** You can click to download [`PSALTer.zip`](https://github.com/wevbarker/PSALTer-devel/zipball/master), and unzip using:
+2. ***Download.*** You can click to download [`PSALTer.zip`](https://github.com/wevbarker/PSALTer/zipball/master), and unzip using:
 ```console, bash
-[user@system ~]$ unzip ./PSALTer.zip
+[user@system ~]$ unzip ~/Downloads/wevbarker-PSALTer-* ~/
+[user@system ~]$ mv ~/wevbarker-PSALTer-* ~/PSALTer
 ```
 Alternatively, if you have _git_ installed, the following _bash_ command will download _PSALTer_ into the home directory:
 ```console, bash, git
@@ -175,9 +176,10 @@ For a local installation of _xAct_, the path may be vary:
 #### MacOS
 
 1. ***Prepare.*** Make sure your system satisfies all the [requirements](#requirements).
-2. ***Download.*** You can click to download [`PSALTer.zip`](https://github.com/wevbarker/PSALTer-devel/zipball/master), and unzip using:
+2. ***Download.*** You can click to download [`PSALTer.zip`](https://github.com/wevbarker/PSALTer/zipball/master), and unzip using:
 ```console, zsh 
-user@system ~ % unzip ./PSALTer.zip
+user@system ~ % unzip ~/Downloads/wevbarker-PSALTer-* ~/
+user@system ~ % mv ~/wevbarker-PSALTer-* ~/PSALTer
 ```
 Alternatively, if you have _git_ installed, the following _zsh_ command will download _PSALTer_ into the home directory:
 ```console, zsh, git
@@ -197,7 +199,7 @@ user@system xAct % cp -r PSALTer ~/Library/Mathematica/Applications/xAct/
 #### Microsoft Windows 
 
 1. ***Prepare.*** Make sure your system satisfies all the [requirements](#requirements).
-2. ***Download.*** You can click to download [`PSALTer.zip`](https://github.com/wevbarker/PSALTer-devel/zipball/master), and unzip in _File Explorer_ using _right-click_ and _Extract All_. Alternatively, if you have _git_ installed, the following _cmd_ command will download _PSALTer_ into the home directory:
+2. ***Download.*** You can click to download [`PSALTer.zip`](https://github.com/wevbarker/PSALTer/zipball/master), and unzip in _File Explorer_ using _right-click_ and _Extract All_. Alternatively, if you have _git_ installed, the following _cmd_ command will download _PSALTer_ into the home directory:
 ```console, cmd, git
 C:\Users\user> git clone https://github.com/wevbarker/PSALTer
 ```
