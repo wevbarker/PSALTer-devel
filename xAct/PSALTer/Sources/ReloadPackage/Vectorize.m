@@ -9,7 +9,7 @@ Vectorize[InputExpr_]:=Module[{TemporaryFileNameEPS,TemporaryFileNamePDF,Tempora
 	Export[TemporaryFileNamePDF,InputExpr,"PDF",AllowRasterization->False];
 
 	Which[
-		($OperatingSystem==="Unix")||($OperatingSystem==="MacOSX")
+		($OperatingSystem==="Unix")
 	,
 		TemporaryFileNameEPS=CreateFile[];
 		TemporaryFileNameEPS//=(#~RenameFile~(#<>".eps"))&;
@@ -18,7 +18,7 @@ Vectorize[InputExpr_]:=Module[{TemporaryFileNameEPS,TemporaryFileNamePDF,Tempora
 		Expr=TemporaryFileNameEPS~Import~{"EPS","Graphics"};
 		TemporaryFileNameEPS//DeleteFile;
 	,
-		$OperatingSystem==="Windows"
+		($OperatingSystem==="Windows")||($OperatingSystem==="MacOSX")
 	,
 		Expr=TemporaryFileNamePDF~Import~{"PDF","PageGraphics"};
 		TemporaryFileNamePDF//DeleteFile;
