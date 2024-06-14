@@ -168,26 +168,29 @@ Alternatively, if you have _git_ installed, the following _bash_ command will do
 ```
 For a local installation of _xAct_, the path may be vary:
 ```console, bash
-[user@system xAct]$ sudo cp -r PSALTer ~/.Mathematica/Applications/xAct/
+[user@system xAct]$ cp -r PSALTer ~/.Mathematica/Applications/xAct/
 ```
 
 #### MacOS
 
 1. ***Prepare.*** Make sure your system satisfies all the [requirements](#requirements).
 2. ***Download.*** You can click to download [`PSALTer.zip`](https://github.com/wevbarker/PSALTer/archive/refs/heads/README.zip), and unzip using:
-```console, bash
-[user@system Downloads]$ unzip ./PSALTer.zip
-[user@system Downloads]$ mv PSALTer-README PSALTer
+```console, zsh 
+user@system ~ % unzip ./PSALTer.zip
 ```
-Alternatively, if you have _git_ installed you can clone the repository directly from _bash_:
-```console, bash, git
-[user@system Downloads]$ git clone https://github.com/wevbarker/PSALTer
+Alternatively, if you have _git_ installed, the following _zsh_ command will download _PSALTer_ into the home directory:
+```console, zsh, git
+user@system ~ % git clone https://github.com/wevbarker/PSALTer
 ```
 
-3. ***Install.*** Copy the `PSALTer/xAct/PSALTer` directory into your _xAct_ installation alongside the other dependencies such as _xTensor_. For a global _xAct_ installation the following may be sufficient: 
-```console, bash
-[user@system Downloads]$ cd PSALTer 
-[user@system PSALTer]$ cp -r ./xAct/PSALTer /usr/share/Mathematica/Applications/xAct/
+3. ***Install.*** To perform the installation, the sources need only be copied to the location of the other _xAct_ sources. For a global installation of _xAct_ this may require:
+```console, zsh 
+user@system ~ % cd PSALTer/xAct
+user@system xAct % sudo cp -r PSALTer /Library/Mathematica/Applications/xAct/
+```
+For a local installation of _xAct_, the path may be vary:
+```console, zsh 
+user@system xAct % cp -r PSALTer ~/Library/Mathematica/Applications/xAct/
 ```
 
 #### Microsoft Windows 
