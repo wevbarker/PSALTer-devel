@@ -9,6 +9,6 @@ rm -rf "C:\Users\user\PSALTer-devel"
 
 git clone https://github.com/wevbarker/PSALTer-devel
 cd PSALTer-devel\xAct
-xcopy /e /k /h /i PSALTer "C:\Program Files\Wolfram Research\Mathematica\14.0\AddOns\Applications\xAct"
+cp -r PSALTer "C:\Program Files\Wolfram Research\Mathematica\14.0\AddOns\Applications\xAct\"
 ls "C:\Program Files\Wolfram Research\Mathematica\14.0\AddOns\Applications\xAct"
 cd "C:\Users\user\Documents\PSALTer-devel"
