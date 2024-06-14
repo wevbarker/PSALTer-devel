@@ -149,7 +149,29 @@ Software dependencies:
 
 ### Installation
 
-#### Linux and MacOS
+#### Linux
+
+1. ***Prepare.*** Make sure your system satisfies all the [requirements](#requirements).
+2. ***Download.*** You can click to download [`PSALTer.zip`](https://github.com/wevbarker/PSALTer/archive/refs/heads/README.zip), and unzip using:
+```console, bash
+[user@system ~]$ unzip ./PSALTer.zip
+```
+Alternatively, if you have _git_ installed, the following _bash_ command will download _PSALTer_ into the home directory:
+```console, bash, git
+[user@system ~]$ git clone https://github.com/wevbarker/PSALTer
+```
+
+3. ***Install.*** To perform the installation, the sources need only be copied to the location of the other _xAct_ sources. For a global installation of _xAct_ this may require:
+```console, bash
+[user@system ~]$ cd PSALTer/xAct
+[user@system xAct]$ sudo cp -r PSALTer /usr/share/Mathematica/Applications/xAct/
+```
+For a local installation of _xAct_, the path may be vary:
+```console, bash
+[user@system xAct]$ sudo cp -r PSALTer ~/.Mathematica/Applications/xAct/
+```
+
+#### MacOS
 
 1. ***Prepare.*** Make sure your system satisfies all the [requirements](#requirements).
 2. ***Download.*** You can click to download [`PSALTer.zip`](https://github.com/wevbarker/PSALTer/archive/refs/heads/README.zip), and unzip using:
