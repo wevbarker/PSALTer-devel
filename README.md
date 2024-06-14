@@ -139,6 +139,7 @@ Basic hardware requirements:
 
 Operating systems:
 - [_Linux_](https://www.linux.org/) (recommended, tested on _Linux v 6.9.1_ via [_Manjaro_](https://manjaro.org/), [_Arch_](https://archlinux.org/), [_RockyLinux 8 (RHEL8)_](https://rockylinux.org/) and [_CentOS7 (RHEL7)_](https://www.centos.org/))
+- [_macOS_](https://www.apple.com/uk/macos) (not recommended, tested on _macOS Monterey_)
 - [_Windows_](https://www.microsoft.com/en-gb/windows?r=1) (not recommended, tested on _Windows 10_)
 
 Software dependencies:
