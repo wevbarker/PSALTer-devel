@@ -5,7 +5,7 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2402.00000-b31b1b.svg)](https://arxiv.org/abs/2405.00000)
 <img src="xAct/PSALTer/Logos/GitHubLogo.png" width="1000">
 
-# Particle Spectrum for Any Tensor Lagrangian (_PSALTer_)
+# _PSALTer_: Particle Spectrum for Any Tensor Lagrangian
 ## Version 1.0.0
 
 - Initial release to accompany pre-print and documentation.
