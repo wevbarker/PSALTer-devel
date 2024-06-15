@@ -101,6 +101,7 @@ $DiagnosticMode=False;
 $MonitorParallel=False;
 $Disabled=False;
 $MatricesOnly=False;
+$NoExport=False;
 IncludeHeader[FunctionName_]:=Module[{PathName},
 	PathName=$InputFileName~StringDrop~(-2);
 	PathName=FileNameJoin@{PathName,FunctionName<>".m"};

@@ -27,7 +27,6 @@ ResultsMosaic[
 	MatricesGroup//=(#~Drop~(-1))&;
 	MatricesGroup//=(#~Join~{FinalElement})&;
 	MaxWidth=Max@((First/@(ImageDimensions/@(MatricesGroup~Join~SpectrumGroup)))~Join~{500});
-	Print@MaxWidth;
 
 	MatricesGroup=GraphicsMosaic[MatricesGroup,MaxWidth];
 	SpectrumGroup=GraphicsMosaic[SpectrumGroup,MaxWidth];
@@ -47,5 +46,4 @@ ResultsMosaic[
 			Alignment->{Left,Center},
 			Background->$PanelColor,
 			Frame->False]&;
-			(*Spacings->{1,1}]&;*)
 FinalGraphic];

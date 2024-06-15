@@ -6,9 +6,9 @@ FieldMosaic[
 		TheDecompositionTable_]:=Module[{
 	DecompositionGroup=TheDecompositionTable,
 	FinalGraphic},
-	
-	DecompositionGroup//=Vectorize;
 
+	If[!$NoExport,DecompositionGroup//=Vectorize;];	
+	
 	FinalGraphic={
 			DecompositionGroup
 	};

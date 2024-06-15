@@ -84,11 +84,11 @@ SummariseField[]:=Module[{
 	If[!$CLI,
 		TheFieldMosaic=FieldMosaic[
 					DecompositionExpansionTable
-					(*BasicInfo,
-					TheDecompositionTable,
-					TheExpansionTable*)];
-		Export[FileNameJoin@{$WorkingDirectory,"FieldKinematics"<>(StringReplace[Context[],{"xAct"->"","PSALTer"->"","`"->""}])<>".pdf"},
-			TheFieldMosaic
+					];
+		If[!$NoExport,
+			Export[FileNameJoin@{$WorkingDirectory,"FieldKinematics"<>(StringReplace[Context[],{"xAct"->"","PSALTer"->"","`"->""}])<>".pdf"},
+				TheFieldMosaic
+			];
 		];
 		Print@TheFieldMosaic;
 	];

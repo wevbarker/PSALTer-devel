@@ -209,6 +209,8 @@ C:\Users\user> cd PSALTer\xAct
 C:\Users\user\PSALTer\xAct> xcopy /e /k /h /i PSALTer "C:\Program Files\Wolfram Research\Mathematica\14.0\AddOns\Applications\xAct"
 ```
 
+## Known bugs 
+
 ## Contribute
 
 Please do! I'm always responsive to emails (about science), so be sure to reach out at [wb263@cam.ac.uk](mailto:wb263@cam.ac.uk).
