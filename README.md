@@ -195,6 +195,7 @@ For a local installation of _xAct_, the path may be vary:
 ```console, zsh 
 user@system xAct % cp -r PSALTer ~/Library/Mathematica/Applications/xAct/
 ```
+4. Make sure you've read the [known bugs](#known-bugs) that can affect _macOS_ users.
 
 #### _Microsoft Windows_
 
@@ -212,7 +213,7 @@ For a local installation of _xAct_, the path may be vary:
 ```console, cmd 
 C:\Users\user\PSALTer> xcopy /e /k /h /i xAct\ "C:\Users\user\AppData\Roaming\Mathematica\Applications\xAct\"
 ```
-4. Make sure you've read the [known bugs](#known-bugs) that
+4. Make sure you've read the [known bugs](#known-bugs) that can affect _Microsoft Windows_ users.
 
 ## Known bugs 
 
