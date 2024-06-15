@@ -206,11 +206,11 @@ C:\Users\user> git clone https://github.com/wevbarker/PSALTer
 3. ***Install.*** To perform the installation, the sources need only be copied to the location of the other _xAct_ sources. For a global installation of _xAct_, you may need to open _File Explorer_ using _right-click_ and _Run as administrator_. Alternatively, use the following _cmd_ commands (again, opening _cmd_ using _Run as administrator_): 
 ```console, cmd
 C:\Users\user> cd PSALTer
-C:\Users\user\PSALTer\xAct> xcopy /e /k /h /i xAct\ "C:\Program Files\Wolfram Research\Mathematica\14.0\AddOns\Applications\xAct\"
+C:\Users\user\PSALTer> xcopy /e /k /h /i xAct\ "C:\Program Files\Wolfram Research\Mathematica\14.0\AddOns\Applications\xAct\"
 ```
 For a local installation of _xAct_, the path may be vary:
 ```console, cmd 
-C:\Users\user\PSALTer\xAct> xcopy /e /k /h /i xAct\ "C:\Users\user\AppData\Roaming\Mathematica\Applications\xAct\"
+C:\Users\user\PSALTer> xcopy /e /k /h /i xAct\ "C:\Users\user\AppData\Roaming\Mathematica\Applications\xAct\"
 ```
 
 ## Known bugs 
