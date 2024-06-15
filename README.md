@@ -46,7 +46,7 @@ Next, we define Lagrangian couplings $\alpha$ and $\beta$ as `Coupling1` and `Co
 DefConstantSymbol[Coupling1,PrintAs->"\[Alpha]"];
 DefConstantSymbol[Coupling2,PrintAs->"\[Beta]"];
 ```
-Next, we use the command `DefField` from _PSALTer_ to define the metric perturbation $h_{\mu\nu}$ as the symmetric, rank-two tensor field `LinearMetric`:
+Next, we use the command `DefField` from _PSALTer_ to define the metric perturbation $h_{\mu\nu}$ as the symmetric, rank-two tensor field `MetricPerturbation`:
 ```mathematica
 DefField[
     MetricPerturbation[-a,-b],
@@ -82,7 +82,7 @@ The output should look like:
 
 ## Documentation 
 
-The documentation notebook is at `PSALTer/xAct/PSALTer/Documentation/English/Documentation.nb`.
+The documentation notebook is at `PSALTer/xAct/PSALTer/Documentation/English/Documentation.nb`. It is strongly recommended to read [the accompanying paper](https://arxiv.org/abs/2405.00000).
 
 ## General use 
 
