@@ -218,7 +218,7 @@ ParticleSpectrumActual[Expr_,OptionsPattern[]]:=Catch@If[
 					$LocalMasslessSpectrum,
 					$LocalOverallUnitarity]<>"\"");
 		,
-			Check[
+			If[!$NoExport,
 				PDFSummaryOfResults=SummariseResults[
 						OptionValue@TheoryName,
 						$LocalWaveOperator,

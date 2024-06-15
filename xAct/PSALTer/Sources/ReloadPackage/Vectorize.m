@@ -2,27 +2,43 @@
 (*  Vectorize  *)
 (*=============*)
 
-Vectorize[InputExpr_]:=Module[{TemporaryFileNameEPS,TemporaryFileNamePDF,TemporaryFileNameTXT,Vectorized=ResourceFunction["RandomString"][10],Expr},
+VectorizeEPS[InputExpr_]:=Module[{TemporaryFileNameEPS,TemporaryFileNamePDF,Expr},
 
 	TemporaryFileNamePDF=CreateFile[];
 	TemporaryFileNamePDF//=(#~RenameFile~(#<>".pdf"))&;
 	Export[TemporaryFileNamePDF,InputExpr,"PDF",AllowRasterization->False];
 
+	TemporaryFileNameEPS=CreateFile[];
+	TemporaryFileNameEPS//=(#~RenameFile~(#<>".eps"))&;
+	RunProcess@{"inkscape",TemporaryFileNamePDF,"--export-eps="<>TemporaryFileNameEPS};
+	TemporaryFileNamePDF//DeleteFile;
+	Expr=TemporaryFileNameEPS~Import~{"EPS","Graphics"};
+	TemporaryFileNameEPS//DeleteFile;
+Expr];
+
+VectorizePDF[InputExpr_]:=Module[{TemporaryFileNameEPS,TemporaryFileNamePDF,Expr},
+
+	TemporaryFileNamePDF=CreateFile[];
+	TemporaryFileNamePDF//=(#~RenameFile~(#<>".pdf"))&;
+	Export[TemporaryFileNamePDF,InputExpr,"PDF",AllowRasterization->False];
+
+	Expr=TemporaryFileNamePDF~Import~{"PDF","PageGraphics"};
+	TemporaryFileNamePDF//DeleteFile;
+	Expr//=First;
+Expr];
+
+Vectorize[InputExpr_]:=Module[{TemporaryFileNameEPS,TemporaryFileNamePDF,Expr=InputExpr},
+
+
 	Which[
 		($OperatingSystem==="Unix")||($OperatingSystem==="MacOSX")
 	,
-		TemporaryFileNameEPS=CreateFile[];
-		TemporaryFileNameEPS//=(#~RenameFile~(#<>".eps"))&;
-		Run@("inkscape "<>TemporaryFileNamePDF<>" --export-eps="<>TemporaryFileNameEPS);
-		TemporaryFileNamePDF//DeleteFile;
-		Expr=TemporaryFileNameEPS~Import~{"EPS","Graphics"};
-		TemporaryFileNameEPS//DeleteFile;
+		(Expr=InputExpr//VectorizeEPS;)~Check~(Expr=InputExpr//VectorizePDF;)
 	,
-		$OperatingSystem==="Windows"
+		($OperatingSystem==="Windows")
 	,
-		Expr=TemporaryFileNamePDF~Import~{"PDF","PageGraphics"};
-		TemporaryFileNamePDF//DeleteFile;
-		Expr//=First;
-		(*Run@("where /r \"C:\\Program Files\" inkscape.com > \""<>TemporaryFileNameTXT<>"\" & set /p myvar= < \""<>TemporaryFileNameTXT<>"\" & \"%myvar%\" "<>TemporaryFileNamePDF<>" --export-eps="<>TemporaryFileNameEPS);*)
+		Expr=InputExpr//VectorizePDF;
 	];
 Expr];
+
+(*Run@("where /r \"C:\\Program Files\" inkscape.com > \""<>TemporaryFileNameTXT<>"\" & set /p myvar= < \""<>TemporaryFileNameTXT<>"\" & \"%myvar%\" "<>TemporaryFileNamePDF<>" --export-eps="<>TemporaryFileNameEPS);*)

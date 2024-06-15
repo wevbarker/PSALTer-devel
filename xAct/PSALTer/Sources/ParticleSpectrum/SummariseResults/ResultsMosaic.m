@@ -38,7 +38,7 @@ ResultsMosaic[
 	,
 		FinalGraphic={
 				MatricesGroup,
-				SpectrumGroup,
+				SpectrumGroup
 		};
 	];
 
@@ -46,5 +46,4 @@ ResultsMosaic[
 			Alignment->{Left,Center},
 			Background->$PanelColor,
 			Frame->False]&;
-			(*Spacings->{1,1}]&;*)
 FinalGraphic];

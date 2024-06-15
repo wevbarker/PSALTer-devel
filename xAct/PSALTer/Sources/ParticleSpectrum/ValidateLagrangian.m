@@ -34,6 +34,6 @@ ValidateLagrangian[InputExpr_,OptionsPattern[]]:=Module[{
 	TensorsValue=DeleteCases[Expr,_?ConstantSymbolQ];
 	(MemberQ[TensorsValue,epsilonG])~If~(Throw@Message@ParticleSpectrum::ParityOdd);
 	(((Length@Names@("xAct`PSALTer`"<>ToString@#<>"`*"))===0)~If~(Throw@Message[ParticleSpectrum::UnknownField,#]))&/@TensorsValue;
-	(((ResourceFunction["PolynomialDegree"][#,LagrangianCouplingsValue]!=1)&&(OptionValue@Method==="Hard"))~If~(Throw@Message[ParticleSpectrum::NonLinearCouplings,#]))&/@PolyExpr;
+	(((ResourceFunction["PolynomialDegree"][#,LagrangianCouplingsValue]!=1)&&((OptionValue@Method)==="Hard"))~If~(Throw@Message[ParticleSpectrum::NonLinearCouplings,#]))&/@PolyExpr;
 	((ResourceFunction["PolynomialDegree"][#,TensorsValue]>2)~If~(Throw@Message[ParticleSpectrum::NonQuadraticFields,#]))&/@PolyExpr;
 ];	

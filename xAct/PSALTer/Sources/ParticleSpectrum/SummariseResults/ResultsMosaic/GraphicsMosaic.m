@@ -18,7 +18,10 @@ GraphicsMosaic[InputExpr_?ListQ,MosaicWidth_?IntegerQ]:=Module[{
 
 	GraphicsDimensions=ImageDimensions/@(InputExpr);
 	MaxWidth=Max@{MosaicWidth,500};
-	FrameSize={Ceiling[5.*#],Ceiling[1.01*#]}&@(MaxWidth);
+	If[MaxWidth>2000,
+		FrameSize={Ceiling[5.*#],Ceiling[1.01*#]}&@(MaxWidth);,
+		FrameSize={Ceiling[5.*#],Ceiling[1.9*#]}&@(MaxWidth);
+	];
 	{FrameSize,Packing}=ShrinkPackRectangles[FrameSize,GraphicsDimensions];
 	MosaicSize=Max/@Transpose@((#[[2]])&/@Packing);
 	DummyPacking=Graphics[{FaceForm[LightYellow],

@@ -3,22 +3,14 @@
 (*===============*)
 
 FieldMosaic[
-		BasicInfo_,
-		TheDecompositionTable_,
-		TheExpansionTable_]:=Module[{
-	BasicInfoGroup=BasicInfo,
+		TheDecompositionTable_]:=Module[{
 	DecompositionGroup=TheDecompositionTable,
-	ExpansionGroup=TheExpansionTable,
 	FinalGraphic},
-	
-	BasicInfoGroup//=Vectorize;
-	DecompositionGroup//=Vectorize;
-	ExpansionGroup//=Vectorize;
 
+	If[!$NoExport,DecompositionGroup//=Vectorize;];	
+	
 	FinalGraphic={
-			BasicInfoGroup,
-			DecompositionGroup,
-			ExpansionGroup	
+			DecompositionGroup
 	};
 
 	FinalGraphic//=Column[#,
