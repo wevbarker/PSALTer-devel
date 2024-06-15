@@ -215,7 +215,7 @@ C:\Users\user\PSALTer> xcopy /e /k /h /i xAct\ "C:\Users\user\AppData\Roaming\Ma
 
 ## Known bugs 
 
-Currently, all the known bugs affect just the production of the final output graphic and PDF file. The process of producing a vectorised, publication-grade graphic is convoluted; information boxes have to be exported as temporary PDF files, converted to EPS files using _Inkscape_ (not on _Microsoft Windows_), and re-imported as vector graphics to be rectangle-packed and re-exported again. Currently, this is a process which works flawlessly only on _Linux_.
+Currently, all the known bugs affect just the production of the final output graphic and PDF file. The process of producing a vectorised, publication-grade graphic is convoluted; information boxes have to be exported as temporary PDF files, converted to EPS files using _Inkscape_ (not on _Microsoft Windows_), and re-imported as vector graphics to be rectangle-packed and re-exported again. Currently, this is a process which works very well only on _Linux_.
 
 :warning: **If you just want to get the science results, without the PDF, you should run in your notebook the line `` xAct`PSALTer`Private`$NoExport=True `` before using `DefField` or `ParticleSpectrum`. This is a temporary fix, and will result in a less compact form of final output graphic that is not exported to a PDF. You can still try to export this graphic manually using the drop-down menus.**
 
