@@ -8,6 +8,7 @@ Comment@"We will set up an antisymmetric rank-three tensor field (the perturbati
 Code[
 	DefField[SpinConnection[-a,-b,-c],Antisymmetric[{-a,-b}],PrintAs->"\[Omega]",PrintSourceAs->"\[Sigma]"];
 ];
+Supercomment@"Note the error message from the above. In fact, there is nothing wrong. As part of its internal self-consistency checks, ";
 Comment@"We will also set up an asymmetric tensor field (the perturbation of the tetrad).";
 Code[
 	DefField[TetradPerturbation[-a,-b],PrintAs->"\[ScriptF]",PrintSourceAs->"\[Tau]"];

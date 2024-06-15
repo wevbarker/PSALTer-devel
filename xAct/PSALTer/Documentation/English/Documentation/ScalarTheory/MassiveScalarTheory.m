@@ -19,12 +19,10 @@ Comment@"We find that the massless eigenvalue has disappeared, but the propagato
 Comment@"Now we consider an example where we have a non-linear coupling coefficient parameterisation of the Lagrangian.";
 LinearisedLagrangian=CD[-a]@ScalarField[]CD[a]@ScalarField[]-Coupling2^2*ScalarField[]*ScalarField[];
 DisplayExpression@LinearisedLagrangian;
-xAct`PSALTer`Private`$Disabled=False;
 	ParticleSpectrum[
 		LinearisedLagrangian,
 		TheoryName->"MassiveScalarTheoryNonLinearParameterisation",
 		Method->"Easy",
 		MaxLaurentDepth->3
 	];
-xAct`PSALTer`Private`$Disabled=True;
 *)

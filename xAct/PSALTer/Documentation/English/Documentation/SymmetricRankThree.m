@@ -5,7 +5,7 @@
 Subsection@"Singh-Hagen theory";
 Comment@"We want to study the theories which are considered in Phys. Rev. D. 9, 898 (1974) and arXiv:1902.05118";
 
-Comment@"Then we define the higher-spin field:";
+Comment@"we define the higher-spin field:";
 Code[
 	DefField[HigherSpinField[-a,-b,-c],Symmetric[{-a,-b,-c}],
 		PrintAs->"\[ScriptH]",PrintSourceAs->"\[ScriptCapitalF]"];

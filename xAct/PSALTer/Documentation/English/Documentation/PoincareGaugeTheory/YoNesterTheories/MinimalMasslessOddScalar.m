@@ -22,12 +22,10 @@ NonlinearLagrangian=HSNonlinearLagrangian/.{Alp0->4*Bet1,Alp1->0,Alp2->0,Alp4->0
 NonlinearLagrangian=NonlinearLagrangian/.{Bet1->Bet1^2,Alp3->1};
 DisplayExpression@CollectTensors@ToCanonical[NonlinearLagrangian];
 LinearLagrangian=LineariseLagrangian[NonlinearLagrangian];
-xAct`PSALTer`Private`$Disabled=False;
 	ParticleSpectrum[
 		LinearLagrangian,
 		TheoryName->"MinimalMasslessOddScalar",	
 		Method->"Easy",
 		MaxLaurentDepth->3
 	];
-xAct`PSALTer`Private`$Disabled=True;
 *)
