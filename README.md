@@ -147,7 +147,7 @@ Software dependencies:
 - [_Mathematica_](https://www.wolfram.com/mathematica/) (required, tested on _Mathematica v 14.0.0.0_)
 - [_xAct_](http://www.xact.es/) (required packages [_xTensor_](http://www.xact.es/xCoba/index.html), [_SymManipulator_](http://www.xact.es/SymManipulator/index.html), [_xPerm_](http://www.xact.es/xPerm/index.html), [_xCore_](http://www.xact.es/xCore/index.html), [_xTras_](http://www.xact.es/xTras/index.html) and [_xCoba_](http://www.xact.es/xCoba/index.html), tested on _xAct v 1.2.0_)
 - [_RectanglePacking_](https://resources.wolframcloud.com/PacletRepository/resources/JasonB/RectanglePacking/) (recommended, tested on _RectanglePacking v 1.0.0_)
-- [_Inkscape v 1.3.2_](https://inkscape.org/) (recommended for _Linux_ and _macOS_ only)
+- [_Inkscape_](https://inkscape.org/) (recommended for _Linux_ and _macOS_ only, tested on _Inkscape v 1.3.2_)
 
 ### Installation
 
@@ -226,7 +226,7 @@ If you decide to continue with the default behaviour, you may encounter the foll
 1. A reliable error on _macOS_ generating the messages `RunProcess::pnfd` and `Import::fmterr`. As suggested by the messages, check `Environment["PATH"]` in your notebook. The result should include the path of the directory containing the _Inkscape_ binary on your system. You can find out where that binary is located using `which inkscape` in _zsh_, and ammend the path accordingly in the notebook using `SetEnvironment`.
 2. A sporadic error on all operating systems generating the messages `Transpose::nmtx`, `FindPermutation::norel`, `MapThread::mptd`, `Part::partw`. The cause of this is not clear.
 3. A reliable error on _macOS_ and _Microsoft Windows_ involving more-or-less misplaced glyphs in the output graphic. This happens when _PSALTer_ is unable to use _Inkscape_ on the system (the default case for _Microsoft Windows_), and so it defaults to re-importing the PDF graphics rather than converting to EPS. The _Mathematica_ PDF importer is well-known to have lots of problems, and so it usually corrupts the figure to some extent.
-4. A sporadic error on _Linux_ and _macOS_ involving missing or incorrect glyphs in the output graphic. This seems to happen when _Inkscape_ was successfully used. On _Linux_, the problem has to do with installed fonts, and it may be solved by upgrading your system (and rebooting).
+4. A sporadic error on _Linux_ and _macOS_ involving missing or incorrect glyphs in the output graphic. This seems to happen when _Inkscape_ was only partially successful. On _Linux_, the problem has to do with installed fonts, and it may be solved by upgrading your system (and rebooting).
 
 ## Contribute
 
