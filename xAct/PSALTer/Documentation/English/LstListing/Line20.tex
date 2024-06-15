@@ -1,1 +1,1 @@
-In[#]:= ParticleSpectrum[Coupling2 * CD[-a][VectorField[a]] * CD[-b][VectorField[b]], TheoryName -> "LongitudinalMassless", Method -> "Easy", MaxLaurentDepth -> 3]; 
+In[#]:= ParticleSpectrum[Coupling2 * CD[-a][VectorField[a]] * CD[-b][VectorField[b]] + Coupling1 * CD[-b][VectorField[-a]] * CD[b][VectorField[a]], TheoryName -> "SickMaxwellTheory", Method -> "Easy", MaxLaurentDepth -> 3]; 
