@@ -101,30 +101,30 @@ When you first run `` <<xAct`PSALTer` `` the software defines a Minkowski manifo
 _PSALTer_ defines _two_ functions. To define a tensor field you use `DefField`, which has a very similar syntax to `DefTensor` in _xTensor_:
 ```mathematica
 DefField[
-    FieldName_[Inds___],
-    Symm_,
+    FieldNameValue_[IndsValue___],
+    SymmValue_,
     PrintAs->PrintAsValue_,
     PrintSourceAs->PrintSourceAsValue_
 ];
 ```
 The arguments and options are as follows:
-- `FieldName` is the symbolic name of the new field.
-- `Inds` are the indices of `FieldName`, if any.
-- `Symm` is the intended index-symmetry on `Inds`. The syntax is the same as in `DefTensor`.
-- `PrintAsValue` is the string that `FieldName` will format as. The syntax is the same as in `DefTensor`.
-- `PrintSourceAsValue` is the string that the source conjugate to `FieldName` will format as.
+- `FieldNameValue` is the symbolic name of the new field.
+- `IndsValue` are the indices of `FieldNameValue`, if any.
+- `SymmValue` is the intended index-symmetry on `IndsValue`. The syntax is the same as in `DefTensor`.
+- `PrintAsValue` is the string that `FieldNameValue` will format as. The syntax is the same as in `DefTensor`.
+- `PrintSourceAsValue` is the string that the source conjugate to `FieldNameValue` will format as.
 
 To compute a spectrum use `ParticleSpectrum`:
 ```mathematica
 ParticleSpectrum[
-    Lagrangian_,
+    LagrangianValue_,
     TheoryName->TheoryNameValue_,
     Method->MethodValue_,
     MaxLaurentDepth->MaxLaurentDepthValue_
 ];
 ```
 The arguments and options are as follows:
-- `Lagrangian` must be a valid linearised Lagrangian density. The expression must be a Lorentz-scalar. Each term must be quadratic in the field(s) `FieldName` defined using `DefField`. Each term must be linear in coupling constants defined using `DefConstantSymbol` from _xTensor_. Other allowed ingredients are `CD` acting on field(s) `FieldName` and `G` used to contract indices. Do _not_ use an odd power of `epsilonG`, which will result in a parity-odd theory. Do _not_ include the term coupling the fields to their conjugate sources, this is automatically included.
+- `LagrangianValue` must be a valid linearised Lagrangian density. The expression must be a Lorentz-scalar. Each term must be quadratic in the field(s) `FieldNameValue` defined using `DefField`. Each term must be linear in coupling constants defined using `DefConstantSymbol` from _xTensor_. Other allowed ingredients are `CD` acting on field(s) `FieldNameValue` and `G` used to contract indices. Do _not_ use an odd power of `epsilonG`, which will result in a parity-odd theory. Do _not_ include the term coupling the fields to their conjugate sources, this is automatically included.
 - `TheoryNameValue` can be any string. This is used for labelling the output files.
 - `MethodValue` can be either of the strings `"Easy"` (default) or `"Hard"` (experimental, uses home-brewed implementations of the symbolic Moore-Penrose inverse and other innovations).
 - `MaxLaurentDepthValue` can be `1`, `2` or `3`. This sets the maximum positive integer $n$ for which the $1/k^{2n}$ null pole residues are requested. The default is `1`, from which the massless spectrum can be obtained. Setting higher $n$ naturally leads to longer runtimes, but also allows potential (pathological) higher-order/non-simple propagator poles to be identified, down to the requested depth.
