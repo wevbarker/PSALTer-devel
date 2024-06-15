@@ -52,7 +52,8 @@ DefField[
     MetricPerturbation[-a,-b],
     Symmetric[{-a,-b}],
     PrintAs->"\[ScriptH]",
-    PrintSourceAs->"\[ScriptCapitalT]"];
+    PrintSourceAs->"\[ScriptCapitalT]"
+];
 ```
 The output should look like:
 
