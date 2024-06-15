@@ -8,6 +8,7 @@ Comment@"Let's define a connection field:";
 Code[
 	DefField[Connection[-a,-b,-c],PrintAs->"\[CapitalGamma]",PrintSourceAs->"\[CapitalDelta]"];
 ];
+Supercojment@"This time there are two negative-parity spin-two modes, so there are two error messages. As before, these do not signal a real problem.";
 Comment@"We will define some more coupling constants:";
 Code[
 	DefConstantSymbol[A0,PrintAs->"\!\(\*SubscriptBox[\(\[ScriptA]\), \(0\)]\)"];

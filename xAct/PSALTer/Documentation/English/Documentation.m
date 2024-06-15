@@ -15,7 +15,7 @@ Get@FileNameJoin@{$ThisDirectory,"Documentation","HowToUse.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","LoadingPSALTer.m"};
 
 Chapter@"Science applications";
-xAct`PSALTer`Private`$Disabled=False;
+xAct`PSALTer`Private`$Disabled=True;
 xAct`PSALTer`Private`$DiagnosticMode=False;
 $ReadOnly=True;
 xAct`PSALTer`Private`$NoExport=True;

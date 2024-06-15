@@ -8,7 +8,7 @@ Comment@"We will set up an antisymmetric rank-three tensor field (the perturbati
 Code[
 	DefField[SpinConnection[-a,-b,-c],Antisymmetric[{-a,-b}],PrintAs->"\[Omega]",PrintSourceAs->"\[Sigma]"];
 ];
-Supercomment@"Note the error message from the above. In fact, there is nothing wrong. As part of its internal self-consistency checks, ";
+Supercomment@"Note the error message from the above. In fact, there is nothing wrong. As part of its internal self-consistency checks, DefField will check that expansion followed by decomposition returns the original quantity, and vice versa. However, ToCanonical is not capable of taking into account the fact that the negative-parity spin-two mode has an extra cyclic symmetry on its indices, which makes it look like decomposition is not the inverse of expansion. The inability to handle multi-term symmetries is a well-known limitation of xAct.";
 Comment@"We will also set up an asymmetric tensor field (the perturbation of the tetrad).";
 Code[
 	DefField[TetradPerturbation[-a,-b],PrintAs->"\[ScriptF]",PrintSourceAs->"\[Tau]"];
