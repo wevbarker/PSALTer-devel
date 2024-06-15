@@ -112,7 +112,7 @@ The arguments and options are as follows:
 - `IndsValue` are the indices of `FieldNameValue`, if any.
 - `SymmValue` is the intended index-symmetry on `IndsValue`. The syntax is the same as in `DefTensor`.
 - `PrintAsValue` is the string that `FieldNameValue` will format as. The syntax is the same as in `DefTensor`.
-- `PrintSourceAsValue` is the string that the source conjugate to `FieldNameValue` will format as.
+- `PrintSourceAsValue` is the string that the source conjugate to `FieldNameValue` will us as format.
 
 To compute a spectrum use `ParticleSpectrum`:
 ```mathematica
