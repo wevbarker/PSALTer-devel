@@ -103,8 +103,8 @@ _PSALTer_ defines _two_ functions. To define a tensor field you use `DefField`, 
 DefField[
     FieldName_[Inds___],
     Symm_,
-    PrintAs->PrintAsValue_?String,
-    PrintSourceAs->PrintSourceAsValue_?String
+    PrintAs->PrintAsValue_,
+    PrintSourceAs->PrintSourceAsValue_
 ];
 ```
 The arguments and options are as follows:
@@ -118,8 +118,8 @@ To compute a spectrum use `ParticleSpectrum`:
 ```mathematica
 ParticleSpectrum[
     Lagrangian_,
-    TheoryName->TheoryNameValue_?String,
-    Method->MethodValue_?String,
+    TheoryName->TheoryNameValue_,
+    Method->MethodValue_,
     MaxLaurentDepth->MaxLaurentDepthValue_
 ];
 ```
