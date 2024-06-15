@@ -90,7 +90,7 @@ Mo::usage="Mo is the constant symbol which represents the relativistic momentum,
 (*  Declaration of global variables  *)
 (*===================================*)
 
-$ReadOnly::usage="$ReadOnly is a boolean variable which controls whether the analysis is actually performed or simply read in from a PDF file. Default is False.";
+$ReadOnly::usage="$ReadOnly is a boolean variable which controls whether the analysis is actually performed or simply read in from a binary file. Default is False.";
 
 (*=========================*)
 (*  xAct`PSALTer`Private`  *)
