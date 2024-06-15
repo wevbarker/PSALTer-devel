@@ -55,6 +55,7 @@ Catch@Code[LinearLagrangian,
 		MaxLaurentDepth->3
 	];
 ];
+(*
 Comment@"Try passing a Lagrangian density which is not linear in the coupling constants:";
 LinearLagrangian=CD[-a]@ScalarField[]CD[a]@ScalarField[]+Coupling2^2*ScalarField[]^2;
 DisplayExpression@LinearLagrangian;
@@ -66,6 +67,7 @@ Catch@Code[LinearLagrangian,
 		MaxLaurentDepth->3
 	];
 ];
+*)
 Comment@"Try passing a Lagrangian density which is not parity-even:";
 LinearLagrangian=Coupling1*epsilonG[a,b,c,d]CD[-a]@ScalarField[]CD[-b]@TwoFormField[-c,-d];
 DisplayExpression@LinearLagrangian;
