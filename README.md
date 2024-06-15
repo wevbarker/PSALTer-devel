@@ -150,7 +150,7 @@ Software dependencies:
 
 ### Installation
 
-#### Linux
+#### _Linux_
 
 1. ***Prepare.*** Make sure your system satisfies all the [requirements](#requirements).
 2. ***Download.*** You can click to download [`PSALTer.zip`](https://github.com/wevbarker/PSALTer/zipball/master), and unzip using:
@@ -173,7 +173,7 @@ For a local installation of _xAct_, the path may be vary:
 [user@system xAct]$ cp -r PSALTer ~/.Mathematica/Applications/xAct/
 ```
 
-#### MacOS
+#### _MacOS_
 
 1. ***Prepare.*** Make sure your system satisfies all the [requirements](#requirements).
 2. ***Download.*** You can click to download [`PSALTer.zip`](https://github.com/wevbarker/PSALTer/zipball/master), and unzip using:
@@ -196,7 +196,7 @@ For a local installation of _xAct_, the path may be vary:
 user@system xAct % cp -r PSALTer ~/Library/Mathematica/Applications/xAct/
 ```
 
-#### Microsoft Windows 
+#### _Microsoft Windows_
 
 1. ***Prepare.*** Make sure your system satisfies all the [requirements](#requirements).
 2. ***Download.*** You can click to download [`PSALTer.zip`](https://github.com/wevbarker/PSALTer/zipball/master), and unzip in _File Explorer_ using _right-click_ and _Extract All_. Alternatively, if you have _git_ installed, the following _cmd_ command will download _PSALTer_ into the home directory:
@@ -214,6 +214,8 @@ C:\Users\user\PSALTer> xcopy /e /k /h /i xAct\ "C:\Users\user\AppData\Roaming\Ma
 ```
 
 ## Known bugs 
+
+1. An error on _macOS_ involving the messages `RunProcess::pnfd` and `Import::fmterr`. 
 
 ## Contribute
 
