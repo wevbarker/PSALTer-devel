@@ -5,8 +5,8 @@
 Subsection@"Loading the package";
 Comment@"If not already installed, you will probably need the following dependency:";
 Code[PacletInstall["JasonB/RectanglePacking"];];
-Comment@"This improves the formatting of the final output graphic. If you are having problems with the production of this graphic (especially for macOS or Microsoft Windows users), and just want to do science with PSALTer without high-quality output graphics, you should set this global variable equal to False (a temporary fix):";
-Code[Print@Evaluate@xAct`PSALTer`Private`$NoExport;];
+Comment@"This improves the formatting of the final output graphic. If you are having problems with the production of this graphic (especially for macOS or Microsoft Windows users), and just want to do science with PSALTer without high-quality output graphics, you should set this global variable equal to True (a temporary fix):";
+Code[xAct`PSALTer`Private`$NoExport=False;];
 Comment@"The first step after installing is to load the PSALTer package:";
 Code[<<xAct`PSALTer`;];
 Comment@"PSALTer is now loaded. It is helpful to briefly review all the symbols which are provided by the package:";
