@@ -33,11 +33,11 @@ Vectorize[InputExpr_]:=Module[{TemporaryFileNameEPS,TemporaryFileNamePDF,Expr=In
 	Which[
 		($OperatingSystem==="Unix")||($OperatingSystem==="MacOSX")
 	,
-		(Expr//=VectorizeEPS;)~Check~(Expr//=VectorizePDF;)
+		(Expr=InputExpr//VectorizeEPS;)~Check~(Expr=InputExpr//VectorizePDF;)
 	,
 		($OperatingSystem==="Windows")
 	,
-		Expr//=VectorizePDF;
+		Expr=InputExpr//VectorizePDF;
 	];
 Expr];
 
