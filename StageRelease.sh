@@ -10,7 +10,11 @@ cd ~/Documents/PSALTer-devel
 git add .
 git commit -m "push for merge with master"
 git push GitHubOrigin README
+<<<<<<< HEAD
 cd ~/Documents/PSALTer-stager
+=======
+cd ~/Documents/PSALTer-stage
+>>>>>>> 65e930566355917fd5d67e3c81fa557ebc7aab5d
 git checkout README
 git pull
 git checkout master 
