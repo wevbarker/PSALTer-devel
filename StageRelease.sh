@@ -1,16 +1,16 @@
 #!/bin/bash
 
-echo ">>>>> moving to PSALTer-devel"
+echo ">>>>> cd ~/Documents/PSALTer-devel"
 cd ~/Documents/PSALTer-devel
-echo ">>>>> copying FieldKinematics PDF"
+echo ">>>>> cp xAct/PSALTer/Documentation/English/FieldKinematicsMetricPerturbation.pdf xAct/PSALTer/Logos/FieldKinematics.pdf"
 cp xAct/PSALTer/Documentation/English/FieldKinematicsMetricPerturbation.pdf xAct/PSALTer/Logos/FieldKinematics.pdf
-echo ">>>>> copying ParticleSpectrograph PDF"
+echo ">>>>> cp xAct/PSALTer/Documentation/English/ParticleSpectrographMassiveGravity.pdf xAct/PSALTer/Logos/ParticleSpectrograph.pdf"
 cp xAct/PSALTer/Documentation/English/ParticleSpectrographMassiveGravity.pdf xAct/PSALTer/Logos/ParticleSpectrograph.pdf
-echo ">>>>> moving to Logos directory"
+echo ">>>>> cd xAct/PSALTer/Logos"
 cd xAct/PSALTer/Logos
-echo ">>>>> converting FieldKinematics"
+echo ">>>>> convert -density 400 FieldKinematics.pdf FieldKinematics.png"
 convert -density 400 FieldKinematics.pdf FieldKinematics.png 
-echo ">>>>> converting ParticleSpectrograph"
+echo ">>>>> convert -density 400 ParticleSpectrograph.pdf ParticleSpectrograph.png"
 convert -density 400 ParticleSpectrograph.pdf ParticleSpectrograph.png 
 echo ">>>>> git add ."
 git add .
@@ -18,7 +18,7 @@ echo ">>>>> git commit"
 git commit -m "push for merge with master"
 echo ">>>>> git push GitHubOrigin README"
 git push GitHubOrigin README
-echo ">>>>> moving to stager"
+echo ">>>>> cd ~/Documents/PSALTer-stager"
 cd ~/Documents/PSALTer-stager
 echo ">>>>> git checkout README"
 git checkout README

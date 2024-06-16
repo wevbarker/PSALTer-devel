@@ -2,7 +2,7 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2311.11790-b31b1b.svg)](https://arxiv.org/abs/2311.11790)
 [![arXiv](https://img.shields.io/badge/arXiv-2402.07641-b31b1b.svg)](https://arxiv.org/abs/2402.07641)
 [![arXiv](https://img.shields.io/badge/arXiv-2402.14917-b31b1b.svg)](https://arxiv.org/abs/2402.14917)
-[![arXiv](https://img.shields.io/badge/arXiv-2402.00000-b31b1b.svg)](https://arxiv.org/abs/2405.00000)
+[![arXiv](https://img.shields.io/badge/arXiv-2402.00000-b31b1b.svg)](https://arxiv.org/abs/2406.00000)
 <img src="xAct/PSALTer/Logos/GitHubLogo.png" width="1000">
 
 # _PSALTer_: Particle Spectrum for Any Tensor Lagrangian
@@ -83,7 +83,7 @@ The output should look like:
 
 ## Documentation 
 
-The documentation notebook is at `PSALTer/xAct/PSALTer/Documentation/English/Documentation.nb`. It is strongly recommended to read [the accompanying paper](https://arxiv.org/abs/2405.00000).
+The documentation notebook is at `PSALTer/xAct/PSALTer/Documentation/English/Documentation.nb`. It is strongly recommended to read [the accompanying paper](https://arxiv.org/abs/2406.00000).
 
 ## General use 
 
@@ -128,7 +128,7 @@ The arguments and options are as follows:
 - `LagrangianValue` must be a valid linearised Lagrangian density. The expression must be a Lorentz-scalar. Each term must be quadratic in the field(s) `FieldNameValue` defined using `DefField`. Each term must be linear in coupling constants defined using `DefConstantSymbol` from _xTensor_. Other allowed ingredients are `CD` acting on field(s) `FieldNameValue` and `G` used to contract indices. Do _not_ use an odd power of `epsilonG`, which will result in a parity-odd theory. Do _not_ include the term coupling the fields to their conjugate sources: this is automatically included.
 - `TheoryNameValue` can be any string. This is used for labelling the output files.
 - `MethodValue` can be either of the strings `"Easy"` (default) or `"Hard"` (experimental, uses home-brewed implementations of the symbolic Moore-Penrose inverse and other innovations).
-- `MaxLaurentDepthValue` can be `1`, `2` or `3`. This sets the maximum positive integer $n$ for which the $1/k^{2n}$ null pole residues are requested. The default is `1`, from which the massless spectrum can be obtained. Setting higher $n$ naturally leads to longer runtimes, but also allows potential (pathological) higher-order/non-simple propagator poles to be identified, down to the requested depth.
+- `MaxLaurentDepthValue` can be `1`, `2` or `3`. This sets the maximum positive integer $n$ for which the $1/k^{2n}$ null pole residues are requested. The default is `1`, from which the massless spectrum can be obtained. Setting higher $n$ naturally leads to longer wallclock times, but also allows potential (pathological) higher-order/non-simple propagator poles to be identified, down to the requested depth.
 
 ## Quickstart 
 
@@ -226,7 +226,7 @@ Currently, all the known bugs affect just the production of the final output gra
 :warning: **If you just want to get the science results, without the PDF, you should run in your notebook the line `` xAct`PSALTer`Private`$NoExport=True `` before using `DefField` or `ParticleSpectrum`. This is a temporary fix, and will result in a less compact form of final output graphic that is not exported to a PDF. You can still try to export this graphic manually using the drop-down menus.**
 
 If you decide to continue with the default behaviour, you may encounter the following errors:
-1. A reliable error on _macOS_ generating the messages `RunProcess::pnfd` and `Import::fmterr`. As suggested by the messages, check `Environment["PATH"]` in your notebook. The result should include the path of the directory containing the _Inkscape_ binary on your system. You can find out where that binary is located using `which inkscape` in _zsh_, and ammend the path accordingly in the notebook using `SetEnvironment`.
+1. A reliable error on _macOS_ generating the messages `RunProcess::pnfd` and `Import::fmterr`. As suggested by the messages, check `Environment["PATH"]` in your notebook. The result should include the path of the directory containing the _Inkscape_ binary on your system. You can find out where that binary is located using `which inkscape` in _zsh_, and amend the path accordingly in the notebook using `SetEnvironment`.
 2. A sporadic error on all operating systems generating the messages `Transpose::nmtx`, `FindPermutation::norel`, `MapThread::mptd`, `Part::partw`. The cause of this is not clear.
 3. A reliable error on _macOS_ and _Microsoft Windows_ involving more-or-less misplaced glyphs in the output graphic. This happens when _PSALTer_ is unable to use _Inkscape_ on the system (the default case for _Microsoft Windows_), and so it defaults to re-importing the PDF graphics rather than converting to EPS. The _Mathematica_ PDF importer is well-known to have lots of problems, and so it usually corrupts the figure to some extent.
 4. A sporadic error on _Linux_ and _macOS_ involving missing or incorrect glyphs in the output graphic. This seems to happen when _Inkscape_ was only partially successful. On _Linux_, the problem has to do with installed fonts, and it may be solved by upgrading your system (and rebooting).

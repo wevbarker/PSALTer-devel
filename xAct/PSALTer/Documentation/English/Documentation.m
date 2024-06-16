@@ -8,13 +8,15 @@ SetOptions[$FrontEndSession, PrintingStyleEnvironment -> "Working"];
 Get@FileNameJoin@{$ThisDirectory,"Documentation","xPlain.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","HPC.m"};
 
-Title@"PSALTer Documentation";
+Title@"PSALTer v 1.0.0 Documentation";
+Comment@"W. Barker, C. Marzo and C. Rigouzzo";
+Comment@"Please reach out to Will Barker at wb263@cam.ac.uk with all queries.";
 
-Chapter@"Getting started";
+Chapter@"Introduction";
 Get@FileNameJoin@{$ThisDirectory,"Documentation","HowToUse.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","LoadingPSALTer.m"};
 
-Chapter@"Science applications";
+Chapter@"Examples with code";
 xAct`PSALTer`Private`$Disabled=False;
 xAct`PSALTer`Private`$DiagnosticMode=False;
 $ReadOnly=True;
@@ -30,7 +32,7 @@ Get@FileNameJoin@{$ThisDirectory,"Documentation","MetricAffineGravity.m"};
 $ReadOnly=False;
 xAct`PSALTer`Private`$Disabled=False;
 
-Chapter@"Error messages";
+Chapter@"Examples of bad usage";
 $ReadOnly=False;
 Get@FileNameJoin@{$ThisDirectory,"Documentation","ErrorMessages.m"};
 

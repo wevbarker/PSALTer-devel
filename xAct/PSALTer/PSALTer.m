@@ -6,7 +6,7 @@
 (*  Version  *)
 (*===========*)
 
-xAct`PSALTer`Private`$Version={"1.0.0",{2024,6,1}};
+xAct`PSALTer`Private`$Version={"1.0.0",{2024,6,17}};
 If[Unevaluated[xAct`xCore`Private`$LastPackage]===xAct`xCore`Private`$LastPackage,xAct`xCore`Private`$LastPackage="xAct`PSALTer`"];
 Off@(Solve::fulldim);
 
@@ -71,7 +71,7 @@ DefField::usage="DefField[F[Inds],SymmExpr,Options] defines a tensorial field F 
 PrintSourceAs::usage="PrintSourceAs is an option for DefField which acts as the PrintAs option for the conjugate source.";
 ParticleSpectrum::usage="ParticleSpectrum[L,Options] performs the whole propagator analysis on a scalar Lagrangian density L, which is quadratic in the perturbed fields and their derivatives, and linear in the couplings. Options are TheoryName, Method and MaxLaurentDepth.";
 TheoryName::usage="TheoryName is a mandatory option for ParticleSpectrum which associates a name with the linearised Lagrangian density. The option must be passed as a (string) name for the new theory.";
-MaxLaurentDepth::usage="MaxLaurentDepth is an option for ParticleSpectrum which sets the maximum positive integer n for which the 1/k^(2n) null pole residues are requested. The default is 1, from which the massless spectrum can be obtained. Setting higher n naturally leads to longer runtimes, but also allows potential (pathological) higher-order/non-simple propagator poles to be identified, down to the requested depth.";
+MaxLaurentDepth::usage="MaxLaurentDepth is an option for ParticleSpectrum which sets the maximum positive integer n for which the 1/k^(2n) null pole residues are requested. The default is 1, from which the massless spectrum can be obtained. Setting higher n naturally leads to longer wallclock times, but also allows potential (pathological) higher-order/non-simple propagator poles to be identified, down to the requested depth.";
 
 (*===========================*)
 (*  Declaration of geometry  *)
