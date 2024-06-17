@@ -19,7 +19,7 @@ Get@FileNameJoin@{$ThisDirectory,"Documentation","LoadingPSALTer.m"};
 Chapter@"Examples with code";
 xAct`PSALTer`Private`$Disabled=False;
 xAct`PSALTer`Private`$DiagnosticMode=False;
-$ReadOnly=False;
+$ReadOnly=True;
 xAct`PSALTer`Private`$NoExport=False;
 Get@FileNameJoin@{$ThisDirectory,"Documentation","ScalarTheory.m"};
 Get@FileNameJoin@{$ThisDirectory,"Documentation","VectorTheory.m"};
