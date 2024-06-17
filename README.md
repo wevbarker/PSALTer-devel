@@ -2,7 +2,6 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2311.11790-b31b1b.svg)](https://arxiv.org/abs/2311.11790)
 [![arXiv](https://img.shields.io/badge/arXiv-2402.07641-b31b1b.svg)](https://arxiv.org/abs/2402.07641)
 [![arXiv](https://img.shields.io/badge/arXiv-2402.14917-b31b1b.svg)](https://arxiv.org/abs/2402.14917)
-[![arXiv](https://img.shields.io/badge/arXiv-2402.00000-b31b1b.svg)](https://arxiv.org/abs/2406.00000)
 <img src="xAct/PSALTer/Logos/GitHubLogo.png" width="1000">
 
 # _PSALTer_: Particle Spectrum for Any Tensor Lagrangian
@@ -83,7 +82,7 @@ The output should look like:
 
 ## Documentation 
 
-The documentation notebook is at `PSALTer/xAct/PSALTer/Documentation/English/Documentation.nb`. It is strongly recommended to read [the accompanying paper](https://arxiv.org/abs/2406.00000).
+The documentation notebook is at `PSALTer/xAct/PSALTer/Documentation/English/Documentation.nb`.
 
 ## General use 
 
@@ -157,10 +156,10 @@ The arguments and options are as follows:
 #### _Linux_
 
 1. ***Prepare.*** Make sure your system satisfies all the [requirements](#requirements).
-2. ***Download.*** You can click to download [`PSALTer.zip`](https://github.com/wevbarker/PSALTer/zipball/master), and unzip using:
+2. ***Download.*** You can download the latest release from the panel on the right, and unzip using:
 ```console, bash
-[user@system ~]$ unzip ~/Downloads/wevbarker-PSALTer-* ~/
-[user@system ~]$ mv ~/wevbarker-PSALTer-* ~/PSALTer
+[user@system ~]$ unzip ~/Downloads/PSALTer*
+[user@system ~]$ mv ~/PSALTer* ~/PSALTer
 ```
 Alternatively, if you have _git_ installed, the following _bash_ command will download _PSALTer_ into the home directory:
 ```console, bash, git
@@ -180,10 +179,10 @@ For a local installation of _xAct_, the path may be vary:
 #### _macOS_
 
 1. ***Prepare.*** Make sure your system satisfies all the [requirements](#requirements).
-2. ***Download.*** You can click to download [`PSALTer.zip`](https://github.com/wevbarker/PSALTer/zipball/master), and unzip using:
+2. ***Download.*** You can download the latest release from the panel on the right, and unzip using:
 ```console, zsh 
-user@system ~ % unzip ~/Downloads/wevbarker-PSALTer-* ~/
-user@system ~ % mv ~/wevbarker-PSALTer-* ~/PSALTer
+user@system ~ % unzip ~/Downloads/PSALTer*
+user@system ~ % mv ~/PSALTer* ~/PSALTer
 ```
 Alternatively, if you have _git_ installed, the following _zsh_ command will download _PSALTer_ into the home directory:
 ```console, zsh, git
@@ -204,7 +203,7 @@ user@system xAct % cp -r PSALTer ~/Library/Mathematica/Applications/xAct/
 #### _Microsoft Windows_
 
 1. ***Prepare.*** Make sure your system satisfies all the [requirements](#requirements).
-2. ***Download.*** You can click to download [`PSALTer.zip`](https://github.com/wevbarker/PSALTer/zipball/master), and unzip in _File Explorer_ using _right-click_ and _Extract All_. Alternatively, if you have _git_ installed, the following _cmd_ command will download _PSALTer_ into the home directory:
+2. ***Download.*** You can download the latest release from the panel on the right, and unzip in _File Explorer_ using _right-click_ and _Extract All_. Alternatively, if you have _git_ installed, the following _cmd_ command will download _PSALTer_ into the home directory:
 ```console, cmd, git
 C:\Users\user> git clone https://github.com/wevbarker/PSALTer
 ```
