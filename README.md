@@ -2,7 +2,6 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2311.11790-b31b1b.svg)](https://arxiv.org/abs/2311.11790)
 [![arXiv](https://img.shields.io/badge/arXiv-2402.07641-b31b1b.svg)](https://arxiv.org/abs/2402.07641)
 [![arXiv](https://img.shields.io/badge/arXiv-2402.14917-b31b1b.svg)](https://arxiv.org/abs/2402.14917)
-[![arXiv](https://img.shields.io/badge/arXiv-2402.00000-b31b1b.svg)](https://arxiv.org/abs/2406.00000)
 <img src="xAct/PSALTer/Logos/GitHubLogo.png" width="1000">
 
 # _PSALTer_: Particle Spectrum for Any Tensor Lagrangian
@@ -83,7 +82,7 @@ The output should look like:
 
 ## Documentation 
 
-The documentation notebook is at `PSALTer/xAct/PSALTer/Documentation/English/Documentation.nb`. It is strongly recommended to read [the accompanying paper](https://arxiv.org/abs/2406.00000).
+The documentation notebook is at `PSALTer/xAct/PSALTer/Documentation/English/Documentation.nb`.
 
 ## General use 
 
