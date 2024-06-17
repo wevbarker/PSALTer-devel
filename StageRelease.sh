@@ -25,7 +25,7 @@ cd ~/Documents/PSALTer-stager
 echo ">>>>> git checkout Parallel"
 git checkout Parallel 
 echo ">>>>> git pull"
-git pull
+git pull GitHubOrigin Parallel
 echo ">>>>> git checkout master"
 git checkout master 
 echo ">>>>> rm -rf README.md xAct/PSALTer/Logos xAct/PSALTer/Sources xAct/PSALTer/Kernel xAct/PSALTer/Documentation"
